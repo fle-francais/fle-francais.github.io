@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLE · Apprendre le français</title>
+<style>
+  :root {
+    --a-color: #27ae60; --a-light: #eafaf1;
+    --b-color: #2980b9; --b-light: #eaf4fb;
+    --c-color: #8e44ad; --c-light: #f5eef8;
+    --bg: #f8f9fa; --card: #ffffff;
+    --text: #2c3e50; --muted: #7f8c8d;
+    --radius: 12px; --shadow: 0 2px 12px rgba(0,0,0,.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+  /* ── NAV ── */
+  nav { background: #fff; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
+  .nav-inner { max-width: 1100px; margin: auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  .logo { font-size: 1.4rem; font-weight: 800; color: var(--b-color); text-decoration: none; }
+  .logo span { color: var(--a-color); }
+  .nav-levels { display: flex; gap: 6px; flex-wrap: wrap; }
+  .nav-btn { border: none; background: var(--bg); border-radius: 20px; padding: 5px 14px; cursor: pointer; font-size: .85rem; font-weight: 600; color: var(--muted); transition: all .2s; }
+  .nav-btn:hover, .nav-btn.active { background: var(--b-color); color: #fff; }
+
+  /* ── HERO ── */
+  #home { display: block; }
+  .hero { background: linear-gradient(135deg, #2980b9 0%, #8e44ad 100%); color: #fff; text-align: center; padding: 70px 20px 80px; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 16px; }
+  .hero p { font-size: 1.15rem; opacity: .9; max-width: 600px; margin: 0 auto 36px; }
+  .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: #fff; color: var(--b-color); font-weight: 700; padding: 13px 30px; border-radius: 30px; border: none; cursor: pointer; font-size: 1rem; transition: transform .15s; }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-secondary { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.7); font-weight: 600; padding: 13px 30px; border-radius: 30px; cursor: pointer; font-size: 1rem; transition: all .15s; }
+  .btn-secondary:hover { background: rgba(255,255,255,.15); }
+
+  /* ── LEVEL GRID ── */
+  .section { max-width: 1100px; margin: auto; padding: 50px 20px; }
+  .section-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+  .section-sub { color: var(--muted); margin-bottom: 32px; }
+  .levels-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+  .level-card { border-radius: var(--radius); padding: 28px 20px; text-align: center; cursor: pointer; transition: transform .15s, box-shadow .15s; border: 2px solid transparent; }
+  .level-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+  .level-card.A { background: var(--a-light); border-color: var(--a-color); }
+  .level-card.B { background: var(--b-light); border-color: var(--b-color); }
+  .level-card.C { background: var(--c-light); border-color: var(--c-color); }
+  .level-badge { font-size: 2.2rem; font-weight: 900; display: block; margin-bottom: 6px; }
+  .level-card.A .level-badge { color: var(--a-color); }
+  .level-card.B .level-badge { color: var(--b-color); }
+  .level-card.C .level-badge { color: var(--c-color); }
+  .level-name { font-size: .85rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+  .level-desc { font-size: .8rem; color: var(--muted); margin-top: 6px; }
+  .level-progress { height: 5px; background: #e0e0e0; border-radius: 3px; margin-top: 14px; overflow: hidden; }
+  .level-progress-bar { height: 100%; border-radius: 3px; transition: width .4s; }
+  .A .level-progress-bar { background: var(--a-color); }
+  .B .level-progress-bar { background: var(--b-color); }
+  .C .level-progress-bar { background: var(--c-color); }
+
+  /* ── PAGE NIVEAU ── */
+  .level-page { display: none; }
+  .level-header { padding: 40px 20px 30px; color: #fff; }
+  .level-header.A { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+  .level-header.B { background: linear-gradient(135deg, #2980b9, #3498db); }
+  .level-header.C { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
+  .level-header h2 { font-size: 2.5rem; font-weight: 900; }
+  .level-header p { opacity: .9; max-width: 700px; margin-top: 8px; font-size: 1.05rem; }
+  .can-do { background: rgba(255,255,255,.2); border-radius: var(--radius); padding: 16px 20px; margin-top: 20px; display: inline-block; max-width: 700px; }
+  .can-do ul { padding-left: 18px; }
+  .can-do li { margin-bottom: 4px; font-size: .9rem; }
+
+  /* ── TABS ── */
+  .tabs { display: flex; gap: 0; border-bottom: 2px solid #e0e0e0; margin-bottom: 30px; overflow-x: auto; }
+  .tab { padding: 12px 22px; cursor: pointer; font-weight: 600; font-size: .9rem; color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; transition: all .2s; }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--b-color); border-bottom-color: var(--b-color); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ── EXERCISE ── */
+  .exercise { background: var(--card); border-radius: var(--radius); padding: 26px; margin-bottom: 20px; box-shadow: var(--shadow); }
+  .exercise h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+  .exercise h3 .ex-type { font-size: .75rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: var(--b-light); color: var(--b-color); }
+  .qcm-options { display: grid; gap: 10px; }
+  .qcm-option { padding: 12px 18px; border: 2px solid #e0e0e0; border-radius: 10px; cursor: pointer; transition: all .2s; font-size: .95rem; display: flex; align-items: center; gap: 12px; }
+  .qcm-option:hover { border-color: var(--b-color); background: var(--b-light); }
+  .qcm-option.correct { border-color: var(--a-color); background: var(--a-light); color: var(--a-color); font-weight: 600; }
+  .qcm-option.wrong { border-color: #e74c3c; background: #fdedec; color: #e74c3c; }
+  .qcm-option.reveal { border-color: var(--a-color); background: var(--a-light); opacity: .6; }
+  .qcm-letter { width: 28px; height: 28px; border-radius: 50%; background: #e0e0e0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .8rem; flex-shrink: 0; }
+  .correct .qcm-letter { background: var(--a-color); color: #fff; }
+  .wrong .qcm-letter { background: #e74c3c; color: #fff; }
+  .feedback { margin-top: 14px; padding: 12px 16px; border-radius: 8px; font-size: .9rem; font-weight: 600; display: none; }
+  .feedback.show { display: block; }
+  .feedback.ok { background: var(--a-light); color: var(--a-color); }
+  .feedback.ko { background: #fdedec; color: #e74c3c; }
+  .blanks-sentence { font-size: 1.05rem; line-height: 2.2; }
+  .blank { border: none; border-bottom: 2px solid var(--b-color); width: 90px; text-align: center; font-size: 1rem; padding: 2px 6px; background: transparent; color: var(--text); outline: none; }
+  .blank.correct-input { border-color: var(--a-color); color: var(--a-color); }
+  .blank.wrong-input { border-color: #e74c3c; color: #e74c3c; }
+  .ex-btn { margin-top: 16px; padding: 10px 24px; background: var(--b-color); color: #fff; border: none; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: .9rem; transition: opacity .2s; }
+  .ex-btn:hover { opacity: .85; }
+  .ex-btn.reset { background: var(--muted); margin-left: 10px; }
+  .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
+  .vocab-card { background: var(--b-light); border-radius: 10px; padding: 16px 12px; text-align: center; cursor: pointer; transition: all .2s; position: relative; }
+  .vocab-card:hover { transform: scale(1.03); }
+  .vocab-emoji { font-size: 2rem; display: block; margin-bottom: 6px; }
+  .vocab-word { font-weight: 700; font-size: .9rem; }
+  .vocab-trans { font-size: .78rem; color: var(--muted); margin-top: 2px; display: none; }
+  .vocab-card.flipped .vocab-trans { display: block; }
+  .vocab-card.flipped { background: var(--a-light); }
+  .score-bar { background: var(--bg); border-radius: var(--radius); padding: 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .score-circle { width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 900; background: var(--b-light); color: var(--b-color); flex-shrink: 0; }
+  .score-text h4 { font-size: 1rem; font-weight: 700; }
+  .score-text p { font-size: .85rem; color: var(--muted); }
+
+  /* ── PLACEMENT TEST ── */
+  #test-page { display: none; }
+  .test-container { max-width: 700px; margin: 40px auto; padding: 0 20px; }
+  .test-q { display: none; animation: fadeIn .3s; }
+  .test-q.active { display: block; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+  .test-progress { height: 6px; background: #e0e0e0; border-radius: 3px; margin-bottom: 30px; overflow: hidden; }
+  .test-progress-bar { height: 100%; background: linear-gradient(90deg, var(--a-color), var(--b-color), var(--c-color)); border-radius: 3px; transition: width .4s; }
+  .test-meta { font-size: .8rem; color: var(--muted); text-align: right; margin-bottom: 8px; }
+  .test-q-text { font-size: 1.2rem; font-weight: 700; margin-bottom: 22px; }
+  .test-result { text-align: center; padding: 50px 20px; }
+  .result-badge { font-size: 5rem; font-weight: 900; display: block; margin-bottom: 10px; }
+  .result-badge.A { color: var(--a-color); }
+  .result-badge.B { color: var(--b-color); }
+  .result-badge.C { color: var(--c-color); }
+
+  /* ── MISC ── */
+  .back-btn { background: none; border: none; cursor: pointer; color: var(--muted); font-size: .9rem; display: flex; align-items: center; gap: 6px; padding: 16px 20px; }
+  .back-btn:hover { color: var(--text); }
+  .rule-box { background: var(--b-light); border-left: 4px solid var(--b-color); border-radius: 0 var(--radius) var(--radius) 0; padding: 16px 20px; margin-bottom: 20px; }
+  .rule-box h4 { font-weight: 700; margin-bottom: 8px; color: var(--b-color); }
+  .rule-box table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  .rule-box td, .rule-box th { padding: 6px 12px; text-align: left; border-bottom: 1px solid rgba(0,0,0,.07); }
+  .rule-box th { font-weight: 700; color: var(--b-color); }
+  .audio-btn { background: var(--a-light); border: none; border-radius: 20px; padding: 8px 16px; cursor: pointer; font-size: .85rem; color: var(--a-color); font-weight: 600; margin-bottom: 14px; }
+  footer { text-align: center; padding: 40px 20px; color: var(--muted); font-size: .85rem; border-top: 1px solid #e0e0e0; margin-top: 40px; }
+
+  /* ── LEÇONS GRID ── */
+  :root { --l-color:#16a085; --l-light:#e8f8f5; }
+  .lecons-intro { background:var(--l-light); border-left:4px solid var(--l-color); border-radius:0 var(--radius) var(--radius) 0; padding:16px 20px; margin-bottom:24px; font-size:.9rem; color:var(--text); }
+  .lecons-intro strong { color:var(--l-color); }
+  .lecons-unit-title { font-size:1rem; font-weight:800; color:var(--l-color); margin:28px 0 12px; padding-bottom:6px; border-bottom:2px solid var(--l-light); display:flex; align-items:center; gap:8px; }
+  .lecons-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; margin-bottom:6px; }
+  .lecon-card { background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; display:flex; flex-direction:column; transition:transform .15s,box-shadow .15s; }
+  .lecon-card:hover { transform:translateY(-3px); box-shadow:0 8px 22px rgba(0,0,0,.12); }
+  .lecon-card-head { background:var(--l-light); border-bottom:3px solid var(--l-color); padding:14px 16px 10px; }
+  .lecon-code { display:inline-block; font-size:.65rem; font-weight:800; padding:2px 8px; border-radius:8px; background:var(--l-color); color:#fff; margin-bottom:6px; }
+  .lecon-title { font-size:.9rem; font-weight:800; line-height:1.3; color:var(--text); }
+  .lecon-sub { font-size:.75rem; color:var(--muted); margin-top:3px; }
+  .lecon-card-body { padding:10px 16px; flex:1; font-size:.8rem; color:var(--muted); line-height:1.45; }
+  .lecon-card-foot { padding:10px 16px; border-top:1px solid #f0f0f0; }
+  .btn-lecon-dl { display:block; text-align:center; padding:8px; background:var(--l-light); color:var(--l-color); border-radius:20px; font-weight:700; font-size:.82rem; text-decoration:none; transition:all .2s; }
+  .btn-lecon-dl:hover { background:var(--l-color); color:#fff; }
+  .tab.active { color:var(--b-color); border-bottom-color:var(--b-color); }
+  .tab-lecons.active { color:var(--l-color) !important; border-bottom-color:var(--l-color) !important; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVIGATION ═══════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#" onclick="showPage('home')">français<span>+</span></a>
+    <div class="nav-levels">
+      <button class="nav-btn" onclick="showLevel('A1')">A1</button>
+      <button class="nav-btn" onclick="showLevel('A2')">A2</button>
+      <button class="nav-btn" onclick="showLevel('B1')">B1</button>
+      <button class="nav-btn" onclick="showLevel('B2')">B2</button>
+      <button class="nav-btn" onclick="showLevel('C1')">C1</button>
+      <button class="nav-btn" onclick="showLevel('C2')">C2</button>
+      <button class="nav-btn" onclick="showPage('test')">📝 Test de niveau</button>
+      <a href="bibliotheque.html" style="background:var(--bg);border:none;border-radius:20px;padding:6px 16px;font-size:.85rem;font-weight:600;color:var(--muted);text-decoration:none">📚 Bibliothèque</a>
+      <a href="tarifs.html" style="background:linear-gradient(135deg,#f39c12,#e67e22);color:#fff;border:none;border-radius:20px;padding:6px 16px;font-size:.85rem;font-weight:700;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">✨ Tarifs</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════ PAGE ACCUEIL ═══════════════ -->
+<div id="home">
+  <div class="hero">
+    <h1>Apprenez le français,<br>à votre rythme 🇫🇷</h1>
+    <p>Un parcours structuré selon le CECRL, du niveau A1 au C2. Le niveau A1 est entièrement gratuit : exercices interactifs + 27 leçons PDF complètes.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="showPage('test')">Trouver mon niveau</button>
+      <button class="btn-secondary" onclick="showLevel('A1')">Commencer en A1 — gratuit</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Choisissez votre niveau</h2>
+    <p class="section-sub">Cliquez sur un niveau pour accéder aux leçons et exercices.</p>
+    <div class="levels-grid">
+      <div class="level-card A" onclick="showLevel('A1')">
+        <span class="level-badge">A1</span>
+        <div class="level-name">Découverte</div>
+        <div class="level-desc">Premiers mots, premières phrases</div>
+        <div class="level-progress"><div class="level-progress-bar" id="prog-A1" style="width:0%"></div></div>
+      </div>
+      <div class="level-card A" onclick="showLevel('A2')">
+        <span class="level-badge">A2</span>
+        <div class="level-name">Survie</div>
+        <div class="level-desc">Situations du quotidien</div>
+        <div class="level-progress"><div class="level-progress-bar" id="prog-A2" style="width:0%"></div></div>
+      </div>
+      <div class="level-card B" onclick="showLevel('B1')">
+        <span class="level-badge">B1</span>
+        <div class="level-name">Seuil</div>
+        <div class="level-desc">Interagir en autonomie</div>
+        <div class="level-progress"><div class="level-progress-bar" id="prog-B1" style="width:0%"></div></div>
+      </div>
+      <div class="level-card B" onclick="showLevel('B2')">
+        <span class="level-badge">B2</span>
+        <div class="level-name">Avancé</div>
+        <div class="level-desc">S'exprimer avec aisance</div>
+        <div class="level-progress"><div class="level-progress-bar" id="prog-B2" style="width:0%"></div></div>
+      </div>
+      <div class="level-card C" onclick="showLevel('C1')">
+        <span class="level-badge">C1</span>
+        <div class="level-name">Autonome</div>
+        <div class="level-desc">Langue fluide et nuancée</div>
+        <div class="level-progress"><div class="level-progress-bar" id="prog-C1" style="width:0%"></div></div>
+      </div>
+      <div class="level-card C" onclick="showLevel('C2')">
+        <span class="level-badge">C2</span>
+        <div class="level-name">Maîtrise</div>
+        <div class="level-desc">Niveau quasi-natif</div>
+        <div class="level-progress"><div class="level-progress-bar" id="prog-C2" style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0">
+    <h2 class="section-title">Pourquoi français+ ?</h2>
+    <p class="section-sub">Une méthode complète, alignée sur les standards internationaux.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px">
+      <div style="background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)">
+        <div style="font-size:2rem;margin-bottom:10px">🎯</div>
+        <h3 style="font-weight:700;margin-bottom:6px">Niveaux CECRL</h3>
+        <p style="color:var(--muted);font-size:.9rem">Parcours aligné sur les 6 niveaux officiels du Cadre européen.</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)">
+        <div style="font-size:2rem;margin-bottom:10px">✅</div>
+        <h3 style="font-weight:700;margin-bottom:6px">Exercices interactifs</h3>
+        <p style="color:var(--muted);font-size:.9rem">QCM, textes à trous, vocabulaire illustré, grammaire progressive.</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)">
+        <div style="font-size:2rem;margin-bottom:10px">📊</div>
+        <h3 style="font-weight:700;margin-bottom:6px">Suivi de progression</h3>
+        <p style="color:var(--muted);font-size:.9rem">Votre avancement est sauvegardé automatiquement.</p>
+      </div>
+      <div style="background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)">
+        <div style="font-size:2rem;margin-bottom:10px">🆓</div>
+        <h3 style="font-weight:700;margin-bottom:6px">A1 entièrement gratuit</h3>
+        <p style="color:var(--muted);font-size:.9rem">Exercices interactifs + 27 leçons PDF complètes au niveau A1. Sans inscription.</p>
+      </div>
+    </div>
+  </div>
+  <!-- BANNIÈRE ABONNEMENT -->
+  <div style="background:linear-gradient(135deg,#f39c12,#e67e22,#8e44ad);padding:50px 20px;text-align:center;color:#fff;margin-top:0">
+    <div style="max-width:700px;margin:auto">
+      <div style="font-size:2.5rem;margin-bottom:12px">🌟</div>
+      <h2 style="font-size:1.7rem;font-weight:900;margin-bottom:10px">Envie d'aller plus loin ?</h2>
+      <p style="opacity:.9;margin-bottom:28px;font-size:1.05rem">Accédez aux fiches PDF, aux corrections détaillées et à un accompagnement personnalisé avec un(e) enseignant(e) certifié(e) FLE.</p>
+      <a href="tarifs.html" style="display:inline-block;background:#fff;color:#e67e22;font-weight:800;padding:14px 36px;border-radius:30px;text-decoration:none;font-size:1rem;transition:transform .15s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">Voir les offres & tarifs →</a>
+    </div>
+  </div>
+
+  <footer>français+ · Apprentissage du FLE · Basé sur le CECRL</footer>
+</div>
+
+<!-- ═══════════════ TEST DE NIVEAU ═══════════════ -->
+<div id="test-page">
+  <button class="back-btn" onclick="showPage('home')">← Retour à l'accueil</button>
+  <div class="test-container">
+    <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:6px">Test de positionnement</h2>
+    <p style="color:var(--muted);margin-bottom:24px">12 questions · 5 minutes · Résultat immédiat</p>
+    <div class="test-meta" id="test-meta">Question 1 / 12</div>
+    <div class="test-progress"><div class="test-progress-bar" id="test-bar" style="width:8%"></div></div>
+    <div id="test-questions"></div>
+    <div id="test-result" style="display:none" class="test-result"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ NIVEAU A1 ═══════════════ -->
+<div id="level-A1" class="level-page">
+  <button class="back-btn" onclick="showPage('home')">← Retour à l'accueil</button>
+  <div class="level-header A">
+    <div style="max-width:1100px;margin:auto;padding:0 20px">
+      <h2>Niveau A1 · Découverte</h2>
+      <p>Vous pouvez comprendre et utiliser des expressions familières et courantes ainsi que des énoncés très simples.</p>
+      <div class="can-do">
+        <strong>Je peux…</strong>
+        <ul>
+          <li>me présenter et présenter quelqu'un</li>
+          <li>poser des questions simples sur les gens</li>
+          <li>comprendre des mots familiers et expressions courantes</li>
+          <li>interagir de façon simple si l'interlocuteur parle lentement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="tabs" id="tabs-A1">
+      <div class="tab active" onclick="switchTab('A1','vocab')">📚 Vocabulaire</div>
+      <div class="tab" onclick="switchTab('A1','grammar')">✏️ Grammaire</div>
+      <div class="tab" onclick="switchTab('A1','exercises')">🎯 Exercices</div>
+      <div class="tab tab-lecons" onclick="switchTab('A1','lecons')">📖 Leçons PDF</div>
+    </div>
+
+    <!-- Vocabulaire A1 -->
+    <div class="tab-content active" id="tab-A1-vocab">
+      <div class="exercise">
+        <h3>Les salutations <span class="ex-type">Vocabulaire</span></h3>
+        <p style="color:var(--muted);font-size:.9rem;margin-bottom:16px">Cliquez sur une carte pour voir la traduction en anglais.</p>
+        <div class="vocab-grid">
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">👋</span><div class="vocab-word">Bonjour</div><div class="vocab-trans">你好 / 早上好</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">🌙</span><div class="vocab-word">Bonsoir</div><div class="vocab-trans">晚上好</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">✋</span><div class="vocab-word">Au revoir</div><div class="vocab-trans">再见</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">😊</span><div class="vocab-word">Merci</div><div class="vocab-trans">谢谢</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">🙏</span><div class="vocab-word">S'il vous plaît</div><div class="vocab-trans">请</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">😮</span><div class="vocab-word">Excusez-moi</div><div class="vocab-trans">对不起</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">✅</span><div class="vocab-word">Oui</div><div class="vocab-trans">是的</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">❌</span><div class="vocab-word">Non</div><div class="vocab-trans">不</div></div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h3>Les chiffres 0-10 <span class="ex-type">Vocabulaire</span></h3>
+        <div class="vocab-grid">
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">0️⃣</span><div class="vocab-word">zéro</div><div class="vocab-trans">零</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">1️⃣</span><div class="vocab-word">un / une</div><div class="vocab-trans">一</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">2️⃣</span><div class="vocab-word">deux</div><div class="vocab-trans">二</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">3️⃣</span><div class="vocab-word">trois</div><div class="vocab-trans">三</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">4️⃣</span><div class="vocab-word">quatre</div><div class="vocab-trans">四</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">5️⃣</span><div class="vocab-word">cinq</div><div class="vocab-trans">五</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">6️⃣</span><div class="vocab-word">六</div><div class="vocab-trans">六</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">7️⃣</span><div class="vocab-word">sept</div><div class="vocab-trans">七</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">8️⃣</span><div class="vocab-word">huit</div><div class="vocab-trans">八</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">9️⃣</span><div class="vocab-word">neuf</div><div class="vocab-trans">九</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">🔟</span><div class="vocab-word">dix</div><div class="vocab-trans">十</div></div>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h3>La famille <span class="ex-type">Vocabulaire</span></h3>
+        <div class="vocab-grid">
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">👨</span><div class="vocab-word">le père</div><div class="vocab-trans">父亲</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">👩</span><div class="vocab-word">la mère</div><div class="vocab-trans">母亲</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">👦</span><div class="vocab-word">le fils</div><div class="vocab-trans">儿子</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">👧</span><div class="vocab-word">la fille</div><div class="vocab-trans">女儿</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">👴</span><div class="vocab-word">le grand-père</div><div class="vocab-trans">祖父</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">👵</span><div class="vocab-word">la grand-mère</div><div class="vocab-trans">祖母</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">👫</span><div class="vocab-word">le frère / la sœur</div><div class="vocab-trans">兄弟 / 姐妹</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grammaire A1 -->
+    <div class="tab-content" id="tab-A1-grammar">
+      <div class="exercise">
+        <h3>Le verbe ÊTRE au présent <span class="ex-type">Grammaire</span></h3>
+        <div class="rule-box">
+          <h4>Conjugaison</h4>
+          <table>
+            <tr><th>Pronom</th><th>Être</th><th>Exemple</th></tr>
+            <tr><td>Je</td><td><strong>suis</strong></td><td>Je suis français.</td></tr>
+            <tr><td>Tu</td><td><strong>es</strong></td><td>Tu es étudiant.</td></tr>
+            <tr><td>Il / Elle / On</td><td><strong>est</strong></td><td>Elle est médecin.</td></tr>
+            <tr><td>Nous</td><td><strong>sommes</strong></td><td>Nous sommes amis.</td></tr>
+            <tr><td>Vous</td><td><strong>êtes</strong></td><td>Vous êtes professeur.</td></tr>
+            <tr><td>Ils / Elles</td><td><strong>sont</strong></td><td>Ils sont contents.</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h3>Le verbe AVOIR au présent <span class="ex-type">Grammaire</span></h3>
+        <div class="rule-box">
+          <h4>Conjugaison</h4>
+          <table>
+            <tr><th>Pronom</th><th>Avoir</th><th>Exemple</th></tr>
+            <tr><td>Je</td><td><strong>ai</strong></td><td>J'ai un chien.</td></tr>
+            <tr><td>Tu</td><td><strong>as</strong></td><td>Tu as quel âge ?</td></tr>
+            <tr><td>Il / Elle</td><td><strong>a</strong></td><td>Il a vingt ans.</td></tr>
+            <tr><td>Nous</td><td><strong>avons</strong></td><td>Nous avons faim.</td></tr>
+            <tr><td>Vous</td><td><strong>avez</strong></td><td>Vous avez un stylo ?</td></tr>
+            <tr><td>Ils / Elles</td><td><strong>ont</strong></td><td>Elles ont une voiture.</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="exercise">
+        <h3>Articles définis et indéfinis <span class="ex-type">Grammaire</span></h3>
+        <div class="rule-box">
+          <h4>Les articles</h4>
+          <table>
+            <tr><th></th><th>Masculin</th><th>Féminin</th><th>Pluriel</th></tr>
+            <tr><td><strong>Défini</strong></td><td>le (l')</td><td>la (l')</td><td>les</td></tr>
+            <tr><td><strong>Indéfini</strong></td><td>un</td><td>une</td><td>des</td></tr>
+          </table>
+          <p style="margin-top:12px;font-size:.85rem">💡 <em>le + voyelle → l'</em> : l'ami, l'école, l'hôtel</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercices A1 -->
+    <div class="tab-content" id="tab-A1-exercises">
+      <div id="score-A1" class="score-bar" style="display:none">
+        <div class="score-circle" id="score-circle-A1">0/0</div>
+        <div class="score-text"><h4>Score de la session</h4><p>Continuez pour améliorer votre score !</p></div>
+      </div>
+
+      <!-- QCM 1 -->
+      <div class="exercise" id="qcm-A1-1">
+        <h3>Choisissez la bonne réponse <span class="ex-type">QCM</span></h3>
+        <p style="margin-bottom:16px;font-weight:600">Comment dit-on « Hello » en français ?</p>
+        <div class="qcm-options" id="opts-A1-1">
+          <div class="qcm-option" onclick="checkQCM('A1-1',this,false)"><span class="qcm-letter">A</span> Merci</div>
+          <div class="qcm-option" onclick="checkQCM('A1-1',this,true)"><span class="qcm-letter">B</span> Bonjour</div>
+          <div class="qcm-option" onclick="checkQCM('A1-1',this,false)"><span class="qcm-letter">C</span> Au revoir</div>
+          <div class="qcm-option" onclick="checkQCM('A1-1',this,false)"><span class="qcm-letter">D</span> Bonsoir</div>
+        </div>
+        <div class="feedback" id="fb-A1-1"></div>
+      </div>
+
+      <!-- QCM 2 -->
+      <div class="exercise" id="qcm-A1-2">
+        <h3>Choisissez la bonne réponse <span class="ex-type">QCM</span></h3>
+        <p style="margin-bottom:16px;font-weight:600">Complétez : « Je ___ Marie. »</p>
+        <div class="qcm-options" id="opts-A1-2">
+          <div class="qcm-option" onclick="checkQCM('A1-2',this,false)"><span class="qcm-letter">A</span> es</div>
+          <div class="qcm-option" onclick="checkQCM('A1-2',this,false)"><span class="qcm-letter">B</span> êtes</div>
+          <div class="qcm-option" onclick="checkQCM('A1-2',this,true)"><span class="qcm-letter">C</span> suis</div>
+          <div class="qcm-option" onclick="checkQCM('A1-2',this,false)"><span class="qcm-letter">D</span> sommes</div>
+        </div>
+        <div class="feedback" id="fb-A1-2"></div>
+      </div>
+
+      <!-- QCM 3 -->
+      <div class="exercise" id="qcm-A1-3">
+        <h3>Choisissez la bonne réponse <span class="ex-type">QCM</span></h3>
+        <p style="margin-bottom:16px;font-weight:600">Quel article utilise-t-on avec « école » (féminin) ?</p>
+        <div class="qcm-options" id="opts-A1-3">
+          <div class="qcm-option" onclick="checkQCM('A1-3',this,false)"><span class="qcm-letter">A</span> le</div>
+          <div class="qcm-option" onclick="checkQCM('A1-3',this,false)"><span class="qcm-letter">B</span> un</div>
+          <div class="qcm-option" onclick="checkQCM('A1-3',this,true)"><span class="qcm-letter">C</span> l'</div>
+          <div class="qcm-option" onclick="checkQCM('A1-3',this,false)"><span class="qcm-letter">D</span> les</div>
+        </div>
+        <div class="feedback" id="fb-A1-3"></div>
+      </div>
+
+      <!-- Texte à trous 1 -->
+      <div class="exercise" id="blanks-A1-1">
+        <h3>Complétez avec ÊTRE <span class="ex-type">Texte à trous</span></h3>
+        <p style="color:var(--muted);font-size:.85rem;margin-bottom:16px">Conjuguez le verbe être au présent.</p>
+        <div class="blanks-sentence">
+          1. Tu <input class="blank" id="b-A1-1-1" placeholder="…" data-answer="es"> étudiant.<br>
+          2. Nous <input class="blank" id="b-A1-1-2" placeholder="…" data-answer="sommes"> contents.<br>
+          3. Ils <input class="blank" id="b-A1-1-3" placeholder="…" data-answer="sont"> fatigués.<br>
+          4. Elle <input class="blank" id="b-A1-1-4" placeholder="…" data-answer="est"> infirmière.
+        </div>
+        <br>
+        <button class="ex-btn" onclick="checkBlanks('A1-1',4)">Vérifier</button>
+        <button class="ex-btn reset" onclick="resetBlanks('A1-1',4)">Réessayer</button>
+        <div class="feedback" id="fb-blanks-A1-1"></div>
+      </div>
+
+      <!-- Texte à trous 2 -->
+      <div class="exercise" id="blanks-A1-2">
+        <h3>Complétez avec AVOIR <span class="ex-type">Texte à trous</span></h3>
+        <div class="blanks-sentence">
+          1. J'<input class="blank" id="b-A1-2-1" placeholder="…" data-answer="ai"> vingt ans.<br>
+          2. Tu <input class="blank" id="b-A1-2-2" placeholder="…" data-answer="as"> un stylo ?<br>
+          3. Vous <input class="blank" id="b-A1-2-3" placeholder="…" data-answer="avez"> faim ?<br>
+          4. Elles <input class="blank" id="b-A1-2-4" placeholder="…" data-answer="ont"> une voiture.
+        </div>
+        <br>
+        <button class="ex-btn" onclick="checkBlanks('A1-2',4)">Vérifier</button>
+        <button class="ex-btn reset" onclick="resetBlanks('A1-2',4)">Réessayer</button>
+        <div class="feedback" id="fb-blanks-A1-2"></div>
+      </div>
+
+      <!-- QCM 4 -->
+      <div class="exercise" id="qcm-A1-4">
+        <h3>Vocabulaire famille <span class="ex-type">QCM</span></h3>
+        <p style="margin-bottom:16px;font-weight:600">Comment appelle-t-on le père de son père ?</p>
+        <div class="qcm-options" id="opts-A1-4">
+          <div class="qcm-option" onclick="checkQCM('A1-4',this,false)"><span class="qcm-letter">A</span> le frère</div>
+          <div class="qcm-option" onclick="checkQCM('A1-4',this,true)"><span class="qcm-letter">B</span> le grand-père</div>
+          <div class="qcm-option" onclick="checkQCM('A1-4',this,false)"><span class="qcm-letter">C</span> le fils</div>
+          <div class="qcm-option" onclick="checkQCM('A1-4',this,false)"><span class="qcm-letter">D</span> l'oncle</div>
+        </div>
+        <div class="feedback" id="fb-A1-4"></div>
+      </div>
+    </div>
+
+    <!-- Leçons PDF A1 -->
+    <div class="tab-content" id="tab-A1-lecons">
+      <div class="lecons-intro">
+        <strong>27 leçons complètes A1 — 100% gratuites.</strong> Chaque leçon contient : dialogue authentique · compréhension · point de grammaire · exercices corrigés · communication · phonétique · production.
+      </div>
+
+      <div class="lecons-unit-title">📗 Unité 1 — Bonjour !</div>
+      <div class="lecons-grid">
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">1A</span><div class="lecon-title">Enchanté !</div><div class="lecon-sub">Être au présent · premières rencontres</div></div><div class="lecon-card-body">Dialogue à la bibliothèque, conjugaison du verbe être, salutations. Sons [é] et [è].</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U1_1A_enchante_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">1B</span><div class="lecon-title">Tu parles quelles langues ?</div><div class="lecon-sub">Nationalités · alphabet · fréquence</div></div><div class="lecon-card-body">Nationalités M/F, alphabet phonétique, niveaux de langue. Son [y] vs [u].</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U1_1B_tu_parles_quelles_langues_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">1C</span><div class="lecon-title">Vous êtes d'où ?</div><div class="lecon-sub">Verbes en -ER · négation ne…pas</div></div><div class="lecon-card-body">Conjugaison verbes en -ER, est-ce que / qu'est-ce que, ne…pas. Liaisons obligatoires.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U1_1C_vous_etes_dou_.pdf" download>⬇️ Télécharger</a></div></div>
+      </div>
+
+      <div class="lecons-unit-title">👨‍👩‍👧 Unité 2 — Famille et amis</div>
+      <div class="lecons-grid">
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">2A</span><div class="lecon-title">Ma famille</div><div class="lecon-sub">Avoir au présent · articles indéfinis</div></div><div class="lecon-card-body">Vocabulaire famille, conjugaison avoir, articles un/une/des, négation pas de. Nasales.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U2_2A_ma_famille.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">2B</span><div class="lecon-title">Il ressemble à qui ?</div><div class="lecon-sub">Adjectifs qualificatifs · accord M/F</div></div><div class="lecon-card-body">Description physique et caractère, accord des adjectifs. Sons [e] et [ɛ].</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U2_2B_il_ressemble_a_qui_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">2C</span><div class="lecon-title">Mon meilleur ami</div><div class="lecon-sub">Adjectifs possessifs complets</div></div><div class="lecon-card-body">Tableau complet mon/ma/mes → leur/leurs, accord/désaccord. Son [ʁ].</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U2_2C_mon_meilleur_ami.pdf" download>⬇️ Télécharger</a></div></div>
+      </div>
+
+      <div class="lecons-unit-title">⏰ Unité 3 — Ma journée</div>
+      <div class="lecons-grid">
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">3A</span><div class="lecon-title">Quelle heure est-il ?</div><div class="lecon-sub">L'heure · les jours · rendez-vous</div></div><div class="lecon-card-body">Heure courante et officielle, jours de la semaine, prendre rendez-vous. E muet.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U3_3A_quelle_heure_est-il_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">3B</span><div class="lecon-title">Une journée ordinaire</div><div class="lecon-sub">Verbes pronominaux · fréquence</div></div><div class="lecon-card-body">Se lever, se doucher, s'habiller, se coucher… adverbes de fréquence. Liaison verbes.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U3_3B_une_journee_ordinaire.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">3C</span><div class="lecon-title">Le week-end, c'est différent !</div><div class="lecon-sub">Aller · faire · venir · articles contractés</div></div><div class="lecon-card-body">au/aux/du/des, loisirs et activités de week-end. Intonation de la question.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U3_3C_le_week-end_cest_different_.pdf" download>⬇️ Télécharger</a></div></div>
+      </div>
+
+      <div class="lecons-unit-title">🏙️ Unité 4 — Dans la ville</div>
+      <div class="lecons-grid">
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">4A</span><div class="lecon-title">C'est où ?</div><div class="lecon-sub">Il y a · prépositions de lieu</div></div><div class="lecon-card-body">Il y a / il n'y a pas de, prépositions dans/à côté de/en face de/derrière… Sons [s] et [z].</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U4_4A_cest_ou_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">4B</span><div class="lecon-title">Pour aller à… ?</div><div class="lecon-sub">Impératif · indiquer un chemin</div></div><div class="lecon-card-body">Impératif pour donner des directions, demander son chemin poliment. Enchaînement.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U4_4B_pour_aller_a__.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">4C</span><div class="lecon-title">J'aime mon quartier !</div><div class="lecon-sub">Très / assez / trop · donner son avis</div></div><div class="lecon-card-body">Degrés de l'adjectif, c'est / ce n'est pas, évaluer un lieu. Syllabation française.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U4_4C_jaime_mon_quartier_.pdf" download>⬇️ Télécharger</a></div></div>
+      </div>
+
+      <div class="lecons-unit-title">🍽️ Unité 5 — Manger et boire</div>
+      <div class="lecons-grid">
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">5A</span><div class="lecon-title">Qu'est-ce que tu manges ?</div><div class="lecon-sub">Articles partitifs · alimentation</div></div><div class="lecon-card-body">Du/de la/de l'/des, négation sans partitif, habitudes alimentaires. Son [wa].</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U5_5A_quest-ce_que_tu_manges_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">5B</span><div class="lecon-title">Je voudrais…</div><div class="lecon-sub">Vouloir · faire ses courses</div></div><div class="lecon-card-body">Conjugaison vouloir, je voudrais (politesse), lexique commerces et quantités. Accent tonique.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U5_5B_je_voudrais_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">5C</span><div class="lecon-title">On mange au restaurant ?</div><div class="lecon-sub">Prendre · quel/quelle · commander</div></div><div class="lecon-card-body">Conjugaison prendre, quel/quelle/quels/quelles, vocabulaire du restaurant. Intonation.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U5_5C_on_mange_au_restaurant_.pdf" download>⬇️ Télécharger</a></div></div>
+      </div>
+
+      <div class="lecons-unit-title">🎵 Unité 6 — Loisirs et goûts</div>
+      <div class="lecons-grid">
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">6A</span><div class="lecon-title">Tu fais du sport ?</div><div class="lecon-sub">Faire du/de la · jouer au/à la</div></div><div class="lecon-card-body">Sports et loisirs avec faire du/de la et jouer au/à la, fréquence. Sons [ø] et [œ].</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U6_6A_tu_fais_du_sport_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">6B</span><div class="lecon-title">Quelle musique tu aimes ?</div><div class="lecon-sub">Exprimer les goûts · adorer/préférer</div></div><div class="lecon-card-body">Adorer, aimer, détester, préférer A à B, adjectifs d'appréciation. Son [ɲ].</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U6_6B_quelle_musique_tu_aimes_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">6C</span><div class="lecon-title">On sort ce soir ?</div><div class="lecon-sub">Futur proche · proposer une sortie</div></div><div class="lecon-card-body">Aller + infinitif, accepter/refuser une invitation, organiser une soirée. Consonnes finales.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U6_6C_on_sort_ce_soir_.pdf" download>⬇️ Télécharger</a></div></div>
+      </div>
+
+      <div class="lecons-unit-title">🛍️ Unité 7 — Les achats</div>
+      <div class="lecons-grid">
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">7A</span><div class="lecon-title">Qu'est-ce que vous cherchez ?</div><div class="lecon-sub">Adjectifs démonstratifs · vêtements</div></div><div class="lecon-card-body">Ce/cet/cette/ces, vêtements et couleurs, tailles. Sons [ʃ] et [ʒ].</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U7_7A_quest-ce_que_vous_cherchez_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">7B</span><div class="lecon-title">C'est combien ?</div><div class="lecon-sub">Grands nombres · négocier un prix</div></div><div class="lecon-card-body">Nombres jusqu'à 1 000 000 (80/90/100/1000…), transactions, négociation au marché.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U7_7B_cest_combien_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">7C</span><div class="lecon-title">Je le prends !</div><div class="lecon-sub">Pronoms COD · comparatif</div></div><div class="lecon-card-body">Pronoms le/la/l'/les, comparatif plus/moins/aussi + adj + que, meilleur. Cadence finale.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U7_7C_je_le_prends_.pdf" download>⬇️ Télécharger</a></div></div>
+      </div>
+
+      <div class="lecons-unit-title">🏠 Unité 8 — À la maison</div>
+      <div class="lecons-grid">
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">8A</span><div class="lecon-title">Bienvenue chez moi !</div><div class="lecon-sub">C'est / Il est · il y a · logement</div></div><div class="lecon-card-body">C'est vs il est, il y a pour décrire, pièces et meubles. Élision obligatoire.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U8_8A_bienvenue_chez_moi_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">8B</span><div class="lecon-title">Tu peux m'aider ?</div><div class="lecon-sub">Devoir · pouvoir · demander service</div></div><div class="lecon-card-body">Devoir (obligation) et pouvoir (capacité), demander poliment, accepter/refuser. [p] et [b].</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U8_8B_tu_peux_maider_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">8C</span><div class="lecon-title">Je cherche un appart !</div><div class="lecon-sub">Ne…plus / jamais / rien · logement</div></div><div class="lecon-card-body">Négations complexes, vocabulaire recherche d'appartement, loyer/annonces. Consonnes.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U8_8C_je_cherche_un_appart_.pdf" download>⬇️ Télécharger</a></div></div>
+      </div>
+
+      <div class="lecons-unit-title">✈️ Unité 9 — Voyages et découvertes</div>
+      <div class="lecons-grid">
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">9A</span><div class="lecon-title">On part en vacances !</div><div class="lecon-sub">En / Au / Aux + pays · transports</div></div><div class="lecon-card-body">En/au/aux devant les pays, à devant les villes, moyens de transport. Rythme français.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U9_9A_on_part_en_vacances_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">9B</span><div class="lecon-title">Quel temps fait-il ?</div><div class="lecon-sub">Météo · passé récent · saisons</div></div><div class="lecon-card-body">Météo, passé récent venir de + inf, futur proche vs passé récent, saisons. Liste.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U9_9B_quel_temps_fait-il_.pdf" download>⬇️ Télécharger</a></div></div>
+        <div class="lecon-card"><div class="lecon-card-head"><span class="lecon-code">9C</span><div class="lecon-title">Bon voyage !</div><div class="lecon-sub">Savoir vs connaître · bilan A1</div></div><div class="lecon-card-body">Savoir (capacité/info) vs connaître (familiarité), révision complète A1, bilan de compétences.</div><div class="lecon-card-foot"><a class="btn-lecon-dl" href="lecons/U9_9C_bon_voyage_.pdf" download>⬇️ Télécharger</a></div></div>
+      </div>
+    </div>
+    <!-- /Leçons PDF A1 -->
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ NIVEAU A2 ═══════════════ -->
+<div id="level-A2" class="level-page">
+  <button class="back-btn" onclick="showPage('home')">← Retour à l'accueil</button>
+  <div class="level-header A">
+    <div style="max-width:1100px;margin:auto;padding:0 20px">
+      <h2>Niveau A2 · Survie</h2>
+      <p>Vous pouvez comprendre des phrases isolées et des expressions fréquemment utilisées en relation avec des domaines immédiats de priorité.</p>
+      <div class="can-do">
+        <strong>Je peux…</strong>
+        <ul>
+          <li>communiquer lors de tâches simples et habituelles</li>
+          <li>décrire avec des moyens simples ma formation, mon environnement</li>
+          <li>comprendre des textes courts et simples</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="tabs" id="tabs-A2">
+      <div class="tab active" onclick="switchTab('A2','vocab')">📚 Vocabulaire</div>
+      <div class="tab" onclick="switchTab('A2','grammar')">✏️ Grammaire</div>
+      <div class="tab" onclick="switchTab('A2','exercises')">🎯 Exercices</div>
+    </div>
+
+    <div class="tab-content active" id="tab-A2-vocab">
+      <div class="exercise">
+        <h3>Au restaurant <span class="ex-type">Vocabulaire</span></h3>
+        <div class="vocab-grid">
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">🍽️</span><div class="vocab-word">l'entrée</div><div class="vocab-trans">前菜</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">🥩</span><div class="vocab-word">le plat principal</div><div class="vocab-trans">主菜</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">🍰</span><div class="vocab-word">le dessert</div><div class="vocab-trans">甜点</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">🧾</span><div class="vocab-word">l'addition</div><div class="vocab-trans">账单</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">🥤</span><div class="vocab-word">la boisson</div><div class="vocab-trans">饮料</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">👨‍🍳</span><div class="vocab-word">le serveur</div><div class="vocab-trans">服务员</div></div>
+        </div>
+      </div>
+      <div class="exercise">
+        <h3>Les jours de la semaine <span class="ex-type">Vocabulaire</span></h3>
+        <div class="vocab-grid">
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">📅</span><div class="vocab-word">lundi</div><div class="vocab-trans">星期一</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">📅</span><div class="vocab-word">mardi</div><div class="vocab-trans">星期二</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">📅</span><div class="vocab-word">mercredi</div><div class="vocab-trans">星期三</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">📅</span><div class="vocab-word">jeudi</div><div class="vocab-trans">星期四</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">📅</span><div class="vocab-word">vendredi</div><div class="vocab-trans">星期五</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">🎉</span><div class="vocab-word">samedi</div><div class="vocab-trans">星期六</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">☀️</span><div class="vocab-word">dimanche</div><div class="vocab-trans">星期日</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-A2-grammar">
+      <div class="exercise">
+        <h3>Le passé composé <span class="ex-type">Grammaire</span></h3>
+        <div class="rule-box">
+          <h4>Formation : AVOIR/ÊTRE + participe passé</h4>
+          <table>
+            <tr><th>Infinitif</th><th>Passé composé</th><th>Exemple</th></tr>
+            <tr><td>manger</td><td>j'ai <strong>mangé</strong></td><td>J'ai mangé une pizza.</td></tr>
+            <tr><td>partir</td><td>je suis <strong>parti(e)</strong></td><td>Elle est partie à 8h.</td></tr>
+            <tr><td>finir</td><td>j'ai <strong>fini</strong></td><td>Tu as fini le livre ?</td></tr>
+          </table>
+          <p style="margin-top:12px;font-size:.85rem">💡 Les verbes de mouvement (aller, venir, partir…) utilisent <strong>ÊTRE</strong>.</p>
+        </div>
+      </div>
+      <div class="exercise">
+        <h3>Les prépositions de lieu <span class="ex-type">Grammaire</span></h3>
+        <div class="rule-box">
+          <table>
+            <tr><th>Préposition</th><th>Exemple</th></tr>
+            <tr><td><strong>sur</strong> (on)</td><td>Le livre est sur la table.</td></tr>
+            <tr><td><strong>sous</strong> (under)</td><td>Le chat est sous le lit.</td></tr>
+            <tr><td><strong>dans</strong> (in)</td><td>Les clés sont dans mon sac.</td></tr>
+            <tr><td><strong>devant</strong> (in front of)</td><td>Il attend devant la porte.</td></tr>
+            <tr><td><strong>derrière</strong> (behind)</td><td>Le jardin est derrière la maison.</td></tr>
+            <tr><td><strong>à côté de</strong> (next to)</td><td>La banque est à côté du café.</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-A2-exercises">
+      <!-- QCM A2 -->
+      <div class="exercise" id="qcm-A2-1">
+        <h3>Passé composé <span class="ex-type">QCM</span></h3>
+        <p style="margin-bottom:16px;font-weight:600">Choisissez la forme correcte : « Elle ___ au cinéma hier. »</p>
+        <div class="qcm-options" id="opts-A2-1">
+          <div class="qcm-option" onclick="checkQCM('A2-1',this,false)"><span class="qcm-letter">A</span> a allé</div>
+          <div class="qcm-option" onclick="checkQCM('A2-1',this,true)"><span class="qcm-letter">B</span> est allée</div>
+          <div class="qcm-option" onclick="checkQCM('A2-1',this,false)"><span class="qcm-letter">C</span> a allée</div>
+          <div class="qcm-option" onclick="checkQCM('A2-1',this,false)"><span class="qcm-letter">D</span> est allé</div>
+        </div>
+        <div class="feedback" id="fb-A2-1"></div>
+      </div>
+
+      <div class="exercise" id="qcm-A2-2">
+        <h3>Au restaurant <span class="ex-type">QCM</span></h3>
+        <p style="margin-bottom:16px;font-weight:600">Comment demander l'addition poliment ?</p>
+        <div class="qcm-options" id="opts-A2-2">
+          <div class="qcm-option" onclick="checkQCM('A2-2',this,false)"><span class="qcm-letter">A</span> Donnez-moi l'argent !</div>
+          <div class="qcm-option" onclick="checkQCM('A2-2',this,false)"><span class="qcm-letter">B</span> Je veux payer.</div>
+          <div class="qcm-option" onclick="checkQCM('A2-2',this,true)"><span class="qcm-letter">C</span> L'addition, s'il vous plaît.</div>
+          <div class="qcm-option" onclick="checkQCM('A2-2',this,false)"><span class="qcm-letter">D</span> C'est combien l'addition ?</div>
+        </div>
+        <div class="feedback" id="fb-A2-2"></div>
+      </div>
+
+      <div class="exercise" id="blanks-A2-1">
+        <h3>Complétez avec la préposition correcte <span class="ex-type">Texte à trous</span></h3>
+        <div class="blanks-sentence">
+          1. Le stylo est <input class="blank" id="b-A2-1-1" placeholder="…" data-answer="sur"> la table.<br>
+          2. Les enfants jouent <input class="blank" id="b-A2-1-2" placeholder="…" data-answer="dans"> le jardin.<br>
+          3. Ma voiture est garée <input class="blank" id="b-A2-1-3" placeholder="…" data-answer="devant"> l'école.
+        </div>
+        <br>
+        <button class="ex-btn" onclick="checkBlanks('A2-1',3)">Vérifier</button>
+        <button class="ex-btn reset" onclick="resetBlanks('A2-1',3)">Réessayer</button>
+        <div class="feedback" id="fb-blanks-A2-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ NIVEAU B1 ═══════════════ -->
+<div id="level-B1" class="level-page">
+  <button class="back-btn" onclick="showPage('home')">← Retour à l'accueil</button>
+  <div class="level-header B">
+    <div style="max-width:1100px;margin:auto;padding:0 20px">
+      <h2>Niveau B1 · Seuil</h2>
+      <p>Vous pouvez comprendre les points essentiels quand un langage clair et standard est utilisé et s'il s'agit de sujets familiers.</p>
+      <div class="can-do">
+        <strong>Je peux…</strong>
+        <ul>
+          <li>me débrouiller dans la plupart des situations rencontrées en voyage</li>
+          <li>produire un discours simple et cohérent sur des sujets familiers</li>
+          <li>raconter un événement, décrire un espoir ou un but</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="tabs" id="tabs-B1">
+      <div class="tab active" onclick="switchTab('B1','vocab')">📚 Vocabulaire</div>
+      <div class="tab" onclick="switchTab('B1','grammar')">✏️ Grammaire</div>
+      <div class="tab" onclick="switchTab('B1','exercises')">🎯 Exercices</div>
+    </div>
+    <div class="tab-content active" id="tab-B1-vocab">
+      <div class="exercise">
+        <h3>Exprimer des opinions <span class="ex-type">Vocabulaire</span></h3>
+        <div class="vocab-grid">
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">💭</span><div class="vocab-word">Je pense que…</div><div class="vocab-trans">我认为……</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">🤔</span><div class="vocab-word">À mon avis…</div><div class="vocab-trans">依我看……</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">✅</span><div class="vocab-word">Je suis d'accord</div><div class="vocab-trans">我同意</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">❌</span><div class="vocab-word">Je ne suis pas d'accord</div><div class="vocab-trans">我不同意</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">🤷</span><div class="vocab-word">Ça dépend…</div><div class="vocab-trans">这要看情况……</div></div>
+          <div class="vocab-card" onclick="flipCard(this)"><span class="vocab-emoji">⚖️</span><div class="vocab-word">D'un côté… de l'autre</div><div class="vocab-trans">一方面……另一方面</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" id="tab-B1-grammar">
+      <div class="exercise">
+        <h3>L'imparfait <span class="ex-type">Grammaire</span></h3>
+        <div class="rule-box">
+          <h4>Formation : radical nous (présent) + terminaisons</h4>
+          <table>
+            <tr><th>Pronom</th><th>Terminaison</th><th>Parler → parlais</th></tr>
+            <tr><td>Je / Tu</td><td>-ais</td><td>je parlais, tu parlais</td></tr>
+            <tr><td>Il / Elle</td><td>-ait</td><td>il parlait</td></tr>
+            <tr><td>Nous</td><td>-ions</td><td>nous parlions</td></tr>
+            <tr><td>Vous</td><td>-iez</td><td>vous parliez</td></tr>
+            <tr><td>Ils / Elles</td><td>-aient</td><td>ils parlaient</td></tr>
+          </table>
+          <p style="margin-top:10px;font-size:.85rem">💡 Utilisation : description dans le passé, habitude passée, contexte d'une action.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" id="tab-B1-exercises">
+      <div class="exercise" id="qcm-B1-1">
+        <h3>Imparfait ou passé composé ? <span class="ex-type">QCM</span></h3>
+        <p style="margin-bottom:16px;font-weight:600">« Quand je ___ petit, j'habitais à Paris. »</p>
+        <div class="qcm-options" id="opts-B1-1">
+          <div class="qcm-option" onclick="checkQCM('B1-1',this,true)"><span class="qcm-letter">A</span> étais</div>
+          <div class="qcm-option" onclick="checkQCM('B1-1',this,false)"><span class="qcm-letter">B</span> ai été</div>
+          <div class="qcm-option" onclick="checkQCM('B1-1',this,false)"><span class="qcm-letter">C</span> suis</div>
+          <div class="qcm-option" onclick="checkQCM('B1-1',this,false)"><span class="qcm-letter">D</span> fut</div>
+        </div>
+        <div class="feedback" id="fb-B1-1"></div>
+      </div>
+      <div class="exercise" id="blanks-B1-1">
+        <h3>Mettre à l'imparfait <span class="ex-type">Texte à trous</span></h3>
+        <div class="blanks-sentence">
+          1. Avant, nous (manger) <input class="blank" id="b-B1-1-1" placeholder="…" data-answer="mangions"> ensemble chaque soir.<br>
+          2. Elle (lire) <input class="blank" id="b-B1-1-2" placeholder="…" data-answer="lisait"> un roman quand je suis arrivé.<br>
+          3. Vous (habiter) <input class="blank" id="b-B1-1-3" placeholder="…" data-answer="habitiez"> où à l'époque ?
+        </div>
+        <br>
+        <button class="ex-btn" onclick="checkBlanks('B1-1',3)">Vérifier</button>
+        <button class="ex-btn reset" onclick="resetBlanks('B1-1',3)">Réessayer</button>
+        <div class="feedback" id="fb-blanks-B1-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ NIVEAU B2 ═══════════════ -->
+<div id="level-B2" class="level-page">
+  <button class="back-btn" onclick="showPage('home')">← Retour à l'accueil</button>
+  <div class="level-header B">
+    <div style="max-width:1100px;margin:auto;padding:0 20px">
+      <h2>Niveau B2 · Avancé</h2>
+      <p>Vous pouvez comprendre le contenu essentiel de sujets concrets ou abstraits dans un texte complexe, y compris une discussion technique dans votre spécialité.</p>
+      <div class="can-do"><strong>Je peux…</strong><ul><li>communiquer avec spontanéité et aisance</li><li>produire un texte clair et détaillé sur une grande gamme de sujets</li><li>argumenter une position et défendre un point de vue</li></ul></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="tabs" id="tabs-B2"><div class="tab active" onclick="switchTab('B2','exercises')">🎯 Exercices</div></div>
+    <div class="tab-content active" id="tab-B2-exercises">
+      <div class="exercise" id="qcm-B2-1">
+        <h3>Subjonctif <span class="ex-type">QCM</span></h3>
+        <p style="margin-bottom:16px;font-weight:600">Choisissez la forme correcte : « Il faut que tu ___ ce document. »</p>
+        <div class="qcm-options" id="opts-B2-1">
+          <div class="qcm-option" onclick="checkQCM('B2-1',this,false)"><span class="qcm-letter">A</span> lis</div>
+          <div class="qcm-option" onclick="checkQCM('B2-1',this,true)"><span class="qcm-letter">B</span> lises</div>
+          <div class="qcm-option" onclick="checkQCM('B2-1',this,false)"><span class="qcm-letter">C</span> liras</div>
+          <div class="qcm-option" onclick="checkQCM('B2-1',this,false)"><span class="qcm-letter">D</span> lisait</div>
+        </div>
+        <div class="feedback" id="fb-B2-1"></div>
+      </div>
+      <div class="exercise" id="qcm-B2-2">
+        <h3>Expression écrite <span class="ex-type">QCM</span></h3>
+        <p style="margin-bottom:16px;font-weight:600">Quel connecteur logique exprime une concession ?</p>
+        <div class="qcm-options" id="opts-B2-2">
+          <div class="qcm-option" onclick="checkQCM('B2-2',this,false)"><span class="qcm-letter">A</span> de plus</div>
+          <div class="qcm-option" onclick="checkQCM('B2-2',this,false)"><span class="qcm-letter">B</span> par conséquent</div>
+          <div class="qcm-option" onclick="checkQCM('B2-2',this,true)"><span class="qcm-letter">C</span> bien que</div>
+          <div class="qcm-option" onclick="checkQCM('B2-2',this,false)"><span class="qcm-letter">D</span> ainsi</div>
+        </div>
+        <div class="feedback" id="fb-B2-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ NIVEAU C1 ═══════════════ -->
+<div id="level-C1" class="level-page">
+  <button class="back-btn" onclick="showPage('home')">← Retour à l'accueil</button>
+  <div class="level-header C">
+    <div style="max-width:1100px;margin:auto;padding:0 20px">
+      <h2>Niveau C1 · Autonome</h2>
+      <p>Vous pouvez comprendre une grande gamme de textes longs et exigeants, ainsi que saisir des significations implicites.</p>
+      <div class="can-do"><strong>Je peux…</strong><ul><li>m'exprimer spontanément et couramment sans trop chercher mes mots</li><li>utiliser la langue de façon efficace et souple dans ma vie sociale, professionnelle ou académique</li></ul></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="tabs" id="tabs-C1"><div class="tab active" onclick="switchTab('C1','exercises')">🎯 Exercices</div></div>
+    <div class="tab-content active" id="tab-C1-exercises">
+      <div class="exercise" id="qcm-C1-1">
+        <h3>Lexique soutenu <span class="ex-type">QCM</span></h3>
+        <p style="margin-bottom:16px;font-weight:600">Quel est le synonyme soutenu de « être triste » ?</p>
+        <div class="qcm-options" id="opts-C1-1">
+          <div class="qcm-option" onclick="checkQCM('C1-1',this,false)"><span class="qcm-letter">A</span> s'énerver</div>
+          <div class="qcm-option" onclick="checkQCM('C1-1',this,true)"><span class="qcm-letter">B</span> s'affliger</div>
+          <div class="qcm-option" onclick="checkQCM('C1-1',this,false)"><span class="qcm-letter">C</span> s'amuser</div>
+          <div class="qcm-option" onclick="checkQCM('C1-1',this,false)"><span class="qcm-letter">D</span> se fâcher</div>
+        </div>
+        <div class="feedback" id="fb-C1-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ NIVEAU C2 ═══════════════ -->
+<div id="level-C2" class="level-page">
+  <button class="back-btn" onclick="showPage('home')">← Retour à l'accueil</button>
+  <div class="level-header C">
+    <div style="max-width:1100px;margin:auto;padding:0 20px">
+      <h2>Niveau C2 · Maîtrise</h2>
+      <p>Vous pouvez comprendre sans effort pratiquement tout ce que vous lisez ou entendez. Niveau quasi-natif.</p>
+      <div class="can-do"><strong>Je peux…</strong><ul><li>restituer faits et arguments de diverses sources écrites et orales en les résumant de façon cohérente</li><li>m'exprimer spontanément, de façon très fluide et précise</li></ul></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="tabs" id="tabs-C2"><div class="tab active" onclick="switchTab('C2','exercises')">🎯 Exercices</div></div>
+    <div class="tab-content active" id="tab-C2-exercises">
+      <div class="exercise" id="qcm-C2-1">
+        <h3>Nuances stylistiques <span class="ex-type">QCM</span></h3>
+        <p style="margin-bottom:16px;font-weight:600">Dans quel registre utilise-t-on le passé simple ?</p>
+        <div class="qcm-options" id="opts-C2-1">
+          <div class="qcm-option" onclick="checkQCM('C2-1',this,false)"><span class="qcm-letter">A</span> Oral familier</div>
+          <div class="qcm-option" onclick="checkQCM('C2-1',this,false)"><span class="qcm-letter">B</span> Conversation courante</div>
+          <div class="qcm-option" onclick="checkQCM('C2-1',this,true)"><span class="qcm-letter">C</span> Écrit littéraire ou soutenu</div>
+          <div class="qcm-option" onclick="checkQCM('C2-1',this,false)"><span class="qcm-letter">D</span> SMS et messages informels</div>
+        </div>
+        <div class="feedback" id="fb-C2-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ JAVASCRIPT ═══════════════ -->
+<script>
+// ── STATE ──
+const progress = JSON.parse(localStorage.getItem('fle_progress') || '{}');
+const scores = JSON.parse(localStorage.getItem('fle_scores') || '{}');
+
+// ── NAVIGATION ──
+function showPage(page) {
+  document.getElementById('home').style.display = 'none';
+  document.getElementById('test-page').style.display = 'none';
+  ['A1','A2','B1','B2','C1','C2'].forEach(l => {
+    document.getElementById('level-' + l).style.display = 'none';
+  });
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  if (page === 'home') {
+    document.getElementById('home').style.display = 'block';
+    updateAllProgress();
+  } else if (page === 'test') {
+    document.getElementById('test-page').style.display = 'block';
+    initTest();
+  }
+}
+
+function showLevel(lvl) {
+  showPage('_none');
+  document.getElementById('level-' + lvl).style.display = 'block';
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    if (b.textContent === lvl) b.classList.add('active');
+  });
+  updateScoreDisplay(lvl);
+}
+
+// ── TABS ──
+function switchTab(level, tab) {
+  const container = document.getElementById('level-' + level);
+  container.querySelectorAll('.tab').forEach((t,i) => {
+    const id = t.getAttribute('onclick').match(/'([^']+)'\)/)[1];
+    t.classList.toggle('active', id === tab);
+  });
+  container.querySelectorAll('.tab-content').forEach(tc => {
+    tc.classList.toggle('active', tc.id === 'tab-' + level + '-' + tab);
+  });
+}
+
+// ── VOCAB ──
+function flipCard(card) { card.classList.toggle('flipped'); }
+
+// ── QCM ──
+function checkQCM(id, el, correct) {
+  const opts = document.getElementById('opts-' + id);
+  if (opts.dataset.done) return;
+  opts.dataset.done = '1';
+  const fb = document.getElementById('fb-' + id);
+  if (correct) {
+    el.classList.add('correct');
+    fb.textContent = '✅ Bravo ! Bonne réponse.';
+    fb.className = 'feedback show ok';
+    recordScore(id, true);
+  } else {
+    el.classList.add('wrong');
+    opts.querySelectorAll('.qcm-option').forEach(o => {
+      const fn = o.getAttribute('onclick');
+      if (fn && fn.includes('true')) o.classList.add('reveal');
+    });
+    fb.textContent = '❌ Pas tout à fait. La bonne réponse est surlignée.';
+    fb.className = 'feedback show ko';
+    recordScore(id, false);
+  }
+}
+
+// ── BLANKS ──
+function checkBlanks(id, count) {
+  let correct = 0;
+  for (let i = 1; i <= count; i++) {
+    const inp = document.getElementById('b-' + id + '-' + i);
+    if (!inp) continue;
+    const val = inp.value.trim().toLowerCase();
+    const ans = inp.dataset.answer.toLowerCase();
+    if (val === ans) { inp.classList.add('correct-input'); inp.classList.remove('wrong-input'); correct++; }
+    else { inp.classList.add('wrong-input'); inp.classList.remove('correct-input'); }
+  }
+  const fb = document.getElementById('fb-blanks-' + id);
+  if (correct === count) {
+    fb.textContent = '✅ Parfait ! Toutes les réponses sont correctes.';
+    fb.className = 'feedback show ok';
+  } else {
+    fb.textContent = `❌ ${correct}/${count} réponses correctes. Revérifiez les cases en rouge.`;
+    fb.className = 'feedback show ko';
+  }
+  recordScore('blanks-' + id, correct === count);
+}
+
+function resetBlanks(id, count) {
+  for (let i = 1; i <= count; i++) {
+    const inp = document.getElementById('b-' + id + '-' + i);
+    if (inp) { inp.value = ''; inp.classList.remove('correct-input','wrong-input'); }
+  }
+  const fb = document.getElementById('fb-blanks-' + id);
+  if (fb) { fb.className = 'feedback'; fb.textContent = ''; }
+}
+
+// ── SCORE ──
+function recordScore(id, ok) {
+  if (!scores[id]) scores[id] = { attempts: 0, correct: 0 };
+  scores[id].attempts++;
+  if (ok) scores[id].correct++;
+  localStorage.setItem('fle_scores', JSON.stringify(scores));
+  const level = id.split('-')[0];
+  updateScoreDisplay(level);
+  updateAllProgress();
+}
+
+function updateScoreDisplay(level) {
+  const bar = document.getElementById('score-' + level);
+  if (!bar) return;
+  let total = 0, correct = 0;
+  Object.keys(scores).forEach(k => {
+    if (k.startsWith(level)) { total += scores[k].attempts; correct += scores[k].correct; }
+  });
+  if (total > 0) {
+    bar.style.display = 'flex';
+    document.getElementById('score-circle-' + level).textContent = correct + '/' + total;
+  }
+}
+
+function updateAllProgress() {
+  ['A1','A2','B1','B2','C1','C2'].forEach(lvl => {
+    let total = 0, correct = 0;
+    Object.keys(scores).forEach(k => {
+      if (k.startsWith(lvl)) { total += scores[k].attempts; correct += scores[k].correct; }
+    });
+    const pct = total > 0 ? Math.min(100, Math.round((correct / total) * 100)) : 0;
+    const bar = document.getElementById('prog-' + lvl);
+    if (bar) bar.style.width = pct + '%';
+  });
+}
+
+// ── TEST DE NIVEAU ──
+const testQuestions = [
+  { q: 'Comment dit-on « My name is Paul » ?', opts: ['Je suis Paul', 'Je m\'appelle Paul', 'Mon nom est Paul', 'J\'ai Paul'], ans: 1, level: 'A1' },
+  { q: 'Complétez : « Elle ___ étudiante. »', opts: ['suis', 'es', 'est', 'sommes'], ans: 2, level: 'A1' },
+  { q: 'Quel article utilise-t-on avec « chat » (masculin) ?', opts: ['la', 'le', 'les', 'l\''], ans: 1, level: 'A1' },
+  { q: 'Quelle heure est-il si on dit « Il est midi » ?', opts: ['00h00', '12h00', '24h00', '21h00'], ans: 1, level: 'A2' },
+  { q: 'Choisissez le passé composé correct de « aller » pour « elle » :', opts: ['elle a allé', 'elle est allée', 'elle a allée', 'elle est allé'], ans: 1, level: 'A2' },
+  { q: '« Hier, je ___ au marché. » — Passé composé de « aller » pour « je » :', opts: ['suis allé', 'ai allé', 'allais', 'allai'], ans: 0, level: 'A2' },
+  { q: '« Quand il était enfant, il ___ beaucoup. » — Quel temps ?', opts: ['Passé composé : a joué', 'Imparfait : jouait', 'Futur : jouera', 'Présent : joue'], ans: 1, level: 'B1' },
+  { q: 'Quel connecteur logique exprime une cause ?', opts: ['cependant', 'donc', 'parce que', 'bien que'], ans: 2, level: 'B1' },
+  { q: 'Complétez avec le subjonctif : « Il faut que nous ___ (partir). »', opts: ['partions', 'partons', 'partions', 'partirons'], ans: 0, level: 'B2' },
+  { q: 'Quelle phrase exprime une concession ?', opts: ['Il fait beau, alors je sors.', 'Bien qu\'il pleuve, il est sorti.', 'Il pleut, donc je reste.', 'Il fait beau et je sors.'], ans: 1, level: 'B2' },
+  { q: 'Quel terme littéraire désigne un récit à la première personne ?', opts: ['épopée', 'roman autobiographique', 'haïku', 'pamphlet'], ans: 1, level: 'C1' },
+  { q: 'Quelle figure de style consiste à atténuer une réalité pour mieux la faire ressentir ? (Ex : « Ce n\'est pas mauvais » pour dire « c\'est très bon »)', opts: ['Une hyperbole', 'Une litote', 'Une métaphore', 'Une antithèse'], ans: 1, level: 'C2' },
+];
+
+let testAnswers = [];
+let currentQ = 0;
+
+function initTest() {
+  testAnswers = [];
+  currentQ = 0;
+  document.getElementById('test-result').style.display = 'none';
+  document.getElementById('test-meta').style.display = 'block';
+  renderQuestion(0);
+}
+
+function renderQuestion(i) {
+  const container = document.getElementById('test-questions');
+  if (i >= testQuestions.length) { showTestResult(); return; }
+  const q = testQuestions[i];
+  document.getElementById('test-meta').textContent = `Question ${i+1} / ${testQuestions.length}`;
+  document.getElementById('test-bar').style.width = ((i+1)/testQuestions.length*100) + '%';
+  container.innerHTML = `
+    <div class="test-q active">
+      <div class="test-q-text">${q.q}</div>
+      <div class="qcm-options">
+        ${q.opts.map((o,j) => `<div class="qcm-option" onclick="answerTest(${j})">${o}</div>`).join('')}
+      </div>
+    </div>`;
+}
+
+function answerTest(idx) {
+  testAnswers.push({ chosen: idx, correct: testQuestions[currentQ].ans, level: testQuestions[currentQ].level });
+  currentQ++;
+  setTimeout(() => renderQuestion(currentQ), 200);
+}
+
+function showTestResult() {
+  document.getElementById('test-questions').innerHTML = '';
+  document.getElementById('test-meta').style.display = 'none';
+  const levelScores = { A1: 0, A2: 0, B1: 0, B2: 0, C1: 0, C2: 0 };
+  const levelTotal = { A1: 0, A2: 0, B1: 0, B2: 0, C1: 0, C2: 0 };
+  testAnswers.forEach(a => {
+    levelTotal[a.level]++;
+    if (a.chosen === a.correct) levelScores[a.level]++;
+  });
+  const totalCorrect = testAnswers.filter(a => a.chosen === a.correct).length;
+  let recommended = 'A1';
+  const levels = ['C2','C1','B2','B1','A2','A1'];
+  for (const l of levels) {
+    if (levelTotal[l] > 0 && levelScores[l] / levelTotal[l] >= 0.5) { recommended = l; break; }
+  }
+  const group = recommended[0];
+  const div = document.getElementById('test-result');
+  div.style.display = 'block';
+  div.innerHTML = `
+    <span class="result-badge ${group}">${recommended}</span>
+    <h2 style="font-size:1.8rem;font-weight:900;margin-bottom:10px">Votre niveau estimé : ${recommended}</h2>
+    <p style="color:var(--muted);margin-bottom:8px">Score : ${totalCorrect} / ${testQuestions.length} bonnes réponses</p>
+    <p style="margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto">Ce test de positionnement est indicatif. Pour une évaluation officielle, passez le DELF/DALF.</p>
+    <button class="btn-primary" style="background:var(--b-color);color:#fff" onclick="showLevel('${recommended}')">Commencer le niveau ${recommended} →</button>
+    <br><br>
+    <button class="btn-secondary" style="border-color:var(--muted);color:var(--muted)" onclick="initTest()">Refaire le test</button>
+  `;
+}
+
+// ── INIT ──
+updateAllProgress();
+</script>
+</body>
+</html>

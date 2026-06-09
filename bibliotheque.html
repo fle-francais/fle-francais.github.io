@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>français+ · Bibliothèque de fiches</title>
+<style>
+  :root {
+    --a:#27ae60;--al:#eafaf1;--b:#2980b9;--bl:#eaf4fb;--c:#8e44ad;--cl:#f5eef8;
+    --l:#16a085;--ll:#e8f8f5;
+    --gold:#f39c12;--text:#2c3e50;--muted:#7f8c8d;--bg:#f8f9fa;--card:#fff;
+    --radius:12px;--shadow:0 2px 14px rgba(0,0,0,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  nav{background:#fff;box-shadow:var(--shadow);position:sticky;top:0;z-index:100}
+  .nav-inner{max-width:1100px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .logo{font-size:1.4rem;font-weight:800;color:var(--b);text-decoration:none}
+  .logo span{color:var(--a)}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap}
+  .nav-link{background:var(--bg);border:none;border-radius:20px;padding:6px 16px;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--muted);text-decoration:none;transition:all .2s}
+  .nav-link:hover{background:var(--b);color:#fff}
+  .nav-link.gold{background:linear-gradient(135deg,#f39c12,#e67e22);color:#fff}
+
+  .hero{background:linear-gradient(135deg,#2980b9,#8e44ad);color:#fff;text-align:center;padding:55px 20px 65px}
+  .hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;margin-bottom:10px}
+  .hero p{opacity:.9;max-width:600px;margin:0 auto;font-size:1.05rem}
+
+  .container{max-width:1100px;margin:0 auto;padding:50px 20px}
+  .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;align-items:center}
+  .filter-btn{border:2px solid #e0e0e0;background:#fff;border-radius:20px;padding:7px 18px;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--muted);transition:all .2s}
+  .filter-btn:hover{border-color:var(--b);color:var(--b)}
+  .filter-btn.active{background:var(--b);border-color:var(--b);color:#fff}
+  .filter-btn.fA.active{background:var(--a);border-color:var(--a)}
+  .filter-btn.fC.active{background:var(--c);border-color:var(--c)}
+
+  .fiches-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+  .fiche-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .15s,box-shadow .15s;display:flex;flex-direction:column}
+  .fiche-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.13)}
+  .fiche-header{padding:18px 20px 14px;position:relative}
+  .fiche-header.A{background:var(--al);border-bottom:3px solid var(--a)}
+  .fiche-header.B{background:var(--bl);border-bottom:3px solid var(--b)}
+  .fiche-header.C{background:var(--cl);border-bottom:3px solid var(--c)}
+  .fiche-header.L{background:var(--ll);border-bottom:3px solid var(--l)}
+  .fiche-level-badge{display:inline-block;font-size:.7rem;font-weight:800;padding:3px 10px;border-radius:10px;margin-bottom:8px}
+  .A .fiche-level-badge{background:var(--a);color:#fff}
+  .B .fiche-level-badge{background:var(--b);color:#fff}
+  .C .fiche-level-badge{background:var(--c);color:#fff}
+  .L .fiche-level-badge{background:var(--l);color:#fff}
+  .fiche-title{font-size:1rem;font-weight:800;line-height:1.3;margin-bottom:4px}
+  .fiche-sub{font-size:.8rem;color:var(--muted)}
+  .fiche-body{padding:14px 20px;flex:1}
+  .fiche-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .tag{font-size:.72rem;padding:3px 9px;border-radius:8px;font-weight:600}
+  .tag.vocab{background:#e8f5e9;color:#2e7d32}
+  .tag.gram{background:#e3f2fd;color:#1565c0}
+  .tag.exo{background:#fff3e0;color:#e65100}
+  .tag.style{background:#f3e5f5;color:#6a1b9a}
+  .fiche-desc{font-size:.85rem;color:var(--muted);line-height:1.5}
+  .fiche-footer{padding:14px 20px;border-top:1px solid #f0f0f0;display:flex;gap:10px}
+  .btn-dl{flex:1;padding:9px;border-radius:20px;border:none;cursor:pointer;font-weight:700;font-size:.85rem;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .2s}
+  .btn-dl.A{background:var(--al);color:var(--a)}
+  .btn-dl.A:hover{background:var(--a);color:#fff}
+  .btn-dl.B{background:var(--bl);color:var(--b)}
+  .btn-dl.B:hover{background:var(--b);color:#fff}
+  .btn-dl.C{background:var(--cl);color:var(--c)}
+  .btn-dl.C:hover{background:var(--c);color:#fff}
+  .btn-dl.L{background:var(--ll);color:var(--l)}
+  .btn-dl.L:hover{background:var(--l);color:#fff}
+  .btn-lock{flex:1;padding:9px;border-radius:20px;border:2px solid #e0e0e0;cursor:pointer;font-weight:600;font-size:.85rem;text-align:center;color:var(--muted);background:#fff;transition:all .2s}
+  .btn-lock:hover{border-color:var(--gold);color:var(--gold)}
+
+  .progress-section{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:36px}
+  .progress-section h3{font-size:1rem;font-weight:700;margin-bottom:14px}
+  .level-bars{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
+  .level-bar-item{text-align:center}
+  .level-bar-item .lbl{font-size:.75rem;font-weight:700;color:var(--muted);margin-bottom:4px}
+  .bar-track{height:8px;background:#e0e0e0;border-radius:4px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:4px;transition:width .5s}
+  .bar-fill.A{background:var(--a)}
+  .bar-fill.B{background:var(--b)}
+  .bar-fill.C{background:var(--c)}
+  .bar-fill.L{background:var(--l)}
+  .filter-btn.fL.active{background:var(--l);border-color:var(--l)}
+  .lecon-unit-badge{display:inline-block;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:8px;background:rgba(22,160,133,.15);color:var(--l);margin-bottom:6px}
+  .bar-count{font-size:.75rem;color:var(--muted);margin-top:3px}
+
+  .cta-banner{background:linear-gradient(135deg,#f39c12,#e67e22,#8e44ad);color:#fff;border-radius:var(--radius);padding:30px;text-align:center;margin-top:40px}
+  .cta-banner h3{font-size:1.3rem;font-weight:900;margin-bottom:8px}
+  .cta-banner p{opacity:.9;font-size:.95rem;margin-bottom:20px}
+  .cta-banner a{background:#fff;color:#e67e22;font-weight:800;padding:11px 28px;border-radius:25px;text-decoration:none;font-size:.95rem;transition:transform .15s;display:inline-block}
+  .cta-banner a:hover{transform:translateY(-2px)}
+
+  footer{text-align:center;padding:36px 20px;color:var(--muted);font-size:.85rem;border-top:1px solid #e8e8e8;margin-top:40px}
+
+  /* MODAL */
+  .modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;align-items:center;justify-content:center;padding:20px}
+  .modal-ov.open{display:flex}
+  .modal{background:#fff;border-radius:var(--radius);padding:36px;max-width:440px;width:100%;text-align:center;position:relative}
+  .modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--muted)}
+  .modal h3{font-size:1.2rem;font-weight:800;margin-bottom:8px}
+  .modal p{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+  .modal .btn-gold{display:block;background:linear-gradient(135deg,#f39c12,#e67e22);color:#fff;padding:13px;border-radius:25px;font-weight:700;font-size:.95rem;text-decoration:none;margin-bottom:10px;transition:opacity .2s}
+  .modal .btn-gold:hover{opacity:.88}
+  .modal .btn-back{background:none;border:none;color:var(--muted);font-size:.85rem;cursor:pointer;text-decoration:underline}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="index.html">français<span>+</span></a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">← Site principal</a>
+      <a class="nav-link" href="tarifs.html">Tarifs</a>
+      <a class="nav-link gold" href="tarifs.html">✨ S'abonner</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>📚 Bibliothèque pédagogique</h1>
+  <p>12 fiches de niveaux A1→C2 + 27 leçons complètes A1 (méthode Édito). Dialogues, grammaire, exercices, phonétique. Les fiches A1 et toutes les leçons sont accessibles gratuitement.</p>
+</div>
+
+<div class="container">
+
+  <!-- Progression -->
+  <div class="progress-section" id="prog-section" style="display:none">
+    <h3>📊 Fiches téléchargées</h3>
+    <div class="level-bars" id="level-bars"></div>
+  </div>
+
+  <!-- Filtres -->
+  <div class="filter-bar">
+    <span style="font-weight:700;font-size:.9rem;color:var(--muted)">Filtrer :</span>
+    <button class="filter-btn active" onclick="filter('all',this)">Tout</button>
+    <button class="filter-btn fL" onclick="filter('L',this)">📖 Leçons A1</button>
+    <button class="filter-btn fA" onclick="filter('A',this)">Fiches A1/A2</button>
+    <button class="filter-btn" onclick="filter('B',this)">Fiches B1/B2</button>
+    <button class="filter-btn fC" onclick="filter('C',this)">Fiches C1/C2</button>
+  </div>
+
+  <!-- Grille fiches -->
+  <div class="fiches-grid" id="fiches-grid"></div>
+
+  <div class="cta-banner">
+    <h3>🌟 Accédez à toutes les ressources</h3>
+    <p>27 leçons A1 gratuites + 12 fiches de A1 à C2. Les niveaux B et C nécessitent un abonnement Fiches ou Premium.</p>
+    <a href="tarifs.html">Voir les offres →</a>
+  </div>
+</div>
+
+<footer>français+ · Bibliothèque FLE · <a href="index.html" style="color:inherit">Retour au site</a></footer>
+
+<!-- MODAL abonnement -->
+<div class="modal-ov" id="modal-ov" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal-ov').classList.remove('open')">×</button>
+    <div style="font-size:2.5rem;margin-bottom:10px">🔒</div>
+    <h3>Fiche réservée aux abonnés</h3>
+    <p>Cette fiche est disponible avec les formules <strong>Fiches Ressources</strong> ou <strong>Premium</strong>.</p>
+    <a class="btn-gold" href="tarifs.html">Voir les offres & tarifs →</a>
+    <button class="btn-back" onclick="document.getElementById('modal-ov').classList.remove('open')">Continuer sans abonnement</button>
+  </div>
+</div>
+
+<script>
+const FICHES = [
+  {level:"A1",group:"A",title:"Se présenter",sub:"Salutations, identité, dialogue",
+   tags:["vocab","exo"],desc:"Formules de salutation, vocabulaire de présentation, dialogue modèle et exercices corrigés.",
+   file:"fiches/fiche_A1_01_se_presenter.pdf",free:true},
+  {level:"A1",group:"A",title:"Être & Avoir",sub:"Conjugaison, expressions idiomatiques",
+   tags:["gram","exo"],desc:"Conjugaison complète d'être et avoir au présent, expressions idiomatiques avec avoir.",
+   file:"fiches/fiche_A1_02_etre_avoir.pdf",free:true},
+  {level:"A2",group:"A",title:"La vie quotidienne",sub:"Routines, verbes pronominaux",
+   tags:["vocab","gram","exo"],desc:"Verbes de la routine, conjugaison des pronominaux, exprimer la fréquence.",
+   file:"fiches/fiche_A2_01_vie_quotidienne.pdf",free:false},
+  {level:"A2",group:"A",title:"Le passé composé",sub:"Avoir / Être, accord",
+   tags:["gram","exo"],desc:"Formation avec avoir et être, accord du participe passé, exercices de correction.",
+   file:"fiches/fiche_A2_02_passe_compose.pdf",free:false},
+  {level:"B1",group:"B",title:"Imparfait vs Passé composé",sub:"Formation, emplois, récit",
+   tags:["gram","exo"],desc:"Formation de l'imparfait, tableau comparatif des emplois, exercices de narration.",
+   file:"fiches/fiche_B1_01_imparfait_passe.pdf",free:false},
+  {level:"B1",group:"B",title:"Exprimer son opinion",sub:"Accord, désaccord, structure",
+   tags:["vocab","exo"],desc:"Expressions d'opinion par registre, accord et désaccord polis, structuration du discours.",
+   file:"fiches/fiche_B1_02_exprimer_opinion.pdf",free:false},
+  {level:"B2",group:"B",title:"Le subjonctif",sub:"Formation, emplois, irréguliers",
+   tags:["gram","exo"],desc:"Formation du subjonctif, 6 irréguliers clés, contextes d'emploi, subjonctif vs infinitif.",
+   file:"fiches/fiche_B2_01_subjonctif.pdf",free:false},
+  {level:"B2",group:"B",title:"Les connecteurs logiques",sub:"Cause, conséquence, concession",
+   tags:["vocab","style","exo"],desc:"7 fonctions logiques, nuances entre connecteurs similaires, plan argumentatif.",
+   file:"fiches/fiche_B2_02_connecteurs.pdf",free:false},
+  {level:"C1",group:"C",title:"Lexique soutenu",sub:"Synonymes, registre formel",
+   tags:["vocab","style"],desc:"Verbes et adjectifs courants → synonymes soutenus, articuler sa pensée avec précision.",
+   file:"fiches/fiche_C1_01_lexique_soutenu.pdf",free:false},
+  {level:"C1",group:"C",title:"L'argumentation avancée",sub:"PEEL, rhétorique, intro/conclusion",
+   tags:["style","exo"],desc:"Méthode PEEL, procédés rhétoriques (anaphore, antithèse…), modèles d'intro et conclusion.",
+   file:"fiches/fiche_C1_02_argumentation.pdf",free:false},
+  {level:"C2",group:"C",title:"Les figures de style",sub:"Métaphore, litote, anaphore…",
+   tags:["style","exo"],desc:"12 figures de style définies et illustrées par des exemples littéraires, exercices d'identification.",
+   file:"fiches/fiche_C2_01_figures_de_style.pdf",free:false},
+  {level:"C2",group:"C",title:"Registres & Passé simple",sub:"Niveaux de langue, littéraire",
+   tags:["gram","style","exo"],desc:"4 registres de langue, formation du passé simple, exercices de transposition stylistique.",
+   file:"fiches/fiche_C2_02_registres_passe_simple.pdf",free:false},
+
+  // ── LEÇONS A1 — Méthode Édito ──────────────────────────────────────────
+  // Unité 1 — Bonjour !
+  {level:"A1",group:"L",unit:"Unité 1",title:"Enchanté !",sub:"Être au présent · premières rencontres",
+   tags:["vocab","gram","exo"],desc:"Dialogue à la bibliothèque, conjugaison du verbe être, salutations et formules de présentation. Sons [é] et [è].",
+   file:"lecons/U1_1A_enchante_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 1",title:"Tu parles quelles langues ?",sub:"Nationalités · alphabet · fréquence",
+   tags:["vocab","gram","exo"],desc:"Nationalités au masculin et féminin, alphabet phonétique, exprimer son niveau de langue. Son [y] vs [u].",
+   file:"lecons/U1_1B_tu_parles_quelles_langues_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 1",title:"Vous êtes d'où ?",sub:"Verbes en -ER · négation ne…pas",
+   tags:["gram","exo"],desc:"Conjugaison des verbes en -ER (habiter, travailler), négation ne…pas, est-ce que / qu'est-ce que. Liaisons obligatoires.",
+   file:"lecons/U1_1C_vous_etes_dou_.pdf",free:true},
+
+  // Unité 2 — Famille et amis
+  {level:"A1",group:"L",unit:"Unité 2",title:"Ma famille",sub:"Avoir au présent · articles indéfinis",
+   tags:["vocab","gram","exo"],desc:"Vocabulaire de la famille, conjugaison d'avoir, articles un/une/des, négation pas de. Voyelles nasales [ɑ̃][ɛ̃][ɔ̃].",
+   file:"lecons/U2_2A_ma_famille.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 2",title:"Il ressemble à qui ?",sub:"Adjectifs qualificatifs · accord M/F",
+   tags:["vocab","gram","exo"],desc:"Description physique et caractère, accord des adjectifs en genre et nombre, adjectifs BAGS. Sons [e] et [ɛ].",
+   file:"lecons/U2_2B_il_ressemble_a_qui_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 2",title:"Mon meilleur ami",sub:"Adjectifs possessifs complets",
+   tags:["gram","exo"],desc:"Tableau complet des adjectifs possessifs (mon/ma/mes… leur/leurs), accord/désaccord (moi aussi/moi non plus). Son [ʁ].",
+   file:"lecons/U2_2C_mon_meilleur_ami.pdf",free:true},
+
+  // Unité 3 — Ma journée
+  {level:"A1",group:"L",unit:"Unité 3",title:"Quelle heure est-il ?",sub:"L'heure · les jours · rendez-vous",
+   tags:["vocab","exo"],desc:"Dire l'heure courante et officielle, jours de la semaine, organiser un rendez-vous. Chute du e muet.",
+   file:"lecons/U3_3A_quelle_heure_est-il_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 3",title:"Une journée ordinaire",sub:"Verbes pronominaux · adverbes de fréquence",
+   tags:["gram","exo"],desc:"Se lever, se doucher, s'habiller… conjugaison des pronominaux, adverbes toujours/souvent/parfois/jamais. Liaison dans les verbes.",
+   file:"lecons/U3_3B_une_journee_ordinaire.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 3",title:"Le week-end, c'est différent !",sub:"Aller · faire · venir · articles contractés",
+   tags:["gram","exo"],desc:"Conjugaison de aller, faire, venir. Articles contractés au/aux/du/des. Loisirs et activités. Intonation de la question.",
+   file:"lecons/U3_3C_le_week-end_cest_different_.pdf",free:true},
+
+  // Unité 4 — Dans la ville
+  {level:"A1",group:"L",unit:"Unité 4",title:"C'est où ?",sub:"Il y a · prépositions de lieu",
+   tags:["vocab","gram","exo"],desc:"Il y a / il n'y a pas de, prépositions dans/sur/devant/derrière/à côté de/en face de. Décrire un quartier. Sons [s] et [z].",
+   file:"lecons/U4_4A_cest_ou_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 4",title:"Pour aller à… ?",sub:"Impératif · indiquer un chemin",
+   tags:["gram","exo"],desc:"Impératif pour donner des directions (continuez, tournez, prenez), structures pour demander son chemin. Enchaînement consonantique.",
+   file:"lecons/U4_4B_pour_aller_a__.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 4",title:"J'aime mon quartier !",sub:"Très / assez / trop · donner son avis",
+   tags:["vocab","exo"],desc:"Degrés de l'adjectif (très/assez/trop/pas assez), c'est / ce n'est pas, exprimer un avis sur un lieu. Syllabation.",
+   file:"lecons/U4_4C_jaime_mon_quartier_.pdf",free:true},
+
+  // Unité 5 — Manger et boire
+  {level:"A1",group:"L",unit:"Unité 5",title:"Qu'est-ce que tu manges ?",sub:"Articles partitifs · habitudes alimentaires",
+   tags:["gram","exo"],desc:"Du/de la/de l'/des, négation sans article partitif. Vocabulaire des aliments et repas. Son [wa].",
+   file:"lecons/U5_5A_quest-ce_que_tu_manges_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 5",title:"Je voudrais…",sub:"Vouloir · faire ses courses",
+   tags:["gram","exo"],desc:"Conjugaison de vouloir, conditionnel de politesse (je voudrais), lexique des commerces et des quantités. Accent tonique.",
+   file:"lecons/U5_5B_je_voudrais_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 5",title:"On mange au restaurant ?",sub:"Prendre · quel/quelle · commander",
+   tags:["gram","exo"],desc:"Conjugaison de prendre, adjectif interrogatif quel/quelle/quels/quelles, vocabulaire du restaurant. Intonation de politesse.",
+   file:"lecons/U5_5C_on_mange_au_restaurant_.pdf",free:true},
+
+  // Unité 6 — Loisirs et goûts
+  {level:"A1",group:"L",unit:"Unité 6",title:"Tu fais du sport ?",sub:"Faire du/de la · jouer au/à la",
+   tags:["gram","exo"],desc:"Expressions faire du/de la/de l' et jouer au/à la pour les sports et loisirs. Fréquence. Sons [ø] et [œ].",
+   file:"lecons/U6_6A_tu_fais_du_sport_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 6",title:"Quelle musique tu aimes ?",sub:"Exprimer les goûts · adorer / préférer",
+   tags:["vocab","exo"],desc:"Adorer, aimer, apprécier, ne pas aimer, détester. Préférer A à B. Adjectifs d'appréciation. Son [ɲ].",
+   file:"lecons/U6_6B_quelle_musique_tu_aimes_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 6",title:"On sort ce soir ?",sub:"Futur proche · proposer une sortie",
+   tags:["gram","exo"],desc:"Futur proche : aller + infinitif. Accepter et refuser une invitation. Organiser une sortie. Consonnes finales muettes.",
+   file:"lecons/U6_6C_on_sort_ce_soir_.pdf",free:true},
+
+  // Unité 7 — Les achats
+  {level:"A1",group:"L",unit:"Unité 7",title:"Qu'est-ce que vous cherchez ?",sub:"Adjectifs démonstratifs · vêtements",
+   tags:["gram","exo"],desc:"Ce/cet/cette/ces, vocabulaire des vêtements et couleurs, parler de sa taille. Sons [ʃ] et [ʒ].",
+   file:"lecons/U7_7A_quest-ce_que_vous_cherchez_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 7",title:"C'est combien ?",sub:"Nombres jusqu'à 1 000 000 · négocier",
+   tags:["vocab","exo"],desc:"Grands nombres (80/100/1000…), prix et transactions, négocier une réduction au marché ou vide-grenier. Liaisons numériques.",
+   file:"lecons/U7_7B_cest_combien_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 7",title:"Je le prends !",sub:"Pronoms COD · comparatif",
+   tags:["gram","exo"],desc:"Pronoms COD le/la/l'/les, comparatif plus/moins/aussi + adjectif + que, irrégulier meilleur. Cadence finale.",
+   file:"lecons/U7_7C_je_le_prends_.pdf",free:true},
+
+  // Unité 8 — À la maison
+  {level:"A1",group:"L",unit:"Unité 8",title:"Bienvenue chez moi !",sub:"C'est / Il est · il y a · le logement",
+   tags:["vocab","gram","exo"],desc:"Distinction c'est / il est, il y a pour décrire un logement, vocabulaire des pièces et des meubles. Élision obligatoire.",
+   file:"lecons/U8_8A_bienvenue_chez_moi_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 8",title:"Tu peux m'aider ?",sub:"Devoir · pouvoir · demander un service",
+   tags:["gram","exo"],desc:"Conjugaison de devoir et pouvoir, demander un service poliment, accepter ou refuser. Sons [p] et [b].",
+   file:"lecons/U8_8B_tu_peux_maider_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 8",title:"Je cherche un appart !",sub:"Ne…plus / jamais / rien · logement",
+   tags:["gram","exo"],desc:"Négations complexes ne…plus/jamais/rien/personne, vocabulaire de la recherche de logement. Groupes consonantiques.",
+   file:"lecons/U8_8C_je_cherche_un_appart_.pdf",free:true},
+
+  // Unité 9 — Voyages et découvertes
+  {level:"A1",group:"L",unit:"Unité 9",title:"On part en vacances !",sub:"En / Au / Aux + pays · transports",
+   tags:["gram","exo"],desc:"En/au/aux devant les pays (féminin/masculin/pluriel), à devant les villes, moyens de transport. Rythme français.",
+   file:"lecons/U9_9A_on_part_en_vacances_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 9",title:"Quel temps fait-il ?",sub:"La météo · passé récent · saisons",
+   tags:["vocab","gram","exo"],desc:"Expressions météo, passé récent venir de + infinitif vs futur proche, les quatre saisons. Intonation de la liste.",
+   file:"lecons/U9_9B_quel_temps_fait-il_.pdf",free:true},
+  {level:"A1",group:"L",unit:"Unité 9",title:"Bon voyage !",sub:"Savoir vs connaître · bilan A1",
+   tags:["gram","exo"],desc:"Savoir (capacité/information) vs connaître (familiarité), révision complète A1, bilan de compétences. Récapitulatif phonétique.",
+   file:"lecons/U9_9C_bon_voyage_.pdf",free:true},
+];
+
+const TAG_LABELS={vocab:"Vocabulaire",gram:"Grammaire",exo:"Exercices",style:"Style"};
+const downloads=JSON.parse(localStorage.getItem("fle_dl")||"{}");
+
+function renderGrid(groupFilter){
+  const grid=document.getElementById("fiches-grid");
+  grid.innerHTML="";
+  FICHES.filter(f=>groupFilter==="all"||f.group===groupFilter).forEach((f,i)=>{
+    const downloaded=!!downloads[f.file];
+    const card=document.createElement("div");
+    card.className="fiche-card";
+    card.innerHTML=`
+      <div class="fiche-header ${f.group}">
+        <span class="fiche-level-badge">${f.level}</span>
+        ${f.unit?`<span class="lecon-unit-badge">${f.unit}</span>`:''}
+        <div class="fiche-title">${f.title}</div>
+        <div class="fiche-sub">${f.sub}</div>
+      </div>
+      <div class="fiche-body">
+        <div class="fiche-tags">${f.tags.map(t=>`<span class="tag ${t}">${TAG_LABELS[t]}</span>`).join("")}</div>
+        <div class="fiche-desc">${f.desc}</div>
+      </div>
+      <div class="fiche-footer">
+        ${f.free
+          ? `<a class="btn-dl ${f.group}" href="${f.file}" download onclick="trackDL('${f.file}')">
+               ${downloaded?"✅ Téléchargée":"⬇️ Télécharger"} (gratuit)
+             </a>`
+          : `<button class="btn-lock" onclick="document.getElementById('modal-ov').classList.add('open')">🔒 Abonnement requis</button>
+             <a class="btn-dl ${f.group}" href="tarifs.html" style="text-decoration:none">Débloquer →</a>`
+        }
+      </div>`;
+    grid.appendChild(card);
+  });
+  updateProgress();
+}
+
+function filter(g,btn){
+  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  renderGrid(g);
+}
+
+function trackDL(file){
+  downloads[file]=Date.now();
+  localStorage.setItem("fle_dl",JSON.stringify(downloads));
+  setTimeout(updateProgress,200);
+}
+
+function updateProgress(){
+  // Groupes fiches par niveau
+  const levels=["A1","A2","B1","B2","C1","C2"];
+  const counts={};
+  levels.forEach(g=>{counts[g]={total:0,done:0,grp:g[0]}});
+  // Groupe leçons
+  counts["Leçons"]={total:0,done:0,grp:"L"};
+  FICHES.forEach(f=>{
+    const key=f.group==="L"?"Leçons":f.level;
+    if(counts[key]){
+      counts[key].total++;
+      if(downloads[f.file]) counts[key].done++;
+    }
+  });
+  const anyDone=Object.values(downloads).length>0;
+  document.getElementById("prog-section").style.display=anyDone?"block":"none";
+  const bars=document.getElementById("level-bars");
+  bars.innerHTML=[...levels,"Leçons"].map(g=>{
+    const c=counts[g];
+    const pct=c.total>0?Math.round(c.done/c.total*100):0;
+    return `<div class="level-bar-item">
+      <div class="lbl">${g}</div>
+      <div class="bar-track"><div class="bar-fill ${c.grp}" style="width:${pct}%"></div></div>
+      <div class="bar-count">${c.done}/${c.total}</div>
+    </div>`;
+  }).join("");
+}
+
+function closeModal(e){if(e.target.id==="modal-ov")e.target.classList.remove("open")}
+
+renderGrid("all");
+</script>
+</body>
+</html>
