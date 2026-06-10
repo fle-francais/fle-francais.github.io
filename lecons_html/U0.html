@@ -74,7 +74,7 @@ a{color:var(--blue);text-decoration:none}
 /* JOURS */
 .jours-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-bottom:14px}
 .jour-card{border-radius:10px;padding:12px 10px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .18s;user-select:none}
-.jour-card:hover,.jour-card.active{transform:scale(1.05)}
+.jour-card:hover{transform:scale(1.05);filter:brightness(1.12)}
 .jour-fr{font-weight:800;font-size:.95rem}
 .jour-zh{font-size:.78rem;margin-top:4px}
 .jour-abbr{font-size:.68rem;color:var(--muted);margin-top:2px;font-style:italic}
@@ -86,12 +86,11 @@ a{color:var(--blue);text-decoration:none}
 .j4{background:#fef5e7;}.j4 .jour-fr{color:#e67e22}
 .j5{background:#ebf5fb;}.j5 .jour-fr{color:#2980b9}
 .j6{background:#fef5e7;border:2px solid #e74c3c;}.j6 .jour-fr{color:#e74c3c}
-.jour-card.active{border-color:#2c3e50 !important}
 
 /* MOIS */
 .mois-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-bottom:14px}
 .mois-card{border-radius:10px;padding:12px 10px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .18s;user-select:none}
-.mois-card:hover,.mois-card.active{transform:scale(1.05);border-color:rgba(0,0,0,.15)!important}
+.mois-card:hover{transform:scale(1.05);filter:brightness(1.12)}
 .mois-fr{font-weight:800;font-size:.95rem}
 .mois-zh{font-size:.75rem;margin-top:3px}
 .mois-saison{font-size:.65rem;margin-top:4px;padding:2px 6px;border-radius:8px;font-weight:700;display:inline-block}
@@ -137,9 +136,6 @@ a{color:var(--blue);text-decoration:none}
 
 .speak-btn{display:none}
 .alpha-detail-speak{display:inline-block;margin-top:10px}
-/* Hover couleur sur jours et mois */
-.jour-card:hover,.jour-card.active{transform:scale(1.05);filter:brightness(.92)}
-.mois-card:hover,.mois-card.active{transform:scale(1.05);filter:brightness(.92)}
 
 /* FLOATING BUTTONS */
 .float-btns{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:200}
@@ -588,7 +584,6 @@ const MOIS = [
     card.onclick = ()=>{
       const zh = card.querySelector('.jour-zh');
       zh.style.display = zh.style.display === 'none' ? 'block' : 'none';
-      card.classList.toggle('active');
       speak(j.fr);
     };
     grid.appendChild(card);
@@ -614,7 +609,6 @@ const MOIS = [
     card.onclick = ()=>{
       const zh = card.querySelector('.mois-zh');
       zh.style.display = zh.style.display === 'none' ? 'block' : 'none';
-      card.classList.toggle('active');
       speak(m.fr);
     };
     grid.appendChild(card);
