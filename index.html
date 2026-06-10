@@ -1258,13 +1258,17 @@ function switchTab(level, tab) {
 function speak(text){
   if(!window.speechSynthesis) return;
   speechSynthesis.cancel();
-  // Replace → with pause, / with pause, so "l'Allemagne → allemand/allemande" becomes "l'Allemagne, allemand, allemande"
-  var t = text.replace(/\s*→\s*/g, ', ').replace(/\s*\/\s*/g, ', ').trim();
-  var u = new SpeechSynthesisUtterance(t);
-  u.lang = 'fr-FR';
-  u.rate = 0.75;
-  // Delay after cancel() to prevent clipping at the start
-  setTimeout(function(){ speechSynthesis.speak(u); }, 150);
+  // Split "la France → français/française" into ["la France","français","française"]
+  // Each part is spoken as a separate utterance — browser queues them with natural pauses
+  var parts = text.split(/\s*[→\/]\s*/).map(function(s){ return s.trim(); }).filter(Boolean);
+  setTimeout(function(){
+    parts.forEach(function(part){
+      var u = new SpeechSynthesisUtterance(part);
+      u.lang = 'fr-FR';
+      u.rate = 0.75;
+      speechSynthesis.speak(u);
+    });
+  }, 150);
 }
 
 // ── VOCAB ──
