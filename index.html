@@ -1441,18 +1441,96 @@ function updateAllProgress() {
 
 // ── TEST DE NIVEAU ──
 const testQuestions = [
-  { q: 'Comment dit-on « My name is Paul » ?', opts: ['Je suis Paul', 'Je m\'appelle Paul', 'Mon nom est Paul', 'J\'ai Paul'], ans: 1, level: 'A1' },
-  { q: 'Complétez : « Elle ___ étudiante. »', opts: ['suis', 'es', 'est', 'sommes'], ans: 2, level: 'A1' },
-  { q: 'Quel article utilise-t-on avec « chat » (masculin) ?', opts: ['la', 'le', 'les', 'l\''], ans: 1, level: 'A1' },
-  { q: 'Quelle heure est-il si on dit « Il est midi » ?', opts: ['00h00', '12h00', '24h00', '21h00'], ans: 1, level: 'A2' },
-  { q: 'Choisissez le passé composé correct de « aller » pour « elle » :', opts: ['elle a allé', 'elle est allée', 'elle a allée', 'elle est allé'], ans: 1, level: 'A2' },
-  { q: '« Hier, je ___ au marché. » — Passé composé de « aller » pour « je » :', opts: ['suis allé', 'ai allé', 'allais', 'allai'], ans: 0, level: 'A2' },
-  { q: '« Quand il était enfant, il ___ beaucoup. » — Quel temps ?', opts: ['Passé composé : a joué', 'Imparfait : jouait', 'Futur : jouera', 'Présent : joue'], ans: 1, level: 'B1' },
-  { q: 'Quel connecteur logique exprime une cause ?', opts: ['cependant', 'donc', 'parce que', 'bien que'], ans: 2, level: 'B1' },
-  { q: 'Complétez avec le subjonctif : « Il faut que nous ___ (partir). »', opts: ['partions', 'partons', 'partions', 'partirons'], ans: 0, level: 'B2' },
-  { q: 'Quelle phrase exprime une concession ?', opts: ['Il fait beau, alors je sors.', 'Bien qu\'il pleuve, il est sorti.', 'Il pleut, donc je reste.', 'Il fait beau et je sors.'], ans: 1, level: 'B2' },
-  { q: 'Quel terme littéraire désigne un récit à la première personne ?', opts: ['épopée', 'roman autobiographique', 'haïku', 'pamphlet'], ans: 1, level: 'C1' },
-  { q: 'Quelle figure de style consiste à atténuer une réalité pour mieux la faire ressentir ? (Ex : « Ce n\'est pas mauvais » pour dire « c\'est très bon »)', opts: ['Une hyperbole', 'Une litote', 'Une métaphore', 'Une antithèse'], ans: 1, level: 'C2' },
+  // ── A1 (4 questions) ──────────────────────────────────────────────
+  { q: 'Complétez : « Je ___ français. »',
+    opts: ['suis', 'es', 'est', 'sommes'], ans: 0, level: 'A1' },
+
+  { q: 'Quel article utilise-t-on devant « appartement » ?',
+    opts: ['la', 'un', 'une', 'de'], ans: 1, level: 'A1' },
+
+  { q: 'Complétez : « Tu ___ un frère ? »',
+    opts: ['est', 'as', 'es', 'ont'], ans: 1, level: 'A1' },
+
+  { q: 'Quelle phrase sert à se présenter ?',
+    opts: ['Au revoir !', 'Je m\'appelle Sofia.', 'Bonne nuit.', 'S\'il vous plaît.'], ans: 1, level: 'A1' },
+
+  // ── A2 (4 questions) ──────────────────────────────────────────────
+  { q: 'Passé composé de « partir » pour « elle » ?',
+    opts: ['elle a parti', 'elle est partie', 'elle a parté', 'elle est parti'], ans: 1, level: 'A2' },
+
+  { q: 'Complétez : « Hier, nous ___ au restaurant. » (manger)',
+    opts: ['mangeons', 'avons mangé', 'mangions', 'mangerons'], ans: 1, level: 'A2' },
+
+  { q: 'Quelle(s) question(s) est/sont correcte(s) ?',
+    opts: ['Tu habites où ?', 'Où tu habites ?', 'Où habites-tu ?', 'Les trois sont correctes'], ans: 3, level: 'A2' },
+
+  { q: 'Accordez l\'adjectif : « Elle est très ___ » (beau)',
+    opts: ['beau', 'beaux', 'belle', 'belles'], ans: 2, level: 'A2' },
+
+  // ── B1 (4 questions) ──────────────────────────────────────────────
+  { q: '« Quand j\'étais enfant, je ___ beaucoup au foot. » — Quel temps ?',
+    opts: ['Passé composé : j\'ai beaucoup joué', 'Imparfait : je jouais', 'Futur : je jouerai', 'Conditionnel : je jouerais'], ans: 1, level: 'B1' },
+
+  { q: 'Complétez avec le subjonctif : « Il faut que tu ___ maintenant. » (partir)',
+    opts: ['pars', 'partes', 'partiras', 'partir'], ans: 1, level: 'B1' },
+
+  { q: 'Quel pronom remplace « à ses parents » dans : « Elle téléphone à ses parents. » ?',
+    opts: ['les', 'leur', 'y', 'en'], ans: 1, level: 'B1' },
+
+  { q: 'Quel connecteur logique exprime une conséquence ?',
+    opts: ['pourtant', 'donc', 'bien que', 'puisque'], ans: 1, level: 'B1' },
+
+  // ── B2 (4 questions) ──────────────────────────────────────────────
+  { q: 'Transformez à la voix passive : « Le jury a sélectionné trois candidats. »',
+    opts: [
+      'Trois candidats ont été sélectionnés par le jury.',
+      'Le jury a été sélectionné par trois candidats.',
+      'Trois candidats ont sélectionné le jury.',
+      'Le jury sélectionne trois candidats.'
+    ], ans: 0, level: 'B2' },
+
+  { q: 'Complétez avec le bon mode : « Bien qu\'il ___ fatigué, il a continué. »',
+    opts: ['soit', 'est', 'était', 'serait'], ans: 0, level: 'B2' },
+
+  { q: 'Quelle phrase exprime une hypothèse irréelle au présent ?',
+    opts: [
+      'Si j\'ai le temps, je viendrai.',
+      'Si j\'avais le temps, je viendrais.',
+      'Si j\'avais eu le temps, je serais venu.',
+      'Quand j\'aurai le temps, je viendrai.'
+    ], ans: 1, level: 'B2' },
+
+  { q: 'Quel mot est le plus proche de « laconique » ?',
+    opts: ['bavard', 'bref', 'poli', 'sévère'], ans: 1, level: 'B2' },
+
+  // ── C1 (2 questions) ──────────────────────────────────────────────
+  { q: 'Mettez au discours indirect : Il a dit : « Je viendrai demain. »',
+    opts: [
+      'Il a dit qu\'il viendra demain.',
+      'Il a dit qu\'il viendrait le lendemain.',
+      'Il a dit qu\'il est venu le lendemain.',
+      'Il a dit qu\'il venait demain.'
+    ], ans: 1, level: 'C1' },
+
+  { q: 'Quelle tournure appartient au registre soutenu ?',
+    opts: [
+      'C\'est pas possible.',
+      'Il n\'est point question de cela.',
+      'T\'as compris ou pas ?',
+      'On y va maintenant.'
+    ], ans: 1, level: 'C1' },
+
+  // ── C2 (2 questions) ──────────────────────────────────────────────
+  { q: '« Cette salle peut accueillir quelques personnes. » — Cette litote signifie en réalité :',
+    opts: [
+      'La salle est vide.',
+      'La salle accueille très peu de monde.',
+      'La salle est immense et peut accueillir beaucoup de monde.',
+      'La salle est petite et inconfortable.'
+    ], ans: 2, level: 'C2' },
+
+  { q: 'Quelle figure de style consiste à atténuer une idée pour mieux la faire ressentir ? Ex : « Ce n\'est pas mal » pour « c\'est excellent ».',
+    opts: ['Une hyperbole', 'Une litote', 'Une métaphore', 'Une antithèse'], ans: 1, level: 'C2' },
 ];
 
 let testAnswers = [];
@@ -1580,7 +1658,7 @@ const I18N = {
     back_btn: '← Retour à l\'accueil',
     nav_test: 'Test de niveau',
     test_title: 'Test de positionnement',
-    test_sub: '12 questions · 5 minutes · Résultat immédiat',
+    test_sub: '20 questions · 8 minutes · Résultat immédiat',
     question_counter: 'Question {n} / {total}',
     result_level: 'Votre niveau estimé : {level}',
     result_score: 'Score : {correct} / {total} bonnes réponses',
@@ -1666,7 +1744,7 @@ const I18N = {
     back_btn: '← 返回首页',
     nav_test: '级别测试',
     test_title: '分级测试',
-    test_sub: '12题 · 5分钟 · 即时结果',
+    test_sub: '20题 · 8分钟 · 即时结果',
     question_counter: '第{n}题，共{total}题',
     result_level: '您的估计级别：{level}',
     result_score: '成绩：{correct}/{total}题正确',
