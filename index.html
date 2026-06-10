@@ -115,6 +115,30 @@
   .score-text h4 { font-size: 1rem; font-weight: 700; }
   .score-text p { font-size: .85rem; color: var(--muted); }
 
+  
+  /* ── NOUVEAUX EXERCICES A1 ── */
+  .ex-section { background: var(--card); border-radius: var(--radius); padding: 22px; margin-bottom: 16px; box-shadow: var(--shadow); }
+  .ex-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; gap: 10px; }
+  .ex-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+  .ex-badge { font-size: .72rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: var(--b-light); color: var(--b-color); white-space: nowrap; }
+  .ex-question { font-size: .95rem; margin-bottom: 14px; color: var(--text); line-height: 1.5; }
+  .opt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; margin-bottom: 12px; }
+  .opt-btn { padding: 10px 14px; border: 2px solid #e0e0e0; border-radius: 10px; background: #fff; cursor: pointer; font-size: .88rem; font-weight: 600; transition: all .2s; text-align: left; }
+  .opt-btn:hover:not(:disabled) { border-color: var(--b-color); background: var(--b-light); }
+  .opt-btn:disabled { cursor: default; }
+  .opt-btn.correct { border-color: var(--a-color); background: var(--a-light); color: var(--a-color); }
+  .opt-btn.wrong   { border-color: #e74c3c; background: #fdedec; color: #e74c3c; }
+  .blank-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .blank-sentence { font-size: .93rem; color: var(--text); flex-shrink: 0; }
+  .blank-input { border: none; border-bottom: 2px solid var(--b-color); width: 100px; text-align: center; font-size: .93rem; padding: 2px 6px; background: transparent; color: var(--text); outline: none; }
+  .blank-input:focus { border-bottom-color: var(--b-color); }
+  .check-btn { padding: 4px 12px; border-radius: 20px; border: 2px solid var(--b-color); background: none; color: var(--b-color); cursor: pointer; font-weight: 700; font-size: .85rem; transition: all .15s; }
+  .check-btn:hover { background: var(--b-color); color: #fff; }
+  .ex-feedback { margin-top: 10px; font-size: .87rem; font-weight: 600; color: var(--muted); }
+  .ex-feedback.ok { color: var(--a-color); }
+  .ex-feedback.ko { color: #e74c3c; }
+  .ex-feedback.inline { margin-top: 0; display: inline; }
+
   /* ── PLACEMENT TEST ── */
   #test-page { display: none; }
   .test-container { max-width: 700px; margin: 40px auto; padding: 0 20px; }
@@ -1732,6 +1756,68 @@ function showTestResult() {
   const detected = ['fr','en','zh','es'].includes(browserLang) ? browserLang : 'fr';
   setLang(saved || detected);
 })();
+
+// ── EXERCICES A1 : nouvelles signatures ──
+function checkQCM(btnOrId, optIdxOrEl, correctIdxOrBool, containerId) {
+  // Nouvelle signature : checkQCM(btn, optIndex, correctIndex, containerId)
+  if (typeof btnOrId === 'object' && containerId !== undefined) {
+    var btn = btnOrId;
+    var optIdx = optIdxOrEl;
+    var correctIdx = correctIdxOrBool;
+    var container = document.getElementById(containerId);
+    if (!container || container.dataset.done) return;
+    container.dataset.done = '1';
+    var allBtns = container.querySelectorAll('.opt-btn');
+    allBtns.forEach(function(b){ b.disabled = true; });
+    var fb = document.getElementById('fb-' + containerId);
+    if (optIdx === correctIdx) {
+      btn.classList.add('correct');
+      if (fb){ fb.textContent = '✅ Bravo !'; fb.className = 'ex-feedback ok'; }
+    } else {
+      btn.classList.add('wrong');
+      if (allBtns[correctIdx]) allBtns[correctIdx].classList.add('correct');
+      if (fb){ fb.textContent = '❌ La bonne réponse est surlignée en vert.'; fb.className = 'ex-feedback ko'; }
+    }
+    return;
+  }
+  // Ancienne signature : checkQCM(id, el, correct)
+  var id = btnOrId, el = optIdxOrEl, correct = correctIdxOrBool;
+  var opts = document.getElementById('opts-' + id);
+  if (opts && opts.dataset.done) return;
+  if (opts) opts.dataset.done = '1';
+  var fb2 = document.getElementById('fb-' + id);
+  if (correct) {
+    el.classList.add('correct');
+    if (fb2){ fb2.textContent = '✅ Bravo ! Bonne réponse.'; fb2.className = 'feedback show ok'; }
+  } else {
+    el.classList.add('wrong');
+    if (opts) opts.querySelectorAll('.qcm-option').forEach(function(o){
+      var fn = o.getAttribute('onclick');
+      if (fn && fn.includes('true')) o.classList.add('reveal');
+    });
+    if (fb2){ fb2.textContent = '❌ Pas tout à fait. La bonne réponse est surlignée.'; fb2.className = 'feedback show ko'; }
+  }
+}
+
+function checkBlank(inputId, answer, feedbackId) {
+  var inp = document.getElementById(inputId);
+  var fb = document.getElementById(feedbackId);
+  if (!inp) return;
+  var val = inp.value.trim().toLowerCase();
+  // Accepter les réponses multiples séparées par " / "
+  var answers = answer.toLowerCase().split(' / ');
+  var ok = answers.some(function(a){ return val === a.trim(); });
+  if (ok) {
+    inp.style.borderBottomColor = 'var(--a-color)';
+    inp.style.color = 'var(--a-color)';
+    if (fb){ fb.textContent = '✅'; fb.className = 'ex-feedback inline ok'; }
+  } else {
+    inp.style.borderBottomColor = '#e74c3c';
+    inp.style.color = '#e74c3c';
+    if (fb){ fb.textContent = '❌ → ' + answer; fb.className = 'ex-feedback inline ko'; }
+  }
+}
+
 </script>
 </body>
 </html>
