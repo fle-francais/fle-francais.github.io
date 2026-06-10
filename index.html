@@ -1799,6 +1799,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // ── NUMBER TABLE TTS ──
+  document.querySelectorAll('.rule-subtitle').forEach(function(sub) {
+    if(sub.textContent.indexOf('nombres') !== -1) {
+      sub.closest('.rule-box').querySelectorAll('td').forEach(function(td) {
+        var text = td.textContent.trim();
+        if(text && isNaN(text.replace(/\s/g,''))) {
+          td.style.cursor = 'pointer';
+          td.title = '🔊 Cliquer pour écouter';
+          td.addEventListener('mouseenter', function(){ td.style.background='#eaf4fb'; });
+          td.addEventListener('mouseleave', function(){ td.style.background=''; });
+          td.addEventListener('click', function(){ speak(text); });
+        }
+      });
+    }
+  });
+
   // ── GRAMMAR COLLAPSIBLE ──
   document.querySelectorAll('.rule-subtitle').forEach(function(sub) {
     var box = sub.parentNode;
