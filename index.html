@@ -1912,13 +1912,13 @@ function showTestResult() {
   `;
 }
 
-// Auto-detect language on load
-(function() {
+// Auto-detect language on load — après parsing complet du DOM
+document.addEventListener('DOMContentLoaded', function() {
   const saved = localStorage.getItem('fle_lang');
   const browserLang = (navigator.language || 'fr').slice(0,2).toLowerCase();
   const detected = ['fr','zh'].includes(browserLang) ? browserLang : 'fr';
   setLang(saved || detected);
-})();
+});
 
 // ── EXERCICES A1 : nouvelles signatures ──
 function checkQCM(btnOrId, optIdxOrEl, correctIdxOrBool, containerId) {
