@@ -1260,13 +1260,35 @@ function showLevel(lvl) {
 // ── TABS ──
 function switchTab(level, tab) {
   const container = document.getElementById('level-' + level);
-  container.querySelectorAll('.tab').forEach((t,i) => {
+
+  // Lire l'unité active dans l'onglet courant avant de changer
+  var activeNum = null;
+  var currentContent = container.querySelector('.tab-content.active');
+  if (currentContent) {
+    var activeUnitBtn = currentContent.querySelector('.unit-nav-btn.active');
+    if (activeUnitBtn) {
+      var m = activeUnitBtn.getAttribute('onclick').match(/,\s*(\d+)\s*\)/);
+      if (m) activeNum = parseInt(m[1]);
+    }
+  }
+
+  // Basculer les onglets
+  container.querySelectorAll('.tab').forEach(function(t) {
     const id = t.getAttribute('onclick').match(/'([^']+)'\)/)[1];
     t.classList.toggle('active', id === tab);
   });
-  container.querySelectorAll('.tab-content').forEach(tc => {
+  container.querySelectorAll('.tab-content').forEach(function(tc) {
     tc.classList.toggle('active', tc.id === 'tab-' + level + '-' + tab);
   });
+
+  // Synchroniser l'unité dans le nouvel onglet
+  if (activeNum !== null) {
+    var newContent = document.getElementById('tab-' + level + '-' + tab);
+    if (newContent) {
+      var syncBtn = newContent.querySelector('.unit-nav-btn[onclick*=",' + activeNum + ')"]');
+      if (syncBtn) showUnit(syncBtn, level + '-' + tab, activeNum);
+    }
+  }
 }
 
 // ── UNIT NAVIGATION (vocab / grammaire / exercices) ──
