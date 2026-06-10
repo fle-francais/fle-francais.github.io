@@ -423,7 +423,7 @@ function checkMatch(btn, word, chosen, correct, groupId) {
   });
 }
 
-/* ── MODALS ── */
+// ── MODALS ──
 function openModal(id) {
   document.getElementById(id).classList.add('open');
   document.querySelector('.fle-modal-overlay').classList.add('open');
@@ -459,10 +459,10 @@ function submitForm(e, formId, modalId) {
       if (s) s.style.display = 'block';
       setTimeout(function(){ closeModal(modalId); if(s) s.style.display='none'; btn.disabled=false; btn.textContent=formId==='form-bug'?'Envoyer le signalement':'Envoyer la question'; }, 2500);
     } else {
-      alert('Erreur lors de l'envoi. Veuillez réessayer.'); btn.disabled=false; btn.textContent=formId==='form-bug'?'Envoyer le signalement':'Envoyer la question';
+      alert("Erreur lors de l'envoi. Veuillez réessayer."); btn.disabled=false; btn.textContent=formId==='form-bug'?'Envoyer le signalement':'Envoyer la question';
     }
   })
-  .catch(function(){ alert('Erreur réseau. Veuillez réessayer.'); btn.disabled=false; });
+  .catch(function(){ alert("Erreur réseau. Veuillez réessayer."); btn.disabled=false; });
 }
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAllModals(); });
 </script>

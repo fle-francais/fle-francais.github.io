@@ -1713,5 +1713,141 @@ function checkBlank(inputId, answer, feedbackId) {
 }
 
 </script>
+
+<!-- ── Boutons flottants contact ── -->
+<style>
+.float-btns{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:200}
+.float-btn{border:none;border-radius:24px;padding:10px 18px;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s;white-space:nowrap}
+.float-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.22)}
+.btn-bug{background:#fff0f0;color:#c0392b;border:2px solid #e74c3c}
+.btn-ask{background:#eaf4fb;color:#2980b9;border:2px solid #2980b9}
+.fle-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:300;backdrop-filter:blur(2px)}
+.fle-modal-overlay.open{display:block}
+.fle-modal{display:none;position:fixed;inset:0;z-index:400;align-items:center;justify-content:center;padding:16px}
+.fle-modal.open{display:flex}
+.fle-modal-box{background:#fff;border-radius:16px;padding:32px 28px;max-width:500px;width:100%;position:relative;box-shadow:0 8px 40px rgba(0,0,0,.22);max-height:90vh;overflow-y:auto}
+.fle-modal-box h2{font-size:1.2rem;font-weight:800;margin-bottom:6px}
+.modal-sub{font-size:.85rem;color:#7f8c8d;margin-bottom:20px}
+.modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.2rem;cursor:pointer;color:#7f8c8d}
+.fform-group{margin-bottom:16px;display:flex;flex-direction:column;gap:6px}
+.fform-group label{font-size:.85rem;font-weight:700}
+.fform-group .opt{font-weight:400;color:#7f8c8d}
+.fform-group select,.fform-group input,.fform-group textarea{border:2px solid #dfe6e9;border-radius:8px;padding:9px 12px;font-family:inherit;font-size:.9rem;transition:border-color .15s;background:#fafafa}
+.fform-group select:focus,.fform-group input:focus,.fform-group textarea:focus{outline:none;border-color:#2980b9;background:#fff}
+.btn-send{width:100%;padding:12px;border:none;border-radius:10px;background:#2980b9;color:#fff;font-size:1rem;font-weight:700;cursor:pointer;margin-top:4px}
+.btn-send:hover{background:#1a6ea8}
+.form-success{display:none;margin-top:14px;background:#eafaf1;color:#27ae60;border-radius:8px;padding:10px 14px;font-size:.9rem;font-weight:600;text-align:center}
+</style>
+
+<div class="float-btns">
+  <button class="float-btn btn-bug" onclick="openFleModal('fle-modal-bug')" title="Signaler un problème">🐛 Signaler un bug</button>
+  <button class="float-btn btn-ask" onclick="openFleModal('fle-modal-ask')" title="Poser une question">💬 Poser une question</button>
+</div>
+
+<div id="fle-modal-bug" class="fle-modal" role="dialog" aria-modal="true">
+  <div class="fle-modal-box">
+    <button class="modal-close" onclick="closeFleModal('fle-modal-bug')">✕</button>
+    <h2>🐛 Signaler un problème</h2>
+    <p class="modal-sub">Aidez-nous à améliorer le site en signalant tout problème.</p>
+    <form id="idx-form-bug" onsubmit="submitFleForm(event,'idx-form-bug','fle-modal-bug')">
+      <input type="hidden" name="lecon" value="Page d'accueil">
+      <input type="hidden" name="_subject" value="[Bug] Page d'accueil">
+      <div class="fform-group">
+        <label>Section concernée</label>
+        <select name="exercice" required>
+          <option value="">— Choisissez —</option>
+          <option>Test de niveau</option>
+          <option>Vocabulaire A1</option>
+          <option>Grammaire A1</option>
+          <option>Exercices A1</option>
+          <option>Leçons</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="fform-group">
+        <label>Description du problème</label>
+        <textarea name="description" rows="4" placeholder="Décrivez le bug…" required></textarea>
+      </div>
+      <div class="fform-group">
+        <label>Votre prénom <span class="opt">(facultatif)</span></label>
+        <input type="text" name="prenom" placeholder="Ex : Marie">
+      </div>
+      <button type="submit" class="btn-send">Envoyer le signalement</button>
+      <p class="form-success" id="idx-success-bug">✅ Merci ! Votre signalement a bien été envoyé.</p>
+    </form>
+  </div>
+</div>
+
+<div id="fle-modal-ask" class="fle-modal" role="dialog" aria-modal="true">
+  <div class="fle-modal-box">
+    <button class="modal-close" onclick="closeFleModal('fle-modal-ask')">✕</button>
+    <h2>💬 Poser une question</h2>
+    <p class="modal-sub">Votre question sera transmise directement au professeur.</p>
+    <form id="idx-form-ask" onsubmit="submitFleForm(event,'idx-form-ask','fle-modal-ask')">
+      <input type="hidden" name="lecon" value="Page d'accueil">
+      <input type="hidden" name="_subject" value="[Question] Page d'accueil">
+      <div class="fform-group">
+        <label>Sujet de la question</label>
+        <select name="sujet" required>
+          <option value="">— Choisissez —</option>
+          <option value="Grammaire">📖 Grammaire — règle ou structure</option>
+          <option value="Vocabulaire">📝 Vocabulaire — sens ou usage d'un mot</option>
+          <option value="Exercice">✏️ Exercice — correction ou consigne</option>
+          <option value="Prononciation">🎵 Prononciation — son ou accent</option>
+        </select>
+      </div>
+      <div class="fform-group">
+        <label>Votre question</label>
+        <textarea name="question" rows="4" placeholder="Posez votre question ici de façon précise…" required></textarea>
+      </div>
+      <div class="fform-group">
+        <label>Votre prénom <span class="opt">(facultatif)</span></label>
+        <input type="text" name="prenom" placeholder="Ex : Marie">
+      </div>
+      <button type="submit" class="btn-send">Envoyer la question</button>
+      <p class="form-success" id="idx-success-ask">✅ Merci ! Votre question a bien été envoyée au professeur.</p>
+    </form>
+  </div>
+</div>
+<div class="fle-modal-overlay" onclick="closeAllFleModals()"></div>
+
+<script>
+function openFleModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.querySelector('.fle-modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeFleModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.querySelector('.fle-modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeAllFleModals() {
+  document.querySelectorAll('.fle-modal').forEach(function(m){ m.classList.remove('open'); });
+  document.querySelector('.fle-modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function submitFleForm(e, formId, modalId) {
+  e.preventDefault();
+  var form = document.getElementById(formId);
+  var data = new FormData(form);
+  var btn = form.querySelector('.btn-send');
+  btn.disabled = true; btn.textContent = 'Envoi…';
+  fetch('https://formspree.io/f/mvznqaze', {method:'POST', body:data, headers:{'Accept':'application/json'}})
+  .then(function(r) {
+    if (r.ok) {
+      form.reset();
+      var sid = formId.includes('bug') ? 'idx-success-bug' : 'idx-success-ask';
+      var s = document.getElementById(sid);
+      if (s) s.style.display = 'block';
+      setTimeout(function(){ closeFleModal(modalId); if(s) s.style.display='none'; btn.disabled=false; btn.textContent=formId.includes('bug')?'Envoyer le signalement':'Envoyer la question'; }, 2500);
+    } else {
+      alert("Erreur lors de l'envoi. Veuillez réessayer."); btn.disabled=false; btn.textContent=formId.includes('bug')?'Envoyer le signalement':'Envoyer la question';
+    }
+  })
+  .catch(function(){ alert("Erreur réseau. Veuillez réessayer."); btn.disabled=false; });
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAllFleModals(); });
+</script>
 </body>
 </html>
