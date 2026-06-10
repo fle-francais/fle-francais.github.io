@@ -1258,10 +1258,13 @@ function switchTab(level, tab) {
 function speak(text){
   if(!window.speechSynthesis) return;
   speechSynthesis.cancel();
-  var u = new SpeechSynthesisUtterance(text.split('/')[0].trim());
+  // Keep articles + speak both gendered forms (e.g. "français / française" → "français, française")
+  var t = text.replace(/\s*\/\s*/g, ', ').trim();
+  var u = new SpeechSynthesisUtterance(t);
   u.lang = 'fr-FR';
-  u.rate = 0.85;
-  speechSynthesis.speak(u);
+  u.rate = 0.8;
+  // Short delay after cancel() to prevent clipping at the start
+  setTimeout(function(){ speechSynthesis.speak(u); }, 80);
 }
 
 // ── VOCAB ──
