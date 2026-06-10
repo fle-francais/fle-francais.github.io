@@ -90,6 +90,20 @@ a{color:var(--blue);text-decoration:none}
 .fb.ok{color:var(--green)}
 .fb.ko{color:#e74c3c}
 
+/* ── TRANSFORMATION ── */
+.trans-row{margin-bottom:16px;font-size:.93rem}
+.trans-src{font-weight:600;margin-bottom:6px;color:var(--text)}
+.trans-input{width:100%;border:2px solid #ddd;border-radius:8px;padding:8px 12px;font-size:.9rem;font-family:inherit;background:#fff;transition:border-color .15s;outline:none}
+.trans-input:focus{border-color:var(--blue)}
+.trans-input.correct{border-color:var(--green);background:var(--green-l)}
+.trans-input.wrong{border-color:#e74c3c;background:#fdedec}
+.trans-btns{display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap}
+.trans-ans{font-size:.88rem;font-weight:700;color:var(--green);padding:6px 10px;background:var(--green-l);border-radius:6px;display:none}
+.trans-ans.show{display:inline-block}
+.trans-fb{font-size:.85rem;font-weight:700}
+.trans-fb.ok{color:var(--green)}
+.trans-fb.ko{color:#e74c3c}
+
 /* ── MATCHING ── */
 .match-item{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-bottom:8px;align-items:center;font-size:.9rem}
 .match-word{font-weight:700}
@@ -170,11 +184,11 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 1 — Conjuguez AVOIR</div>
 <div class="section-body">
 <div class="ex-inst"></div>
-<div class="blank-row">1. <span>Elle </span><input class="blank-input" id="bl-1B-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex1-0').click()"><button class="check-btn" id="chk-bl-1B-ex1-0" onclick="checkBlank('bl-1B-ex1-0',"a",'fb-bl-1B-ex1-0')">✓</button><span class="fb" id="fb-bl-1B-ex1-0"></span><span> un cours de français le lundi.</span></div>
-<div class="blank-row">2. <span>Nous </span><input class="blank-input" id="bl-1B-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex1-1').click()"><button class="check-btn" id="chk-bl-1B-ex1-1" onclick="checkBlank('bl-1B-ex1-1',"avons",'fb-bl-1B-ex1-1')">✓</button><span class="fb" id="fb-bl-1B-ex1-1"></span><span> un bon professeur.</span></div>
-<div class="blank-row">3. <span>Tu </span><input class="blank-input" id="bl-1B-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex1-2').click()"><button class="check-btn" id="chk-bl-1B-ex1-2" onclick="checkBlank('bl-1B-ex1-2',"as",'fb-bl-1B-ex1-2')">✓</button><span class="fb" id="fb-bl-1B-ex1-2"></span><span> un téléphone avec une appli de traduction ?</span></div>
-<div class="blank-row">4. <span>Ils </span><input class="blank-input" id="bl-1B-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex1-3').click()"><button class="check-btn" id="chk-bl-1B-ex1-3" onclick="checkBlank('bl-1B-ex1-3',"ont",'fb-bl-1B-ex1-3')">✓</button><span class="fb" id="fb-bl-1B-ex1-3"></span><span> des amis français.</span></div>
-<div class="blank-row">5. <span>J'</span><input class="blank-input" id="bl-1B-ex1-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex1-4').click()"><button class="check-btn" id="chk-bl-1B-ex1-4" onclick="checkBlank('bl-1B-ex1-4',"ai",'fb-bl-1B-ex1-4')">✓</button><span class="fb" id="fb-bl-1B-ex1-4"></span><span> beaucoup de travail cette semaine.</span></div>
+<div class="blank-row">1. <span>Elle </span><input class="blank-input" id="bl-1B-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex1-0').click()"><button class="check-btn" id="chk-bl-1B-ex1-0" data-ans="a" onclick="checkBlankData(this,'bl-1B-ex1-0','fb-bl-1B-ex1-0')">✓</button><span class="fb" id="fb-bl-1B-ex1-0"></span><span> un cours de français le lundi.</span></div>
+<div class="blank-row">2. <span>Nous </span><input class="blank-input" id="bl-1B-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex1-1').click()"><button class="check-btn" id="chk-bl-1B-ex1-1" data-ans="avons" onclick="checkBlankData(this,'bl-1B-ex1-1','fb-bl-1B-ex1-1')">✓</button><span class="fb" id="fb-bl-1B-ex1-1"></span><span> un bon professeur.</span></div>
+<div class="blank-row">3. <span>Tu </span><input class="blank-input" id="bl-1B-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex1-2').click()"><button class="check-btn" id="chk-bl-1B-ex1-2" data-ans="as" onclick="checkBlankData(this,'bl-1B-ex1-2','fb-bl-1B-ex1-2')">✓</button><span class="fb" id="fb-bl-1B-ex1-2"></span><span> un téléphone avec une appli de traduction ?</span></div>
+<div class="blank-row">4. <span>Ils </span><input class="blank-input" id="bl-1B-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex1-3').click()"><button class="check-btn" id="chk-bl-1B-ex1-3" data-ans="ont" onclick="checkBlankData(this,'bl-1B-ex1-3','fb-bl-1B-ex1-3')">✓</button><span class="fb" id="fb-bl-1B-ex1-3"></span><span> des amis français.</span></div>
+<div class="blank-row">5. <span>J'</span><input class="blank-input" id="bl-1B-ex1-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex1-4').click()"><button class="check-btn" id="chk-bl-1B-ex1-4" data-ans="ai" onclick="checkBlankData(this,'bl-1B-ex1-4','fb-bl-1B-ex1-4')">✓</button><span class="fb" id="fb-bl-1B-ex1-4"></span><span> beaucoup de travail cette semaine.</span></div>
 
 </div>
 </div><div class="section sec-exercise">
@@ -190,20 +204,52 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 3 — Forme négative</div>
 <div class="section-body">
 <div class="ex-inst">Transformez à la forme négative :</div>
-<div class="blank-row">1. J'ai un dictionnaire. → <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button><span style="display:none;color:var(--green);font-weight:700"> Je n'ai pas de dictionnaire.</span></div>
-<div class="blank-row">2. Elle a des cours le week-end. → <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button><span style="display:none;color:var(--green);font-weight:700"> Elle n'a pas de cours le week-end.</span></div>
-<div class="blank-row">3. Nous avons un professeur francophone. → <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button><span style="display:none;color:var(--green);font-weight:700"> Nous n'avons pas de professeur francophone.</span></div>
-<div class="blank-row">4. Tu as une voiture. → <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button><span style="display:none;color:var(--green);font-weight:700"> Tu n'as pas de voiture.</span></div>
+<div class="trans-row" data-ans="Je n'ai pas de dictionnaire.">
+  <div class="trans-src">1. J'ai un dictionnaire. →</div>
+  <input class="trans-input" id="ts-1B-ex3-0" type="text" placeholder="Écrivez la phrase transformée…" autocomplete="off">
+  <div class="trans-btns">
+    <button class="check-btn" onclick="showTransform(this)">Voir</button>
+    <span class="trans-fb"></span>
+    <span class="trans-ans">Je n'ai pas de dictionnaire.</span>
+  </div>
+</div>
+<div class="trans-row" data-ans="Elle n'a pas de cours le week-end.">
+  <div class="trans-src">2. Elle a des cours le week-end. →</div>
+  <input class="trans-input" id="ts-1B-ex3-1" type="text" placeholder="Écrivez la phrase transformée…" autocomplete="off">
+  <div class="trans-btns">
+    <button class="check-btn" onclick="showTransform(this)">Voir</button>
+    <span class="trans-fb"></span>
+    <span class="trans-ans">Elle n'a pas de cours le week-end.</span>
+  </div>
+</div>
+<div class="trans-row" data-ans="Nous n'avons pas de professeur francophone.">
+  <div class="trans-src">3. Nous avons un professeur francophone. →</div>
+  <input class="trans-input" id="ts-1B-ex3-2" type="text" placeholder="Écrivez la phrase transformée…" autocomplete="off">
+  <div class="trans-btns">
+    <button class="check-btn" onclick="showTransform(this)">Voir</button>
+    <span class="trans-fb"></span>
+    <span class="trans-ans">Nous n'avons pas de professeur francophone.</span>
+  </div>
+</div>
+<div class="trans-row" data-ans="Tu n'as pas de voiture.">
+  <div class="trans-src">4. Tu as une voiture. →</div>
+  <input class="trans-input" id="ts-1B-ex3-3" type="text" placeholder="Écrivez la phrase transformée…" autocomplete="off">
+  <div class="trans-btns">
+    <button class="check-btn" onclick="showTransform(this)">Voir</button>
+    <span class="trans-fb"></span>
+    <span class="trans-ans">Tu n'as pas de voiture.</span>
+  </div>
+</div>
 
 </div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 4 — Vrai ou faux ? (d'après le dialogue)</div>
 <div class="section-body">
 <div class="ex-inst">Répondez V (vrai) ou F (faux) :</div>
-<div class="blank-row">1. <span>Hiroshi parle japonais et mandarin. </span><input class="blank-input" id="bl-1B-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex4-0').click()"><button class="check-btn" id="chk-bl-1B-ex4-0" onclick="checkBlank('bl-1B-ex4-0',"F (il parle japonais et anglais)",'fb-bl-1B-ex4-0')">✓</button><span class="fb" id="fb-bl-1B-ex4-0"></span><span></span></div>
-<div class="blank-row">2. <span>Mei est japonaise. </span><input class="blank-input" id="bl-1B-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex4-1').click()"><button class="check-btn" id="chk-bl-1B-ex4-1" onclick="checkBlank('bl-1B-ex4-1',"F (elle est chinoise)",'fb-bl-1B-ex4-1')">✓</button><span class="fb" id="fb-bl-1B-ex4-1"></span><span></span></div>
-<div class="blank-row">3. <span>Hiroshi habite à Lyon. </span><input class="blank-input" id="bl-1B-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex4-2').click()"><button class="check-btn" id="chk-bl-1B-ex4-2" onclick="checkBlank('bl-1B-ex4-2',"V",'fb-bl-1B-ex4-2')">✓</button><span class="fb" id="fb-bl-1B-ex4-2"></span><span></span></div>
-<div class="blank-row">4. <span>Hiroshi a un cours de conversation le mardi. </span><input class="blank-input" id="bl-1B-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex4-3').click()"><button class="check-btn" id="chk-bl-1B-ex4-3" onclick="checkBlank('bl-1B-ex4-3',"V",'fb-bl-1B-ex4-3')">✓</button><span class="fb" id="fb-bl-1B-ex4-3"></span><span></span></div>
+<div class="blank-row">1. <span>Hiroshi parle japonais et mandarin. </span><input class="blank-input" id="bl-1B-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex4-0').click()"><button class="check-btn" id="chk-bl-1B-ex4-0" data-ans="F (il parle japonais et anglais)" onclick="checkBlankData(this,'bl-1B-ex4-0','fb-bl-1B-ex4-0')">✓</button><span class="fb" id="fb-bl-1B-ex4-0"></span><span></span></div>
+<div class="blank-row">2. <span>Mei est japonaise. </span><input class="blank-input" id="bl-1B-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex4-1').click()"><button class="check-btn" id="chk-bl-1B-ex4-1" data-ans="F (elle est chinoise)" onclick="checkBlankData(this,'bl-1B-ex4-1','fb-bl-1B-ex4-1')">✓</button><span class="fb" id="fb-bl-1B-ex4-1"></span><span></span></div>
+<div class="blank-row">3. <span>Hiroshi habite à Lyon. </span><input class="blank-input" id="bl-1B-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex4-2').click()"><button class="check-btn" id="chk-bl-1B-ex4-2" data-ans="V" onclick="checkBlankData(this,'bl-1B-ex4-2','fb-bl-1B-ex4-2')">✓</button><span class="fb" id="fb-bl-1B-ex4-2"></span><span></span></div>
+<div class="blank-row">4. <span>Hiroshi a un cours de conversation le mardi. </span><input class="blank-input" id="bl-1B-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex4-3').click()"><button class="check-btn" id="chk-bl-1B-ex4-3" data-ans="V" onclick="checkBlankData(this,'bl-1B-ex4-3','fb-bl-1B-ex4-3')">✓</button><span class="fb" id="fb-bl-1B-ex4-3"></span><span></span></div>
 
 </div>
 </div><div class="section sec-comm">
@@ -252,6 +298,26 @@ function checkBlank(inputId, answer, fbId) {
   inp.style.borderBottomColor = ok ? 'var(--green)' : '#e74c3c';
   inp.style.color = ok ? 'var(--green)' : '#e74c3c';
   if (fb) { fb.textContent = ok ? '✅' : '❌ → ' + answer; fb.className = 'fb ' + (ok?'ok':'ko'); }
+}
+function checkBlankData(btn, inputId, fbId) {
+  checkBlank(inputId, btn.dataset.ans, fbId);
+}
+function showTransform(btn) {
+  var row = btn.closest('.trans-row');
+  if (!row) return;
+  var inp = row.querySelector('.trans-input');
+  var ans = row.dataset.ans;
+  var ansEl = row.querySelector('.trans-ans');
+  var fb = row.querySelector('.trans-fb');
+  btn.style.display = 'none';
+  if (ansEl) { ansEl.classList.add('show'); }
+  if (inp && inp.value.trim() && ans) {
+    var val = inp.value.trim().toLowerCase().replace(/\s+/g, ' ');
+    var correct = ans.toLowerCase().replace(/\s+/g, ' ');
+    var isOk = correct.split(' / ').some(function(a){ return val === a.trim(); });
+    inp.classList.add(isOk ? 'correct' : 'wrong');
+    if (fb) { fb.textContent = isOk ? '✅ Correct !' : '❌'; fb.className = 'trans-fb ' + (isOk?'ok':'ko'); }
+  }
 }
 function checkMatch(btn, word, chosen, correct, groupId) {
   var grp = document.getElementById(groupId);

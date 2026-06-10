@@ -90,6 +90,20 @@ a{color:var(--blue);text-decoration:none}
 .fb.ok{color:var(--green)}
 .fb.ko{color:#e74c3c}
 
+/* ── TRANSFORMATION ── */
+.trans-row{margin-bottom:16px;font-size:.93rem}
+.trans-src{font-weight:600;margin-bottom:6px;color:var(--text)}
+.trans-input{width:100%;border:2px solid #ddd;border-radius:8px;padding:8px 12px;font-size:.9rem;font-family:inherit;background:#fff;transition:border-color .15s;outline:none}
+.trans-input:focus{border-color:var(--blue)}
+.trans-input.correct{border-color:var(--green);background:var(--green-l)}
+.trans-input.wrong{border-color:#e74c3c;background:#fdedec}
+.trans-btns{display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap}
+.trans-ans{font-size:.88rem;font-weight:700;color:var(--green);padding:6px 10px;background:var(--green-l);border-radius:6px;display:none}
+.trans-ans.show{display:inline-block}
+.trans-fb{font-size:.85rem;font-weight:700}
+.trans-fb.ok{color:var(--green)}
+.trans-fb.ko{color:#e74c3c}
+
 /* ── MATCHING ── */
 .match-item{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-bottom:8px;align-items:center;font-size:.9rem}
 .match-word{font-weight:700}
@@ -174,10 +188,10 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 1 — Passé récent ou futur proche ?</div>
 <div class="section-body">
 <div class="ex-inst">Transformez selon l'indication :</div>
-<div class="blank-row">1. <span>Il pleut depuis 5 minutes. → Il </span><input class="blank-input" id="bl-9B-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex1-0').click()"><button class="check-btn" id="chk-bl-9B-ex1-0" onclick="checkBlank('bl-9B-ex1-0',"Il vient de pleuvoir.",'fb-bl-9B-ex1-0')">✓</button><span class="fb" id="fb-bl-9B-ex1-0"></span><span> (passé récent)</span></div>
-<div class="blank-row">2. <span>Dans 10 minutes il va neiger. → Il </span><input class="blank-input" id="bl-9B-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex1-1').click()"><button class="check-btn" id="chk-bl-9B-ex1-1" onclick="checkBlank('bl-9B-ex1-1',"Il va neiger.",'fb-bl-9B-ex1-1')">✓</button><span class="fb" id="fb-bl-9B-ex1-1"></span><span> (futur proche)</span></div>
-<div class="blank-row">3. <span>Elle vient d'arriver. → Passé récent ou futur proche ? </span><input class="blank-input" id="bl-9B-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex1-2').click()"><button class="check-btn" id="chk-bl-9B-ex1-2" onclick="checkBlank('bl-9B-ex1-2',"Pass\u00e9 r\u00e9cent.",'fb-bl-9B-ex1-2')">✓</button><span class="fb" id="fb-bl-9B-ex1-2"></span><span></span></div>
-<div class="blank-row">4. <span>Le soleil va briller cet après-midi. → Futur proche ou passé récent ? </span><input class="blank-input" id="bl-9B-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex1-3').click()"><button class="check-btn" id="chk-bl-9B-ex1-3" onclick="checkBlank('bl-9B-ex1-3',"Futur proche.",'fb-bl-9B-ex1-3')">✓</button><span class="fb" id="fb-bl-9B-ex1-3"></span><span></span></div>
+<div class="blank-row">1. <span>Il pleut depuis 5 minutes. → Il </span><input class="blank-input" id="bl-9B-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex1-0').click()"><button class="check-btn" id="chk-bl-9B-ex1-0" data-ans="Il vient de pleuvoir." onclick="checkBlankData(this,'bl-9B-ex1-0','fb-bl-9B-ex1-0')">✓</button><span class="fb" id="fb-bl-9B-ex1-0"></span><span> (passé récent)</span></div>
+<div class="blank-row">2. <span>Dans 10 minutes il va neiger. → Il </span><input class="blank-input" id="bl-9B-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex1-1').click()"><button class="check-btn" id="chk-bl-9B-ex1-1" data-ans="Il va neiger." onclick="checkBlankData(this,'bl-9B-ex1-1','fb-bl-9B-ex1-1')">✓</button><span class="fb" id="fb-bl-9B-ex1-1"></span><span> (futur proche)</span></div>
+<div class="blank-row">3. <span>Elle vient d'arriver. → Passé récent ou futur proche ? </span><input class="blank-input" id="bl-9B-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex1-2').click()"><button class="check-btn" id="chk-bl-9B-ex1-2" data-ans="Passé récent." onclick="checkBlankData(this,'bl-9B-ex1-2','fb-bl-9B-ex1-2')">✓</button><span class="fb" id="fb-bl-9B-ex1-2"></span><span></span></div>
+<div class="blank-row">4. <span>Le soleil va briller cet après-midi. → Futur proche ou passé récent ? </span><input class="blank-input" id="bl-9B-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex1-3').click()"><button class="check-btn" id="chk-bl-9B-ex1-3" data-ans="Futur proche." onclick="checkBlankData(this,'bl-9B-ex1-3','fb-bl-9B-ex1-3')">✓</button><span class="fb" id="fb-bl-9B-ex1-3"></span><span></span></div>
 
 </div>
 </div><div class="section sec-exercise">
@@ -194,21 +208,21 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 3 — Formes négative et interrogative</div>
 <div class="section-body">
 <div class="ex-inst">Transformez les phrases :</div>
-<div class="blank-row">1. <span>Il vient de pleuvoir. → Forme négative : </span><input class="blank-input" id="bl-9B-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex3-0').click()"><button class="check-btn" id="chk-bl-9B-ex3-0" onclick="checkBlank('bl-9B-ex3-0',"Il ne vient pas de pleuvoir.",'fb-bl-9B-ex3-0')">✓</button><span class="fb" id="fb-bl-9B-ex3-0"></span><span></span></div>
-<div class="blank-row">2. <span>Nous venons de manger. → Forme négative : </span><input class="blank-input" id="bl-9B-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex3-1').click()"><button class="check-btn" id="chk-bl-9B-ex3-1" onclick="checkBlank('bl-9B-ex3-1',"Nous ne venons pas de manger.",'fb-bl-9B-ex3-1')">✓</button><span class="fb" id="fb-bl-9B-ex3-1"></span><span></span></div>
-<div class="blank-row">3. <span>Tu viens de finir le travail. → Forme interrogative (est-ce que) : </span><input class="blank-input" id="bl-9B-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex3-2').click()"><button class="check-btn" id="chk-bl-9B-ex3-2" onclick="checkBlank('bl-9B-ex3-2',"Est-ce que tu viens de finir le travail ?",'fb-bl-9B-ex3-2')">✓</button><span class="fb" id="fb-bl-9B-ex3-2"></span><span></span></div>
-<div class="blank-row">4. <span>Il vient de changer, le temps. → Forme interrogative (inversion) : </span><input class="blank-input" id="bl-9B-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex3-3').click()"><button class="check-btn" id="chk-bl-9B-ex3-3" onclick="checkBlank('bl-9B-ex3-3',"Le temps vient-il de changer ?",'fb-bl-9B-ex3-3')">✓</button><span class="fb" id="fb-bl-9B-ex3-3"></span><span></span></div>
+<div class="blank-row">1. <span>Il vient de pleuvoir. → Forme négative : </span><input class="blank-input" id="bl-9B-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex3-0').click()"><button class="check-btn" id="chk-bl-9B-ex3-0" data-ans="Il ne vient pas de pleuvoir." onclick="checkBlankData(this,'bl-9B-ex3-0','fb-bl-9B-ex3-0')">✓</button><span class="fb" id="fb-bl-9B-ex3-0"></span><span></span></div>
+<div class="blank-row">2. <span>Nous venons de manger. → Forme négative : </span><input class="blank-input" id="bl-9B-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex3-1').click()"><button class="check-btn" id="chk-bl-9B-ex3-1" data-ans="Nous ne venons pas de manger." onclick="checkBlankData(this,'bl-9B-ex3-1','fb-bl-9B-ex3-1')">✓</button><span class="fb" id="fb-bl-9B-ex3-1"></span><span></span></div>
+<div class="blank-row">3. <span>Tu viens de finir le travail. → Forme interrogative (est-ce que) : </span><input class="blank-input" id="bl-9B-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex3-2').click()"><button class="check-btn" id="chk-bl-9B-ex3-2" data-ans="Est-ce que tu viens de finir le travail ?" onclick="checkBlankData(this,'bl-9B-ex3-2','fb-bl-9B-ex3-2')">✓</button><span class="fb" id="fb-bl-9B-ex3-2"></span><span></span></div>
+<div class="blank-row">4. <span>Il vient de changer, le temps. → Forme interrogative (inversion) : </span><input class="blank-input" id="bl-9B-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex3-3').click()"><button class="check-btn" id="chk-bl-9B-ex3-3" data-ans="Le temps vient-il de changer ?" onclick="checkBlankData(this,'bl-9B-ex3-3','fb-bl-9B-ex3-3')">✓</button><span class="fb" id="fb-bl-9B-ex3-3"></span><span></span></div>
 
 </div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 4 — Vocabulaire : la météo et les saisons</div>
 <div class="section-body">
 <div class="ex-inst">Complétez avec le mot météo correct : le nuage / le vent / la pluie / le brouillard / la température</div>
-<div class="blank-row">1. <span>En automne, il y a souvent </span><input class="blank-input" id="bl-9B-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex4-0').click()"><button class="check-btn" id="chk-bl-9B-ex4-0" onclick="checkBlank('bl-9B-ex4-0',"des nuages",'fb-bl-9B-ex4-0')">✓</button><span class="fb" id="fb-bl-9B-ex4-0"></span><span> et le ciel est gris.</span></div>
-<div class="blank-row">2. <span>En hiver, </span><input class="blank-input" id="bl-9B-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex4-1').click()"><button class="check-btn" id="chk-bl-9B-ex4-1" onclick="checkBlank('bl-9B-ex4-1',"la temp\u00e9rature",'fb-bl-9B-ex4-1')">✓</button><span class="fb" id="fb-bl-9B-ex4-1"></span><span> peut descendre à -10 degrés.</span></div>
-<div class="blank-row">3. <span>Il y a beaucoup de </span><input class="blank-input" id="bl-9B-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex4-2').click()"><button class="check-btn" id="chk-bl-9B-ex4-2" onclick="checkBlank('bl-9B-ex4-2',"brouillard",'fb-bl-9B-ex4-2')">✓</button><span class="fb" id="fb-bl-9B-ex4-2"></span><span> aujourd'hui, on ne voit pas à 50 mètres.</span></div>
-<div class="blank-row">4. <span></span><input class="blank-input" id="bl-9B-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex4-3').click()"><button class="check-btn" id="chk-bl-9B-ex4-3" onclick="checkBlank('bl-9B-ex4-3',"le vent",'fb-bl-9B-ex4-3')">✓</button><span class="fb" id="fb-bl-9B-ex4-3"></span><span> souffle fort sur la côte. Attention en mer !</span></div>
-<div class="blank-row">5. <span>J'adore marcher sous </span><input class="blank-input" id="bl-9B-ex4-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex4-4').click()"><button class="check-btn" id="chk-bl-9B-ex4-4" onclick="checkBlank('bl-9B-ex4-4',"la pluie",'fb-bl-9B-ex4-4')">✓</button><span class="fb" id="fb-bl-9B-ex4-4"></span><span>, c'est romantique !</span></div>
+<div class="blank-row">1. <span>En automne, il y a souvent </span><input class="blank-input" id="bl-9B-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex4-0').click()"><button class="check-btn" id="chk-bl-9B-ex4-0" data-ans="des nuages" onclick="checkBlankData(this,'bl-9B-ex4-0','fb-bl-9B-ex4-0')">✓</button><span class="fb" id="fb-bl-9B-ex4-0"></span><span> et le ciel est gris.</span></div>
+<div class="blank-row">2. <span>En hiver, </span><input class="blank-input" id="bl-9B-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex4-1').click()"><button class="check-btn" id="chk-bl-9B-ex4-1" data-ans="la température" onclick="checkBlankData(this,'bl-9B-ex4-1','fb-bl-9B-ex4-1')">✓</button><span class="fb" id="fb-bl-9B-ex4-1"></span><span> peut descendre à -10 degrés.</span></div>
+<div class="blank-row">3. <span>Il y a beaucoup de </span><input class="blank-input" id="bl-9B-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex4-2').click()"><button class="check-btn" id="chk-bl-9B-ex4-2" data-ans="brouillard" onclick="checkBlankData(this,'bl-9B-ex4-2','fb-bl-9B-ex4-2')">✓</button><span class="fb" id="fb-bl-9B-ex4-2"></span><span> aujourd'hui, on ne voit pas à 50 mètres.</span></div>
+<div class="blank-row">4. <span></span><input class="blank-input" id="bl-9B-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex4-3').click()"><button class="check-btn" id="chk-bl-9B-ex4-3" data-ans="le vent" onclick="checkBlankData(this,'bl-9B-ex4-3','fb-bl-9B-ex4-3')">✓</button><span class="fb" id="fb-bl-9B-ex4-3"></span><span> souffle fort sur la côte. Attention en mer !</span></div>
+<div class="blank-row">5. <span>J'adore marcher sous </span><input class="blank-input" id="bl-9B-ex4-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex4-4').click()"><button class="check-btn" id="chk-bl-9B-ex4-4" data-ans="la pluie" onclick="checkBlankData(this,'bl-9B-ex4-4','fb-bl-9B-ex4-4')">✓</button><span class="fb" id="fb-bl-9B-ex4-4"></span><span>, c'est romantique !</span></div>
 
 </div>
 </div><div class="section sec-comm">
@@ -258,6 +272,26 @@ function checkBlank(inputId, answer, fbId) {
   inp.style.borderBottomColor = ok ? 'var(--green)' : '#e74c3c';
   inp.style.color = ok ? 'var(--green)' : '#e74c3c';
   if (fb) { fb.textContent = ok ? '✅' : '❌ → ' + answer; fb.className = 'fb ' + (ok?'ok':'ko'); }
+}
+function checkBlankData(btn, inputId, fbId) {
+  checkBlank(inputId, btn.dataset.ans, fbId);
+}
+function showTransform(btn) {
+  var row = btn.closest('.trans-row');
+  if (!row) return;
+  var inp = row.querySelector('.trans-input');
+  var ans = row.dataset.ans;
+  var ansEl = row.querySelector('.trans-ans');
+  var fb = row.querySelector('.trans-fb');
+  btn.style.display = 'none';
+  if (ansEl) { ansEl.classList.add('show'); }
+  if (inp && inp.value.trim() && ans) {
+    var val = inp.value.trim().toLowerCase().replace(/\s+/g, ' ');
+    var correct = ans.toLowerCase().replace(/\s+/g, ' ');
+    var isOk = correct.split(' / ').some(function(a){ return val === a.trim(); });
+    inp.classList.add(isOk ? 'correct' : 'wrong');
+    if (fb) { fb.textContent = isOk ? '✅ Correct !' : '❌'; fb.className = 'trans-fb ' + (isOk?'ok':'ko'); }
+  }
 }
 function checkMatch(btn, word, chosen, correct, groupId) {
   var grp = document.getElementById(groupId);

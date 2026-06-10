@@ -90,6 +90,20 @@ a{color:var(--blue);text-decoration:none}
 .fb.ok{color:var(--green)}
 .fb.ko{color:#e74c3c}
 
+/* ── TRANSFORMATION ── */
+.trans-row{margin-bottom:16px;font-size:.93rem}
+.trans-src{font-weight:600;margin-bottom:6px;color:var(--text)}
+.trans-input{width:100%;border:2px solid #ddd;border-radius:8px;padding:8px 12px;font-size:.9rem;font-family:inherit;background:#fff;transition:border-color .15s;outline:none}
+.trans-input:focus{border-color:var(--blue)}
+.trans-input.correct{border-color:var(--green);background:var(--green-l)}
+.trans-input.wrong{border-color:#e74c3c;background:#fdedec}
+.trans-btns{display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap}
+.trans-ans{font-size:.88rem;font-weight:700;color:var(--green);padding:6px 10px;background:var(--green-l);border-radius:6px;display:none}
+.trans-ans.show{display:inline-block}
+.trans-fb{font-size:.85rem;font-weight:700}
+.trans-fb.ok{color:var(--green)}
+.trans-fb.ko{color:#e74c3c}
+
 /* ── MATCHING ── */
 .match-item{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-bottom:8px;align-items:center;font-size:.9rem}
 .match-word{font-weight:700}
@@ -175,10 +189,42 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 1 — Transformez avec la négation indiquée</div>
 <div class="section-body">
 <div class="ex-inst"></div>
-<div class="blank-row">1. Elle prend la voiture. (ne…plus) → <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button><span style="display:none;color:var(--green);font-weight:700"> Elle ne prend plus la voiture.</span></div>
-<div class="blank-row">2. Il accepte les animaux. (ne…jamais) → <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button><span style="display:none;color:var(--green);font-weight:700"> Il n'accepte jamais les animaux.</span></div>
-<div class="blank-row">3. Vous avez trouvé quelque chose. (ne…rien) → <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button><span style="display:none;color:var(--green);font-weight:700"> Vous n'avez rien trouvé.</span></div>
-<div class="blank-row">4. Quelqu'un répond. (ne…personne) → <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button><span style="display:none;color:var(--green);font-weight:700"> Personne ne répond.</span></div>
+<div class="trans-row" data-ans="Elle ne prend plus la voiture.">
+  <div class="trans-src">1. Elle prend la voiture. (ne…plus) →</div>
+  <input class="trans-input" id="ts-8C-ex1-0" type="text" placeholder="Écrivez la phrase transformée…" autocomplete="off">
+  <div class="trans-btns">
+    <button class="check-btn" onclick="showTransform(this)">Voir</button>
+    <span class="trans-fb"></span>
+    <span class="trans-ans">Elle ne prend plus la voiture.</span>
+  </div>
+</div>
+<div class="trans-row" data-ans="Il n'accepte jamais les animaux.">
+  <div class="trans-src">2. Il accepte les animaux. (ne…jamais) →</div>
+  <input class="trans-input" id="ts-8C-ex1-1" type="text" placeholder="Écrivez la phrase transformée…" autocomplete="off">
+  <div class="trans-btns">
+    <button class="check-btn" onclick="showTransform(this)">Voir</button>
+    <span class="trans-fb"></span>
+    <span class="trans-ans">Il n'accepte jamais les animaux.</span>
+  </div>
+</div>
+<div class="trans-row" data-ans="Vous n'avez rien trouvé.">
+  <div class="trans-src">3. Vous avez trouvé quelque chose. (ne…rien) →</div>
+  <input class="trans-input" id="ts-8C-ex1-2" type="text" placeholder="Écrivez la phrase transformée…" autocomplete="off">
+  <div class="trans-btns">
+    <button class="check-btn" onclick="showTransform(this)">Voir</button>
+    <span class="trans-fb"></span>
+    <span class="trans-ans">Vous n'avez rien trouvé.</span>
+  </div>
+</div>
+<div class="trans-row" data-ans="Personne ne répond.">
+  <div class="trans-src">4. Quelqu'un répond. (ne…personne) →</div>
+  <input class="trans-input" id="ts-8C-ex1-3" type="text" placeholder="Écrivez la phrase transformée…" autocomplete="off">
+  <div class="trans-btns">
+    <button class="check-btn" onclick="showTransform(this)">Voir</button>
+    <span class="trans-fb"></span>
+    <span class="trans-ans">Personne ne répond.</span>
+  </div>
+</div>
 
 </div>
 </div><div class="section sec-exercise">
@@ -191,10 +237,10 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 3 — Choisir la bonne négation</div>
 <div class="section-body">
 <div class="ex-inst">Complétez avec ne…pas, ne…plus, ne…jamais ou ne…rien :</div>
-<div class="blank-row">1. <span>J'habitais à Lyon, mais je </span><input class="blank-input" id="bl-8C-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-0').click()"><button class="check-btn" id="chk-bl-8C-ex3-0" onclick="checkBlank('bl-8C-ex3-0',"n'\u2026plus",'fb-bl-8C-ex3-0')">✓</button><span class="fb" id="fb-bl-8C-ex3-0"></span><span> habite </span><input class="blank-input" id="bl-8C-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-0').click()"><button class="check-btn" id="chk-bl-8C-ex3-0" onclick="checkBlank('bl-8C-ex3-0',"n'\u2026plus",'fb-bl-8C-ex3-0')">✓</button><span class="fb" id="fb-bl-8C-ex3-0"></span><span> là-bas, j'ai déménagé.</span></div>
-<div class="blank-row">2. <span>Ce propriétaire est strict : il </span><input class="blank-input" id="bl-8C-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-1').click()"><button class="check-btn" id="chk-bl-8C-ex3-1" onclick="checkBlank('bl-8C-ex3-1',"n'\u2026jamais",'fb-bl-8C-ex3-1')">✓</button><span class="fb" id="fb-bl-8C-ex3-1"></span><span> accepte </span><input class="blank-input" id="bl-8C-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-1').click()"><button class="check-btn" id="chk-bl-8C-ex3-1" onclick="checkBlank('bl-8C-ex3-1',"n'\u2026jamais",'fb-bl-8C-ex3-1')">✓</button><span class="fb" id="fb-bl-8C-ex3-1"></span><span> les fumeurs.</span></div>
-<div class="blank-row">3. <span>Je </span><input class="blank-input" id="bl-8C-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-2').click()"><button class="check-btn" id="chk-bl-8C-ex3-2" onclick="checkBlank('bl-8C-ex3-2',"n'\u2026rien",'fb-bl-8C-ex3-2')">✓</button><span class="fb" id="fb-bl-8C-ex3-2"></span><span> ai </span><input class="blank-input" id="bl-8C-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-2').click()"><button class="check-btn" id="chk-bl-8C-ex3-2" onclick="checkBlank('bl-8C-ex3-2',"n'\u2026rien",'fb-bl-8C-ex3-2')">✓</button><span class="fb" id="fb-bl-8C-ex3-2"></span><span> trouvé dans mon budget, les appartements sont trop chers.</span></div>
-<div class="blank-row">4. <span>Le quartier est calme : on </span><input class="blank-input" id="bl-8C-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-3').click()"><button class="check-btn" id="chk-bl-8C-ex3-3" onclick="checkBlank('bl-8C-ex3-3',"n'\u2026rien",'fb-bl-8C-ex3-3')">✓</button><span class="fb" id="fb-bl-8C-ex3-3"></span><span> entend </span><input class="blank-input" id="bl-8C-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-3').click()"><button class="check-btn" id="chk-bl-8C-ex3-3" onclick="checkBlank('bl-8C-ex3-3',"n'\u2026rien",'fb-bl-8C-ex3-3')">✓</button><span class="fb" id="fb-bl-8C-ex3-3"></span><span> la nuit.</span></div>
+<div class="blank-row">1. <span>J'habitais à Lyon, mais je </span><input class="blank-input" id="bl-8C-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-0').click()"><button class="check-btn" id="chk-bl-8C-ex3-0" data-ans="n'…plus" onclick="checkBlankData(this,'bl-8C-ex3-0','fb-bl-8C-ex3-0')">✓</button><span class="fb" id="fb-bl-8C-ex3-0"></span><span> habite </span><input class="blank-input" id="bl-8C-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-0').click()"><button class="check-btn" id="chk-bl-8C-ex3-0" data-ans="n'…plus" onclick="checkBlankData(this,'bl-8C-ex3-0','fb-bl-8C-ex3-0')">✓</button><span class="fb" id="fb-bl-8C-ex3-0"></span><span> là-bas, j'ai déménagé.</span></div>
+<div class="blank-row">2. <span>Ce propriétaire est strict : il </span><input class="blank-input" id="bl-8C-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-1').click()"><button class="check-btn" id="chk-bl-8C-ex3-1" data-ans="n'…jamais" onclick="checkBlankData(this,'bl-8C-ex3-1','fb-bl-8C-ex3-1')">✓</button><span class="fb" id="fb-bl-8C-ex3-1"></span><span> accepte </span><input class="blank-input" id="bl-8C-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-1').click()"><button class="check-btn" id="chk-bl-8C-ex3-1" data-ans="n'…jamais" onclick="checkBlankData(this,'bl-8C-ex3-1','fb-bl-8C-ex3-1')">✓</button><span class="fb" id="fb-bl-8C-ex3-1"></span><span> les fumeurs.</span></div>
+<div class="blank-row">3. <span>Je </span><input class="blank-input" id="bl-8C-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-2').click()"><button class="check-btn" id="chk-bl-8C-ex3-2" data-ans="n'…rien" onclick="checkBlankData(this,'bl-8C-ex3-2','fb-bl-8C-ex3-2')">✓</button><span class="fb" id="fb-bl-8C-ex3-2"></span><span> ai </span><input class="blank-input" id="bl-8C-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-2').click()"><button class="check-btn" id="chk-bl-8C-ex3-2" data-ans="n'…rien" onclick="checkBlankData(this,'bl-8C-ex3-2','fb-bl-8C-ex3-2')">✓</button><span class="fb" id="fb-bl-8C-ex3-2"></span><span> trouvé dans mon budget, les appartements sont trop chers.</span></div>
+<div class="blank-row">4. <span>Le quartier est calme : on </span><input class="blank-input" id="bl-8C-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-3').click()"><button class="check-btn" id="chk-bl-8C-ex3-3" data-ans="n'…rien" onclick="checkBlankData(this,'bl-8C-ex3-3','fb-bl-8C-ex3-3')">✓</button><span class="fb" id="fb-bl-8C-ex3-3"></span><span> entend </span><input class="blank-input" id="bl-8C-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-3').click()"><button class="check-btn" id="chk-bl-8C-ex3-3" data-ans="n'…rien" onclick="checkBlankData(this,'bl-8C-ex3-3','fb-bl-8C-ex3-3')">✓</button><span class="fb" id="fb-bl-8C-ex3-3"></span><span> la nuit.</span></div>
 
 </div>
 </div><div class="section sec-exercise">
@@ -255,6 +301,26 @@ function checkBlank(inputId, answer, fbId) {
   inp.style.borderBottomColor = ok ? 'var(--green)' : '#e74c3c';
   inp.style.color = ok ? 'var(--green)' : '#e74c3c';
   if (fb) { fb.textContent = ok ? '✅' : '❌ → ' + answer; fb.className = 'fb ' + (ok?'ok':'ko'); }
+}
+function checkBlankData(btn, inputId, fbId) {
+  checkBlank(inputId, btn.dataset.ans, fbId);
+}
+function showTransform(btn) {
+  var row = btn.closest('.trans-row');
+  if (!row) return;
+  var inp = row.querySelector('.trans-input');
+  var ans = row.dataset.ans;
+  var ansEl = row.querySelector('.trans-ans');
+  var fb = row.querySelector('.trans-fb');
+  btn.style.display = 'none';
+  if (ansEl) { ansEl.classList.add('show'); }
+  if (inp && inp.value.trim() && ans) {
+    var val = inp.value.trim().toLowerCase().replace(/\s+/g, ' ');
+    var correct = ans.toLowerCase().replace(/\s+/g, ' ');
+    var isOk = correct.split(' / ').some(function(a){ return val === a.trim(); });
+    inp.classList.add(isOk ? 'correct' : 'wrong');
+    if (fb) { fb.textContent = isOk ? '✅ Correct !' : '❌'; fb.className = 'trans-fb ' + (isOk?'ok':'ko'); }
+  }
 }
 function checkMatch(btn, word, chosen, correct, groupId) {
   var grp = document.getElementById(groupId);

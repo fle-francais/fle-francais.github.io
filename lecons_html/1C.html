@@ -90,6 +90,20 @@ a{color:var(--blue);text-decoration:none}
 .fb.ok{color:var(--green)}
 .fb.ko{color:#e74c3c}
 
+/* ── TRANSFORMATION ── */
+.trans-row{margin-bottom:16px;font-size:.93rem}
+.trans-src{font-weight:600;margin-bottom:6px;color:var(--text)}
+.trans-input{width:100%;border:2px solid #ddd;border-radius:8px;padding:8px 12px;font-size:.9rem;font-family:inherit;background:#fff;transition:border-color .15s;outline:none}
+.trans-input:focus{border-color:var(--blue)}
+.trans-input.correct{border-color:var(--green);background:var(--green-l)}
+.trans-input.wrong{border-color:#e74c3c;background:#fdedec}
+.trans-btns{display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap}
+.trans-ans{font-size:.88rem;font-weight:700;color:var(--green);padding:6px 10px;background:var(--green-l);border-radius:6px;display:none}
+.trans-ans.show{display:inline-block}
+.trans-fb{font-size:.85rem;font-weight:700}
+.trans-fb.ok{color:var(--green)}
+.trans-fb.ko{color:#e74c3c}
+
 /* ── MATCHING ── */
 .match-item{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-bottom:8px;align-items:center;font-size:.9rem}
 .match-word{font-weight:700}
@@ -169,41 +183,41 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 1 — Accordez les adjectifs de nationalité</div>
 <div class="section-body">
 <div class="ex-inst"></div>
-<div class="blank-row">1. <span>Sofia est </span><input class="blank-input" id="bl-1C-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex1-0').click()"><button class="check-btn" id="chk-bl-1C-ex1-0" onclick="checkBlank('bl-1C-ex1-0',"italienne",'fb-bl-1C-ex1-0')">✓</button><span class="fb" id="fb-bl-1C-ex1-0"></span><span>. (italien)</span></div>
-<div class="blank-row">2. <span>Carlos et Pedro sont </span><input class="blank-input" id="bl-1C-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex1-1').click()"><button class="check-btn" id="chk-bl-1C-ex1-1" onclick="checkBlank('bl-1C-ex1-1',"espagnols",'fb-bl-1C-ex1-1')">✓</button><span class="fb" id="fb-bl-1C-ex1-1"></span><span>. (espagnol)</span></div>
-<div class="blank-row">3. <span>Yuki et Mei sont </span><input class="blank-input" id="bl-1C-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex1-2').click()"><button class="check-btn" id="chk-bl-1C-ex1-2" onclick="checkBlank('bl-1C-ex1-2',"japonaises",'fb-bl-1C-ex1-2')">✓</button><span class="fb" id="fb-bl-1C-ex1-2"></span><span>. (japonais)</span></div>
-<div class="blank-row">4. <span>Emma est </span><input class="blank-input" id="bl-1C-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex1-3').click()"><button class="check-btn" id="chk-bl-1C-ex1-3" onclick="checkBlank('bl-1C-ex1-3',"am\u00e9ricaine",'fb-bl-1C-ex1-3')">✓</button><span class="fb" id="fb-bl-1C-ex1-3"></span><span>. (américain)</span></div>
-<div class="blank-row">5. <span>Pierre est </span><input class="blank-input" id="bl-1C-ex1-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex1-4').click()"><button class="check-btn" id="chk-bl-1C-ex1-4" onclick="checkBlank('bl-1C-ex1-4',"fran\u00e7ais",'fb-bl-1C-ex1-4')">✓</button><span class="fb" id="fb-bl-1C-ex1-4"></span><span>. (français)</span></div>
+<div class="blank-row">1. <span>Sofia est </span><input class="blank-input" id="bl-1C-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex1-0').click()"><button class="check-btn" id="chk-bl-1C-ex1-0" data-ans="italienne" onclick="checkBlankData(this,'bl-1C-ex1-0','fb-bl-1C-ex1-0')">✓</button><span class="fb" id="fb-bl-1C-ex1-0"></span><span>. (italien)</span></div>
+<div class="blank-row">2. <span>Carlos et Pedro sont </span><input class="blank-input" id="bl-1C-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex1-1').click()"><button class="check-btn" id="chk-bl-1C-ex1-1" data-ans="espagnols" onclick="checkBlankData(this,'bl-1C-ex1-1','fb-bl-1C-ex1-1')">✓</button><span class="fb" id="fb-bl-1C-ex1-1"></span><span>. (espagnol)</span></div>
+<div class="blank-row">3. <span>Yuki et Mei sont </span><input class="blank-input" id="bl-1C-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex1-2').click()"><button class="check-btn" id="chk-bl-1C-ex1-2" data-ans="japonaises" onclick="checkBlankData(this,'bl-1C-ex1-2','fb-bl-1C-ex1-2')">✓</button><span class="fb" id="fb-bl-1C-ex1-2"></span><span>. (japonais)</span></div>
+<div class="blank-row">4. <span>Emma est </span><input class="blank-input" id="bl-1C-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex1-3').click()"><button class="check-btn" id="chk-bl-1C-ex1-3" data-ans="américaine" onclick="checkBlankData(this,'bl-1C-ex1-3','fb-bl-1C-ex1-3')">✓</button><span class="fb" id="fb-bl-1C-ex1-3"></span><span>. (américain)</span></div>
+<div class="blank-row">5. <span>Pierre est </span><input class="blank-input" id="bl-1C-ex1-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex1-4').click()"><button class="check-btn" id="chk-bl-1C-ex1-4" data-ans="français" onclick="checkBlankData(this,'bl-1C-ex1-4','fb-bl-1C-ex1-4')">✓</button><span class="fb" id="fb-bl-1C-ex1-4"></span><span>. (français)</span></div>
 
 </div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 2 — Présentez des personnalités</div>
 <div class="section-body">
 <div class="ex-inst">Écrivez la nationalité de ces personnes :</div>
-<div class="blank-row">1. <span>Lionel Messi → Il est </span><input class="blank-input" id="bl-1C-ex2-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex2-0').click()"><button class="check-btn" id="chk-bl-1C-ex2-0" onclick="checkBlank('bl-1C-ex2-0',"argentin",'fb-bl-1C-ex2-0')">✓</button><span class="fb" id="fb-bl-1C-ex2-0"></span><span>.</span></div>
-<div class="blank-row">2. <span>Beyoncé → Elle est </span><input class="blank-input" id="bl-1C-ex2-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex2-1').click()"><button class="check-btn" id="chk-bl-1C-ex2-1" onclick="checkBlank('bl-1C-ex2-1',"am\u00e9ricaine",'fb-bl-1C-ex2-1')">✓</button><span class="fb" id="fb-bl-1C-ex2-1"></span><span>.</span></div>
-<div class="blank-row">3. <span>Emmanuel Macron → Il est </span><input class="blank-input" id="bl-1C-ex2-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex2-2').click()"><button class="check-btn" id="chk-bl-1C-ex2-2" onclick="checkBlank('bl-1C-ex2-2',"fran\u00e7ais",'fb-bl-1C-ex2-2')">✓</button><span class="fb" id="fb-bl-1C-ex2-2"></span><span>.</span></div>
+<div class="blank-row">1. <span>Lionel Messi → Il est </span><input class="blank-input" id="bl-1C-ex2-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex2-0').click()"><button class="check-btn" id="chk-bl-1C-ex2-0" data-ans="argentin" onclick="checkBlankData(this,'bl-1C-ex2-0','fb-bl-1C-ex2-0')">✓</button><span class="fb" id="fb-bl-1C-ex2-0"></span><span>.</span></div>
+<div class="blank-row">2. <span>Beyoncé → Elle est </span><input class="blank-input" id="bl-1C-ex2-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex2-1').click()"><button class="check-btn" id="chk-bl-1C-ex2-1" data-ans="américaine" onclick="checkBlankData(this,'bl-1C-ex2-1','fb-bl-1C-ex2-1')">✓</button><span class="fb" id="fb-bl-1C-ex2-1"></span><span>.</span></div>
+<div class="blank-row">3. <span>Emmanuel Macron → Il est </span><input class="blank-input" id="bl-1C-ex2-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex2-2').click()"><button class="check-btn" id="chk-bl-1C-ex2-2" data-ans="français" onclick="checkBlankData(this,'bl-1C-ex2-2','fb-bl-1C-ex2-2')">✓</button><span class="fb" id="fb-bl-1C-ex2-2"></span><span>.</span></div>
 
 </div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 3 — Questions sur les origines</div>
 <div class="section-body">
 <div class="ex-inst">Posez la question correspondant à la réponse :</div>
-<div class="blank-row">1. <span></span><input class="blank-input" id="bl-1C-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex3-0').click()"><button class="check-btn" id="chk-bl-1C-ex3-0" onclick="checkBlank('bl-1C-ex3-0',"Vous venez d'o\u00f9 ?",'fb-bl-1C-ex3-0')">✓</button><span class="fb" id="fb-bl-1C-ex3-0"></span><span> ? → Je viens de Tokyo.</span></div>
-<div class="blank-row">2. <span></span><input class="blank-input" id="bl-1C-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex3-1').click()"><button class="check-btn" id="chk-bl-1C-ex3-1" onclick="checkBlank('bl-1C-ex3-1',"Vous \u00eates de quelle nationalit\u00e9 ?",'fb-bl-1C-ex3-1')">✓</button><span class="fb" id="fb-bl-1C-ex3-1"></span><span> ? → Je suis brésilienne.</span></div>
-<div class="blank-row">3. <span></span><input class="blank-input" id="bl-1C-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex3-2').click()"><button class="check-btn" id="chk-bl-1C-ex3-2" onclick="checkBlank('bl-1C-ex3-2',"Depuis combien de temps habitez-vous en France ?",'fb-bl-1C-ex3-2')">✓</button><span class="fb" id="fb-bl-1C-ex3-2"></span><span> ? → J'habite en France depuis 3 ans.</span></div>
-<div class="blank-row">4. <span></span><input class="blank-input" id="bl-1C-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex3-3').click()"><button class="check-btn" id="chk-bl-1C-ex3-3" onclick="checkBlank('bl-1C-ex3-3',"Vous \u00eates n\u00e9(e) o\u00f9 ?",'fb-bl-1C-ex3-3')">✓</button><span class="fb" id="fb-bl-1C-ex3-3"></span><span> ? → Je suis né(e) à Shanghai.</span></div>
+<div class="blank-row">1. <span></span><input class="blank-input" id="bl-1C-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex3-0').click()"><button class="check-btn" id="chk-bl-1C-ex3-0" data-ans="Vous venez d'où ?" onclick="checkBlankData(this,'bl-1C-ex3-0','fb-bl-1C-ex3-0')">✓</button><span class="fb" id="fb-bl-1C-ex3-0"></span><span> ? → Je viens de Tokyo.</span></div>
+<div class="blank-row">2. <span></span><input class="blank-input" id="bl-1C-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex3-1').click()"><button class="check-btn" id="chk-bl-1C-ex3-1" data-ans="Vous êtes de quelle nationalité ?" onclick="checkBlankData(this,'bl-1C-ex3-1','fb-bl-1C-ex3-1')">✓</button><span class="fb" id="fb-bl-1C-ex3-1"></span><span> ? → Je suis brésilienne.</span></div>
+<div class="blank-row">3. <span></span><input class="blank-input" id="bl-1C-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex3-2').click()"><button class="check-btn" id="chk-bl-1C-ex3-2" data-ans="Depuis combien de temps habitez-vous en France ?" onclick="checkBlankData(this,'bl-1C-ex3-2','fb-bl-1C-ex3-2')">✓</button><span class="fb" id="fb-bl-1C-ex3-2"></span><span> ? → J'habite en France depuis 3 ans.</span></div>
+<div class="blank-row">4. <span></span><input class="blank-input" id="bl-1C-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex3-3').click()"><button class="check-btn" id="chk-bl-1C-ex3-3" data-ans="Vous êtes né(e) où ?" onclick="checkBlankData(this,'bl-1C-ex3-3','fb-bl-1C-ex3-3')">✓</button><span class="fb" id="fb-bl-1C-ex3-3"></span><span> ? → Je suis né(e) à Shanghai.</span></div>
 
 </div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 4 — Masculin → Féminin</div>
 <div class="section-body">
 <div class="ex-inst">Donnez la forme féminine :</div>
-<div class="blank-row">1. <span>Il est mexicain → Elle est </span><input class="blank-input" id="bl-1C-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex4-0').click()"><button class="check-btn" id="chk-bl-1C-ex4-0" onclick="checkBlank('bl-1C-ex4-0',"mexicaine",'fb-bl-1C-ex4-0')">✓</button><span class="fb" id="fb-bl-1C-ex4-0"></span><span></span></div>
-<div class="blank-row">2. <span>Il est algérien → Elle est </span><input class="blank-input" id="bl-1C-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex4-1').click()"><button class="check-btn" id="chk-bl-1C-ex4-1" onclick="checkBlank('bl-1C-ex4-1',"alg\u00e9rienne",'fb-bl-1C-ex4-1')">✓</button><span class="fb" id="fb-bl-1C-ex4-1"></span><span></span></div>
-<div class="blank-row">3. <span>Il est coréen → Elle est </span><input class="blank-input" id="bl-1C-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex4-2').click()"><button class="check-btn" id="chk-bl-1C-ex4-2" onclick="checkBlank('bl-1C-ex4-2',"cor\u00e9enne",'fb-bl-1C-ex4-2')">✓</button><span class="fb" id="fb-bl-1C-ex4-2"></span><span></span></div>
-<div class="blank-row">4. <span>Il est canadien → Elle est </span><input class="blank-input" id="bl-1C-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex4-3').click()"><button class="check-btn" id="chk-bl-1C-ex4-3" onclick="checkBlank('bl-1C-ex4-3',"canadienne",'fb-bl-1C-ex4-3')">✓</button><span class="fb" id="fb-bl-1C-ex4-3"></span><span></span></div>
-<div class="blank-row">5. <span>Il est marocain → Elle est </span><input class="blank-input" id="bl-1C-ex4-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex4-4').click()"><button class="check-btn" id="chk-bl-1C-ex4-4" onclick="checkBlank('bl-1C-ex4-4',"marocaine",'fb-bl-1C-ex4-4')">✓</button><span class="fb" id="fb-bl-1C-ex4-4"></span><span></span></div>
+<div class="blank-row">1. <span>Il est mexicain → Elle est </span><input class="blank-input" id="bl-1C-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex4-0').click()"><button class="check-btn" id="chk-bl-1C-ex4-0" data-ans="mexicaine" onclick="checkBlankData(this,'bl-1C-ex4-0','fb-bl-1C-ex4-0')">✓</button><span class="fb" id="fb-bl-1C-ex4-0"></span><span></span></div>
+<div class="blank-row">2. <span>Il est algérien → Elle est </span><input class="blank-input" id="bl-1C-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex4-1').click()"><button class="check-btn" id="chk-bl-1C-ex4-1" data-ans="algérienne" onclick="checkBlankData(this,'bl-1C-ex4-1','fb-bl-1C-ex4-1')">✓</button><span class="fb" id="fb-bl-1C-ex4-1"></span><span></span></div>
+<div class="blank-row">3. <span>Il est coréen → Elle est </span><input class="blank-input" id="bl-1C-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex4-2').click()"><button class="check-btn" id="chk-bl-1C-ex4-2" data-ans="coréenne" onclick="checkBlankData(this,'bl-1C-ex4-2','fb-bl-1C-ex4-2')">✓</button><span class="fb" id="fb-bl-1C-ex4-2"></span><span></span></div>
+<div class="blank-row">4. <span>Il est canadien → Elle est </span><input class="blank-input" id="bl-1C-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex4-3').click()"><button class="check-btn" id="chk-bl-1C-ex4-3" data-ans="canadienne" onclick="checkBlankData(this,'bl-1C-ex4-3','fb-bl-1C-ex4-3')">✓</button><span class="fb" id="fb-bl-1C-ex4-3"></span><span></span></div>
+<div class="blank-row">5. <span>Il est marocain → Elle est </span><input class="blank-input" id="bl-1C-ex4-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex4-4').click()"><button class="check-btn" id="chk-bl-1C-ex4-4" data-ans="marocaine" onclick="checkBlankData(this,'bl-1C-ex4-4','fb-bl-1C-ex4-4')">✓</button><span class="fb" id="fb-bl-1C-ex4-4"></span><span></span></div>
 
 </div>
 </div><div class="section sec-comm">
@@ -252,6 +266,26 @@ function checkBlank(inputId, answer, fbId) {
   inp.style.borderBottomColor = ok ? 'var(--green)' : '#e74c3c';
   inp.style.color = ok ? 'var(--green)' : '#e74c3c';
   if (fb) { fb.textContent = ok ? '✅' : '❌ → ' + answer; fb.className = 'fb ' + (ok?'ok':'ko'); }
+}
+function checkBlankData(btn, inputId, fbId) {
+  checkBlank(inputId, btn.dataset.ans, fbId);
+}
+function showTransform(btn) {
+  var row = btn.closest('.trans-row');
+  if (!row) return;
+  var inp = row.querySelector('.trans-input');
+  var ans = row.dataset.ans;
+  var ansEl = row.querySelector('.trans-ans');
+  var fb = row.querySelector('.trans-fb');
+  btn.style.display = 'none';
+  if (ansEl) { ansEl.classList.add('show'); }
+  if (inp && inp.value.trim() && ans) {
+    var val = inp.value.trim().toLowerCase().replace(/\s+/g, ' ');
+    var correct = ans.toLowerCase().replace(/\s+/g, ' ');
+    var isOk = correct.split(' / ').some(function(a){ return val === a.trim(); });
+    inp.classList.add(isOk ? 'correct' : 'wrong');
+    if (fb) { fb.textContent = isOk ? '✅ Correct !' : '❌'; fb.className = 'trans-fb ' + (isOk?'ok':'ko'); }
+  }
 }
 function checkMatch(btn, word, chosen, correct, groupId) {
   var grp = document.getElementById(groupId);

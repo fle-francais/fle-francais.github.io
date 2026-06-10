@@ -90,6 +90,20 @@ a{color:var(--blue);text-decoration:none}
 .fb.ok{color:var(--green)}
 .fb.ko{color:#e74c3c}
 
+/* ── TRANSFORMATION ── */
+.trans-row{margin-bottom:16px;font-size:.93rem}
+.trans-src{font-weight:600;margin-bottom:6px;color:var(--text)}
+.trans-input{width:100%;border:2px solid #ddd;border-radius:8px;padding:8px 12px;font-size:.9rem;font-family:inherit;background:#fff;transition:border-color .15s;outline:none}
+.trans-input:focus{border-color:var(--blue)}
+.trans-input.correct{border-color:var(--green);background:var(--green-l)}
+.trans-input.wrong{border-color:#e74c3c;background:#fdedec}
+.trans-btns{display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap}
+.trans-ans{font-size:.88rem;font-weight:700;color:var(--green);padding:6px 10px;background:var(--green-l);border-radius:6px;display:none}
+.trans-ans.show{display:inline-block}
+.trans-fb{font-size:.85rem;font-weight:700}
+.trans-fb.ok{color:var(--green)}
+.trans-fb.ko{color:#e74c3c}
+
 /* ── MATCHING ── */
 .match-item{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-bottom:8px;align-items:center;font-size:.9rem}
 .match-word{font-weight:700}
@@ -168,40 +182,40 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 1 — Devoir ou pouvoir ?</div>
 <div class="section-body">
 <div class="ex-inst"></div>
-<div class="blank-row">1. <span>Il </span><input class="blank-input" id="bl-8B-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex1-0').click()"><button class="check-btn" id="chk-bl-8B-ex1-0" onclick="checkBlank('bl-8B-ex1-0',"doit",'fb-bl-8B-ex1-0')">✓</button><span class="fb" id="fb-bl-8B-ex1-0"></span><span> partir à 8h pour ne pas rater le train. (obligation)</span></div>
-<div class="blank-row">2. <span>Est-ce que tu </span><input class="blank-input" id="bl-8B-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex1-1').click()"><button class="check-btn" id="chk-bl-8B-ex1-1" onclick="checkBlank('bl-8B-ex1-1',"peux",'fb-bl-8B-ex1-1')">✓</button><span class="fb" id="fb-bl-8B-ex1-1"></span><span> m'aider à porter ces cartons ? (capacité)</span></div>
-<div class="blank-row">3. <span>Vous </span><input class="blank-input" id="bl-8B-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex1-2').click()"><button class="check-btn" id="chk-bl-8B-ex1-2" onclick="checkBlank('bl-8B-ex1-2',"devez",'fb-bl-8B-ex1-2')">✓</button><span class="fb" id="fb-bl-8B-ex1-2"></span><span> réserver à l'avance pour ce restaurant. (obligation)</span></div>
-<div class="blank-row">4. <span>Je ne </span><input class="blank-input" id="bl-8B-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex1-3').click()"><button class="check-btn" id="chk-bl-8B-ex1-3" onclick="checkBlank('bl-8B-ex1-3',"peux (ne peux pas)",'fb-bl-8B-ex1-3')">✓</button><span class="fb" id="fb-bl-8B-ex1-3"></span><span> pas venir samedi, je suis malade. (impossibilité)</span></div>
+<div class="blank-row">1. <span>Il </span><input class="blank-input" id="bl-8B-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex1-0').click()"><button class="check-btn" id="chk-bl-8B-ex1-0" data-ans="doit" onclick="checkBlankData(this,'bl-8B-ex1-0','fb-bl-8B-ex1-0')">✓</button><span class="fb" id="fb-bl-8B-ex1-0"></span><span> partir à 8h pour ne pas rater le train. (obligation)</span></div>
+<div class="blank-row">2. <span>Est-ce que tu </span><input class="blank-input" id="bl-8B-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex1-1').click()"><button class="check-btn" id="chk-bl-8B-ex1-1" data-ans="peux" onclick="checkBlankData(this,'bl-8B-ex1-1','fb-bl-8B-ex1-1')">✓</button><span class="fb" id="fb-bl-8B-ex1-1"></span><span> m'aider à porter ces cartons ? (capacité)</span></div>
+<div class="blank-row">3. <span>Vous </span><input class="blank-input" id="bl-8B-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex1-2').click()"><button class="check-btn" id="chk-bl-8B-ex1-2" data-ans="devez" onclick="checkBlankData(this,'bl-8B-ex1-2','fb-bl-8B-ex1-2')">✓</button><span class="fb" id="fb-bl-8B-ex1-2"></span><span> réserver à l'avance pour ce restaurant. (obligation)</span></div>
+<div class="blank-row">4. <span>Je ne </span><input class="blank-input" id="bl-8B-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex1-3').click()"><button class="check-btn" id="chk-bl-8B-ex1-3" data-ans="peux (ne peux pas)" onclick="checkBlankData(this,'bl-8B-ex1-3','fb-bl-8B-ex1-3')">✓</button><span class="fb" id="fb-bl-8B-ex1-3"></span><span> pas venir samedi, je suis malade. (impossibilité)</span></div>
 
 </div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 2 — Demander un service poliment</div>
 <div class="section-body">
 <div class="ex-inst">Transformez en demande polie :</div>
-<div class="blank-row">1. <span>Aidez-moi. → Tu peux </span><input class="blank-input" id="bl-8B-ex2-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex2-0').click()"><button class="check-btn" id="chk-bl-8B-ex2-0" onclick="checkBlank('bl-8B-ex2-0',"m'aider",'fb-bl-8B-ex2-0')">✓</button><span class="fb" id="fb-bl-8B-ex2-0"></span><span>?</span></div>
-<div class="blank-row">2. <span>Ouvrez la fenêtre. → Est-ce que vous pouvez </span><input class="blank-input" id="bl-8B-ex2-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex2-1').click()"><button class="check-btn" id="chk-bl-8B-ex2-1" onclick="checkBlank('bl-8B-ex2-1',"ouvrir la fen\u00eatre",'fb-bl-8B-ex2-1')">✓</button><span class="fb" id="fb-bl-8B-ex2-1"></span><span> ?</span></div>
-<div class="blank-row">3. <span>Portez ce carton. → Tu pourrais </span><input class="blank-input" id="bl-8B-ex2-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex2-2').click()"><button class="check-btn" id="chk-bl-8B-ex2-2" onclick="checkBlank('bl-8B-ex2-2',"porter ce carton",'fb-bl-8B-ex2-2')">✓</button><span class="fb" id="fb-bl-8B-ex2-2"></span><span> ? (très poli)</span></div>
+<div class="blank-row">1. <span>Aidez-moi. → Tu peux </span><input class="blank-input" id="bl-8B-ex2-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex2-0').click()"><button class="check-btn" id="chk-bl-8B-ex2-0" data-ans="m'aider" onclick="checkBlankData(this,'bl-8B-ex2-0','fb-bl-8B-ex2-0')">✓</button><span class="fb" id="fb-bl-8B-ex2-0"></span><span>?</span></div>
+<div class="blank-row">2. <span>Ouvrez la fenêtre. → Est-ce que vous pouvez </span><input class="blank-input" id="bl-8B-ex2-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex2-1').click()"><button class="check-btn" id="chk-bl-8B-ex2-1" data-ans="ouvrir la fenêtre" onclick="checkBlankData(this,'bl-8B-ex2-1','fb-bl-8B-ex2-1')">✓</button><span class="fb" id="fb-bl-8B-ex2-1"></span><span> ?</span></div>
+<div class="blank-row">3. <span>Portez ce carton. → Tu pourrais </span><input class="blank-input" id="bl-8B-ex2-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex2-2').click()"><button class="check-btn" id="chk-bl-8B-ex2-2" data-ans="porter ce carton" onclick="checkBlankData(this,'bl-8B-ex2-2','fb-bl-8B-ex2-2')">✓</button><span class="fb" id="fb-bl-8B-ex2-2"></span><span> ? (très poli)</span></div>
 
 </div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 3 — Formes négative et interrogative</div>
 <div class="section-body">
 <div class="ex-inst">Transformez les phrases :</div>
-<div class="blank-row">1. <span>Je peux venir samedi. → Forme négative : </span><input class="blank-input" id="bl-8B-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex3-0').click()"><button class="check-btn" id="chk-bl-8B-ex3-0" onclick="checkBlank('bl-8B-ex3-0',"Je ne peux pas venir samedi.",'fb-bl-8B-ex3-0')">✓</button><span class="fb" id="fb-bl-8B-ex3-0"></span><span></span></div>
-<div class="blank-row">2. <span>Il doit préparer les cartons. → Forme négative : </span><input class="blank-input" id="bl-8B-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex3-1').click()"><button class="check-btn" id="chk-bl-8B-ex3-1" onclick="checkBlank('bl-8B-ex3-1',"Il ne doit pas pr\u00e9parer les cartons.",'fb-bl-8B-ex3-1')">✓</button><span class="fb" id="fb-bl-8B-ex3-1"></span><span></span></div>
-<div class="blank-row">3. <span>Tu peux m'aider. → Forme interrogative (est-ce que) : </span><input class="blank-input" id="bl-8B-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex3-2').click()"><button class="check-btn" id="chk-bl-8B-ex3-2" onclick="checkBlank('bl-8B-ex3-2',"Est-ce que tu peux m'aider ?",'fb-bl-8B-ex3-2')">✓</button><span class="fb" id="fb-bl-8B-ex3-2"></span><span></span></div>
-<div class="blank-row">4. <span>Vous devez louer un camion. → Forme interrogative (inversion) : </span><input class="blank-input" id="bl-8B-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex3-3').click()"><button class="check-btn" id="chk-bl-8B-ex3-3" onclick="checkBlank('bl-8B-ex3-3',"Devez-vous louer un camion ?",'fb-bl-8B-ex3-3')">✓</button><span class="fb" id="fb-bl-8B-ex3-3"></span><span></span></div>
+<div class="blank-row">1. <span>Je peux venir samedi. → Forme négative : </span><input class="blank-input" id="bl-8B-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex3-0').click()"><button class="check-btn" id="chk-bl-8B-ex3-0" data-ans="Je ne peux pas venir samedi." onclick="checkBlankData(this,'bl-8B-ex3-0','fb-bl-8B-ex3-0')">✓</button><span class="fb" id="fb-bl-8B-ex3-0"></span><span></span></div>
+<div class="blank-row">2. <span>Il doit préparer les cartons. → Forme négative : </span><input class="blank-input" id="bl-8B-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex3-1').click()"><button class="check-btn" id="chk-bl-8B-ex3-1" data-ans="Il ne doit pas préparer les cartons." onclick="checkBlankData(this,'bl-8B-ex3-1','fb-bl-8B-ex3-1')">✓</button><span class="fb" id="fb-bl-8B-ex3-1"></span><span></span></div>
+<div class="blank-row">3. <span>Tu peux m'aider. → Forme interrogative (est-ce que) : </span><input class="blank-input" id="bl-8B-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex3-2').click()"><button class="check-btn" id="chk-bl-8B-ex3-2" data-ans="Est-ce que tu peux m'aider ?" onclick="checkBlankData(this,'bl-8B-ex3-2','fb-bl-8B-ex3-2')">✓</button><span class="fb" id="fb-bl-8B-ex3-2"></span><span></span></div>
+<div class="blank-row">4. <span>Vous devez louer un camion. → Forme interrogative (inversion) : </span><input class="blank-input" id="bl-8B-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex3-3').click()"><button class="check-btn" id="chk-bl-8B-ex3-3" data-ans="Devez-vous louer un camion ?" onclick="checkBlankData(this,'bl-8B-ex3-3','fb-bl-8B-ex3-3')">✓</button><span class="fb" id="fb-bl-8B-ex3-3"></span><span></span></div>
 
 </div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 4 — Vocabulaire : obligations et services</div>
 <div class="section-body">
 <div class="ex-inst">Complétez avec le bon mot : déménager / lourd / louer / le service / bien sûr</div>
-<div class="blank-row">1. <span>Je dois </span><input class="blank-input" id="bl-8B-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-0').click()"><button class="check-btn" id="chk-bl-8B-ex4-0" onclick="checkBlank('bl-8B-ex4-0',"d\u00e9m\u00e9nager",'fb-bl-8B-ex4-0')">✓</button><span class="fb" id="fb-bl-8B-ex4-0"></span><span> un appartement à Paris le mois prochain.</span></div>
-<div class="blank-row">2. <span>Ce canapé est très </span><input class="blank-input" id="bl-8B-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-1').click()"><button class="check-btn" id="chk-bl-8B-ex4-1" onclick="checkBlank('bl-8B-ex4-1',"lourd",'fb-bl-8B-ex4-1')">✓</button><span class="fb" id="fb-bl-8B-ex4-1"></span><span>. Je ne peux pas le porter seul(e).</span></div>
-<div class="blank-row">3. <span>Tu peux m'aider ? — </span><input class="blank-input" id="bl-8B-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-2').click()"><button class="check-btn" id="chk-bl-8B-ex4-2" onclick="checkBlank('bl-8B-ex4-2',"bien s\u00fbr",'fb-bl-8B-ex4-2')">✓</button><span class="fb" id="fb-bl-8B-ex4-2"></span><span> ! Avec plaisir.</span></div>
-<div class="blank-row">4. <span>Il faut </span><input class="blank-input" id="bl-8B-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-3').click()"><button class="check-btn" id="chk-bl-8B-ex4-3" onclick="checkBlank('bl-8B-ex4-3',"louer",'fb-bl-8B-ex4-3')">✓</button><span class="fb" id="fb-bl-8B-ex4-3"></span><span> un camion pour transporter les meubles.</span></div>
-<div class="blank-row">5. <span>Rendre </span><input class="blank-input" id="bl-8B-ex4-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-4').click()"><button class="check-btn" id="chk-bl-8B-ex4-4" onclick="checkBlank('bl-8B-ex4-4',"service",'fb-bl-8B-ex4-4')">✓</button><span class="fb" id="fb-bl-8B-ex4-4"></span><span> à un voisin, c'est important dans un immeuble.</span></div>
+<div class="blank-row">1. <span>Je dois </span><input class="blank-input" id="bl-8B-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-0').click()"><button class="check-btn" id="chk-bl-8B-ex4-0" data-ans="déménager" onclick="checkBlankData(this,'bl-8B-ex4-0','fb-bl-8B-ex4-0')">✓</button><span class="fb" id="fb-bl-8B-ex4-0"></span><span> un appartement à Paris le mois prochain.</span></div>
+<div class="blank-row">2. <span>Ce canapé est très </span><input class="blank-input" id="bl-8B-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-1').click()"><button class="check-btn" id="chk-bl-8B-ex4-1" data-ans="lourd" onclick="checkBlankData(this,'bl-8B-ex4-1','fb-bl-8B-ex4-1')">✓</button><span class="fb" id="fb-bl-8B-ex4-1"></span><span>. Je ne peux pas le porter seul(e).</span></div>
+<div class="blank-row">3. <span>Tu peux m'aider ? — </span><input class="blank-input" id="bl-8B-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-2').click()"><button class="check-btn" id="chk-bl-8B-ex4-2" data-ans="bien sûr" onclick="checkBlankData(this,'bl-8B-ex4-2','fb-bl-8B-ex4-2')">✓</button><span class="fb" id="fb-bl-8B-ex4-2"></span><span> ! Avec plaisir.</span></div>
+<div class="blank-row">4. <span>Il faut </span><input class="blank-input" id="bl-8B-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-3').click()"><button class="check-btn" id="chk-bl-8B-ex4-3" data-ans="louer" onclick="checkBlankData(this,'bl-8B-ex4-3','fb-bl-8B-ex4-3')">✓</button><span class="fb" id="fb-bl-8B-ex4-3"></span><span> un camion pour transporter les meubles.</span></div>
+<div class="blank-row">5. <span>Rendre </span><input class="blank-input" id="bl-8B-ex4-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-4').click()"><button class="check-btn" id="chk-bl-8B-ex4-4" data-ans="service" onclick="checkBlankData(this,'bl-8B-ex4-4','fb-bl-8B-ex4-4')">✓</button><span class="fb" id="fb-bl-8B-ex4-4"></span><span> à un voisin, c'est important dans un immeuble.</span></div>
 
 </div>
 </div><div class="section sec-comm">
@@ -252,6 +266,26 @@ function checkBlank(inputId, answer, fbId) {
   inp.style.borderBottomColor = ok ? 'var(--green)' : '#e74c3c';
   inp.style.color = ok ? 'var(--green)' : '#e74c3c';
   if (fb) { fb.textContent = ok ? '✅' : '❌ → ' + answer; fb.className = 'fb ' + (ok?'ok':'ko'); }
+}
+function checkBlankData(btn, inputId, fbId) {
+  checkBlank(inputId, btn.dataset.ans, fbId);
+}
+function showTransform(btn) {
+  var row = btn.closest('.trans-row');
+  if (!row) return;
+  var inp = row.querySelector('.trans-input');
+  var ans = row.dataset.ans;
+  var ansEl = row.querySelector('.trans-ans');
+  var fb = row.querySelector('.trans-fb');
+  btn.style.display = 'none';
+  if (ansEl) { ansEl.classList.add('show'); }
+  if (inp && inp.value.trim() && ans) {
+    var val = inp.value.trim().toLowerCase().replace(/\s+/g, ' ');
+    var correct = ans.toLowerCase().replace(/\s+/g, ' ');
+    var isOk = correct.split(' / ').some(function(a){ return val === a.trim(); });
+    inp.classList.add(isOk ? 'correct' : 'wrong');
+    if (fb) { fb.textContent = isOk ? '✅ Correct !' : '❌'; fb.className = 'trans-fb ' + (isOk?'ok':'ko'); }
+  }
 }
 function checkMatch(btn, word, chosen, correct, groupId) {
   var grp = document.getElementById(groupId);

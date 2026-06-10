@@ -90,6 +90,20 @@ a{color:var(--blue);text-decoration:none}
 .fb.ok{color:var(--green)}
 .fb.ko{color:#e74c3c}
 
+/* ── TRANSFORMATION ── */
+.trans-row{margin-bottom:16px;font-size:.93rem}
+.trans-src{font-weight:600;margin-bottom:6px;color:var(--text)}
+.trans-input{width:100%;border:2px solid #ddd;border-radius:8px;padding:8px 12px;font-size:.9rem;font-family:inherit;background:#fff;transition:border-color .15s;outline:none}
+.trans-input:focus{border-color:var(--blue)}
+.trans-input.correct{border-color:var(--green);background:var(--green-l)}
+.trans-input.wrong{border-color:#e74c3c;background:#fdedec}
+.trans-btns{display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap}
+.trans-ans{font-size:.88rem;font-weight:700;color:var(--green);padding:6px 10px;background:var(--green-l);border-radius:6px;display:none}
+.trans-ans.show{display:inline-block}
+.trans-fb{font-size:.85rem;font-weight:700}
+.trans-fb.ok{color:var(--green)}
+.trans-fb.ko{color:#e74c3c}
+
 /* ── MATCHING ── */
 .match-item{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-bottom:8px;align-items:center;font-size:.9rem}
 .match-word{font-weight:700}
@@ -171,10 +185,10 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 1 — Transformez en demande polie</div>
 <div class="section-body">
 <div class="ex-inst"></div>
-<div class="blank-row">1. <span>Je veux un café. → Je </span><input class="blank-input" id="bl-5B-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex1-0').click()"><button class="check-btn" id="chk-bl-5B-ex1-0" onclick="checkBlank('bl-5B-ex1-0',"voudrais",'fb-bl-5B-ex1-0')">✓</button><span class="fb" id="fb-bl-5B-ex1-0"></span><span> un café.</span></div>
-<div class="blank-row">2. <span>Apportez l'addition. → Vous </span><input class="blank-input" id="bl-5B-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex1-1').click()"><button class="check-btn" id="chk-bl-5B-ex1-1" onclick="checkBlank('bl-5B-ex1-1',"pourriez",'fb-bl-5B-ex1-1')">✓</button><span class="fb" id="fb-bl-5B-ex1-1"></span><span> apporter l'addition ?</span></div>
-<div class="blank-row">3. <span>Je veux la carte des desserts. → </span><input class="blank-input" id="bl-5B-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex1-2').click()"><button class="check-btn" id="chk-bl-5B-ex1-2" onclick="checkBlank('bl-5B-ex1-2',"Je voudrais la carte des desserts.",'fb-bl-5B-ex1-2')">✓</button><span class="fb" id="fb-bl-5B-ex1-2"></span><span></span></div>
-<div class="blank-row">4. <span>Parlez moins vite. → Vous </span><input class="blank-input" id="bl-5B-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex1-3').click()"><button class="check-btn" id="chk-bl-5B-ex1-3" onclick="checkBlank('bl-5B-ex1-3',"pourriez",'fb-bl-5B-ex1-3')">✓</button><span class="fb" id="fb-bl-5B-ex1-3"></span><span> parler moins vite ?</span></div>
+<div class="blank-row">1. <span>Je veux un café. → Je </span><input class="blank-input" id="bl-5B-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex1-0').click()"><button class="check-btn" id="chk-bl-5B-ex1-0" data-ans="voudrais" onclick="checkBlankData(this,'bl-5B-ex1-0','fb-bl-5B-ex1-0')">✓</button><span class="fb" id="fb-bl-5B-ex1-0"></span><span> un café.</span></div>
+<div class="blank-row">2. <span>Apportez l'addition. → Vous </span><input class="blank-input" id="bl-5B-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex1-1').click()"><button class="check-btn" id="chk-bl-5B-ex1-1" data-ans="pourriez" onclick="checkBlankData(this,'bl-5B-ex1-1','fb-bl-5B-ex1-1')">✓</button><span class="fb" id="fb-bl-5B-ex1-1"></span><span> apporter l'addition ?</span></div>
+<div class="blank-row">3. <span>Je veux la carte des desserts. → </span><input class="blank-input" id="bl-5B-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex1-2').click()"><button class="check-btn" id="chk-bl-5B-ex1-2" data-ans="Je voudrais la carte des desserts." onclick="checkBlankData(this,'bl-5B-ex1-2','fb-bl-5B-ex1-2')">✓</button><span class="fb" id="fb-bl-5B-ex1-2"></span><span></span></div>
+<div class="blank-row">4. <span>Parlez moins vite. → Vous </span><input class="blank-input" id="bl-5B-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex1-3').click()"><button class="check-btn" id="chk-bl-5B-ex1-3" data-ans="pourriez" onclick="checkBlankData(this,'bl-5B-ex1-3','fb-bl-5B-ex1-3')">✓</button><span class="fb" id="fb-bl-5B-ex1-3"></span><span> parler moins vite ?</span></div>
 
 </div>
 </div><div class="section sec-exercise">
@@ -187,20 +201,20 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 3 — Poli ou impoli ?</div>
 <div class="section-body">
 <div class="ex-inst">Classez ces formules en polies (P) ou moins polies (MP) :</div>
-<div class="blank-row">1. <span>Donnez-moi un café ! </span><input class="blank-input" id="bl-5B-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex3-0').click()"><button class="check-btn" id="chk-bl-5B-ex3-0" onclick="checkBlank('bl-5B-ex3-0',"MP",'fb-bl-5B-ex3-0')">✓</button><span class="fb" id="fb-bl-5B-ex3-0"></span><span></span></div>
-<div class="blank-row">2. <span>Je voudrais un café, s'il vous plaît. </span><input class="blank-input" id="bl-5B-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex3-1').click()"><button class="check-btn" id="chk-bl-5B-ex3-1" onclick="checkBlank('bl-5B-ex3-1',"P",'fb-bl-5B-ex3-1')">✓</button><span class="fb" id="fb-bl-5B-ex3-1"></span><span></span></div>
-<div class="blank-row">3. <span>Un café ! </span><input class="blank-input" id="bl-5B-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex3-2').click()"><button class="check-btn" id="chk-bl-5B-ex3-2" onclick="checkBlank('bl-5B-ex3-2',"MP",'fb-bl-5B-ex3-2')">✓</button><span class="fb" id="fb-bl-5B-ex3-2"></span><span></span></div>
-<div class="blank-row">4. <span>Est-ce que vous pourriez m'apporter un café ? </span><input class="blank-input" id="bl-5B-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex3-3').click()"><button class="check-btn" id="chk-bl-5B-ex3-3" onclick="checkBlank('bl-5B-ex3-3',"P",'fb-bl-5B-ex3-3')">✓</button><span class="fb" id="fb-bl-5B-ex3-3"></span><span></span></div>
+<div class="blank-row">1. <span>Donnez-moi un café ! </span><input class="blank-input" id="bl-5B-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex3-0').click()"><button class="check-btn" id="chk-bl-5B-ex3-0" data-ans="MP" onclick="checkBlankData(this,'bl-5B-ex3-0','fb-bl-5B-ex3-0')">✓</button><span class="fb" id="fb-bl-5B-ex3-0"></span><span></span></div>
+<div class="blank-row">2. <span>Je voudrais un café, s'il vous plaît. </span><input class="blank-input" id="bl-5B-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex3-1').click()"><button class="check-btn" id="chk-bl-5B-ex3-1" data-ans="P" onclick="checkBlankData(this,'bl-5B-ex3-1','fb-bl-5B-ex3-1')">✓</button><span class="fb" id="fb-bl-5B-ex3-1"></span><span></span></div>
+<div class="blank-row">3. <span>Un café ! </span><input class="blank-input" id="bl-5B-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex3-2').click()"><button class="check-btn" id="chk-bl-5B-ex3-2" data-ans="MP" onclick="checkBlankData(this,'bl-5B-ex3-2','fb-bl-5B-ex3-2')">✓</button><span class="fb" id="fb-bl-5B-ex3-2"></span><span></span></div>
+<div class="blank-row">4. <span>Est-ce que vous pourriez m'apporter un café ? </span><input class="blank-input" id="bl-5B-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex3-3').click()"><button class="check-btn" id="chk-bl-5B-ex3-3" data-ans="P" onclick="checkBlankData(this,'bl-5B-ex3-3','fb-bl-5B-ex3-3')">✓</button><span class="fb" id="fb-bl-5B-ex3-3"></span><span></span></div>
 
 </div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 4 — Vocabulaire du café</div>
 <div class="section-body">
 <div class="ex-inst">Qu'est-ce qu'on dit dans ces situations ?</div>
-<div class="blank-row">1. <span>On arrive au café : </span><input class="blank-input" id="bl-5B-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex4-0').click()"><button class="check-btn" id="chk-bl-5B-ex4-0" onclick="checkBlank('bl-5B-ex4-0',"Bonjour ! / Une table pour\u2026 ?",'fb-bl-5B-ex4-0')">✓</button><span class="fb" id="fb-bl-5B-ex4-0"></span><span></span></div>
-<div class="blank-row">2. <span>On veut commander : </span><input class="blank-input" id="bl-5B-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex4-1').click()"><button class="check-btn" id="chk-bl-5B-ex4-1" onclick="checkBlank('bl-5B-ex4-1',"Je voudrais\u2026 / Vous avez choisi ?",'fb-bl-5B-ex4-1')">✓</button><span class="fb" id="fb-bl-5B-ex4-1"></span><span></span></div>
-<div class="blank-row">3. <span>On veut payer : </span><input class="blank-input" id="bl-5B-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex4-2').click()"><button class="check-btn" id="chk-bl-5B-ex4-2" onclick="checkBlank('bl-5B-ex4-2',"L'addition, s'il vous pla\u00eet !",'fb-bl-5B-ex4-2')">✓</button><span class="fb" id="fb-bl-5B-ex4-2"></span><span></span></div>
-<div class="blank-row">4. <span>On est satisfait : </span><input class="blank-input" id="bl-5B-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex4-3').click()"><button class="check-btn" id="chk-bl-5B-ex4-3" onclick="checkBlank('bl-5B-ex4-3',"C'\u00e9tait d\u00e9licieux !",'fb-bl-5B-ex4-3')">✓</button><span class="fb" id="fb-bl-5B-ex4-3"></span><span></span></div>
+<div class="blank-row">1. <span>On arrive au café : </span><input class="blank-input" id="bl-5B-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex4-0').click()"><button class="check-btn" id="chk-bl-5B-ex4-0" data-ans="Bonjour ! / Une table pour… ?" onclick="checkBlankData(this,'bl-5B-ex4-0','fb-bl-5B-ex4-0')">✓</button><span class="fb" id="fb-bl-5B-ex4-0"></span><span></span></div>
+<div class="blank-row">2. <span>On veut commander : </span><input class="blank-input" id="bl-5B-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex4-1').click()"><button class="check-btn" id="chk-bl-5B-ex4-1" data-ans="Je voudrais… / Vous avez choisi ?" onclick="checkBlankData(this,'bl-5B-ex4-1','fb-bl-5B-ex4-1')">✓</button><span class="fb" id="fb-bl-5B-ex4-1"></span><span></span></div>
+<div class="blank-row">3. <span>On veut payer : </span><input class="blank-input" id="bl-5B-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex4-2').click()"><button class="check-btn" id="chk-bl-5B-ex4-2" data-ans="L'addition, s'il vous plaît !" onclick="checkBlankData(this,'bl-5B-ex4-2','fb-bl-5B-ex4-2')">✓</button><span class="fb" id="fb-bl-5B-ex4-2"></span><span></span></div>
+<div class="blank-row">4. <span>On est satisfait : </span><input class="blank-input" id="bl-5B-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5B-ex4-3').click()"><button class="check-btn" id="chk-bl-5B-ex4-3" data-ans="C'était délicieux !" onclick="checkBlankData(this,'bl-5B-ex4-3','fb-bl-5B-ex4-3')">✓</button><span class="fb" id="fb-bl-5B-ex4-3"></span><span></span></div>
 
 </div>
 </div><div class="section sec-comm">
@@ -250,6 +264,26 @@ function checkBlank(inputId, answer, fbId) {
   inp.style.borderBottomColor = ok ? 'var(--green)' : '#e74c3c';
   inp.style.color = ok ? 'var(--green)' : '#e74c3c';
   if (fb) { fb.textContent = ok ? '✅' : '❌ → ' + answer; fb.className = 'fb ' + (ok?'ok':'ko'); }
+}
+function checkBlankData(btn, inputId, fbId) {
+  checkBlank(inputId, btn.dataset.ans, fbId);
+}
+function showTransform(btn) {
+  var row = btn.closest('.trans-row');
+  if (!row) return;
+  var inp = row.querySelector('.trans-input');
+  var ans = row.dataset.ans;
+  var ansEl = row.querySelector('.trans-ans');
+  var fb = row.querySelector('.trans-fb');
+  btn.style.display = 'none';
+  if (ansEl) { ansEl.classList.add('show'); }
+  if (inp && inp.value.trim() && ans) {
+    var val = inp.value.trim().toLowerCase().replace(/\s+/g, ' ');
+    var correct = ans.toLowerCase().replace(/\s+/g, ' ');
+    var isOk = correct.split(' / ').some(function(a){ return val === a.trim(); });
+    inp.classList.add(isOk ? 'correct' : 'wrong');
+    if (fb) { fb.textContent = isOk ? '✅ Correct !' : '❌'; fb.className = 'trans-fb ' + (isOk?'ok':'ko'); }
+  }
 }
 function checkMatch(btn, word, chosen, correct, groupId) {
   var grp = document.getElementById(groupId);

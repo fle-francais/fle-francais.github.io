@@ -90,6 +90,20 @@ a{color:var(--blue);text-decoration:none}
 .fb.ok{color:var(--green)}
 .fb.ko{color:#e74c3c}
 
+/* ── TRANSFORMATION ── */
+.trans-row{margin-bottom:16px;font-size:.93rem}
+.trans-src{font-weight:600;margin-bottom:6px;color:var(--text)}
+.trans-input{width:100%;border:2px solid #ddd;border-radius:8px;padding:8px 12px;font-size:.9rem;font-family:inherit;background:#fff;transition:border-color .15s;outline:none}
+.trans-input:focus{border-color:var(--blue)}
+.trans-input.correct{border-color:var(--green);background:var(--green-l)}
+.trans-input.wrong{border-color:#e74c3c;background:#fdedec}
+.trans-btns{display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap}
+.trans-ans{font-size:.88rem;font-weight:700;color:var(--green);padding:6px 10px;background:var(--green-l);border-radius:6px;display:none}
+.trans-ans.show{display:inline-block}
+.trans-fb{font-size:.85rem;font-weight:700}
+.trans-fb.ok{color:var(--green)}
+.trans-fb.ko{color:#e74c3c}
+
 /* ── MATCHING ── */
 .match-item{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-bottom:8px;align-items:center;font-size:.9rem}
 .match-word{font-weight:700}
@@ -161,10 +175,42 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 1 — Placez l'adverbe</div>
 <div class="section-body">
 <div class="ex-inst">Insérez l'adverbe au bon endroit :</div>
-<div class="blank-row">1. Je lis le week-end. (souvent) → <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button><span style="display:none;color:var(--green);font-weight:700"> Je lis souvent…</span></div>
-<div class="blank-row">2. Il sort avec des amis. (parfois) → <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button><span style="display:none;color:var(--green);font-weight:700"> Il sort parfois…</span></div>
-<div class="blank-row">3. Elle fait du sport. (jamais / ne…) → <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button><span style="display:none;color:var(--green);font-weight:700"> Elle ne fait jamais de sport.</span></div>
-<div class="blank-row">4. Nous regardons un film le samedi. (toujours) → <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button><span style="display:none;color:var(--green);font-weight:700"> Nous regardons toujours…</span></div>
+<div class="trans-row" data-ans="Je lis souvent…">
+  <div class="trans-src">1. Je lis le week-end. (souvent) →</div>
+  <input class="trans-input" id="ts-3C-ex1-0" type="text" placeholder="Écrivez la phrase transformée…" autocomplete="off">
+  <div class="trans-btns">
+    <button class="check-btn" onclick="showTransform(this)">Voir</button>
+    <span class="trans-fb"></span>
+    <span class="trans-ans">Je lis souvent…</span>
+  </div>
+</div>
+<div class="trans-row" data-ans="Il sort parfois…">
+  <div class="trans-src">2. Il sort avec des amis. (parfois) →</div>
+  <input class="trans-input" id="ts-3C-ex1-1" type="text" placeholder="Écrivez la phrase transformée…" autocomplete="off">
+  <div class="trans-btns">
+    <button class="check-btn" onclick="showTransform(this)">Voir</button>
+    <span class="trans-fb"></span>
+    <span class="trans-ans">Il sort parfois…</span>
+  </div>
+</div>
+<div class="trans-row" data-ans="Elle ne fait jamais de sport.">
+  <div class="trans-src">3. Elle fait du sport. (jamais / ne…) →</div>
+  <input class="trans-input" id="ts-3C-ex1-2" type="text" placeholder="Écrivez la phrase transformée…" autocomplete="off">
+  <div class="trans-btns">
+    <button class="check-btn" onclick="showTransform(this)">Voir</button>
+    <span class="trans-fb"></span>
+    <span class="trans-ans">Elle ne fait jamais de sport.</span>
+  </div>
+</div>
+<div class="trans-row" data-ans="Nous regardons toujours…">
+  <div class="trans-src">4. Nous regardons un film le samedi. (toujours) →</div>
+  <input class="trans-input" id="ts-3C-ex1-3" type="text" placeholder="Écrivez la phrase transformée…" autocomplete="off">
+  <div class="trans-btns">
+    <button class="check-btn" onclick="showTransform(this)">Voir</button>
+    <span class="trans-fb"></span>
+    <span class="trans-ans">Nous regardons toujours…</span>
+  </div>
+</div>
 
 </div>
 </div><div class="section sec-exercise">
@@ -239,6 +285,26 @@ function checkBlank(inputId, answer, fbId) {
   inp.style.borderBottomColor = ok ? 'var(--green)' : '#e74c3c';
   inp.style.color = ok ? 'var(--green)' : '#e74c3c';
   if (fb) { fb.textContent = ok ? '✅' : '❌ → ' + answer; fb.className = 'fb ' + (ok?'ok':'ko'); }
+}
+function checkBlankData(btn, inputId, fbId) {
+  checkBlank(inputId, btn.dataset.ans, fbId);
+}
+function showTransform(btn) {
+  var row = btn.closest('.trans-row');
+  if (!row) return;
+  var inp = row.querySelector('.trans-input');
+  var ans = row.dataset.ans;
+  var ansEl = row.querySelector('.trans-ans');
+  var fb = row.querySelector('.trans-fb');
+  btn.style.display = 'none';
+  if (ansEl) { ansEl.classList.add('show'); }
+  if (inp && inp.value.trim() && ans) {
+    var val = inp.value.trim().toLowerCase().replace(/\s+/g, ' ');
+    var correct = ans.toLowerCase().replace(/\s+/g, ' ');
+    var isOk = correct.split(' / ').some(function(a){ return val === a.trim(); });
+    inp.classList.add(isOk ? 'correct' : 'wrong');
+    if (fb) { fb.textContent = isOk ? '✅ Correct !' : '❌'; fb.className = 'trans-fb ' + (isOk?'ok':'ko'); }
+  }
 }
 function checkMatch(btn, word, chosen, correct, groupId) {
   var grp = document.getElementById(groupId);

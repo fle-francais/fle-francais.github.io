@@ -90,6 +90,20 @@ a{color:var(--blue);text-decoration:none}
 .fb.ok{color:var(--green)}
 .fb.ko{color:#e74c3c}
 
+/* ── TRANSFORMATION ── */
+.trans-row{margin-bottom:16px;font-size:.93rem}
+.trans-src{font-weight:600;margin-bottom:6px;color:var(--text)}
+.trans-input{width:100%;border:2px solid #ddd;border-radius:8px;padding:8px 12px;font-size:.9rem;font-family:inherit;background:#fff;transition:border-color .15s;outline:none}
+.trans-input:focus{border-color:var(--blue)}
+.trans-input.correct{border-color:var(--green);background:var(--green-l)}
+.trans-input.wrong{border-color:#e74c3c;background:#fdedec}
+.trans-btns{display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap}
+.trans-ans{font-size:.88rem;font-weight:700;color:var(--green);padding:6px 10px;background:var(--green-l);border-radius:6px;display:none}
+.trans-ans.show{display:inline-block}
+.trans-fb{font-size:.85rem;font-weight:700}
+.trans-fb.ok{color:var(--green)}
+.trans-fb.ko{color:#e74c3c}
+
 /* ── MATCHING ── */
 .match-item{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-bottom:8px;align-items:center;font-size:.9rem}
 .match-word{font-weight:700}
@@ -180,11 +194,11 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 1 — Conjuguez ALLER et PRENDRE</div>
 <div class="section-body">
 <div class="ex-inst"></div>
-<div class="blank-row">1. <span>Je </span><input class="blank-input" id="bl-4C-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex1-0').click()"><button class="check-btn" id="chk-bl-4C-ex1-0" onclick="checkBlank('bl-4C-ex1-0',"vais",'fb-bl-4C-ex1-0')">✓</button><span class="fb" id="fb-bl-4C-ex1-0"></span><span> (aller) au travail en vélo.</span></div>
-<div class="blank-row">2. <span>Elle </span><input class="blank-input" id="bl-4C-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex1-1').click()"><button class="check-btn" id="chk-bl-4C-ex1-1" onclick="checkBlank('bl-4C-ex1-1',"prend",'fb-bl-4C-ex1-1')">✓</button><span class="fb" id="fb-bl-4C-ex1-1"></span><span> (prendre) le bus le matin.</span></div>
-<div class="blank-row">3. <span>Nous </span><input class="blank-input" id="bl-4C-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex1-2').click()"><button class="check-btn" id="chk-bl-4C-ex1-2" onclick="checkBlank('bl-4C-ex1-2',"allons",'fb-bl-4C-ex1-2')">✓</button><span class="fb" id="fb-bl-4C-ex1-2"></span><span> (aller) au restaurant ce soir.</span></div>
-<div class="blank-row">4. <span>Vous </span><input class="blank-input" id="bl-4C-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex1-3').click()"><button class="check-btn" id="chk-bl-4C-ex1-3" onclick="checkBlank('bl-4C-ex1-3',"prenez",'fb-bl-4C-ex1-3')">✓</button><span class="fb" id="fb-bl-4C-ex1-3"></span><span> (prendre) le métro ou le bus ?</span></div>
-<div class="blank-row">5. <span>Ils </span><input class="blank-input" id="bl-4C-ex1-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex1-4').click()"><button class="check-btn" id="chk-bl-4C-ex1-4" onclick="checkBlank('bl-4C-ex1-4',"vont",'fb-bl-4C-ex1-4')">✓</button><span class="fb" id="fb-bl-4C-ex1-4"></span><span> (aller) à Paris en train.</span></div>
+<div class="blank-row">1. <span>Je </span><input class="blank-input" id="bl-4C-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex1-0').click()"><button class="check-btn" id="chk-bl-4C-ex1-0" data-ans="vais" onclick="checkBlankData(this,'bl-4C-ex1-0','fb-bl-4C-ex1-0')">✓</button><span class="fb" id="fb-bl-4C-ex1-0"></span><span> (aller) au travail en vélo.</span></div>
+<div class="blank-row">2. <span>Elle </span><input class="blank-input" id="bl-4C-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex1-1').click()"><button class="check-btn" id="chk-bl-4C-ex1-1" data-ans="prend" onclick="checkBlankData(this,'bl-4C-ex1-1','fb-bl-4C-ex1-1')">✓</button><span class="fb" id="fb-bl-4C-ex1-1"></span><span> (prendre) le bus le matin.</span></div>
+<div class="blank-row">3. <span>Nous </span><input class="blank-input" id="bl-4C-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex1-2').click()"><button class="check-btn" id="chk-bl-4C-ex1-2" data-ans="allons" onclick="checkBlankData(this,'bl-4C-ex1-2','fb-bl-4C-ex1-2')">✓</button><span class="fb" id="fb-bl-4C-ex1-2"></span><span> (aller) au restaurant ce soir.</span></div>
+<div class="blank-row">4. <span>Vous </span><input class="blank-input" id="bl-4C-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex1-3').click()"><button class="check-btn" id="chk-bl-4C-ex1-3" data-ans="prenez" onclick="checkBlankData(this,'bl-4C-ex1-3','fb-bl-4C-ex1-3')">✓</button><span class="fb" id="fb-bl-4C-ex1-3"></span><span> (prendre) le métro ou le bus ?</span></div>
+<div class="blank-row">5. <span>Ils </span><input class="blank-input" id="bl-4C-ex1-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex1-4').click()"><button class="check-btn" id="chk-bl-4C-ex1-4" data-ans="vont" onclick="checkBlankData(this,'bl-4C-ex1-4','fb-bl-4C-ex1-4')">✓</button><span class="fb" id="fb-bl-4C-ex1-4"></span><span> (aller) à Paris en train.</span></div>
 
 </div>
 </div><div class="section sec-exercise">
@@ -200,20 +214,20 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 3 — À, au, à la, aux ?</div>
 <div class="section-body">
 <div class="ex-inst">Complétez :</div>
-<div class="blank-row">1. <span>Je vais </span><input class="blank-input" id="bl-4C-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex3-0').click()"><button class="check-btn" id="chk-bl-4C-ex3-0" onclick="checkBlank('bl-4C-ex3-0',"au",'fb-bl-4C-ex3-0')">✓</button><span class="fb" id="fb-bl-4C-ex3-0"></span><span> marché samedi matin.</span></div>
-<div class="blank-row">2. <span>Il va </span><input class="blank-input" id="bl-4C-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex3-1').click()"><button class="check-btn" id="chk-bl-4C-ex3-1" onclick="checkBlank('bl-4C-ex3-1',"\u00e0 la",'fb-bl-4C-ex3-1')">✓</button><span class="fb" id="fb-bl-4C-ex3-1"></span><span> pharmacie.</span></div>
-<div class="blank-row">3. <span>Nous allons </span><input class="blank-input" id="bl-4C-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex3-2').click()"><button class="check-btn" id="chk-bl-4C-ex3-2" onclick="checkBlank('bl-4C-ex3-2',"aux",'fb-bl-4C-ex3-2')">✓</button><span class="fb" id="fb-bl-4C-ex3-2"></span><span> États-Unis cet été.</span></div>
-<div class="blank-row">4. <span>Tu vas </span><input class="blank-input" id="bl-4C-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex3-3').click()"><button class="check-btn" id="chk-bl-4C-ex3-3" onclick="checkBlank('bl-4C-ex3-3',"\u00e0 l'",'fb-bl-4C-ex3-3')">✓</button><span class="fb" id="fb-bl-4C-ex3-3"></span><span> école comment ?</span></div>
+<div class="blank-row">1. <span>Je vais </span><input class="blank-input" id="bl-4C-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex3-0').click()"><button class="check-btn" id="chk-bl-4C-ex3-0" data-ans="au" onclick="checkBlankData(this,'bl-4C-ex3-0','fb-bl-4C-ex3-0')">✓</button><span class="fb" id="fb-bl-4C-ex3-0"></span><span> marché samedi matin.</span></div>
+<div class="blank-row">2. <span>Il va </span><input class="blank-input" id="bl-4C-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex3-1').click()"><button class="check-btn" id="chk-bl-4C-ex3-1" data-ans="à la" onclick="checkBlankData(this,'bl-4C-ex3-1','fb-bl-4C-ex3-1')">✓</button><span class="fb" id="fb-bl-4C-ex3-1"></span><span> pharmacie.</span></div>
+<div class="blank-row">3. <span>Nous allons </span><input class="blank-input" id="bl-4C-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex3-2').click()"><button class="check-btn" id="chk-bl-4C-ex3-2" data-ans="aux" onclick="checkBlankData(this,'bl-4C-ex3-2','fb-bl-4C-ex3-2')">✓</button><span class="fb" id="fb-bl-4C-ex3-2"></span><span> États-Unis cet été.</span></div>
+<div class="blank-row">4. <span>Tu vas </span><input class="blank-input" id="bl-4C-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex3-3').click()"><button class="check-btn" id="chk-bl-4C-ex3-3" data-ans="à l'" onclick="checkBlankData(this,'bl-4C-ex3-3','fb-bl-4C-ex3-3')">✓</button><span class="fb" id="fb-bl-4C-ex3-3"></span><span> école comment ?</span></div>
 
 </div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 4 — Opinion sur les transports</div>
 <div class="section-body">
 <div class="ex-inst">Donnez votre opinion (pratique / écologique / rapide / cher / bruyant…) :</div>
-<div class="blank-row">1. <span>La voiture : c'est </span><input class="blank-input" id="bl-4C-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-0').click()"><button class="check-btn" id="chk-bl-4C-ex4-0" onclick="checkBlank('bl-4C-ex4-0',"R\u00e9ponses libres",'fb-bl-4C-ex4-0')">✓</button><span class="fb" id="fb-bl-4C-ex4-0"></span><span> mais </span><input class="blank-input" id="bl-4C-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-0').click()"><button class="check-btn" id="chk-bl-4C-ex4-0" onclick="checkBlank('bl-4C-ex4-0',"R\u00e9ponses libres",'fb-bl-4C-ex4-0')">✓</button><span class="fb" id="fb-bl-4C-ex4-0"></span><span>.</span></div>
-<div class="blank-row">2. <span>Le vélo : c'est </span><input class="blank-input" id="bl-4C-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-1').click()"><button class="check-btn" id="chk-bl-4C-ex4-1" onclick="checkBlank('bl-4C-ex4-1',"",'fb-bl-4C-ex4-1')">✓</button><span class="fb" id="fb-bl-4C-ex4-1"></span><span> et </span><input class="blank-input" id="bl-4C-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-1').click()"><button class="check-btn" id="chk-bl-4C-ex4-1" onclick="checkBlank('bl-4C-ex4-1',"",'fb-bl-4C-ex4-1')">✓</button><span class="fb" id="fb-bl-4C-ex4-1"></span><span>.</span></div>
-<div class="blank-row">3. <span>Le métro : c'est </span><input class="blank-input" id="bl-4C-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-2').click()"><button class="check-btn" id="chk-bl-4C-ex4-2" onclick="checkBlank('bl-4C-ex4-2',"",'fb-bl-4C-ex4-2')">✓</button><span class="fb" id="fb-bl-4C-ex4-2"></span><span> mais </span><input class="blank-input" id="bl-4C-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-2').click()"><button class="check-btn" id="chk-bl-4C-ex4-2" onclick="checkBlank('bl-4C-ex4-2',"",'fb-bl-4C-ex4-2')">✓</button><span class="fb" id="fb-bl-4C-ex4-2"></span><span>.</span></div>
-<div class="blank-row">4. <span>La marche à pied : c'est </span><input class="blank-input" id="bl-4C-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-3').click()"><button class="check-btn" id="chk-bl-4C-ex4-3" onclick="checkBlank('bl-4C-ex4-3',"",'fb-bl-4C-ex4-3')">✓</button><span class="fb" id="fb-bl-4C-ex4-3"></span><span> et </span><input class="blank-input" id="bl-4C-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-3').click()"><button class="check-btn" id="chk-bl-4C-ex4-3" onclick="checkBlank('bl-4C-ex4-3',"",'fb-bl-4C-ex4-3')">✓</button><span class="fb" id="fb-bl-4C-ex4-3"></span><span>.</span></div>
+<div class="blank-row">1. <span>La voiture : c'est </span><input class="blank-input" id="bl-4C-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-0').click()"><button class="check-btn" id="chk-bl-4C-ex4-0" data-ans="Réponses libres" onclick="checkBlankData(this,'bl-4C-ex4-0','fb-bl-4C-ex4-0')">✓</button><span class="fb" id="fb-bl-4C-ex4-0"></span><span> mais </span><input class="blank-input" id="bl-4C-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-0').click()"><button class="check-btn" id="chk-bl-4C-ex4-0" data-ans="Réponses libres" onclick="checkBlankData(this,'bl-4C-ex4-0','fb-bl-4C-ex4-0')">✓</button><span class="fb" id="fb-bl-4C-ex4-0"></span><span>.</span></div>
+<div class="blank-row">2. <span>Le vélo : c'est </span><input class="blank-input" id="bl-4C-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-1').click()"><button class="check-btn" id="chk-bl-4C-ex4-1" data-ans="" onclick="checkBlankData(this,'bl-4C-ex4-1','fb-bl-4C-ex4-1')">✓</button><span class="fb" id="fb-bl-4C-ex4-1"></span><span> et </span><input class="blank-input" id="bl-4C-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-1').click()"><button class="check-btn" id="chk-bl-4C-ex4-1" data-ans="" onclick="checkBlankData(this,'bl-4C-ex4-1','fb-bl-4C-ex4-1')">✓</button><span class="fb" id="fb-bl-4C-ex4-1"></span><span>.</span></div>
+<div class="blank-row">3. <span>Le métro : c'est </span><input class="blank-input" id="bl-4C-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-2').click()"><button class="check-btn" id="chk-bl-4C-ex4-2" data-ans="" onclick="checkBlankData(this,'bl-4C-ex4-2','fb-bl-4C-ex4-2')">✓</button><span class="fb" id="fb-bl-4C-ex4-2"></span><span> mais </span><input class="blank-input" id="bl-4C-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-2').click()"><button class="check-btn" id="chk-bl-4C-ex4-2" data-ans="" onclick="checkBlankData(this,'bl-4C-ex4-2','fb-bl-4C-ex4-2')">✓</button><span class="fb" id="fb-bl-4C-ex4-2"></span><span>.</span></div>
+<div class="blank-row">4. <span>La marche à pied : c'est </span><input class="blank-input" id="bl-4C-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-3').click()"><button class="check-btn" id="chk-bl-4C-ex4-3" data-ans="" onclick="checkBlankData(this,'bl-4C-ex4-3','fb-bl-4C-ex4-3')">✓</button><span class="fb" id="fb-bl-4C-ex4-3"></span><span> et </span><input class="blank-input" id="bl-4C-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-3').click()"><button class="check-btn" id="chk-bl-4C-ex4-3" data-ans="" onclick="checkBlankData(this,'bl-4C-ex4-3','fb-bl-4C-ex4-3')">✓</button><span class="fb" id="fb-bl-4C-ex4-3"></span><span>.</span></div>
 
 </div>
 </div><div class="section sec-comm">
@@ -260,6 +274,26 @@ function checkBlank(inputId, answer, fbId) {
   inp.style.borderBottomColor = ok ? 'var(--green)' : '#e74c3c';
   inp.style.color = ok ? 'var(--green)' : '#e74c3c';
   if (fb) { fb.textContent = ok ? '✅' : '❌ → ' + answer; fb.className = 'fb ' + (ok?'ok':'ko'); }
+}
+function checkBlankData(btn, inputId, fbId) {
+  checkBlank(inputId, btn.dataset.ans, fbId);
+}
+function showTransform(btn) {
+  var row = btn.closest('.trans-row');
+  if (!row) return;
+  var inp = row.querySelector('.trans-input');
+  var ans = row.dataset.ans;
+  var ansEl = row.querySelector('.trans-ans');
+  var fb = row.querySelector('.trans-fb');
+  btn.style.display = 'none';
+  if (ansEl) { ansEl.classList.add('show'); }
+  if (inp && inp.value.trim() && ans) {
+    var val = inp.value.trim().toLowerCase().replace(/\s+/g, ' ');
+    var correct = ans.toLowerCase().replace(/\s+/g, ' ');
+    var isOk = correct.split(' / ').some(function(a){ return val === a.trim(); });
+    inp.classList.add(isOk ? 'correct' : 'wrong');
+    if (fb) { fb.textContent = isOk ? '✅ Correct !' : '❌'; fb.className = 'trans-fb ' + (isOk?'ok':'ko'); }
+  }
 }
 function checkMatch(btn, word, chosen, correct, groupId) {
   var grp = document.getElementById(groupId);

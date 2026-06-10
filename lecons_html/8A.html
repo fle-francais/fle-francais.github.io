@@ -90,6 +90,20 @@ a{color:var(--blue);text-decoration:none}
 .fb.ok{color:var(--green)}
 .fb.ko{color:#e74c3c}
 
+/* ── TRANSFORMATION ── */
+.trans-row{margin-bottom:16px;font-size:.93rem}
+.trans-src{font-weight:600;margin-bottom:6px;color:var(--text)}
+.trans-input{width:100%;border:2px solid #ddd;border-radius:8px;padding:8px 12px;font-size:.9rem;font-family:inherit;background:#fff;transition:border-color .15s;outline:none}
+.trans-input:focus{border-color:var(--blue)}
+.trans-input.correct{border-color:var(--green);background:var(--green-l)}
+.trans-input.wrong{border-color:#e74c3c;background:#fdedec}
+.trans-btns{display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap}
+.trans-ans{font-size:.88rem;font-weight:700;color:var(--green);padding:6px 10px;background:var(--green-l);border-radius:6px;display:none}
+.trans-ans.show{display:inline-block}
+.trans-fb{font-size:.85rem;font-weight:700}
+.trans-fb.ok{color:var(--green)}
+.trans-fb.ko{color:#e74c3c}
+
 /* ── MATCHING ── */
 .match-item{display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-bottom:8px;align-items:center;font-size:.9rem}
 .match-word{font-weight:700}
@@ -169,11 +183,11 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 1 — C'est ou Il est / Elle est ?</div>
 <div class="section-body">
 <div class="ex-inst"></div>
-<div class="blank-row">1. <span></span><input class="blank-input" id="bl-8A-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex1-0').click()"><button class="check-btn" id="chk-bl-8A-ex1-0" onclick="checkBlank('bl-8A-ex1-0',"Il est",'fb-bl-8A-ex1-0')">✓</button><span class="fb" id="fb-bl-8A-ex1-0"></span><span> lumineux, cet appartement.</span></div>
-<div class="blank-row">2. <span></span><input class="blank-input" id="bl-8A-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex1-1').click()"><button class="check-btn" id="chk-bl-8A-ex1-1" onclick="checkBlank('bl-8A-ex1-1',"C'est",'fb-bl-8A-ex1-1')">✓</button><span class="fb" id="fb-bl-8A-ex1-1"></span><span> une grande cuisine.</span></div>
-<div class="blank-row">3. <span></span><input class="blank-input" id="bl-8A-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex1-2').click()"><button class="check-btn" id="chk-bl-8A-ex1-2" onclick="checkBlank('bl-8A-ex1-2',"C'est",'fb-bl-8A-ex1-2')">✓</button><span class="fb" id="fb-bl-8A-ex1-2"></span><span> moderne ? — Oui, très !</span></div>
-<div class="blank-row">4. <span></span><input class="blank-input" id="bl-8A-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex1-3').click()"><button class="check-btn" id="chk-bl-8A-ex1-3" onclick="checkBlank('bl-8A-ex1-3',"C'est / est",'fb-bl-8A-ex1-3')">✓</button><span class="fb" id="fb-bl-8A-ex1-3"></span><span> ma chambre. Elle </span><input class="blank-input" id="bl-8A-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex1-3').click()"><button class="check-btn" id="chk-bl-8A-ex1-3" onclick="checkBlank('bl-8A-ex1-3',"C'est / est",'fb-bl-8A-ex1-3')">✓</button><span class="fb" id="fb-bl-8A-ex1-3"></span><span> petite mais confortable.</span></div>
-<div class="blank-row">5. <span></span><input class="blank-input" id="bl-8A-ex1-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex1-4').click()"><button class="check-btn" id="chk-bl-8A-ex1-4" onclick="checkBlank('bl-8A-ex1-4',"C'est",'fb-bl-8A-ex1-4')">✓</button><span class="fb" id="fb-bl-8A-ex1-4"></span><span> pratique d'avoir un ascenseur.</span></div>
+<div class="blank-row">1. <span></span><input class="blank-input" id="bl-8A-ex1-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex1-0').click()"><button class="check-btn" id="chk-bl-8A-ex1-0" data-ans="Il est" onclick="checkBlankData(this,'bl-8A-ex1-0','fb-bl-8A-ex1-0')">✓</button><span class="fb" id="fb-bl-8A-ex1-0"></span><span> lumineux, cet appartement.</span></div>
+<div class="blank-row">2. <span></span><input class="blank-input" id="bl-8A-ex1-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex1-1').click()"><button class="check-btn" id="chk-bl-8A-ex1-1" data-ans="C'est" onclick="checkBlankData(this,'bl-8A-ex1-1','fb-bl-8A-ex1-1')">✓</button><span class="fb" id="fb-bl-8A-ex1-1"></span><span> une grande cuisine.</span></div>
+<div class="blank-row">3. <span></span><input class="blank-input" id="bl-8A-ex1-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex1-2').click()"><button class="check-btn" id="chk-bl-8A-ex1-2" data-ans="C'est" onclick="checkBlankData(this,'bl-8A-ex1-2','fb-bl-8A-ex1-2')">✓</button><span class="fb" id="fb-bl-8A-ex1-2"></span><span> moderne ? — Oui, très !</span></div>
+<div class="blank-row">4. <span></span><input class="blank-input" id="bl-8A-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex1-3').click()"><button class="check-btn" id="chk-bl-8A-ex1-3" data-ans="C'est / est" onclick="checkBlankData(this,'bl-8A-ex1-3','fb-bl-8A-ex1-3')">✓</button><span class="fb" id="fb-bl-8A-ex1-3"></span><span> ma chambre. Elle </span><input class="blank-input" id="bl-8A-ex1-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex1-3').click()"><button class="check-btn" id="chk-bl-8A-ex1-3" data-ans="C'est / est" onclick="checkBlankData(this,'bl-8A-ex1-3','fb-bl-8A-ex1-3')">✓</button><span class="fb" id="fb-bl-8A-ex1-3"></span><span> petite mais confortable.</span></div>
+<div class="blank-row">5. <span></span><input class="blank-input" id="bl-8A-ex1-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex1-4').click()"><button class="check-btn" id="chk-bl-8A-ex1-4" data-ans="C'est" onclick="checkBlankData(this,'bl-8A-ex1-4','fb-bl-8A-ex1-4')">✓</button><span class="fb" id="fb-bl-8A-ex1-4"></span><span> pratique d'avoir un ascenseur.</span></div>
 
 </div>
 </div><div class="section sec-exercise">
@@ -189,21 +203,21 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 3 — Formes négative et interrogative</div>
 <div class="section-body">
 <div class="ex-inst">Transformez les phrases :</div>
-<div class="blank-row">1. <span>C'est lumineux. → Forme négative : </span><input class="blank-input" id="bl-8A-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex3-0').click()"><button class="check-btn" id="chk-bl-8A-ex3-0" onclick="checkBlank('bl-8A-ex3-0',"Ce n'est pas lumineux.",'fb-bl-8A-ex3-0')">✓</button><span class="fb" id="fb-bl-8A-ex3-0"></span><span></span></div>
-<div class="blank-row">2. <span>Il y a un parking. → Forme négative : </span><input class="blank-input" id="bl-8A-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex3-1').click()"><button class="check-btn" id="chk-bl-8A-ex3-1" onclick="checkBlank('bl-8A-ex3-1',"Il n'y a pas de parking.",'fb-bl-8A-ex3-1')">✓</button><span class="fb" id="fb-bl-8A-ex3-1"></span><span></span></div>
-<div class="blank-row">3. <span>C'est moderne. → Forme interrogative (est-ce que) : </span><input class="blank-input" id="bl-8A-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex3-2').click()"><button class="check-btn" id="chk-bl-8A-ex3-2" onclick="checkBlank('bl-8A-ex3-2',"Est-ce que c'est moderne ?",'fb-bl-8A-ex3-2')">✓</button><span class="fb" id="fb-bl-8A-ex3-2"></span><span></span></div>
-<div class="blank-row">4. <span>Il y a un ascenseur. → Forme interrogative (inversion) : </span><input class="blank-input" id="bl-8A-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex3-3').click()"><button class="check-btn" id="chk-bl-8A-ex3-3" onclick="checkBlank('bl-8A-ex3-3',"Y a-t-il un ascenseur ?",'fb-bl-8A-ex3-3')">✓</button><span class="fb" id="fb-bl-8A-ex3-3"></span><span></span></div>
+<div class="blank-row">1. <span>C'est lumineux. → Forme négative : </span><input class="blank-input" id="bl-8A-ex3-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex3-0').click()"><button class="check-btn" id="chk-bl-8A-ex3-0" data-ans="Ce n'est pas lumineux." onclick="checkBlankData(this,'bl-8A-ex3-0','fb-bl-8A-ex3-0')">✓</button><span class="fb" id="fb-bl-8A-ex3-0"></span><span></span></div>
+<div class="blank-row">2. <span>Il y a un parking. → Forme négative : </span><input class="blank-input" id="bl-8A-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex3-1').click()"><button class="check-btn" id="chk-bl-8A-ex3-1" data-ans="Il n'y a pas de parking." onclick="checkBlankData(this,'bl-8A-ex3-1','fb-bl-8A-ex3-1')">✓</button><span class="fb" id="fb-bl-8A-ex3-1"></span><span></span></div>
+<div class="blank-row">3. <span>C'est moderne. → Forme interrogative (est-ce que) : </span><input class="blank-input" id="bl-8A-ex3-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex3-2').click()"><button class="check-btn" id="chk-bl-8A-ex3-2" data-ans="Est-ce que c'est moderne ?" onclick="checkBlankData(this,'bl-8A-ex3-2','fb-bl-8A-ex3-2')">✓</button><span class="fb" id="fb-bl-8A-ex3-2"></span><span></span></div>
+<div class="blank-row">4. <span>Il y a un ascenseur. → Forme interrogative (inversion) : </span><input class="blank-input" id="bl-8A-ex3-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex3-3').click()"><button class="check-btn" id="chk-bl-8A-ex3-3" data-ans="Y a-t-il un ascenseur ?" onclick="checkBlankData(this,'bl-8A-ex3-3','fb-bl-8A-ex3-3')">✓</button><span class="fb" id="fb-bl-8A-ex3-3"></span><span></span></div>
 
 </div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 4 — Vocabulaire : le logement</div>
 <div class="section-body">
 <div class="ex-inst">Complétez avec le mot correct : lumineux / le loyer / l'étage / les meubles / le salon</div>
-<div class="blank-row">1. <span>L'appartement est au 3e </span><input class="blank-input" id="bl-8A-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex4-0').click()"><button class="check-btn" id="chk-bl-8A-ex4-0" onclick="checkBlank('bl-8A-ex4-0',"\u00e9tage",'fb-bl-8A-ex4-0')">✓</button><span class="fb" id="fb-bl-8A-ex4-0"></span><span>, sans ascenseur.</span></div>
-<div class="blank-row">2. <span>La pièce principale où on se retrouve en famille, c'est </span><input class="blank-input" id="bl-8A-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex4-1').click()"><button class="check-btn" id="chk-bl-8A-ex4-1" onclick="checkBlank('bl-8A-ex4-1',"le salon",'fb-bl-8A-ex4-1')">✓</button><span class="fb" id="fb-bl-8A-ex4-1"></span><span> .</span></div>
-<div class="blank-row">3. <span>Cet appartement est très </span><input class="blank-input" id="bl-8A-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex4-2').click()"><button class="check-btn" id="chk-bl-8A-ex4-2" onclick="checkBlank('bl-8A-ex4-2',"lumineux",'fb-bl-8A-ex4-2')">✓</button><span class="fb" id="fb-bl-8A-ex4-2"></span><span>. Il y a de grandes fenêtres.</span></div>
-<div class="blank-row">4. <span></span><input class="blank-input" id="bl-8A-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex4-3').click()"><button class="check-btn" id="chk-bl-8A-ex4-3" onclick="checkBlank('bl-8A-ex4-3',"le loyer",'fb-bl-8A-ex4-3')">✓</button><span class="fb" id="fb-bl-8A-ex4-3"></span><span> est de 850€ par mois, charges comprises.</span></div>
-<div class="blank-row">5. <span>Il faut acheter des </span><input class="blank-input" id="bl-8A-ex4-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex4-4').click()"><button class="check-btn" id="chk-bl-8A-ex4-4" onclick="checkBlank('bl-8A-ex4-4',"meubles",'fb-bl-8A-ex4-4')">✓</button><span class="fb" id="fb-bl-8A-ex4-4"></span><span> pour la nouvelle chambre.</span></div>
+<div class="blank-row">1. <span>L'appartement est au 3e </span><input class="blank-input" id="bl-8A-ex4-0" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex4-0').click()"><button class="check-btn" id="chk-bl-8A-ex4-0" data-ans="étage" onclick="checkBlankData(this,'bl-8A-ex4-0','fb-bl-8A-ex4-0')">✓</button><span class="fb" id="fb-bl-8A-ex4-0"></span><span>, sans ascenseur.</span></div>
+<div class="blank-row">2. <span>La pièce principale où on se retrouve en famille, c'est </span><input class="blank-input" id="bl-8A-ex4-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex4-1').click()"><button class="check-btn" id="chk-bl-8A-ex4-1" data-ans="le salon" onclick="checkBlankData(this,'bl-8A-ex4-1','fb-bl-8A-ex4-1')">✓</button><span class="fb" id="fb-bl-8A-ex4-1"></span><span> .</span></div>
+<div class="blank-row">3. <span>Cet appartement est très </span><input class="blank-input" id="bl-8A-ex4-2" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex4-2').click()"><button class="check-btn" id="chk-bl-8A-ex4-2" data-ans="lumineux" onclick="checkBlankData(this,'bl-8A-ex4-2','fb-bl-8A-ex4-2')">✓</button><span class="fb" id="fb-bl-8A-ex4-2"></span><span>. Il y a de grandes fenêtres.</span></div>
+<div class="blank-row">4. <span></span><input class="blank-input" id="bl-8A-ex4-3" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex4-3').click()"><button class="check-btn" id="chk-bl-8A-ex4-3" data-ans="le loyer" onclick="checkBlankData(this,'bl-8A-ex4-3','fb-bl-8A-ex4-3')">✓</button><span class="fb" id="fb-bl-8A-ex4-3"></span><span> est de 850€ par mois, charges comprises.</span></div>
+<div class="blank-row">5. <span>Il faut acheter des </span><input class="blank-input" id="bl-8A-ex4-4" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8A-ex4-4').click()"><button class="check-btn" id="chk-bl-8A-ex4-4" data-ans="meubles" onclick="checkBlankData(this,'bl-8A-ex4-4','fb-bl-8A-ex4-4')">✓</button><span class="fb" id="fb-bl-8A-ex4-4"></span><span> pour la nouvelle chambre.</span></div>
 
 </div>
 </div><div class="section sec-comm">
@@ -253,6 +267,26 @@ function checkBlank(inputId, answer, fbId) {
   inp.style.borderBottomColor = ok ? 'var(--green)' : '#e74c3c';
   inp.style.color = ok ? 'var(--green)' : '#e74c3c';
   if (fb) { fb.textContent = ok ? '✅' : '❌ → ' + answer; fb.className = 'fb ' + (ok?'ok':'ko'); }
+}
+function checkBlankData(btn, inputId, fbId) {
+  checkBlank(inputId, btn.dataset.ans, fbId);
+}
+function showTransform(btn) {
+  var row = btn.closest('.trans-row');
+  if (!row) return;
+  var inp = row.querySelector('.trans-input');
+  var ans = row.dataset.ans;
+  var ansEl = row.querySelector('.trans-ans');
+  var fb = row.querySelector('.trans-fb');
+  btn.style.display = 'none';
+  if (ansEl) { ansEl.classList.add('show'); }
+  if (inp && inp.value.trim() && ans) {
+    var val = inp.value.trim().toLowerCase().replace(/\s+/g, ' ');
+    var correct = ans.toLowerCase().replace(/\s+/g, ' ');
+    var isOk = correct.split(' / ').some(function(a){ return val === a.trim(); });
+    inp.classList.add(isOk ? 'correct' : 'wrong');
+    if (fb) { fb.textContent = isOk ? '✅ Correct !' : '❌'; fb.className = 'trans-fb ' + (isOk?'ok':'ko'); }
+  }
 }
 function checkMatch(btn, word, chosen, correct, groupId) {
   var grp = document.getElementById(groupId);
