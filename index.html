@@ -124,6 +124,7 @@
   .opt-btn { padding: 10px 14px; border: 2px solid #e0e0e0; border-radius: 10px; background: #fff; cursor: pointer; font-size: .88rem; font-weight: 600; transition: all .2s; text-align: left; }
   .opt-btn:hover:not(:disabled) { border-color: var(--b-color); background: var(--b-light); }
   .opt-btn:disabled { cursor: default; }
+  .opt-btn.selected { border-color: var(--b-color); background: var(--b-color); color: #fff; }
   .opt-btn.correct { border-color: var(--a-color); background: var(--a-light); color: var(--a-color); }
   .opt-btn.wrong   { border-color: #e74c3c; background: #fdedec; color: #e74c3c; }
   .blank-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
@@ -238,7 +239,7 @@
       <button class="nav-btn" onclick="showLevel('C2')">C2</button>
       <button class="nav-btn" onclick="showPage('test')">📝 Test de niveau</button>
       <a href="bibliotheque.html" style="background:var(--bg);border:none;border-radius:20px;padding:6px 16px;font-size:.85rem;font-weight:600;color:var(--muted);text-decoration:none">📚 Bibliothèque</a>
-      <a href="tarifs.html" style="background:linear-gradient(135deg,#f39c12,#e67e22);color:#fff;border:none;border-radius:20px;padding:6px 16px;font-size:.85rem;font-weight:700;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">✨ Tarifs</a>
+      <!-- <a href="tarifs.html" style="background:linear-gradient(135deg,#f39c12,#e67e22);color:#fff;border:none;border-radius:20px;padding:6px 16px;font-size:.85rem;font-weight:700;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">✨ Tarifs</a> -->
     </div>
     <div class="lang-picker">
       <button class="lang-btn" onclick="setLang('fr')">🇫🇷</button>
@@ -328,14 +329,7 @@
     </div>
   </div>
   <!-- BANNIÈRE ABONNEMENT -->
-  <div style="background:linear-gradient(135deg,#f39c12,#e67e22,#8e44ad);padding:50px 20px;text-align:center;color:#fff;margin-top:0">
-    <div style="max-width:700px;margin:auto">
-      <div style="font-size:2.5rem;margin-bottom:12px">🌟</div>
-      <h2 style="font-size:1.7rem;font-weight:900;margin-bottom:10px" data-i18n="promo-h2">Envie d'aller plus loin ?</h2>
-      <p style="opacity:.9;margin-bottom:28px;font-size:1.05rem" data-i18n="promo-p">Accédez aux fiches PDF, aux corrections détaillées et à un accompagnement personnalisé avec un(e) enseignant(e) certifié(e) FLE.</p>
-      <a href="tarifs.html" style="display:inline-block;background:#fff;color:#e67e22;font-weight:800;padding:14px 36px;border-radius:30px;text-decoration:none;font-size:1rem;transition:transform .15s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''" data-i18n="promo-link">Voir les offres &amp; tarifs →</a>
-    </div>
-  </div>
+  <!-- Section tarifs masquée temporairement -->
 
   <footer>français+ · Apprentissage du FLE · Basé sur le CECRL</footer>
 </div>
@@ -1738,24 +1732,18 @@ function showTestResult() {
 // ── EXERCICES A1 : nouvelles signatures ──
 function checkQCM(btnOrId, optIdxOrEl, correctIdxOrBool, containerId) {
   // Nouvelle signature : checkQCM(btn, optIndex, correctIndex, containerId)
+  // → sélectionne seulement, la vérification se fait via verifyQCM()
   if (typeof btnOrId === 'object' && containerId !== undefined) {
     var btn = btnOrId;
     var optIdx = optIdxOrEl;
     var correctIdx = correctIdxOrBool;
     var container = document.getElementById(containerId);
     if (!container || container.dataset.done) return;
-    container.dataset.done = '1';
-    var allBtns = container.querySelectorAll('.opt-btn');
-    allBtns.forEach(function(b){ b.disabled = true; });
-    var fb = document.getElementById('fb-' + containerId);
-    if (optIdx === correctIdx) {
-      btn.classList.add('correct');
-      if (fb){ fb.textContent = '✅ Bravo !'; fb.className = 'ex-feedback ok'; }
-    } else {
-      btn.classList.add('wrong');
-      if (allBtns[correctIdx]) allBtns[correctIdx].classList.add('correct');
-      if (fb){ fb.textContent = '❌ La bonne réponse est surlignée en vert.'; fb.className = 'ex-feedback ko'; }
-    }
+    // Marquer la sélection sans révéler la réponse
+    container.querySelectorAll('.opt-btn').forEach(function(b){ b.classList.remove('selected'); });
+    btn.classList.add('selected');
+    container.dataset.selected = optIdx;
+    container.dataset.correct = correctIdx;
     return;
   }
   // Ancienne signature : checkQCM(id, el, correct)
@@ -1796,8 +1784,47 @@ function checkBlank(inputId, answer, feedbackId) {
   }
 }
 
+// ── VERIFY QCM ──
+function verifyQCM(containerId) {
+  var container = document.getElementById(containerId);
+  if (!container || container.dataset.done) return;
+  if (container.dataset.selected === undefined || container.dataset.selected === '') {
+    var fb0 = document.getElementById('fb-' + containerId);
+    if (fb0){ fb0.textContent = '⚠️ Choisissez une réponse.'; fb0.className = 'ex-feedback ko'; }
+    return;
+  }
+  container.dataset.done = '1';
+  var optIdx = parseInt(container.dataset.selected);
+  var correctIdx = parseInt(container.dataset.correct);
+  var allBtns = container.querySelectorAll('.opt-btn');
+  allBtns.forEach(function(b){ b.disabled = true; b.classList.remove('selected'); });
+  var fb = document.getElementById('fb-' + containerId);
+  if (optIdx === correctIdx) {
+    allBtns[optIdx].classList.add('correct');
+    if (fb){ fb.textContent = '✅ Bravo !'; fb.className = 'ex-feedback ok'; }
+  } else {
+    allBtns[optIdx].classList.add('wrong');
+    if (allBtns[correctIdx]) allBtns[correctIdx].classList.add('correct');
+    if (fb){ fb.textContent = '❌ La bonne réponse est surlignée en vert.'; fb.className = 'ex-feedback ko'; }
+  }
+}
+
 // ── VOCAB FLIP ──
 document.addEventListener('DOMContentLoaded', function() {
+  // Ajouter bouton "Vérifier" à chaque QCM
+  document.querySelectorAll('.opt-grid').forEach(function(grid) {
+    var id = grid.id;
+    if (!id) return;
+    var btn = document.createElement('button');
+    btn.className = 'ex-btn';
+    btn.textContent = 'Vérifier';
+    btn.style.marginTop = '10px';
+    btn.onclick = function(){ verifyQCM(id); };
+    // Insérer après le opt-grid, avant le feedback
+    var fb = document.getElementById('fb-' + id);
+    if (fb) grid.parentNode.insertBefore(btn, fb);
+    else grid.parentNode.appendChild(btn);
+  });
   // Add flip bars and click handlers to every vocab grid
   document.querySelectorAll('.vocab-grid').forEach(function(grid) {
     var bar = document.createElement('div');
