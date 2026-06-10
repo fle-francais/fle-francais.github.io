@@ -135,11 +135,11 @@ a{color:var(--blue);text-decoration:none}
 .score-reset{background:#ecf0f1;color:var(--text)}.score-reset:hover{background:#ddd}
 .score-display{font-size:.9rem;font-weight:700;color:var(--green);display:none}
 
-/* TTS SPEAK BUTTON */
-.speak-btn{background:rgba(255,255,255,.75);border:none;border-radius:16px;padding:3px 8px;font-size:.68rem;cursor:pointer;opacity:.65;transition:all .15s;line-height:1.4;display:inline-block;margin-top:4px}
-.speak-btn:hover{opacity:1;background:#fff;transform:scale(1.1)}
-.alpha-card .speak-btn{margin-top:3px;font-size:.62rem}
+.speak-btn{display:none}
 .alpha-detail-speak{display:inline-block;margin-top:10px}
+/* Hover couleur sur jours et mois */
+.jour-card:hover,.jour-card.active{transform:scale(1.05);filter:brightness(.92)}
+.mois-card:hover,.mois-card.active{transform:scale(1.05);filter:brightness(.92)}
 
 /* FLOATING BUTTONS */
 .float-btns{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:200}
@@ -544,7 +544,7 @@ const MOIS = [
   ALPHABET.forEach((a,i)=>{
     const card = document.createElement('div');
     card.className = 'alpha-card';
-    card.innerHTML = `<div class="alpha-letter">${a.l}</div><div class="alpha-name">${a.name}</div><button class="speak-btn" onclick="speakBtn('${a.name}',event)" title="Écouter">🔊</button>`;
+    card.innerHTML = `<div class="alpha-letter">${a.l}</div><div class="alpha-name">${a.name}</div>`;
     card.onclick = ()=>{
       document.querySelectorAll('.alpha-card').forEach(c=>c.classList.remove('active'));
       card.classList.add('active');
@@ -566,7 +566,7 @@ const MOIS = [
     const card = document.createElement('div');
     card.className = 'chiffre-card';
     const frBase = c.fr.split(' / ')[0];
-    card.innerHTML = `<div class="chiffre-num">${c.n}</div><div class="chiffre-word">${c.fr}</div><div class="chiffre-zh">${c.zh}</div><button class="speak-btn" onclick="speakBtn('${frBase}',event)" title="Écouter">🔊</button>`;
+    card.innerHTML = `<div class="chiffre-num">${c.n}</div><div class="chiffre-word">${c.fr}</div><div class="chiffre-zh">${c.zh}</div>`;
     card.onclick = ()=>{
       document.querySelectorAll('.chiffre-card').forEach(cc=>cc.classList.remove('active'));
       card.classList.add('active');
@@ -584,7 +584,7 @@ const MOIS = [
     // Card
     const card = document.createElement('div');
     card.className = `jour-card j${i}`;
-    card.innerHTML = `<div class="jour-fr">${j.fr}</div><div class="jour-zh" style="display:none;color:var(--purp)">${j.zh}</div><div class="jour-abbr">${j.abbr}</div><button class="speak-btn" onclick="speakBtn('${j.fr}',event)" title="Écouter">🔊</button>`;
+    card.innerHTML = `<div class="jour-fr">${j.fr}</div><div class="jour-zh" style="display:none;color:var(--purp)">${j.zh}</div><div class="jour-abbr">${j.abbr}</div>`;
     card.onclick = ()=>{
       const zh = card.querySelector('.jour-zh');
       zh.style.display = zh.style.display === 'none' ? 'block' : 'none';
@@ -610,7 +610,7 @@ const MOIS = [
     // Card
     const card = document.createElement('div');
     card.className = `mois-card m${i}`;
-    card.innerHTML = `<div class="mois-fr">${m.fr}</div><div class="mois-zh" style="display:none;color:var(--orange)">${m.zh}</div><div class="mois-saison ${saisonClass[m.saison]}">${m.s}</div><button class="speak-btn" onclick="speakBtn('${m.fr}',event)" title="Écouter">🔊</button>`;
+    card.innerHTML = `<div class="mois-fr">${m.fr}</div><div class="mois-zh" style="display:none;color:var(--orange)">${m.zh}</div><div class="mois-saison ${saisonClass[m.saison]}">${m.s}</div>`;
     card.onclick = ()=>{
       const zh = card.querySelector('.mois-zh');
       zh.style.display = zh.style.display === 'none' ? 'block' : 'none';
