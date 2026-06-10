@@ -202,13 +202,12 @@
   .vocab-card { cursor:pointer; }
   .vocab-trans { display:none; }
   .vocab-card.flipped .vocab-trans { display:block; }
-  .vocab-card:not(.flipped)::after { content:'👆'; position:absolute; bottom:4px; right:6px; font-size:.65rem; opacity:.4; }
+  .vocab-card:not(.flipped)::after { content:''; }
   .vocab-flip-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; flex-wrap:wrap; gap:6px; }
   .vocab-hint { font-size:.78rem; color:var(--muted); font-style:italic; }
   .vocab-flip-btn { padding:4px 12px; border-radius:20px; border:2px solid var(--b-color); background:none; color:var(--b-color); cursor:pointer; font-size:.78rem; font-weight:700; transition:all .15s; }
   .vocab-flip-btn:hover { background:var(--b-color); color:#fff; }
-  .vocab-speak-btn { position:absolute; top:5px; right:5px; background:rgba(255,255,255,.8); border:none; border-radius:12px; padding:2px 6px; font-size:.65rem; cursor:pointer; opacity:.55; transition:all .15s; line-height:1.4; }
-  .vocab-speak-btn:hover { opacity:1; background:#fff; transform:scale(1.1); }
+  .vocab-speak-btn { display:none; }
 
   /* ── GRAMMAR COLLAPSIBLE ── */
   .rule-subtitle { cursor:pointer; user-select:none; display:flex; align-items:center; justify-content:space-between; font-weight:700; margin-bottom:8px; }
@@ -1825,15 +1824,6 @@ document.addEventListener('DOMContentLoaded', function() {
         card.classList.toggle('flipped');
         if(wordEl) speak(wordEl.textContent);
       });
-      // Small standalone speak button (speaks without toggling)
-      if(wordEl) {
-        var sb = document.createElement('button');
-        sb.className = 'vocab-speak-btn';
-        sb.textContent = '🔊';
-        sb.title = 'Écouter';
-        sb.onclick = function(e) { e.stopPropagation(); speak(wordEl.textContent); };
-        card.appendChild(sb);
-      }
     });
   });
 
