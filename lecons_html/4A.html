@@ -200,6 +200,16 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 }
 .lesson-tab:hover  { border-color: var(--purp); color: var(--purp); }
 .lesson-tab.active { border-color: var(--purp); background: var(--purp); color: #fff; }
+
+/* ── Dialogue illustration ── */
+.dl-illustration {
+  width: 100%; max-height: 340px;
+  object-fit: cover; object-position: center;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.10);
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -218,7 +228,9 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 </div>
 <div class="section sec-dialogue">
 <div class="section-head">💬 Dialogue</div>
-<div class="section-body"><div class="dialogue"><div class="dl-row"><div class="dl-speaker">TOURISTE</div><div class="dl-line">Excusez-moi, je cherche la pharmacie.</div></div>
+<div class="section-body"><!-- dialogue-image-patched -->
+<img src="../images/dialogue/dialogue_4A.jpg" alt="Illustration leçon 4A" class="dl-illustration">
+<div class="dialogue"><div class="dl-row"><div class="dl-speaker">TOURISTE</div><div class="dl-line">Excusez-moi, je cherche la pharmacie.</div></div>
 <div class="dl-row"><div class="dl-speaker">PASSANT</div><div class="dl-line">Il y en a une rue Victor Hugo, à 5 minutes d'ici.</div></div>
 <div class="dl-row"><div class="dl-speaker">TOURISTE</div><div class="dl-line">C'est dans quelle direction ?</div></div>
 <div class="dl-row"><div class="dl-speaker">PASSANT</div><div class="dl-line">Vous tournez à gauche, puis vous prenez la deuxième rue à droite.</div></div>

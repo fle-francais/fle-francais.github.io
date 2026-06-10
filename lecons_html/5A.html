@@ -200,6 +200,16 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 }
 .lesson-tab:hover  { border-color: var(--purp); color: var(--purp); }
 .lesson-tab.active { border-color: var(--purp); background: var(--purp); color: #fff; }
+
+/* ── Dialogue illustration ── */
+.dl-illustration {
+  width: 100%; max-height: 340px;
+  object-fit: cover; object-position: center;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.10);
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -218,7 +228,9 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 </div>
 <div class="section sec-dialogue">
 <div class="section-head">💬 Dialogue</div>
-<div class="section-body"><div class="dialogue"><div class="dl-row"><div class="dl-speaker">PROF</div><div class="dl-line">Qu'est-ce que vous mangez en général le matin ?</div></div>
+<div class="section-body"><!-- dialogue-image-patched -->
+<img src="../images/dialogue/dialogue_5A.jpg" alt="Illustration leçon 5A" class="dl-illustration">
+<div class="dialogue"><div class="dl-row"><div class="dl-speaker">PROF</div><div class="dl-line">Qu'est-ce que vous mangez en général le matin ?</div></div>
 <div class="dl-row"><div class="dl-speaker">LING</div><div class="dl-line">Je mange du riz avec des légumes. C'est la tradition chez moi.</div></div>
 <div class="dl-row"><div class="dl-speaker">PROF</div><div class="dl-line">Et vous, Thomas ?</div></div>
 <div class="dl-row"><div class="dl-speaker">THOMAS</div><div class="dl-line">Moi, je mange des céréales et je bois du jus d'orange.</div></div>

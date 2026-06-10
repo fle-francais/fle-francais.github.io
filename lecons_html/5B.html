@@ -200,6 +200,16 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 }
 .lesson-tab:hover  { border-color: var(--purp); color: var(--purp); }
 .lesson-tab.active { border-color: var(--purp); background: var(--purp); color: #fff; }
+
+/* ── Dialogue illustration ── */
+.dl-illustration {
+  width: 100%; max-height: 340px;
+  object-fit: cover; object-position: center;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.10);
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -218,7 +228,9 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 </div>
 <div class="section sec-dialogue">
 <div class="section-head">💬 Dialogue</div>
-<div class="section-body"><div class="dialogue"><div class="dl-row"><div class="dl-speaker">SERVEUR</div><div class="dl-line">Bonjour ! Vous avez choisi ?</div></div>
+<div class="section-body"><!-- dialogue-image-patched -->
+<img src="../images/dialogue/dialogue_5B.jpg" alt="Illustration leçon 5B" class="dl-illustration">
+<div class="dialogue"><div class="dl-row"><div class="dl-speaker">SERVEUR</div><div class="dl-line">Bonjour ! Vous avez choisi ?</div></div>
 <div class="dl-row"><div class="dl-speaker">CLIENT</div><div class="dl-line">1 Je voudrais un café allongé, s'il vous plaît.</div></div>
 <div class="dl-row"><div class="dl-speaker">SERVEUR</div><div class="dl-line">Avec du sucre ?</div></div>
 <div class="dl-row"><div class="dl-speaker">CLIENT</div><div class="dl-line">1 Non merci, sans sucre.</div></div>
