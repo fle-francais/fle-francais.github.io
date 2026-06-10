@@ -180,6 +180,26 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   border-radius: 8px;
   transition: background .25s;
 }
+
+/* ── Lesson tabs ── */
+.lesson-tabs {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  background: #fff; border-radius: 12px;
+  padding: 8px; margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+.lesson-tab {
+  flex: 1; min-width: 80px;
+  padding: 9px 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: #f8f9fa; color: var(--muted);
+  font-weight: 700; font-size: .82rem;
+  cursor: pointer; transition: all .15s;
+  white-space: nowrap; text-align: center;
+}
+.lesson-tab:hover  { border-color: var(--purp); color: var(--purp); }
+.lesson-tab.active { border-color: var(--purp); background: var(--purp); color: #fff; }
 </style>
 </head>
 <body>
@@ -572,6 +592,59 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAllM
     audio.onended  = function(){ playLine(idx + 1); };
     audio.onerror  = function(){ playLine(idx + 1); };  // passe à la suivante si MP3 absent
     audio.play().catch(function(){ playLine(idx + 1); });
+  }
+})();
+</script>
+<!-- lesson-tabs-patched -->
+<script>
+(function(){
+  var TABS = [
+    { id:'lecon', label:'📖 Leçon',       classes:['sec-dialogue','sec-compr','sec-comm','sec-phon'] },
+    { id:'vocab', label:'📚 Vocabulaire', classes:['sec-vocab'] },
+    { id:'gram',  label:'✏️ Grammaire',   classes:['sec-grammar'] },
+    { id:'ex',    label:'🎯 Exercices',   classes:['sec-exercise'] },
+  ];
+
+  // Garder seulement les onglets qui ont du contenu dans la page
+  var available = TABS.filter(function(t){
+    return t.classes.some(function(c){ return document.querySelector('.'+c); });
+  });
+  if (available.length < 2) return;
+
+  // Construire la barre
+  var bar = document.createElement('div');
+  bar.className = 'lesson-tabs';
+  available.forEach(function(t, i){
+    var btn = document.createElement('button');
+    btn.className = 'lesson-tab' + (i===0 ? ' active' : '');
+    btn.textContent = t.label;
+    btn.setAttribute('data-tab', t.id);
+    btn.addEventListener('click', function(){ switchTab(t.id); });
+    bar.appendChild(btn);
+  });
+
+  // Insérer avant la première section
+  var first = document.querySelector('.section');
+  if (first) first.parentNode.insertBefore(bar, first);
+
+  // Afficher le 1er onglet
+  switchTab(available[0].id);
+
+  function switchTab(tabId){
+    document.querySelectorAll('.lesson-tab').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-tab') === tabId);
+    });
+    available.forEach(function(t){
+      var show = (t.id === tabId);
+      t.classes.forEach(function(c){
+        document.querySelectorAll('.'+c).forEach(function(el){
+          el.style.display = show ? '' : 'none';
+        });
+      });
+    });
+    // Scroll en haut de la zone de contenu
+    var first_visible = document.querySelector('.section:not([style*="none"])');
+    if (first_visible) first_visible.scrollIntoView({behavior:'smooth', block:'start'});
   }
 })();
 </script>
