@@ -1541,6 +1541,37 @@ const I18N = {
     promo_h2: 'Envie d\'aller plus loin ?',
     promo_p: 'Accédez aux fiches PDF, aux corrections détaillées et à un accompagnement personnalisé avec un(e) enseignant(e) certifié(e) FLE.',
     promo_link: 'Voir les offres & tarifs →',
+    'btn-bug': '🐛 Signaler un bug',
+    'btn-ask': '💬 Poser une question',
+    'bug-title': '🐛 Signaler un problème',
+    'bug-sub': 'Aidez-nous à améliorer le site en signalant tout problème.',
+    'bug-lbl-section': 'Section concernée',
+    'opt-choose': '— Choisissez —',
+    'opt-test': 'Test de niveau',
+    'opt-vocab': 'Vocabulaire A1',
+    'opt-gram': 'Grammaire A1',
+    'opt-ex': 'Exercices A1',
+    'opt-lecons': 'Leçons',
+    'opt-other': 'Autre',
+    'bug-lbl-desc': 'Description du problème',
+    'bug-ph-desc': 'Décrivez le bug…',
+    'lbl-prenom': 'Votre prénom (facultatif)',
+    'ph-prenom': 'Ex : Marie',
+    'bug-btn': 'Envoyer le signalement',
+    'bug-success': '✅ Merci ! Votre signalement a bien été envoyé.',
+    'ask-title': '💬 Poser une question',
+    'ask-sub': 'Votre question sera transmise directement au professeur.',
+    'ask-lbl-sujet': 'Sujet de la question',
+    'opt-ask-gram': '📖 Grammaire — règle ou structure',
+    'opt-ask-vocab': '📝 Vocabulaire — sens ou usage d\'un mot',
+    'opt-ask-ex': '✏️ Exercice — correction ou consigne',
+    'opt-ask-pron': '🎵 Prononciation — son ou accent',
+    'ask-lbl-q': 'Votre question',
+    'ask-ph-q': 'Posez votre question ici de façon précise…',
+    'ask-lbl-email': 'Votre adresse e-mail (pour recevoir la réponse)',
+    'ask-ph-email': 'Ex : marie@email.com',
+    'ask-btn': 'Envoyer la question',
+    'ask-success': '✅ Merci ! Votre question a bien été envoyée au professeur.',
     'bio-title': 'Votre professeur',
     'bio-p1': 'Titulaire d\'un <strong>Master 2 FLE/FLES</strong> (Université Grenoble Alpes) et du <strong>DAEFLE</strong> (Alliance Française de Paris), j\'enseigne le français langue étrangère depuis plusieurs années, du niveau A1 au C2, en France, en Chine et en Italie.',
     'bio-p2': 'J\'ai exercé au sein des <strong>Alliances Françaises de Strasbourg, Nanjing, Turin et Grenoble</strong>, ainsi qu\'à l\'<strong>Université SKEMA Business School</strong> (Chine). Je suis <strong>examinateur-correcteur habilité DELF/DALF A1–C2</strong> et examinateur <strong>TCF</strong> (IRN, TP, Canada).',
@@ -1596,6 +1627,37 @@ const I18N = {
     promo_h2: '想要更进一步？',
     promo_p: '获取PDF课件、详细答案解析，以及经认证的FLE教师的个性化辅导。',
     promo_link: '查看套餐与价格 →',
+    'btn-bug': '🐛  反馈问题',
+    'btn-ask': '💬 提问',
+    'bug-title': '🐛 反馈问题',
+    'bug-sub': '如发现任何问题，请告知我们以帮助改善网站。',
+    'bug-lbl-section': '相关部分',
+    'opt-choose': '— 请选择 —',
+    'opt-test': '级别测试',
+    'opt-vocab': 'A1词汇',
+    'opt-gram': 'A1语法',
+    'opt-ex': 'A1练习',
+    'opt-lecons': '课程',
+    'opt-other': '其他',
+    'bug-lbl-desc': '问题描述',
+    'bug-ph-desc': '请描述问题…',
+    'lbl-prenom': '您的名字（选填）',
+    'ph-prenom': '例如：小明',
+    'bug-btn': '提交反馈',
+    'bug-success': '✅ 感谢您的反馈！',
+    'ask-title': '💬 提问',
+    'ask-sub': '您的问题将直接传达给老师。',
+    'ask-lbl-sujet': '问题主题',
+    'opt-ask-gram': '📖 语法 — 规则或结构',
+    'opt-ask-vocab': '📝 词汇 — 含义或用法',
+    'opt-ask-ex': '✏️ 练习 — 答案或说明',
+    'opt-ask-pron': '🎵 发音 — 语音或重音',
+    'ask-lbl-q': '您的问题',
+    'ask-ph-q': '请详细描述您的问题…',
+    'ask-lbl-email': '您的邮箱（用于接收回复）',
+    'ask-ph-email': '例如：xiaoming@email.com',
+    'ask-btn': '发送问题',
+    'ask-success': '✅ 感谢！您的问题已发送给老师。',
     'bio-title': '您的老师',
     'bio-p1': '我拥有<strong>法语外语教学硕士学位（Master 2 FLE/FLES）</strong>（格勒诺布尔-阿尔卑斯大学）以及<strong>DAEFLE文凭</strong>（巴黎法语联盟），多年来一直从事法语外语教学，教授水平涵盖A1至C2，教学地点包括法国、中国和意大利。',
     'bio-p2': '我曾执教于<strong>斯特拉斯堡、南京、都灵和格勒诺布尔法语联盟</strong>，以及<strong>中国SKEMA商学院</strong>。我是<strong>DELF/DALF A1–C2认证考官与批改官</strong>，以及<strong>TCF考官</strong>（IRN、TP、加拿大）。',
@@ -1728,10 +1790,20 @@ function setLang(lang) {
   document.querySelectorAll('.level-header p' ).forEach((el, i) => { if (T.lh_p[i])     el.textContent = T.lh_p[i]; });
   document.querySelectorAll('.can-do'         ).forEach((el, i) => { if (T.lh_cando[i]) el.innerHTML   = T.lh_cando[i]; });
 
-  // Biographie
-  document.querySelectorAll('[data-i18n^="bio-"]').forEach(function(el) {
+  // Tous les éléments data-i18n (bio, modales, boutons…)
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
     var key = el.getAttribute('data-i18n');
-    if (T[key]) el.innerHTML = T[key];
+    if (T[key] !== undefined) {
+      // innerHTML pour les éléments avec balises <strong> etc., textContent sinon
+      if (T[key].indexOf('<') !== -1) el.innerHTML = T[key];
+      else el.textContent = T[key];
+    }
+  });
+
+  // Placeholders des champs de formulaire
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-placeholder');
+    if (T[key]) el.placeholder = T[key];
   });
 
   // Consignes des exercices
@@ -2069,40 +2141,40 @@ document.addEventListener('DOMContentLoaded', function() {
 </style>
 
 <div class="float-btns">
-  <button class="float-btn btn-bug" onclick="openFleModal('fle-modal-bug')" title="Signaler un problème">🐛 Signaler un bug</button>
-  <button class="float-btn btn-ask" onclick="openFleModal('fle-modal-ask')" title="Poser une question">💬 Poser une question</button>
+  <button class="float-btn btn-bug" onclick="openFleModal('fle-modal-bug')" title="Signaler un problème"><span data-i18n="btn-bug">🐛 Signaler un bug</span></button>
+  <button class="float-btn btn-ask" onclick="openFleModal('fle-modal-ask')" title="Poser une question"><span data-i18n="btn-ask">💬 Poser une question</span></button>
 </div>
 
 <div id="fle-modal-bug" class="fle-modal" role="dialog" aria-modal="true">
   <div class="fle-modal-box">
     <button class="modal-close" onclick="closeFleModal('fle-modal-bug')">✕</button>
-    <h2>🐛 Signaler un problème</h2>
-    <p class="modal-sub">Aidez-nous à améliorer le site en signalant tout problème.</p>
+    <h2 data-i18n="bug-title">🐛 Signaler un problème</h2>
+    <p class="modal-sub" data-i18n="bug-sub">Aidez-nous à améliorer le site en signalant tout problème.</p>
     <form id="idx-form-bug" onsubmit="submitFleForm(event,'idx-form-bug','fle-modal-bug')">
       <input type="hidden" name="lecon" value="Page d'accueil">
       <input type="hidden" name="_subject" value="[Bug] Page d'accueil">
       <div class="fform-group">
-        <label>Section concernée</label>
+        <label data-i18n="bug-lbl-section">Section concernée</label>
         <select name="exercice" required>
-          <option value="">— Choisissez —</option>
-          <option>Test de niveau</option>
-          <option>Vocabulaire A1</option>
-          <option>Grammaire A1</option>
-          <option>Exercices A1</option>
-          <option>Leçons</option>
-          <option>Autre</option>
+          <option value="" data-i18n="opt-choose">— Choisissez —</option>
+          <option data-i18n="opt-test">Test de niveau</option>
+          <option data-i18n="opt-vocab">Vocabulaire A1</option>
+          <option data-i18n="opt-gram">Grammaire A1</option>
+          <option data-i18n="opt-ex">Exercices A1</option>
+          <option data-i18n="opt-lecons">Leçons</option>
+          <option data-i18n="opt-other">Autre</option>
         </select>
       </div>
       <div class="fform-group">
-        <label>Description du problème</label>
-        <textarea name="description" rows="4" placeholder="Décrivez le bug…" required></textarea>
+        <label data-i18n="bug-lbl-desc">Description du problème</label>
+        <textarea name="description" rows="4" data-i18n-placeholder="bug-ph-desc" placeholder="Décrivez le bug…" required></textarea>
       </div>
       <div class="fform-group">
-        <label>Votre prénom <span class="opt">(facultatif)</span></label>
-        <input type="text" name="prenom" placeholder="Ex : Marie">
+        <label data-i18n="lbl-prenom">Votre prénom <span class="opt">(facultatif)</span></label>
+        <input type="text" name="prenom" data-i18n-placeholder="ph-prenom" placeholder="Ex : Marie">
       </div>
-      <button type="submit" class="btn-send">Envoyer le signalement</button>
-      <p class="form-success" id="idx-success-bug">✅ Merci ! Votre signalement a bien été envoyé.</p>
+      <button type="submit" class="btn-send" data-i18n="bug-btn">Envoyer le signalement</button>
+      <p class="form-success" id="idx-success-bug" data-i18n="bug-success">✅ Merci ! Votre signalement a bien été envoyé.</p>
     </form>
   </div>
 </div>
@@ -2110,35 +2182,35 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="fle-modal-ask" class="fle-modal" role="dialog" aria-modal="true">
   <div class="fle-modal-box">
     <button class="modal-close" onclick="closeFleModal('fle-modal-ask')">✕</button>
-    <h2>💬 Poser une question</h2>
-    <p class="modal-sub">Votre question sera transmise directement au professeur.</p>
+    <h2 data-i18n="ask-title">💬 Poser une question</h2>
+    <p class="modal-sub" data-i18n="ask-sub">Votre question sera transmise directement au professeur.</p>
     <form id="idx-form-ask" onsubmit="submitFleForm(event,'idx-form-ask','fle-modal-ask')">
       <input type="hidden" name="lecon" value="Page d'accueil">
       <input type="hidden" name="_subject" value="[Question] Page d'accueil">
       <div class="fform-group">
-        <label>Sujet de la question</label>
+        <label data-i18n="ask-lbl-sujet">Sujet de la question</label>
         <select name="sujet" required>
-          <option value="">— Choisissez —</option>
-          <option value="Grammaire">📖 Grammaire — règle ou structure</option>
-          <option value="Vocabulaire">📝 Vocabulaire — sens ou usage d'un mot</option>
-          <option value="Exercice">✏️ Exercice — correction ou consigne</option>
-          <option value="Prononciation">🎵 Prononciation — son ou accent</option>
+          <option value="" data-i18n="opt-choose">— Choisissez —</option>
+          <option value="Grammaire" data-i18n="opt-ask-gram">📖 Grammaire — règle ou structure</option>
+          <option value="Vocabulaire" data-i18n="opt-ask-vocab">📝 Vocabulaire — sens ou usage d'un mot</option>
+          <option value="Exercice" data-i18n="opt-ask-ex">✏️ Exercice — correction ou consigne</option>
+          <option value="Prononciation" data-i18n="opt-ask-pron">🎵 Prononciation — son ou accent</option>
         </select>
       </div>
       <div class="fform-group">
-        <label>Votre question</label>
-        <textarea name="question" rows="4" placeholder="Posez votre question ici de façon précise…" required></textarea>
+        <label data-i18n="ask-lbl-q">Votre question</label>
+        <textarea name="question" rows="4" data-i18n-placeholder="ask-ph-q" placeholder="Posez votre question ici de façon précise…" required></textarea>
       </div>
       <div class="fform-group">
-        <label>Votre prénom <span class="opt">(facultatif)</span></label>
-        <input type="text" name="prenom" placeholder="Ex : Marie">
+        <label data-i18n="lbl-prenom">Votre prénom <span class="opt">(facultatif)</span></label>
+        <input type="text" name="prenom" data-i18n-placeholder="ph-prenom" placeholder="Ex : Marie">
       </div>
       <div class="fform-group">
-        <label>Votre adresse e-mail <span class="opt">(pour recevoir la réponse)</span></label>
-        <input type="email" name="email" placeholder="Ex : marie@email.com">
+        <label data-i18n="ask-lbl-email">Votre adresse e-mail <span class="opt">(pour recevoir la réponse)</span></label>
+        <input type="email" name="email" data-i18n-placeholder="ask-ph-email" placeholder="Ex : marie@email.com">
       </div>
-      <button type="submit" class="btn-send">Envoyer la question</button>
-      <p class="form-success" id="idx-success-ask">✅ Merci ! Votre question a bien été envoyée au professeur.</p>
+      <button type="submit" class="btn-send" data-i18n="ask-btn">Envoyer la question</button>
+      <p class="form-success" id="idx-success-ask" data-i18n="ask-success">✅ Merci ! Votre question a bien été envoyée au professeur.</p>
     </form>
   </div>
 </div>

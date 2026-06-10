@@ -550,6 +550,8 @@ const MOIS = [
       document.getElementById('alpha-detail-name').textContent = 'Nom : « ' + a.name + ' »';
       document.getElementById('alpha-detail-ex').textContent = 'Exemple : ' + a.ex;
       speak(a.name);
+      // Retirer l'état actif après 1,5 s pour ne pas laisser la carte "figée"
+      setTimeout(()=>card.classList.remove('active'), 1500);
     };
     grid.appendChild(card);
   });
