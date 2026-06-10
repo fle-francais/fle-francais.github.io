@@ -102,14 +102,12 @@
   .ex-btn { margin-top: 16px; padding: 10px 24px; background: var(--b-color); color: #fff; border: none; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: .9rem; transition: opacity .2s; }
   .ex-btn:hover { opacity: .85; }
   .ex-btn.reset { background: var(--muted); margin-left: 10px; }
-  .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
-  .vocab-card { background: var(--b-light); border-radius: 10px; padding: 16px 12px; text-align: center; cursor: pointer; transition: all .2s; position: relative; }
-  .vocab-card:hover { transform: scale(1.03); }
-  .vocab-emoji { font-size: 2rem; display: block; margin-bottom: 6px; }
-  .vocab-word { font-weight: 700; font-size: .9rem; }
-  .vocab-trans { font-size: .78rem; color: var(--muted); margin-top: 2px; display: none; }
-  .vocab-card.flipped .vocab-trans { display: block; }
-  .vocab-card.flipped { background: var(--a-light); }
+  .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+  .vocab-card { background: var(--b-light); border-radius: 10px; padding: 14px 10px; text-align: center; transition: all .2s; position: relative; }
+  .vocab-card:hover { transform: scale(1.02); background: var(--a-light); }
+  .vocab-emoji { font-size: 1.8rem; display: block; margin-bottom: 6px; }
+  .vocab-word { font-weight: 700; font-size: .85rem; color: var(--text); display: block; word-break: break-word; line-height: 1.3; margin-bottom: 4px; }
+  .vocab-trans { font-size: .8rem; color: var(--b-color); display: block; font-weight: 600; word-break: break-word; line-height: 1.3; }
   .score-bar { background: var(--bg); border-radius: var(--radius); padding: 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
   .score-circle { width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 900; background: var(--b-light); color: var(--b-color); flex-shrink: 0; }
   .score-text h4 { font-size: 1rem; font-weight: 700; }
