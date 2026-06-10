@@ -337,10 +337,10 @@
         <div style="font-size:.82rem;color:var(--muted);margin-top:2px">📍 Shanghai, Chine</div>
       </div>
       <div style="flex:1;min-width:220px">
-        <h2 style="font-size:1.25rem;font-weight:900;margin-bottom:12px;color:var(--b-color)">Votre professeur</h2>
-        <p style="color:var(--text);font-size:.93rem;line-height:1.7;margin-bottom:14px">Titulaire d'un <strong>Master 2 FLE/FLES</strong> (Université Grenoble Alpes) et du <strong>DAEFLE</strong> (Alliance Française de Paris), j'enseigne le français langue étrangère depuis plusieurs années, du niveau A1 au C2, en France, en Chine et en Italie.</p>
-        <p style="color:var(--text);font-size:.93rem;line-height:1.7;margin-bottom:14px">J'ai exercé au sein des <strong>Alliances Françaises de Strasbourg, Nanjing, Turin et Grenoble</strong>, ainsi qu'à l'<strong>Université SKEMA Business School</strong> (Chine). Je suis <strong>examinateur-correcteur habilité DELF/DALF A1–C2</strong> et examinateur <strong>TCF</strong> (IRN, TP, Canada).</p>
-        <p style="color:var(--text);font-size:.93rem;line-height:1.7">Doté d'une approche pédagogique adaptée à chaque profil, je conçois des parcours sur mesure pour vous accompagner efficacement vers vos objectifs.</p>
+        <h2 style="font-size:1.25rem;font-weight:900;margin-bottom:12px;color:var(--b-color)" data-i18n="bio-title">Votre professeur</h2>
+        <p style="color:var(--text);font-size:.93rem;line-height:1.7;margin-bottom:14px" data-i18n="bio-p1">Titulaire d'un <strong>Master 2 FLE/FLES</strong> (Université Grenoble Alpes) et du <strong>DAEFLE</strong> (Alliance Française de Paris), j'enseigne le français langue étrangère depuis plusieurs années, du niveau A1 au C2, en France, en Chine et en Italie.</p>
+        <p style="color:var(--text);font-size:.93rem;line-height:1.7;margin-bottom:14px" data-i18n="bio-p2">J'ai exercé au sein des <strong>Alliances Françaises de Strasbourg, Nanjing, Turin et Grenoble</strong>, ainsi qu'à l'<strong>Université SKEMA Business School</strong> (Chine). Je suis <strong>examinateur-correcteur habilité DELF/DALF A1–C2</strong> et examinateur <strong>TCF</strong> (IRN, TP, Canada).</p>
+        <p style="color:var(--text);font-size:.93rem;line-height:1.7" data-i18n="bio-p3">Doté d'une approche pédagogique adaptée à chaque profil, je conçois des parcours sur mesure pour vous accompagner efficacement vers vos objectifs.</p>
         <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
           <span style="background:var(--b-light);color:var(--b-color);border-radius:20px;padding:4px 12px;font-size:.78rem;font-weight:700">Master 2 FLE/FLES</span>
           <span style="background:var(--b-light);color:var(--b-color);border-radius:20px;padding:4px 12px;font-size:.78rem;font-weight:700">DAEFLE</span>
@@ -1519,6 +1519,10 @@ const I18N = {
     promo_h2: 'Envie d\'aller plus loin ?',
     promo_p: 'Accédez aux fiches PDF, aux corrections détaillées et à un accompagnement personnalisé avec un(e) enseignant(e) certifié(e) FLE.',
     promo_link: 'Voir les offres & tarifs →',
+    'bio-title': 'Votre professeur',
+    'bio-p1': 'Titulaire d\'un <strong>Master 2 FLE/FLES</strong> (Université Grenoble Alpes) et du <strong>DAEFLE</strong> (Alliance Française de Paris), j\'enseigne le français langue étrangère depuis plusieurs années, du niveau A1 au C2, en France, en Chine et en Italie.',
+    'bio-p2': 'J\'ai exercé au sein des <strong>Alliances Françaises de Strasbourg, Nanjing, Turin et Grenoble</strong>, ainsi qu\'à l\'<strong>Université SKEMA Business School</strong> (Chine). Je suis <strong>examinateur-correcteur habilité DELF/DALF A1–C2</strong> et examinateur <strong>TCF</strong> (IRN, TP, Canada).',
+    'bio-p3': 'Doté d\'une approche pédagogique adaptée à chaque profil, je conçois des parcours sur mesure pour vous accompagner efficacement vers vos objectifs.',
     footer: 'français+ · Apprentissage du FLE · Basé sur le CECRL',
     back_btn: '← Retour à l\'accueil',
     nav_test: 'Test de niveau',
@@ -1570,6 +1574,10 @@ const I18N = {
     promo_h2: '想要更进一步？',
     promo_p: '获取PDF课件、详细答案解析，以及经认证的FLE教师的个性化辅导。',
     promo_link: '查看套餐与价格 →',
+    'bio-title': '您的老师',
+    'bio-p1': '我拥有<strong>法语外语教学硕士学位（Master 2 FLE/FLES）</strong>（格勒诺布尔-阿尔卑斯大学）以及<strong>DAEFLE文凭</strong>（巴黎法语联盟），多年来一直从事法语外语教学，教授水平涵盖A1至C2，教学地点包括法国、中国和意大利。',
+    'bio-p2': '我曾执教于<strong>斯特拉斯堡、南京、都灵和格勒诺布尔法语联盟</strong>，以及<strong>中国SKEMA商学院</strong>。我是<strong>DELF/DALF A1–C2认证考官与批改官</strong>，以及<strong>TCF考官</strong>（IRN、TP、加拿大）。',
+    'bio-p3': '凭借因材施教的教学理念，我为每位学员量身定制学习方案，帮助您高效达成学习目标。',
     footer: 'français+ · 法语学习 · 基于CECR',
     back_btn: '← 返回首页',
     nav_test: '级别测试',
@@ -1697,6 +1705,68 @@ function setLang(lang) {
   document.querySelectorAll('.level-header h2').forEach((el, i) => { if (T.lh_h2[i])    el.textContent = T.lh_h2[i]; });
   document.querySelectorAll('.level-header p' ).forEach((el, i) => { if (T.lh_p[i])     el.textContent = T.lh_p[i]; });
   document.querySelectorAll('.can-do'         ).forEach((el, i) => { if (T.lh_cando[i]) el.innerHTML   = T.lh_cando[i]; });
+
+  // Biographie
+  document.querySelectorAll('[data-i18n^="bio-"]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (T[key]) el.innerHTML = T[key];
+  });
+
+  // Consignes des exercices
+  translateExerciseInstructions(lang);
+}
+
+// ── Traduction automatique des consignes d'exercices ──
+var exInstructionsCache = {};
+function translateExerciseInstructions(lang) {
+  document.querySelectorAll('.ex-question').forEach(function(el) {
+    // Sauvegarder le texte FR original
+    if (!el.getAttribute('data-fr')) el.setAttribute('data-fr', el.textContent);
+    var fr = el.getAttribute('data-fr');
+    if (lang === 'zh') {
+      el.textContent = zhInstruction(fr);
+    } else {
+      el.textContent = fr;
+    }
+  });
+}
+
+function zhInstruction(text) {
+  var t = text.trim();
+  var map = [
+    [/^Complétez avec la bonne forme d.AVOIR/i, '用AVOIR的正确形式填空：'],
+    [/^Complétez avec la bonne forme d.ÊTRE/i, '用ÊTRE的正确形式填空：'],
+    [/^Complétez avec du\/de la\/de l.\/des ou de\/d./i, '用 du/de la/de l\'/des 或 de/d\' 填空：'],
+    [/^Complétez avec plus[,\s]/i, '用 plus、aussi 或 moins 填空：'],
+    [/^Complétez avec pour[,\s]/i, '用 pour、parce que、mais 或 sans 填空：'],
+    [/^Complétez avec depuis/i, '用 depuis、pendant 或 il y a 填空：'],
+    [/^Complétez avec QUI/i, '用关系代词 QUI 或 QUE/QU\' 填空：'],
+    [/^Complétez avec le bon/i, '用正确的词填空：'],
+    [/^Complétez :/i, '请填空：'],
+    [/^Complétez/i, '请填空：'],
+    [/^Conjuguez (.+) au présent/i, '将动词变为现在时：'],
+    [/^Conjuguez (.+) au passé composé avec ÊTRE/i, '用ÊTRE助动词将动词变为复合过去时：'],
+    [/^Conjuguez (.+) au passé composé/i, '将动词变为复合过去时：'],
+    [/^Conjuguez les verbes pronominaux/i, '变位代词动词：'],
+    [/^Conjuguez/i, '请变位：'],
+    [/^Écrivez en lettres/i, '用文字写出以下数字：'],
+    [/^Écrivez la forme féminine/i, '写出阴性形式：'],
+    [/^Écrivez/i, '请写出：'],
+    [/^Mettez au futur proche négatif/i, '改为否定近将来时：'],
+    [/^Mettez au futur proche/i, '改为近将来时：'],
+    [/^Mettez/i, '请改写：'],
+    [/^Remplacez le COD par le pronom/i, '用正确的直接宾语代词替换划线部分：'],
+    [/^Remplacez/i, '请替换：'],
+    [/^Répondez avec le pronom Y/i, '用代词 Y 回答：'],
+    [/^Répondez/i, '请回答：'],
+    [/^Utilisez le passé récent/i, '用近过去时（venir de + 不定式）造句：'],
+    [/^Utilisez/i, '请使用：'],
+    [/^Choisissez/i, '请选择：'],
+  ];
+  for (var i = 0; i < map.length; i++) {
+    if (map[i][0].test(t)) return map[i][1];
+  }
+  return t; // fallback : garder le texte original
 }
 
 // Override renderQuestion to use i18n counter
