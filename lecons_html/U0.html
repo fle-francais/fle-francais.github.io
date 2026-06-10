@@ -161,13 +161,21 @@ a{color:var(--blue);text-decoration:none}
 .btn-send{width:100%;padding:12px;border:none;border-radius:10px;background:var(--blue);color:#fff;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;margin-top:4px}
 .btn-send:hover{background:#1a6ea8}
 .form-success{display:none;margin-top:14px;background:#eafaf1;color:#27ae60;border-radius:8px;padding:10px 14px;font-size:.9rem;font-weight:600;text-align:center}
+
+/* ── Lang buttons U0 ── */
+.lang-btn{padding:4px 10px;border-radius:14px;border:2px solid #ddd;background:#fff;cursor:pointer;font-size:.9rem;transition:all .15s}
+.lang-btn.active{border-color:var(--purp);background:var(--purp-l)}
 </style>
 </head>
 <body>
 <div class="page-wrap">
 
 <nav class="top-nav">
-  <a class="btn-nav btn-back" href="../index.html">🏠 Accueil</a>
+  <a class="btn-nav btn-back" href="../index.html" data-i18n="back">🏠 Accueil</a>
+  <div style="margin-left:auto;display:flex;gap:6px">
+    <button class="lang-btn" onclick="setLangU0('fr')">🇫🇷</button>
+    <button class="lang-btn" onclick="setLangU0('zh')">🇨🇳</button>
+  </div>
   <a class="btn-nav btn-next" href="1A.html">1A →</a>
   <span class="nav-title">Unité 0</span>
 </nav>
@@ -175,23 +183,23 @@ a{color:var(--blue);text-decoration:none}
 <div class="lesson-header">
   <div class="lesson-unit">Unité 0 — Pour commencer</div>
   <div><span class="lesson-code">U0</span><span class="lesson-badge">A1</span></div>
-  <div class="lesson-title">Les Bases du Français</div>
-  <div class="lesson-sub">L'alphabet · Les chiffres · Les jours · Les mois</div>
+  <div class="lesson-title" data-i18n="lesson-title">Les Bases du Français</div>
+  <div class="lesson-sub" data-i18n="lesson-sub">L'alphabet · Les chiffres · Les jours · Les mois</div>
 </div>
 
 <!-- TABLE OF CONTENTS -->
 <div class="toc">
-  <a class="toc-btn toc-alpha" href="#alphabet">🔤 L'alphabet</a>
-  <a class="toc-btn toc-chiffres" href="#chiffres">🔢 Les chiffres 1–31</a>
-  <a class="toc-btn toc-jours" href="#jours">📅 Les jours</a>
-  <a class="toc-btn toc-mois" href="#mois">🗓️ Les mois</a>
+  <a class="toc-btn toc-alpha" href="#alphabet" data-i18n="toc-alpha">🔤 L'alphabet</a>
+  <a class="toc-btn toc-chiffres" href="#chiffres" data-i18n="toc-chiffres">🔢 Les chiffres 1–31</a>
+  <a class="toc-btn toc-jours" href="#jours" data-i18n="toc-jours">📅 Les jours</a>
+  <a class="toc-btn toc-mois" href="#mois" data-i18n="toc-mois">🗓️ Les mois</a>
 </div>
 
 <!-- ══ ALPHABET ══ -->
 <div class="section sec-alpha" id="alphabet">
-  <div class="section-head">🔤 L'alphabet français</div>
+  <div class="section-head" data-i18n="sh-alpha">🔤 L'alphabet français</div>
   <div class="section-body">
-    <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px">Cliquez sur une lettre pour voir son nom en français.</p>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px" data-i18n="p-alpha">Cliquez sur une lettre pour voir son nom en français.</p>
     <div class="alpha-grid" id="alpha-grid"></div>
     <div id="alpha-detail" style="display:none;background:#e8f8f5;border-radius:10px;padding:14px 18px;margin-top:12px;text-align:center">
       <div id="alpha-detail-letter" style="font-size:3rem;font-weight:900;color:#16a085;line-height:1"></div>
@@ -203,26 +211,26 @@ a{color:var(--blue);text-decoration:none}
 
 <!-- ══ CHIFFRES ══ -->
 <div class="section sec-chiffres" id="chiffres">
-  <div class="section-head">🔢 Les chiffres de 1 à 31</div>
+  <div class="section-head" data-i18n="sh-chiffres">🔢 Les chiffres de 1 à 31</div>
   <div class="section-body">
-    <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px">Cliquez sur un chiffre pour voir comment l'écrire.</p>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px" data-i18n="p-chiffres">Cliquez sur un chiffre pour voir comment l'écrire.</p>
     <div class="chiffres-grid" id="chiffres-grid"></div>
   </div>
 </div>
 
 <!-- ══ JOURS ══ -->
 <div class="section sec-jours" id="jours">
-  <div class="section-head">📅 Les jours de la semaine</div>
+  <div class="section-head" data-i18n="sh-jours">📅 Les jours de la semaine</div>
   <div class="section-body">
-    <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px">Cliquez sur un jour pour voir sa traduction en chinois.</p>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px" data-i18n="p-jours">Cliquez sur un jour pour voir sa traduction en chinois.</p>
     <div class="jours-grid" id="jours-grid"></div>
     <table style="width:100%;border-collapse:collapse;font-size:.88rem;margin-top:10px">
       <thead>
         <tr style="background:#f5eef8">
-          <th style="padding:8px 10px;text-align:left;color:var(--purp);border:1px solid #e8e0f0">Jour</th>
-          <th style="padding:8px 10px;text-align:left;color:var(--purp);border:1px solid #e8e0f0">Abrév.</th>
+          <th style="padding:8px 10px;text-align:left;color:var(--purp);border:1px solid #e8e0f0" data-i18n="th-jour">Jour</th>
+          <th style="padding:8px 10px;text-align:left;color:var(--purp);border:1px solid #e8e0f0" data-i18n="th-abbrev">Abrév.</th>
           <th style="padding:8px 10px;text-align:left;color:var(--purp);border:1px solid #e8e0f0">中文</th>
-          <th style="padding:8px 10px;text-align:left;color:var(--purp);border:1px solid #e8e0f0">Note</th>
+          <th style="padding:8px 10px;text-align:left;color:var(--purp);border:1px solid #e8e0f0" data-i18n="th-note">Note</th>
         </tr>
       </thead>
       <tbody id="jours-tbody"></tbody>
@@ -232,15 +240,15 @@ a{color:var(--blue);text-decoration:none}
 
 <!-- ══ MOIS ══ -->
 <div class="section sec-mois" id="mois">
-  <div class="section-head">🗓️ Les mois de l'année</div>
+  <div class="section-head" data-i18n="sh-mois">🗓️ Les mois de l'année</div>
   <div class="section-body">
-    <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px">Cliquez sur un mois pour voir la saison et la traduction.</p>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px" data-i18n="p-mois">Cliquez sur un mois pour voir la saison et la traduction.</p>
     <div class="mois-grid" id="mois-grid"></div>
     <table style="width:100%;border-collapse:collapse;font-size:.88rem;margin-top:10px">
       <thead>
         <tr style="background:var(--orange-l)">
-          <th style="padding:8px 10px;text-align:left;color:var(--orange);border:1px solid #f5e6d0">Mois</th>
-          <th style="padding:8px 10px;text-align:left;color:var(--orange);border:1px solid #f5e6d0">Saison</th>
+          <th style="padding:8px 10px;text-align:left;color:var(--orange);border:1px solid #f5e6d0" data-i18n="th-mois">Mois</th>
+          <th style="padding:8px 10px;text-align:left;color:var(--orange);border:1px solid #f5e6d0" data-i18n="th-saison">Saison</th>
           <th style="padding:8px 10px;text-align:left;color:var(--orange);border:1px solid #f5e6d0">中文</th>
         </tr>
       </thead>
@@ -251,53 +259,53 @@ a{color:var(--blue);text-decoration:none}
 
 <!-- ══ EXERCISES ══ -->
 <div class="section sec-exercise" id="exercices">
-  <div class="section-head">✏️ Exercices de mémorisation</div>
+  <div class="section-head" data-i18n="sh-ex">✏️ Exercices de mémorisation</div>
   <div class="section-body">
 
     <!-- EX 1: Chiffres QCM -->
     <div class="ex-group">
-      <div class="ex-title">Exercice 1 — Les chiffres : quel est ce nombre ?</div>
-      <div class="ex-inst">Choisissez le bon chiffre.</div>
+      <div class="ex-title" data-i18n="ex1-title">Exercice 1 — Les chiffres : quel est ce nombre ?</div>
+      <div class="ex-inst" data-i18n="ex1-inst">Choisissez le bon chiffre.</div>
       <div id="ex1-container"></div>
       <div class="score-row">
-        <button class="score-btn score-check" onclick="checkEx('ex1')">Vérifier</button>
-        <button class="score-btn score-reset" onclick="resetEx('ex1')">Recommencer</button>
+        <button class="score-btn score-check" onclick="checkEx('ex1')" data-i18n="btn-verif">Vérifier</button>
+        <button class="score-btn score-reset" onclick="resetEx('ex1')" data-i18n="btn-reset">Recommencer</button>
         <span id="ex1-score" class="score-display"></span>
       </div>
     </div>
 
     <!-- EX 2: Jours fill-in -->
     <div class="ex-group">
-      <div class="ex-title">Exercice 2 — Les jours de la semaine</div>
-      <div class="ex-inst">Complétez avec le jour qui manque.</div>
+      <div class="ex-title" data-i18n="ex2-title">Exercice 2 — Les jours de la semaine</div>
+      <div class="ex-inst" data-i18n="ex2-inst">Complétez avec le jour qui manque.</div>
       <div id="ex2-container"></div>
       <div class="score-row">
-        <button class="score-btn score-check" onclick="checkEx('ex2')">Vérifier</button>
-        <button class="score-btn score-reset" onclick="resetEx('ex2')">Recommencer</button>
+        <button class="score-btn score-check" onclick="checkEx('ex2')" data-i18n="btn-verif">Vérifier</button>
+        <button class="score-btn score-reset" onclick="resetEx('ex2')" data-i18n="btn-reset">Recommencer</button>
         <span id="ex2-score" class="score-display"></span>
       </div>
     </div>
 
     <!-- EX 3: Mois QCM -->
     <div class="ex-group">
-      <div class="ex-title">Exercice 3 — Les mois : quelle saison ?</div>
-      <div class="ex-inst">À quelle saison appartient ce mois ?</div>
+      <div class="ex-title" data-i18n="ex3-title">Exercice 3 — Les mois : quelle saison ?</div>
+      <div class="ex-inst" data-i18n="ex3-inst">À quelle saison appartient ce mois ?</div>
       <div id="ex3-container"></div>
       <div class="score-row">
-        <button class="score-btn score-check" onclick="checkEx('ex3')">Vérifier</button>
-        <button class="score-btn score-reset" onclick="resetEx('ex3')">Recommencer</button>
+        <button class="score-btn score-check" onclick="checkEx('ex3')" data-i18n="btn-verif">Vérifier</button>
+        <button class="score-btn score-reset" onclick="resetEx('ex3')" data-i18n="btn-reset">Recommencer</button>
         <span id="ex3-score" class="score-display"></span>
       </div>
     </div>
 
     <!-- EX 4: Alphabet fill-in -->
     <div class="ex-group">
-      <div class="ex-title">Exercice 4 — L'alphabet : quel est le nom de cette lettre ?</div>
-      <div class="ex-inst">Écrivez le nom français de la lettre.</div>
+      <div class="ex-title" data-i18n="ex4-title">Exercice 4 — L'alphabet : quel est le nom de cette lettre ?</div>
+      <div class="ex-inst" data-i18n="ex4-inst">Écrivez le nom français de la lettre.</div>
       <div id="ex4-container"></div>
       <div class="score-row">
-        <button class="score-btn score-check" onclick="checkEx('ex4')">Vérifier</button>
-        <button class="score-btn score-reset" onclick="resetEx('ex4')">Recommencer</button>
+        <button class="score-btn score-check" onclick="checkEx('ex4')" data-i18n="btn-verif">Vérifier</button>
+        <button class="score-btn score-reset" onclick="resetEx('ex4')" data-i18n="btn-reset">Recommencer</button>
         <span id="ex4-score" class="score-display"></span>
       </div>
     </div>
@@ -664,7 +672,8 @@ function buildEx1(){
     const div = document.createElement('div');
     div.className = 'qcm-item';
     const opts = item.opts.map(o=>`<button class="qcm-btn" data-ans="${item.ans}" data-val="${o}" onclick="qcmClick(this)">${o}</button>`).join('');
-    div.innerHTML = `<div class="qcm-q">${i+1}. Le chiffre <strong>${item.q}</strong> s'écrit :</div><div class="qcm-opts">${opts}</div>`;
+    const _t1 = (U0_T[U0_LANG]||U0_T.fr)['ex1-q'].replace('{n}', item.q);
+    div.innerHTML = `<div class="qcm-q">${i+1}. ${_t1}</div><div class="qcm-opts">${opts}</div>`;
     c.appendChild(div);
   });
 }
@@ -685,7 +694,8 @@ function buildEx3(){
     const div = document.createElement('div');
     div.className = 'qcm-item';
     const opts = item.opts.map(o=>`<button class="qcm-btn" data-ans="${item.ans}" data-val="${o}" onclick="qcmClick(this)">${o}</button>`).join('');
-    div.innerHTML = `<div class="qcm-q">${i+1}. <strong>${item.q}</strong> est en :</div><div class="qcm-opts">${opts}</div>`;
+    const _t3 = (U0_T[U0_LANG]||U0_T.fr)['ex3-q'].replace('{n}', item.q);
+    div.innerHTML = `<div class="qcm-q">${i+1}. ${_t3}</div><div class="qcm-opts">${opts}</div>`;
     c.appendChild(div);
   });
 }
@@ -695,7 +705,8 @@ function buildEx4(){
   EX4_ITEMS.forEach((item,i)=>{
     const div = document.createElement('div');
     div.className = 'blank-row';
-    div.innerHTML = `<span>${i+1}. La lettre <strong>${item.l}</strong> se prononce :</span><input class="blank-input" data-ans="${item.ans}" placeholder="?" autocomplete="off" style="width:120px"><span class="fb" id="ex4-fb-${i}"></span>`;
+    const _t4 = (U0_T[U0_LANG]||U0_T.fr)['ex4-q'].replace('{n}', item.l);
+    div.innerHTML = `<span>${i+1}. ${_t4}</span><input class="blank-input" data-ans="${item.ans}" placeholder="?" autocomplete="off" style="width:120px"><span class="fb" id="ex4-fb-${i}"></span>`;
     c.appendChild(div);
   });
 }
@@ -782,6 +793,105 @@ async function submitFleForm(e, formId, successId){
     alert("Erreur lors de l'envoi. Veuillez réessayer.");
   }
 }
+
+// ── i18n U0 ──
+let U0_LANG = localStorage.getItem('fle_lang') || 'fr';
+const U0_T = {
+  fr: {
+    back:           '🏠 Accueil',
+    'toc-alpha':    '🔤 L\'alphabet',
+    'toc-chiffres': '🔢 Les chiffres 1–31',
+    'toc-jours':    '📅 Les jours',
+    'toc-mois':     '🗓️ Les mois',
+    'sh-alpha':     '🔤 L\'alphabet français',
+    'sh-chiffres':  '🔢 Les chiffres de 1 à 31',
+    'sh-jours':     '📅 Les jours de la semaine',
+    'sh-mois':      '🗓️ Les mois de l\'année',
+    'sh-ex':        '✏️ Exercices de mémorisation',
+    'p-alpha':      'Cliquez sur une lettre pour voir son nom en français.',
+    'p-chiffres':   'Cliquez sur un chiffre pour voir comment l\'écrire.',
+    'p-jours':      'Cliquez sur un jour pour voir sa traduction en chinois.',
+    'p-mois':       'Cliquez sur un mois pour voir la saison et la traduction.',
+    'th-jour':      'Jour', 'th-abbrev': 'Abrév.', 'th-note': 'Note',
+    'th-mois':      'Mois', 'th-saison': 'Saison',
+    'ex1-title':    'Exercice 1 — Les chiffres : quel est ce nombre ?',
+    'ex1-inst':     'Choisissez le bon chiffre.',
+    'ex1-q':        'Le chiffre {n} s\'écrit :',
+    'ex2-title':    'Exercice 2 — Les jours de la semaine',
+    'ex2-inst':     'Complétez avec le jour qui manque.',
+    'ex3-title':    'Exercice 3 — Les mois : quelle saison ?',
+    'ex3-inst':     'À quelle saison appartient ce mois ?',
+    'ex3-q':        '{n} est en :',
+    'ex4-title':    'Exercice 4 — L\'alphabet : quel est le nom de cette lettre ?',
+    'ex4-inst':     'Écrivez le nom français de la lettre.',
+    'ex4-q':        'La lettre {n} se prononce :',
+    'btn-verif':    'Vérifier',
+    'btn-reset':    'Recommencer',
+    'lesson-title': 'Les Bases du Français',
+    'lesson-sub':   'L\'alphabet · Les chiffres · Les jours · Les mois',
+  },
+  zh: {
+    back:           '🏠 首页',
+    'toc-alpha':    '🔤 字母表',
+    'toc-chiffres': '🔢 数字 1–31',
+    'toc-jours':    '📅 星期',
+    'toc-mois':     '🗓️ 月份',
+    'sh-alpha':     '🔤 法语字母表',
+    'sh-chiffres':  '🔢 1至31的数字',
+    'sh-jours':     '📅 一周的各天',
+    'sh-mois':      '🗓️ 一年的各月',
+    'sh-ex':        '✏️ 记忆练习',
+    'p-alpha':      '点击字母查看其法语名称。',
+    'p-chiffres':   '点击数字查看其写法。',
+    'p-jours':      '点击星期查看中文翻译。',
+    'p-mois':       '点击月份查看季节和翻译。',
+    'th-jour':      '星期', 'th-abbrev': '缩写', 'th-note': '备注',
+    'th-mois':      '月份', 'th-saison': '季节',
+    'ex1-title':    '练习1 — 数字：这个数字怎么写？',
+    'ex1-inst':     '选择正确的数字。',
+    'ex1-q':        '数字 {n} 写作：',
+    'ex2-title':    '练习2 — 一周的各天',
+    'ex2-inst':     '填写缺失的星期。',
+    'ex3-title':    '练习3 — 月份：哪个季节？',
+    'ex3-inst':     '这个月属于哪个季节？',
+    'ex3-q':        '{n} 属于：',
+    'ex4-title':    '练习4 — 字母表：这个字母的名称是什么？',
+    'ex4-inst':     '写出该字母的法语名称。',
+    'ex4-q':        '字母 {n} 的发音是：',
+    'btn-verif':    '验证',
+    'btn-reset':    '重新开始',
+    'lesson-title': '法语基础',
+    'lesson-sub':   '字母表 · 数字 · 星期 · 月份',
+  }
+};
+
+function setLangU0(lang) {
+  if (!U0_T[lang]) return;
+  U0_LANG = lang;
+  localStorage.setItem('fle_lang', lang);
+  const T = U0_T[lang];
+  // Update all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (T[k] !== undefined) el.textContent = T[k];
+  });
+  // Lang buttons active state
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  const act = document.querySelector(`.lang-btn[onclick="setLangU0('${lang}')"]`);
+  if (act) act.classList.add('active');
+  // Rebuild exercises with new language
+  buildEx1(); buildEx2(); buildEx3(); buildEx4();
+}
+
+// Auto-detect language on load
+document.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('fle_lang');
+  const browser = (navigator.language || 'fr').slice(0,2).toLowerCase();
+  const detected = ['fr','zh'].includes(browser) ? browser : 'fr';
+  setLangU0(saved || detected);
+});
+
 </script>
+<!-- u0-i18n-patched -->
 </body>
 </html>
