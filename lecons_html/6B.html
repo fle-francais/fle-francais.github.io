@@ -210,6 +210,41 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   box-shadow: 0 4px 18px rgba(0,0,0,.10);
   display: block;
 }
+
+/* ── LanguageTool corrector ── */
+.lt-btn {
+  margin-top: 10px;
+  padding: 8px 22px;
+  background: var(--purp);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: .9rem;
+  font-weight: 600;
+  transition: opacity .2s;
+  display: block;
+}
+.lt-btn:hover   { opacity: .85; }
+.lt-btn:disabled{ opacity: .55; cursor: wait; }
+.lt-result {
+  margin-top: 12px;
+  font-size: .87rem;
+  line-height: 1.5;
+}
+.lt-ok    { color: #2e7d32; font-weight: 700; }
+.lt-warn  { color: #c62828; }
+.lt-info  { color: #555; font-style: italic; }
+.lt-count { font-weight: 700; margin-bottom: 8px; color: var(--purp); }
+.lt-list  { margin: 0; padding-left: 20px; }
+.lt-list li { margin-bottom: 8px; }
+.lt-err   {
+  background: #fff3cd;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.lt-sug { color: #1b5e20; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -229,7 +264,7 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section sec-dialogue">
 <div class="section-head">💬 Dialogue</div>
 <div class="section-body"><!-- dialogue-image-patched -->
-<img src="../images/dialogue/dialogue_6B.jpg" alt="Illustration leçon 6B" class="dl-illustration">
+<img src="../images/dialogue/dialogue_6B.jpg" alt="Illustration leçon 6B" loading="lazy" class="dl-illustration">
 <div class="dialogue"><div class="dl-row"><div class="dl-speaker">CHLOE</div><div class="dl-line">J'ai découvert un groupe de jazz formidable ! La musique est extraordinaire.</div></div>
 <div class="dl-row"><div class="dl-speaker">THÉO</div><div class="dl-line">Le jazz ? C'est un peu ennuyeux, non ? Moi je préfère le rap.</div></div>
 <div class="dl-row"><div class="dl-speaker">CHLOE</div><div class="dl-line">Le rap, c'est trop fort. Je trouve ça agressif parfois.</div></div>
@@ -326,6 +361,8 @@ vous aimez ça, et recommandez un artiste.
 介绍您最喜欢的音乐风格：您听什么，为什么喜欢，并推荐一位艺术家。
 Leçon 6B · Quelle musique tu aimes ? · A1 · Approche Édito francaisplus.fr</div>
 <textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea>
+<button class="lt-btn" onclick="checkLT(this)">Corriger ✓</button>
+<div class="lt-result"></div>
 </div>
 </div>
 <nav class="top-nav">
@@ -501,6 +538,51 @@ function submitForm(e, formId, modalId) {
   .catch(function(){ alert("Erreur réseau. Veuillez réessayer."); btn.disabled=false; });
 }
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAllModals(); });
+
+async function checkLT(btn) {
+  const ta  = btn.previousElementSibling;
+  const res = btn.nextElementSibling;
+  const txt = (ta.value || '').trim();
+  if (!txt) {
+    res.innerHTML = '<p class="lt-info">✏️ Écris d\'abord ta réponse.</p>';
+    return;
+  }
+  btn.disabled    = true;
+  btn.textContent = '…';
+  res.innerHTML   = '<p class="lt-info">Correction en cours…</p>';
+  try {
+    const r = await fetch('https://api.languagetool.org/v2/check', {
+      method : 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body   : 'text=' + encodeURIComponent(txt) + '&language=fr'
+    });
+    const d = await r.json();
+    if (!d.matches || !d.matches.length) {
+      res.innerHTML = '<p class="lt-ok">✅ Aucune erreur — bravo !</p>';
+    } else {
+      const n = d.matches.length;
+      let html = '<p class="lt-count">' + n + ' point' + (n > 1 ? 's' : '') + ' à corriger :</p>'
+               + '<ul class="lt-list">';
+      for (const m of d.matches) {
+        const orig = txt.slice(m.offset, m.offset + m.length);
+        const sugs = (m.replacements || []).slice(0, 3)
+                       .map(x => '<span class="lt-sug">' + x.value + '</span>')
+                       .join(', ');
+        html += '<li><span class="lt-err">« ' + orig + ' »</span>'
+              + ' — ' + m.message
+              + (sugs ? ' → ' + sugs : '')
+              + '</li>';
+      }
+      html += '</ul>';
+      res.innerHTML = html;
+    }
+  } catch(e) {
+    res.innerHTML = '<p class="lt-warn">⚠️ Impossible de joindre le correcteur (vérifiez la connexion).</p>';
+  }
+  btn.disabled    = false;
+  btn.textContent = 'Corriger ✓';
+}
+
 </script>
 <!-- dialogue-player-patched -->
 <script>
@@ -610,5 +692,7 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAllM
   }
 })();
 </script>
+<!-- perf-patched -->
+<!-- languagetool-patched -->
 </body>
 </html>
