@@ -114,6 +114,13 @@ a{color:var(--blue);text-decoration:none}
 .match-btn.wrong{border-color:#e74c3c;background:#fdedec;color:#e74c3c}
 .match-btn:disabled{cursor:default}
 
+/* ── ASSOCIATION ── */
+.assoc-row{margin-bottom:12px}
+.assoc-left{display:flex;align-items:center;gap:8px;font-size:.93rem;flex-wrap:wrap}
+.assoc-word{font-weight:700;min-width:130px}
+.assoc-letter-input{width:38px!important;text-align:center;text-transform:lowercase}
+.assoc-def{font-size:.82rem;color:var(--muted);padding-left:26px;margin-top:2px;font-style:italic}
+
 /* ── COMMUNICATION ── */
 .comm-list{display:grid;gap:8px}
 .comm-item{background:var(--purp-l);border-radius:8px;padding:10px 14px;font-size:.9rem;line-height:1.5}
@@ -188,7 +195,7 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 </div></div>
 </div><div class="section sec-grammar">
 <div class="section-head">📖 Point de langue — Il y a — les prépositions de lieu</div>
-<div class="section-body"><div class="gram-rule">§§ Il y a + nom (existence). Prépositions de lieu : à côté de, en face de, devant, derrière, entre, au bout de.</div><div class="gram-ex">• La mairie est en face de la poste. / Le parc est derrière la mairie.<br>• Forme négative : Il n'y a pas de supermarché dans ce quartier.<br>• Forme interrogative : Est-ce qu'il y a un café près d'ici ? / Il y a quoi au bout</div></div>
+<div class="section-body"><div class="gram-rule">§§ Il y a + nom (existence). Prépositions de lieu : à côté de, en face de, devant, derrière, entre, au bout de.</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>Il y</td><td></td></tr></tbody></table><div class="gram-ex">• La mairie est en face de la poste. / Le parc est derrière la mairie.<br>• Forme négative : Il n'y a pas de supermarché dans ce quartier.<br>• Forme interrogative : Est-ce qu'il y a un café près d'ici ? / Il y a quoi au bout</div></div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 1 — Décrivez la position</div>
 <div class="section-body">
@@ -203,9 +210,15 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 2 — Votre quartier</div>
 <div class="section-body">
 <div class="ex-inst">Répondez sur votre quartier :</div>
-<div class="blank-row">1. <span>Il y a une pharmacie / boulangerie / école près de chez vous ?</span></div>
-<div class="blank-row">2. <span>Qu'est-ce qui est en face de chez vous ?</span></div>
-<div class="blank-row">3. <span>Il y a quoi au bout de votre rue ?</span></div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">1. Il y a une pharmacie / boulangerie / école près de chez vous ?</span> → <input class="blank-input assoc-letter-input" id="ma-4A-ex2-0" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-4A-ex2-0','fb-ma-4A-ex2-0')">✓</button><span class="fb" id="fb-ma-4A-ex2-0"></span></div>
+</div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">2. Qu'est-ce qui est en face de chez vous ?</span> → <input class="blank-input assoc-letter-input" id="ma-4A-ex2-1" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-4A-ex2-1','fb-ma-4A-ex2-1')">✓</button><span class="fb" id="fb-ma-4A-ex2-1"></span></div>
+</div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">3. Il y a quoi au bout de votre rue ?</span> → <input class="blank-input assoc-letter-input" id="ma-4A-ex2-2" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-4A-ex2-2','fb-ma-4A-ex2-2')">✓</button><span class="fb" id="fb-ma-4A-ex2-2"></span></div>
+</div>
 
 </div>
 </div><div class="section sec-exercise">

@@ -114,6 +114,13 @@ a{color:var(--blue);text-decoration:none}
 .match-btn.wrong{border-color:#e74c3c;background:#fdedec;color:#e74c3c}
 .match-btn:disabled{cursor:default}
 
+/* ── ASSOCIATION ── */
+.assoc-row{margin-bottom:12px}
+.assoc-left{display:flex;align-items:center;gap:8px;font-size:.93rem;flex-wrap:wrap}
+.assoc-word{font-weight:700;min-width:130px}
+.assoc-letter-input{width:38px!important;text-align:center;text-transform:lowercase}
+.assoc-def{font-size:.82rem;color:var(--muted);padding-left:26px;margin-top:2px;font-style:italic}
+
 /* ── COMMUNICATION ── */
 .comm-list{display:grid;gap:8px}
 .comm-item{background:var(--purp-l);border-radius:8px;padding:10px 14px;font-size:.9rem;line-height:1.5}
@@ -189,7 +196,7 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 </div></div>
 </div><div class="section sec-grammar">
 <div class="section-head">📖 Point de langue — AVOIR pour décrire l'apparence physique</div>
-<div class="section-body"><div class="gram-rule">§§ On utilise AVOIR pour les traits physiques : avoir les cheveux…, avoir les yeux…, avoir une barbe…</div><div class="gram-ex">• Il a une barbe. / Elle a des taches de rousseur.<br>• Forme négative : Il n'a pas de lunettes. / Elle n'a pas de barbe.<br>• Forme interrogative : Il a les cheveux comment ? / Elle a quel âge ?</div></div>
+<div class="section-body"><div class="gram-rule">§§ On utilise AVOIR pour les traits physiques : avoir les cheveux…, avoir les yeux…, avoir une barbe…</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>Il a</td><td>ils sont</td></tr></tbody></table><div class="gram-ex">• Il a une barbe. / Elle a des taches de rousseur.<br>• Forme négative : Il n'a pas de lunettes. / Elle n'a pas de barbe.<br>• Forme interrogative : Il a les cheveux comment ? / Elle a quel âge ?</div></div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 1 — Être ou avoir ?</div>
 <div class="section-body">
@@ -211,7 +218,9 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 3 — Devinettes : qui est-ce ?</div>
 <div class="section-body">
 <div class="ex-inst">Lisez et devinez :</div>
-<div class="blank-row">1. <span>Il est très grand. Il a les cheveux noirs. Il joue au basketball. → ___</span> <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button> <span style="display:none;color:var(--green);font-weight:700">→ Réponses libres — personnalités célèbres au choix</span></div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">1. Il est très grand. Il a les cheveux noirs. Il joue au basketball. → ___</span> → <input class="blank-input assoc-letter-input" id="ma-2B-ex3-0" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="Réponses libres — personnalités célèbres au choix" onclick="checkBlankData(this,'ma-2B-ex3-0','fb-ma-2B-ex3-0')">✓</button><span class="fb" id="fb-ma-2B-ex3-0"></span></div>
+</div>
 <div class="blank-row">2. <span>Elle est petite. Elle a les cheveux blonds. Elle chante très bien. → </span><input class="blank-input" id="bl-2B-ex3-1" type="text" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2B-ex3-1').click()"><button class="check-btn" id="chk-bl-2B-ex3-1" data-ans="" onclick="checkBlankData(this,'bl-2B-ex3-1','fb-bl-2B-ex3-1')">✓</button><span class="fb" id="fb-bl-2B-ex3-1"></span><span></span></div>
 
 </div>

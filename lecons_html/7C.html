@@ -114,6 +114,13 @@ a{color:var(--blue);text-decoration:none}
 .match-btn.wrong{border-color:#e74c3c;background:#fdedec;color:#e74c3c}
 .match-btn:disabled{cursor:default}
 
+/* ── ASSOCIATION ── */
+.assoc-row{margin-bottom:12px}
+.assoc-left{display:flex;align-items:center;gap:8px;font-size:.93rem;flex-wrap:wrap}
+.assoc-word{font-weight:700;min-width:130px}
+.assoc-letter-input{width:38px!important;text-align:center;text-transform:lowercase}
+.assoc-def{font-size:.82rem;color:var(--muted);padding-left:26px;margin-top:2px;font-style:italic}
+
 /* ── COMMUNICATION ── */
 .comm-list{display:grid;gap:8px}
 .comm-item{background:var(--purp-l);border-radius:8px;padding:10px 14px;font-size:.9rem;line-height:1.5}
@@ -186,7 +193,7 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 </div></div>
 </div><div class="section sec-grammar">
 <div class="section-head">📖 Point de langue — Les pronoms COD — le / la / l' / les + comparatif</div>
-<div class="section-body"><div class="gram-rule">§§ Le pronom COD remplace un nom complément d'objet direct. Il se place avant le verbe.</div><div class="gram-ex">• Ce sac est plus cher que le foulard. (comparatif de supériorité)<br>• Les boucles sont moins chères que le sac. (comparatif d'infériorité)<br>• Forme négative : Je ne le prends pas. / Elle ne les achète pas.<br>• Forme interrogative : Tu le prends ? / Est-ce que vous les voulez ?</div></div>
+<div class="section-body"><div class="gram-rule">§§ Le pronom COD remplace un nom complément d'objet direct. Il se place avant le verbe.</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>Je prends</td><td></td></tr><tr><td>Tu as</td><td>vous les</td></tr><tr><td>Il se</td><td></td></tr></tbody></table><div class="gram-ex">• Ce sac est plus cher que le foulard. (comparatif de supériorité)<br>• Les boucles sont moins chères que le sac. (comparatif d'infériorité)<br>• Forme négative : Je ne le prends pas. / Elle ne les achète pas.<br>• Forme interrogative : Tu le prends ? / Est-ce que vous les voulez ?</div></div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 1 — Remplacez par le pronom COD</div>
 <div class="section-body">
@@ -201,9 +208,15 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 2 — Comparez deux objets</div>
 <div class="section-body">
 <div class="ex-inst">Comparez ces paires avec plus, moins ou aussi + adjectif + que :</div>
-<div class="blank-row">1. <span>Un sac à main 80€ / Une ceinture 25€ (cher)</span> <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button> <span style="display:none;color:var(--green);font-weight:700">→ Le sac est plus cher que la ceinture.</span></div>
-<div class="blank-row">2. <span>La laine / Le coton (chaud)</span> <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button> <span style="display:none;color:var(--green);font-weight:700">→ La laine est plus chaude que le coton.</span></div>
-<div class="blank-row">3. <span>Ce manteau / Cette veste (élégant)</span> <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button> <span style="display:none;color:var(--green);font-weight:700">→ Réponse libre.</span></div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">1. Un sac à main 80€ / Une ceinture 25€ (cher)</span> → <input class="blank-input assoc-letter-input" id="ma-7C-ex2-0" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="Le sac est plus cher que la ceinture." onclick="checkBlankData(this,'ma-7C-ex2-0','fb-ma-7C-ex2-0')">✓</button><span class="fb" id="fb-ma-7C-ex2-0"></span></div>
+</div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">2. La laine / Le coton (chaud)</span> → <input class="blank-input assoc-letter-input" id="ma-7C-ex2-1" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="La laine est plus chaude que le coton." onclick="checkBlankData(this,'ma-7C-ex2-1','fb-ma-7C-ex2-1')">✓</button><span class="fb" id="fb-ma-7C-ex2-1"></span></div>
+</div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">3. Ce manteau / Cette veste (élégant)</span> → <input class="blank-input assoc-letter-input" id="ma-7C-ex2-2" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="Réponse libre." onclick="checkBlankData(this,'ma-7C-ex2-2','fb-ma-7C-ex2-2')">✓</button><span class="fb" id="fb-ma-7C-ex2-2"></span></div>
+</div>
 
 </div>
 </div><div class="section sec-exercise">

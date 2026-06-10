@@ -114,6 +114,13 @@ a{color:var(--blue);text-decoration:none}
 .match-btn.wrong{border-color:#e74c3c;background:#fdedec;color:#e74c3c}
 .match-btn:disabled{cursor:default}
 
+/* ── ASSOCIATION ── */
+.assoc-row{margin-bottom:12px}
+.assoc-left{display:flex;align-items:center;gap:8px;font-size:.93rem;flex-wrap:wrap}
+.assoc-word{font-weight:700;min-width:130px}
+.assoc-letter-input{width:38px!important;text-align:center;text-transform:lowercase}
+.assoc-def{font-size:.82rem;color:var(--muted);padding-left:26px;margin-top:2px;font-style:italic}
+
 /* ── COMMUNICATION ── */
 .comm-list{display:grid;gap:8px}
 .comm-item{background:var(--purp-l);border-radius:8px;padding:10px 14px;font-size:.9rem;line-height:1.5}
@@ -183,7 +190,7 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 </div></div>
 </div><div class="section sec-grammar">
 <div class="section-head">📖 Point de langue — Le passé récent — venir de + infinitif</div>
-<div class="section-body"><div class="gram-rule">§§ Le passé récent exprime une action qui vient de se produire. Forme : venir (conjugué) + de + infinitif.</div><div class="gram-ex">• Je viens d'arriver. / Elle vient de téléphoner.<br>• Le temps vient de changer. / Nous venons de manger.<br>• Forme négative : Il ne vient pas de pleuvoir. / Je ne viens pas de finir.<br>• Forme interrogative : Tu viens d'arriver ? / Est-ce qu'il vient de téléphoner ?</div></div>
+<div class="section-body"><div class="gram-rule">§§ Le passé récent exprime une action qui vient de se produire. Forme : venir (conjugué) + de + infinitif.</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>je viens</td><td>nous venons</td></tr><tr><td>tu viens</td><td>vous venez</td></tr><tr><td>il/elle vient</td><td>ils viennent</td></tr></tbody></table><div class="gram-ex">• Je viens d'arriver. / Elle vient de téléphoner.<br>• Le temps vient de changer. / Nous venons de manger.<br>• Forme négative : Il ne vient pas de pleuvoir. / Je ne viens pas de finir.<br>• Forme interrogative : Tu viens d'arriver ? / Est-ce qu'il vient de téléphoner ?</div></div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 1 — Passé récent ou futur proche ?</div>
 <div class="section-body">
@@ -198,10 +205,18 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 2 — La météo de votre région</div>
 <div class="section-body">
 <div class="ex-inst">Décrivez la météo de votre région en 4 phrases :</div>
-<div class="blank-row">1. <span>Il vient de… (aujourd'hui)</span></div>
-<div class="blank-row">2. <span>En ce moment il fait…</span></div>
-<div class="blank-row">3. <span>Cet après-midi il va…</span></div>
-<div class="blank-row">4. <span>En été il fait… / En hiver il fait…</span></div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">1. Il vient de… (aujourd'hui)</span> → <input class="blank-input assoc-letter-input" id="ma-9B-ex2-0" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-9B-ex2-0','fb-ma-9B-ex2-0')">✓</button><span class="fb" id="fb-ma-9B-ex2-0"></span></div>
+</div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">2. En ce moment il fait…</span> → <input class="blank-input assoc-letter-input" id="ma-9B-ex2-1" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-9B-ex2-1','fb-ma-9B-ex2-1')">✓</button><span class="fb" id="fb-ma-9B-ex2-1"></span></div>
+</div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">3. Cet après-midi il va…</span> → <input class="blank-input assoc-letter-input" id="ma-9B-ex2-2" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-9B-ex2-2','fb-ma-9B-ex2-2')">✓</button><span class="fb" id="fb-ma-9B-ex2-2"></span></div>
+</div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">4. En été il fait… / En hiver il fait…</span> → <input class="blank-input assoc-letter-input" id="ma-9B-ex2-3" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-9B-ex2-3','fb-ma-9B-ex2-3')">✓</button><span class="fb" id="fb-ma-9B-ex2-3"></span></div>
+</div>
 
 </div>
 </div><div class="section sec-exercise">

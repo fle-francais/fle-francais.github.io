@@ -114,6 +114,13 @@ a{color:var(--blue);text-decoration:none}
 .match-btn.wrong{border-color:#e74c3c;background:#fdedec;color:#e74c3c}
 .match-btn:disabled{cursor:default}
 
+/* ── ASSOCIATION ── */
+.assoc-row{margin-bottom:12px}
+.assoc-left{display:flex;align-items:center;gap:8px;font-size:.93rem;flex-wrap:wrap}
+.assoc-word{font-weight:700;min-width:130px}
+.assoc-letter-input{width:38px!important;text-align:center;text-transform:lowercase}
+.assoc-def{font-size:.82rem;color:var(--muted);padding-left:26px;margin-top:2px;font-style:italic}
+
 /* ── COMMUNICATION ── */
 .comm-list{display:grid;gap:8px}
 .comm-item{background:var(--purp-l);border-radius:8px;padding:10px 14px;font-size:.9rem;line-height:1.5}
@@ -180,7 +187,7 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 </div></div>
 </div><div class="section sec-grammar">
 <div class="section-head">📖 Point de langue — Le verbe ÊTRE au présent</div>
-<div class="section-body"><div class="gram-rule">§§ Le verbe être est irrégulier. On l'utilise pour exprimer l'identité, la nationalité et la profession.</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>je suis</td><td>nous sommes il / elle est → ils / elles sont</td></tr><tr><td>tu es</td><td>vous êtes</td></tr></tbody></table><div class="gram-ex">• Nous sommes dans le même cours de français.<br>• Forme négative : Je ne suis pas professeur. / Tu n'es pas espagnole.<br>• Forme interrogative : Est-ce que vous êtes étudiant(e) ? / Vous êtes d'où ?</div></div>
+<div class="section-body"><div class="gram-rule">§§ Le verbe être est irrégulier. On l'utilise pour exprimer l'identité, la nationalité et la profession.</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>je suis</td><td>nous sommes</td></tr><tr><td>tu es</td><td>vous êtes</td></tr><tr><td>il / elle est</td><td>ils / elles sont</td></tr></tbody></table><div class="gram-ex">• Nous sommes dans le même cours de français.<br>• Forme négative : Je ne suis pas professeur. / Tu n'es pas espagnole.<br>• Forme interrogative : Est-ce que vous êtes étudiant(e) ? / Vous êtes d'où ?</div></div>
 </div><div class="section sec-exercise">
 <div class="section-head">✏️ Exercice 1 — Conjuguez le verbe ÊTRE</div>
 <div class="section-body">
@@ -212,10 +219,22 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="section-head">✏️ Exercice 4 — Vocabulaire : associez</div>
 <div class="section-body">
 <div class="ex-inst">Reliez chaque mot à sa définition :</div>
-<div class="blank-row">1. <span>bibliothèque a. lieu d'études supérieures</span> <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button> <span style="display:none;color:var(--green);font-weight:700">→ c</span></div>
-<div class="blank-row">2. <span>université b. action de rejoindre un service</span> <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button> <span style="display:none;color:var(--green);font-weight:700">→ a</span></div>
-<div class="blank-row">3. <span>s'inscrire c. lieu pour emprunter des livres</span> <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button> <span style="display:none;color:var(--green);font-weight:700">→ b</span></div>
-<div class="blank-row">4. <span>étudiant(e) d. personne qui fait des études</span> <button class="check-btn" onclick="this.nextElementSibling.style.display='inline';this.style.display='none'">Voir</button> <span style="display:none;color:var(--green);font-weight:700">→ d</span></div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">1. bibliothèque</span> → <input class="blank-input assoc-letter-input" id="ma-1A-ex4-0" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="c" onclick="checkBlankData(this,'ma-1A-ex4-0','fb-ma-1A-ex4-0')">✓</button><span class="fb" id="fb-ma-1A-ex4-0"></span></div>
+  <div class="assoc-def">(a. lieu d'études supérieures)</div>
+</div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">2. université</span> → <input class="blank-input assoc-letter-input" id="ma-1A-ex4-1" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="a" onclick="checkBlankData(this,'ma-1A-ex4-1','fb-ma-1A-ex4-1')">✓</button><span class="fb" id="fb-ma-1A-ex4-1"></span></div>
+  <div class="assoc-def">(b. action de rejoindre un service)</div>
+</div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">3. s'inscrire</span> → <input class="blank-input assoc-letter-input" id="ma-1A-ex4-2" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="b" onclick="checkBlankData(this,'ma-1A-ex4-2','fb-ma-1A-ex4-2')">✓</button><span class="fb" id="fb-ma-1A-ex4-2"></span></div>
+  <div class="assoc-def">(c. lieu pour emprunter des livres)</div>
+</div>
+<div class="assoc-row">
+  <div class="assoc-left"><span class="assoc-word">4. étudiant(e)</span> → <input class="blank-input assoc-letter-input" id="ma-1A-ex4-3" type="text" maxlength="1" placeholder="?" autocomplete="off"><button class="check-btn" data-ans="d" onclick="checkBlankData(this,'ma-1A-ex4-3','fb-ma-1A-ex4-3')">✓</button><span class="fb" id="fb-ma-1A-ex4-3"></span></div>
+  <div class="assoc-def">(d. personne qui fait des études)</div>
+</div>
 
 </div>
 </div><div class="section sec-comm">
