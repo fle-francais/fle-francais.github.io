@@ -1786,7 +1786,12 @@ function zhInstruction(text) {
     [/^Choisissez/i, '请选择：'],
   ];
   for (var i = 0; i < map.length; i++) {
-    if (map[i][0].test(t)) return map[i][1];
+    var m = t.match(map[i][0]);
+    if (m) {
+      var rest = t.slice(m[0].length).trim();
+      // Garder le contenu après l'instruction (ex: "___ Italie est un beau pays.")
+      return rest ? map[i][1] + ' ' + rest : map[i][1];
+    }
   }
   return t; // fallback : garder le texte original
 }
