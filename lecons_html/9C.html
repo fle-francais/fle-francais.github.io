@@ -163,6 +163,23 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 .btn-send{width:100%;padding:12px;border:none;border-radius:10px;background:var(--b-color);color:#fff;font-size:1rem;font-weight:700;cursor:pointer;transition:background .15s;margin-top:4px}
 .btn-send:hover{background:#1a6ea8}
 .form-success{display:none;margin-top:14px;background:#eafaf1;color:#27ae60;border-radius:8px;padding:10px 14px;font-size:.9rem;font-weight:600;text-align:center}
+
+/* ── Dialogue player ── */
+.dl-play-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--purp); color: #fff;
+  border: none; border-radius: 20px;
+  padding: 9px 22px; font-size: .88rem; font-weight: 700;
+  cursor: pointer; margin-bottom: 14px;
+  transition: background .15s, transform .1s;
+}
+.dl-play-btn:hover  { background: #7d3c98; }
+.dl-play-btn:active { transform: scale(.97); }
+.dl-row.dl-active   {
+  background: var(--purp-l);
+  border-radius: 8px;
+  transition: background .25s;
+}
 </style>
 </head>
 <body>
@@ -465,6 +482,61 @@ function submitForm(e, formId, modalId) {
   .catch(function(){ alert("Erreur réseau. Veuillez réessayer."); btn.disabled=false; });
 }
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAllModals(); });
+</script>
+<!-- dialogue-player-patched -->
+<script>
+(function(){
+  var LESSON = '9C';
+  var AUDIO_BASE = '../audio/';
+  var dialogue = document.querySelector('.dialogue');
+  if (!dialogue) return;
+
+  // Numéroter les répliques
+  var rows = dialogue.querySelectorAll('.dl-row');
+  rows.forEach(function(r, i){ r.setAttribute('data-idx', i); });
+
+  // Créer le bouton ▶
+  var btn = document.createElement('button');
+  btn.className = 'dl-play-btn';
+  btn.setAttribute('aria-label', 'Écouter le dialogue');
+  btn.innerHTML = '&#9654;&#xFE0E; &nbsp;Écouter le dialogue';
+  dialogue.parentNode.insertBefore(btn, dialogue);
+
+  var currentAudio = null;
+  var playing = false;
+
+  btn.addEventListener('click', function(){
+    if (playing) {
+      if (currentAudio){ currentAudio.pause(); currentAudio = null; }
+      rows.forEach(function(r){ r.classList.remove('dl-active'); });
+      btn.innerHTML = '&#9654;&#xFE0E; &nbsp;Écouter le dialogue';
+      playing = false;
+      return;
+    }
+    playLine(0);
+  });
+
+  function playLine(idx){
+    if (idx >= rows.length){
+      rows.forEach(function(r){ r.classList.remove('dl-active'); });
+      btn.innerHTML = '&#9654;&#xFE0E; &nbsp;Écouter le dialogue';
+      playing = false;
+      currentAudio = null;
+      return;
+    }
+    playing = true;
+    btn.innerHTML = '&#9646;&#9646; &nbsp;Pause';
+    rows.forEach(function(r){ r.classList.remove('dl-active'); });
+    rows[idx].classList.add('dl-active');
+    rows[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    var audio = new Audio(AUDIO_BASE + 'dialogue_' + LESSON + '_' + idx + '.mp3');
+    currentAudio = audio;
+    audio.onended  = function(){ playLine(idx + 1); };
+    audio.onerror  = function(){ playLine(idx + 1); };  // passe à la suivante si MP3 absent
+    audio.play().catch(function(){ playLine(idx + 1); });
+  }
+})();
 </script>
 </body>
 </html>
