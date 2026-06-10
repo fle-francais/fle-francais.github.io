@@ -710,90 +710,6 @@ function buildEx4(){
     c.appendChild(div);
   });
 }
-buildEx1(); buildEx2(); buildEx3(); buildEx4();
-
-// ── QCM CLICK ──
-function qcmClick(btn){
-  const group = btn.closest('.qcm-opts');
-  if(group.querySelector('.correct,.wrong')) return;
-  const ans = btn.dataset.ans;
-  const val = btn.dataset.val;
-  if(val === ans){
-    btn.classList.add('correct');
-  } else {
-    btn.classList.add('wrong');
-    group.querySelectorAll('.qcm-btn').forEach(b=>{ if(b.dataset.val===ans) b.classList.add('correct'); });
-  }
-  group.querySelectorAll('.qcm-btn').forEach(b=>b.disabled=true);
-}
-
-// ── CHECK / RESET ──
-function checkEx(id){
-  const c = document.getElementById(id+'-container');
-  let ok=0, total=0;
-  if(id==='ex1'||id==='ex3'){
-    c.querySelectorAll('.qcm-item').forEach(item=>{
-      total++;
-      if(item.querySelector('.correct')) ok++;
-    });
-  } else {
-    c.querySelectorAll('.blank-input').forEach((inp,i)=>{
-      total++;
-      const ans = inp.dataset.ans;
-      const val = inp.value.trim().toLowerCase();
-      const fb = document.getElementById(id+'-fb-'+i);
-      if(val === ans.toLowerCase()){ ok++; inp.style.borderBottomColor='var(--green)'; if(fb){fb.textContent='✓';fb.className='fb ok';} }
-      else { inp.style.borderBottomColor='#e74c3c'; if(fb){fb.textContent='✗ '+ans;fb.className='fb ko';} }
-    });
-  }
-  const sc = document.getElementById(id+'-score');
-  sc.textContent = ok+'/'+total;
-  sc.style.display = 'inline';
-  sc.style.color = ok===total ? 'var(--green)' : ok >= total/2 ? 'var(--orange)' : '#e74c3c';
-}
-function resetEx(id){
-  document.getElementById(id+'-score').style.display='none';
-  if(id==='ex1') buildEx1();
-  else if(id==='ex2') buildEx2();
-  else if(id==='ex3') buildEx3();
-  else buildEx4();
-}
-
-// ── MODALS ──
-function openFleModal(id){
-  document.getElementById('fle-modal-overlay').classList.add('open');
-  document.getElementById(id).classList.add('open');
-}
-function closeFleModal(id){
-  document.getElementById(id).classList.remove('open');
-  document.getElementById('fle-modal-overlay').classList.remove('open');
-}
-function closeAllFleModals(){
-  document.querySelectorAll('.fle-modal.open').forEach(m=>m.classList.remove('open'));
-  document.getElementById('fle-modal-overlay').classList.remove('open');
-}
-function updateAskSubjectU0(){
-  const v = document.getElementById('ask-sujet-u0').value;
-  document.getElementById('ask-ex-group-u0').style.display = v==='exercice' ? 'flex' : 'none';
-}
-async function submitFleForm(e, formId, successId){
-  e.preventDefault();
-  const form = document.getElementById(formId);
-  const data = new FormData(form);
-  try{
-    const r = await fetch('https://formspree.io/f/mvznqaze',{method:'POST',body:data,headers:{'Accept':'application/json'}});
-    if(r.ok){
-      form.reset();
-      form.style.display = 'none';
-      document.getElementById(successId).style.display = 'block';
-    } else {
-      alert("Erreur lors de l'envoi. Veuillez réessayer.");
-    }
-  } catch(err){
-    alert("Erreur lors de l'envoi. Veuillez réessayer.");
-  }
-}
-
 // ── i18n U0 ──
 let U0_LANG = localStorage.getItem('fle_lang') || 'fr';
 const U0_T = {
@@ -890,6 +806,91 @@ document.addEventListener('DOMContentLoaded', () => {
   const detected = ['fr','zh'].includes(browser) ? browser : 'fr';
   setLangU0(saved || detected);
 });
+
+buildEx1(); buildEx2(); buildEx3(); buildEx4();
+
+// ── QCM CLICK ──
+function qcmClick(btn){
+  const group = btn.closest('.qcm-opts');
+  if(group.querySelector('.correct,.wrong')) return;
+  const ans = btn.dataset.ans;
+  const val = btn.dataset.val;
+  if(val === ans){
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+    group.querySelectorAll('.qcm-btn').forEach(b=>{ if(b.dataset.val===ans) b.classList.add('correct'); });
+  }
+  group.querySelectorAll('.qcm-btn').forEach(b=>b.disabled=true);
+}
+
+// ── CHECK / RESET ──
+function checkEx(id){
+  const c = document.getElementById(id+'-container');
+  let ok=0, total=0;
+  if(id==='ex1'||id==='ex3'){
+    c.querySelectorAll('.qcm-item').forEach(item=>{
+      total++;
+      if(item.querySelector('.correct')) ok++;
+    });
+  } else {
+    c.querySelectorAll('.blank-input').forEach((inp,i)=>{
+      total++;
+      const ans = inp.dataset.ans;
+      const val = inp.value.trim().toLowerCase();
+      const fb = document.getElementById(id+'-fb-'+i);
+      if(val === ans.toLowerCase()){ ok++; inp.style.borderBottomColor='var(--green)'; if(fb){fb.textContent='✓';fb.className='fb ok';} }
+      else { inp.style.borderBottomColor='#e74c3c'; if(fb){fb.textContent='✗ '+ans;fb.className='fb ko';} }
+    });
+  }
+  const sc = document.getElementById(id+'-score');
+  sc.textContent = ok+'/'+total;
+  sc.style.display = 'inline';
+  sc.style.color = ok===total ? 'var(--green)' : ok >= total/2 ? 'var(--orange)' : '#e74c3c';
+}
+function resetEx(id){
+  document.getElementById(id+'-score').style.display='none';
+  if(id==='ex1') buildEx1();
+  else if(id==='ex2') buildEx2();
+  else if(id==='ex3') buildEx3();
+  else buildEx4();
+}
+
+// ── MODALS ──
+function openFleModal(id){
+  document.getElementById('fle-modal-overlay').classList.add('open');
+  document.getElementById(id).classList.add('open');
+}
+function closeFleModal(id){
+  document.getElementById(id).classList.remove('open');
+  document.getElementById('fle-modal-overlay').classList.remove('open');
+}
+function closeAllFleModals(){
+  document.querySelectorAll('.fle-modal.open').forEach(m=>m.classList.remove('open'));
+  document.getElementById('fle-modal-overlay').classList.remove('open');
+}
+function updateAskSubjectU0(){
+  const v = document.getElementById('ask-sujet-u0').value;
+  document.getElementById('ask-ex-group-u0').style.display = v==='exercice' ? 'flex' : 'none';
+}
+async function submitFleForm(e, formId, successId){
+  e.preventDefault();
+  const form = document.getElementById(formId);
+  const data = new FormData(form);
+  try{
+    const r = await fetch('https://formspree.io/f/mvznqaze',{method:'POST',body:data,headers:{'Accept':'application/json'}});
+    if(r.ok){
+      form.reset();
+      form.style.display = 'none';
+      document.getElementById(successId).style.display = 'block';
+    } else {
+      alert("Erreur lors de l'envoi. Veuillez réessayer.");
+    }
+  } catch(err){
+    alert("Erreur lors de l'envoi. Veuillez réessayer.");
+  }
+}
+
 
 </script>
 <!-- u0-i18n-patched -->
