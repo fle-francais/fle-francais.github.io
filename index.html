@@ -1258,7 +1258,7 @@ function switchTab(level, tab) {
 function speak(text){
   if(!window.speechSynthesis) return;
   speechSynthesis.cancel();
-  var u = new SpeechSynthesisUtterance(text.replace(/^(le |la |les |l'|un |une |des )/i,'').split('/')[0].trim());
+  var u = new SpeechSynthesisUtterance(text.split('/')[0].trim());
   u.lang = 'fr-FR';
   u.rate = 0.85;
   speechSynthesis.speak(u);
@@ -1760,7 +1760,7 @@ document.addEventListener('DOMContentLoaded', function() {
     bar.className = 'vocab-flip-bar';
     var hint = document.createElement('span');
     hint.className = 'vocab-hint';
-    hint.textContent = '🖱️ Cliquez sur une carte pour voir la traduction';
+    hint.textContent = '🖱️ Cliquez sur une carte pour voir la traduction et entendre la prononciation';
     var btn = document.createElement('button');
     btn.className = 'vocab-flip-btn';
     btn.textContent = '🔁 Tout retourner';
@@ -1775,9 +1775,12 @@ document.addEventListener('DOMContentLoaded', function() {
     bar.appendChild(btn);
     grid.parentNode.insertBefore(bar, grid);
     grid.querySelectorAll('.vocab-card').forEach(function(card) {
-      card.addEventListener('click', function() { card.classList.toggle('flipped'); });
-      // Add speak button
       var wordEl = card.querySelector('.vocab-word');
+      card.addEventListener('click', function() {
+        card.classList.toggle('flipped');
+        if(wordEl) speak(wordEl.textContent);
+      });
+      // Small standalone speak button (speaks without toggling)
       if(wordEl) {
         var sb = document.createElement('button');
         sb.className = 'vocab-speak-btn';
