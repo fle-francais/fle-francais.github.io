@@ -207,6 +207,8 @@
   .vocab-hint { font-size:.78rem; color:var(--muted); font-style:italic; }
   .vocab-flip-btn { padding:4px 12px; border-radius:20px; border:2px solid var(--b-color); background:none; color:var(--b-color); cursor:pointer; font-size:.78rem; font-weight:700; transition:all .15s; }
   .vocab-flip-btn:hover { background:var(--b-color); color:#fff; }
+  .vocab-speak-btn { position:absolute; top:5px; right:5px; background:rgba(255,255,255,.8); border:none; border-radius:12px; padding:2px 6px; font-size:.65rem; cursor:pointer; opacity:.55; transition:all .15s; line-height:1.4; }
+  .vocab-speak-btn:hover { opacity:1; background:#fff; transform:scale(1.1); }
 
   /* ── GRAMMAR COLLAPSIBLE ── */
   .rule-subtitle { cursor:pointer; user-select:none; display:flex; align-items:center; justify-content:space-between; font-weight:700; margin-bottom:8px; }
@@ -1252,6 +1254,16 @@ function switchTab(level, tab) {
   });
 }
 
+// ── TEXT-TO-SPEECH ──
+function speak(text){
+  if(!window.speechSynthesis) return;
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text.replace(/^(le |la |les |l'|un |une |des )/i,'').split('/')[0].trim());
+  u.lang = 'fr-FR';
+  u.rate = 0.85;
+  speechSynthesis.speak(u);
+}
+
 // ── VOCAB ──
 function flipCard(card) { card.classList.toggle('flipped'); }
 
@@ -1764,6 +1776,16 @@ document.addEventListener('DOMContentLoaded', function() {
     grid.parentNode.insertBefore(bar, grid);
     grid.querySelectorAll('.vocab-card').forEach(function(card) {
       card.addEventListener('click', function() { card.classList.toggle('flipped'); });
+      // Add speak button
+      var wordEl = card.querySelector('.vocab-word');
+      if(wordEl) {
+        var sb = document.createElement('button');
+        sb.className = 'vocab-speak-btn';
+        sb.textContent = '🔊';
+        sb.title = 'Écouter';
+        sb.onclick = function(e) { e.stopPropagation(); speak(wordEl.textContent); };
+        card.appendChild(sb);
+      }
     });
   });
 
