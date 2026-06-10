@@ -1254,21 +1254,59 @@ function switchTab(level, tab) {
   });
 }
 
-// ── TEXT-TO-SPEECH ──
+// ── UNIT NAVIGATION (vocab / grammaire / exercices) ──
+function showUnit(btn, section, num) {
+  // Désactiver tous les boutons de cette section
+  btn.closest('.unit-nav').querySelectorAll('.unit-nav-btn').forEach(function(b){
+    b.classList.remove('active');
+  });
+  btn.classList.add('active');
+  // Masquer tous les blocs de cette section
+  var container = btn.closest('.tab-content');
+  container.querySelectorAll('.unit-block').forEach(function(b){
+    b.classList.remove('active');
+  });
+  // Afficher le bloc demandé
+  var target = document.getElementById('unit-' + section + '-' + num);
+  if(target) target.classList.add('active');
+}
+
+// ── TEXT-TO-SPEECH (MP3 Google TTS + fallback Web Speech) ──
+var AUDIO_BASE = 'audio/';
+
+function normalizeFilename(text){
+  return text.toLowerCase().trim()
+    .normalize('NFD').replace(/[̀-ͯ]/g,'')
+    .replace(/[\s\-]+/g,'_')
+    .replace(/[^a-z0-9_]/g,'');
+}
+
 function speak(text){
-  if(!window.speechSynthesis) return;
+  // Supprimer annotations (m/f), (minérale)…
+  var clean = text.replace(/\([^)]*\)/g,'').trim();
+  // Découper sur → et /
+  var parts = clean.split(/\s*[→\/]\s*/).map(function(s){return s.trim();}).filter(Boolean);
+  playParts(parts, 0);
+}
+
+function playParts(parts, idx){
+  if(idx >= parts.length) return;
+  var part = parts[idx];
+  var next = function(){ playParts(parts, idx+1); };
+  var fname = normalizeFilename(part) + '.mp3';
+  var audio = new Audio(AUDIO_BASE + fname);
+  audio.onended = next;
+  audio.onerror = function(){ fallbackSpeak(part, next); };
+  audio.play().catch(function(){ fallbackSpeak(part, next); });
+}
+
+function fallbackSpeak(text, onEnd){
+  if(!window.speechSynthesis){ if(onEnd) onEnd(); return; }
   speechSynthesis.cancel();
-  // Split "la France → français/française" into ["la France","français","française"]
-  // Each part is spoken as a separate utterance — browser queues them with natural pauses
-  var parts = text.split(/\s*[→\/]\s*/).map(function(s){ return s.trim(); }).filter(Boolean);
-  setTimeout(function(){
-    parts.forEach(function(part){
-      var u = new SpeechSynthesisUtterance(part);
-      u.lang = 'fr-FR';
-      u.rate = 0.75;
-      speechSynthesis.speak(u);
-    });
-  }, 150);
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR'; u.rate = 0.75;
+  if(onEnd) u.onend = onEnd;
+  setTimeout(function(){ speechSynthesis.speak(u); }, 80);
 }
 
 // ── VOCAB ──
