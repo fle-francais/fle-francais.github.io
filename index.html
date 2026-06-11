@@ -1684,6 +1684,140 @@ function setLang(lang) {
 
   // Consignes des exercices
   translateExerciseInstructions(lang);
+
+  // Titres de sections et règles de grammaire
+  translateTitles(lang);
+
+  // Boutons interactifs
+  translateButtons(lang);
+}
+
+// ── DICTIONNAIRE TITRES ZH ──────────────────────────────────────────────────
+var ZH_TITLES = {
+  // ── Titres de règles de grammaire (.rule-subtitle) ──
+  'Les adjectifs de nationalité': '国籍形容词',
+  'Les adjectifs possessifs': '所有格形容词',
+  'Les articles définis : le, la, les, l\'': '定冠词：le、la、les、l\'',
+  'Les articles définis et indéfinis': '定冠词与不定冠词',
+  'Le singulier et le pluriel des noms': '名词的单复数',
+  'Le genre et le nombre des adjectifs': '形容词的性数变化',
+  'La place des adjectifs': '形容词的位置',
+  'Verbes : ÊTRE, AVOIR, S\'APPELER, PARLER': '动词：ÊTRE、AVOIR、S\'APPELER、PARLER',
+  'Verbe : HABITER': '动词：HABITER（居住）',
+  'Les verbes en -ER au présent (aimer, détester)': '-ER 动词现在时',
+  'C\'est un(e)... / Il est... / Elle est...': 'C\'est 与 Il/Elle est 的用法',
+  'Masculin et féminin des professions': '职业名词的阴阳性',
+  'Les prépositions de lieu (1)': '地点介词（1）',
+  'Les prépositions de lieu (2)': '地点介词（2）',
+  'Les prépositions + noms de villes et de pays (1)': '介词 + 城市/国家（1）',
+  'Les prépositions devant les noms de villes et de pays (2)': '介词 + 城市/国家（2）',
+  'Verbes : ALLER, FAIRE, ACHETER, MANGER, PAYER': '动词：ALLER、FAIRE、ACHETER、MANGER、PAYER',
+  'La quantité non définie : les partitifs': '不定量：部分冠词',
+  'Verbe : PRENDRE': '动词：PRENDRE（拿/乘坐）',
+  'Verbe : BOIRE': '动词：BOIRE（喝）',
+  '💳 Les moyens de paiement': '💳 支付方式',
+  'Verbes : POUVOIR et VOULOIR': '动词：POUVOIR（能）和 VOULOIR（想要）',
+  'L\'adjectif interrogatif QUEL': '疑问形容词 QUEL',
+  'L\'adjectif démonstratif': '指示形容词',
+  'Dire l\'heure': '时间表达',
+  'La fréquence (1)': '频率表达（1）',
+  'La fréquence (2)': '频率表达（2）',
+  'Verbes : VENDRE, METTRE, VENIR': '动词：VENDRE、METTRE、VENIR',
+  'Les verbes en -IR au présent (1) : choisir, finir': '-IR 动词现在时（1）：choisir、finir',
+  'Les verbes en -IR au présent (2) : partir, sortir, dormir': '-IR 动词现在时（2）：partir、sortir、dormir',
+  'L\'intensité': '程度副词',
+  'La comparaison : moins / aussi / plus + adjectif + que': '比较级',
+  'Les verbes pronominaux au présent': '代词式动词现在时',
+  'Le futur proche : ALLER + infinitif': '近将来时：ALLER + 不定式',
+  'Le passé composé (1) avec AVOIR': '复合过去时（1）—— AVOIR 助动词',
+  'Le passé composé (2) avec AVOIR + autres participes': '复合过去时（2）—— 不规则过去分词',
+  'Le passé composé (3) avec ÊTRE : aller': '复合过去时（3）—— ÊTRE 助动词',
+  'Le passé composé avec ÊTRE': '复合过去时—— ÊTRE 助动词',
+  'Le passé récent : VENIR DE + infinitif': '近过去时：VENIR DE + 不定式',
+  'La durée et la continuation : depuis, pendant, il y a': '时间持续：depuis、pendant、il y a',
+  'Les pronoms COD (1) : le, la, l\', les': '直接宾语代词（1）：le、la、l\'、les',
+  'Les pronoms COD (2) : me, m\', te, t\', nous, vous': '直接宾语代词（2）：me、te、nous、vous',
+  'Le pronom Y': '代词 Y',
+  'Les pronoms relatifs QUI et QUE': '关系代词 QUI 和 QUE',
+  'L\'obligation et l\'interdiction (1) — infinitif et impératif': '义务与禁止（1）——不定式与命令式',
+  'L\'obligation et l\'interdiction (2) : DEVOIR': '义务与禁止（2）：DEVOIR',
+  'Donner un conseil : devoir, il faut, tu devrais': '表达建议：devoir、il faut、tu devrais',
+  'L\'impératif (être, avoir, monter, aller)': '命令式',
+  'Les connecteurs : pour, parce que, mais, avec, sans': '连接词：pour、parce que、mais、avec、sans',
+  'Verbe : CONNAÎTRE': '动词：CONNAÎTRE（认识）',
+  'Les verbes impersonnels à l\'imparfait': '非人称动词（未完成过去时）',
+  '🔢 Les nombres (1) : 32 → 69': '🔢 数字（1）：32 → 69',
+  '🔢 Les nombres (2) : 70 → 100': '🔢 数字（2）：70 → 100',
+  '🔢 Les nombres (3) : 100 → 1 milliard': '🔢 数字（3）：100 → 10亿',
+  // ── Titres de sections vocabulaire (.section-title) ──
+  '🆔 L\'identité': '🆔 身份',
+  '🌍 Pays et nationalités': '🌍 国家与国籍',
+  '🎮 Les loisirs (1)': '🎮 休闲活动（1）',
+  '🏘️ Les lieux': '🏘️ 地点',
+  '🎭 Les loisirs (2)': '🎭 休闲活动（2）',
+  '👨‍👩‍👧‍👦 La famille': '👨‍👩‍👧‍👦 家庭',
+  '💼 Les professions': '💼 职业',
+  '🛒 Les commerces et les commerçants': '🛒 商店与商贩',
+  '🥦 Les aliments et les quantités': '🥦 食物与数量',
+  '🍽️ Les repas': '🍽️ 餐食',
+  '🏙️ La ville': '🏙️ 城市',
+  '🚌 Les transports': '🚌 交通',
+  '👗 Les vêtements et les accessoires': '👗 服装与配饰',
+  '🎨 Les couleurs et les matières': '🎨 颜色与材质',
+  '🌤️ La météo et les températures': '🌤️ 天气与温度',
+  '📱 Les objets technologiques et du quotidien': '📱 科技与日常用品',
+  '🕐 L\'heure': '🕐 时间表达',
+  '📅 Les activités quotidiennes': '📅 日常活动',
+  '🏛️ Les sorties culturelles et le temps libre': '🏛️ 文化活动与休闲',
+  '👤 La description physique et le caractère': '👤 外貌与性格',
+  '🏠 Le logement': '🏠 住所',
+  '🛋️ Les pièces et les meubles': '🛋️ 房间与家具',
+  '🔧 L\'électroménager et les réparations': '🔧 家用电器与维修',
+  '🏥 Le corps et la santé': '🏥 身体与健康',
+  '🤒 Les symptômes et les maladies': '🤒 症状与疾病',
+  '😊😔 Les émotions': '😊😔 情感',
+  '🏋️ Le sport et l\'alimentation': '🏋️ 运动与饮食',
+  '🏖️ Les vacances et les destinations': '🏖️ 假期与目的地',
+  '🏨 L\'hébergement et la réservation': '🏨 住宿与预订',
+  '🌿 La nature': '🌿 自然',
+  '🚂 Les moyens de transport': '🚂 交通工具',
+  '🎓 L\'université et les études': '🎓 大学与学业',
+  '🏢 L\'entreprise et la vie professionnelle': '🏢 企业与职业生活',
+  '💼 Les professions et les compétences': '💼 职业与技能',
+};
+
+function translateTitles(lang) {
+  document.querySelectorAll('.rule-subtitle, .section-title').forEach(function(el) {
+    if (!el.dataset.fr) el.dataset.fr = el.innerHTML;
+    if (lang === 'zh') {
+      var zh = ZH_TITLES[el.dataset.fr];
+      if (zh) el.innerHTML = zh;
+    } else {
+      el.innerHTML = el.dataset.fr;
+    }
+  });
+}
+
+function translateButtons(lang) {
+  // Bouton "Vérifier" des QCM
+  document.querySelectorAll('.ex-btn').forEach(function(btn) {
+    if (!btn.dataset.fr) btn.dataset.fr = btn.textContent;
+    btn.textContent = lang === 'zh' ? '核对' : btn.dataset.fr;
+  });
+  // Boutons "🔁 Tout retourner / Tout cacher" des cartes vocab
+  document.querySelectorAll('.vocab-flip-btn').forEach(function(btn) {
+    var isHidden = btn.textContent.includes('cacher') || btn.textContent.includes('收起');
+    if (lang === 'zh') {
+      btn.textContent = isHidden ? '🙈 全部收起' : '🔁 全部翻转';
+    } else {
+      btn.textContent = isHidden ? '🙈 Tout cacher' : '🔁 Tout retourner';
+    }
+  });
+  // Texte d'aide des cartes vocab
+  document.querySelectorAll('.vocab-hint').forEach(function(el) {
+    if (lang === 'zh') el.textContent = '🖱️ 点击卡片查看翻译并收听发音';
+    else el.textContent = '🖱️ Cliquez sur une carte pour voir la traduction et entendre la prononciation';
+  });
 }
 
 // ── Traduction automatique des consignes d'exercices ──
@@ -1857,7 +1991,7 @@ function verifyQCM(containerId) {
   if (!container || container.dataset.done) return;
   if (container.dataset.selected === undefined || container.dataset.selected === '') {
     var fb0 = document.getElementById('fb-' + containerId);
-    if (fb0){ fb0.textContent = '⚠️ Choisissez une réponse.'; fb0.className = 'ex-feedback ko'; }
+    if (fb0){ fb0.textContent = currentLang === 'zh' ? '⚠️ 请先选择一个答案。' : '⚠️ Choisissez une réponse.'; fb0.className = 'ex-feedback ko'; }
     return;
   }
   container.dataset.done = '1';
@@ -1868,11 +2002,11 @@ function verifyQCM(containerId) {
   var fb = document.getElementById('fb-' + containerId);
   if (optIdx === correctIdx) {
     allBtns[optIdx].classList.add('correct');
-    if (fb){ fb.textContent = '✅ Bravo !'; fb.className = 'ex-feedback ok'; }
+    if (fb){ fb.textContent = currentLang === 'zh' ? '✅ 回答正确！' : '✅ Bravo !'; fb.className = 'ex-feedback ok'; }
   } else {
     allBtns[optIdx].classList.add('wrong');
     if (allBtns[correctIdx]) allBtns[correctIdx].classList.add('correct');
-    if (fb){ fb.textContent = '❌ La bonne réponse est surlignée en vert.'; fb.className = 'ex-feedback ko'; }
+    if (fb){ fb.textContent = currentLang === 'zh' ? '❌ 正确答案已用绿色标出。' : '❌ La bonne réponse est surlignée en vert.'; fb.className = 'ex-feedback ko'; }
   }
 }
 
