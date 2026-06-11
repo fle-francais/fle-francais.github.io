@@ -811,6 +811,64 @@ function setLangLesson(lang) {
     if (!b.dataset.fr) b.dataset.fr = b.innerHTML;
     b.innerHTML = lang === 'zh' ? '🏠 首页' : b.dataset.fr;
   });
+
+  // ── Boutons flottants + modaux ──
+  var _q = function(s){ return document.querySelector(s); };
+  var _t = function(el, zh){ if(!el) return; if(!el.dataset.fr) el.dataset.fr = el.textContent; el.textContent = lang === 'zh' ? zh : el.dataset.fr; };
+  _t(_q('.btn-bug'), '🐛 报告问题');
+  _t(_q('.btn-ask'), '💬 提问');
+  _t(_q('#bug-title'), '🐛 报告问题');
+  _t(_q('#ask-title'), '💬 提问');
+  document.querySelectorAll('.modal-sub').forEach(function(el, i){
+    if (!el.dataset.fr) el.dataset.fr = el.textContent;
+    el.textContent = lang === 'zh'
+      ? (i === 0 ? '请告知我们课程中的问题，帮助我们改进。' : '您的问题将直接发送给老师。')
+      : el.dataset.fr;
+  });
+  var LABEL_ZH = {
+    'Exercice concerné':'相关练习','Description du problème':'问题描述',
+    'Sujet de la question':'问题主题','Votre question':'您的问题','Votre prénom':'您的姓名'
+  };
+  document.querySelectorAll('.fle-modal .form-group label').forEach(function(el){
+    if (!el.dataset.fr) el.dataset.fr = el.innerHTML;
+    if (lang === 'zh') {
+      var key = el.dataset.fr.replace(/<[^>]+>/g,'').trim();
+      var zh = LABEL_ZH[key];
+      if (zh) { var opt = el.querySelector('.opt'); el.innerHTML = zh + (opt ? ' <span class="opt">（选填）</span>' : ''); }
+    } else { el.innerHTML = el.dataset.fr; }
+  });
+  var OPT_ZH = {
+    '— Choisissez —':'— 请选择 —','Vocabulaire':'词汇','Grammaire':'语法','Autre':'其他',
+    '📖 Grammaire — règle ou structure':'📖 语法 — 规则或结构',
+    '📝 Vocabulaire — sens ou usage d’un mot':'📝 词汇 — 词义或用法',
+    '✏️ Exercice — correction ou consigne':'✏️ 练习 — 批改或题目说明',
+    '🎵 Prononciation — son ou accent':'🎵 发音 — 音节或重音'
+  };
+  document.querySelectorAll('.fle-modal select option').forEach(function(o){
+    if (!o.dataset.fr) o.dataset.fr = o.textContent;
+    o.textContent = lang === 'zh' ? (OPT_ZH[o.dataset.fr] || o.dataset.fr) : o.dataset.fr;
+  });
+  var TA_ZH = {
+    'Décrivez le bug : ce qui s’affiche, ce qui devrait s’afficher…':'请描述问题：实际显示内容，以及应显示的内容……',
+    'Posez votre question ici de façon précise…':'请在此处详细提问……'
+  };
+  document.querySelectorAll('.fle-modal textarea').forEach(function(ta){
+    if (!ta.dataset.fr) ta.dataset.fr = ta.placeholder;
+    ta.placeholder = lang === 'zh' ? (TA_ZH[ta.dataset.fr] || ta.dataset.fr) : ta.dataset.fr;
+  });
+  var SENDBTN_ZH = {'Envoyer le signalement':'提交报告','Envoyer la question':'发送问题'};
+  document.querySelectorAll('.fle-modal .btn-send').forEach(function(b){
+    if (!b.dataset.fr) b.dataset.fr = b.textContent;
+    b.textContent = lang === 'zh' ? (SENDBTN_ZH[b.dataset.fr] || b.dataset.fr) : b.dataset.fr;
+  });
+  var SUCCESS_ZH = {
+    '✅ Merci ! Votre signalement a bien été envoyé.':'✅ 感谢！报告已成功发送。',
+    '✅ Merci ! Votre question a bien été envoyée.':'✅ 感谢！您的问题已成功发送。'
+  };
+  document.querySelectorAll('.form-success').forEach(function(el){
+    if (!el.dataset.fr) el.dataset.fr = el.textContent;
+    el.textContent = lang === 'zh' ? (SUCCESS_ZH[el.dataset.fr] || el.dataset.fr) : el.dataset.fr;
+  });
 }
 
 // Ajouter le toggle dans chaque nav
