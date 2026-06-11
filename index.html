@@ -270,8 +270,74 @@
     .level-header h2 { font-size: 1.8rem; }
   }
 </style>
+
+<style id="gate-css">
+#gate-overlay{position:fixed;inset:0;z-index:9999;
+  background:linear-gradient(160deg,#1a3a5c 0%,#2980b9 60%,#1abc9c 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Segoe UI',system-ui,sans-serif;padding:20px;text-align:center}
+#gate-overlay .logo{font-size:2.8rem;font-weight:900;color:#fff;letter-spacing:-1px;margin-bottom:8px}
+#gate-overlay .logo span{color:#1abc9c}
+#gate-overlay h1{color:#fff;font-size:1.6rem;font-weight:700;margin-bottom:10px}
+#gate-overlay p{color:rgba(255,255,255,.8);font-size:1rem;max-width:420px;line-height:1.7;margin-bottom:32px}
+#gate-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  color:#fff;border-radius:30px;padding:8px 20px;font-size:.85rem;margin-bottom:40px;display:inline-block}
+#gate-access{margin-top:auto;padding-top:30px;border-top:1px solid rgba(255,255,255,.15);width:100%;max-width:320px}
+#gate-access summary{color:rgba(255,255,255,.45);font-size:.78rem;cursor:pointer;
+  list-style:none;letter-spacing:.05em;user-select:none}
+#gate-access summary:hover{color:rgba(255,255,255,.7)}
+#gate-inner{margin-top:12px;display:flex;gap:8px}
+#gate-pwd{flex:1;padding:10px 14px;border:1px solid rgba(255,255,255,.3);border-radius:8px;
+  background:rgba(255,255,255,.12);color:#fff;font-size:.9rem;outline:none}
+#gate-pwd::placeholder{color:rgba(255,255,255,.4)}
+#gate-pwd:focus{border-color:rgba(255,255,255,.7)}
+#gate-btn{padding:10px 18px;background:#1abc9c;color:#fff;border:none;border-radius:8px;
+  font-size:.9rem;font-weight:600;cursor:pointer;white-space:nowrap}
+#gate-btn:hover{background:#17a589}
+#gate-err{color:#f1948a;font-size:.8rem;margin-top:8px;min-height:16px}
+</style>
 </head>
 <body>
+
+<div id="gate-overlay">
+  <div class="logo">FLE<span>+</span></div>
+  <div id="gate-badge">✨ Lancement bientôt</div>
+  <h1>Bientôt disponible</h1>
+  <p>Une plateforme d'apprentissage du français conçue pour les apprenants sinophones.<br>
+  Leçons interactives, dialogues audio, exercices et bien plus encore.</p>
+
+  <details id="gate-access">
+    <summary>Accès bêta-testeurs</summary>
+    <div id="gate-inner">
+      <input id="gate-pwd" type="password" placeholder="Code d'accès"
+             onkeydown="if(event.key==='Enter')checkGate()"/>
+      <button id="gate-btn" onclick="checkGate()">Entrer</button>
+    </div>
+    <div id="gate-err"></div>
+  </details>
+</div>
+<script>
+(function(){
+  if(sessionStorage.getItem('fle_auth')==='1'){
+    document.getElementById('gate-overlay').style.display='none';
+    return;
+  }
+  document.body.style.overflow='hidden';
+})();
+function checkGate(){
+  var v=document.getElementById('gate-pwd').value;
+  if(v==='FLE2026'){
+    sessionStorage.setItem('fle_auth','1');
+    document.getElementById('gate-overlay').style.display='none';
+    document.body.style.overflow='';
+  }else{
+    document.getElementById('gate-err').textContent='Code incorrect.';
+    document.getElementById('gate-pwd').value='';
+    document.getElementById('gate-pwd').focus();
+  }
+}
+</script>
+
 
 <!-- ═══════════════ NAVIGATION ═══════════════ -->
 <nav>
