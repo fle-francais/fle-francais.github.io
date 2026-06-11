@@ -1197,17 +1197,23 @@ var _pronoRecording   = false;
 function pronoListen(btn, text) {
   if (!window.speechSynthesis) return;
   window.speechSynthesis.cancel();
-  var utt = new SpeechSynthesisUtterance(text);
-  utt.lang = 'fr-FR';
-  utt.rate = 0.88;
-  window.speechSynthesis.speak(utt);
+  var orig = btn.innerHTML;
+  btn.innerHTML = '🔊 …';
+  setTimeout(function() {
+    var utt = new SpeechSynthesisUtterance(text);
+    utt.lang = 'fr-FR';
+    utt.rate = 0.88;
+    utt.onend = function(){ btn.innerHTML = '🔊 Réécouter'; };
+    utt.onerror = function(){ btn.innerHTML = orig; };
+    window.speechSynthesis.speak(utt);
+  }, 80);
 }
 
 /* Calculer la similarité entre deux chaînes (mots en commun) */
 function pronoSimilarity(ref, heard) {
   function normalize(s) {
     return s.toLowerCase()
-      .normalize('NFD').replace(/[̀-ͯ]/g, '') // retirer accents
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // retirer accents
       .replace(/[^a-z0-9\s]/g, '')
       .trim().split(/\s+/).filter(Boolean);
   }
