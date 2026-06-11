@@ -165,8 +165,8 @@ a{color:var(--blue);text-decoration:none}
 .form-success{display:none;margin-top:14px;background:#eafaf1;color:#27ae60;border-radius:8px;padding:10px 14px;font-size:.9rem;font-weight:600;text-align:center}
 
 /* ── Lang buttons U0 ── */
-.lang-btn{padding:4px 10px;border-radius:14px;border:2px solid #ddd;background:#fff;cursor:pointer;font-size:.9rem;transition:all .15s}
-.lang-btn.active{border-color:var(--purp);background:var(--purp-l)}
+.lang-btn{padding:2px;border-radius:50%;border:2px solid transparent;background:none;cursor:pointer;transition:all .15s}
+.lang-btn.active{border-color:var(--purp);box-shadow:0 0 0 2px var(--purp-l)}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
@@ -221,8 +221,8 @@ a{color:var(--blue);text-decoration:none}
 <nav class="top-nav">
   <a class="btn-nav btn-back" href="../index.html" data-i18n="back">🏠 Accueil</a>
   <div style="margin-left:auto;display:flex;gap:6px">
-    <button class="lang-btn" onclick="setLangU0('fr')">🇫🇷</button>
-    <button class="lang-btn" onclick="setLangU0('zh')">🇨🇳</button>
+    <button class="lang-btn" onclick="setLangU0('fr')" title="Français"><img src="../icons/flag-fr-64.png" alt="FR" style="width:26px;height:26px;display:block"></button>
+    <button class="lang-btn" onclick="setLangU0('zh')" title="中文"><img src="../icons/flag-zh-64.png" alt="ZH" style="width:26px;height:26px;display:block"></button>
   </div>
   <a class="btn-nav btn-next" href="1A.html">1A →</a>
   <span class="nav-title">Unité 0</span>
@@ -1116,8 +1116,8 @@ document.addEventListener('DOMContentLoaded', function(){
     var b = document.createElement('button');
     b.className = 'btn-nav lang-btn-l';
     b.dataset.lang = l;
-    b.textContent = l === 'fr' ? '🇫🇷' : '🇨🇳';
-    b.style.cssText = 'padding:3px 8px;font-size:1rem;opacity:.5';
+    b.innerHTML = l === 'fr' ? '<img src="../icons/flag-fr-64.png" alt="FR" style="width:24px;height:24px;display:block">' : '<img src="../icons/flag-zh-64.png" alt="ZH" style="width:24px;height:24px;display:block">';
+    b.style.cssText = 'padding:2px;border-radius:50%;border:2px solid transparent;background:none;opacity:.5;cursor:pointer;transition:all .15s';
     b.addEventListener('click', function(){ setLangLesson(l); });
     picker.appendChild(b);
   });

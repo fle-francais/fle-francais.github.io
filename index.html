@@ -2,10 +2,16 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🇫🇷</text></svg>">
-  <meta name="description" content="FrançaisPlus — Apprenez le français en ligne : 27 leçons interactives A1, dialogues audio, exercices, vocabulaire, test de niveau. Gratuit.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FLE · Apprendre le français</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="FLE">
+  <meta name="theme-color" content="#2980b9">
+  <meta name="description" content="FLE — Apprentissage du français en ligne : 27 leçons interactives A1, dialogues audio, exercices, vocabulaire, test de niveau. Gratuit.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLE — Apprentissage du français</title>
 <style>
   :root {
     --a-color: #27ae60; --a-light: #eafaf1;
@@ -197,9 +203,9 @@
   .unit-name { font-size:1rem; font-weight:800; color:var(--text); }
   /* ── LANG PICKER ── */
   .lang-picker { display:flex; gap:3px; align-items:center; margin-left:10px; }
-  .lang-btn { background:none; border:2px solid transparent; border-radius:8px; padding:2px 6px; cursor:pointer; font-size:1.15rem; line-height:1.3; transition:all .15s; }
-  .lang-btn:hover { background:var(--b-light); }
-  .lang-btn.active { border-color:var(--b-color); background:var(--b-light); }
+  .lang-btn { background:none; border:2px solid transparent; border-radius:50%; padding:2px; cursor:pointer; transition:all .15s; }
+  .lang-btn:hover { border-color:var(--b-color); }
+  .lang-btn.active { border-color:var(--b-color); box-shadow:0 0 0 2px var(--b-light); }
 
   /* ── VOCAB FLIP ── */
   .vocab-card { cursor:pointer; }
@@ -283,8 +289,8 @@
       <!-- <a href="tarifs.html" style="background:linear-gradient(135deg,#f39c12,#e67e22);color:#fff;border:none;border-radius:20px;padding:6px 16px;font-size:.85rem;font-weight:700;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">✨ Tarifs</a> -->
     </div>
     <div class="lang-picker">
-      <button class="lang-btn" onclick="setLang('fr')">🇫🇷</button>
-      <button class="lang-btn" onclick="setLang('zh')">🇨🇳</button>
+      <button class="lang-btn" onclick="setLang('fr')" title="Français"><img src="icons/flag-fr-64.png" alt="FR" style="width:28px;height:28px;display:block"></button>
+      <button class="lang-btn" onclick="setLang('zh')" title="中文"><img src="icons/flag-zh-64.png" alt="ZH" style="width:28px;height:28px;display:block"></button>
     </div>
   </div>
 </nav>

@@ -935,8 +935,8 @@ document.addEventListener('DOMContentLoaded', function(){
     var b = document.createElement('button');
     b.className = 'btn-nav lang-btn-l';
     b.dataset.lang = l;
-    b.textContent = l === 'fr' ? '🇫🇷' : '🇨🇳';
-    b.style.cssText = 'padding:3px 8px;font-size:1rem;opacity:.5';
+    b.innerHTML = l === 'fr' ? '<img src="../icons/flag-fr-64.png" alt="FR" style="width:24px;height:24px;display:block">' : '<img src="../icons/flag-zh-64.png" alt="ZH" style="width:24px;height:24px;display:block">';
+    b.style.cssText = 'padding:2px;border-radius:50%;border:2px solid transparent;background:none;opacity:.5;cursor:pointer;transition:all .15s';
     b.addEventListener('click', function(){ setLangLesson(l); });
     picker.appendChild(b);
   });
