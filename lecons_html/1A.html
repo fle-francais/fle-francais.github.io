@@ -299,6 +299,55 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   .fle-modal-box{padding:18px 16px}
 }
 
+
+/* ── EXERCICES INTERACTIFS ENRICHIS (patch-ex-v1) ── */
+.check-btn-global{padding:8px 20px;border-radius:20px;border:none;background:var(--orange);color:#fff;cursor:pointer;font-weight:700;font-size:.88rem;transition:background .15s}
+.check-btn-global:hover{background:#d35400}
+.check-btn-reset{padding:8px 18px;border-radius:20px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.88rem;transition:background .15s}
+.check-btn-reset:hover{background:#7f8c8d}
+.ex-inline-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;align-items:center}
+
+/* ── Ex5 : drag & drop par clic ── */
+.ex5-pool{display:flex;flex-wrap:wrap;gap:8px;padding:10px;background:#f8f9fa;border-radius:8px;border:2px dashed #ddd;min-height:44px;margin-bottom:14px}
+.drag-chip{display:inline-flex;align-items:center;padding:7px 14px;background:#fff;border:2px solid var(--orange);border-radius:20px;cursor:pointer;font-size:.88rem;font-weight:600;color:var(--orange);user-select:none;transition:all .15s}
+.drag-chip:hover{background:var(--orange-l)}
+.drag-chip.chip-sel{background:var(--orange);color:#fff;transform:scale(1.05);box-shadow:0 2px 8px rgba(230,126,34,.35)}
+.drag-chip.chip-ok{border-color:var(--green);color:var(--green);background:var(--green-l);cursor:default;transform:none}
+.drag-chip.chip-ko{border-color:#e74c3c;color:#e74c3c;background:#fdedec;cursor:default;transform:none}
+.ex5-zones{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ex5-zone{min-height:100px;border:2px dashed #c0c0c0;border-radius:10px;padding:10px;cursor:pointer;transition:background .15s,border-color .15s}
+.ex5-zone:hover,.ex5-zone.zone-active{border-color:var(--orange);background:#fffaf5}
+.ex5-zone-label{font-weight:700;font-size:.82rem;color:var(--muted);text-align:center;border-bottom:1px solid #eee;padding-bottom:5px;margin-bottom:8px}
+.ex5-zone-items{display:flex;flex-wrap:wrap;gap:6px}
+.ex5-fb{margin-top:10px;font-size:.9rem;font-weight:600;min-height:20px}
+@media(max-width:480px){.ex5-zones{grid-template-columns:1fr}}
+
+/* ── Ex6 : écoute ── */
+.listen-item{background:#f8f9fa;border-radius:10px;padding:14px 16px;margin-bottom:12px;border-left:3px solid var(--blue)}
+.listen-sentence{font-size:1rem;font-weight:600;margin-bottom:8px;color:var(--text)}
+.listen-blank{background:var(--blue-l);color:var(--blue);padding:2px 10px;border-radius:4px;font-weight:700;letter-spacing:.05em}
+.listen-btn{background:var(--blue);color:#fff;border:none;border-radius:20px;padding:6px 14px;cursor:pointer;font-size:.82rem;font-weight:600;margin-bottom:10px;display:inline-flex;align-items:center;gap:4px;transition:background .15s}
+.listen-btn:hover{background:#1a6ea8}
+.listen-choices{display:flex;gap:8px;flex-wrap:wrap}
+.choice-btn{padding:7px 18px;border:2px solid var(--blue);border-radius:20px;background:#fff;color:var(--blue);font-weight:600;cursor:pointer;font-size:.88rem;transition:all .15s}
+.choice-btn:hover:not(:disabled){background:var(--blue-l)}
+.choice-btn.choice-correct{background:var(--green);border-color:var(--green);color:#fff}
+.choice-btn.choice-wrong{background:#e74c3c;border-color:#e74c3c;color:#fff}
+.listen-fb{margin-top:8px;font-size:.85rem;font-weight:600;min-height:16px}
+
+/* ── Ex7 : phonie-graphie ── */
+.phon-grid-ex{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-top:10px}
+.phon-item-ex{background:#f0fff8;border-radius:10px;padding:14px;text-align:center;border:2px solid #d5f5e3;transition:border-color .15s}
+.phon-word-ex{font-size:1.2rem;font-weight:800;color:var(--text);margin-bottom:6px}
+.phon-hear-ex{background:#1abc9c;color:#fff;border:none;border-radius:20px;padding:5px 12px;cursor:pointer;font-size:.82rem;font-weight:600;margin-bottom:8px;display:inline-flex;align-items:center;gap:4px;transition:background .15s}
+.phon-hear-ex:hover{background:#17a589}
+.phon-choices-ex{display:flex;gap:6px;justify-content:center}
+.phon-btn-ex{padding:5px 14px;border:2px solid #1abc9c;border-radius:16px;background:#fff;color:#1abc9c;font-weight:700;cursor:pointer;font-size:.82rem;transition:all .15s}
+.phon-btn-ex:hover:not(:disabled){background:#e8f8f5}
+.phon-btn-ex.phon-ok{background:#1abc9c;color:#fff;border-color:#1abc9c}
+.phon-btn-ex.phon-ko{background:#e74c3c;color:#fff;border-color:#e74c3c}
+.phon-fb-ex{font-size:.78rem;margin-top:5px;font-weight:600;min-height:14px}
+
 </style>
 </head>
 <body>
@@ -406,6 +455,109 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="assoc-left"><span class="assoc-word">4. étudiant(e)</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-1A-ex4-3" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="d" onclick="checkBlankData(this,'ma-1A-ex4-3','fb-ma-1A-ex4-3')">✓</button><span class="fb" id="fb-ma-1A-ex4-3"></span></div>
 </div>
 </div>
+
+<div class="section sec-exercise">
+<div class="section-head">🎯 Exercice 5 — Formel ou informel ?</div>
+<div class="section-body">
+<div class="ex-inst">Cliquez sur une expression pour la sélectionner, puis cliquez sur la bonne colonne.
+<span class="comm-zh">点击一个表达选中，再点击正确的栏。</span></div>
+
+<div id="ex5-pool" class="ex5-pool">
+  <span class="drag-chip" data-cat="informel" onclick="ex5Click(this)">Salut !</span>
+  <span class="drag-chip" data-cat="formel"   onclick="ex5Click(this)">Bonjour !</span>
+  <span class="drag-chip" data-cat="informel" onclick="ex5Click(this)">Coucou !</span>
+  <span class="drag-chip" data-cat="formel"   onclick="ex5Click(this)">Bonsoir !</span>
+  <span class="drag-chip" data-cat="informel" onclick="ex5Click(this)">À plus !</span>
+  <span class="drag-chip" data-cat="formel"   onclick="ex5Click(this)">Enchanté(e) !</span>
+  <span class="drag-chip" data-cat="informel" onclick="ex5Click(this)">Ça roule ?</span>
+  <span class="drag-chip" data-cat="formel"   onclick="ex5Click(this)">Au revoir !</span>
+</div>
+
+<div class="ex5-zones">
+  <div class="ex5-zone" id="zone-formel" onclick="ex5Drop(this)">
+    <div class="ex5-zone-label">🎩 Formel</div>
+    <div class="ex5-zone-items" id="zone-formel-items"></div>
+  </div>
+  <div class="ex5-zone" id="zone-informel" onclick="ex5Drop(this)">
+    <div class="ex5-zone-label">👋 Informel</div>
+    <div class="ex5-zone-items" id="zone-informel-items"></div>
+  </div>
+</div>
+
+<div class="ex-inline-btns">
+  <button class="check-btn-global" onclick="checkEx5()">Vérifier ✓</button>
+  <button class="check-btn-reset"  onclick="resetEx5()">Recommencer ↺</button>
+</div>
+<div id="ex5-fb" class="ex5-fb"></div>
+</div>
+</div>
+
+<div class="section sec-exercise">
+<div class="section-head">🔊 Exercice 6 — Écoute et choisissez</div>
+<div class="section-body">
+<div class="ex-inst">Écoutez la phrase et choisissez le bon pronom sujet.
+<span class="comm-zh">听句子，选择正确的主语代词。</span></div>
+
+<div id="ex6-items">
+
+<div class="listen-item" data-ans="vous">
+  <div class="listen-sentence"><span class="listen-blank">_____</span> êtes professeur ?</div>
+  <button class="listen-btn" onclick="speakEx6(this,'Vous êtes professeur ?')">🔊 Écouter</button>
+  <div class="listen-choices">
+    <button class="choice-btn" data-val="je"   onclick="checkEx6(this)">je</button>
+    <button class="choice-btn" data-val="vous" onclick="checkEx6(this)">vous</button>
+    <button class="choice-btn" data-val="ils"  onclick="checkEx6(this)">ils</button>
+  </div>
+  <div class="listen-fb"></div>
+</div>
+
+<div class="listen-item" data-ans="il">
+  <div class="listen-sentence"><span class="listen-blank">_____</span> est étudiant.</div>
+  <button class="listen-btn" onclick="speakEx6(this,'Il est étudiant.')">🔊 Écouter</button>
+  <div class="listen-choices">
+    <button class="choice-btn" data-val="je"    onclick="checkEx6(this)">je</button>
+    <button class="choice-btn" data-val="il"    onclick="checkEx6(this)">il</button>
+    <button class="choice-btn" data-val="elles" onclick="checkEx6(this)">elles</button>
+  </div>
+  <div class="listen-fb"></div>
+</div>
+
+<div class="listen-item" data-ans="nous">
+  <div class="listen-sentence"><span class="listen-blank">_____</span> sommes dans la même classe.</div>
+  <button class="listen-btn" onclick="speakEx6(this,'Nous sommes dans la même classe.')">🔊 Écouter</button>
+  <div class="listen-choices">
+    <button class="choice-btn" data-val="je"   onclick="checkEx6(this)">je</button>
+    <button class="choice-btn" data-val="vous" onclick="checkEx6(this)">vous</button>
+    <button class="choice-btn" data-val="nous" onclick="checkEx6(this)">nous</button>
+  </div>
+  <div class="listen-fb"></div>
+</div>
+
+<div class="listen-item" data-ans="je">
+  <div class="listen-sentence"><span class="listen-blank">_____</span> suis bibliothécaire.</div>
+  <button class="listen-btn" onclick="speakEx6(this,'Je suis bibliothécaire.')">🔊 Écouter</button>
+  <div class="listen-choices">
+    <button class="choice-btn" data-val="je" onclick="checkEx6(this)">je</button>
+    <button class="choice-btn" data-val="tu" onclick="checkEx6(this)">tu</button>
+    <button class="choice-btn" data-val="il" onclick="checkEx6(this)">il</button>
+  </div>
+  <div class="listen-fb"></div>
+</div>
+
+<div class="listen-item" data-ans="elles">
+  <div class="listen-sentence"><span class="listen-blank">_____</span> sont françaises.</div>
+  <button class="listen-btn" onclick="speakEx6(this,'Elles sont françaises.')">🔊 Écouter</button>
+  <div class="listen-choices">
+    <button class="choice-btn" data-val="il"    onclick="checkEx6(this)">il</button>
+    <button class="choice-btn" data-val="nous"  onclick="checkEx6(this)">nous</button>
+    <button class="choice-btn" data-val="elles" onclick="checkEx6(this)">elles</button>
+  </div>
+  <div class="listen-fb"></div>
+</div>
+
+</div><!-- /#ex6-items -->
+</div>
+</div>
 </div><div class="section sec-comm">
 <div class="section-head">🗣️ Pour communiquer</div>
 <div class="section-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr">Bonjour ! / Bonsoir ! / Salut ! (informel)</div><div class="comm-zh">你好！/ 晚上好！/ 嗨！（非正式）</div></div>
@@ -416,11 +568,95 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 </div></div>
 </div><div class="section sec-phon">
 <div class="section-head">🎵 Phonétique</div>
-<div class="section-body"><div class="phon-body">§ Phonétique — Les voyelles [e] et [ɛ]
-Règle [e] fermé : bouche souriante, lèvres tendues (été, parler). [ɛ] ouvert : bouche plus
-ouverte (être, bibliothèque).
-Exemples été [e] — être [ɛ] — parler [e] — bibliothèque [ɛ]
-Exercice Distinguez : été / être — éclair / électrique — parler / s'appeler — bébé / bête.</div></div>
+<div class="section-body"><div class="gram-rule" style="margin-bottom:12px">
+<strong>[e] fermé</strong> : bouche souriante, lèvres tendues &nbsp;→&nbsp; <em>é</em>t<em>é</em>, parl<em>er</em>, enchanté<br/>
+<strong>[ɛ] ouvert</strong> : bouche plus ouverte &nbsp;→&nbsp; <em>ê</em>tre, biblioth<em>è</em>que, b<em>ê</em>te, elle
+</div>
+<div class="ex-inst">Cliquez sur 🔊 pour écouter, puis indiquez si vous entendez [e] ou [ɛ].
+<span class="comm-zh">点击🔊试听，然后选择听到的元音。</span></div>
+<div class="phon-grid-ex">
+
+<div class="phon-item-ex" data-ans="e">
+  <div class="phon-word-ex">été</div>
+  <button class="phon-hear-ex" onclick="speakFR('été')">🔊</button>
+  <div class="phon-choices-ex">
+    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+  </div>
+  <div class="phon-fb-ex"></div>
+</div>
+
+<div class="phon-item-ex" data-ans="ɛ">
+  <div class="phon-word-ex">être</div>
+  <button class="phon-hear-ex" onclick="speakFR('être')">🔊</button>
+  <div class="phon-choices-ex">
+    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+  </div>
+  <div class="phon-fb-ex"></div>
+</div>
+
+<div class="phon-item-ex" data-ans="e">
+  <div class="phon-word-ex">parler</div>
+  <button class="phon-hear-ex" onclick="speakFR('parler')">🔊</button>
+  <div class="phon-choices-ex">
+    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+  </div>
+  <div class="phon-fb-ex"></div>
+</div>
+
+<div class="phon-item-ex" data-ans="ɛ">
+  <div class="phon-word-ex">bibliothèque</div>
+  <button class="phon-hear-ex" onclick="speakFR('bibliothèque')">🔊</button>
+  <div class="phon-choices-ex">
+    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+  </div>
+  <div class="phon-fb-ex"></div>
+</div>
+
+<div class="phon-item-ex" data-ans="e">
+  <div class="phon-word-ex">enchanté</div>
+  <button class="phon-hear-ex" onclick="speakFR('enchanté')">🔊</button>
+  <div class="phon-choices-ex">
+    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+  </div>
+  <div class="phon-fb-ex"></div>
+</div>
+
+<div class="phon-item-ex" data-ans="ɛ">
+  <div class="phon-word-ex">bête</div>
+  <button class="phon-hear-ex" onclick="speakFR('bête')">🔊</button>
+  <div class="phon-choices-ex">
+    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+  </div>
+  <div class="phon-fb-ex"></div>
+</div>
+
+<div class="phon-item-ex" data-ans="e">
+  <div class="phon-word-ex">étudiant</div>
+  <button class="phon-hear-ex" onclick="speakFR('étudiant')">🔊</button>
+  <div class="phon-choices-ex">
+    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+  </div>
+  <div class="phon-fb-ex"></div>
+</div>
+
+<div class="phon-item-ex" data-ans="ɛ">
+  <div class="phon-word-ex">elle</div>
+  <button class="phon-hear-ex" onclick="speakFR('elle')">🔊</button>
+  <div class="phon-choices-ex">
+    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+  </div>
+  <div class="phon-fb-ex"></div>
+</div>
+
+</div><!-- /.phon-grid-ex --></div>
 </div><div class="section sec-exercise" style="border-top:3px solid var(--orange)">
 <div class="section-head" style="color:var(--orange)">✍️ À toi !</div>
 <div class="section-body">
@@ -643,6 +879,124 @@ async function checkLT(btn) {
   }
   btn.disabled    = false;
   btn.textContent = 'Corriger ✓';
+}
+
+// ── EX5 : Formel / Informel ──────────────────────────────────────────────────
+var ex5Selected = null;
+function ex5Click(chip) {
+  if (chip.classList.contains('chip-ok') || chip.classList.contains('chip-ko')) return;
+  if (ex5Selected === chip) {
+    chip.classList.remove('chip-sel');
+    ex5Selected = null;
+    document.querySelectorAll('.ex5-zone').forEach(function(z){ z.classList.remove('zone-active'); });
+    return;
+  }
+  document.querySelectorAll('.drag-chip').forEach(function(c){ c.classList.remove('chip-sel'); });
+  chip.classList.add('chip-sel');
+  ex5Selected = chip;
+  document.querySelectorAll('.ex5-zone').forEach(function(z){ z.classList.add('zone-active'); });
+}
+function ex5Drop(zone) {
+  if (!ex5Selected) return;
+  var items = zone.querySelector('.ex5-zone-items');
+  if (items) items.appendChild(ex5Selected);
+  ex5Selected.classList.remove('chip-sel');
+  ex5Selected = null;
+  document.querySelectorAll('.ex5-zone').forEach(function(z){ z.classList.remove('zone-active'); });
+}
+function checkEx5() {
+  var allChips = document.querySelectorAll('#ex5-pool .drag-chip, .ex5-zone-items .drag-chip');
+  var correct = 0, wrong = 0, missing = 0;
+  allChips.forEach(function(chip) {
+    var zone = chip.closest('.ex5-zone');
+    if (!zone) { missing++; return; }
+    if (zone.id === 'zone-' + chip.dataset.cat) { chip.classList.add('chip-ok'); correct++; }
+    else { chip.classList.add('chip-ko'); wrong++; }
+  });
+  var fb = document.getElementById('ex5-fb');
+  if (!fb) return;
+  if (missing > 0) {
+    fb.innerHTML = '⚠️ Classez toutes les expressions avant de vérifier.';
+    fb.style.color = 'var(--orange)';
+  } else if (wrong === 0) {
+    fb.innerHTML = '✅ Parfait ! Toutes les expressions sont bien classées.';
+    fb.style.color = 'var(--green)';
+  } else {
+    fb.innerHTML = '❌ ' + wrong + ' expression(s) mal classée(s) – réessayez !';
+    fb.style.color = '#e74c3c';
+  }
+}
+function resetEx5() {
+  var pool = document.getElementById('ex5-pool');
+  if (!pool) return;
+  document.querySelectorAll('.drag-chip').forEach(function(chip) {
+    chip.classList.remove('chip-ok','chip-ko','chip-sel');
+    pool.appendChild(chip);
+  });
+  document.querySelectorAll('.ex5-zone').forEach(function(z){ z.classList.remove('zone-active'); });
+  ex5Selected = null;
+  var fb = document.getElementById('ex5-fb');
+  if (fb) fb.innerHTML = '';
+}
+
+// ── EX6 : Écoute ─────────────────────────────────────────────────────────────
+function speakEx6(btn, text) {
+  if (!window.speechSynthesis) { btn.textContent = '⚠️ Non supporté'; return; }
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR'; u.rate = 0.85;
+  var orig = btn.innerHTML;
+  window.speechSynthesis.cancel();
+  btn.innerHTML = '🔊 …';
+  u.onend = function(){ btn.innerHTML = '🔊 Réécouter'; };
+  u.onerror = function(){ btn.innerHTML = orig; };
+  window.speechSynthesis.speak(u);
+}
+function checkEx6(btn) {
+  var item = btn.closest('.listen-item');
+  if (!item || item.dataset.done) return;
+  item.dataset.done = '1';
+  var ans = item.dataset.ans;
+  var val = btn.dataset.val;
+  var fb  = item.querySelector('.listen-fb');
+  item.querySelectorAll('.choice-btn').forEach(function(b){ b.disabled = true; });
+  if (val === ans) {
+    btn.classList.add('choice-correct');
+    if (fb) { fb.textContent = '✅ Correct !'; fb.style.color = 'var(--green)'; }
+  } else {
+    btn.classList.add('choice-wrong');
+    item.querySelectorAll('.choice-btn').forEach(function(b){
+      if (b.dataset.val === ans) b.classList.add('choice-correct');
+    });
+    if (fb) { fb.textContent = '❌ → ' + ans; fb.style.color = '#e74c3c'; }
+  }
+}
+
+// ── EX7 : Phonie-graphie ─────────────────────────────────────────────────────
+function speakFR(text) {
+  if (!window.speechSynthesis) return;
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR'; u.rate = 0.8;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+function checkPhon(btn) {
+  var item = btn.closest('.phon-item-ex');
+  if (!item || item.dataset.done) return;
+  item.dataset.done = '1';
+  var ans = item.dataset.ans;
+  var val = btn.dataset.val;
+  var fb  = item.querySelector('.phon-fb-ex');
+  item.querySelectorAll('.phon-btn-ex').forEach(function(b){ b.disabled = true; });
+  if (val === ans) {
+    btn.classList.add('phon-ok');
+    if (fb) { fb.textContent = '✅'; fb.style.color = 'var(--green)'; }
+  } else {
+    btn.classList.add('phon-ko');
+    item.querySelectorAll('.phon-btn-ex').forEach(function(b){
+      if (b.dataset.val === ans) b.classList.add('phon-ok');
+    });
+    if (fb) { fb.textContent = '❌ [​' + ans + '​]'; fb.style.color = '#e74c3c'; }
+  }
 }
 
 </script>
