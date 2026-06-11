@@ -296,6 +296,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   .assoc-word{min-width:100px}
   .fle-modal-box{padding:18px 16px}
 }
+
+.check-btn{display:none!important}
 </style>
 </head>
 <body>
@@ -905,6 +907,13 @@ function setLangLesson(lang) {
     if (!el.dataset.fr) el.dataset.fr = el.textContent;
     el.textContent = lang === 'zh' ? (SUCCESS_ZH[el.dataset.fr] || el.dataset.fr) : el.dataset.fr;
   });
+  // Boutons globaux Vérifier / Recommencer
+  document.querySelectorAll('.check-btn-global').forEach(function(b){
+    b.textContent = lang === 'zh' ? '核对' : (b.dataset.fr || 'Vérifier');
+  });
+  document.querySelectorAll('.check-btn-reset').forEach(function(b){
+    b.textContent = lang === 'zh' ? '重试' : (b.dataset.fr || 'Recommencer');
+  });
 }
 
 // Ajouter le toggle dans chaque nav
@@ -942,5 +951,74 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
+
+<script>
+/* ── Vérifier / Recommencer globaux pour chaque exercice ── */
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.sec-exercise .section-body').forEach(function(body){
+    var hasCheck = body.querySelector('.check-btn, .blank-input, .assoc-letter-input');
+    var hasLT    = body.querySelector('.lt-btn'); // "À toi !" — garder tel quel
+    if (!hasCheck || hasLT) return;
+
+    var bar = document.createElement('div');
+    bar.className = 'ex-verif-bar';
+    bar.style.cssText = 'display:flex;gap:8px;align-items:center;margin-top:16px;flex-wrap:wrap';
+
+    // Vérifier
+    var verBtn = document.createElement('button');
+    verBtn.className = 'check-btn-global score-btn score-check';
+    verBtn.style.cssText = 'padding:7px 20px;border-radius:20px;border:none;background:var(--blue);color:#fff;font-weight:700;font-size:.85rem;cursor:pointer';
+    verBtn.setAttribute('data-fr','Vérifier');
+    verBtn.textContent = 'Vérifier';
+    verBtn.onclick = function(){
+      body.querySelectorAll('.check-btn').forEach(function(cb){ cb.click(); });
+      // also check any trans-row (show answer if blank)
+      var score_el = bar.querySelector('.ex-score-disp');
+      var inputs = Array.from(body.querySelectorAll('.blank-input'));
+      if (inputs.length) {
+        var ok = inputs.filter(function(i){ return i.style.borderBottomColor.includes('green') || i.style.color.includes('green'); }).length;
+        if (score_el) { score_el.textContent = ok+'/'+inputs.length; score_el.style.color = ok===inputs.length?'var(--green)':ok>=inputs.length/2?'var(--orange)':'#e74c3c'; }
+      }
+    };
+
+    // Recommencer
+    var rstBtn = document.createElement('button');
+    rstBtn.className = 'check-btn-reset score-btn score-reset';
+    rstBtn.style.cssText = 'padding:7px 20px;border-radius:20px;border:none;background:#ecf0f1;color:var(--text);font-weight:700;font-size:.85rem;cursor:pointer';
+    rstBtn.setAttribute('data-fr','Recommencer');
+    rstBtn.textContent = 'Recommencer';
+    rstBtn.onclick = function(){
+      body.querySelectorAll('.blank-input').forEach(function(inp){
+        inp.value = '';
+        inp.style.borderBottomColor = 'var(--blue)';
+        inp.style.color = 'var(--text)';
+        inp.disabled = false;
+      });
+      body.querySelectorAll('.fb').forEach(function(fb){
+        fb.textContent = ''; fb.className = 'fb';
+      });
+      var score_el = bar.querySelector('.ex-score-disp');
+      if (score_el) score_el.textContent = '';
+    };
+
+    // Score display
+    var scoreEl = document.createElement('span');
+    scoreEl.className = 'ex-score-disp';
+    scoreEl.style.cssText = 'font-size:.95rem;font-weight:800';
+
+    bar.appendChild(verBtn);
+    bar.appendChild(rstBtn);
+    bar.appendChild(scoreEl);
+    body.appendChild(bar);
+  });
+
+  // Sync translation for these buttons if lang already set
+  var lang = localStorage.getItem('fle_lang') || 'fr';
+  if (lang === 'zh') {
+    document.querySelectorAll('.check-btn-global').forEach(function(b){ b.textContent='核对'; });
+    document.querySelectorAll('.check-btn-reset').forEach(function(b){ b.textContent='重试'; });
+  }
+});
+</script>
 </body>
 </html>
