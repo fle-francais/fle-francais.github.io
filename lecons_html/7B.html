@@ -142,9 +142,9 @@ body.lang-zh .prod-zh{display:block}
 textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid #ffe082;border-radius:8px;padding:10px;font-family:inherit;font-size:.9rem;resize:vertical;background:#fff}
 
 /* ── BOUTONS FLOTTANTS ── */
-.float-btns{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:200}
-.float-btn{border:none;border-radius:24px;padding:10px 18px;font-size:.85rem;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s;white-space:nowrap}
-.float-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.22)}
+.float-btns{position:fixed;bottom:24px;right:16px;display:flex;flex-direction:column;gap:8px;z-index:200}
+.float-btn{border:none;border-radius:50%;width:40px;height:40px;font-size:1.15rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s,opacity .15s;display:flex;align-items:center;justify-content:center;opacity:.75;padding:0}
+.float-btn:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.22);opacity:1}
 .btn-bug{background:#fff0f0;color:#c0392b;border:2px solid #e74c3c}
 .btn-ask{background:#eaf4fb;color:#2980b9;border:2px solid #2980b9}
 
@@ -437,8 +437,8 @@ Leçon 7B · C'est combien ? · A1</div>
 
 <!-- ── Boutons flottants ── -->
 <div class="float-btns">
-  <button class="float-btn btn-bug"  onclick="openModal('modal-bug')"  title="Signaler un problème">🐛 Signaler un bug</button>
-  <button class="float-btn btn-ask"  onclick="openModal('modal-ask')"  title="Poser une question">💬 Poser une question</button>
+  <button class="float-btn btn-bug"  onclick="openModal('modal-bug')"  title="Signaler un problème">🐛</button>
+  <button class="float-btn btn-ask"  onclick="openModal('modal-ask')"  title="Poser une question">💬</button>
 </div>
 
 <!-- ── Modal : Signaler un bug ── -->
@@ -862,8 +862,8 @@ function setLangLesson(lang) {
   // ── Boutons flottants + modaux ──
   var _q = function(s){ return document.querySelector(s); };
   var _t = function(el, zh){ if(!el) return; if(!el.dataset.fr) el.dataset.fr = el.textContent; el.textContent = lang === 'zh' ? zh : el.dataset.fr; };
-  _t(_q('.btn-bug'), '🐛 报告问题');
-  _t(_q('.btn-ask'), '💬 提问');
+  var _bb=_q('.btn-bug'); if(_bb){ if(!_bb.dataset.frTitle) _bb.dataset.frTitle=_bb.title; _bb.title=lang==='zh'?'报告问题':_bb.dataset.frTitle; }
+  var _ba=_q('.btn-ask'); if(_ba){ if(!_ba.dataset.frTitle) _ba.dataset.frTitle=_ba.title; _ba.title=lang==='zh'?'提问':_ba.dataset.frTitle; }
   _t(_q('#bug-title'), '🐛 报告问题');
   _t(_q('#ask-title'), '💬 提问');
   document.querySelectorAll('.modal-sub').forEach(function(el, i){
