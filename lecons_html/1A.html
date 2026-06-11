@@ -1353,8 +1353,13 @@ function pronoShowScore(idx, score, heard, error) {
 
     var audio = new Audio(AUDIO_BASE + 'dialogue_' + LESSON + '_' + idx + '.mp3');
     currentAudio = audio;
-    audio.onended  = function(){ playLine(idx + 1); };
-    audio.onerror  = function(){ playLine(idx + 1); };  // passe à la suivante si MP3 absent
+    // Précharger la réplique suivante pour réduire le délai
+    if (idx + 1 < rows.length) {
+      var next = new Audio(AUDIO_BASE + 'dialogue_' + LESSON + '_' + (idx+1) + '.mp3');
+      next.preload = 'auto';
+    }
+    audio.onended  = function(){ setTimeout(function(){ playLine(idx + 1); }, 200); };
+    audio.onerror  = function(){ playLine(idx + 1); };
     audio.play().catch(function(){ playLine(idx + 1); });
   }
 })();
