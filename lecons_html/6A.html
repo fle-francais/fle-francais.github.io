@@ -250,6 +250,52 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   font-weight: 600;
 }
 .lt-sug { color: #1b5e20; font-weight: 600; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .page-wrap{padding:12px 12px 56px}
+  .lesson-header{padding:16px 18px}
+  .lesson-title{font-size:1.25rem}
+  .top-nav{gap:6px;flex-wrap:wrap}
+  .btn-nav{padding:5px 10px;font-size:.75rem}
+  .nav-title{font-size:.7rem}
+  .section-body{padding:14px 14px}
+  .section-head{font-size:.9rem}
+  .dl-row{grid-template-columns:80px 1fr;gap:8px}
+  .dl-speaker{font-size:.72rem}
+  .dl-line{font-size:.88rem}
+  .vocab-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+  .gram-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .match-item{grid-template-columns:1fr;gap:4px}
+  .compr-item{grid-template-columns:1fr}
+  .btn-reveal{margin-top:6px}
+  .assoc-ref{font-size:.82rem}
+  .lesson-tabs{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .lesson-tab{padding:9px 12px;font-size:.8rem;flex-shrink:0}
+  .float-btns{bottom:16px;right:12px}
+  .prod-box{padding:12px 14px}
+  textarea.prod-input{min-height:70px}
+  .gram-rule{font-size:.86rem;padding:10px 12px}
+  .blank-input{width:75px}
+  .lesson-badge{font-size:.7rem}
+  .lesson-sub{font-size:.82rem}
+}
+@media (max-width: 480px) {
+  .dl-row{grid-template-columns:58px 1fr;gap:6px}
+  .dl-speaker{font-size:.66rem;letter-spacing:0}
+  .dl-line{font-size:.84rem}
+  .lesson-title{font-size:1.1rem}
+  .vocab-grid{grid-template-columns:repeat(2,1fr)}
+  .gram-table td,.gram-table th{padding:5px 8px;font-size:.8rem}
+  .blank-row{font-size:.86rem}
+  .blank-input{width:62px;font-size:.86rem}
+  .trans-input{font-size:.86rem}
+  .check-btn{font-size:.74rem;padding:2px 8px}
+  .lesson-code{font-size:.68rem}
+  .lesson-unit{font-size:.65rem}
+  .assoc-word{min-width:100px}
+  .fle-modal-box{padding:18px 16px}
+}
 </style>
 </head>
 <body>
