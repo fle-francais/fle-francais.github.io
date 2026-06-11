@@ -1186,28 +1186,6 @@ function fallbackSpeak(text, onEnd){
 // ── VOCAB ──
 function flipCard(card) { card.classList.toggle('flipped'); }
 
-// ── QCM ──
-function checkQCM(id, el, correct) {
-  const opts = document.getElementById('opts-' + id);
-  if (opts.dataset.done) return;
-  opts.dataset.done = '1';
-  const fb = document.getElementById('fb-' + id);
-  if (correct) {
-    el.classList.add('correct');
-    fb.textContent = '✅ Bravo ! Bonne réponse.';
-    fb.className = 'feedback show ok';
-    recordScore(id, true);
-  } else {
-    el.classList.add('wrong');
-    opts.querySelectorAll('.qcm-option').forEach(o => {
-      const fn = o.getAttribute('onclick');
-      if (fn && fn.includes('true')) o.classList.add('reveal');
-    });
-    fb.textContent = '❌ Pas tout à fait. La bonne réponse est surlignée.';
-    fb.className = 'feedback show ko';
-    recordScore(id, false);
-  }
-}
 
 // ── BLANKS ──
 function checkBlanks(id, count) {
@@ -1381,20 +1359,6 @@ function initTest() {
   renderQuestion(0);
 }
 
-function renderQuestion(i) {
-  const container = document.getElementById('test-questions');
-  if (i >= testQuestions.length) { showTestResult(); return; }
-  const q = testQuestions[i];
-  document.getElementById('test-meta').textContent = `Question ${i+1} / ${testQuestions.length}`;
-  document.getElementById('test-bar').style.width = ((i+1)/testQuestions.length*100) + '%';
-  container.innerHTML = `
-    <div class="test-q active">
-      <div class="test-q-text">${q.q}</div>
-      <div class="qcm-options">
-        ${q.opts.map((o,j) => `<div class="qcm-option" onclick="answerTest(${j})">${o}</div>`).join('')}
-      </div>
-    </div>`;
-}
 
 function answerTest(idx) {
   testAnswers.push({ chosen: idx, correct: testQuestions[currentQ].ans, level: testQuestions[currentQ].level });
@@ -1402,34 +1366,6 @@ function answerTest(idx) {
   setTimeout(() => renderQuestion(currentQ), 200);
 }
 
-function showTestResult() {
-  document.getElementById('test-questions').innerHTML = '';
-  document.getElementById('test-meta').style.display = 'none';
-  const levelScores = { A1: 0, A2: 0, B1: 0, B2: 0, C1: 0, C2: 0 };
-  const levelTotal = { A1: 0, A2: 0, B1: 0, B2: 0, C1: 0, C2: 0 };
-  testAnswers.forEach(a => {
-    levelTotal[a.level]++;
-    if (a.chosen === a.correct) levelScores[a.level]++;
-  });
-  const totalCorrect = testAnswers.filter(a => a.chosen === a.correct).length;
-  let recommended = 'A1';
-  const levels = ['C2','C1','B2','B1','A2','A1'];
-  for (const l of levels) {
-    if (levelTotal[l] > 0 && levelScores[l] / levelTotal[l] >= 0.5) { recommended = l; break; }
-  }
-  const group = recommended[0];
-  const div = document.getElementById('test-result');
-  div.style.display = 'block';
-  div.innerHTML = `
-    <span class="result-badge ${group}">${recommended}</span>
-    <h2 style="font-size:1.8rem;font-weight:900;margin-bottom:10px">Votre niveau estimé : ${recommended}</h2>
-    <p style="color:var(--muted);margin-bottom:8px">Score : ${totalCorrect} / ${testQuestions.length} bonnes réponses</p>
-    <p style="margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto">Ce test de positionnement est indicatif. Pour une évaluation officielle, passez le DELF/DALF.</p>
-    <button class="btn-primary" style="background:var(--b-color);color:#fff" onclick="showLevel('${recommended}')">Commencer le niveau ${recommended} →</button>
-    <br><br>
-    <button class="btn-secondary" style="border-color:var(--muted);color:var(--muted)" onclick="initTest()">Refaire le test</button>
-  `;
-}
 
 // ── INIT ──
 updateAllProgress();
@@ -1924,7 +1860,6 @@ function zhInstruction(text) {
   return t; // fallback : garder le texte original
 }
 
-// Override renderQuestion to use i18n counter
 function renderQuestion(i) {
   const container = document.getElementById('test-questions');
   if (i >= testQuestions.length) { showTestResult(); return; }
@@ -1941,7 +1876,6 @@ function renderQuestion(i) {
     </div>`;
 }
 
-// Override showTestResult to use i18n strings
 function showTestResult() {
   document.getElementById('test-questions').innerHTML = '';
   document.getElementById('test-meta').style.display = 'none';
