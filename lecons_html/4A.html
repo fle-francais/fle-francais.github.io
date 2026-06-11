@@ -714,5 +714,143 @@ async function checkLT(btn) {
 </script>
 <!-- perf-patched -->
 <!-- languagetool-patched -->
+
+<script>
+// ── ZH LESSON TRANSLATIONS ────────────────────────────────────────────────
+(function(){
+var ZH_SECTIONS = {
+  '💬 Dialogue':        '💬 对话',
+  '🔍 Compréhension': '🔍 理解练习',
+  '📚 Vocabulaire clé': '📚 核心词汇',
+  '🗣️ Pour communiquer': '🗣️ 沟通表达',
+  '🎵 Phonétique':  '🎵 语音',
+  '✍️ À toi !': '✍️ 轮到你了！',
+  '✍️ À toi !':     '✍️ 轮到你了！',
+};
+
+var ZH_INST = [
+  [/^Complétez avec la bonne forme d.AVOIR/i, '用AVOIR的正确形式填空：'],
+  [/^Complétez avec la bonne forme d.ÊTRE/i, '用Être的正确形式填空：'],
+  [/^Complétez avec du\/de la\/de l.\/des/i, '用 du/de la/de l\'/des 或 de/d\' 填空：'],
+  [/^Complétez avec le bon/i, '用正确的词填空：'],
+  [/^Complétez\s*:/i, '请填空：'],
+  [/^Complétez/i, '请填空：'],
+  [/^Conjuguez .+ au présent/i, '将动词变为现在时：'],
+  [/^Conjuguez .+ au passé composé avec ÊTRE/i, '用ÊTRE助动词将动词变为复合过去时：'],
+  [/^Conjuguez .+ au passé composé/i, '将动词变为复合过去时：'],
+  [/^Conjuguez/i, '请变位：'],
+  [/^Écrivez en lettres/i, '用文字写出以下数字：'],
+  [/^Écrivez la forme féminine/i, '写出阴性形式：'],
+  [/^Écrivez/i, '请写出：'],
+  [/^Mettez au futur proche négatif/i, '改为否定近将来时：'],
+  [/^Mettez au futur proche/i, '改为近将来时：'],
+  [/^Mettez/i, '请改写：'],
+  [/^Remplacez .+ par le pronom/i, '用正确的代词替换：'],
+  [/^Remplacez/i, '请替换：'],
+  [/^Répondez/i, '请回答：'],
+  [/^Transformez/i, '请转化句子：'],
+  [/^Reliez/i, '连线：'],
+  [/^Associez/i, '匹配：'],
+  [/^Choisissez/i, '请选择：'],
+  [/^Utilisez/i, '请使用：'],
+];
+
+function zhInst(text) {
+  var t = (text||'').trim();
+  for (var i=0; i<ZH_INST.length; i++) {
+    var m = t.match(ZH_INST[i][0]);
+    if (m) { var rest = t.slice(m[0].length).trim(); return rest ? ZH_INST[i][1]+' '+rest : ZH_INST[i][1]; }
+  }
+  return t;
+}
+
+var TAB_ZH = { lecon:'📖 课程', vocab:'📚 词汇', gram:'✏️ 语法', ex:'🎯 练习' };
+
+function setLangLesson(lang) {
+  lang = lang || 'fr';
+  localStorage.setItem('fle_lang', lang);
+
+  // Toggle buttons
+  document.querySelectorAll('.lang-btn-l').forEach(function(b){
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+
+  // Section heads
+  document.querySelectorAll('.section-head').forEach(function(el){
+    if (!el.dataset.fr) el.dataset.fr = el.innerHTML;
+    var fr = el.dataset.fr;
+    if (lang === 'zh') {
+      if (ZH_SECTIONS[fr]) { el.innerHTML = ZH_SECTIONS[fr]; return; }
+      var gm = fr.match(/^📖 Point de langue — (.+)$/);
+      if (!gm) gm = fr.match(/^📖 Point de langue – (.+)$/);
+      if (!gm) gm = fr.match(/^📖 Point de langue — (.+)$/);
+      if (gm) { el.innerHTML = '📖 语言要点 — '+gm[1]; return; }
+      var em = fr.match(/^✏️ Exercice (\d+) — (.+)$/);
+      if (!em) em = fr.match(/^✏️ Exercice (\d+) — (.+)$/);
+      if (em) { el.innerHTML = '✏️ 练习'+em[1]+' — '+em[2]; return; }
+    } else { el.innerHTML = fr; }
+  });
+
+  // Ex-inst
+  document.querySelectorAll('.ex-inst').forEach(function(el){
+    if (!el.dataset.fr) el.dataset.fr = el.innerHTML;
+    el.innerHTML = lang === 'zh' ? zhInst(el.dataset.fr) : el.dataset.fr;
+  });
+
+  // Tabs
+  document.querySelectorAll('.lesson-tab').forEach(function(btn){
+    if (!btn.dataset.fr) btn.dataset.fr = btn.textContent;
+    var tid = btn.getAttribute('data-tab');
+    btn.textContent = (lang === 'zh' && TAB_ZH[tid]) ? TAB_ZH[tid] : btn.dataset.fr;
+  });
+
+  // Reveal buttons
+  document.querySelectorAll('.btn-reveal').forEach(function(b){
+    if (!b.dataset.fr) b.dataset.fr = b.textContent;
+    b.textContent = lang === 'zh' ? '查看' : b.dataset.fr;
+  });
+
+  // Back button text
+  document.querySelectorAll('.btn-back').forEach(function(b){
+    if (!b.dataset.fr) b.dataset.fr = b.innerHTML;
+    b.innerHTML = lang === 'zh' ? '🏠 首页' : b.dataset.fr;
+  });
+}
+
+// Ajouter le toggle dans chaque nav
+document.addEventListener('DOMContentLoaded', function(){
+  var picker = document.createElement('div');
+  picker.style.cssText = 'display:flex;gap:4px;align-items:center;margin-left:8px';
+  ['fr','zh'].forEach(function(l){
+    var b = document.createElement('button');
+    b.className = 'btn-nav lang-btn-l';
+    b.dataset.lang = l;
+    b.textContent = l === 'fr' ? '🇫🇷' : '🇨🇳';
+    b.style.cssText = 'padding:3px 8px;font-size:1rem;opacity:.5';
+    b.addEventListener('click', function(){ setLangLesson(l); });
+    picker.appendChild(b);
+  });
+  document.querySelectorAll('.top-nav').forEach(function(nav){
+    nav.appendChild(picker.cloneNode(true));
+    nav.querySelectorAll('.lang-btn-l').forEach(function(b){
+      b.addEventListener('click', function(){ setLangLesson(b.dataset.lang); });
+    });
+  });
+
+  var saved = localStorage.getItem('fle_lang') || 'fr';
+  setLangLesson(saved);
+
+  // Sync active state after setLang
+  document.querySelectorAll('.lang-btn-l').forEach(function(b){
+    b.style.opacity = b.dataset.lang === saved ? '1' : '.5';
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.lang-btn-l').forEach(function(x){ x.style.opacity='.5'; });
+      document.querySelectorAll('.lang-btn-l[data-lang="'+b.dataset.lang+'"]').forEach(function(x){ x.style.opacity='1'; });
+    });
+  });
+});
+})();
+</script>
+
 </body>
 </html>
