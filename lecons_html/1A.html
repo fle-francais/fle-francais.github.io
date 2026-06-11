@@ -1119,6 +1119,14 @@ function resetEx5() {
 }
 
 // ── EX6 : Écoute ─────────────────────────────────────────────────────────────
+function playEx6Audio(btn, src) {
+  var orig = btn.innerHTML;
+  btn.innerHTML = '🔊 …';
+  var audio = new Audio(src);
+  audio.onended = function(){ btn.innerHTML = '🔊 Réécouter'; };
+  audio.onerror = function(){ btn.innerHTML = orig; };
+  audio.play().catch(function(){ btn.innerHTML = orig; });
+}
 function speakEx6(btn, text) {
   if (!window.speechSynthesis) { btn.textContent = '⚠️ Non supporté'; return; }
   var u = new SpeechSynthesisUtterance(text);
