@@ -786,6 +786,7 @@ function setLangU0(lang) {
   if (!U0_T[lang]) return;
   U0_LANG = lang;
   localStorage.setItem('fle_lang', lang);
+  document.body.classList.toggle('lang-zh', lang === 'zh');
   const T = U0_T[lang];
   // Update all data-i18n elements
   document.querySelectorAll('[data-i18n]').forEach(el => {

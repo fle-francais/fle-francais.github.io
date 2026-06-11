@@ -70,7 +70,9 @@ a{color:var(--blue);text-decoration:none}
 .vocab-card{background:var(--blue-l);border-radius:10px;padding:12px;border-left:3px solid var(--blue)}
 .vocab-word{font-weight:800;font-size:.9rem;color:var(--text)}
 .vocab-gram{font-size:.72rem;color:var(--muted);font-style:italic}
-.vocab-zh{font-size:.88rem;color:var(--blue);font-weight:600;margin-top:4px}
+.vocab-zh{font-size:.88rem;color:var(--blue);font-weight:600;margin-top:4px;display:none}
+.comm-zh{display:none}
+body.lang-zh .vocab-zh, body.lang-zh .comm-zh{display:block}
 
 /* ── GRAMMAIRE ── */
 .gram-rule{background:var(--green-l);border-left:4px solid var(--green);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:14px;font-size:.9rem;line-height:1.6}
@@ -760,6 +762,7 @@ var TAB_ZH = { lecon:'📖 课程', vocab:'📚 词汇', gram:'✏️ 语法', e
 function setLangLesson(lang) {
   lang = lang || 'fr';
   localStorage.setItem('fle_lang', lang);
+  document.body.classList.toggle('lang-zh', lang === 'zh');
 
   // Toggle buttons
   document.querySelectorAll('.lang-btn-l').forEach(function(b){

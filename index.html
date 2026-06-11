@@ -204,7 +204,7 @@
   /* ── VOCAB FLIP ── */
   .vocab-card { cursor:pointer; }
   .vocab-trans { display:none; }
-  .vocab-card.flipped .vocab-trans { display:block; }
+  body.lang-zh .vocab-card.flipped .vocab-trans { display:block; }
   .vocab-card:not(.flipped)::after { content:''; }
   .vocab-flip-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; flex-wrap:wrap; gap:6px; }
   .vocab-hint { font-size:.78rem; color:var(--muted); font-style:italic; }
@@ -1690,6 +1690,9 @@ function setLang(lang) {
 
   // Boutons interactifs
   translateButtons(lang);
+
+  // Body class pour masquer les traductions ZH en mode FR
+  document.body.classList.toggle('lang-zh', lang === 'zh');
 }
 
 // ── DICTIONNAIRE TITRES ZH ──────────────────────────────────────────────────
