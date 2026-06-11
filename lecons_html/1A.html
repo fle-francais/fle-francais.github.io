@@ -655,8 +655,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
       <div class="prono-speaker-tag">SOFIA</div>
       <div class="prono-phrase">Bonjour ! Je voudrais m'inscrire à la bibliothèque.</div>
       <div class="prono-btns">
-        <button class="prono-btn prono-btn-listen" onclick="pronoListen(this, 'Bonjour ! Je voudrais m&#39;inscrire à la bibliothèque.')">🔊 Écouter</button>
-        <button class="prono-btn prono-btn-mic" onclick="pronoRecord(this, 'Bonjour ! Je voudrais m&#39;inscrire à la bibliothèque.', 0)">🎤 Répéter</button>
+        <button class="prono-btn prono-btn-listen" data-text="Bonjour ! Je voudrais m'inscrire à la bibliothèque." onclick="pronoListen(this)">🔊 Écouter</button>
+        <button class="prono-btn prono-btn-mic" data-text="Bonjour ! Je voudrais m'inscrire à la bibliothèque." data-idx="0" onclick="pronoRecord(this)">🎤 Répéter</button>
       </div>
       <div class="prono-score" id="prono-score-0">
         <div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-0" style="width:0%"></div></div>
@@ -669,8 +669,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
       <div class="prono-speaker-tag">BIBLIOTHÉCAIRE</div>
       <div class="prono-phrase">Bien sûr ! Votre nom, s'il vous plaît ?</div>
       <div class="prono-btns">
-        <button class="prono-btn prono-btn-listen" onclick="pronoListen(this, 'Bien sûr ! Votre nom, s&#39;il vous plaît ?')">🔊 Écouter</button>
-        <button class="prono-btn prono-btn-mic" onclick="pronoRecord(this, 'Bien sûr ! Votre nom, s&#39;il vous plaît ?', 1)">🎤 Répéter</button>
+        <button class="prono-btn prono-btn-listen" data-text="Bien sûr ! Votre nom, s'il vous plaît ?" onclick="pronoListen(this)">🔊 Écouter</button>
+        <button class="prono-btn prono-btn-mic" data-text="Bien sûr ! Votre nom, s'il vous plaît ?" data-idx="1" onclick="pronoRecord(this)">🎤 Répéter</button>
       </div>
       <div class="prono-score" id="prono-score-1">
         <div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-1" style="width:0%"></div></div>
@@ -683,8 +683,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
       <div class="prono-speaker-tag">SOFIA</div>
       <div class="prono-phrase">Sofia Russo.</div>
       <div class="prono-btns">
-        <button class="prono-btn prono-btn-listen" onclick="pronoListen(this, 'Sofia Russo.')">🔊 Écouter</button>
-        <button class="prono-btn prono-btn-mic" onclick="pronoRecord(this, 'Sofia Russo.', 2)">🎤 Répéter</button>
+        <button class="prono-btn prono-btn-listen" data-text="Sofia Russo." onclick="pronoListen(this)">🔊 Écouter</button>
+        <button class="prono-btn prono-btn-mic" data-text="Sofia Russo." data-idx="2" onclick="pronoRecord(this)">🎤 Répéter</button>
       </div>
       <div class="prono-score" id="prono-score-2">
         <div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-2" style="width:0%"></div></div>
@@ -697,8 +697,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
       <div class="prono-speaker-tag">BIBLIOTHÉCAIRE</div>
       <div class="prono-phrase">Vous êtes étudiante ?</div>
       <div class="prono-btns">
-        <button class="prono-btn prono-btn-listen" onclick="pronoListen(this, 'Vous êtes étudiante ?')">🔊 Écouter</button>
-        <button class="prono-btn prono-btn-mic" onclick="pronoRecord(this, 'Vous êtes étudiante ?', 3)">🎤 Répéter</button>
+        <button class="prono-btn prono-btn-listen" data-text="Vous êtes étudiante ?" onclick="pronoListen(this)">🔊 Écouter</button>
+        <button class="prono-btn prono-btn-mic" data-text="Vous êtes étudiante ?" data-idx="3" onclick="pronoRecord(this)">🎤 Répéter</button>
       </div>
       <div class="prono-score" id="prono-score-3">
         <div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-3" style="width:0%"></div></div>
@@ -711,8 +711,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
       <div class="prono-speaker-tag">SOFIA</div>
       <div class="prono-phrase">Oui, je suis étudiante en langues à l'université.</div>
       <div class="prono-btns">
-        <button class="prono-btn prono-btn-listen" onclick="pronoListen(this, 'Oui, je suis étudiante en langues à l&#39;université.')">🔊 Écouter</button>
-        <button class="prono-btn prono-btn-mic" onclick="pronoRecord(this, 'Oui, je suis étudiante en langues à l&#39;université.', 4)">🎤 Répéter</button>
+        <button class="prono-btn prono-btn-listen" data-text="Oui, je suis étudiante en langues à l'université." onclick="pronoListen(this)">🔊 Écouter</button>
+        <button class="prono-btn prono-btn-mic" data-text="Oui, je suis étudiante en langues à l'université." data-idx="4" onclick="pronoRecord(this)">🎤 Répéter</button>
       </div>
       <div class="prono-score" id="prono-score-4">
         <div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-4" style="width:0%"></div></div>
@@ -725,8 +725,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
       <div class="prono-speaker-tag">THOMAS</div>
       <div class="prono-phrase">Bienvenue à Grenoble !</div>
       <div class="prono-btns">
-        <button class="prono-btn prono-btn-listen" onclick="pronoListen(this, 'Bienvenue à Grenoble !')">🔊 Écouter</button>
-        <button class="prono-btn prono-btn-mic" onclick="pronoRecord(this, 'Bienvenue à Grenoble !', 5)">🎤 Répéter</button>
+        <button class="prono-btn prono-btn-listen" data-text="Bienvenue à Grenoble !" onclick="pronoListen(this)">🔊 Écouter</button>
+        <button class="prono-btn prono-btn-mic" data-text="Bienvenue à Grenoble !" data-idx="5" onclick="pronoRecord(this)">🎤 Répéter</button>
       </div>
       <div class="prono-score" id="prono-score-5">
         <div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-5" style="width:0%"></div></div>
@@ -1194,7 +1194,8 @@ var _pronoRecording   = false;
 })();
 
 /* Écouter la phrase via TTS */
-function pronoListen(btn, text) {
+function pronoListen(btn) {
+  var text = btn.getAttribute('data-text');
   if (!window.speechSynthesis) return;
   window.speechSynthesis.cancel();
   var orig = btn.innerHTML;
@@ -1230,8 +1231,10 @@ function pronoSimilarity(ref, heard) {
 }
 
 /* Lancer la reconnaissance vocale */
-function pronoRecord(btn, target, idx) {
-  if (_pronoRecording) return;
+function pronoRecord(btn) {
+  var target = btn.getAttribute('data-text');
+  var idx    = parseInt(btn.getAttribute('data-idx'), 10);
+  if (_pronoRecording || !target) return;
   var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SpeechRecognition) return;
 
