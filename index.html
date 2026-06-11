@@ -1841,10 +1841,14 @@ function translateTitles(lang) {
 }
 
 function translateButtons(lang) {
-  // Bouton "Vérifier" des QCM
+  // Boutons Vérifier / Recommencer des QCM
   document.querySelectorAll('.ex-btn').forEach(function(btn) {
     if (!btn.dataset.fr) btn.dataset.fr = btn.textContent;
-    btn.textContent = lang === 'zh' ? '核对' : btn.dataset.fr;
+    if (lang === 'zh') {
+      btn.textContent = btn.classList.contains('reset') ? '重试' : '核对';
+    } else {
+      btn.textContent = btn.dataset.fr;
+    }
   });
   // Boutons "🔁 Tout retourner / Tout cacher" des cartes vocab
   document.querySelectorAll('.vocab-flip-btn').forEach(function(btn) {
@@ -2052,21 +2056,43 @@ function verifyQCM(containerId) {
   }
 }
 
+// ── RESET QCM ──
+function resetQCM(containerId) {
+  var container = document.getElementById(containerId);
+  if (!container) return;
+  delete container.dataset.done;
+  container.dataset.selected = '';
+  container.querySelectorAll('.opt-btn').forEach(function(b) {
+    b.disabled = false;
+    b.classList.remove('selected', 'correct', 'wrong');
+  });
+  var fb = document.getElementById('fb-' + containerId);
+  if (fb) { fb.textContent = ''; fb.className = 'ex-feedback'; }
+}
+
 // ── VOCAB FLIP ──
 document.addEventListener('DOMContentLoaded', function() {
-  // Ajouter bouton "Vérifier" à chaque QCM
+  // Ajouter boutons "Vérifier" + "Recommencer" à chaque QCM
   document.querySelectorAll('.opt-grid').forEach(function(grid) {
     var id = grid.id;
     if (!id) return;
-    var btn = document.createElement('button');
-    btn.className = 'ex-btn';
-    btn.textContent = 'Vérifier';
-    btn.style.marginTop = '10px';
-    btn.onclick = function(){ verifyQCM(id); };
-    // Insérer après le opt-grid, avant le feedback
     var fb = document.getElementById('fb-' + id);
-    if (fb) grid.parentNode.insertBefore(btn, fb);
-    else grid.parentNode.appendChild(btn);
+    // Vérifier
+    var verBtn = document.createElement('button');
+    verBtn.className = 'ex-btn';
+    verBtn.textContent = 'Vérifier';
+    verBtn.style.marginTop = '10px';
+    verBtn.onclick = function(){ verifyQCM(id); };
+    if (fb) grid.parentNode.insertBefore(verBtn, fb);
+    else grid.parentNode.appendChild(verBtn);
+    // Recommencer
+    var rstBtn = document.createElement('button');
+    rstBtn.className = 'ex-btn reset';
+    rstBtn.textContent = 'Recommencer';
+    rstBtn.style.marginTop = '10px';
+    rstBtn.onclick = function(){ resetQCM(id); };
+    if (fb) grid.parentNode.insertBefore(rstBtn, fb);
+    else grid.parentNode.appendChild(rstBtn);
   });
   // Add flip bars and click handlers to every vocab grid
   document.querySelectorAll('.vocab-grid').forEach(function(grid) {

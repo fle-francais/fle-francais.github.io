@@ -116,6 +116,7 @@ a{color:var(--blue);text-decoration:none}
 .qcm-opts{display:flex;flex-wrap:wrap;gap:6px}
 .qcm-btn{padding:6px 14px;border-radius:20px;border:2px solid #ddd;background:#fff;cursor:pointer;font-size:.85rem;transition:all .15s}
 .qcm-btn:hover:not(:disabled){border-color:var(--blue);background:var(--blue-l)}
+.qcm-btn.selected{border-color:var(--blue)!important;background:var(--blue-l)!important;color:var(--blue);font-weight:700}
 .qcm-btn.correct{border-color:var(--green)!important;background:var(--green-l)!important;color:var(--green);font-weight:700}
 .qcm-btn.wrong{border-color:#e74c3c!important;background:#fdedec!important;color:#e74c3c}
 .qcm-btn:disabled{cursor:default}
@@ -857,19 +858,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 buildEx1(); buildEx2(); buildEx3(); buildEx4();
 
-// ── QCM CLICK ──
+// ── QCM CLICK : sélection seulement, révélation via Vérifier ──
 function qcmClick(btn){
   const group = btn.closest('.qcm-opts');
-  if(group.querySelector('.correct,.wrong')) return;
-  const ans = btn.dataset.ans;
-  const val = btn.dataset.val;
-  if(val === ans){
-    btn.classList.add('correct');
-  } else {
-    btn.classList.add('wrong');
-    group.querySelectorAll('.qcm-btn').forEach(b=>{ if(b.dataset.val===ans) b.classList.add('correct'); });
-  }
-  group.querySelectorAll('.qcm-btn').forEach(b=>b.disabled=true);
+  if(group.dataset.done) return;
+  group.querySelectorAll('.qcm-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
 }
 
 // ── CHECK / RESET ──
@@ -879,7 +873,18 @@ function checkEx(id){
   if(id==='ex1'||id==='ex3'){
     c.querySelectorAll('.qcm-item').forEach(item=>{
       total++;
-      if(item.querySelector('.correct')) ok++;
+      const group = item.querySelector('.qcm-opts');
+      if(group.dataset.done){ if(item.querySelector('.correct')) ok++; return; }
+      const selected = group.querySelector('.qcm-btn.selected');
+      if(!selected) return;
+      group.dataset.done = '1';
+      group.querySelectorAll('.qcm-btn').forEach(b=>{ b.disabled=true; b.classList.remove('selected'); });
+      if(selected.dataset.val === selected.dataset.ans){
+        selected.classList.add('correct'); ok++;
+      } else {
+        selected.classList.add('wrong');
+        group.querySelectorAll('.qcm-btn').forEach(b=>{ if(b.dataset.val===b.dataset.ans) b.classList.add('correct'); });
+      }
     });
   } else {
     c.querySelectorAll('.blank-input').forEach((inp,i)=>{
