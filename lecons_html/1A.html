@@ -1853,12 +1853,13 @@ document.addEventListener('DOMContentLoaded', function(){
     b.addEventListener('click', function(){ setLangLesson(l); });
     picker.appendChild(b);
   });
-  document.querySelectorAll('.top-nav').forEach(function(nav){
-    nav.appendChild(picker.cloneNode(true));
-    nav.querySelectorAll('.lang-btn-l').forEach(function(b){
+  var firstNav = document.querySelector('.top-nav');
+  if(firstNav){
+    firstNav.appendChild(picker.cloneNode(true));
+    firstNav.querySelectorAll('.lang-btn-l').forEach(function(b){
       b.addEventListener('click', function(){ setLangLesson(b.dataset.lang); });
     });
-  });
+  }
 
   var saved = localStorage.getItem('fle_lang') || 'fr';
   setLangLesson(saved);
