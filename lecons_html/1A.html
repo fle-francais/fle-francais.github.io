@@ -471,9 +471,9 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 .qcm-opt.qcm-wrong{border-color:#e74c3c!important;background:#fdedec!important;color:#c0392b}
 .qcm-opt:disabled{cursor:default}
 .qcm-score{margin-top:18px;padding:12px 16px;background:var(--purp-l);border-radius:10px;font-weight:700;text-align:center;font-size:.95rem;display:none;color:var(--purp)}
-/* ── Communiquer : bouton écoute ── */
-.comm-play{background:none;border:none;cursor:pointer;font-size:1rem;padding:0 5px 0 0;vertical-align:middle;line-height:1;transition:transform .15s;color:var(--purp)}
-.comm-play:hover{transform:scale(1.25)}
+/* ── Communiquer : texte cliquable ── */
+.comm-speak{cursor:pointer;transition:color .2s,background .2s;border-radius:4px}
+.comm-speak:hover{color:var(--purp);background:rgba(124,58,237,.08)}
 /* ── Phonétique : mots cliquables ── */
 .phon-ex-w{cursor:pointer;border-bottom:2px dotted #1abc9c;color:#148f77;font-style:normal;font-weight:700;padding:0 1px;transition:background .15s;border-radius:2px}
 .phon-ex-w:hover{background:#e8f8f5}
@@ -820,11 +820,11 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 
 </div><div class="section sec-comm">
 <div class="section-head">🗣️ Pour communiquer</div>
-<div class="section-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr"><button class="comm-play" onclick="speakFR('Bonjour !')" title="Écouter">🔊</button>Bonjour ! / Bonsoir ! / Salut ! (informel)</div><div class="comm-zh">你好！/ 晚上好！/ 嗨！（非正式）</div></div>
-<div class="comm-item"><div class="comm-fr"><button class="comm-play" onclick="speakFR('Comment vous appelez-vous ?')" title="Écouter">🔊</button>Comment vous appelez-vous ? / Tu t'appelles comment ?</div><div class="comm-zh">您叫什么名字？/ 你叫什么名字？</div></div>
-<div class="comm-item"><div class="comm-fr"><button class="comm-play" onclick="speakFR('Je m'appelle Sofia.')" title="Écouter">🔊</button>Je m'appelle… — Mon prénom, c'est… — Je suis…</div><div class="comm-zh">我叫……/ 我的名字是……/ 我是……</div></div>
-<div class="comm-item"><div class="comm-fr"><button class="comm-play" onclick="speakFR('Enchantée !')" title="Écouter">🔊</button>Enchanté(e) ! / Ravi(e) de vous rencontrer.</div><div class="comm-zh">幸会！/ 很高兴认识您。</div></div>
-<div class="comm-item"><div class="comm-fr"><button class="comm-play" onclick="speakFR('Au revoir !')" title="Écouter">🔊</button>Au revoir ! / À bientôt ! / Bonne journée !</div><div class="comm-zh">再见！/ 一会儿见！/ 祝您今天愉快！</div></div>
+<div class="section-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr comm-speak" onclick="speakFR('Bonjour ! Bonsoir ! Salut !')" title="Cliquer pour écouter">Bonjour ! / Bonsoir ! / Salut ! (informel)</div><div class="comm-zh">你好！/ 晚上好！/ 嗨！（非正式）</div></div>
+<div class="comm-item"><div class="comm-fr comm-speak" onclick="speakFR('Comment vous appelez-vous ?')" title="Cliquer pour écouter">Comment vous appelez-vous ? / Tu t'appelles comment ?</div><div class="comm-zh">您叫什么名字？/ 你叫什么名字？</div></div>
+<div class="comm-item"><div class="comm-fr comm-speak" onclick="speakFR('Je m'appelle Sofia.')" title="Cliquer pour écouter">Je m'appelle… — Mon prénom, c'est… — Je suis…</div><div class="comm-zh">我叫……/ 我的名字是……/ 我是……</div></div>
+<div class="comm-item"><div class="comm-fr comm-speak" onclick="speakFR('Enchantée ! Ravi de vous rencontrer.')" title="Cliquer pour écouter">Enchanté(e) ! / Ravi(e) de vous rencontrer.</div><div class="comm-zh">幸会！/ 很高兴认识您。</div></div>
+<div class="comm-item"><div class="comm-fr comm-speak" onclick="speakFR('Au revoir ! À bientôt ! Bonne journée !')" title="Cliquer pour écouter">Au revoir ! / À bientôt ! / Bonne journée !</div><div class="comm-zh">再见！/ 一会儿见！/ 祝您今天愉快！</div></div>
 </div></div>
 </div><div class="section sec-phon">
 <div class="section-head">🎵 Phonétique</div>
