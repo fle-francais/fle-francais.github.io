@@ -481,6 +481,24 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 /* ── Vocabulaire : mots cliquables ── */
 .vocab-word{cursor:pointer;transition:color .15s}
 .vocab-word:hover{color:var(--blue);text-decoration:underline dotted}
+
+/* ── QCM : état sélectionné (avant vérification) ── */
+.qcm-opt.qcm-selected{border-color:var(--purp)!important;background:var(--purp-l)!important;font-weight:700}
+/* ── Phonétique : état sélectionné ── */
+.phon-btn-ex.phon-selected{background:#1abc9c;color:#fff;border-color:#1abc9c}
+/* ── Scores Compréhension + Phonétique ── */
+.phon-score{margin-top:16px;padding:11px 16px;background:#e8f8f5;border-radius:10px;
+  font-weight:700;text-align:center;font-size:.93rem;display:none;color:#148f77}
+/* ── Barre Vérifier / Recommencer ── */
+.verify-bar{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn-verify{padding:8px 22px;border-radius:20px;border:none;background:var(--purp);
+  color:#fff;cursor:pointer;font-weight:700;font-size:.88rem;
+  transition:background .15s}
+.btn-verify:hover{background:#7d3c98}
+.btn-restart{padding:8px 18px;border-radius:20px;border:none;background:#95a5a6;
+  color:#fff;cursor:pointer;font-weight:700;font-size:.88rem;
+  transition:background .15s}
+.btn-restart:hover{background:#7f8c8d}
 </style>
 </head>
 <body>
@@ -519,52 +537,53 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="qcm-item">
 <div class="qcm-q">1. Où est-ce que Sofia veut s'inscrire ?</div>
 <div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="checkQCM(this,'b')">A) À la mairie</button>
-<button class="qcm-opt" data-val="b" onclick="checkQCM(this,'b')">B) À la bibliothèque</button>
-<button class="qcm-opt" data-val="c" onclick="checkQCM(this,'b')">C) À l'université</button>
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) À la mairie</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) À la bibliothèque</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) À l'université</button>
 </div></div>
 
 <div class="qcm-item">
 <div class="qcm-q">2. Quelle est la nationalité de Sofia ?</div>
 <div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="checkQCM(this,'c')">A) Française</button>
-<button class="qcm-opt" data-val="b" onclick="checkQCM(this,'c')">B) Espagnole</button>
-<button class="qcm-opt" data-val="c" onclick="checkQCM(this,'c')">C) Italienne</button>
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Française</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Espagnole</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Italienne</button>
 </div></div>
 
 <div class="qcm-item">
 <div class="qcm-q">3. Qu'est-ce que Sofia étudie à l'université ?</div>
 <div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="checkQCM(this,'b')">A) La médecine</button>
-<button class="qcm-opt" data-val="b" onclick="checkQCM(this,'b')">B) Les langues</button>
-<button class="qcm-opt" data-val="c" onclick="checkQCM(this,'b')">C) L'économie</button>
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) La médecine</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Les langues</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) L'économie</button>
 </div></div>
 
 <div class="qcm-item">
 <div class="qcm-q">4. Qui est Thomas par rapport à Sofia ?</div>
 <div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="checkQCM(this,'c')">A) Le bibliothécaire</button>
-<button class="qcm-opt" data-val="b" onclick="checkQCM(this,'c')">B) Un professeur</button>
-<button class="qcm-opt" data-val="c" onclick="checkQCM(this,'c')">C) Un étudiant du même cours</button>
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Le bibliothécaire</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Un professeur</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Un étudiant du même cours</button>
 </div></div>
 
 <div class="qcm-item">
 <div class="qcm-q">5. Comment Sofia s'appelle de son nom complet ?</div>
 <div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="checkQCM(this,'a')">A) Sofia Russo</button>
-<button class="qcm-opt" data-val="b" onclick="checkQCM(this,'a')">B) Sofia Romano</button>
-<button class="qcm-opt" data-val="c" onclick="checkQCM(this,'a')">C) Sofia Rossi</button>
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'a')">A) Sofia Russo</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'a')">B) Sofia Romano</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'a')">C) Sofia Rossi</button>
 </div></div>
 
 <div class="qcm-item">
 <div class="qcm-q">6. Comment se termine le dialogue ?</div>
 <div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="checkQCM(this,'b')">A) Thomas part sans rien dire</button>
-<button class="qcm-opt" data-val="b" onclick="checkQCM(this,'b')">B) Thomas souhaite la bienvenue à Grenoble</button>
-<button class="qcm-opt" data-val="c" onclick="checkQCM(this,'b')">C) La bibliothécaire félicite Sofia</button>
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Thomas part sans rien dire</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Thomas souhaite la bienvenue à Grenoble</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) La bibliothécaire félicite Sofia</button>
 </div></div>
 
-</div><div class="qcm-score" id="qcm-score-1A"></div>
+</div><div class="verify-bar"><button class="btn-verify check-btn-global" data-fr="Vérifier ✓" onclick="verifyQCM()">Vérifier ✓</button><button class="btn-restart check-btn-reset" data-fr="Recommencer ↺" onclick="resetQCM()">Recommencer ↺</button></div>
+<div class="qcm-score" id="qcm-score-1A"></div>
 </div>
 </div><div class="section sec-vocab">
 <div class="section-head">📚 Vocabulaire clé</div>
@@ -844,8 +863,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   <div class="phon-word-ex">été</div>
   <button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_ete.mp3')">🔊</button>
   <div class="phon-choices-ex">
-    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
-    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+    <button class="phon-btn-ex" data-val="e"  onclick="selectPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
   </div>
   <div class="phon-fb-ex"></div>
 </div>
@@ -854,8 +873,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   <div class="phon-word-ex">être</div>
   <button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_etre.mp3')">🔊</button>
   <div class="phon-choices-ex">
-    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
-    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+    <button class="phon-btn-ex" data-val="e"  onclick="selectPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
   </div>
   <div class="phon-fb-ex"></div>
 </div>
@@ -864,8 +883,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   <div class="phon-word-ex">parler</div>
   <button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_parler.mp3')">🔊</button>
   <div class="phon-choices-ex">
-    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
-    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+    <button class="phon-btn-ex" data-val="e"  onclick="selectPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
   </div>
   <div class="phon-fb-ex"></div>
 </div>
@@ -874,8 +893,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   <div class="phon-word-ex">bibliothèque</div>
   <button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_bibliotheque.mp3')">🔊</button>
   <div class="phon-choices-ex">
-    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
-    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+    <button class="phon-btn-ex" data-val="e"  onclick="selectPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
   </div>
   <div class="phon-fb-ex"></div>
 </div>
@@ -884,8 +903,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   <div class="phon-word-ex">enchanté</div>
   <button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_enchante.mp3')">🔊</button>
   <div class="phon-choices-ex">
-    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
-    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+    <button class="phon-btn-ex" data-val="e"  onclick="selectPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
   </div>
   <div class="phon-fb-ex"></div>
 </div>
@@ -894,8 +913,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   <div class="phon-word-ex">bête</div>
   <button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_bete.mp3')">🔊</button>
   <div class="phon-choices-ex">
-    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
-    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+    <button class="phon-btn-ex" data-val="e"  onclick="selectPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
   </div>
   <div class="phon-fb-ex"></div>
 </div>
@@ -904,8 +923,8 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   <div class="phon-word-ex">étudiant</div>
   <button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_etudiant.mp3')">🔊</button>
   <div class="phon-choices-ex">
-    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
-    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+    <button class="phon-btn-ex" data-val="e"  onclick="selectPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
   </div>
   <div class="phon-fb-ex"></div>
 </div>
@@ -914,12 +933,14 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   <div class="phon-word-ex">elle</div>
   <button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_elle.mp3')">🔊</button>
   <div class="phon-choices-ex">
-    <button class="phon-btn-ex" data-val="e"  onclick="checkPhon(this)">[e]</button>
-    <button class="phon-btn-ex" data-val="ɛ" onclick="checkPhon(this)">[ɛ]</button>
+    <button class="phon-btn-ex" data-val="e"  onclick="selectPhon(this)">[e]</button>
+    <button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
   </div>
   <div class="phon-fb-ex"></div>
 </div>
 
+
+<div class="verify-bar"><button class="btn-verify check-btn-global" data-fr="Vérifier ✓" onclick="verifyPhon()">Vérifier ✓</button><button class="btn-restart check-btn-reset" data-fr="Recommencer ↺" onclick="resetPhon()">Recommencer ↺</button></div><div class="phon-score" id="phon-score-1A"></div>
 </div><!-- /.phon-grid-ex --></div>
 </div><div class="section sec-exercise" style="border-top:3px solid var(--orange)">
 <div class="section-head" style="color:var(--orange)">✍️ À toi !</div>
@@ -1261,24 +1282,56 @@ function speakFR(text) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
-function checkPhon(btn) {
+function selectPhon(btn){
   var item = btn.closest('.phon-item-ex');
-  if (!item || item.dataset.done) return;
-  item.dataset.done = '1';
-  var ans = item.dataset.ans;
-  var val = btn.dataset.val;
-  var fb  = item.querySelector('.phon-fb-ex');
-  item.querySelectorAll('.phon-btn-ex').forEach(function(b){ b.disabled = true; });
-  if (val === ans) {
-    btn.classList.add('phon-ok');
-    if (fb) { fb.textContent = '✅'; fb.style.color = 'var(--green)'; }
-  } else {
-    btn.classList.add('phon-ko');
-    item.querySelectorAll('.phon-btn-ex').forEach(function(b){
-      if (b.dataset.val === ans) b.classList.add('phon-ok');
-    });
-    if (fb) { fb.textContent = '❌ [​' + ans + '​]'; fb.style.color = '#e74c3c'; }
+  if(!item || item.dataset.done) return;
+  item.querySelectorAll('.phon-btn-ex').forEach(function(b){ b.classList.remove('phon-selected'); });
+  btn.classList.add('phon-selected');
+}
+function verifyPhon(){
+  var items = document.querySelectorAll('.phon-item-ex');
+  var ok = 0, answered = 0;
+  items.forEach(function(item){
+    var sel = item.querySelector('.phon-btn-ex.phon-selected');
+    if(!sel) return;
+    answered++;
+    item.dataset.done = '1';
+    var ans = item.dataset.ans;
+    var fb  = item.querySelector('.phon-fb-ex');
+    item.querySelectorAll('.phon-btn-ex').forEach(function(b){ b.disabled = true; });
+    if(sel.dataset.val === ans){
+      sel.classList.add('phon-ok');
+      if(fb){ fb.textContent = '✅'; fb.style.color = 'var(--green)'; }
+      ok++;
+    } else {
+      sel.classList.add('phon-ko');
+      item.querySelectorAll('.phon-btn-ex').forEach(function(b){
+        if(b.dataset.val === ans) b.classList.add('phon-ok');
+      });
+      if(fb){ fb.textContent = '❌ [' + ans + ']'; fb.style.color = '#e74c3c'; }
+    }
+  });
+  if(answered === 0) return;
+  var s = document.getElementById('phon-score-1A');
+  if(s){
+    s.style.display = 'block';
+    var total = items.length;
+    var msg = ok === total ? '🎉 Parfait !' : ok >= 6 ? '👍 Bien !' : '💪 Réessayez !';
+    s.textContent = ok + ' / ' + total + ' — ' + msg;
   }
+}
+function resetPhon(){
+  document.querySelectorAll('.phon-item-ex').forEach(function(item){
+    delete item.dataset.done;
+    item.querySelectorAll('.phon-btn-ex').forEach(function(b){
+      b.disabled = false;
+      b.classList.remove('phon-ok','phon-ko','phon-selected');
+    });
+    var fb = item.querySelector('.phon-fb-ex');
+    if(fb){ fb.textContent = ''; }
+  });
+  var s = document.getElementById('phon-score-1A');
+  if(s){ s.style.display = 'none'; s.textContent = ''; }
 }
 
 
@@ -1893,31 +1946,51 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 
 <script>
-function checkQCM(btn, correct){
-  var opts = btn.closest('.qcm-opts').querySelectorAll('.qcm-opt');
-  opts.forEach(function(o){ o.disabled = true; });
-  if(btn.dataset.val === correct){
-    btn.classList.add('qcm-correct');
-  } else {
-    btn.classList.add('qcm-wrong');
-    opts.forEach(function(o){ if(o.dataset.val === correct) o.classList.add('qcm-correct'); });
-  }
+function selectQCM(btn, correct){
+  var item = btn.closest('.qcm-item');
+  if(!item || item.dataset.done) return;
+  item.dataset.correct = correct;
+  item.querySelectorAll('.qcm-opt').forEach(function(o){ o.classList.remove('qcm-selected'); });
+  btn.classList.add('qcm-selected');
+}
+function verifyQCM(){
   var items = document.querySelectorAll('.qcm-item');
-  var done = 0, ok = 0;
-  items.forEach(function(it){
-    if(it.querySelector('.qcm-opt:disabled')){
-      done++;
-      if(it.querySelector('.qcm-opt.qcm-correct')) ok++;
+  var ok = 0, answered = 0;
+  items.forEach(function(item){
+    var sel = item.querySelector('.qcm-opt.qcm-selected');
+    if(!sel) return;
+    answered++;
+    item.dataset.done = '1';
+    var correct = item.dataset.correct;
+    item.querySelectorAll('.qcm-opt').forEach(function(o){ o.disabled = true; });
+    if(sel.dataset.val === correct){
+      sel.classList.add('qcm-correct'); ok++;
+    } else {
+      sel.classList.add('qcm-wrong');
+      item.querySelectorAll('.qcm-opt').forEach(function(o){
+        if(o.dataset.val === correct) o.classList.add('qcm-correct');
+      });
     }
   });
-  if(done === items.length){
-    var s = document.getElementById('qcm-score-1A');
-    if(s){
-      s.style.display = 'block';
-      var msg = ok === items.length ? '🎉 Parfait !' : ok >= 4 ? '👍 Bien !' : '💪 Réessayez !';
-      s.textContent = ok + ' / ' + items.length + ' — ' + msg;
-    }
+  if(answered === 0) return;
+  var s = document.getElementById('qcm-score-1A');
+  if(s){
+    s.style.display = 'block';
+    var total = items.length;
+    var msg = ok === total ? '🎉 Parfait !' : ok >= 4 ? '👍 Bien !' : '💪 Réessayez !';
+    s.textContent = ok + ' / ' + total + ' — ' + msg;
   }
+}
+function resetQCM(){
+  document.querySelectorAll('.qcm-item').forEach(function(item){
+    delete item.dataset.done; delete item.dataset.correct;
+    item.querySelectorAll('.qcm-opt').forEach(function(o){
+      o.disabled = false;
+      o.classList.remove('qcm-correct','qcm-wrong','qcm-selected');
+    });
+  });
+  var s = document.getElementById('qcm-score-1A');
+  if(s){ s.style.display = 'none'; s.textContent = ''; }
 }
 </script>
 </body>
