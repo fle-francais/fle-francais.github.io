@@ -1449,12 +1449,28 @@ function pronoShowScore(idx, score, heard, error) {
     audio.currentTime = 0;
     currentAudio = audio;
 
-    /* Highlight mot par mot via requestAnimationFrame (60 fps, glissement fluide) */
+    /* Highlight mot par mot — pondération par longueur de mot + trim silence */
     var words = Array.from(rows[idx].querySelectorAll('.dl-word'));
     if (rafId){ cancelAnimationFrame(rafId); rafId = null; }
+
+    /* Seuils cumulatifs proportionnels aux caractères (mots longs = plus de temps) */
+    var totalChars = words.reduce(function(s,w){ return s + Math.max(w.textContent.trim().length, 1); }, 0);
+    var thresholds = [];
+    var cum = 0;
+    words.forEach(function(w){
+      cum += Math.max(w.textContent.trim().length, 1);
+      thresholds.push(cum / totalChars);
+    });
+
     function rafTick(){
       if (!audio.paused && !audio.ended && audio.duration){
-        var lit = Math.ceil((audio.currentTime / audio.duration) * words.length);
+        /* Trim ~6% de silence en début/fin, léger avance de 3% */
+        var raw = audio.currentTime / audio.duration;
+        var progress = Math.max(0, Math.min(1, (raw - 0.06) / 0.88 + 0.03));
+        var lit = 0;
+        for (var ti = 0; ti < thresholds.length; ti++){
+          if (progress >= thresholds[ti]) lit = ti + 1;
+        }
         words.forEach(function(w, wi){ w.classList.toggle('dl-lit', wi < lit); });
       }
       if (!audio.ended) rafId = requestAnimationFrame(rafTick);
