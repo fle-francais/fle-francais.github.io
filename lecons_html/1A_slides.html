@@ -63,12 +63,12 @@ a{color:var(--blue);text-decoration:none}
 .head-prod{color:var(--orange);background:#fffde7}
 /* DIALOGUE */
 .dialogue{display:grid;gap:1px}
-.dl-row{display:grid;grid-template-columns:88px 1fr;gap:7px;padding:5px 0;border-bottom:1px solid #f8f8f8;cursor:pointer;transition:background .15s}
+.dl-row{display:grid;grid-template-columns:108px 1fr;gap:7px;padding:5px 0;border-bottom:1px solid #f8f8f8;cursor:pointer;transition:background .15s}
 .dl-row:last-child{border-bottom:none}
 .dl-row:hover{background:#faf5ff;border-radius:5px}
 .dl-row.dl-playing{background:var(--purp-l);border-left:3px solid var(--purp);padding-left:7px;border-radius:0 6px 6px 0}
 .dl-row.dl-played{opacity:.38}
-.dl-speaker{font-weight:800;font-size:.68rem;color:var(--purp);text-transform:uppercase;letter-spacing:.4px;padding-top:1px;line-height:1.4}
+.dl-speaker{font-weight:800;font-size:.68rem;color:var(--purp);text-transform:uppercase;letter-spacing:.4px;padding-top:1px;line-height:1.4;overflow-wrap:break-word;word-break:break-word}
 .dl-line{font-size:.84rem;line-height:1.4;color:var(--text)}
 .dl-word{display:inline;border-radius:2px;padding:0 1px;transition:background .3s,color .3s}
 .dl-word.dl-lit{background:#d7bff5;color:#6c3483}
@@ -87,7 +87,10 @@ a{color:var(--blue);text-decoration:none}
 .dl-play-btn:hover{background:#7d3c98}
 .dl-zh-btn{border:2px solid var(--purp);color:var(--purp);background:none;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:700;cursor:pointer;flex-shrink:0;transition:all .15s}
 .dl-zh-btn:hover,.dl-zh-btn.zactive{background:var(--purp);color:#fff}
-.dl-illustration{width:100%;max-height:80px;object-fit:cover;object-position:top center;border-radius:8px;margin-bottom:9px;box-shadow:0 3px 12px rgba(0,0,0,.09);display:block}
+.dl-layout{display:flex;gap:14px;align-items:flex-start}
+.dl-img-col{width:30%;flex-shrink:0;min-width:80px}
+.dl-img-col img{width:100%;border-radius:8px;box-shadow:0 3px 12px rgba(0,0,0,.09);display:block;object-fit:cover}
+.dl-content-col{flex:1;min-width:0}
 /* QCM */
 .qcm-list{display:grid;gap:10px}
 .qcm-q{font-weight:700;font-size:.86rem;margin-bottom:5px;color:var(--text)}
@@ -245,7 +248,10 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .btn-bug{background:#fff0f0;color:#c0392b;border:2px solid #e74c3c}
 .btn-ask{background:#eaf4fb;color:#2980b9;border:2px solid #2980b9}
 @media(max-width:480px){
-  .dl-row{grid-template-columns:66px 1fr;gap:5px}
+  .dl-layout{flex-direction:column}
+  .dl-img-col{width:100%;max-height:110px;overflow:hidden}
+  .dl-img-col img{width:100%;height:110px;object-fit:cover;object-position:top}
+  .dl-row{grid-template-columns:80px 1fr;gap:5px}
   .dl-speaker{font-size:.62rem}
   .dl-line{font-size:.78rem}
   .ex5-zones{grid-template-columns:1fr}
@@ -278,8 +284,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-dialogue">💬 Dialogue — À la bibliothèque</div>
-      <div class="card-body">
-        <img alt="Illustration leçon 1A" loading="lazy" class="dl-illustration" src="../images/dialogue/dialogue_1A.jpg"/>
+      <div class="card-body dl-layout">
+        <div class="dl-img-col">
+          <img alt="Illustration leçon 1A" loading="lazy" src="../images/dialogue/dialogue_1A.jpg"/>
+        </div>
+        <div class="dl-content-col">
         <div class="dialogue">
           <div class="dl-row" data-idx="0"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Bonjour</span> <span class="dl-word">!</span> <span class="dl-word">Je</span> <span class="dl-word">voudrais</span> <span class="dl-word">m'inscrire</span> <span class="dl-word">à</span> <span class="dl-word">la</span> <span class="dl-word">bibliothèque.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">你好！我想在图书馆登记注册。</div></div>
           <div class="dl-row" data-idx="1"><div class="dl-speaker">BIBLIOTHÉCAIRE</div><div class="dl-line"><span class="dl-word">Bien</span> <span class="dl-word">sûr</span> <span class="dl-word">!</span> <span class="dl-word">Votre</span> <span class="dl-word">nom</span> <span class="dl-word">s'il</span> <span class="dl-word">vous</span> <span class="dl-word">plaît.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">当然！请问您的姓名。</div></div>
@@ -291,6 +300,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
           <div class="dl-row" data-idx="7"><div class="dl-speaker">THOMAS</div><div class="dl-line"><span class="dl-word">Salut</span> <span class="dl-word">Sofia</span> <span class="dl-word">!</span> <span class="dl-word">Moi</span> <span class="dl-word">c'est</span> <span class="dl-word">Thomas</span> <span class="dl-word">!</span> <span class="dl-word">On</span> <span class="dl-word">est</span> <span class="dl-word">dans</span> <span class="dl-word">le</span> <span class="dl-word">même</span> <span class="dl-word">cours.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">索菲亚？我是托马斯！我们在同一个班！</div></div>
           <div class="dl-row" data-idx="8"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Salut</span> <span class="dl-word">Thomas.</span> <span class="dl-word">Enchantée</span> <span class="dl-word">!</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">嗨，托马斯！幸会！</div></div>
           <div class="dl-row" data-idx="9"><div class="dl-speaker">THOMAS</div><div class="dl-line"><span class="dl-word">Bienvenue</span> <span class="dl-word">à</span> <span class="dl-word">Grenoble</span> <span class="dl-word">!</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">欢迎来到格勒诺布尔！</div></div>
+        </div>
         </div>
       </div>
     </div>
