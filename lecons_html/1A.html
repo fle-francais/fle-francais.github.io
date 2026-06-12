@@ -182,11 +182,37 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 }
 .dl-play-btn:hover  { background: #7d3c98; }
 .dl-play-btn:active { transform: scale(.97); }
-.dl-row.dl-active   {
+
+/* ── Dialogue player v2 (dialogue-player-v2) ── */
+.dl-row { cursor: pointer; transition: background .15s; }
+.dl-row:hover { background: #faf5ff; border-radius: 6px; }
+.dl-row.dl-playing {
   background: var(--purp-l);
-  border-radius: 8px;
-  transition: background .25s;
+  border-left: 3px solid var(--purp);
+  padding-left: 9px;
+  border-radius: 0 8px 8px 0;
 }
+.dl-row.dl-played { opacity: 0.42; }
+.dl-word { display: inline; border-radius: 3px; padding: 0 1px; }
+.dl-word.dl-lit { background: #d7bff5; color: #6c3483; }
+.dl-wave { display: none; align-items: center; gap: 2px; height: 12px; margin-left: 5px; vertical-align: middle; }
+.dl-row.dl-playing .dl-wave { display: inline-flex; }
+.dl-wave span { width: 3px; border-radius: 2px; background: var(--purp); display: inline-block; animation: dlwv .7s ease-in-out infinite; }
+.dl-wave span:nth-child(1){height:4px;animation-delay:0s}
+.dl-wave span:nth-child(2){height:9px;animation-delay:.12s}
+.dl-wave span:nth-child(3){height:6px;animation-delay:.06s}
+.dl-wave span:nth-child(4){height:11px;animation-delay:.18s}
+.dl-wave span:nth-child(5){height:5px;animation-delay:.09s}
+@keyframes dlwv{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.7)}}
+.dl-zh-line { font-size:.82rem; color:var(--muted); font-style:italic; display:none; grid-column:2; padding-bottom:5px; }
+.dialogue.dl-zh-on .dl-zh-line { display:block; }
+.dl-zh-btn {
+  border:2px solid var(--purp); color:var(--purp); background:none;
+  border-radius:16px; padding:5px 14px; font-size:.8rem; font-weight:700;
+  cursor:pointer; margin-left:8px; transition:all .15s;
+}
+.dl-zh-btn:hover, .dl-zh-btn.zactive { background:var(--purp); color:#fff; }
+
 
 /* ── Lesson tabs ── */
 .lesson-tabs {
@@ -458,16 +484,16 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 
 
 
-<div class="dl-row"><div class="dl-speaker">SOFIA</div><div class="dl-line">Bonjour ! Je voudrais m'inscrire à la bibliothèque.</div></div>
-<div class="dl-row"><div class="dl-speaker">BIBLIOTHÉCAIRE</div><div class="dl-line">Bien sûr. Votre nom s'il vous plaît.</div></div>
-<div class="dl-row"><div class="dl-speaker">SOFIA</div><div class="dl-line">Sofia Russo.</div></div>
-<div class="dl-row"><div class="dl-speaker">BIBLIOTHÉCAIRE</div><div class="dl-line">Vous pouvez épeler ?</div></div>
-<div class="dl-row"><div class="dl-speaker">SOFIA</div><div class="dl-line">S-O-F-I-A, Russo : R-U-S-S-O. Je suis italienne.</div></div>
-<div class="dl-row"><div class="dl-speaker">BIBLIOTHÉCAIRE</div><div class="dl-line">Vous êtes étudiante ?</div></div>
-<div class="dl-row"><div class="dl-speaker">SOFIA</div><div class="dl-line">Oui, je suis étudiante en langues à l'université.</div></div>
-<div class="dl-row"><div class="dl-speaker">THOMAS</div><div class="dl-line">Sofia ? Moi c'est Thomas ! On est dans le même cours !</div></div>
-<div class="dl-row"><div class="dl-speaker">SOFIA</div><div class="dl-line">Salut Thomas ! Enchantée !</div></div>
-<div class="dl-row"><div class="dl-speaker">THOMAS</div><div class="dl-line">Bienvenue à Grenoble !</div></div></div></div>
+<div class="dl-row" data-idx="0"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Bonjour</span> <span class="dl-word">!</span> <span class="dl-word">Je</span> <span class="dl-word">voudrais</span> <span class="dl-word">m'inscrire</span> <span class="dl-word">à</span> <span class="dl-word">la</span> <span class="dl-word">bibliothèque.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">你好！我想在图书馆登记注册。</div></div>
+<div class="dl-row" data-idx="1"><div class="dl-speaker">BIBLIOTHÉCAIRE</div><div class="dl-line"><span class="dl-word">Bien</span> <span class="dl-word">sûr.</span> <span class="dl-word">Votre</span> <span class="dl-word">nom</span> <span class="dl-word">s'il</span> <span class="dl-word">vous</span> <span class="dl-word">plaît.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">当然可以。请问您的姓名。</div></div>
+<div class="dl-row" data-idx="2"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Sofia</span> <span class="dl-word">Russo.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">索菲亚·鲁索。</div></div>
+<div class="dl-row" data-idx="3"><div class="dl-speaker">BIBLIOTHÉCAIRE</div><div class="dl-line"><span class="dl-word">Vous</span> <span class="dl-word">pouvez</span> <span class="dl-word">épeler</span> <span class="dl-word">?</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">您能拼写一下吗？</div></div>
+<div class="dl-row" data-idx="4"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">S-O-F-I-A,</span> <span class="dl-word">Russo</span> <span class="dl-word">:</span> <span class="dl-word">R-U-S-S-O.</span> <span class="dl-word">Je</span> <span class="dl-word">suis</span> <span class="dl-word">italienne.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">S，O，F，I，A。鲁索：R，U，S，S，O……我是意大利人。</div></div>
+<div class="dl-row" data-idx="5"><div class="dl-speaker">BIBLIOTHÉCAIRE</div><div class="dl-line"><span class="dl-word">Vous</span> <span class="dl-word">êtes</span> <span class="dl-word">étudiante</span> <span class="dl-word">?</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">您是学生吗？</div></div>
+<div class="dl-row" data-idx="6"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Oui,</span> <span class="dl-word">je</span> <span class="dl-word">suis</span> <span class="dl-word">étudiante</span> <span class="dl-word">en</span> <span class="dl-word">langues</span> <span class="dl-word">à</span> <span class="dl-word">l'université.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">是的，我是大学语言系的学生。</div></div>
+<div class="dl-row" data-idx="7"><div class="dl-speaker">THOMAS</div><div class="dl-line"><span class="dl-word">Sofia</span> <span class="dl-word">?</span> <span class="dl-word">Moi</span> <span class="dl-word">c'est</span> <span class="dl-word">Thomas</span> <span class="dl-word">!</span> <span class="dl-word">On</span> <span class="dl-word">est</span> <span class="dl-word">dans</span> <span class="dl-word">le</span> <span class="dl-word">même</span> <span class="dl-word">cours</span> <span class="dl-word">!</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">索菲亚？我是托马斯！我们在同一个班！</div></div>
+<div class="dl-row" data-idx="8"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Salut</span> <span class="dl-word">Thomas</span> <span class="dl-word">!</span> <span class="dl-word">Enchantée</span> <span class="dl-word">!</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">嗨，托马斯！幸会！</div></div>
+<div class="dl-row" data-idx="9"><div class="dl-speaker">THOMAS</div><div class="dl-line"><span class="dl-word">Bienvenue</span> <span class="dl-word">à</span> <span class="dl-word">Grenoble</span> <span class="dl-word">!</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">欢迎来到格勒诺布尔！</div></div></div></div>
 </div><div class="section sec-compr">
 <div class="section-head">🔍 Compréhension</div>
 <div class="section-body"><div class="compr-item">
@@ -1304,67 +1330,132 @@ function pronoShowScore(idx, score, heard, error) {
 }
 
 </script>
-<!-- dialogue-player-patched -->
+<!-- dialogue-player-v2 -->
 <script>
 (function(){
-  var LESSON = '1A';
+  var LESSON     = '1A';
   var AUDIO_BASE = '../audio/';
-  var dialogue = document.querySelector('.dialogue');
+  var dialogue   = document.querySelector('.dialogue');
   if (!dialogue) return;
 
-  // Numéroter les répliques
-  var rows = dialogue.querySelectorAll('.dl-row');
-  rows.forEach(function(r, i){ r.setAttribute('data-idx', i); });
+  var rows = Array.from(dialogue.querySelectorAll('.dl-row'));
 
-  // Créer le bouton ▶
-  var btn = document.createElement('button');
-  btn.className = 'dl-play-btn';
-  btn.setAttribute('aria-label', 'Écouter le dialogue');
-  btn.innerHTML = '&#9654;&#xFE0E; &nbsp;Écouter le dialogue';
-  dialogue.parentNode.insertBefore(btn, dialogue);
+  /* ── Barre de contrôles ── */
+  var ctrlWrap = document.createElement('div');
+  ctrlWrap.style.cssText = 'display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px;';
 
+  var playBtn = document.createElement('button');
+  playBtn.className = 'dl-play-btn';
+  playBtn.setAttribute('aria-label','Écouter le dialogue');
+  playBtn.innerHTML = '&#9654;&#xFE0E; &nbsp;Écouter le dialogue';
+
+  var zhBtn = document.createElement('button');
+  zhBtn.className = 'dl-zh-btn';
+  zhBtn.textContent = '中 Traduction';
+  zhBtn.addEventListener('click', function(){
+    dialogue.classList.toggle('dl-zh-on');
+    zhBtn.classList.toggle('zactive');
+    zhBtn.textContent = dialogue.classList.contains('dl-zh-on') ? '中 Masquer' : '中 Traduction';
+  });
+
+  ctrlWrap.appendChild(playBtn);
+  ctrlWrap.appendChild(zhBtn);
+  dialogue.parentNode.insertBefore(ctrlWrap, dialogue);
+
+  /* ── État ── */
   var currentAudio = null;
   var playing = false;
+  var paused  = false;
 
-  btn.addEventListener('click', function(){
-    if (playing) {
-      if (currentAudio){ currentAudio.pause(); currentAudio = null; }
-      rows.forEach(function(r){ r.classList.remove('dl-active'); });
-      btn.innerHTML = '&#9654;&#xFE0E; &nbsp;Écouter le dialogue';
-      playing = false;
+  /* ── Clic sur réplique → sauter ── */
+  rows.forEach(function(row, i){
+    row.addEventListener('click', function(e){
+      if (e.target.closest('.dl-wave')) return;
+      stopAll();
+      playLine(i);
+    });
+  });
+
+  /* ── Bouton Play / Pause / Reprendre ── */
+  playBtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    if (playing && !paused) {
+      if (currentAudio) currentAudio.pause();
+      paused = true;
+      playBtn.innerHTML = '&#9654;&#xFE0E; &nbsp;Reprendre';
+      return;
+    }
+    if (paused) {
+      if (currentAudio) currentAudio.play().catch(function(){});
+      paused = false;
+      playBtn.innerHTML = '&#9646;&#9646; &nbsp;Pause';
       return;
     }
     playLine(0);
   });
 
+  function stopAll(){
+    if (currentAudio){
+      currentAudio.onended = null;
+      currentAudio.onerror = null;
+      currentAudio.pause();
+      currentAudio = null;
+    }
+    rows.forEach(function(r){
+      r.classList.remove('dl-playing','dl-played');
+      clearWords(r);
+    });
+    playing = false; paused = false;
+    playBtn.innerHTML = '&#9654;&#xFE0E; &nbsp;Écouter le dialogue';
+  }
+
+  function clearWords(row){
+    row.querySelectorAll('.dl-word').forEach(function(w){ w.classList.remove('dl-lit'); });
+  }
+
   function playLine(idx){
     if (idx >= rows.length){
-      rows.forEach(function(r){ r.classList.remove('dl-active'); });
-      btn.innerHTML = '&#9654;&#xFE0E; &nbsp;Écouter le dialogue';
-      playing = false;
-      currentAudio = null;
+      rows.forEach(function(r){ r.classList.remove('dl-playing'); });
+      playBtn.innerHTML = '&#9654;&#xFE0E; &nbsp;Écouter le dialogue';
+      playing = false; paused = false; currentAudio = null;
       return;
     }
-    playing = true;
-    btn.innerHTML = '&#9646;&#9646; &nbsp;Pause';
-    rows.forEach(function(r){ r.classList.remove('dl-active'); });
-    rows[idx].classList.add('dl-active');
-    rows[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    playing = true; paused = false;
+    playBtn.innerHTML = '&#9646;&#9646; &nbsp;Pause';
+
+    rows.forEach(function(r, i){
+      r.classList.remove('dl-playing');
+      clearWords(r);
+      if (i < idx) r.classList.add('dl-played');
+      else r.classList.remove('dl-played');
+    });
+    rows[idx].classList.add('dl-playing');
+    rows[idx].scrollIntoView({ behavior:'smooth', block:'nearest' });
 
     var audio = new Audio(AUDIO_BASE + 'dialogue_' + LESSON + '_' + idx + '.mp3');
     currentAudio = audio;
-    // Précharger la réplique suivante pour réduire le délai
-    if (idx + 1 < rows.length) {
-      var next = new Audio(AUDIO_BASE + 'dialogue_' + LESSON + '_' + (idx+1) + '.mp3');
-      next.preload = 'auto';
+
+    /* Préchargement ligne suivante */
+    if (idx + 1 < rows.length){
+      var nxt = new Audio(AUDIO_BASE + 'dialogue_' + LESSON + '_' + (idx+1) + '.mp3');
+      nxt.preload = 'auto';
     }
-    audio.onended  = function(){ playLine(idx + 1); };
-    audio.onerror  = function(){ playLine(idx + 1); };
+
+    /* Highlight mot par mot */
+    var words = Array.from(rows[idx].querySelectorAll('.dl-word'));
+    audio.addEventListener('timeupdate', function(){
+      if (!audio.duration || !words.length) return;
+      var lit = Math.ceil((audio.currentTime / audio.duration) * words.length);
+      words.forEach(function(w, wi){ w.classList.toggle('dl-lit', wi < lit); });
+    });
+
+    audio.onended = function(){ playLine(idx + 1); };
+    audio.onerror = function(){ playLine(idx + 1); };
     audio.play().catch(function(e){ console.warn('audio blocked:', e); });
   }
 })();
 </script>
-<!-- lesson-tabs-patched -->
+
 <script>
 (function(){
   var TABS = [
