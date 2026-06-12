@@ -1358,9 +1358,9 @@ function pronoShowScore(idx, score, heard, error) {
       var next = new Audio(AUDIO_BASE + 'dialogue_' + LESSON + '_' + (idx+1) + '.mp3');
       next.preload = 'auto';
     }
-    audio.onended  = function(){ setTimeout(function(){ playLine(idx + 1); }, 200); };
+    audio.onended  = function(){ playLine(idx + 1); };
     audio.onerror  = function(){ playLine(idx + 1); };
-    audio.play().catch(function(){ playLine(idx + 1); });
+    audio.play().catch(function(e){ console.warn('audio blocked:', e); });
   }
 })();
 </script>
