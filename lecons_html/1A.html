@@ -1351,7 +1351,7 @@ function pronoShowScore(idx, score, heard, error) {
 
   /* ── Barre de contrôles ── */
   var ctrlWrap = document.createElement('div');
-  ctrlWrap.style.cssText = 'display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px;';
+  ctrlWrap.style.cssText = 'display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px;width:100%;';
 
   var playBtn = document.createElement('button');
   playBtn.className = 'dl-play-btn';
@@ -1362,6 +1362,7 @@ function pronoShowScore(idx, score, heard, error) {
   zhBtn.className = 'dl-zh-btn';
   zhBtn.textContent = '中';
   zhBtn.setAttribute('title','Traduction mandarin');
+  zhBtn.style.marginLeft = 'auto';
   zhBtn.addEventListener('click', function(){
     dialogue.classList.toggle('dl-zh-on');
     zhBtn.classList.toggle('zactive');
