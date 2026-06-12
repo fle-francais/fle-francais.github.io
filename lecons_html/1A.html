@@ -193,7 +193,7 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   border-radius: 0 8px 8px 0;
 }
 .dl-row.dl-played { opacity: 0.42; }
-.dl-word { display: inline; border-radius: 3px; padding: 0 1px; }
+.dl-word { display: inline; border-radius: 3px; padding: 0 1px; transition: background .35s, color .35s; }
 .dl-word.dl-lit { background: #d7bff5; color: #6c3483; }
 .dl-wave { display: none; align-items: center; gap: 2px; height: 12px; margin-left: 5px; vertical-align: middle; }
 .dl-row.dl-playing .dl-wave { display: inline-flex; }
@@ -208,8 +208,10 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 .dialogue.dl-zh-on .dl-zh-line { display:block; }
 .dl-zh-btn {
   border:2px solid var(--purp); color:var(--purp); background:none;
-  border-radius:16px; padding:5px 14px; font-size:.8rem; font-weight:700;
-  cursor:pointer; margin-left:8px; transition:all .15s;
+  border-radius:50%; width:40px; height:40px;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:1rem; font-weight:700;
+  cursor:pointer; flex-shrink:0; transition:all .15s;
 }
 .dl-zh-btn:hover, .dl-zh-btn.zactive { background:var(--purp); color:#fff; }
 
@@ -1340,6 +1342,13 @@ function pronoShowScore(idx, score, heard, error) {
 
   var rows = Array.from(dialogue.querySelectorAll('.dl-row'));
 
+  /* ── Préchargement de tous les audios ── */
+  var audioPool = rows.map(function(r, i){
+    var a = new Audio(AUDIO_BASE + 'dialogue_' + LESSON + '_' + i + '.mp3');
+    a.preload = 'auto';
+    return a;
+  });
+
   /* ── Barre de contrôles ── */
   var ctrlWrap = document.createElement('div');
   ctrlWrap.style.cssText = 'display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px;';
@@ -1351,11 +1360,11 @@ function pronoShowScore(idx, score, heard, error) {
 
   var zhBtn = document.createElement('button');
   zhBtn.className = 'dl-zh-btn';
-  zhBtn.textContent = '中 Traduction';
+  zhBtn.textContent = '中';
+  zhBtn.setAttribute('title','Traduction mandarin');
   zhBtn.addEventListener('click', function(){
     dialogue.classList.toggle('dl-zh-on');
     zhBtn.classList.toggle('zactive');
-    zhBtn.textContent = dialogue.classList.contains('dl-zh-on') ? '中 Masquer' : '中 Traduction';
   });
 
   ctrlWrap.appendChild(playBtn);
@@ -1366,6 +1375,7 @@ function pronoShowScore(idx, score, heard, error) {
   var currentAudio = null;
   var playing = false;
   var paused  = false;
+  var rafId   = null;
 
   /* ── Clic sur réplique → sauter ── */
   rows.forEach(function(row, i){
@@ -1395,6 +1405,7 @@ function pronoShowScore(idx, score, heard, error) {
   });
 
   function stopAll(){
+    if (rafId){ cancelAnimationFrame(rafId); rafId = null; }
     if (currentAudio){
       currentAudio.onended = null;
       currentAudio.onerror = null;
@@ -1432,25 +1443,25 @@ function pronoShowScore(idx, score, heard, error) {
     rows[idx].classList.add('dl-playing');
     rows[idx].scrollIntoView({ behavior:'smooth', block:'nearest' });
 
-    var audio = new Audio(AUDIO_BASE + 'dialogue_' + LESSON + '_' + idx + '.mp3');
+    /* Réutiliser l'audio préchargé, remettre à zéro */
+    var audio = audioPool[idx];
+    audio.currentTime = 0;
     currentAudio = audio;
 
-    /* Préchargement ligne suivante */
-    if (idx + 1 < rows.length){
-      var nxt = new Audio(AUDIO_BASE + 'dialogue_' + LESSON + '_' + (idx+1) + '.mp3');
-      nxt.preload = 'auto';
-    }
-
-    /* Highlight mot par mot */
+    /* Highlight mot par mot via requestAnimationFrame (60 fps, glissement fluide) */
     var words = Array.from(rows[idx].querySelectorAll('.dl-word'));
-    audio.addEventListener('timeupdate', function(){
-      if (!audio.duration || !words.length) return;
-      var lit = Math.ceil((audio.currentTime / audio.duration) * words.length);
-      words.forEach(function(w, wi){ w.classList.toggle('dl-lit', wi < lit); });
-    });
+    if (rafId){ cancelAnimationFrame(rafId); rafId = null; }
+    function rafTick(){
+      if (!audio.paused && !audio.ended && audio.duration){
+        var lit = Math.ceil((audio.currentTime / audio.duration) * words.length);
+        words.forEach(function(w, wi){ w.classList.toggle('dl-lit', wi < lit); });
+      }
+      if (!audio.ended) rafId = requestAnimationFrame(rafTick);
+    }
+    rafId = requestAnimationFrame(rafTick);
 
-    audio.onended = function(){ playLine(idx + 1); };
-    audio.onerror = function(){ playLine(idx + 1); };
+    audio.onended = function(){ cancelAnimationFrame(rafId); rafId = null; playLine(idx + 1); };
+    audio.onerror = function(){ cancelAnimationFrame(rafId); rafId = null; playLine(idx + 1); };
     audio.play().catch(function(e){ console.warn('audio blocked:', e); });
   }
 })();
