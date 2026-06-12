@@ -884,10 +884,17 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   <ellipse cx="109" cy="140" rx="62" ry="22" fill="#e2c4f5" stroke="#a868d0" stroke-width="1.8"/>
   <path d="M 50,138 C 65,122 93,118 109,119 C 125,118 153,122 168,138" fill="#d4a0e8" stroke="#9050c0" stroke-width="2.2" stroke-linejoin="round"/>
   <path d="M 50,138 C 65,150 93,148 109,147 C 125,148 153,150 168,138" fill="#d4a0e8" stroke="#9050c0" stroke-width="2.2" stroke-linejoin="round"/>
-  <ellipse cx="109" cy="138" rx="52" ry="5" fill="#220a2a"/>
-  <!-- Spread arrows -->
-  <line x1="44" y1="138" x2="26" y2="138" stroke="#8e44ad" stroke-width="1.6" marker-end="url(#ph-a1)"/>
-  <line x1="174" y1="138" x2="192" y2="138" stroke="#8e44ad" stroke-width="1.6" marker-end="url(#ph-a1)"/>
+  <!-- Mouth opening [e]: breathes subtly -->
+  <ellipse cx="109" cy="138" rx="52" ry="5" fill="#220a2a">
+    <animate attributeName="ry" values="5;3;5" dur="2s" repeatCount="indefinite" calcMode="ease-in-out"/>
+  </ellipse>
+  <!-- Spread arrows: oscillate outward -->
+  <line x1="44" y1="138" x2="26" y2="138" stroke="#8e44ad" stroke-width="1.6" marker-end="url(#ph-a1)">
+    <animate attributeName="x2" values="26;19;26" dur="1.6s" repeatCount="indefinite" calcMode="ease-in-out"/>
+  </line>
+  <line x1="174" y1="138" x2="192" y2="138" stroke="#8e44ad" stroke-width="1.6" marker-end="url(#ph-a1)">
+    <animate attributeName="x2" values="192;199;192" dur="1.6s" repeatCount="indefinite" calcMode="ease-in-out"/>
+  </line>
   <text x="109" y="180" text-anchor="middle" font-size="11" fill="#7d3c98">lèvres étirées, ouverture étroite</text>
   <text x="109" y="195" text-anchor="middle" font-size="11" fill="#9b59b6" class="comm-zh">嘴唇展开，开口小</text>
   <text x="109" y="224" text-anchor="middle" font-size="11.5" fill="#666" font-style="italic">été · parler · enchanté</text>
@@ -907,14 +914,24 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   <circle cx="240" cy="115" r="4" fill="#ccc"/><text x="218" y="119" text-anchor="end" font-size="11" fill="#aaa" font-family="monospace">[o]</text>
   <circle cx="248" cy="160" r="4" fill="#ccc"/><text x="226" y="164" text-anchor="end" font-size="11" fill="#aaa" font-family="monospace">[ɔ]</text>
   <circle cx="407" cy="202" r="4" fill="#ccc"/><text x="414" y="206" font-size="11" fill="#aaa" font-family="monospace">[a]</text>
-  <!-- Highlighted [e] -->
+  <!-- Highlighted [e]: pulse ring + dot -->
+  <circle cx="426" cy="115" r="9" fill="#7d3c98" opacity=".25">
+    <animate attributeName="r" values="9;16;9" dur="2s" repeatCount="indefinite" calcMode="ease-in-out"/>
+    <animate attributeName="opacity" values=".25;0;.25" dur="2s" repeatCount="indefinite" calcMode="ease-in-out"/>
+  </circle>
   <circle cx="426" cy="115" r="9" fill="#7d3c98"/>
   <text x="438" y="120" font-size="13.5" fill="#7d3c98" font-weight="700" font-family="monospace">[e]</text>
-  <!-- Highlighted [ɛ] -->
+  <!-- Highlighted [ɛ]: pulse ring + dot (offset) -->
+  <circle cx="416" cy="160" r="9" fill="#16a085" opacity=".25">
+    <animate attributeName="r" values="9;16;9" dur="2s" begin="1s" repeatCount="indefinite" calcMode="ease-in-out"/>
+    <animate attributeName="opacity" values=".25;0;.25" dur="2s" begin="1s" repeatCount="indefinite" calcMode="ease-in-out"/>
+  </circle>
   <circle cx="416" cy="160" r="9" fill="#16a085"/>
   <text x="428" y="165" font-size="13.5" fill="#16a085" font-weight="700" font-family="monospace">[ɛ]</text>
-  <!-- Arrow [e]→[ɛ] -->
-  <line x1="423" y1="126" x2="418" y2="149" stroke="#888" stroke-width="1.6" stroke-dasharray="3,2" marker-end="url(#ph-a3)"/>
+  <!-- Arrow [e]→[ɛ]: marching ants -->
+  <line x1="423" y1="126" x2="418" y2="149" stroke="#888" stroke-width="1.6" stroke-dasharray="3,2" marker-end="url(#ph-a3)">
+    <animate attributeName="stroke-dashoffset" values="0;-5" dur="0.5s" repeatCount="indefinite"/>
+  </line>
   <text x="348" y="143" text-anchor="end" font-size="8.5" fill="#999">+ouvert↓</text>
   <!-- Legend -->
   <circle cx="238" cy="242" r="5" fill="#7d3c98"/>
@@ -930,10 +947,15 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
   <ellipse cx="571" cy="140" rx="60" ry="30" fill="#b0e8da" stroke="#40a090" stroke-width="1.8"/>
   <path d="M 514,128 C 528,112 551,109 571,110 C 591,109 614,112 628,128" fill="#88d8c8" stroke="#30a090" stroke-width="2.2" stroke-linejoin="round"/>
   <path d="M 514,128 C 528,158 551,162 571,163 C 591,162 614,158 628,128" fill="#88d8c8" stroke="#30a090" stroke-width="2.2" stroke-linejoin="round"/>
-  <ellipse cx="571" cy="137" rx="48" ry="18" fill="#082820"/>
+  <!-- Mouth opening [ɛ]: breathes wider -->
+  <ellipse cx="571" cy="137" rx="48" ry="18" fill="#082820">
+    <animate attributeName="ry" values="18;22;18" dur="2s" begin="0.4s" repeatCount="indefinite" calcMode="ease-in-out"/>
+  </ellipse>
   <line x1="526" y1="128" x2="616" y2="128" stroke="#e0e8e4" stroke-width="1.8" opacity=".55"/>
-  <!-- Jaw arrow -->
-  <line x1="571" y1="163" x2="571" y2="178" stroke="#16a085" stroke-width="1.8" marker-end="url(#ph-a2)"/>
+  <!-- Jaw arrow: bounces down -->
+  <line x1="571" y1="163" x2="571" y2="178" stroke="#16a085" stroke-width="1.8" marker-end="url(#ph-a2)">
+    <animate attributeName="y2" values="178;185;178" dur="1.4s" repeatCount="indefinite" calcMode="ease-in-out"/>
+  </line>
   <text x="574" y="176" font-size="9" fill="#16a085" dx="2">↓ mâchoire</text>
   <text x="571" y="200" text-anchor="middle" font-size="11" fill="#16a085">lèvres détendues, ouverture large</text>
   <text x="571" y="215" text-anchor="middle" font-size="11" fill="#1abc9c" class="comm-zh">嘴唇放松，开口大</text>
