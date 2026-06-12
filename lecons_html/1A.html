@@ -530,7 +530,7 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <div class="dl-row" data-idx="8"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Salut</span> <span class="dl-word">Thomas.</span> <span class="dl-word">Enchantée</span> <span class="dl-word">!</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">嗨，托马斯！幸会！</div></div>
 <div class="dl-row" data-idx="9"><div class="dl-speaker">THOMAS</div><div class="dl-line"><span class="dl-word">Bienvenue</span> <span class="dl-word">à</span> <span class="dl-word">Grenoble</span> <span class="dl-word">!</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">欢迎来到格勒诺布尔！</div></div>
 </div>
-</div><div class="section sec-compr">
+</div></div><div class="section sec-compr">
 <div class="section-head">🔍 Compréhension</div>
 <div class="section-body"><div class="qcm-list">
 
@@ -1659,7 +1659,7 @@ function pronoShowScore(idx, score, heard, error) {
       var show = (t.id === tabId);
       t.classes.forEach(function(c){
         document.querySelectorAll('.'+c).forEach(function(el){
-          el.style.display = show ? '' : 'none';
+          el.style.display = show ? 'block' : 'none';
         });
       });
     });
@@ -1725,7 +1725,7 @@ var TAB_ZH = { lecon:'📖 课程', vocab:'📚 词汇', gram:'✏️ 语法', e
 
 function setLangLesson(lang) {
   lang = lang || 'fr';
-  localStorage.setItem('fle_lang', lang);
+  try { localStorage.setItem('fle_lang', lang); } catch(e) {}
   document.body.classList.toggle('lang-zh', lang === 'zh');
 
   // Toggle buttons
@@ -1861,7 +1861,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   }
 
-  var saved = localStorage.getItem('fle_lang') || 'fr';
+  var saved = 'fr'; try { saved = localStorage.getItem('fle_lang') || 'fr'; } catch(e) {}
   setLangLesson(saved);
 
   // Sync active state after setLang
@@ -1938,7 +1938,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   // Sync translation for these buttons if lang already set
-  var lang = localStorage.getItem('fle_lang') || 'fr';
+  var lang = 'fr'; try { lang = localStorage.getItem('fle_lang') || 'fr'; } catch(e) {}
   if (lang === 'zh') {
     document.querySelectorAll('.check-btn-global').forEach(function(b){ b.textContent='核对'; });
     document.querySelectorAll('.check-btn-reset').forEach(function(b){ b.textContent='重试'; });
