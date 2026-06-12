@@ -1477,8 +1477,14 @@ function pronoShowScore(idx, score, heard, error) {
 
   var playBtn = document.createElement('button');
   playBtn.className = 'dl-play-btn';
+  function dlLabel(state){
+    var zh = document.body.classList.contains('lang-zh');
+    if(state==='play')   return '&#9654;&#xFE0E; &nbsp;'+(zh?'收听对话':'Écouter le dialogue');
+    if(state==='pause')  return '&#9646;&#9646; &nbsp;'+(zh?'暂停':'Pause');
+    if(state==='resume') return '&#9654;&#xFE0E; &nbsp;'+(zh?'继续':'Reprendre');
+  }
   playBtn.setAttribute('aria-label','Écouter le dialogue');
-  playBtn.innerHTML = '&#9654;&#xFE0E; &nbsp;Écouter le dialogue';
+  playBtn.innerHTML = dlLabel('play');
 
   var zhBtn = document.createElement('button');
   zhBtn.className = 'dl-zh-btn';
@@ -1515,13 +1521,13 @@ function pronoShowScore(idx, score, heard, error) {
     if (playing && !paused) {
       if (currentAudio) currentAudio.pause();
       paused = true;
-      playBtn.innerHTML = '&#9654;&#xFE0E; &nbsp;Reprendre';
+      playBtn.innerHTML = dlLabel('resume');
       return;
     }
     if (paused) {
       if (currentAudio) currentAudio.play().catch(function(){});
       paused = false;
-      playBtn.innerHTML = '&#9646;&#9646; &nbsp;Pause';
+      playBtn.innerHTML = dlLabel('pause');
       return;
     }
     playLine(0);
@@ -1540,7 +1546,7 @@ function pronoShowScore(idx, score, heard, error) {
       clearWords(r);
     });
     playing = false; paused = false;
-    playBtn.innerHTML = '&#9654;&#xFE0E; &nbsp;Écouter le dialogue';
+    playBtn.innerHTML = dlLabel('play');
   }
 
   function clearWords(row){
@@ -1550,7 +1556,7 @@ function pronoShowScore(idx, score, heard, error) {
   function playLine(idx){
     if (idx >= rows.length){
       rows.forEach(function(r){ r.classList.remove('dl-playing'); });
-      playBtn.innerHTML = '&#9654;&#xFE0E; &nbsp;Écouter le dialogue';
+      playBtn.innerHTML = dlLabel('play');
       playing = false; paused = false; currentAudio = null;
       return;
     }
@@ -1781,6 +1787,9 @@ function setLangLesson(lang) {
   // ── Boutons flottants + modaux ──
   var _q = function(s){ return document.querySelector(s); };
   var _t = function(el, zh){ if(!el) return; if(!el.dataset.fr) el.dataset.fr = el.textContent; el.textContent = lang === 'zh' ? zh : el.dataset.fr; };
+  // Bouton "Écouter le dialogue"
+  var _pb=_q('.dl-play-btn');
+  if(_pb){ var _pi=_pb.innerHTML; if(_pi.indexOf('couter')!==-1||_pi.indexOf('收听')!==-1){ _pb.innerHTML='&#9654;&#xFE0E; &nbsp;'+(lang==='zh'?'收听对话':'Écouter le dialogue'); } }
   var _bb=_q('.btn-bug'); if(_bb){ if(!_bb.dataset.frTitle) _bb.dataset.frTitle=_bb.title; _bb.title=lang==='zh'?'报告问题':_bb.dataset.frTitle; }
   var _ba=_q('.btn-ask'); if(_ba){ if(!_ba.dataset.frTitle) _ba.dataset.frTitle=_ba.title; _ba.title=lang==='zh'?'提问':_ba.dataset.frTitle; }
   _t(_q('#bug-title'), '🐛 报告问题');
