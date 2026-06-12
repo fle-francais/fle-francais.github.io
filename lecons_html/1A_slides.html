@@ -239,7 +239,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .btn-send:hover{background:#1a6ea8}
 .form-success{display:none;margin-top:10px;background:#eafaf1;color:#27ae60;border-radius:7px;padding:8px 11px;font-size:.84rem;font-weight:600;text-align:center}
 /* FLOAT BTNS */
-.float-btns{position:fixed;bottom:16px;right:12px;display:flex;flex-direction:column;gap:6px;z-index:200}
+.float-btns{position:fixed;bottom:56px;right:12px;display:flex;flex-direction:column;gap:6px;z-index:200}
 .float-btn{border:none;border-radius:50%;width:34px;height:34px;font-size:1rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.16);transition:transform .15s,opacity .15s;display:flex;align-items:center;justify-content:center;opacity:.7;padding:0}
 .float-btn:hover{transform:translateY(-2px);opacity:1}
 .btn-bug{background:#fff0f0;color:#c0392b;border:2px solid #e74c3c}
@@ -270,7 +270,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <button class="slide-tab" onclick="goSlide(3)">🗣️ Communiquer</button>
   <button class="slide-tab" onclick="goSlide(4)">🎵 Phonétique</button>
   <button class="slide-tab" onclick="goSlide(7)">📖 Grammaire</button>
-  <button class="slide-tab" onclick="goSlide(10)">✍️ À toi !</button>
+  <button class="slide-tab" onclick="goSlide(11)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -397,7 +397,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(1)">← Q1–3</button>
+    <button class="btn-ns" onclick="goSlide(1)">← Comprendre 1/2</button>
     <button class="btn-ns" onclick="goSlide(3)">🗣️ Communiquer →</button>
   </div>
 </div>
@@ -447,15 +447,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     <span class="sub-nav-count">1 / 3</span>
     <button class="sub-nav-btn" onclick="goSlide(5)">→</button>
   </div>
-  <div class="slide-body">
-    <div class="card">
+  <div class="slide-body" style="display:flex;flex-direction:column">
+    <div class="card" style="flex:1;display:flex;flex-direction:column;overflow:hidden">
       <div class="card-head head-phon">🎵 Phonétique — [e] fermé vs [ɛ] ouvert</div>
-      <div class="card-body">
+      <div class="card-body" style="flex:1;display:flex;flex-direction:column;min-height:0">
         <div class="phon-rule">
           <strong>[e] fermé</strong> — lèvres tendues, bouche souriante <span class="comm-zh">（闭口音：嘴角上扬）</span> → <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_ete.mp3')">été</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_parler.mp3')">parler</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_enchante.mp3')">enchanté</span><br/>
           <strong>[ɛ] ouvert</strong> — bouche plus ouverte, mâchoire basse <span class="comm-zh">（开口音：嘴巴张得更开）</span> → <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_etre.mp3')">être</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_bibliotheque.mp3')">bibliothèque</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_elle.mp3')">elle</span>
         </div>
-        <svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:660px;display:block;margin:0 auto;border-radius:10px;font-family:sans-serif">
+        <svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;margin:0 auto;border-radius:10px;font-family:sans-serif">
           <defs>
             <marker id="a1" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#8e44ad" opacity=".85"/></marker>
             <marker id="a2" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#16a085" opacity=".85"/></marker>
@@ -560,12 +560,12 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
       <div class="card-body">
         <p class="ex-inst">Écoutez, puis cliquez sur 🎤 et répétez. <span class="comm-zh">听每句话，然后点击🎤重复。</span></p>
         <div class="prono-no-support" id="prono-no-support">⚠️ Votre navigateur ne supporte pas la reconnaissance vocale (Safari 14+ ou Chrome).</div>
-        <div class="prono-item"><div class="prono-speaker-tag">SOFIA</div><div class="prono-phrase">Bonjour ! Je voudrais m'inscrire à la bibliothèque.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Bonjour ! Je voudrais m'inscrire à la bibliothèque." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Bonjour ! Je voudrais m'inscrire à la bibliothèque." data-idx="0" onclick="pronoRecord(this)">🎤 Répéter</button></div><div class="prono-score" id="prono-score-0"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-0" style="width:0%"></div></div><div id="prono-pct-0" class="prono-score-text"></div><div id="prono-heard-0" class="prono-heard"></div></div></div>
-        <div class="prono-item"><div class="prono-speaker-tag">BIBLIOTHÉCAIRE</div><div class="prono-phrase">Bien sûr. Votre nom s'il vous plaît.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Bien sûr. Votre nom s'il vous plaît." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Bien sûr. Votre nom s'il vous plaît." data-idx="1" onclick="pronoRecord(this)">🎤 Répéter</button></div><div class="prono-score" id="prono-score-1"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-1" style="width:0%"></div></div><div id="prono-pct-1" class="prono-score-text"></div><div id="prono-heard-1" class="prono-heard"></div></div></div>
-        <div class="prono-item"><div class="prono-speaker-tag">SOFIA</div><div class="prono-phrase">Oui, je suis étudiante en langues à l'université.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Oui, je suis étudiante en langues à l'université." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Oui, je suis étudiante en langues à l'université." data-idx="2" onclick="pronoRecord(this)">🎤 Répéter</button></div><div class="prono-score" id="prono-score-2"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-2" style="width:0%"></div></div><div id="prono-pct-2" class="prono-score-text"></div><div id="prono-heard-2" class="prono-heard"></div></div></div>
-        <div class="prono-item"><div class="prono-speaker-tag">THOMAS</div><div class="prono-phrase">Salut Sofia ! Moi c'est Thomas ! On est dans le même cours.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Salut Sofia ! Moi c'est Thomas ! On est dans le même cours." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Salut Sofia ! Moi c'est Thomas ! On est dans le même cours." data-idx="3" onclick="pronoRecord(this)">🎤 Répéter</button></div><div class="prono-score" id="prono-score-3"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-3" style="width:0%"></div></div><div id="prono-pct-3" class="prono-score-text"></div><div id="prono-heard-3" class="prono-heard"></div></div></div>
-        <div class="prono-item"><div class="prono-speaker-tag">SOFIA</div><div class="prono-phrase">Enchantée !</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Enchantée !" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Enchantée !" data-idx="4" onclick="pronoRecord(this)">🎤 Répéter</button></div><div class="prono-score" id="prono-score-4"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-4" style="width:0%"></div></div><div id="prono-pct-4" class="prono-score-text"></div><div id="prono-heard-4" class="prono-heard"></div></div></div>
-        <div class="prono-item"><div class="prono-speaker-tag">THOMAS</div><div class="prono-phrase">Bienvenue à Grenoble !</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Bienvenue à Grenoble !" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Bienvenue à Grenoble !" data-idx="5" onclick="pronoRecord(this)">🎤 Répéter</button></div><div class="prono-score" id="prono-score-5"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-5" style="width:0%"></div></div><div id="prono-pct-5" class="prono-score-text"></div><div id="prono-heard-5" class="prono-heard"></div></div></div>
+        <div class="prono-item"><div class="prono-speaker-tag">SOFIA</div><div class="prono-phrase">Bonjour ! Je voudrais m'inscrire à la bibliothèque.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Bonjour ! Je voudrais m'inscrire à la bibliothèque." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Bonjour ! Je voudrais m'inscrire à la bibliothèque." data-idx="0" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666" onclick="pronoReset(0)">↺</button></div><div class="prono-score" id="prono-score-0"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-0" style="width:0%"></div></div><div id="prono-pct-0" class="prono-score-text"></div><div id="prono-heard-0" class="prono-heard"></div></div></div>
+        <div class="prono-item"><div class="prono-speaker-tag">BIBLIOTHÉCAIRE</div><div class="prono-phrase">Bien sûr. Votre nom s'il vous plaît.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Bien sûr. Votre nom s'il vous plaît." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Bien sûr. Votre nom s'il vous plaît." data-idx="1" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666" onclick="pronoReset(1)">↺</button></div><div class="prono-score" id="prono-score-1"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-1" style="width:0%"></div></div><div id="prono-pct-1" class="prono-score-text"></div><div id="prono-heard-1" class="prono-heard"></div></div></div>
+        <div class="prono-item"><div class="prono-speaker-tag">SOFIA</div><div class="prono-phrase">Oui, je suis étudiante en langues à l'université.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Oui, je suis étudiante en langues à l'université." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Oui, je suis étudiante en langues à l'université." data-idx="2" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666" onclick="pronoReset(2)">↺</button></div><div class="prono-score" id="prono-score-2"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-2" style="width:0%"></div></div><div id="prono-pct-2" class="prono-score-text"></div><div id="prono-heard-2" class="prono-heard"></div></div></div>
+        <div class="prono-item"><div class="prono-speaker-tag">THOMAS</div><div class="prono-phrase">Salut Sofia ! Moi c'est Thomas ! On est dans le même cours.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Salut Sofia ! Moi c'est Thomas ! On est dans le même cours." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Salut Sofia ! Moi c'est Thomas ! On est dans le même cours." data-idx="3" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666" onclick="pronoReset(3)">↺</button></div><div class="prono-score" id="prono-score-3"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-3" style="width:0%"></div></div><div id="prono-pct-3" class="prono-score-text"></div><div id="prono-heard-3" class="prono-heard"></div></div></div>
+        <div class="prono-item"><div class="prono-speaker-tag">SOFIA</div><div class="prono-phrase">Enchantée !</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Enchantée !" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Enchantée !" data-idx="4" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666" onclick="pronoReset(4)">↺</button></div><div class="prono-score" id="prono-score-4"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-4" style="width:0%"></div></div><div id="prono-pct-4" class="prono-score-text"></div><div id="prono-heard-4" class="prono-heard"></div></div></div>
+        <div class="prono-item"><div class="prono-speaker-tag">THOMAS</div><div class="prono-phrase">Bienvenue à Grenoble !</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Bienvenue à Grenoble !" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Bienvenue à Grenoble !" data-idx="5" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666" onclick="pronoReset(5)">↺</button></div><div class="prono-score" id="prono-score-5"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-5" style="width:0%"></div></div><div id="prono-pct-5" class="prono-score-text"></div><div id="prono-heard-5" class="prono-heard"></div></div></div>
       </div>
     </div>
   </div>
@@ -574,11 +574,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     <button class="btn-ns" onclick="goSlide(7)">📖 Grammaire →</button>
   </div>
 </div>
-<!-- ══ SLIDE 7 : GRAMMAIRE 1/3 — RÈGLE + EX1 ══ -->
+<!-- ══ SLIDE 7 : GRAMMAIRE 1/4 — RÈGLE ══ -->
 <div class="slide" id="slide-7">
   <div class="sub-nav">
     <button class="sub-nav-btn" disabled>←</button>
-    <span class="sub-nav-count">1 / 3</span>
+    <span class="sub-nav-count">1 / 4</span>
     <button class="sub-nav-btn" onclick="goSlide(8)">→</button>
   </div>
   <div class="slide-body">
@@ -590,6 +590,21 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
         <div class="gram-ex">Nég. : Je <em>ne suis pas</em> professeur. &nbsp;|&nbsp; Inter. : <em>Est-ce que</em> vous êtes étudiant(e) ?</div>
       </div>
     </div>
+  </div>
+  <div class="slide-footer" style="justify-content:space-between">
+    <button class="btn-ns" onclick="goSlide(6)">← Phonétique</button>
+    <button class="btn-ns" onclick="goSlide(8)">Ex. 1 →</button>
+  </div>
+</div>
+
+<!-- ══ SLIDE 8 : GRAMMAIRE 2/4 — EX1 ══ -->
+<div class="slide" id="slide-8">
+  <div class="sub-nav">
+    <button class="sub-nav-btn" onclick="goSlide(7)">←</button>
+    <span class="sub-nav-count">2 / 4</span>
+    <button class="sub-nav-btn" onclick="goSlide(9)">→</button>
+  </div>
+  <div class="slide-body">
     <div class="card">
       <div class="card-head head-ex">✏️ Ex. 1 — Conjuguez ÊTRE</div>
       <div class="card-body">
@@ -607,17 +622,17 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(6)">← Phonétique</button>
-    <button class="btn-ns" onclick="goSlide(8)">Suite →</button>
+    <button class="btn-ns" onclick="goSlide(7)">← Règle</button>
+    <button class="btn-ns" onclick="goSlide(9)">Ex. 3–4 →</button>
   </div>
 </div>
 
-<!-- ══ SLIDE 8 : GRAMMAIRE 2/3 — EX3 + EX4 ══ -->
-<div class="slide" id="slide-8">
+<!-- ══ SLIDE 9 : GRAMMAIRE 3/4 — EX3 + EX4 ══ -->
+<div class="slide" id="slide-9">
   <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(7)">←</button>
-    <span class="sub-nav-count">2 / 3</span>
-    <button class="sub-nav-btn" onclick="goSlide(9)">→</button>
+    <button class="sub-nav-btn" onclick="goSlide(8)">←</button>
+    <span class="sub-nav-count">3 / 4</span>
+    <button class="sub-nav-btn" onclick="goSlide(10)">→</button>
   </div>
   <div class="slide-body">
     <div class="card">
@@ -651,16 +666,16 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(7)">← Ex.1</button>
-    <button class="btn-ns" onclick="goSlide(9)">Ex.5–6 →</button>
+    <button class="btn-ns" onclick="goSlide(8)">← Ex.1</button>
+    <button class="btn-ns" onclick="goSlide(10)">Ex.5–6 →</button>
   </div>
 </div>
 
-<!-- ══ SLIDE 9 : GRAMMAIRE 3/3 — EX5 + EX6 ══ -->
-<div class="slide" id="slide-9">
+<!-- ══ SLIDE 10 : GRAMMAIRE 4/4 — EX5 + EX6 ══ -->
+<div class="slide" id="slide-10">
   <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(8)">←</button>
-    <span class="sub-nav-count">3 / 3</span>
+    <button class="sub-nav-btn" onclick="goSlide(9)">←</button>
+    <span class="sub-nav-count">4 / 4</span>
     <button class="sub-nav-btn" disabled>→</button>
   </div>
   <div class="slide-body">
@@ -702,13 +717,13 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(8)">← Ex.3–4</button>
-    <button class="btn-ns" onclick="goSlide(10)">✍️ À toi ! →</button>
+    <button class="btn-ns" onclick="goSlide(9)">← Ex.3–4</button>
+    <button class="btn-ns" onclick="goSlide(11)">✍️ À toi ! →</button>
   </div>
 </div>
 
-<!-- ══ SLIDE 10 : À TOI ! ══ -->
-<div class="slide" id="slide-10">
+<!-- ══ SLIDE 11 : À TOI ! ══ -->
+<div class="slide" id="slide-11">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-prod">✍️ À toi !</div>
@@ -721,7 +736,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(9)">← Grammaire</button>
+    <button class="btn-ns" onclick="goSlide(10)">← Grammaire</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='1B.html'">Leçon 1B →</button>
   </div>
 </div>
@@ -762,7 +777,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 // TAB_FOR_SLIDE[i] = tab index active for slide i
-var TAB_FOR_SLIDE=[0,1,1,2,3,3,3,4,4,4,5];
+var TAB_FOR_SLIDE=[0,1,1,2,3,3,3,4,4,4,4,5];
 var currentSlide=0;
 function goSlide(n){
   if(n===currentSlide)return;
@@ -798,6 +813,7 @@ var _pronoRec=false;
 function pronoListen(btn){var text=btn.getAttribute('data-text');if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';setTimeout(function(){var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.88;u.onend=function(){btn.innerHTML='🔊 Réécouter';};u.onerror=function(){btn.innerHTML='🔊 Écouter';};window.speechSynthesis.speak(u);},80);}
 function pronoSimilarity(ref,heard){function n(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9\s]/g,'').trim().split(/\s+/).filter(Boolean);}var rw=n(ref),hw=n(heard);if(!rw.length)return 0;var matched=0,hc=hw.slice();rw.forEach(function(w){var i=hc.indexOf(w);if(i!==-1){matched++;hc.splice(i,1);}});return Math.round((matched/rw.length)*100);}
 function pronoRecord(btn){var target=btn.getAttribute('data-text'),idx=parseInt(btn.getAttribute('data-idx'),10);if(_pronoRec||!target)return;var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)return;_pronoRec=true;btn.classList.add('recording');btn.textContent='⏹ Arrêter';var r=new SR();r.lang='fr-FR';r.continuous=false;r.interimResults=false;r.onresult=function(e){pronoShowScore(idx,pronoSimilarity(target,e.results[0][0].transcript),e.results[0][0].transcript);};r.onerror=function(e){pronoShowScore(idx,null,null,e.error);};r.onend=function(){_pronoRec=false;btn.classList.remove('recording');btn.textContent='🎤 Répéter';};r.start();}
+function pronoReset(idx){var s=document.getElementById('prono-score-'+idx);if(s)s.classList.remove('visible');var f=document.getElementById('prono-fill-'+idx);if(f){f.style.width='0%';f.style.background='#eee';}var p=document.getElementById('prono-pct-'+idx);if(p)p.textContent='';var h=document.getElementById('prono-heard-'+idx);if(h)h.textContent='';}
 function pronoShowScore(idx,score,heard,error){var se=document.getElementById('prono-score-'+idx),fe=document.getElementById('prono-fill-'+idx),pe=document.getElementById('prono-pct-'+idx),he=document.getElementById('prono-heard-'+idx);if(!se)return;se.classList.add('visible');if(error||score===null){fe.style.width='0%';fe.style.background='#ccc';pe.textContent='Reconnaissance impossible';he.textContent='';return;}fe.style.width=score+'%';fe.style.background=score>=80?'#4caf50':score>=50?'#ff9800':'#f44336';pe.textContent=(score>=80?'🎉':score>=50?'👍':'💪')+' '+score+' %';he.textContent='« '+heard+' »';}
 async function checkLT(btn){var ta=btn.previousElementSibling,res=btn.nextElementSibling,txt=(ta.value||'').trim();if(!txt){res.innerHTML='<p class="lt-info">✏️ Écris d\'abord ta réponse.</p>';return;}btn.disabled=true;btn.textContent='…';res.innerHTML='<p class="lt-info">Correction en cours…</p>';try{var r=await fetch('https://api.languagetool.org/v2/check',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'text='+encodeURIComponent(txt)+'&language=fr'});var d=await r.json();if(!d.matches||!d.matches.length){res.innerHTML='<p class="lt-ok">✅ Aucune erreur — bravo !</p>';}else{var n=d.matches.length,html='<p class="lt-count">'+n+' point'+(n>1?'s':'')+' à corriger :</p><ul class="lt-list">';for(var m of d.matches){var orig=txt.slice(m.offset,m.offset+m.length),sugs=(m.replacements||[]).slice(0,3).map(function(x){return'<span class="lt-sug">'+x.value+'</span>';}).join(', ');html+='<li><span class="lt-err">« '+orig+' »</span> — '+m.message+(sugs?' → '+sugs:'')+' </li>';}html+='</ul>';res.innerHTML=html;}}catch(e){res.innerHTML='<p class="lt-warn">⚠️ Impossible de joindre le correcteur.</p>';}btn.disabled=false;btn.textContent='Corriger ✓';}
 function openModal(id){document.getElementById(id).classList.add('open');document.querySelector('.fle-modal-overlay').classList.add('open');document.body.style.overflow='hidden';}
