@@ -855,6 +855,92 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 <strong>[e] fermé</strong> : bouche souriante, lèvres tendues <span class="comm-zh">（闭口音：嘴角上扬，嘴唇收紧）</span> &nbsp;→&nbsp; <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_ete.mp3')"><em>é</em>t<em>é</em></span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_parler.mp3')">parl<em>er</em></span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_enchante.mp3')">enchanté</span><br/>
 <strong>[ɛ] ouvert</strong> : bouche plus ouverte <span class="comm-zh">（开口音：嘴巴张得更开）</span> &nbsp;→&nbsp; <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_etre.mp3')"><em>ê</em>tre</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_bibliotheque.mp3')">biblioth<em>è</em>que</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_bete.mp3')">b<em>ê</em>te</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_elle.mp3')">elle</span>
 </div>
+<!-- ── Schéma phonétique [e] vs [ɛ] ── -->
+<div style="margin:14px 0 18px;line-height:1">
+<svg viewBox="0 0 680 285" xmlns="http://www.w3.org/2000/svg"
+     style="width:100%;max-width:680px;display:block;margin:0 auto;border-radius:12px;font-family:sans-serif">
+  <defs>
+    <marker id="ph-a1" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#8e44ad" opacity=".85"/>
+    </marker>
+    <marker id="ph-a2" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#16a085" opacity=".85"/>
+    </marker>
+    <marker id="ph-a3" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L6,3.5 L0,7 Z" fill="#777"/>
+    </marker>
+  </defs>
+  <!-- Background -->
+  <rect width="680" height="285" rx="14" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/>
+  <!-- Dividers -->
+  <line x1="218" y1="14" x2="218" y2="271" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="462" y1="14" x2="462" y2="271" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- ══ LEFT : [e] fermé ══ -->
+  <text x="109" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#7d3c98" font-family="monospace">[e]</text>
+  <text x="109" y="52" text-anchor="middle" font-size="13" fill="#7d3c98">fermé</text>
+  <circle cx="109" cy="140" r="66" fill="#f0e6ff" stroke="#d4b0ec" stroke-width="1.2"/>
+  <!-- Lips [e]: wide flat, tiny opening -->
+  <ellipse cx="109" cy="140" rx="62" ry="22" fill="#e2c4f5" stroke="#a868d0" stroke-width="1.8"/>
+  <path d="M 50,138 C 65,122 93,118 109,119 C 125,118 153,122 168,138" fill="#d4a0e8" stroke="#9050c0" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M 50,138 C 65,150 93,148 109,147 C 125,148 153,150 168,138" fill="#d4a0e8" stroke="#9050c0" stroke-width="2.2" stroke-linejoin="round"/>
+  <ellipse cx="109" cy="138" rx="52" ry="5" fill="#220a2a"/>
+  <!-- Spread arrows -->
+  <line x1="44" y1="138" x2="26" y2="138" stroke="#8e44ad" stroke-width="1.6" marker-end="url(#ph-a1)"/>
+  <line x1="174" y1="138" x2="192" y2="138" stroke="#8e44ad" stroke-width="1.6" marker-end="url(#ph-a1)"/>
+  <text x="109" y="180" text-anchor="middle" font-size="11" fill="#7d3c98">lèvres étirées, ouverture étroite</text>
+  <text x="109" y="195" text-anchor="middle" font-size="11" fill="#9b59b6" class="comm-zh">嘴唇展开，开口小</text>
+  <text x="109" y="224" text-anchor="middle" font-size="11.5" fill="#666" font-style="italic">été · parler · enchanté</text>
+  <text x="109" y="242" text-anchor="middle" font-size="10" fill="#aaa">✦ -er, -ez, -é</text>
+
+  <!-- ══ CENTER : Trapèze vocalique ══ -->
+  <text x="340" y="28" text-anchor="middle" font-size="12.5" font-weight="700" fill="#444">Trapèze vocalique</text>
+  <text x="340" y="43" text-anchor="middle" font-size="11" fill="#999" class="comm-zh">元音梯形图</text>
+  <text x="340" y="60" text-anchor="middle" font-size="9" fill="#bbb">— FERMÉ —</text>
+  <polygon points="228,67 440,67 414,204 252,204" fill="none" stroke="#b898d8" stroke-width="1.6"/>
+  <text x="340" y="219" text-anchor="middle" font-size="9" fill="#bbb">— OUVERT —</text>
+  <text x="224" y="138" text-anchor="end" font-size="9" fill="#ccc">Arrière</text>
+  <text x="444" y="138" font-size="9" fill="#ccc">Avant</text>
+  <!-- Neutral vowels -->
+  <circle cx="436" cy="72" r="4" fill="#ccc"/><text x="444" y="76" font-size="11" fill="#aaa" font-family="monospace">[i]</text>
+  <circle cx="232" cy="72" r="4" fill="#ccc"/><text x="210" y="76" text-anchor="end" font-size="11" fill="#aaa" font-family="monospace">[u]</text>
+  <circle cx="240" cy="115" r="4" fill="#ccc"/><text x="218" y="119" text-anchor="end" font-size="11" fill="#aaa" font-family="monospace">[o]</text>
+  <circle cx="248" cy="160" r="4" fill="#ccc"/><text x="226" y="164" text-anchor="end" font-size="11" fill="#aaa" font-family="monospace">[ɔ]</text>
+  <circle cx="407" cy="202" r="4" fill="#ccc"/><text x="414" y="206" font-size="11" fill="#aaa" font-family="monospace">[a]</text>
+  <!-- Highlighted [e] -->
+  <circle cx="426" cy="115" r="9" fill="#7d3c98"/>
+  <text x="438" y="120" font-size="13.5" fill="#7d3c98" font-weight="700" font-family="monospace">[e]</text>
+  <!-- Highlighted [ɛ] -->
+  <circle cx="416" cy="160" r="9" fill="#16a085"/>
+  <text x="428" y="165" font-size="13.5" fill="#16a085" font-weight="700" font-family="monospace">[ɛ]</text>
+  <!-- Arrow [e]→[ɛ] -->
+  <line x1="423" y1="126" x2="418" y2="149" stroke="#888" stroke-width="1.6" stroke-dasharray="3,2" marker-end="url(#ph-a3)"/>
+  <text x="348" y="143" text-anchor="end" font-size="8.5" fill="#999">+ouvert↓</text>
+  <!-- Legend -->
+  <circle cx="238" cy="242" r="5" fill="#7d3c98"/>
+  <text x="247" y="246" font-size="10" fill="#7d3c98">[e] — leçon 1A</text>
+  <circle cx="238" cy="258" r="5" fill="#16a085"/>
+  <text x="247" y="262" font-size="10" fill="#16a085">[ɛ] — leçon 1A</text>
+
+  <!-- ══ RIGHT : [ɛ] ouvert ══ -->
+  <text x="571" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#16a085" font-family="monospace">[ɛ]</text>
+  <text x="571" y="52" text-anchor="middle" font-size="13" fill="#16a085">ouvert</text>
+  <circle cx="571" cy="140" r="66" fill="#d8f5ef" stroke="#90d8c8" stroke-width="1.2"/>
+  <!-- Lips [ɛ]: taller opening -->
+  <ellipse cx="571" cy="140" rx="60" ry="30" fill="#b0e8da" stroke="#40a090" stroke-width="1.8"/>
+  <path d="M 514,128 C 528,112 551,109 571,110 C 591,109 614,112 628,128" fill="#88d8c8" stroke="#30a090" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M 514,128 C 528,158 551,162 571,163 C 591,162 614,158 628,128" fill="#88d8c8" stroke="#30a090" stroke-width="2.2" stroke-linejoin="round"/>
+  <ellipse cx="571" cy="137" rx="48" ry="18" fill="#082820"/>
+  <line x1="526" y1="128" x2="616" y2="128" stroke="#e0e8e4" stroke-width="1.8" opacity=".55"/>
+  <!-- Jaw arrow -->
+  <line x1="571" y1="163" x2="571" y2="178" stroke="#16a085" stroke-width="1.8" marker-end="url(#ph-a2)"/>
+  <text x="574" y="176" font-size="9" fill="#16a085" dx="2">↓ mâchoire</text>
+  <text x="571" y="200" text-anchor="middle" font-size="11" fill="#16a085">lèvres détendues, ouverture large</text>
+  <text x="571" y="215" text-anchor="middle" font-size="11" fill="#1abc9c" class="comm-zh">嘴唇放松，开口大</text>
+  <text x="571" y="243" text-anchor="middle" font-size="11.5" fill="#666" font-style="italic">être · bibliothèque · elle</text>
+  <text x="571" y="261" text-anchor="middle" font-size="10" fill="#aaa">✦ è, ê, ai, ei, -ais, -ait</text>
+</svg>
+</div>
 <div class="ex-inst">Cliquez sur 🔊 pour écouter, puis indiquez si vous entendez [e] ou [ɛ].
 <span class="comm-zh">点击🔊试听，然后选择听到的元音。</span></div>
 <div class="phon-grid-ex">
