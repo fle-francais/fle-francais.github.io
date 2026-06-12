@@ -460,7 +460,24 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
     display: none;
   }
 
-  </style>
+  
+/* ── QCM Compréhension ── */
+.qcm-list{display:grid;gap:18px}
+.qcm-q{font-weight:700;font-size:.93rem;margin-bottom:8px;color:var(--text)}
+.qcm-opts{display:flex;flex-direction:column;gap:6px}
+.qcm-opt{padding:9px 14px;border:2px solid #e8e8e8;border-radius:8px;cursor:pointer;font-size:.88rem;transition:all .15s;background:#fff;text-align:left;font-family:inherit;line-height:1.4}
+.qcm-opt:hover:not(:disabled){border-color:var(--purp);background:var(--purp-l)}
+.qcm-opt.qcm-correct{border-color:#27ae60!important;background:#eafaf1!important;color:#1a6b3a;font-weight:700}
+.qcm-opt.qcm-wrong{border-color:#e74c3c!important;background:#fdedec!important;color:#c0392b}
+.qcm-opt:disabled{cursor:default}
+.qcm-score{margin-top:18px;padding:12px 16px;background:var(--purp-l);border-radius:10px;font-weight:700;text-align:center;font-size:.95rem;display:none;color:var(--purp)}
+/* ── Communiquer : bouton écoute ── */
+.comm-play{background:none;border:none;cursor:pointer;font-size:1rem;padding:0 5px 0 0;vertical-align:middle;line-height:1;transition:transform .15s;color:var(--purp)}
+.comm-play:hover{transform:scale(1.25)}
+/* ── Phonétique : mots cliquables ── */
+.phon-ex-w{cursor:pointer;border-bottom:2px dotted #1abc9c;color:#148f77;font-style:normal;font-weight:700;padding:0 1px;transition:background .15s;border-radius:2px}
+.phon-ex-w:hover{background:#e8f8f5}
+</style>
 </head>
 <body>
 <div class="page-wrap">
@@ -493,16 +510,57 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 </div>
 </div><div class="section sec-compr">
 <div class="section-head">🔍 Compréhension</div>
-<div class="section-body"><div class="compr-item">
-<div class="compr-q">Où est-ce que Sofia veut s'inscrire ?</div>
-<button class="btn-reveal" onclick="revealAnswer('ca-1A-0')">Voir</button>
-<div class="compr-a" id="ca-1A-0">À la bibliothèque.</div>
-</div>
-<div class="compr-item">
-<div class="compr-q">Quelle est la nationalité de Sofia ?</div>
-<button class="btn-reveal" onclick="revealAnswer('ca-1A-1')">Voir</button>
-<div class="compr-a" id="ca-1A-1">Elle est italienne.</div>
-</div>
+<div class="section-body"><div class="qcm-list">
+
+<div class="qcm-item">
+<div class="qcm-q">1. Où est-ce que Sofia veut s'inscrire ?</div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="checkQCM(this,'b')">A) À la mairie</button>
+<button class="qcm-opt" data-val="b" onclick="checkQCM(this,'b')">B) À la bibliothèque</button>
+<button class="qcm-opt" data-val="c" onclick="checkQCM(this,'b')">C) À l'université</button>
+</div></div>
+
+<div class="qcm-item">
+<div class="qcm-q">2. Quelle est la nationalité de Sofia ?</div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="checkQCM(this,'c')">A) Française</button>
+<button class="qcm-opt" data-val="b" onclick="checkQCM(this,'c')">B) Espagnole</button>
+<button class="qcm-opt" data-val="c" onclick="checkQCM(this,'c')">C) Italienne</button>
+</div></div>
+
+<div class="qcm-item">
+<div class="qcm-q">3. Qu'est-ce que Sofia étudie à l'université ?</div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="checkQCM(this,'b')">A) La médecine</button>
+<button class="qcm-opt" data-val="b" onclick="checkQCM(this,'b')">B) Les langues</button>
+<button class="qcm-opt" data-val="c" onclick="checkQCM(this,'b')">C) L'économie</button>
+</div></div>
+
+<div class="qcm-item">
+<div class="qcm-q">4. Qui est Thomas par rapport à Sofia ?</div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="checkQCM(this,'c')">A) Le bibliothécaire</button>
+<button class="qcm-opt" data-val="b" onclick="checkQCM(this,'c')">B) Un professeur</button>
+<button class="qcm-opt" data-val="c" onclick="checkQCM(this,'c')">C) Un étudiant du même cours</button>
+</div></div>
+
+<div class="qcm-item">
+<div class="qcm-q">5. Comment Sofia s'appelle de son nom complet ?</div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="checkQCM(this,'a')">A) Sofia Russo</button>
+<button class="qcm-opt" data-val="b" onclick="checkQCM(this,'a')">B) Sofia Romano</button>
+<button class="qcm-opt" data-val="c" onclick="checkQCM(this,'a')">C) Sofia Rossi</button>
+</div></div>
+
+<div class="qcm-item">
+<div class="qcm-q">6. Comment se termine le dialogue ?</div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="checkQCM(this,'b')">A) Thomas part sans rien dire</button>
+<button class="qcm-opt" data-val="b" onclick="checkQCM(this,'b')">B) Thomas souhaite la bienvenue à Grenoble</button>
+<button class="qcm-opt" data-val="c" onclick="checkQCM(this,'b')">C) La bibliothécaire félicite Sofia</button>
+</div></div>
+
+</div><div class="qcm-score" id="qcm-score-1A"></div>
 </div>
 </div><div class="section sec-vocab">
 <div class="section-head">📚 Vocabulaire clé</div>
@@ -762,17 +820,17 @@ textarea.prod-input{width:100%;margin-top:12px;min-height:80px;border:2px solid 
 
 </div><div class="section sec-comm">
 <div class="section-head">🗣️ Pour communiquer</div>
-<div class="section-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr">Bonjour ! / Bonsoir ! / Salut ! (informel)</div><div class="comm-zh">你好！/ 晚上好！/ 嗨！（非正式）</div></div>
-<div class="comm-item"><div class="comm-fr">Comment vous appelez-vous ? / Tu t'appelles comment ?</div><div class="comm-zh">您叫什么名字？/ 你叫什么名字？</div></div>
-<div class="comm-item"><div class="comm-fr">Je m'appelle… — Mon prénom, c'est… — Je suis…</div><div class="comm-zh">我叫……/ 我的名字是……/ 我是……</div></div>
-<div class="comm-item"><div class="comm-fr">Enchanté(e) ! / Ravi(e) de vous rencontrer.</div><div class="comm-zh">幸会！/ 很高兴认识您。</div></div>
-<div class="comm-item"><div class="comm-fr">Au revoir ! / À bientôt ! / Bonne journée !</div><div class="comm-zh">再见！/ 一会儿见！/ 祝您今天愉快！</div></div>
+<div class="section-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr"><button class="comm-play" onclick="speakFR('Bonjour !')" title="Écouter">🔊</button>Bonjour ! / Bonsoir ! / Salut ! (informel)</div><div class="comm-zh">你好！/ 晚上好！/ 嗨！（非正式）</div></div>
+<div class="comm-item"><div class="comm-fr"><button class="comm-play" onclick="speakFR('Comment vous appelez-vous ?')" title="Écouter">🔊</button>Comment vous appelez-vous ? / Tu t'appelles comment ?</div><div class="comm-zh">您叫什么名字？/ 你叫什么名字？</div></div>
+<div class="comm-item"><div class="comm-fr"><button class="comm-play" onclick="speakFR('Je m'appelle Sofia.')" title="Écouter">🔊</button>Je m'appelle… — Mon prénom, c'est… — Je suis…</div><div class="comm-zh">我叫……/ 我的名字是……/ 我是……</div></div>
+<div class="comm-item"><div class="comm-fr"><button class="comm-play" onclick="speakFR('Enchantée !')" title="Écouter">🔊</button>Enchanté(e) ! / Ravi(e) de vous rencontrer.</div><div class="comm-zh">幸会！/ 很高兴认识您。</div></div>
+<div class="comm-item"><div class="comm-fr"><button class="comm-play" onclick="speakFR('Au revoir !')" title="Écouter">🔊</button>Au revoir ! / À bientôt ! / Bonne journée !</div><div class="comm-zh">再见！/ 一会儿见！/ 祝您今天愉快！</div></div>
 </div></div>
 </div><div class="section sec-phon">
 <div class="section-head">🎵 Phonétique</div>
 <div class="section-body"><div class="gram-rule" style="margin-bottom:12px">
-<strong>[e] fermé</strong> : bouche souriante, lèvres tendues &nbsp;→&nbsp; <em>é</em>t<em>é</em>, parl<em>er</em>, enchanté<br/>
-<strong>[ɛ] ouvert</strong> : bouche plus ouverte &nbsp;→&nbsp; <em>ê</em>tre, biblioth<em>è</em>que, b<em>ê</em>te, elle
+<strong>[e] fermé</strong> : bouche souriante, lèvres tendues &nbsp;→&nbsp; <span class="phon-ex-w" onclick="speakFR('été')"><em>é</em>t<em>é</em></span>, <span class="phon-ex-w" onclick="speakFR('parler')">parl<em>er</em></span>, <span class="phon-ex-w" onclick="speakFR('enchanté')">enchanté</span><br/>
+<strong>[ɛ] ouvert</strong> : bouche plus ouverte &nbsp;→&nbsp; <span class="phon-ex-w" onclick="speakFR('être')"><em>ê</em>tre</span>, <span class="phon-ex-w" onclick="speakFR('bibliothèque')">biblioth<em>è</em>que</span>, <span class="phon-ex-w" onclick="speakFR('bête')">b<em>ê</em>te</span>, <span class="phon-ex-w" onclick="speakFR('elle')">elle</span>
 </div>
 <div class="ex-inst">Cliquez sur 🔊 pour écouter, puis indiquez si vous entendez [e] ou [ɛ].
 <span class="comm-zh">点击🔊试听，然后选择听到的元音。</span></div>
@@ -1818,6 +1876,35 @@ document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.check-btn-reset').forEach(function(b){ b.textContent='重试'; });
   }
 });
+</script>
+
+<script>
+function checkQCM(btn, correct){
+  var opts = btn.closest('.qcm-opts').querySelectorAll('.qcm-opt');
+  opts.forEach(function(o){ o.disabled = true; });
+  if(btn.dataset.val === correct){
+    btn.classList.add('qcm-correct');
+  } else {
+    btn.classList.add('qcm-wrong');
+    opts.forEach(function(o){ if(o.dataset.val === correct) o.classList.add('qcm-correct'); });
+  }
+  var items = document.querySelectorAll('.qcm-item');
+  var done = 0, ok = 0;
+  items.forEach(function(it){
+    if(it.querySelector('.qcm-opt:disabled')){
+      done++;
+      if(it.querySelector('.qcm-opt.qcm-correct')) ok++;
+    }
+  });
+  if(done === items.length){
+    var s = document.getElementById('qcm-score-1A');
+    if(s){
+      s.style.display = 'block';
+      var msg = ok === items.length ? '🎉 Parfait !' : ok >= 4 ? '👍 Bien !' : '💪 Réessayez !';
+      s.textContent = ok + ' / ' + items.length + ' — ' + msg;
+    }
+  }
+}
 </script>
 </body>
 </html>
