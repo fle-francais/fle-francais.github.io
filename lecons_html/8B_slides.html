@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Leçon 8B — Tu peux m'aider ? | FrançaisPlus A1</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--purp:#8e44ad;--purp-l:#f5eefb;--blue:#2980b9;--blue-l:#eaf4fb;
+  --green:#27ae60;--green-l:#eafaf1;--orange:#e67e22;--orange-l:#fef9e7;
+  --text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;
+  --radius:12px;--shadow:0 2px 10px rgba(0,0,0,.08)}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
+  color:var(--text);height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+.page-header{background:linear-gradient(135deg,var(--purp),#c0392b);
+  color:#fff;padding:10px 16px;display:flex;align-items:center;
+  justify-content:space-between;flex-shrink:0;gap:8px}
+.ph-left{display:flex;align-items:center;gap:10px}
+.ph-code{font-weight:900;font-size:1rem;background:rgba(255,255,255,.2);
+  padding:2px 9px;border-radius:20px}
+.ph-title{font-size:.88rem;font-weight:700;opacity:.9}
+.ph-next{color:rgba(255,255,255,.85);font-size:.78rem;font-weight:700;
+  text-decoration:none;white-space:nowrap}
+.ph-next:hover{color:#fff}
+.slide-nav{display:flex;overflow-x:auto;background:#fff;
+  border-bottom:2px solid #eee;flex-shrink:0;scrollbar-width:none}
+.slide-nav::-webkit-scrollbar{display:none}
+.slide-tab{flex:1;min-width:68px;padding:8px 5px;border:none;
+  border-bottom:3px solid transparent;background:none;color:var(--muted);
+  font-weight:700;font-size:.7rem;cursor:pointer;transition:all .15s;
+  white-space:nowrap;text-align:center;flex-shrink:0}
+.slide-tab:hover{color:var(--purp)}
+.slide-tab.active{color:var(--purp);border-bottom-color:var(--purp)}
+.slides-viewport{flex:1;overflow:hidden;position:relative;min-height:0}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;
+  padding:10px 14px 8px;transform:translateX(100%);
+  transition:transform .32s cubic-bezier(.4,0,.2,1);will-change:transform}
+.slide.s-active{transform:translateX(0)}
+.slide.s-left{transform:translateX(-100%)}
+.slide-body{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;
+  display:flex;flex-direction:column;justify-content:center}
+.slide-body::-webkit-scrollbar{width:4px}
+.slide-body::-webkit-scrollbar-thumb{background:#ddd;border-radius:2px}
+.sub-nav{display:flex;align-items:center;justify-content:center;
+  gap:9px;padding:0 0 8px;flex-shrink:0}
+.sub-nav-btn{background:none;border:2px solid var(--purp);color:var(--purp);
+  border-radius:50%;width:26px;height:26px;cursor:pointer;font-size:.82rem;
+  display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
+.sub-nav-btn:hover{background:var(--purp);color:#fff}
+.sub-nav-btn:disabled{border-color:#ddd;color:#ccc;cursor:default}
+.sub-nav-count{font-weight:800;font-size:.8rem;color:var(--purp);min-width:28px;text-align:center}
+.slide-footer{display:flex;justify-content:flex-end;align-items:center;
+  gap:8px;padding:8px 0 0;margin-top:auto;flex-shrink:0}
+.btn-ns{padding:7px 16px;border:none;border-radius:20px;background:var(--purp);
+  color:#fff;font-weight:700;font-size:.78rem;cursor:pointer;
+  transition:background .15s,transform .1s;display:inline-flex;align-items:center;gap:5px}
+.btn-ns:hover{background:#7d3c98}
+.btn-ns:active{transform:scale(.97)}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+  margin-bottom:10px;overflow:hidden}
+.card:last-child{margin-bottom:0}
+.card-body{padding:12px 14px}
+.card-head{padding:8px 13px;font-size:.85rem;font-weight:800;
+  display:flex;align-items:center;gap:7px;border-bottom:1px solid #f0f0f0}
+.head-dialogue{background:var(--purp-l);color:var(--purp)}
+.head-compr{background:#fef3cd;color:#856404}
+.head-vocab{background:var(--blue-l);color:var(--blue)}
+.head-comm{background:var(--purp-l);color:var(--purp)}
+.head-phon{background:#e8f8f5;color:#1abc9c}
+.head-gram{background:var(--green-l);color:var(--green)}
+.head-ex{background:var(--orange-l);color:var(--orange)}
+.head-prod{background:var(--orange-l);color:var(--orange)}
+.ex-cat-badge{margin-left:auto;font-size:.68rem;padding:2px 9px;border-radius:10px;font-weight:700;white-space:nowrap}
+.badge-gram{background:#e8f0fe;color:#3d6bce}
+.badge-lex{background:#e6f4ea;color:#2d7d46}
+.badge-phon{background:#f3e8ff;color:#7c3aed}
+.badge-comm{background:#fff3e0;color:#e65100}
+.dialogue{display:grid;gap:2px}
+.dl-layout{display:flex;gap:14px;align-items:flex-start}
+.dl-img-col{width:30%;flex-shrink:0;min-width:80px}
+.dl-img-col img{width:100%;border-radius:8px;box-shadow:0 3px 12px rgba(0,0,0,.09);display:block;object-fit:cover}
+.dl-content-col{flex:1;min-width:0}
+.dl-row{display:grid;grid-template-columns:108px 1fr;gap:7px;
+  padding:5px 0;border-bottom:1px solid #f5f5f5;font-size:.83rem}
+.dl-speaker{font-weight:800;color:var(--purp);font-size:.75rem;
+  text-transform:uppercase;letter-spacing:.3px;padding-top:2px;overflow-wrap:break-word;word-break:break-word}
+.dl-line{line-height:1.55;color:var(--text)}
+.dl-word{cursor:pointer;transition:background .12s;border-radius:3px;padding:0 1px}
+.dl-word:hover{background:var(--purp-l)}
+.dl-zh-line{font-size:.72rem;color:var(--muted);line-height:1.4;grid-column:2;margin-top:1px}
+.dl-wave{display:inline-flex;align-items:flex-end;gap:2px;height:12px;margin-left:4px;vertical-align:middle}
+.dl-wave span{display:block;width:3px;background:var(--purp);border-radius:2px;animation:wave .8s ease-in-out infinite}
+.dl-wave span:nth-child(1){animation-delay:0s;height:4px}
+.dl-wave span:nth-child(2){animation-delay:.1s;height:8px}
+.dl-wave span:nth-child(3){animation-delay:.2s;height:12px}
+.dl-wave span:nth-child(4){animation-delay:.3s;height:8px}
+.dl-wave span:nth-child(5){animation-delay:.4s;height:4px}
+@keyframes wave{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1)}}
+.compr-item{margin-bottom:10px;font-size:.85rem}
+.compr-q{font-weight:700;margin-bottom:4px;color:var(--text)}
+.compr-a{background:#f0faf5;border-left:3px solid var(--green);border-radius:0 6px 6px 0;
+  padding:5px 10px;display:none;font-size:.82rem;color:#1a5c35;margin-top:3px}
+.compr-a.visible{display:block}
+.btn-show{background:none;border:1px solid var(--green);color:var(--green);
+  border-radius:15px;padding:3px 10px;font-size:.72rem;font-weight:700;cursor:pointer;margin-top:4px}
+.comm-zh{font-size:.72rem;color:var(--muted);margin-left:4px}
+.vocab-grid{display:flex;flex-wrap:wrap;gap:7px}
+.vocab-card{background:#f8f9fa;border:1px solid #e9ecef;border-radius:8px;
+  padding:7px 10px;min-width:90px;text-align:center;cursor:pointer;transition:box-shadow .15s}
+.vocab-card:hover{box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.vocab-word{font-weight:700;font-size:.85rem;color:var(--purp)}
+.vocab-gram{font-size:.68rem;color:var(--muted);margin:1px 0}
+.vocab-zh{font-size:.72rem;color:var(--text)}
+.phon-body{font-size:.84rem;line-height:1.7;color:var(--text)}
+.phon-ex{margin-top:8px;background:#f0fff4;border-radius:7px;padding:8px 11px;font-size:.82rem;line-height:1.6}
+.gram-rule{background:#f0faf5;border-left:3px solid var(--green);border-radius:0 8px 8px 0;
+  padding:8px 12px;font-size:.84rem;line-height:1.6;margin-bottom:10px}
+.gram-table{width:100%;border-collapse:collapse;font-size:.83rem;margin:8px 0}
+.gram-table th{background:var(--green-l);color:var(--green);padding:5px 10px;font-weight:800;text-align:left}
+.gram-table td{padding:5px 10px;border-bottom:1px solid #f0f0f0}
+.gram-ex{font-size:.8rem;color:var(--muted);margin-top:8px;font-style:italic;line-height:1.6}
+.blank-row{margin-bottom:8px;font-size:.85rem;line-height:1.8;display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+.blank-input{border:none;border-bottom:2px solid var(--purp);background:transparent;
+  font-size:.85rem;padding:2px 4px;width:80px;outline:none;color:var(--text);font-family:inherit}
+.check-btn{background:none;border:1px solid var(--purp);color:var(--purp);border-radius:50%;
+  width:22px;height:22px;font-size:.68rem;cursor:pointer;display:inline-flex;
+  align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
+.check-btn:hover{background:var(--purp);color:#fff}
+.fb{font-size:.78rem;font-weight:700;margin-left:3px}
+.fb.ok{color:var(--green)}.fb.err{color:#e74c3c}
+.verify-bar{margin-top:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.btn-verify{background:var(--purp);color:#fff;border:none;border-radius:18px;
+  padding:5px 14px;font-size:.78rem;font-weight:700;cursor:pointer}
+.btn-restart{background:#f0f0f0;color:var(--text);border:none;border-radius:18px;
+  padding:5px 14px;font-size:.78rem;font-weight:700;cursor:pointer}
+.assoc-ref{background:#f0f4ff;border:1px solid #c5d0e8;border-radius:7px;
+  padding:7px 11px;margin-bottom:9px;font-size:.8rem;line-height:1.7;color:var(--text)}
+.assoc-row{margin-bottom:7px}
+.assoc-left{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:.84rem}
+.assoc-word{font-weight:700;color:var(--text)}
+.assoc-letter-input{width:32px;text-align:center}
+.ex-inst{font-size:.82rem;color:var(--muted);margin-bottom:8px;line-height:1.5}
+.qcm-q{font-size:.85rem;font-weight:700;margin-bottom:6px;line-height:1.4}
+.qcm-opts{display:flex;flex-direction:column;gap:5px}
+.qcm-opt{display:flex;align-items:center;gap:7px;cursor:pointer;font-size:.83rem;
+  padding:5px 8px;border-radius:7px;border:1px solid #e0e0e0;transition:all .15s}
+.qcm-opt:hover{border-color:var(--purp);background:var(--purp-l)}
+.qcm-opt.selected{border-color:var(--purp);background:var(--purp-l)}
+.qcm-opt.correct{border-color:var(--green);background:#f0faf5}
+.qcm-opt.wrong{border-color:#e74c3c;background:#fdf0f0}
+.prod-box{background:#fffde7;border-left:4px solid var(--orange);border-radius:0 10px 10px 0;
+  padding:14px;font-size:.86rem;line-height:1.65;margin-bottom:10px}
+.prod-zh{font-size:.72rem;color:var(--muted);display:block;margin-top:4px}
+.prod-input{width:100%;min-height:100px;border:1.5px solid #ddd;border-radius:8px;
+  padding:10px;font-size:.85rem;font-family:inherit;resize:vertical;outline:none;transition:border .2s}
+.prod-input:focus{border-color:var(--purp)}
+.lt-btn{margin-top:8px;background:var(--purp);color:#fff;border:none;border-radius:18px;
+  padding:7px 18px;font-size:.82rem;font-weight:700;cursor:pointer}
+.lt-result{margin-top:10px;font-size:.83rem;line-height:1.6;white-space:pre-wrap}
+.float-btns{position:fixed;bottom:80px;right:16px;display:flex;flex-direction:column;gap:8px;z-index:200}
+.float-btn{width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.2);
+  transition:transform .15s,opacity .2s}
+.float-btn:hover{transform:scale(1.1)}
+.float-btn-bug{background:#fff3e0;color:var(--orange)}
+.float-btn-contact{background:#e8f5e9;color:var(--green)}
+@media(max-width:480px){
+  .dl-layout{flex-direction:column}
+  .dl-img-col{width:100%;max-height:110px;overflow:hidden}
+  .dl-img-col img{width:100%;height:110px;object-fit:cover;object-position:top}
+  .dl-row{grid-template-columns:80px 1fr;gap:5px}
+}
+</style>
+</head>
+<body>
+<header class="page-header">
+  <div class="ph-left">
+    <span class="ph-code">8B</span>
+    <span class="ph-title">Tu peux m'aider ?</span>
+  </div>
+  <a class="ph-next" href="8C_slides.html">Suivant →</a>
+</header>
+<nav class="slide-nav" id="slide-nav">
+  <button class="slide-tab active" onclick="goSlide(0)">💬 Dialogue</button>
+  <button class="slide-tab" onclick="goSlide(1)">🔍 Comprendre</button>
+  <button class="slide-tab" onclick="goSlide(2)">🗣️ Communiquer</button>
+  <button class="slide-tab" onclick="goSlide(3)">🎵 Phonétique</button>
+  <button class="slide-tab" onclick="goSlide(4)">📖 Grammaire</button>
+  <button class="slide-tab" onclick="goSlide(5)">✏️ Exercices</button>
+  <button class="slide-tab" onclick="goSlide(7)">✍️ À toi !</button>
+</nav>
+<div class="slides-viewport">
+<!-- ══ SLIDE 0 : DIALOGUE ══ -->
+<div class="slide s-active" id="slide-0">
+  <div class="slide-body">
+    <div class="card">
+      <div class="card-head head-dialogue">💬 Dialogue</div>
+      <div class="card-body dl-layout">
+        <div class="dl-img-col"><img src="../images/dialogue/dialogue_8B.jpg" alt="Illustration 8B" loading="lazy"/></div>
+        <div class="dl-content-col"><!-- dialogue-image-patched -->
+<img alt="Illustration leçon 8B" class="dl-illustration" loading="lazy" src="../images/dialogue/dialogue_8B.jpg"/>
+<div class="dialogue"><div class="dl-row"><div class="dl-speaker">SARAH</div><div class="dl-line">Allô, Romain ? Tu peux m'aider ? Je dois déménager samedi.</div></div>
+<div class="dl-row"><div class="dl-speaker">ROMAIN</div><div class="dl-line">Déménager ? Bien sûr ! Vous devez porter des meubles lourds ?</div></div>
+<div class="dl-row"><div class="dl-speaker">SARAH</div><div class="dl-line">Oui, un canapé et une armoire. Je ne peux pas faire ça seule.</div></div>
+<div class="dl-row"><div class="dl-speaker">ROMAIN</div><div class="dl-line">Je peux venir avec mon frère. On doit juste finir le matin en cours.</div></div>
+<div class="dl-row"><div class="dl-speaker">SARAH</div><div class="dl-line">Super ! Vous pouvez arriver vers 14h ?</div></div>
+<div class="dl-row"><div class="dl-speaker">ROMAIN</div><div class="dl-line">Oui, sans problème. Mais tu dois aussi appeler un camion de déménagement.</div></div>
+<div class="dl-row"><div class="dl-speaker">SARAH</div><div class="dl-line">Je dois louer un camion ? Je ne savais pas.</div></div>
+<div class="dl-row"><div class="dl-speaker">ROMAIN</div><div class="dl-line">Oui, on ne peut pas transporter un canapé en voiture !</div></div>
+<div class="dl-row"><div class="dl-speaker">SARAH</div><div class="dl-line">Tu as raison ! Je vais appeler une société de location.</div></div>
+<div class="dl-row"><div class="dl-speaker">ROMAIN</div><div class="dl-line">Et tu dois préparer des cartons pour les affaires fragiles aussi.</div></div>
+</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><button class="btn-ns" onclick="goSlide(1)">🔍 Comprendre →</button></div>
+</div>
+<!-- ══ SLIDE 1 : COMPRENDRE ══ -->
+<div class="slide" id="slide-1">
+  <div class="slide-body">
+    <div class="card">
+      <div class="card-head head-compr">🔍 Compréhension</div>
+      <div class="card-body"><div class="compr-item">
+<div class="compr-q">Qu'est-ce que Romain lui conseille de louer ?</div>
+<button class="btn-reveal" onclick="revealAnswer('ca-8B-0')">Voir</button>
+<div class="compr-a" id="ca-8B-0">Un camion de déménagement.</div>
+</div></div>
+    </div>
+  </div>
+  <div class="slide-footer" style="justify-content:space-between">
+    <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
+    <button class="btn-ns" onclick="goSlide(2)">🗣️ Communiquer →</button>
+  </div>
+</div>
+<!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
+<div class="slide" id="slide-2">
+  <div class="slide-body">
+    <div class="card">
+      <div class="card-head head-comm">🗣️ Pour communiquer</div>
+      <div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr">Tu peux / Vous pouvez m'aider ? / m'aider à + infinitif ?</div><div class="comm-zh">你能／您能帮我吗？／帮我……+动词原形？</div></div>
+<div class="comm-item"><div class="comm-fr">Est-ce que tu peux… ? / Tu pourrais… ? (plus poli)</div><div class="comm-zh">你能……吗？／你愿意……吗？（更礼貌）</div></div>
+<div class="comm-item"><div class="comm-fr">Je dois + infinitif. / Il faut + infinitif.</div><div class="comm-zh">我必须+动词原形。／必须+动词原形。</div></div>
+<div class="comm-item"><div class="comm-fr">Bien sûr ! / Avec plaisir ! / Pas de problème !</div><div class="comm-zh">当然！／很乐意！／没问题！</div></div>
+<div class="comm-item"><div class="comm-fr">Je suis désolé(e), je ne peux pas. / Je dois…</div><div class="comm-zh">对不起，我不行。／我必须……</div></div>
+</div></div>
+    </div>
+    <div class="card">
+      <div class="card-head head-vocab">📚 Vocabulaire clé</div>
+      <div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">devoir</div><div class="vocab-gram">v.</div><div class="vocab-zh">必须</div></div>
+<div class="vocab-card"><div class="vocab-word">pouvoir</div><div class="vocab-gram">v.</div><div class="vocab-zh">能够</div></div>
+<div class="vocab-card"><div class="vocab-word">aider</div><div class="vocab-gram">v.</div><div class="vocab-zh">帮助</div></div>
+<div class="vocab-card"><div class="vocab-word">déménager</div><div class="vocab-gram">v.</div><div class="vocab-zh">搬家</div></div>
+<div class="vocab-card"><div class="vocab-word">lourd(e)</div><div class="vocab-gram">adj.</div><div class="vocab-zh">重的</div></div>
+<div class="vocab-card"><div class="vocab-word">le service</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">帮忙/服务</div></div>
+<div class="vocab-card"><div class="vocab-word">louer</div><div class="vocab-gram">v.</div><div class="vocab-zh">租用</div></div>
+<div class="vocab-card"><div class="vocab-word">le voisin</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">邻居</div></div>
+<div class="vocab-card"><div class="vocab-word">préparer</div><div class="vocab-gram">v.</div><div class="vocab-zh">准备 当然</div></div>
+</div></div>
+    </div>
+  </div>
+  <div class="slide-footer" style="justify-content:space-between">
+    <button class="btn-ns" onclick="goSlide(1)">← Comprendre</button>
+    <button class="btn-ns" onclick="goSlide(3)">🎵 Phonétique →</button>
+  </div>
+</div>
+<!-- ══ SLIDE 3 : PHONÉTIQUE ══ -->
+<div class="slide" id="slide-3">
+  <div class="slide-body">
+    <div class="card">
+      <div class="card-head head-phon">🎵 Phonétique</div>
+      <div class="card-body"><div class="phon-body">§ Phonétique — Le [p] et le [b] — consonnes occlusives
+Règle [p] : sourd (lèvres + explosion d'air, sans voix). [b] : sonore (même geste mais avec
+vibration des cordes vocales).
+Exemples porter [p] — bonjour [b] — pouvoir [p] — devoir [b/v]
+Exercice Répétez les paires : pain / bain — pont / bond — pas / bas — peau / beau — plé /
+blé.</div></div>
+    </div>
+  </div>
+  <div class="slide-footer" style="justify-content:space-between">
+    <button class="btn-ns" onclick="goSlide(2)">← Communiquer</button>
+    <button class="btn-ns" onclick="goSlide(4)">📖 Grammaire →</button>
+  </div>
+</div>
+<!-- ══ SLIDE 4 : GRAMMAIRE ══ -->
+<div class="slide" id="slide-4">
+  <div class="slide-body">
+    <div class="card">
+      <div class="card-head head-gram">📖 Point de langue</div>
+      <div class="card-body"><div class="gram-rule">§§ Devoir exprime une obligation. Pouvoir exprime une capacité ou une permission. Tous deux sont suivis de l'infinitif.</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>je dois,</td><td>nous pouvoir</td></tr><tr><td>tu dois,</td><td>vous devez,</td></tr><tr><td>il doit,</td><td>ils doivent</td></tr></tbody></table><div class="gram-ex">• Tu peux m'aider ? (capacité) / On ne peut pas transporter un canapé en<br/>• Puis-je vous demander un service ? (forme très polie de pouvoir)<br/>• Forme négative : Je ne peux pas venir. / Il ne doit pas oublier les cartons.<br/>• Forme interrogative : Est-ce que tu peux m'aider ? / Pouvez-vous arriver à</div></div>
+    </div>
+  </div>
+  <div class="slide-footer" style="justify-content:space-between">
+    <button class="btn-ns" onclick="goSlide(3)">← Phonétique</button>
+    <button class="btn-ns" onclick="goSlide(5)">✏️ Exercices →</button>
+  </div>
+</div>
+<!-- ══ SLIDE 5 : EXERCICES 1/2 ══ -->
+<div class="slide" id="slide-5">
+  <div class="sub-nav">
+    <button class="sub-nav-btn" disabled>←</button>
+    <span class="sub-nav-count">1 / 2</span>
+    <button class="sub-nav-btn" onclick="goSlide(6)">→</button>
+  </div>
+  <div class="slide-body">
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Devoir ou pouvoir ? <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
+<div class="blank-row">1. <span>Il </span><input autocomplete="off" class="blank-input" id="bl-8B-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex1-0').click()" type="text"/><button class="check-btn" data-ans="doit" id="chk-bl-8B-ex1-0" onclick="checkBlankData(this,'bl-8B-ex1-0','fb-bl-8B-ex1-0')">✓</button><span class="fb" id="fb-bl-8B-ex1-0"></span><span> partir à 8h pour ne pas rater le train. (obligation)</span></div>
+<div class="blank-row">2. <span>Est-ce que tu </span><input autocomplete="off" class="blank-input" id="bl-8B-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex1-1').click()" type="text"/><button class="check-btn" data-ans="peux" id="chk-bl-8B-ex1-1" onclick="checkBlankData(this,'bl-8B-ex1-1','fb-bl-8B-ex1-1')">✓</button><span class="fb" id="fb-bl-8B-ex1-1"></span><span> m'aider à porter ces cartons ? (capacité)</span></div>
+<div class="blank-row">3. <span>Vous </span><input autocomplete="off" class="blank-input" id="bl-8B-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex1-2').click()" type="text"/><button class="check-btn" data-ans="devez" id="chk-bl-8B-ex1-2" onclick="checkBlankData(this,'bl-8B-ex1-2','fb-bl-8B-ex1-2')">✓</button><span class="fb" id="fb-bl-8B-ex1-2"></span><span> réserver à l'avance pour ce restaurant. (obligation)</span></div>
+<div class="blank-row">4. <span>Je ne </span><input autocomplete="off" class="blank-input" id="bl-8B-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex1-3').click()" type="text"/><button class="check-btn" data-ans="peux (ne peux pas)" id="chk-bl-8B-ex1-3" onclick="checkBlankData(this,'bl-8B-ex1-3','fb-bl-8B-ex1-3')">✓</button><span class="fb" id="fb-bl-8B-ex1-3"></span><span> pas venir samedi, je suis malade. (impossibilité)</span></div></div></div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Demander un service poliment <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez en demande polie :</div>
+<div class="blank-row">1. <span>Aidez-moi. → Tu peux </span><input autocomplete="off" class="blank-input" id="bl-8B-ex2-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex2-0').click()" type="text"/><button class="check-btn" data-ans="m'aider" id="chk-bl-8B-ex2-0" onclick="checkBlankData(this,'bl-8B-ex2-0','fb-bl-8B-ex2-0')">✓</button><span class="fb" id="fb-bl-8B-ex2-0"></span><span>?</span></div>
+<div class="blank-row">2. <span>Ouvrez la fenêtre. → Est-ce que vous pouvez </span><input autocomplete="off" class="blank-input" id="bl-8B-ex2-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex2-1').click()" type="text"/><button class="check-btn" data-ans="ouvrir la fenêtre" id="chk-bl-8B-ex2-1" onclick="checkBlankData(this,'bl-8B-ex2-1','fb-bl-8B-ex2-1')">✓</button><span class="fb" id="fb-bl-8B-ex2-1"></span><span> ?</span></div>
+<div class="blank-row">3. <span>Portez ce carton. → Tu pourrais </span><input autocomplete="off" class="blank-input" id="bl-8B-ex2-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex2-2').click()" type="text"/><button class="check-btn" data-ans="porter ce carton" id="chk-bl-8B-ex2-2" onclick="checkBlankData(this,'bl-8B-ex2-2','fb-bl-8B-ex2-2')">✓</button><span class="fb" id="fb-bl-8B-ex2-2"></span><span> ? (très poli)</span></div></div></div>
+  </div>
+  <div class="slide-footer" style="justify-content:space-between">
+    <button class="btn-ns" onclick="goSlide(4)">← Grammaire</button>
+    <button class="btn-ns" onclick="goSlide(6)">Suite →</button>
+  </div>
+</div>
+<!-- ══ SLIDE 6 : EXERCICES 2/2 ══ -->
+<div class="slide" id="slide-6">
+  <div class="sub-nav">
+    <button class="sub-nav-btn" onclick="goSlide(5)">←</button>
+    <span class="sub-nav-count">2 / 2</span>
+    <button class="sub-nav-btn" disabled>→</button>
+  </div>
+  <div class="slide-body">
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Formes négative et interrogative <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez les phrases :</div>
+<div class="blank-row">1. <span>Je peux venir samedi. → Forme négative : </span><input autocomplete="off" class="blank-input" id="bl-8B-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex3-0').click()" type="text"/><button class="check-btn" data-ans="Je ne peux pas venir samedi." id="chk-bl-8B-ex3-0" onclick="checkBlankData(this,'bl-8B-ex3-0','fb-bl-8B-ex3-0')">✓</button><span class="fb" id="fb-bl-8B-ex3-0"></span><span></span></div>
+<div class="blank-row">2. <span>Il doit préparer les cartons. → Forme négative : </span><input autocomplete="off" class="blank-input" id="bl-8B-ex3-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex3-1').click()" type="text"/><button class="check-btn" data-ans="Il ne doit pas préparer les cartons." id="chk-bl-8B-ex3-1" onclick="checkBlankData(this,'bl-8B-ex3-1','fb-bl-8B-ex3-1')">✓</button><span class="fb" id="fb-bl-8B-ex3-1"></span><span></span></div>
+<div class="blank-row">3. <span>Tu peux m'aider. → Forme interrogative (est-ce que) : </span><input autocomplete="off" class="blank-input" id="bl-8B-ex3-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex3-2').click()" type="text"/><button class="check-btn" data-ans="Est-ce que tu peux m'aider ?" id="chk-bl-8B-ex3-2" onclick="checkBlankData(this,'bl-8B-ex3-2','fb-bl-8B-ex3-2')">✓</button><span class="fb" id="fb-bl-8B-ex3-2"></span><span></span></div>
+<div class="blank-row">4. <span>Vous devez louer un camion. → Forme interrogative (inversion) : </span><input autocomplete="off" class="blank-input" id="bl-8B-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex3-3').click()" type="text"/><button class="check-btn" data-ans="Devez-vous louer un camion ?" id="chk-bl-8B-ex3-3" onclick="checkBlankData(this,'bl-8B-ex3-3','fb-bl-8B-ex3-3')">✓</button><span class="fb" id="fb-bl-8B-ex3-3"></span><span></span></div></div></div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Vocabulaire : obligations et services <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Complétez avec le bon mot : déménager / lourd / louer / le service / bien sûr</div>
+<div class="blank-row">1. <span>Je dois </span><input autocomplete="off" class="blank-input" id="bl-8B-ex4-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-0').click()" type="text"/><button class="check-btn" data-ans="déménager" id="chk-bl-8B-ex4-0" onclick="checkBlankData(this,'bl-8B-ex4-0','fb-bl-8B-ex4-0')">✓</button><span class="fb" id="fb-bl-8B-ex4-0"></span><span> un appartement à Paris le mois prochain.</span></div>
+<div class="blank-row">2. <span>Ce canapé est très </span><input autocomplete="off" class="blank-input" id="bl-8B-ex4-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-1').click()" type="text"/><button class="check-btn" data-ans="lourd" id="chk-bl-8B-ex4-1" onclick="checkBlankData(this,'bl-8B-ex4-1','fb-bl-8B-ex4-1')">✓</button><span class="fb" id="fb-bl-8B-ex4-1"></span><span>. Je ne peux pas le porter seul(e).</span></div>
+<div class="blank-row">3. <span>Tu peux m'aider ? — </span><input autocomplete="off" class="blank-input" id="bl-8B-ex4-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-2').click()" type="text"/><button class="check-btn" data-ans="bien sûr" id="chk-bl-8B-ex4-2" onclick="checkBlankData(this,'bl-8B-ex4-2','fb-bl-8B-ex4-2')">✓</button><span class="fb" id="fb-bl-8B-ex4-2"></span><span> ! Avec plaisir.</span></div>
+<div class="blank-row">4. <span>Il faut </span><input autocomplete="off" class="blank-input" id="bl-8B-ex4-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-3').click()" type="text"/><button class="check-btn" data-ans="louer" id="chk-bl-8B-ex4-3" onclick="checkBlankData(this,'bl-8B-ex4-3','fb-bl-8B-ex4-3')">✓</button><span class="fb" id="fb-bl-8B-ex4-3"></span><span> un camion pour transporter les meubles.</span></div>
+<div class="blank-row">5. <span>Rendre </span><input autocomplete="off" class="blank-input" id="bl-8B-ex4-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8B-ex4-4').click()" type="text"/><button class="check-btn" data-ans="service" id="chk-bl-8B-ex4-4" onclick="checkBlankData(this,'bl-8B-ex4-4','fb-bl-8B-ex4-4')">✓</button><span class="fb" id="fb-bl-8B-ex4-4"></span><span> à un voisin, c'est important dans un immeuble.</span></div></div></div>
+  </div>
+  <div class="slide-footer" style="justify-content:space-between">
+    <button class="btn-ns" onclick="goSlide(5)">← Préc.</button>
+    <button class="btn-ns" onclick="goSlide(7)">✍️ À toi ! →</button>
+  </div>
+</div>
+<!-- ══ SLIDE 7 : À TOI ! ══ -->
+<div class="slide" id="slide-7">
+  <div class="slide-body">
+    <div class="card">
+      <div class="card-head head-prod">✍️ À toi !</div>
+      <div class="card-body"><div class="prod-box">✍️ À toi ! Vous organisez une fête. Écrivez 5 messages à des amis pour leur demander de
+l'aide (préparer la nourriture, apporter des boissons, décorer, etc.) avec pouvoir et
+devoir.
+<span class="prod-zh">您要组织一个聚会。给朋友写5条消息请求帮助（准备食物、带饮料、装饰等），使用pouvoir和devoir。</span>
+Leçon 8B · Tu peux m'aider ? · A1</div>
+<textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea>
+<button class="lt-btn" onclick="checkLT(this)">Corriger ✓</button>
+<div class="lt-result"></div></div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <button class="btn-ns" onclick="goSlide(6)">← Exercices</button>
+  </div>
+</div>
+</div>
+<div class="float-btns">
+  <button class="float-btn float-btn-bug" title="Signaler un bug">🐛</button>
+  <button class="float-btn float-btn-contact" title="Contact" onclick="window.location='mailto:contact@francaisplus.fr'">✉️</button>
+</div>
+<script>
+var TAB_FOR_SLIDE=[0, 1, 2, 3, 4, 5, 5, 6];
+
+var currentSlide=0;
+var TAB_FOR_SLIDE=[];
+document.head.insertAdjacentHTML('beforeend','<style>.s-right{transform:translateX(100%)!important}</style>');
+function goSlide(n){
+  var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;
+  slides[currentSlide].classList.remove('s-active');
+  slides[currentSlide].classList.add(dir>0?'s-left':'s-right');
+  slides[n].classList.remove('s-left','s-right');
+  slides[n].classList.add('s-active');
+  currentSlide=n;
+  if(TAB_FOR_SLIDE.length)tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
+}
+function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
+function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}
+function checkBlankData(btn,inputId,fbId){
+  var inp=document.getElementById(inputId),fb=document.getElementById(fbId);
+  var ans=(inp.value||'').trim().toLowerCase(),correct=(btn.dataset.ans||'').toLowerCase();
+  if(!correct){fb.textContent='';return;}
+  var ok=ans===correct||ans.replace(/['']/g,"'")===correct.replace(/['']/g,"'");
+  fb.textContent=ok?'✓':'✗ '+btn.dataset.ans;fb.className='fb '+(ok?'ok':'err');
+}
+function verifyBlanks(id,inputIds,btnIds){
+  var ok=0;
+  inputIds.forEach(function(iid,i){
+    var btn=document.getElementById(btnIds[i]);
+    var fbId=iid.replace(/^bl-/,'fb-bl-').replace(/^ma-/,'fb-ma-');
+    if(btn)checkBlankData(btn,iid,fbId);
+    var fb=document.getElementById(fbId);
+    if(fb&&fb.classList.contains('ok'))ok++;
+  });
+  var sc=document.getElementById('score-'+id);if(sc)sc.textContent=ok+'/'+inputIds.length;
+}
+function resetBlanks(inputIds,fbIds){
+  inputIds.forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+  fbIds.forEach(function(id){var el=document.getElementById(id);if(el){el.textContent='';el.className='fb';}});
+}
+function checkLT(btn){
+  var box=btn.parentNode,inp=box.querySelector('.prod-input'),res=box.querySelector('.lt-result');
+  if(!inp||!inp.value.trim()){res.textContent='Écrivez votre réponse d'abord.';return;}
+  res.textContent='✓ Réponse enregistrée. Bonne continuation !';
+}
+
+</script>
+</body>
+</html>
