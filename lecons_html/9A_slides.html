@@ -22,6 +22,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
 .ph-next{color:rgba(255,255,255,.85);font-size:.78rem;font-weight:700;
   text-decoration:none;white-space:nowrap}
 .ph-next:hover{color:#fff}
+.ph-lang{display:flex;gap:3px;margin-right:4px}
+.ph-lang-btn{padding:3px 8px;border-radius:12px;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.75);background:none;font-size:.68rem;font-weight:800;cursor:pointer;transition:all .15s;letter-spacing:.02em}
+.ph-lang-btn:hover{border-color:#fff;color:#fff}
+.ph-lang-btn.active{background:rgba(255,255,255,.25);border-color:#fff;color:#fff}
 .slide-nav{display:flex;overflow-x:auto;background:#fff;
   border-bottom:2px solid #eee;flex-shrink:0;scrollbar-width:none}
 .slide-nav::-webkit-scrollbar{display:none}
@@ -87,7 +91,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
 .dl-line{line-height:1.55;color:var(--text)}
 .dl-word{cursor:pointer;transition:background .12s;border-radius:3px;padding:0 1px}
 .dl-word:hover{background:var(--purp-l)}
-.dl-zh-line{font-size:.72rem;color:var(--muted);line-height:1.4;grid-column:2;margin-top:1px}
+.dl-zh-line{font-size:.72rem;color:var(--muted);line-height:1.4;grid-column:2;margin-top:1px;display:none}
+body.lang-zh .dl-zh-line{display:block}
 .dl-wave{display:inline-flex;align-items:flex-end;gap:2px;height:12px;margin-left:4px;vertical-align:middle}
 .dl-wave span{display:block;width:3px;background:var(--purp);border-radius:2px;animation:wave .8s ease-in-out infinite}
 .dl-wave span:nth-child(1){animation-delay:0s;height:4px}
@@ -103,14 +108,16 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
 .compr-a.visible{display:block}
 .btn-show{background:none;border:1px solid var(--green);color:var(--green);
   border-radius:15px;padding:3px 10px;font-size:.72rem;font-weight:700;cursor:pointer;margin-top:4px}
-.comm-zh{font-size:.72rem;color:var(--muted);margin-left:4px}
+.comm-zh{font-size:.72rem;color:var(--purp);margin-top:1px;display:none}
+body.lang-zh .comm-zh{display:block}
 .vocab-grid{display:flex;flex-wrap:wrap;gap:7px}
 .vocab-card{background:#f8f9fa;border:1px solid #e9ecef;border-radius:8px;
   padding:7px 10px;min-width:90px;text-align:center;cursor:pointer;transition:box-shadow .15s}
 .vocab-card:hover{box-shadow:0 2px 8px rgba(0,0,0,.1)}
 .vocab-word{font-weight:700;font-size:.85rem;color:var(--purp)}
 .vocab-gram{font-size:.68rem;color:var(--muted);margin:1px 0}
-.vocab-zh{font-size:.72rem;color:var(--text)}
+.vocab-zh{font-size:.72rem;color:var(--blue);font-weight:600;margin-top:2px;display:none}
+body.lang-zh .vocab-zh{display:block}
 .phon-body{font-size:.84rem;line-height:1.7;color:var(--text)}
 .phon-ex{margin-top:8px;background:#f0fff4;border-radius:7px;padding:8px 11px;font-size:.82rem;line-height:1.6}
 .gram-rule{background:#f0faf5;border-left:3px solid var(--green);border-radius:0 8px 8px 0;
@@ -150,20 +157,35 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
 .qcm-opt.wrong{border-color:#e74c3c;background:#fdf0f0}
 .prod-box{background:#fffde7;border-left:4px solid var(--orange);border-radius:0 10px 10px 0;
   padding:14px;font-size:.86rem;line-height:1.65;margin-bottom:10px}
-.prod-zh{font-size:.72rem;color:var(--muted);display:block;margin-top:4px}
+.prod-zh{font-size:.72rem;color:var(--muted);display:none;margin-top:4px}
+body.lang-zh .prod-zh{display:block}
 .prod-input{width:100%;min-height:100px;border:1.5px solid #ddd;border-radius:8px;
   padding:10px;font-size:.85rem;font-family:inherit;resize:vertical;outline:none;transition:border .2s}
 .prod-input:focus{border-color:var(--purp)}
 .lt-btn{margin-top:8px;background:var(--purp);color:#fff;border:none;border-radius:18px;
   padding:7px 18px;font-size:.82rem;font-weight:700;cursor:pointer}
 .lt-result{margin-top:10px;font-size:.83rem;line-height:1.6;white-space:pre-wrap}
-.float-btns{position:fixed;bottom:80px;right:16px;display:flex;flex-direction:column;gap:8px;z-index:200}
-.float-btn{width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;font-size:1.1rem;
-  display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.2);
-  transition:transform .15s,opacity .2s}
-.float-btn:hover{transform:scale(1.1)}
-.float-btn-bug{background:#fff3e0;color:var(--orange)}
-.float-btn-contact{background:#e8f5e9;color:var(--green)}
+.float-btns{position:fixed;bottom:80px;right:12px;display:flex;flex-direction:column;gap:6px;z-index:200}
+.float-btn{border:none;border-radius:50%;width:34px;height:34px;font-size:1rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.16);transition:transform .15s,opacity .15s;display:flex;align-items:center;justify-content:center;opacity:.7;padding:0}
+.float-btn:hover{transform:translateY(-2px);opacity:1}
+.btn-bug{background:#fff0f0;color:#c0392b;border:2px solid #e74c3c}
+.btn-ask{background:#e8f5e9;color:#2d7d46;border:2px solid #4caf50}
+.fle-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:300;backdrop-filter:blur(2px)}
+.fle-modal-overlay.open{display:block}
+.fle-modal{display:none;position:fixed;inset:0;z-index:400;align-items:center;justify-content:center;padding:14px}
+.fle-modal.open{display:flex}
+.fle-modal-box{background:#fff;border-radius:14px;padding:22px 20px;max-width:460px;width:100%;position:relative;box-shadow:0 8px 40px rgba(0,0,0,.22);max-height:90vh;overflow-y:auto}
+.fle-modal-box h2{font-size:1.05rem;font-weight:800;margin-bottom:4px;color:var(--text)}
+.modal-sub{font-size:.78rem;color:var(--muted);margin-bottom:15px}
+.modal-close{position:absolute;top:11px;right:13px;background:none;border:none;font-size:1rem;cursor:pointer;color:var(--muted)}
+.modal-close:hover{color:var(--text)}
+.form-group{margin-bottom:12px}
+.form-group label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em}
+.form-group input,.form-group select,.form-group textarea{width:100%;border:1.5px solid #ddd;border-radius:8px;padding:8px 10px;font-size:.85rem;font-family:inherit;outline:none;transition:border .2s;box-sizing:border-box}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--purp)}
+.opt{font-weight:400;color:var(--muted)}
+.btn-send{background:var(--purp);color:#fff;border:none;border-radius:18px;padding:8px 22px;font-size:.85rem;font-weight:700;cursor:pointer}
+.form-success{display:none;color:var(--green);font-size:.85rem;margin-top:8px}
 @media(max-width:480px){
   .dl-layout{flex-direction:column}
   .dl-img-col{width:100%;max-height:110px;overflow:hidden}
@@ -177,6 +199,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
   <div class="ph-left">
     <span class="ph-code">9A</span>
     <span class="ph-title">On part en vacances !</span>
+  </div>
+  <div class="ph-lang">
+    <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')">FR</button>
+    <button class="ph-lang-btn" id="btn-lang-zh" onclick="setLang('zh')">中</button>
   </div>
   <a class="ph-next" href="9B_slides.html">Suivant →</a>
 </header>
@@ -372,23 +398,54 @@ Leçon 9A · On part en vacances ! · A1</div>
 </div>
 </div>
 <div class="float-btns">
-  <button class="float-btn float-btn-bug" title="Signaler un bug">🐛</button>
-  <button class="float-btn float-btn-contact" title="Contact" onclick="window.location='mailto:contact@francaisplus.fr'">✉️</button>
+  <button class="float-btn btn-bug" onclick="openModal('modal-bug')" title="Signaler un problème">🐛</button>
+  <button class="float-btn btn-ask" onclick="openModal('modal-ask')" title="Poser une question">💬</button>
 </div>
+<div class="fle-modal" id="modal-bug" role="dialog" aria-modal="true" aria-labelledby="bug-title">
+  <div class="fle-modal-box">
+    <button class="modal-close" aria-label="Fermer" onclick="closeModal('modal-bug')">✕</button>
+    <h2 id="bug-title">🐛 Signaler un problème</h2><p class="modal-sub">Aidez-nous à améliorer cette leçon.</p>
+    <form id="form-bug" onsubmit="submitForm(event,'form-bug','modal-bug')">
+      <input name="lecon" type="hidden" value="9A — On part en vacances !"/><input name="_subject" type="hidden" value="[Bug] Leçon 9A"/>
+      <div class="form-group"><label>Section</label><select name="exercice" required=""><option value="">— Choisissez —</option><option>Dialogue</option><option>Comprendre</option><option>Communiquer</option><option>Vocabulaire</option><option>Phonétique</option><option>Grammaire</option><option>Exercice</option><option>À toi !</option><option>Autre</option></select></div>
+      <div class="form-group"><label>Description</label><textarea name="description" placeholder="Décrivez le problème…" required="" rows="3"></textarea></div>
+      <div class="form-group"><label>Prénom <span class="opt">(facultatif)</span></label><input name="prenom" type="text"/></div>
+      <button class="btn-send" type="submit">Envoyer</button><p class="form-success" id="success-bug">✅ Merci !</p>
+    </form>
+  </div>
+</div>
+<div class="fle-modal" id="modal-ask" role="dialog" aria-modal="true" aria-labelledby="ask-title">
+  <div class="fle-modal-box">
+    <button class="modal-close" aria-label="Fermer" onclick="closeModal('modal-ask')">✕</button>
+    <h2 id="ask-title">💬 Poser une question</h2><p class="modal-sub">Votre question sera transmise au professeur.</p>
+    <form id="form-ask" onsubmit="submitForm(event,'form-ask','modal-ask')">
+      <input name="lecon" type="hidden" value="9A — On part en vacances !"/><input name="_subject" type="hidden" value="[Question] Leçon 9A"/>
+      <div class="form-group"><label>Sujet</label><select name="sujet" required=""><option value="">— Choisissez —</option><option value="Grammaire">📖 Grammaire</option><option value="Vocabulaire">📝 Vocabulaire</option><option value="Exercice">✏️ Exercice</option><option value="Prononciation">🎵 Prononciation</option></select></div>
+      <div class="form-group"><label>Votre question</label><textarea name="question" placeholder="Posez votre question…" required="" rows="3"></textarea></div>
+      <div class="form-group"><label>Prénom <span class="opt">(facultatif)</span></label><input name="prenom" type="text"/></div>
+      <button class="btn-send" type="submit">Envoyer</button><p class="form-success" id="success-ask">✅ Merci !</p>
+    </form>
+  </div>
+</div>
+<div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var TAB_FOR_SLIDE=[0, 1, 2, 3, 4, 5, 5, 6];
 
 var currentSlide=0;
 document.head.insertAdjacentHTML('beforeend','<style>.s-right{transform:translateX(100%)!important}</style>');
 function goSlide(n){
+  if(n===currentSlide)return;
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;
   slides[currentSlide].classList.remove('s-active');
   slides[currentSlide].classList.add(dir>0?'s-left':'s-right');
   slides[n].classList.remove('s-left','s-right');
   slides[n].classList.add('s-active');
-  currentSlide=n;
+  var sb=slides[n].querySelector('.slide-body');if(sb)sb.scrollTop=0;
   if(TAB_FOR_SLIDE.length)tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
+  currentSlide=n;
 }
+function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');}
+document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
 function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}
 function checkBlankData(btn,inputId,fbId){
@@ -419,6 +476,11 @@ function checkLT(btn){
   res.textContent='✓ Réponse enregistrée. Bonne continuation !';
 }
 
+function openModal(id){document.getElementById(id).classList.add('open');document.querySelector('.fle-modal-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.querySelector('.fle-modal-overlay').classList.remove('open');document.body.style.overflow='';}
+function closeAllModals(){document.querySelectorAll('.fle-modal').forEach(function(m){m.classList.remove('open');});document.querySelector('.fle-modal-overlay').classList.remove('open');document.body.style.overflow='';}
+function submitForm(e,formId,modalId){e.preventDefault();var form=document.getElementById(formId),data=new FormData(form),btn=form.querySelector('.btn-send');btn.disabled=true;btn.textContent='Envoi…';fetch('https://formspree.io/f/mvznqaze',{method:'POST',body:data,headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){form.reset();var s=document.getElementById('success-'+formId.replace('form-',''));if(s)s.style.display='block';setTimeout(function(){closeModal(modalId);if(s)s.style.display='none';btn.disabled=false;btn.textContent='Envoyer';},2500);}else{alert('Erreur.');btn.disabled=false;btn.textContent='Envoyer';}}).catch(function(){alert('Erreur réseau.');btn.disabled=false;});}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModals();});
 </script>
 </body>
 </html>
