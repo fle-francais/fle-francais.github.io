@@ -316,14 +316,18 @@
 
 <style id="gate-css">
 #gate-overlay{position:fixed;inset:0;z-index:9999;
-  background:linear-gradient(160deg,#1a3a5c 0%,#2980b9 60%,#1abc9c 100%);
+  background:linear-gradient(160deg,#0d1b32 0%,#1c2e5a 45%,#2e1230 100%);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   font-family:'Segoe UI',system-ui,sans-serif;padding:20px;text-align:center}
-#gate-overlay .logo{font-size:2.8rem;font-weight:900;color:#fff;letter-spacing:-1px;margin-bottom:8px}
-#gate-overlay .logo span{color:#1abc9c}
+#gate-overlay .gate-logo{margin-bottom:24px;display:flex;flex-direction:column;align-items:center;gap:14px}
+#gate-overlay .gate-flags{display:flex;gap:14px;justify-content:center}
+#gate-overlay .gate-flag{width:88px;height:88px;border-radius:50%;display:block;filter:drop-shadow(0 4px 12px rgba(0,0,0,.35))}
+#gate-overlay .gate-brand{font-size:2rem;font-weight:900;color:#fff;letter-spacing:-.5px;text-shadow:0 2px 8px rgba(0,0,0,.25)}
+#gate-overlay .gate-brand em{font-style:normal;color:#6eb5ff}
+#gate-overlay .gate-brand-zh{font-size:2.2rem;font-weight:900;color:#e84040;letter-spacing:.05em;text-shadow:0 2px 8px rgba(0,0,0,.25)}
 #gate-overlay h1{color:#fff;font-size:1.6rem;font-weight:700;margin-bottom:10px}
 #gate-overlay p{color:rgba(255,255,255,.8);font-size:1rem;max-width:420px;line-height:1.7;margin-bottom:32px}
-#gate-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+#gate-badge{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);
   color:#fff;border-radius:30px;padding:8px 20px;font-size:.85rem;margin-bottom:40px;display:inline-block}
 #gate-access{margin-top:auto;padding-top:30px;border-top:1px solid rgba(255,255,255,.15);width:100%;max-width:320px}
 #gate-access summary{color:rgba(255,255,255,.45);font-size:.78rem;cursor:pointer;
@@ -343,7 +347,14 @@
 <body>
 
 <div id="gate-overlay">
-  <div class="logo">FLE<span>+</span></div>
+  <div class="gate-logo">
+    <div class="gate-flags">
+      <img class="gate-flag" src="icons/flag-fr.svg" alt="FR"/>
+      <img class="gate-flag" src="icons/flag-zh.svg" alt="ZH"/>
+    </div>
+    <div class="gate-brand">Super <em>F</em>ǎyǔ</div>
+    <div class="gate-brand-zh">超级法语</div>
+  </div>
   <div id="gate-badge">✨ Lancement bientôt</div>
   <h1>Bientôt disponible</h1>
   <p>Une plateforme d'apprentissage du français conçue pour les apprenants sinophones.<br>
