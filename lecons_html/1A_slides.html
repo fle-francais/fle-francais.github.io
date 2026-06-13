@@ -800,18 +800,7 @@ function goSlide(n){
   tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
   currentSlide=n;
 }
-function playAudio(src){
-  if(window._pA){window._pA.pause();window._pA.currentTime=0;}
-  var a=new Audio(src);window._pA=a;
-  a.onerror=function(){
-    var word=src.replace(/.*\//,'').replace(/\.mp3$/,'').replace(/phon_1A_|vocab_1A_|comm_1A_\d+/,'').replace(/_/g,' ');
-    if('speechSynthesis' in window){
-      var u=new SpeechSynthesisUtterance(word);u.lang='fr-FR';u.rate=0.85;
-      speechSynthesis.cancel();speechSynthesis.speak(u);
-    }
-  };
-  a.play().catch(function(){a.onerror&&a.onerror();});
-}
+function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
 function checkBlank(inputId,answer,fbId){var inp=document.getElementById(inputId),fb=document.getElementById(fbId);if(!inp)return false;var val=inp.value.trim().toLowerCase(),ok=answer.toLowerCase().split(' / ').some(function(a){return val===a.trim();});inp.style.borderBottomColor=ok?'var(--green)':'#e74c3c';inp.style.color=ok?'var(--green)':'#e74c3c';if(fb){fb.textContent=ok?'✅':'❌ → '+answer;fb.className='fb '+(ok?'ok':'ko');}return ok;}
 function checkBlankData(btn,inputId,fbId){checkBlank(inputId,btn.dataset.ans,fbId);}
 function verifyBlanks(scoreId,inputIds,btnIds){var ok=0;btnIds.forEach(function(bid,i){var btn=document.getElementById(bid);if(btn)checkBlankData(btn,inputIds[i],'fb-'+inputIds[i]);});inputIds.forEach(function(id){var inp=document.getElementById(id);if(inp&&inp.style.color.indexOf('green')>-1)ok++;});var s=document.getElementById('score-'+scoreId);if(s){s.textContent=ok+'/'+inputIds.length;s.style.color=ok===inputIds.length?'var(--green)':ok>=inputIds.length/2?'var(--orange)':'#e74c3c';}}
