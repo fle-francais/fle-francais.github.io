@@ -25,7 +25,7 @@
   body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 
   /* ── NAV ── */
-  nav { background: #fff; box-shadow: var(--shadow); position: sticky; top: 0; z-index: 100; }
+  nav { background: linear-gradient(160deg,#0d1b32 0%,#1c2e5a 45%,#2e1230 100%); position: sticky; top: 0; z-index: 100; }
   .nav-inner { max-width: 1100px; margin: auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
   .logo { font-size: 1.4rem; font-weight: 800; color: var(--b-color); text-decoration: none; }
   .logo span { color: var(--a-color); }
@@ -36,10 +36,6 @@
   /* ── HERO ── */
   #home { display: block; }
   .hero { background: linear-gradient(160deg,#0d1b32 0%,#1c2e5a 45%,#2e1230 100%); color: #fff; text-align: center; padding: 70px 20px 80px; }
-  .hero-logo{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:28px}
-  .hero-flag-banner{width:200px;display:block}
-  .hero-brand{font-size:1.5rem;font-weight:900;color:#fff;letter-spacing:-.5px}
-  .hero-brand-zh{font-size:1.65rem;font-weight:900;color:#e84040;letter-spacing:.05em}
   .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; margin-bottom: 16px; }
   .hero p { font-size: 1.15rem; opacity: .9; max-width: 600px; margin: 0 auto 36px; }
   .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -432,17 +428,7 @@ function checkGate(){
         </g>
       </svg>
     </a>
-    <div class="nav-levels">
-      <button class="nav-btn" onclick="showLevel('A1')">A1</button>
-      <button class="nav-btn" onclick="showLevel('A2')">A2</button>
-      <button class="nav-btn" onclick="showLevel('B1')">B1</button>
-      <button class="nav-btn" onclick="showLevel('B2')">B2</button>
-      <button class="nav-btn" onclick="showLevel('C1')">C1</button>
-      <button class="nav-btn" onclick="showLevel('C2')">C2</button>
-      <button class="nav-btn" onclick="showPage('test')">📝 Test de niveau</button>
-      <a href="bibliotheque.html" style="background:var(--bg);border:none;border-radius:20px;padding:6px 16px;font-size:.85rem;font-weight:600;color:var(--muted);text-decoration:none">📚 Bibliothèque</a>
-      <!-- <a href="tarifs.html" style="background:linear-gradient(135deg,#f39c12,#e67e22);color:#fff;border:none;border-radius:20px;padding:6px 16px;font-size:.85rem;font-weight:700;text-decoration:none;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">✨ Tarifs</a> -->
-    </div>
+
     <div class="lang-picker">
       <button class="lang-btn" onclick="setLang('fr')" title="Français"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDwhLS0gQW5uZWF1IG3DqXRhbCBhcmdlbnTDqSAtLT4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0icmluZyIgY3g9IjM4JSIgY3k9IjMyJSIgcj0iNzAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgICBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMzAlIiAgc3RvcC1jb2xvcj0iI2Q4ZDhkOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjYwJSIgIHN0b3AtY29sb3I9IiM5MDkwOTAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiICBzdG9wLWNvbG9yPSIjYjBiMGIwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzc4Nzg3OCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDwhLS0gR2xvc3Mgc3VyIGxlIGRyYXBlYXUgLS0+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9Imdsb3NzIiBjeD0iNDUlIiBjeT0iMjIlIiByPSI1OCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiAgIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4zOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjY1JSIgIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4wNSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDwhLS0gT21icmUgaW50ZXJuZSAtLT4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iaW5uZXItc2hhZG93IiBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjgwJSIgIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4yOCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDwhLS0gQ2xpcCBkcmFwZWF1IC0tPgogICAgPGNsaXBQYXRoIGlkPSJmbGFnLWNsaXAiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQxLjUiLz48L2NsaXBQYXRoPgogICAgCiAgPC9kZWZzPgoKICA8IS0tIEFubmVhdSBtw6l0YWwgLS0+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNTAiIGZpbGw9InVybCgjcmluZykiLz4KICA8IS0tIEJvcmQgaW50w6lyaWV1ciBzb21icmUgLS0+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDMiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLDAsMCwwLjM1KSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KCiAgPCEtLSBEcmFwZWF1IC0tPgogIDxnIGNsaXAtcGF0aD0idXJsKCNmbGFnLWNsaXApIj4KICAgICAgICA8cmVjdCB4PSI4IiAgeT0iOCIgd2lkdGg9IjI4IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjMDAyMzk1Ii8+CiAgICA8cmVjdCB4PSIzNiIgeT0iOCIgd2lkdGg9IjI4IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjRUNFQ0VDIi8+CiAgICA8cmVjdCB4PSI2NCIgeT0iOCIgd2lkdGg9IjI4IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjRUQyOTM5Ii8+CiAgPC9nPgoKICA8IS0tIE9tYnJlIGludGVybmUgc3VyIGxlIGRyYXBlYXUgLS0+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDEuNSIgZmlsbD0idXJsKCNpbm5lci1zaGFkb3cpIi8+CiAgPCEtLSBHbG9zcyAtLT4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MS41IiBmaWxsPSJ1cmwoI2dsb3NzKSIvPgo8L3N2Zz4=" alt="FR" style="width:28px;height:28px;display:block"></button>
       <button class="lang-btn" onclick="setLang('zh')" title="中文"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDwhLS0gQW5uZWF1IG3DqXRhbCBhcmdlbnTDqSAtLT4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0icmluZyIgY3g9IjM4JSIgY3k9IjMyJSIgcj0iNzAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgICBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMzAlIiAgc3RvcC1jb2xvcj0iI2Q4ZDhkOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjYwJSIgIHN0b3AtY29sb3I9IiM5MDkwOTAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiICBzdG9wLWNvbG9yPSIjYjBiMGIwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzc4Nzg3OCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDwhLS0gR2xvc3Mgc3VyIGxlIGRyYXBlYXUgLS0+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9Imdsb3NzIiBjeD0iNDUlIiBjeT0iMjIlIiByPSI1OCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiAgIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4zOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjY1JSIgIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4wNSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDwhLS0gT21icmUgaW50ZXJuZSAtLT4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iaW5uZXItc2hhZG93IiBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjgwJSIgIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4yOCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDwhLS0gQ2xpcCBkcmFwZWF1IC0tPgogICAgPGNsaXBQYXRoIGlkPSJmbGFnLWNsaXAiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQxLjUiLz48L2NsaXBQYXRoPgogICAgCiAgPC9kZWZzPgoKICA8IS0tIEFubmVhdSBtw6l0YWwgLS0+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNTAiIGZpbGw9InVybCgjcmluZykiLz4KICA8IS0tIEJvcmQgaW50w6lyaWV1ciBzb21icmUgLS0+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDMiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLDAsMCwwLjM1KSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KCiAgPCEtLSBEcmFwZWF1IC0tPgogIDxnIGNsaXAtcGF0aD0idXJsKCNmbGFnLWNsaXApIj4KICAgICAgICA8cmVjdCB4PSI4IiB5PSI4IiB3aWR0aD0iODQiIGhlaWdodD0iODQiIGZpbGw9IiNERTI5MTAiLz4KICAgIDxwYXRoIGQ9Ik0yNS4wMCwyNS41MEwyNi45MSwzMS4zN0wzMy4wOCwzMS4zN0wyOC4wOSwzNS4wMEwzMC4wMCw0MC44OEwyNS4wMCwzNy4yNUwyMC4wMCw0MC44OEwyMS45MSwzNS4wMEwxNi45MiwzMS4zN0wyMy4wOSwzMS4zN1oiIGZpbGw9IiNGRkRFMDAiLz4KICAgIDxwYXRoIGQ9Ik00Ny4zNywyNS45NUw0OC45NywyNC43MEw0OC4yOCwyMi43OUw0OS45NywyMy45M0w1MS41NywyMi42OEw1MS4wMSwyNC42NEw1Mi42OSwyNS43OEw1MC42NiwyNS44NUw1MC4wOSwyNy44MEw0OS40MCwyNS44OFoiIGZpbGw9IiNGRkRFMDAiLz4KICAgIDxwYXRoIGQ9Ik01NS4yMCwzNC4wMEw1Ny4xMywzMy4zN0w1Ny4xMywzMS4zNEw1OC4zMywzMi45OEw2MC4yNywzMi4zNUw1OS4wNywzNC4wMEw2MC4yNywzNS42NUw1OC4zMywzNS4wMkw1Ny4xMywzNi42Nkw1Ny4xMywzNC42M1oiIGZpbGw9IiNGRkRFMDAiLz4KICAgIDxwYXRoIGQ9Ik01NS40Miw0Ni45MUw1Ny40NSw0Ny4wOEw1OC4yNCw0NS4yMUw1OC43MCw0Ny4xOUw2MC43Myw0Ny4zN0w1OC45OSw0OC40Mkw1OS40NCw1MC40MEw1Ny45MSw0OS4wN0w1Ni4xNiw1MC4xMUw1Ni45Niw0OC4yNFoiIGZpbGw9IiNGRkRFMDAiLz4KICAgIDxwYXRoIGQ9Ik00Ny45NCw1NS4xMEw0OS43OSw1NS45NUw1MS4xNyw1NC40NUw1MC45Myw1Ni40N0w1Mi43OCw1Ny4zMkw1MC43OSw1Ny43Mkw1MC41NSw1OS43NEw0OS41NSw1Ny45N0w0Ny41Niw1OC4zN0w0OC45NCw1Ni44OFoiIGZpbGw9IiNGRkRFMDAiLz4KICA8L2c+CgogIDwhLS0gT21icmUgaW50ZXJuZSBzdXIgbGUgZHJhcGVhdSAtLT4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MS41IiBmaWxsPSJ1cmwoI2lubmVyLXNoYWRvdykiLz4KICA8IS0tIEdsb3NzIC0tPgogIDxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQxLjUiIGZpbGw9InVybCgjZ2xvc3MpIi8+Cjwvc3ZnPg==" alt="ZH" style="width:28px;height:28px;display:block"></button>
@@ -453,31 +439,7 @@ function checkGate(){
 <!-- ═══════════════ PAGE ACCUEIL ═══════════════ -->
 <div id="home">
   <div class="hero">
-<div class="hero-logo">
-      <svg class="hero-flag-banner" viewBox="0 0 312 160" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="hs" x="-10%" y="-10%" width="120%" height="130%">
-            <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="rgba(0,0,0,.4)"/>
-          </filter>
-          <clipPath id="hfc"><rect width="312" height="160" rx="14"/></clipPath>
-        </defs>
-        <g filter="url(#hs)" clip-path="url(#hfc)">
-          <rect x="0"   y="0" width="104" height="160" fill="#002395"/>
-          <rect x="104" y="0" width="104" height="160" fill="#ffffff"/>
-          <rect x="208" y="0" width="104" height="160" fill="#DE2910"/>
-        </g>
-        <g clip-path="url(#hfc)">
-          <polygon fill="#FFDE00" points="232.00,36.00 236.49,49.82 251.02,49.82 239.27,58.36 243.76,72.18 232.00,63.64 220.24,72.18 224.73,58.36 212.98,49.82 227.51,49.82"/>
-          <polygon fill="#FFDE00" points="248.64,20.11 254.55,18.07 254.44,11.83 258.20,16.82 264.11,14.78 260.52,19.90 264.28,24.89 258.31,23.06 254.72,28.18 254.61,21.93"/>
-          <polygon fill="#FFDE00" points="278.90,35.45 276.97,41.39 282.03,45.06 275.78,45.06 273.85,51.00 271.92,45.06 265.67,45.06 270.72,41.39 268.79,35.45 273.85,39.12"/>
-          <polygon fill="#FFDE00" points="273.85,61.00 275.78,66.94 282.03,66.94 276.97,70.61 278.90,76.55 273.85,72.88 268.79,76.55 270.72,70.61 265.67,66.94 271.92,66.94"/>
-          <polygon fill="#FFDE00" points="252.30,85.00 257.29,88.76 262.41,85.17 260.38,91.08 265.37,94.84 259.12,94.73 257.09,100.64 255.26,94.67 249.01,94.56 254.13,90.97"/>
-        </g>
-      </svg>
-      <div class="hero-brand">Super Fǎyǔ</div>
-      <div class="hero-brand-zh">超级法语</div>
-    </div>
-        <h1>Apprenez le français,<br>à votre rythme 🇫🇷</h1>
+    <h1>Apprenez le français,<br>à votre rythme 🇫🇷</h1>
     <p>Un parcours structuré selon le CECRL, du niveau A1 au C2. Le niveau A1 est entièrement gratuit : exercices interactifs + 27 leçons complètes.</p>
     <div class="hero-btns">
       <button class="btn-primary" onclick="showPage('test')">Trouver mon niveau</button>
