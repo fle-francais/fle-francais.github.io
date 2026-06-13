@@ -357,29 +357,38 @@
 
 <div id="gate-overlay">
   <div class="gate-logo">
-    <svg class="gate-flag-banner" viewBox="0 0 312 160" xmlns="http://www.w3.org/2000/svg">
+    <svg class="gate-flag-banner" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <filter id="fshadow" x="-10%" y="-10%" width="120%" height="130%">
-          <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,.4)"/>
-        </filter>
-        <clipPath id="flag-clip"><rect width="312" height="160" rx="14"/></clipPath>
+        <filter id="fshadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="5" stdDeviation="9" flood-color="rgba(0,0,0,.4)"/></filter>
+        <clipPath id="flag-clip"><rect width="320" height="160" rx="18"/></clipPath>
+        <linearGradient id="gf-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a3a9e"/><stop offset="100%" stop-color="#001f80"/></linearGradient>
+        <linearGradient id="gf-red"  x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e03030"/><stop offset="100%" stop-color="#aa1515"/></linearGradient>
+        <linearGradient id="gf-shine" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="rgba(255,255,255,.22)"/>
+          <stop offset="48%"  stop-color="rgba(255,255,255,.04)"/>
+          <stop offset="49%"  stop-color="rgba(0,0,0,.04)"/>
+          <stop offset="100%" stop-color="rgba(0,0,0,.14)"/>
+        </linearGradient>
       </defs>
       <g filter="url(#fshadow)" clip-path="url(#flag-clip)">
-        <rect x="0"   y="0" width="104" height="160" fill="#002395"/>
-        <rect x="104" y="0" width="104" height="160" fill="#ffffff"/>
-        <rect x="208" y="0" width="104" height="160" fill="#DE2910"/>
+        <rect x="0"   y="0" width="107" height="160" fill="url(#gf-blue)"/>
+        <rect x="107" y="0" width="106" height="160" fill="#f8f8f8"/>
+        <rect x="213" y="0" width="107" height="160" fill="url(#gf-red)"/>
+        <rect x="0"   y="0" width="320" height="160" fill="url(#gf-shine)"/>
       </g>
       <g clip-path="url(#flag-clip)">
-        <polygon fill="#FFDE00" points="232.00,36.00 236.49,49.82 251.02,49.82 239.27,58.36 243.76,72.18 232.00,63.64 220.24,72.18 224.73,58.36 212.98,49.82 227.51,49.82"/>
-        <polygon fill="#FFDE00" points="248.64,20.11 254.55,18.07 254.44,11.83 258.20,16.82 264.11,14.78 260.52,19.90 264.28,24.89 258.31,23.06 254.72,28.18 254.61,21.93"/>
-        <polygon fill="#FFDE00" points="278.90,35.45 276.97,41.39 282.03,45.06 275.78,45.06 273.85,51.00 271.92,45.06 265.67,45.06 270.72,41.39 268.79,35.45 273.85,39.12"/>
-        <polygon fill="#FFDE00" points="273.85,61.00 275.78,66.94 282.03,66.94 276.97,70.61 278.90,76.55 273.85,72.88 268.79,76.55 270.72,70.61 265.67,66.94 271.92,66.94"/>
-        <polygon fill="#FFDE00" points="252.30,85.00 257.29,88.76 262.41,85.17 260.38,91.08 265.37,94.84 259.12,94.73 257.09,100.64 255.26,94.67 249.01,94.56 254.13,90.97"/>
-        <text x="156" y="38" font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#DE2910" text-anchor="middle">超</text>
-        <text x="156" y="72" font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#DE2910" text-anchor="middle">级</text>
-        <text x="156" y="108" font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#DE2910" text-anchor="middle">法</text>
-        <text x="156" y="144" font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#DE2910" text-anchor="middle">语</text>
+        <polygon fill="#FFE000" points="232,27 235,36.5 245,36.5 237,42.5 240,52 232,46 224,52 227,42.5 219,36.5 229,36.5"/>
+        <polygon fill="#FFE000" transform="rotate(20,253,25)"  points="253,20 254.1,23.5 257.8,23.5 254.8,25.6 255.9,29.1 253,27 250.1,29.1 251.2,25.6 248.2,23.5 251.9,23.5"/>
+        <polygon fill="#FFE000" transform="rotate(-20,266,35)" points="266,30 267.1,33.5 270.8,33.5 267.8,35.6 268.9,39.1 266,37 263.1,39.1 264.2,35.6 261.2,33.5 264.9,33.5"/>
+        <polygon fill="#FFE000"                                points="266,47 267.1,50.5 270.8,50.5 267.8,52.6 268.9,56.1 266,54 263.1,56.1 264.2,52.6 261.2,50.5 264.9,50.5"/>
+        <polygon fill="#FFE000" transform="rotate(20,253,62)"  points="253,57 254.1,60.5 257.8,60.5 254.8,62.6 255.9,66.1 253,64 250.1,66.1 251.2,62.6 248.2,60.5 251.9,60.5"/>
+        <text x="160" y="40"  font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#CC1111" text-anchor="middle">超</text>
+        <text x="160" y="74"  font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#CC1111" text-anchor="middle">级</text>
+        <text x="160" y="110" font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#CC1111" text-anchor="middle">法</text>
+        <text x="160" y="146" font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#CC1111" text-anchor="middle">语</text>
       </g>
+      <rect x=".5"  y=".5"  width="319" height="159" rx="17.5" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+      <rect x="1.5" y="1.5" width="317" height="157" rx="16.5" fill="none" stroke="rgba(0,0,0,.15)"    stroke-width="1"/>
     </svg>
     <div class="gate-brand">Super <em>F</em>ǎyǔ</div>
     <div class="gate-brand-zh">超级法语</div>
@@ -435,27 +444,38 @@ function checkGate(){
 <!-- ═══════════════ PAGE ACCUEIL ═══════════════ -->
 <div id="home">
   <div class="hero">
-    <svg class="hero-flag-banner" viewBox="0 0 312 160" xmlns="http://www.w3.org/2000/svg">
+    <svg class="hero-flag-banner" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <filter id="hfshadow" x="-8%" y="-8%" width="116%" height="116%"><feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="rgba(0,0,0,.45)"/></filter>
-        <clipPath id="hfc"><rect width="312" height="160" rx="14"/></clipPath>
+        <filter id="hfshadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="5" stdDeviation="9" flood-color="rgba(0,0,0,.4)"/></filter>
+        <clipPath id="hfc"><rect width="320" height="160" rx="18"/></clipPath>
+        <linearGradient id="hf-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a3a9e"/><stop offset="100%" stop-color="#001f80"/></linearGradient>
+        <linearGradient id="hf-red"  x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e03030"/><stop offset="100%" stop-color="#aa1515"/></linearGradient>
+        <linearGradient id="hf-shine" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="rgba(255,255,255,.22)"/>
+          <stop offset="48%"  stop-color="rgba(255,255,255,.04)"/>
+          <stop offset="49%"  stop-color="rgba(0,0,0,.04)"/>
+          <stop offset="100%" stop-color="rgba(0,0,0,.14)"/>
+        </linearGradient>
       </defs>
       <g filter="url(#hfshadow)" clip-path="url(#hfc)">
-        <rect x="0"   y="0" width="104" height="160" fill="#002395"/>
-        <rect x="104" y="0" width="104" height="160" fill="#ffffff"/>
-        <rect x="208" y="0" width="104" height="160" fill="#DE2910"/>
+        <rect x="0"   y="0" width="107" height="160" fill="url(#hf-blue)"/>
+        <rect x="107" y="0" width="106" height="160" fill="#f8f8f8"/>
+        <rect x="213" y="0" width="107" height="160" fill="url(#hf-red)"/>
+        <rect x="0"   y="0" width="320" height="160" fill="url(#hf-shine)"/>
       </g>
       <g clip-path="url(#hfc)">
-        <polygon fill="#FFDE00" points="232.00,36.00 236.49,49.82 251.02,49.82 239.27,58.36 243.76,72.18 232.00,63.64 220.24,72.18 224.73,58.36 212.98,49.82 227.51,49.82"/>
-        <polygon fill="#FFDE00" points="248.64,20.11 254.55,18.07 254.44,11.83 258.20,16.82 264.11,14.78 260.52,19.90 264.28,24.89 258.31,23.06 254.72,28.18 254.61,21.93"/>
-        <polygon fill="#FFDE00" points="278.90,35.45 276.97,41.39 282.03,45.06 275.78,45.06 273.85,51.00 271.92,45.06 265.67,45.06 270.72,41.39 268.79,35.45 273.85,39.12"/>
-        <polygon fill="#FFDE00" points="273.85,61.00 275.78,66.94 282.03,66.94 276.97,70.61 278.90,76.55 273.85,72.88 268.79,76.55 270.72,70.61 265.67,66.94 271.92,66.94"/>
-        <polygon fill="#FFDE00" points="252.30,85.00 257.29,88.76 262.41,85.17 260.38,91.08 265.37,94.84 259.12,94.73 257.09,100.64 255.26,94.67 249.01,94.56 254.13,90.97"/>
-        <text x="156" y="38" font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#DE2910" text-anchor="middle">超</text>
-        <text x="156" y="72" font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#DE2910" text-anchor="middle">级</text>
-        <text x="156" y="108" font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#DE2910" text-anchor="middle">法</text>
-        <text x="156" y="144" font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#DE2910" text-anchor="middle">语</text>
+        <polygon fill="#FFE000" points="232,27 235,36.5 245,36.5 237,42.5 240,52 232,46 224,52 227,42.5 219,36.5 229,36.5"/>
+        <polygon fill="#FFE000" transform="rotate(20,253,25)"  points="253,20 254.1,23.5 257.8,23.5 254.8,25.6 255.9,29.1 253,27 250.1,29.1 251.2,25.6 248.2,23.5 251.9,23.5"/>
+        <polygon fill="#FFE000" transform="rotate(-20,266,35)" points="266,30 267.1,33.5 270.8,33.5 267.8,35.6 268.9,39.1 266,37 263.1,39.1 264.2,35.6 261.2,33.5 264.9,33.5"/>
+        <polygon fill="#FFE000"                                points="266,47 267.1,50.5 270.8,50.5 267.8,52.6 268.9,56.1 266,54 263.1,56.1 264.2,52.6 261.2,50.5 264.9,50.5"/>
+        <polygon fill="#FFE000" transform="rotate(20,253,62)"  points="253,57 254.1,60.5 257.8,60.5 254.8,62.6 255.9,66.1 253,64 250.1,66.1 251.2,62.6 248.2,60.5 251.9,60.5"/>
+        <text x="160" y="40"  font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#CC1111" text-anchor="middle">超</text>
+        <text x="160" y="74"  font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#CC1111" text-anchor="middle">级</text>
+        <text x="160" y="110" font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#CC1111" text-anchor="middle">法</text>
+        <text x="160" y="146" font-family="system-ui,sans-serif" font-weight="900" font-size="30" fill="#CC1111" text-anchor="middle">语</text>
       </g>
+      <rect x=".5"  y=".5"  width="319" height="159" rx="17.5" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+      <rect x="1.5" y="1.5" width="317" height="157" rx="16.5" fill="none" stroke="rgba(0,0,0,.15)"    stroke-width="1"/>
     </svg>
     <div class="hero-wordmark">
       <span class="hero-brand">Super Fǎyǔ</span>
