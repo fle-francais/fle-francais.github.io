@@ -18,10 +18,11 @@ a{color:var(--blue);text-decoration:none}
 .ph-sub{font-size:.68rem;opacity:.8}
 .ph-next,.ph-prev{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
 .ph-next:hover,.ph-prev:hover{background:rgba(255,255,255,.2)}
-.ph-lang{display:flex;gap:3px;margin-right:4px}
-.ph-lang-btn{padding:3px 8px;border-radius:12px;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.75);background:none;font-size:.68rem;font-weight:800;cursor:pointer;transition:all .15s;letter-spacing:.02em}
-.ph-lang-btn:hover{border-color:#fff;color:#fff}
-.ph-lang-btn.active{background:rgba(255,255,255,.25);border-color:#fff;color:#fff}
+.ph-lang{display:flex;gap:5px;margin-right:4px;align-items:center}
+.ph-lang-btn{padding:2px;border-radius:50%;border:2px solid transparent;background:none;cursor:pointer;transition:all .2s;opacity:.55;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ph-lang-btn:hover{opacity:.9;border-color:rgba(255,255,255,.6)}
+.ph-lang-btn.active{opacity:1;border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.35)}
+.ph-lang-btn img{width:30px;height:30px;border-radius:50%;display:block}
 /* TABS */
 .slide-nav{display:flex;background:#fff;border-bottom:2px solid #f0f0f0;flex-shrink:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .slide-nav::-webkit-scrollbar{display:none}
@@ -258,8 +259,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <a class="ph-back" href="../index.html">🏠</a>
   <div style="flex:1"><div class="ph-title">Quelle musique tu aimes ?</div><div class="ph-sub">Leçon 6B · A1</div></div>
   <div class="ph-lang">
-    <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')">FR</button>
-    <button class="ph-lang-btn" id="btn-lang-zh" onclick="setLang('zh')">中</button>
+    <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')" title="Français"><img src="../icons/flag-fr.svg" alt="FR"/></button>
+    <button class="ph-lang-btn" id="btn-lang-zh" onclick="setLang('zh')" title="中文"><img src="../icons/flag-zh.svg" alt="中"/></button>
   </div>
   <a class="ph-prev" href="6A_slides.html">← 6A</a>
   <a class="ph-next" href="6C_slides.html">6C →</a>
