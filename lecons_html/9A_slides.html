@@ -256,12 +256,12 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <body>
 <header class="page-header">
   <a class="ph-back" href="../index.html">🏠</a>
-  <a class="ph-prev" href="8C_slides.html">← 8C</a>
   <div style="flex:1"><div class="ph-title">On part en vacances !</div><div class="ph-sub">Leçon 9A · A1</div></div>
   <div class="ph-lang">
     <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')">FR</button>
     <button class="ph-lang-btn" id="btn-lang-zh" onclick="setLang('zh')">中</button>
   </div>
+  <a class="ph-prev" href="8C_slides.html">← 8C</a>
   <a class="ph-next" href="9B_slides.html">9B →</a>
 </header>
 <nav class="slide-nav" id="slide-nav">
@@ -550,7 +550,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModa
   pb.innerHTML=lb('play');
   var zb=document.createElement('button');zb.className='dl-zh-btn';zb.textContent='中';zb.title='Traduction';zb.style.marginLeft='auto';
   zb.addEventListener('click',function(){dlg.classList.toggle('dl-zh-on');zb.classList.toggle('zactive');});
-  wrap.appendChild(pb);wrap.appendChild(zb);dlg.parentNode.insertBefore(wrap,dlg);
+  wrap.appendChild(pb);if(dlg.querySelectorAll('.dl-zh-line').length>0){wrap.appendChild(zb);}dlg.parentNode.insertBefore(wrap,dlg);
   var ca=null,playing=false,paused=false,rafId=null;
   rows.forEach(function(row,i){row.addEventListener('click',function(e){if(e.target.closest('.dl-wave'))return;stop();playLine(i);});});
   pb.addEventListener('click',function(e){e.stopPropagation();if(playing&&!paused){if(ca)ca.pause();paused=true;pb.innerHTML=lb('resume');return;}if(paused){if(ca)ca.play().catch(function(){});paused=false;pb.innerHTML=lb('pause');return;}playLine(0);});
