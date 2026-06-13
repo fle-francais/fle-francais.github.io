@@ -662,7 +662,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     <div class="card">
       <div class="card-head head-ex">✏️ Ex. 4 — Associez</div>
       <div class="card-body">
-        <div class="assoc-ref"><strong>a.</strong> lieu d'études &nbsp;|&nbsp; <strong>b.</strong> s'inscrire &nbsp;|&nbsp; <strong>c.</strong> emprunter des livres &nbsp;|&nbsp; <strong>d.</strong> fait des études</div>
+        <div class="assoc-ref"><strong>a.</strong> lieu d'études &nbsp;|&nbsp; <strong>b.</strong> mettre son nom sur une liste &nbsp;|&nbsp; <strong>c.</strong> emprunter des livres &nbsp;|&nbsp; <strong>d.</strong> fait des études</div>
         <div class="assoc-row"><div class="assoc-left"><span class="assoc-word">1. bibliothèque</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-ex4-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="c" onclick="checkBlankData(this,'ma-ex4-0','fb-ma-ex4-0')">✓</button><span class="fb" id="fb-ma-ex4-0"></span></div></div>
         <div class="assoc-row"><div class="assoc-left"><span class="assoc-word">2. université</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-ex4-1" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="a" onclick="checkBlankData(this,'ma-ex4-1','fb-ma-ex4-1')">✓</button><span class="fb" id="fb-ma-ex4-1"></span></div></div>
         <div class="assoc-row"><div class="assoc-left"><span class="assoc-word">3. s'inscrire</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-ex4-2" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="b" onclick="checkBlankData(this,'ma-ex4-2','fb-ma-ex4-2')">✓</button><span class="fb" id="fb-ma-ex4-2"></span></div></div>
@@ -800,7 +800,18 @@ function goSlide(n){
   tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
   currentSlide=n;
 }
-function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play();}
+function playAudio(src){
+  if(window._pA){window._pA.pause();window._pA.currentTime=0;}
+  var a=new Audio(src);window._pA=a;
+  a.onerror=function(){
+    var word=src.replace(/.*\//,'').replace(/\.mp3$/,'').replace(/phon_1A_|vocab_1A_|comm_1A_\d+/,'').replace(/_/g,' ');
+    if('speechSynthesis' in window){
+      var u=new SpeechSynthesisUtterance(word);u.lang='fr-FR';u.rate=0.85;
+      speechSynthesis.cancel();speechSynthesis.speak(u);
+    }
+  };
+  a.play().catch(function(){a.onerror&&a.onerror();});
+}
 function checkBlank(inputId,answer,fbId){var inp=document.getElementById(inputId),fb=document.getElementById(fbId);if(!inp)return false;var val=inp.value.trim().toLowerCase(),ok=answer.toLowerCase().split(' / ').some(function(a){return val===a.trim();});inp.style.borderBottomColor=ok?'var(--green)':'#e74c3c';inp.style.color=ok?'var(--green)':'#e74c3c';if(fb){fb.textContent=ok?'✅':'❌ → '+answer;fb.className='fb '+(ok?'ok':'ko');}return ok;}
 function checkBlankData(btn,inputId,fbId){checkBlank(inputId,btn.dataset.ans,fbId);}
 function verifyBlanks(scoreId,inputIds,btnIds){var ok=0;btnIds.forEach(function(bid,i){var btn=document.getElementById(bid);if(btn)checkBlankData(btn,inputIds[i],'fb-'+inputIds[i]);});inputIds.forEach(function(id){var inp=document.getElementById(id);if(inp&&inp.style.color.indexOf('green')>-1)ok++;});var s=document.getElementById('score-'+scoreId);if(s){s.textContent=ok+'/'+inputIds.length;s.style.color=ok===inputIds.length?'var(--green)':ok>=inputIds.length/2?'var(--orange)':'#e74c3c';}}
