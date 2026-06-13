@@ -265,20 +265,20 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <a class="ph-next" href="7A_slides.html">7A →</a>
 </header>
 <nav class="slide-nav" id="slide-nav">
-  <button class="slide-tab active" onclick="goSlide(0)">💬 Dialogue</button>
-  <button class="slide-tab" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" onclick="goSlide(2)">🗣️ Communiquer</button>
-  <button class="slide-tab" onclick="goSlide(3)">🎵 Phonétique</button>
-  <button class="slide-tab" onclick="goSlide(4)">📖 Grammaire</button>
-  <button class="slide-tab" onclick="goSlide(5)">✏️ Exercices</button>
-  <button class="slide-tab" onclick="goSlide(7)">✍️ À toi !</button>
+  <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
+  <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(4)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(5)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(7)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
 <div class="slide s-active" id="slide-0">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-dialogue">💬 Dialogue</div>
+      <div class="card-head head-dialogue">💬 Dialogue<span class="comm-zh"> · 对话</span></div>
       <div class="card-body dl-layout">
         <div class="dl-img-col">
           <img alt="Illustration leçon 6C" loading="lazy" src="../images/dialogue/dialogue_6C.jpg"/>
@@ -302,14 +302,14 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer">
-    <button class="btn-ns" onclick="goSlide(1)">🔍 Comprendre →</button>
+    <button class="btn-ns" data-fr="🔍 Comprendre →" data-zh="🔍 理解 →" onclick="goSlide(1)">🔍 Comprendre →</button>
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
 <div class="slide" id="slide-1">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension</div>
+      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
       <div class="card-body"><div class="compr-item">
 <div class="compr-q">Où est-ce que Baptiste va ce soir ?</div>
 <button class="btn-reveal" onclick="revealAnswer('ca-6C-0')">Voir</button>
@@ -328,15 +328,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
-    <button class="btn-ns" onclick="goSlide(2)">🗣️ Communiquer →</button>
+    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
+    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
   </div>
 </div>
 <!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
 <div class="slide" id="slide-2">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-comm">🗣️ Pour communiquer</div>
+      <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
       <div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr">On sort ce soir ? / Tu veux venir avec nous ?</div><div class="comm-zh">今晚出去？／你想和我们一起来吗？</div></div>
 <div class="comm-item"><div class="comm-fr">Je vais + infinitif (projet).</div><div class="comm-zh">我要去……（je vais + 动词原形）。</div></div>
 <div class="comm-item"><div class="comm-fr">Avec plaisir ! / Bonne idée ! / D'accord !</div><div class="comm-zh">很乐意！／好主意！／好的！</div></div>
@@ -345,7 +345,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 </div></div>
     </div>
     <div class="card">
-      <div class="card-head head-vocab">📚 Vocabulaire clé</div>
+      <div class="card-head head-vocab">📚 Vocabulaire clé<span class="comm-zh"> · 核心词汇</span></div>
       <div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">sortir</div><div class="vocab-gram">v.</div><div class="vocab-zh">出去</div></div>
 <div class="vocab-card"><div class="vocab-word">le concert</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">音乐会</div></div>
 <div class="vocab-card"><div class="vocab-word">dîner</div><div class="vocab-gram">v.</div><div class="vocab-zh">吃晚饭</div></div>
@@ -358,15 +358,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(1)">← Comprendre</button>
-    <button class="btn-ns" onclick="goSlide(3)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE ══ -->
 <div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-phon">🎵 Phonétique</div>
+      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span></div>
       <div class="card-body"><div class="phon-body">§ Phonétique — Les consonnes finales muettes
 Règle En français, la plupart des consonnes finales ne se prononcent pas : p, t, s, x, z, d
 sont muets en fin de mot.
@@ -376,21 +376,21 @@ rendez-vous — soir.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(2)">← Communiquer</button>
-    <button class="btn-ns" onclick="goSlide(4)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(4)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : GRAMMAIRE ══ -->
 <div class="slide" id="slide-4">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-gram">📖 Point de langue</div>
+      <div class="card-head head-gram">📖 Point de langue<span class="comm-zh"> · 语法要点</span></div>
       <div class="card-body"><div class="gram-rule">§§ Le futur proche exprime une action future proche ou planifiée. Forme : aller (conjugué) + verbe à l'infinitif.</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>je vais</td><td>nous allons</td></tr><tr><td>tu vas</td><td>vous allez</td></tr><tr><td>il/elle va</td><td>ils/elles vont</td></tr></tbody></table><div class="gram-ex">• Nous allons dîner avant. / Ils vont être quatre.<br/>• Forme négative : Je ne vais pas pouvoir venir. / Elle ne va pas partir.<br/>• Forme interrogative : Tu vas venir ? / Est-ce qu'il va travailler ce soir ?</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(3)">← Phonétique</button>
-    <button class="btn-ns" onclick="goSlide(5)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(3)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(5)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : EXERCICES 1/2 ══ -->
@@ -407,11 +407,11 @@ rendez-vous — soir.</div></div>
 <div class="blank-row">3. <span>Nous </span><input autocomplete="off" class="blank-input" id="bl-6C-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex1-2').click()" type="text"/><button class="check-btn" data-ans="allons faire" id="chk-bl-6C-ex1-2" onclick="checkBlankData(this,'bl-6C-ex1-2','fb-bl-6C-ex1-2')">✓</button><span class="fb" id="fb-bl-6C-ex1-2"></span><span> (faire) la fête samedi.</span></div>
 <div class="blank-row">4. <span>Vous </span><input autocomplete="off" class="blank-input" id="bl-6C-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex1-3').click()" type="text"/><button class="check-btn" data-ans="allez venir" id="chk-bl-6C-ex1-3" onclick="checkBlankData(this,'bl-6C-ex1-3','fb-bl-6C-ex1-3')">✓</button><span class="fb" id="fb-bl-6C-ex1-3"></span><span> (venir) avec nous ?</span></div>
 <div class="blank-row">5. <span>Ils ne </span><input autocomplete="off" class="blank-input" id="bl-6C-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex1-4').click()" type="text"/><button class="check-btn" data-ans="vont pouvoir" id="chk-bl-6C-ex1-4" onclick="checkBlankData(this,'bl-6C-ex1-4','fb-bl-6C-ex1-4')">✓</button><span class="fb" id="fb-bl-6C-ex1-4"></span><span> pas (pouvoir) venir.</span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Vos projets pour ce week-end <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Écrivez 5 phrases sur vos projets avec le futur proche : Samedi matin, je vais… L'après-midi, je vais… Samedi soir, nous allons… Dimanche, je vais… / Je ne vais pas…</div></div></div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Vos projets pour ce week-end <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Écrivez 5 phrases sur vos projets avec le futur proche : Samedi matin, je vais… L'après-midi, je vais… Samedi soir, nous allons… Dimanche, je vais… / Je ne vais pas…<span class="comm-zh"> · 用近将来时写5句关于您计划的句子</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(4)">← Grammaire</button>
-    <button class="btn-ns" onclick="goSlide(6)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(4)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(6)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 2/2 ══ -->
@@ -422,12 +422,12 @@ rendez-vous — soir.</div></div>
     <button class="sub-nav-btn" disabled>→</button>
   </div>
   <div class="slide-body">
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Formes négative et interrogative <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez les phrases :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Formes négative et interrogative <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez les phrases :<span class="comm-zh"> · 改写句子</span></div>
 <div class="blank-row">1. <span>Il va venir ce soir. → Forme négative : </span><input autocomplete="off" class="blank-input" id="bl-6C-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex3-0').click()" type="text"/><button class="check-btn" data-ans="Il ne va pas venir ce soir." id="chk-bl-6C-ex3-0" onclick="checkBlankData(this,'bl-6C-ex3-0','fb-bl-6C-ex3-0')">✓</button><span class="fb" id="fb-bl-6C-ex3-0"></span><span></span></div>
 <div class="blank-row">2. <span>Nous allons dîner avant. → Forme négative : </span><input autocomplete="off" class="blank-input" id="bl-6C-ex3-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex3-1').click()" type="text"/><button class="check-btn" data-ans="Nous n'allons pas dîner avant." id="chk-bl-6C-ex3-1" onclick="checkBlankData(this,'bl-6C-ex3-1','fb-bl-6C-ex3-1')">✓</button><span class="fb" id="fb-bl-6C-ex3-1"></span><span></span></div>
 <div class="blank-row">3. <span>Tu vas sortir ce week-end. → Forme interrogative (est-ce que) : </span><input autocomplete="off" class="blank-input" id="bl-6C-ex3-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex3-2').click()" type="text"/><button class="check-btn" data-ans="Est-ce que tu vas sortir ce week-end ?" id="chk-bl-6C-ex3-2" onclick="checkBlankData(this,'bl-6C-ex3-2','fb-bl-6C-ex3-2')">✓</button><span class="fb" id="fb-bl-6C-ex3-2"></span><span></span></div>
 <div class="blank-row">4. <span>Vous allez inviter vos amis. → Forme interrogative (inversion) : </span><input autocomplete="off" class="blank-input" id="bl-6C-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex3-3').click()" type="text"/><button class="check-btn" data-ans="Allez-vous inviter vos amis ?" id="chk-bl-6C-ex3-3" onclick="checkBlankData(this,'bl-6C-ex3-3','fb-bl-6C-ex3-3')">✓</button><span class="fb" id="fb-bl-6C-ex3-3"></span><span></span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Vocabulaire : sortir et planifier <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Choisissez le mot correct pour compléter chaque phrase : rendez-vous / concert / dîner / inviter / bientôt</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Vocabulaire : sortir et planifier <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Choisissez le mot correct pour compléter chaque phrase : rendez-vous / concert / dîner / inviter / bientôt<span class="comm-zh"> · 选择正确的词完成每个句子</span></div>
 <div class="blank-row">1. <span>On va </span><input autocomplete="off" class="blank-input" id="bl-6C-ex4-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex4-0').click()" type="text"/><button class="check-btn" data-ans="dîner" id="chk-bl-6C-ex4-0" onclick="checkBlankData(this,'bl-6C-ex4-0','fb-bl-6C-ex4-0')">✓</button><span class="fb" id="fb-bl-6C-ex4-0"></span><span> au restaurant avant le spectacle.</span></div>
 <div class="blank-row">2. <span>J'ai un </span><input autocomplete="off" class="blank-input" id="bl-6C-ex4-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex4-1').click()" type="text"/><button class="check-btn" data-ans="rendez-vous" id="chk-bl-6C-ex4-1" onclick="checkBlankData(this,'bl-6C-ex4-1','fb-bl-6C-ex4-1')">✓</button><span class="fb" id="fb-bl-6C-ex4-1"></span><span> à 20h devant le cinéma.</span></div>
 <div class="blank-row">3. <span>Tu veux </span><input autocomplete="off" class="blank-input" id="bl-6C-ex4-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex4-2').click()" type="text"/><button class="check-btn" data-ans="inviter" id="chk-bl-6C-ex4-2" onclick="checkBlankData(this,'bl-6C-ex4-2','fb-bl-6C-ex4-2')">✓</button><span class="fb" id="fb-bl-6C-ex4-2"></span><span> tes amis à la fête ?</span></div>
@@ -435,15 +435,15 @@ rendez-vous — soir.</div></div>
 <div class="blank-row">5. <span>À </span><input autocomplete="off" class="blank-input" id="bl-6C-ex4-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex4-4').click()" type="text"/><button class="check-btn" data-ans="bientôt" id="chk-bl-6C-ex4-4" onclick="checkBlankData(this,'bl-6C-ex4-4','fb-bl-6C-ex4-4')">✓</button><span class="fb" id="fb-bl-6C-ex4-4"></span><span> ! On se retrouve ce soir !</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(5)">← Préc.</button>
-    <button class="btn-ns" onclick="goSlide(7)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(5)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(7)">✍️ À toi ! →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : À TOI ! ══ -->
 <div class="slide" id="slide-7">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-prod">✍️ À toi !</div>
+      <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
       <div class="card-body"><div class="prod-box">✍️ À toi ! Proposez à un(e) ami(e) une sortie pour le week-end. Écrivez les messages (8
 répliques) : proposition, réponse, détails pratiques.
 <span class="prod-zh">邀请一位朋友周末出去。写一段消息对话（8个回合）：提议、回复、实际细节。</span>
@@ -454,7 +454,7 @@ Leçon 6C · On sort ce soir ? · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(6)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(6)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='7A_slides.html'">7A →</button>
   </div>
 </div>
@@ -508,7 +508,7 @@ function goSlide(n){
   tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
   currentSlide=n;
 }
-function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');}
+function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=lang==='zh'?el.dataset.zh:(el.dataset.fr||el.textContent);});}
 document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
 function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}

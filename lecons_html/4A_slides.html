@@ -265,20 +265,20 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <a class="ph-next" href="4B_slides.html">4B →</a>
 </header>
 <nav class="slide-nav" id="slide-nav">
-  <button class="slide-tab active" onclick="goSlide(0)">💬 Dialogue</button>
-  <button class="slide-tab" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" onclick="goSlide(2)">🗣️ Communiquer</button>
-  <button class="slide-tab" onclick="goSlide(3)">🎵 Phonétique</button>
-  <button class="slide-tab" onclick="goSlide(4)">📖 Grammaire</button>
-  <button class="slide-tab" onclick="goSlide(5)">✏️ Exercices</button>
-  <button class="slide-tab" onclick="goSlide(7)">✍️ À toi !</button>
+  <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
+  <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(4)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(5)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(7)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
 <div class="slide s-active" id="slide-0">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-dialogue">💬 Dialogue</div>
+      <div class="card-head head-dialogue">💬 Dialogue<span class="comm-zh"> · 对话</span></div>
       <div class="card-body dl-layout">
         <div class="dl-img-col">
           <img alt="Illustration leçon 4A" loading="lazy" src="../images/dialogue/dialogue_4A.jpg"/>
@@ -301,14 +301,14 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer">
-    <button class="btn-ns" onclick="goSlide(1)">🔍 Comprendre →</button>
+    <button class="btn-ns" data-fr="🔍 Comprendre →" data-zh="🔍 理解 →" onclick="goSlide(1)">🔍 Comprendre →</button>
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
 <div class="slide" id="slide-1">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension</div>
+      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
       <div class="card-body"><div class="compr-item">
 <div class="compr-q">Où est la pharmacie ?</div>
 <button class="btn-reveal" onclick="revealAnswer('ca-4A-0')">Voir</button>
@@ -327,15 +327,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
-    <button class="btn-ns" onclick="goSlide(2)">🗣️ Communiquer →</button>
+    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
+    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
   </div>
 </div>
 <!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
 <div class="slide" id="slide-2">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-comm">🗣️ Pour communiquer</div>
+      <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
       <div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr">Excusez-moi, je cherche… / Où est… s'il vous plaît ?</div><div class="comm-zh">打扰一下，我在找……／……在哪里，请问？</div></div>
 <div class="comm-item"><div class="comm-fr">C'est loin ? / C'est à combien de minutes ?</div><div class="comm-zh">远吗？／走几分钟？</div></div>
 <div class="comm-item"><div class="comm-fr">Il y a un(e)… près d'ici ?</div><div class="comm-zh">附近有……吗？</div></div>
@@ -344,7 +344,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 </div></div>
     </div>
     <div class="card">
-      <div class="card-head head-vocab">📚 Vocabulaire clé</div>
+      <div class="card-head head-vocab">📚 Vocabulaire clé<span class="comm-zh"> · 核心词汇</span></div>
       <div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">pharmacie</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">药店</div></div>
 <div class="vocab-card"><div class="vocab-word">mairie</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">市政厅</div></div>
 <div class="vocab-card"><div class="vocab-word">poste</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">邮局</div></div>
@@ -359,15 +359,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(1)">← Comprendre</button>
-    <button class="btn-ns" onclick="goSlide(3)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE ══ -->
 <div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-phon">🎵 Phonétique</div>
+      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span></div>
       <div class="card-body"><div class="phon-body">§ Phonétique — Le H aspiré et le H muet
 Règle H muet : liaison et élision possibles (l'hôtel [lɔtɛl], les_hommes [le-z-ɔm]). H aspiré :
 pas de liaison (le hibou [lə-i-bu]).
@@ -378,21 +378,21 @@ honte.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(2)">← Communiquer</button>
-    <button class="btn-ns" onclick="goSlide(4)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(4)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : GRAMMAIRE ══ -->
 <div class="slide" id="slide-4">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-gram">📖 Point de langue</div>
+      <div class="card-head head-gram">📖 Point de langue<span class="comm-zh"> · 语法要点</span></div>
       <div class="card-body"><div class="gram-rule">§§ Il y a + nom (existence). Prépositions de lieu : à côté de, en face de, devant, derrière, entre, au bout de.</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>Il y</td><td></td></tr></tbody></table><div class="gram-ex">• La mairie est en face de la poste. / Le parc est derrière la mairie.<br/>• Forme négative : Il n'y a pas de supermarché dans ce quartier.<br/>• Forme interrogative : Est-ce qu'il y a un café près d'ici ? / Il y a quoi au bout</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(3)">← Phonétique</button>
-    <button class="btn-ns" onclick="goSlide(5)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(3)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(5)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : EXERCICES 1/2 ══ -->
@@ -403,12 +403,12 @@ honte.</div></div>
     <button class="sub-nav-btn" onclick="goSlide(6)">→</button>
   </div>
   <div class="slide-body">
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Décrivez la position <span class="ex-cat-badge badge-comm">💬 Communication</span></div><div class="card-body"><div class="ex-inst">Utilisez : à côté de / en face de / devant / derrière / entre :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Décrivez la position <span class="ex-cat-badge badge-comm">💬 Communication</span></div><div class="card-body"><div class="ex-inst">Utilisez : à côté de / en face de / devant / derrière / entre :<span class="comm-zh"> · 使用：旁边 / 对面 / 前面 / 后面 / 之间</span></div>
 <div class="blank-row">1. <span>Le café est </span><input autocomplete="off" class="blank-input" id="bl-4A-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4A-ex1-0').click()" type="text"/><button class="check-btn" data-ans="entre" id="chk-bl-4A-ex1-0" onclick="checkBlankData(this,'bl-4A-ex1-0','fb-bl-4A-ex1-0')">✓</button><span class="fb" id="fb-bl-4A-ex1-0"></span><span> la boulangerie et la pharmacie.</span></div>
 <div class="blank-row">2. <span>La poste est </span><input autocomplete="off" class="blank-input" id="bl-4A-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4A-ex1-1').click()" type="text"/><button class="check-btn" data-ans="en face de" id="chk-bl-4A-ex1-1" onclick="checkBlankData(this,'bl-4A-ex1-1','fb-bl-4A-ex1-1')">✓</button><span class="fb" id="fb-bl-4A-ex1-1"></span><span> la mairie.</span></div>
 <div class="blank-row">3. <span>Le parc est </span><input autocomplete="off" class="blank-input" id="bl-4A-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4A-ex1-2').click()" type="text"/><button class="check-btn" data-ans="derrière / devant" id="chk-bl-4A-ex1-2" onclick="checkBlankData(this,'bl-4A-ex1-2','fb-bl-4A-ex1-2')">✓</button><span class="fb" id="fb-bl-4A-ex1-2"></span><span> l'école.</span></div>
 <div class="blank-row">4. <span>La banque est </span><input autocomplete="off" class="blank-input" id="bl-4A-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4A-ex1-3').click()" type="text"/><button class="check-btn" data-ans="à côté de" id="chk-bl-4A-ex1-3" onclick="checkBlankData(this,'bl-4A-ex1-3','fb-bl-4A-ex1-3')">✓</button><span class="fb" id="fb-bl-4A-ex1-3"></span><span> le supermarché.</span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Votre quartier <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Répondez sur votre quartier :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Votre quartier <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Répondez sur votre quartier :<span class="comm-zh"> · 描述您的街区</span></div>
 <div class="assoc-row">
 <div class="assoc-left"><span class="assoc-word">1. Il y a une pharmacie / boulangerie / école près de chez vous ?</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-4A-ex2-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-4A-ex2-0','fb-ma-4A-ex2-0')">✓</button><span class="fb" id="fb-ma-4A-ex2-0"></span></div>
 </div>
@@ -420,8 +420,8 @@ honte.</div></div>
 </div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(4)">← Grammaire</button>
-    <button class="btn-ns" onclick="goSlide(6)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(4)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(6)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 2/2 ══ -->
@@ -432,27 +432,27 @@ honte.</div></div>
     <button class="sub-nav-btn" disabled>→</button>
   </div>
   <div class="slide-body">
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Il y a ou il n'y a pas de ? <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Répondez selon votre situation réelle :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Il y a ou il n'y a pas de ? <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Répondez selon votre situation réelle :<span class="comm-zh"> · 根据您的实际情况回答</span></div>
 <div class="blank-row">1. <span>Un hôpital dans votre rue → </span><input autocomplete="off" class="blank-input" id="bl-4A-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4A-ex3-0').click()" type="text"/><button class="check-btn" data-ans="Réponses variables selon la situation de l'apprenant." id="chk-bl-4A-ex3-0" onclick="checkBlankData(this,'bl-4A-ex3-0','fb-bl-4A-ex3-0')">✓</button><span class="fb" id="fb-bl-4A-ex3-0"></span><span></span></div>
 <div class="blank-row">2. <span>Des cafés dans votre quartier → </span><input autocomplete="off" class="blank-input" id="bl-4A-ex3-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4A-ex3-1').click()" type="text"/><button class="check-btn" data-ans="" id="chk-bl-4A-ex3-1" onclick="checkBlankData(this,'bl-4A-ex3-1','fb-bl-4A-ex3-1')">✓</button><span class="fb" id="fb-bl-4A-ex3-1"></span><span></span></div>
 <div class="blank-row">3. <span>Un parc près de chez vous → </span><input autocomplete="off" class="blank-input" id="bl-4A-ex3-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4A-ex3-2').click()" type="text"/><button class="check-btn" data-ans="" id="chk-bl-4A-ex3-2" onclick="checkBlankData(this,'bl-4A-ex3-2','fb-bl-4A-ex3-2')">✓</button><span class="fb" id="fb-bl-4A-ex3-2"></span><span></span></div>
 <div class="blank-row">4. <span>Une université dans votre ville → </span><input autocomplete="off" class="blank-input" id="bl-4A-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4A-ex3-3').click()" type="text"/><button class="check-btn" data-ans="" id="chk-bl-4A-ex3-3" onclick="checkBlankData(this,'bl-4A-ex3-3','fb-bl-4A-ex3-3')">✓</button><span class="fb" id="fb-bl-4A-ex3-3"></span><span></span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Vocabulaire : les lieux <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Quel lieu correspond à chaque définition ?</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Vocabulaire : les lieux <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Quel lieu correspond à chaque définition ?<span class="comm-zh"> · 每个定义对应哪个地点？</span></div>
 <div class="blank-row">1. <span>On y achète des médicaments → </span><input autocomplete="off" class="blank-input" id="bl-4A-ex4-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4A-ex4-0').click()" type="text"/><button class="check-btn" data-ans="pharmacie" id="chk-bl-4A-ex4-0" onclick="checkBlankData(this,'bl-4A-ex4-0','fb-bl-4A-ex4-0')">✓</button><span class="fb" id="fb-bl-4A-ex4-0"></span><span></span></div>
 <div class="blank-row">2. <span>On y envoie des lettres et des colis → </span><input autocomplete="off" class="blank-input" id="bl-4A-ex4-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4A-ex4-1').click()" type="text"/><button class="check-btn" data-ans="poste" id="chk-bl-4A-ex4-1" onclick="checkBlankData(this,'bl-4A-ex4-1','fb-bl-4A-ex4-1')">✓</button><span class="fb" id="fb-bl-4A-ex4-1"></span><span></span></div>
 <div class="blank-row">3. <span>On y élit le maire → </span><input autocomplete="off" class="blank-input" id="bl-4A-ex4-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4A-ex4-2').click()" type="text"/><button class="check-btn" data-ans="mairie" id="chk-bl-4A-ex4-2" onclick="checkBlankData(this,'bl-4A-ex4-2','fb-bl-4A-ex4-2')">✓</button><span class="fb" id="fb-bl-4A-ex4-2"></span><span></span></div>
 <div class="blank-row">4. <span>On y achète à manger → </span><input autocomplete="off" class="blank-input" id="bl-4A-ex4-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4A-ex4-3').click()" type="text"/><button class="check-btn" data-ans="supermarché" id="chk-bl-4A-ex4-3" onclick="checkBlankData(this,'bl-4A-ex4-3','fb-bl-4A-ex4-3')">✓</button><span class="fb" id="fb-bl-4A-ex4-3"></span><span></span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(5)">← Préc.</button>
-    <button class="btn-ns" onclick="goSlide(7)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(5)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(7)">✍️ À toi ! →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : À TOI ! ══ -->
 <div class="slide" id="slide-7">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-prod">✍️ À toi !</div>
+      <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
       <div class="card-body"><div class="prod-box">✍️ À toi ! Décrivez votre quartier en 8 phrases. Utilisez il y a, il n'y a pas de et au moins 4
 prépositions de lieu.
 <span class="prod-zh">用8句话描述您的街区。使用il y a、il n'y a pas de和至少4个方位介词。</span>
@@ -463,7 +463,7 @@ Leçon 4A · C'est où ? · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(6)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(6)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='4B_slides.html'">4B →</button>
   </div>
 </div>
@@ -517,7 +517,7 @@ function goSlide(n){
   tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
   currentSlide=n;
 }
-function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');}
+function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=lang==='zh'?el.dataset.zh:(el.dataset.fr||el.textContent);});}
 document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
 function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}

@@ -265,20 +265,20 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <a class="ph-next" href="2C_slides.html">2C →</a>
 </header>
 <nav class="slide-nav" id="slide-nav">
-  <button class="slide-tab active" onclick="goSlide(0)">💬 Dialogue</button>
-  <button class="slide-tab" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" onclick="goSlide(2)">🗣️ Communiquer</button>
-  <button class="slide-tab" onclick="goSlide(3)">🎵 Phonétique</button>
-  <button class="slide-tab" onclick="goSlide(4)">📖 Grammaire</button>
-  <button class="slide-tab" onclick="goSlide(5)">✏️ Exercices</button>
-  <button class="slide-tab" onclick="goSlide(7)">✍️ À toi !</button>
+  <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
+  <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(4)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(5)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(7)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
 <div class="slide s-active" id="slide-0">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-dialogue">💬 Dialogue</div>
+      <div class="card-head head-dialogue">💬 Dialogue<span class="comm-zh"> · 对话</span></div>
       <div class="card-body dl-layout">
         <div class="dl-img-col">
           <img alt="Illustration leçon 2B" loading="lazy" src="../images/dialogue/dialogue_2B.jpg"/>
@@ -302,14 +302,14 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer">
-    <button class="btn-ns" onclick="goSlide(1)">🔍 Comprendre →</button>
+    <button class="btn-ns" data-fr="🔍 Comprendre →" data-zh="🔍 理解 →" onclick="goSlide(1)">🔍 Comprendre →</button>
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
 <div class="slide" id="slide-1">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension</div>
+      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
       <div class="card-body"><div class="compr-item">
 <div class="compr-q">Comment sont les cheveux du collègue ?</div>
 <button class="btn-reveal" onclick="revealAnswer('ca-2B-0')">Voir</button>
@@ -328,15 +328,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
-    <button class="btn-ns" onclick="goSlide(2)">🗣️ Communiquer →</button>
+    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
+    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
   </div>
 </div>
 <!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
 <div class="slide" id="slide-2">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-comm">🗣️ Pour communiquer</div>
+      <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
       <div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr">Il / Elle a les cheveux + couleur + longueur.</div><div class="comm-zh">他／她有+颜色+长度的头发。</div></div>
 <div class="comm-item"><div class="comm-fr">Il / Elle est grand(e) / petit(e) / de taille moyenne.</div><div class="comm-zh">他／她高／矮／中等身材。</div></div>
 <div class="comm-item"><div class="comm-fr">Il / Elle a les yeux + couleur.</div><div class="comm-zh">他／她有+颜色的眼睛。</div></div>
@@ -345,7 +345,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 </div></div>
     </div>
     <div class="card">
-      <div class="card-head head-vocab">📚 Vocabulaire clé</div>
+      <div class="card-head head-vocab">📚 Vocabulaire clé<span class="comm-zh"> · 核心词汇</span></div>
       <div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">grand(e)</div><div class="vocab-gram">adj.</div><div class="vocab-zh">高的</div></div>
 <div class="vocab-card"><div class="vocab-word">petit(e)</div><div class="vocab-gram">adj.</div><div class="vocab-zh">矮的；小的</div></div>
 <div class="vocab-card"><div class="vocab-word">mince</div><div class="vocab-gram">adj.</div><div class="vocab-zh">苗条的</div></div>
@@ -360,15 +360,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(1)">← Comprendre</button>
-    <button class="btn-ns" onclick="goSlide(3)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE ══ -->
 <div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-phon">🎵 Phonétique</div>
+      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span></div>
       <div class="card-body"><div class="phon-body">§ Phonétique — Les liaisons obligatoires
 Règle Liaison obligatoire après les déterminants et pronoms devant voyelle : les_yeux
 [le-zyø], ses_amis, il_est, vous_avez.
@@ -378,21 +378,21 @@ un_ami.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(2)">← Communiquer</button>
-    <button class="btn-ns" onclick="goSlide(4)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(4)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : GRAMMAIRE ══ -->
 <div class="slide" id="slide-4">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-gram">📖 Point de langue</div>
+      <div class="card-head head-gram">📖 Point de langue<span class="comm-zh"> · 语法要点</span></div>
       <div class="card-body"><div class="gram-rule">§§ On utilise AVOIR pour les traits physiques : avoir les cheveux…, avoir les yeux…, avoir une barbe…</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>Il a</td><td>ils sont</td></tr></tbody></table><div class="gram-ex">• Il a une barbe. / Elle a des taches de rousseur.<br/>• Forme négative : Il n'a pas de lunettes. / Elle n'a pas de barbe.<br/>• Forme interrogative : Il a les cheveux comment ? / Elle a quel âge ?</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(3)">← Phonétique</button>
-    <button class="btn-ns" onclick="goSlide(5)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(3)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(5)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : EXERCICES 1/2 ══ -->
@@ -409,11 +409,11 @@ un_ami.</div></div>
 <div class="blank-row">3. <span>Ils </span><input <input="" autocomplete="off" class="blank-input" id="bl-2B-ex1-2a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2B-ex1-2a').click()" type="text"/><button class="check-btn" data-ans="ont" id="chk-bl-2B-ex1-2a" onclick="checkBlankData(this,'bl-2B-ex1-2a','fb-bl-2B-ex1-2a')">✓</button><span class="fb" id="fb-bl-2B-ex1-2a"></span><span> les yeux bleus et </span><input <input="" autocomplete="off" class="blank-input" id="bl-2B-ex1-2b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2B-ex1-2b').click()" type="text"/><button class="check-btn" data-ans="sont" id="chk-bl-2B-ex1-2b" onclick="checkBlankData(this,'bl-2B-ex1-2b','fb-bl-2B-ex1-2b')">✓</button><span class="fb" id="fb-bl-2B-ex1-2b"></span><span> blonds.</span></div>
 <div class="blank-row">4. <span>Tu </span><input autocomplete="off" class="blank-input" id="bl-2B-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2B-ex1-3').click()" type="text"/><button class="check-btn" data-ans="as" id="chk-bl-2B-ex1-3" onclick="checkBlankData(this,'bl-2B-ex1-3','fb-bl-2B-ex1-3')">✓</button><span class="fb" id="fb-bl-2B-ex1-3"></span><span> des lunettes ?</span></div>
 <div class="blank-row">5. <span>Vous </span><input autocomplete="off" class="blank-input" id="bl-2B-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2B-ex1-4').click()" type="text"/><button class="check-btn" data-ans="êtes" id="chk-bl-2B-ex1-4" onclick="checkBlankData(this,'bl-2B-ex1-4','fb-bl-2B-ex1-4')">✓</button><span class="fb" id="fb-bl-2B-ex1-4"></span><span> de taille moyenne.</span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Décrivez quelqu'un <span class="ex-cat-badge badge-comm">💬 Communication</span></div><div class="card-body"><div class="ex-inst">Décrivez une personne (réelle ou imaginaire) : Il / Elle a… ans environ. Il / Elle est… (taille, silhouette). Il / Elle a les cheveux… et les yeux… Il / Elle porte…</div></div></div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Décrivez quelqu'un <span class="ex-cat-badge badge-comm">💬 Communication</span></div><div class="card-body"><div class="ex-inst">Décrivez une personne (réelle ou imaginaire) : Il / Elle a… ans environ. Il / Elle est… (taille, silhouette). Il / Elle a les cheveux… et les yeux… Il / Elle porte…<span class="comm-zh"> · 描述一个人（真实或想象的）</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(4)">← Grammaire</button>
-    <button class="btn-ns" onclick="goSlide(6)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(4)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(6)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 2/2 ══ -->
@@ -424,25 +424,25 @@ un_ami.</div></div>
     <button class="sub-nav-btn" disabled>→</button>
   </div>
   <div class="slide-body">
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Devinettes : qui est-ce ? <span class="ex-cat-badge badge-comm">💬 Communication</span></div><div class="card-body"><div class="ex-inst">Lisez et devinez :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Devinettes : qui est-ce ? <span class="ex-cat-badge badge-comm">💬 Communication</span></div><div class="card-body"><div class="ex-inst">Lisez et devinez :<span class="comm-zh"> · 阅读并猜测</span></div>
 <div class="assoc-row">
 <div class="assoc-left"><span class="assoc-word">1. Il est très grand. Il a les cheveux noirs. Il joue au basketball. → ___</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-2B-ex3-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="Réponses libres — personnalités célèbres au choix" onclick="checkBlankData(this,'ma-2B-ex3-0','fb-ma-2B-ex3-0')">✓</button><span class="fb" id="fb-ma-2B-ex3-0"></span></div>
 </div>
 <div class="blank-row">2. <span>Elle est petite. Elle a les cheveux blonds. Elle chante très bien. → </span><input autocomplete="off" class="blank-input" id="bl-2B-ex3-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2B-ex3-1').click()" type="text"/><button class="check-btn" data-ans="" id="chk-bl-2B-ex3-1" onclick="checkBlankData(this,'bl-2B-ex3-1','fb-bl-2B-ex3-1')">✓</button><span class="fb" id="fb-bl-2B-ex3-1"></span><span></span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Les contraires <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Donnez le contraire :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Les contraires <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Donnez le contraire :<span class="comm-zh"> · 写出反义词</span></div>
 <div class="blank-row">1. <span>grand ≠ </span><input <input="" autocomplete="off" class="blank-input" id="bl-2B-ex4-0a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2B-ex4-0a').click()" type="text"/><button class="check-btn" data-ans="petit" id="chk-bl-2B-ex4-0a" onclick="checkBlankData(this,'bl-2B-ex4-0a','fb-bl-2B-ex4-0a')">✓</button><span class="fb" id="fb-bl-2B-ex4-0a"></span><span> 2. mince ≠ </span><input <input="" autocomplete="off" class="blank-input" id="bl-2B-ex4-0b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2B-ex4-0b').click()" type="text"/><button class="check-btn" data-ans="gros / fort" id="chk-bl-2B-ex4-0b" onclick="checkBlankData(this,'bl-2B-ex4-0b','fb-bl-2B-ex4-0b')">✓</button><span class="fb" id="fb-bl-2B-ex4-0b"></span><span> 3. blond ≠ </span><input <input="" autocomplete="off" class="blank-input" id="bl-2B-ex4-0c" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2B-ex4-0c').click()" type="text"/><button class="check-btn" data-ans="brun / châtain" id="chk-bl-2B-ex4-0c" onclick="checkBlankData(this,'bl-2B-ex4-0c','fb-bl-2B-ex4-0c')">✓</button><span class="fb" id="fb-bl-2B-ex4-0c"></span><span></span></div>
 <div class="blank-row">2. <span>court ≠ </span><input <input="" autocomplete="off" class="blank-input" id="bl-2B-ex4-1a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2B-ex4-1a').click()" type="text"/><button class="check-btn" data-ans="long" id="chk-bl-2B-ex4-1a" onclick="checkBlankData(this,'bl-2B-ex4-1a','fb-bl-2B-ex4-1a')">✓</button><span class="fb" id="fb-bl-2B-ex4-1a"></span><span> 5. beau / belle ≠ </span><input <input="" autocomplete="off" class="blank-input" id="bl-2B-ex4-1b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2B-ex4-1b').click()" type="text"/><button class="check-btn" data-ans="laid / moche" id="chk-bl-2B-ex4-1b" onclick="checkBlankData(this,'bl-2B-ex4-1b','fb-bl-2B-ex4-1b')">✓</button><span class="fb" id="fb-bl-2B-ex4-1b"></span><span></span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(5)">← Préc.</button>
-    <button class="btn-ns" onclick="goSlide(7)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(5)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(7)">✍️ À toi ! →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : À TOI ! ══ -->
 <div class="slide" id="slide-7">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-prod">✍️ À toi !</div>
+      <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
       <div class="card-body"><div class="prod-box">✍️ À toi ! Décrivez physiquement un membre de votre famille ou un(e) ami(e) en 6
 phrases.
 <span class="prod-zh">用6句话描述您家庭成员或朋友的外貌。</span>
@@ -453,7 +453,7 @@ Leçon 2B · Il ressemble à qui ? · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(6)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(6)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='2C_slides.html'">2C →</button>
   </div>
 </div>
@@ -507,7 +507,7 @@ function goSlide(n){
   tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
   currentSlide=n;
 }
-function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');}
+function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=lang==='zh'?el.dataset.zh:(el.dataset.fr||el.textContent);});}
 document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
 function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}

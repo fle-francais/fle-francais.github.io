@@ -265,20 +265,20 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <a class="ph-next" href="3A_slides.html">3A →</a>
 </header>
 <nav class="slide-nav" id="slide-nav">
-  <button class="slide-tab active" onclick="goSlide(0)">💬 Dialogue</button>
-  <button class="slide-tab" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" onclick="goSlide(2)">🗣️ Communiquer</button>
-  <button class="slide-tab" onclick="goSlide(3)">🎵 Phonétique</button>
-  <button class="slide-tab" onclick="goSlide(4)">📖 Grammaire</button>
-  <button class="slide-tab" onclick="goSlide(5)">✏️ Exercices</button>
-  <button class="slide-tab" onclick="goSlide(7)">✍️ À toi !</button>
+  <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
+  <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(4)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(5)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(7)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
 <div class="slide s-active" id="slide-0">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-dialogue">💬 Dialogue</div>
+      <div class="card-head head-dialogue">💬 Dialogue<span class="comm-zh"> · 对话</span></div>
       <div class="card-body dl-layout">
         <div class="dl-img-col">
           <img alt="Illustration leçon 2C" loading="lazy" src="../images/dialogue/dialogue_2C.jpg"/>
@@ -302,14 +302,14 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer">
-    <button class="btn-ns" onclick="goSlide(1)">🔍 Comprendre →</button>
+    <button class="btn-ns" data-fr="🔍 Comprendre →" data-zh="🔍 理解 →" onclick="goSlide(1)">🔍 Comprendre →</button>
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
 <div class="slide" id="slide-1">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension</div>
+      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
       <div class="card-body"><div class="compr-item">
 <div class="compr-q">Depuis quand Emma connaît-elle Julien ?</div>
 <button class="btn-reveal" onclick="revealAnswer('ca-2C-0')">Voir</button>
@@ -323,15 +323,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
-    <button class="btn-ns" onclick="goSlide(2)">🗣️ Communiquer →</button>
+    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
+    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
   </div>
 </div>
 <!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
 <div class="slide" id="slide-2">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-comm">🗣️ Pour communiquer</div>
+      <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
       <div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr">Mon ami(e) s'appelle… On se connaît depuis…</div><div class="comm-zh">我的朋友叫……我们认识了……年了。</div></div>
 <div class="comm-item"><div class="comm-fr">Il / Elle est + adjectif(s) de caractère.</div><div class="comm-zh">他／她+性格形容词。</div></div>
 <div class="comm-item"><div class="comm-fr">Il / Elle travaille / étudie / aime…</div><div class="comm-zh">他／她工作／学习……／他／她喜欢……</div></div>
@@ -340,7 +340,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 </div></div>
     </div>
     <div class="card">
-      <div class="card-head head-vocab">📚 Vocabulaire clé</div>
+      <div class="card-head head-vocab">📚 Vocabulaire clé<span class="comm-zh"> · 核心词汇</span></div>
       <div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">ami(e)</div><div class="vocab-gram">n.</div><div class="vocab-zh">朋友</div></div>
 <div class="vocab-card"><div class="vocab-word">sympa(thique)</div><div class="vocab-gram">adj.</div><div class="vocab-zh">友好的</div></div>
 <div class="vocab-card"><div class="vocab-word">généreux/généreuse</div><div class="vocab-gram">adj.</div><div class="vocab-zh">慷慨的</div></div>
@@ -355,15 +355,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(1)">← Comprendre</button>
-    <button class="btn-ns" onclick="goSlide(3)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE ══ -->
 <div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-phon">🎵 Phonétique</div>
+      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span></div>
       <div class="card-body"><div class="phon-body">§ Phonétique — Le E caduc — e muet
 Règle Le e muet (caduc) peut disparaître à l'oral dans certains contextes : je ne sais pas →
 [ʒ(ə)-n(ə)-sɛ-pa] à l'oral rapide.
@@ -373,21 +373,21 @@ manges pas.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(2)">← Communiquer</button>
-    <button class="btn-ns" onclick="goSlide(4)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(4)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : GRAMMAIRE ══ -->
 <div class="slide" id="slide-4">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-gram">📖 Point de langue</div>
+      <div class="card-head head-gram">📖 Point de langue<span class="comm-zh"> · 语法要点</span></div>
       <div class="card-body"><div class="gram-rule">§§ Les verbes en -ER sont les plus nombreux. Ils suivent tous le même modèle. Radical + terminaisons : -e, -es, -e, -ons, -ez, -ent.</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>je travaille</td><td>nous travaillons</td></tr><tr><td>tu travailles</td><td>vous travaillez</td></tr><tr><td>il / elle travaille</td><td>Ils suivent</td></tr></tbody></table><div class="gram-ex">• On mange souvent ensemble. / Ils voyagent parfois.<br/>• Forme négative : Je ne travaille pas le week-end. / Il n'aime pas le sport.<br/>• Forme interrogative : Est-ce que tu aimes la musique ? / Il chante bien ?</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(3)">← Phonétique</button>
-    <button class="btn-ns" onclick="goSlide(5)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(3)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(5)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : EXERCICES 1/2 ══ -->
@@ -404,11 +404,11 @@ manges pas.</div></div>
 <div class="blank-row">3. <span>Nous </span><input autocomplete="off" class="blank-input" id="bl-2C-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2C-ex1-2').click()" type="text"/><button class="check-btn" data-ans="aimons" id="chk-bl-2C-ex1-2" onclick="checkBlankData(this,'bl-2C-ex1-2','fb-bl-2C-ex1-2')">✓</button><span class="fb" id="fb-bl-2C-ex1-2"></span><span> (aimer) voyager.</span></div>
 <div class="blank-row">4. <span>Ils </span><input autocomplete="off" class="blank-input" id="bl-2C-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2C-ex1-3').click()" type="text"/><button class="check-btn" data-ans="écoutent" id="chk-bl-2C-ex1-3" onclick="checkBlankData(this,'bl-2C-ex1-3','fb-bl-2C-ex1-3')">✓</button><span class="fb" id="fb-bl-2C-ex1-3"></span><span> (écouter) de la musique.</span></div>
 <div class="blank-row">5. <span>Vous </span><input autocomplete="off" class="blank-input" id="bl-2C-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2C-ex1-4').click()" type="text"/><button class="check-btn" data-ans="habitez" id="chk-bl-2C-ex1-4" onclick="checkBlankData(this,'bl-2C-ex1-4','fb-bl-2C-ex1-4')">✓</button><span class="fb" id="fb-bl-2C-ex1-4"></span><span> (habiter) à Paris ?</span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Votre meilleur(e) ami(e) <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Présentez votre meilleur(e) ami(e) : Il / Elle s'appelle… | Il / Elle est… (caractère) Il / Elle travaille / étudie… | Il / Elle aime… On fait… ensemble.</div></div></div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Votre meilleur(e) ami(e) <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Présentez votre meilleur(e) ami(e) : Il / Elle s'appelle… | Il / Elle est… (caractère) Il / Elle travaille / étudie… | Il / Elle aime… On fait… ensemble.<span class="comm-zh"> · 介绍您最好的朋友</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(4)">← Grammaire</button>
-    <button class="btn-ns" onclick="goSlide(6)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(4)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(6)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 2/2 ══ -->
@@ -419,23 +419,23 @@ manges pas.</div></div>
     <button class="sub-nav-btn" disabled>→</button>
   </div>
   <div class="slide-body">
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Négatif et interrogatif <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Négatif et interrogatif <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez :<span class="comm-zh"> · 改写</span></div>
 <div class="blank-row">1. <span>Il aime le sport. → Il </span><input autocomplete="off" class="blank-input" id="bl-2C-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2C-ex3-0').click()" type="text"/><button class="check-btn" data-ans="n'aime pas" id="chk-bl-2C-ex3-0" onclick="checkBlankData(this,'bl-2C-ex3-0','fb-bl-2C-ex3-0')">✓</button><span class="fb" id="fb-bl-2C-ex3-0"></span><span> le sport.</span></div>
 <div class="blank-row">2. <span>Tu voyages souvent. → </span><input autocomplete="off" class="blank-input" id="bl-2C-ex3-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2C-ex3-1').click()" type="text"/><button class="check-btn" data-ans="Est-ce que" id="chk-bl-2C-ex3-1" onclick="checkBlankData(this,'bl-2C-ex3-1','fb-bl-2C-ex3-1')">✓</button><span class="fb" id="fb-bl-2C-ex3-1"></span><span> tu voyages souvent ?</span></div>
 <div class="blank-row">3. <span>Ils travaillent le dimanche. → Ils </span><input autocomplete="off" class="blank-input" id="bl-2C-ex3-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2C-ex3-2').click()" type="text"/><button class="check-btn" data-ans="ne travaillent pas" id="chk-bl-2C-ex3-2" onclick="checkBlankData(this,'bl-2C-ex3-2','fb-bl-2C-ex3-2')">✓</button><span class="fb" id="fb-bl-2C-ex3-2"></span><span> le dimanche.</span></div>
 <div class="blank-row">4. <span>Elle chante bien. → </span><input autocomplete="off" class="blank-input" id="bl-2C-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2C-ex3-3').click()" type="text"/><button class="check-btn" data-ans="Est-ce qu'" id="chk-bl-2C-ex3-3" onclick="checkBlankData(this,'bl-2C-ex3-3','fb-bl-2C-ex3-3')">✓</button><span class="fb" id="fb-bl-2C-ex3-3"></span><span> elle chante bien ?</span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Les qualités : positif ou négatif ? <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Classez : sympa — égoïste — généreux — paresseux — honnête — jaloux — drôle — agressif Positif (+) : ___ | Négatif (-) : ___ Puis écrivez 2 phrases : Mon ami est… / Mon ami n'est pas…</div></div></div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Les qualités : positif ou négatif ? <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Classez : sympa — égoïste — généreux — paresseux — honnête — jaloux — drôle — agressif Positif (+) : ___ | Négatif (-) : ___ Puis écrivez 2 phrases : Mon ami est… / Mon ami n'est pas…<span class="comm-zh"> · 分类：友善 — 自私 — 慷慨 — 懒惰 — 诚实 — 嫉妒 — 幽默 — 攻击性</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(5)">← Préc.</button>
-    <button class="btn-ns" onclick="goSlide(7)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(5)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(7)">✍️ À toi ! →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : À TOI ! ══ -->
 <div class="slide" id="slide-7">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-prod">✍️ À toi !</div>
+      <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
       <div class="card-body"><div class="prod-box">✍️ À toi ! Décrivez votre meilleur(e) ami(e) en 8 phrases : caractère, activités, ce que
 vous faites ensemble.
 <span class="prod-zh">用8句话描述您最好的朋友：性格、活动、你们一起做的事情。</span>
@@ -446,7 +446,7 @@ Leçon 2C · Mon meilleur ami · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(6)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(6)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='3A_slides.html'">3A →</button>
   </div>
 </div>
@@ -500,7 +500,7 @@ function goSlide(n){
   tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
   currentSlide=n;
 }
-function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');}
+function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=lang==='zh'?el.dataset.zh:(el.dataset.fr||el.textContent);});}
 document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
 function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}

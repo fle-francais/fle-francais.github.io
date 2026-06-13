@@ -265,20 +265,20 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <a class="ph-next" href="6C_slides.html">6C →</a>
 </header>
 <nav class="slide-nav" id="slide-nav">
-  <button class="slide-tab active" onclick="goSlide(0)">💬 Dialogue</button>
-  <button class="slide-tab" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" onclick="goSlide(2)">🗣️ Communiquer</button>
-  <button class="slide-tab" onclick="goSlide(3)">🎵 Phonétique</button>
-  <button class="slide-tab" onclick="goSlide(4)">📖 Grammaire</button>
-  <button class="slide-tab" onclick="goSlide(5)">✏️ Exercices</button>
-  <button class="slide-tab" onclick="goSlide(7)">✍️ À toi !</button>
+  <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
+  <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(4)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(5)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(7)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
 <div class="slide s-active" id="slide-0">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-dialogue">💬 Dialogue</div>
+      <div class="card-head head-dialogue">💬 Dialogue<span class="comm-zh"> · 对话</span></div>
       <div class="card-body dl-layout">
         <div class="dl-img-col">
           <img alt="Illustration leçon 6B" loading="lazy" src="../images/dialogue/dialogue_6B.jpg"/>
@@ -301,14 +301,14 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer">
-    <button class="btn-ns" onclick="goSlide(1)">🔍 Comprendre →</button>
+    <button class="btn-ns" data-fr="🔍 Comprendre →" data-zh="🔍 理解 →" onclick="goSlide(1)">🔍 Comprendre →</button>
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
 <div class="slide" id="slide-1">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension</div>
+      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
       <div class="card-body"><div class="compr-item">
 <div class="compr-q">Pourquoi Théo aime-t-il le rap ?</div>
 <button class="btn-reveal" onclick="revealAnswer('ca-6B-0')">Voir</button>
@@ -322,15 +322,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
-    <button class="btn-ns" onclick="goSlide(2)">🗣️ Communiquer →</button>
+    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
+    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
   </div>
 </div>
 <!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
 <div class="slide" id="slide-2">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-comm">🗣️ Pour communiquer</div>
+      <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
       <div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr">J'adore / J'aime / Je n'aime pas / Je déteste + article + nom.</div><div class="comm-zh">我非常喜欢／喜欢／不喜欢／讨厌+冠词+名词。</div></div>
 <div class="comm-item"><div class="comm-fr">Je préfère le jazz au rap.</div><div class="comm-zh">我更喜欢爵士乐而不是说唱。</div></div>
 <div class="comm-item"><div class="comm-fr">Je trouve ça beau / ennuyeux / créatif / trop fort.</div><div class="comm-zh">我觉得这很美／无聊／有创意／太响了。</div></div>
@@ -339,7 +339,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 </div></div>
     </div>
     <div class="card">
-      <div class="card-head head-vocab">📚 Vocabulaire clé</div>
+      <div class="card-head head-vocab">📚 Vocabulaire clé<span class="comm-zh"> · 核心词汇</span></div>
       <div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">la musique</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">音乐</div></div>
 <div class="vocab-card"><div class="vocab-word">le groupe</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">乐队</div></div>
 <div class="vocab-card"><div class="vocab-word">le concert</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">音乐会</div></div>
@@ -353,15 +353,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(1)">← Comprendre</button>
-    <button class="btn-ns" onclick="goSlide(3)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE ══ -->
 <div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-phon">🎵 Phonétique</div>
+      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span></div>
       <div class="card-body"><div class="phon-body">§ Phonétique — Le son [ɲ] — gn
 Règle La combinaison -gn- se prononce [ɲ] comme dans « agneau », similaire au « ñ »
 espagnol.
@@ -370,21 +370,21 @@ Exercice Répétez : montagne — champagne — magnifique — agneau — signer
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(2)">← Communiquer</button>
-    <button class="btn-ns" onclick="goSlide(4)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(4)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : GRAMMAIRE ══ -->
 <div class="slide" id="slide-4">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-gram">📖 Point de langue</div>
+      <div class="card-head head-gram">📖 Point de langue<span class="comm-zh"> · 语法要点</span></div>
       <div class="card-body"><div class="gram-rule">§§ Pour exprimer les goûts, on utilise : adorer (+++) &gt; aimer (++) &gt; apprécier (+) &gt; ne pas aimer (-) &gt; détester (---).</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>Je n'aime</td><td></td></tr><tr><td>tu aimes</td><td></td></tr><tr><td>Il n'adore</td><td></td></tr></tbody></table><div class="gram-ex">• Je n'aime pas trop le rap. / Je déteste le métal.<br/>• Je préfère le jazz au rap. (préférer + A + à + B)<br/>• Forme négative : Je n'aime pas le bruit. / Il n'adore pas le classique.<br/>• Forme interrogative : Est-ce que tu aimes le jazz ? / Tu préfères quoi ?</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(3)">← Phonétique</button>
-    <button class="btn-ns" onclick="goSlide(5)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(3)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(5)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : EXERCICES 1/2 ══ -->
@@ -395,16 +395,16 @@ Exercice Répétez : montagne — champagne — magnifique — agneau — signer
     <button class="sub-nav-btn" onclick="goSlide(6)">→</button>
   </div>
   <div class="slide-body">
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Exprimez vos goûts <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Complétez avec le bon verbe (adorer, aimer, ne pas aimer, détester) :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Exprimez vos goûts <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Complétez avec le bon verbe (adorer, aimer, ne pas aimer, détester) :<span class="comm-zh"> · 用正确的动词填空（adorer, aimer, ne pas aimer, détester）</span></div>
 <div class="blank-row">1. <span>La musique classique… Vous la trouvez belle ? → J'</span><input autocomplete="off" class="blank-input" id="bl-6B-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6B-ex1-0').click()" type="text"/><button class="check-btn" data-ans="Réponses variables selon les goûts de l'apprenant." id="chk-bl-6B-ex1-0" onclick="checkBlankData(this,'bl-6B-ex1-0','fb-bl-6B-ex1-0')">✓</button><span class="fb" id="fb-bl-6B-ex1-0"></span><span> la musique classique.</span></div>
 <div class="blank-row">2. <span>Le bruit, c'est insupportable pour vous ? → Je </span><input autocomplete="off" class="blank-input" id="bl-6B-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6B-ex1-1').click()" type="text"/><button class="check-btn" data-ans="" id="chk-bl-6B-ex1-1" onclick="checkBlankData(this,'bl-6B-ex1-1','fb-bl-6B-ex1-1')">✓</button><span class="fb" id="fb-bl-6B-ex1-1"></span><span> le bruit.</span></div>
 <div class="blank-row">3. <span>Le rap vous laisse indifférent(e) ? → Je n'</span><input autocomplete="off" class="blank-input" id="bl-6B-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6B-ex1-2').click()" type="text"/><button class="check-btn" data-ans="" id="chk-bl-6B-ex1-2" onclick="checkBlankData(this,'bl-6B-ex1-2','fb-bl-6B-ex1-2')">✓</button><span class="fb" id="fb-bl-6B-ex1-2"></span><span> pas trop le rap.</span></div>
 <div class="blank-row">4. <span>Le jazz, c'est votre passion ? → J'</span><input autocomplete="off" class="blank-input" id="bl-6B-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6B-ex1-3').click()" type="text"/><button class="check-btn" data-ans="" id="chk-bl-6B-ex1-3" onclick="checkBlankData(this,'bl-6B-ex1-3','fb-bl-6B-ex1-3')">✓</button><span class="fb" id="fb-bl-6B-ex1-3"></span><span> le jazz.</span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Débat : défendez un style musical <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Choisissez un genre musical (rock, pop, classique, jazz, rap…). Présentez 3 arguments pour défendre vos goûts. Utilisez : Je trouve ça… / C'est… / J'aime parce que…</div></div></div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Débat : défendez un style musical <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Choisissez un genre musical (rock, pop, classique, jazz, rap…). Présentez 3 arguments pour défendre vos goûts. Utilisez : Je trouve ça… / C'est… / J'aime parce que…<span class="comm-zh"> · 选择一种音乐风格，提出3个论点</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(4)">← Grammaire</button>
-    <button class="btn-ns" onclick="goSlide(6)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(4)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(6)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 2/2 ══ -->
@@ -415,25 +415,25 @@ Exercice Répétez : montagne — champagne — magnifique — agneau — signer
     <button class="sub-nav-btn" disabled>→</button>
   </div>
   <div class="slide-body">
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Formes négative et interrogative <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez les phrases :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Formes négative et interrogative <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez les phrases :<span class="comm-zh"> · 改写句子</span></div>
 <div class="blank-row">1. <span>Il aime le rap. → Forme négative : </span><input autocomplete="off" class="blank-input" id="bl-6B-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6B-ex3-0').click()" type="text"/><button class="check-btn" data-ans="Il n'aime pas le rap." id="chk-bl-6B-ex3-0" onclick="checkBlankData(this,'bl-6B-ex3-0','fb-bl-6B-ex3-0')">✓</button><span class="fb" id="fb-bl-6B-ex3-0"></span><span></span></div>
 <div class="blank-row">2. <span>Tu adores la musique classique. → Forme négative : </span><input autocomplete="off" class="blank-input" id="bl-6B-ex3-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6B-ex3-1').click()" type="text"/><button class="check-btn" data-ans="Tu n'adores pas la musique classique." id="chk-bl-6B-ex3-1" onclick="checkBlankData(this,'bl-6B-ex3-1','fb-bl-6B-ex3-1')">✓</button><span class="fb" id="fb-bl-6B-ex3-1"></span><span></span></div>
 <div class="blank-row">3. <span>Elle préfère le jazz. → Forme interrogative (est-ce que) : </span><input autocomplete="off" class="blank-input" id="bl-6B-ex3-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6B-ex3-2').click()" type="text"/><button class="check-btn" data-ans="Est-ce qu'elle préfère le jazz ?" id="chk-bl-6B-ex3-2" onclick="checkBlankData(this,'bl-6B-ex3-2','fb-bl-6B-ex3-2')">✓</button><span class="fb" id="fb-bl-6B-ex3-2"></span><span></span></div>
 <div class="blank-row">4. <span>Vous écoutez souvent de la musique. → Forme interrogative (inversion) : </span><input autocomplete="off" class="blank-input" id="bl-6B-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6B-ex3-3').click()" type="text"/><button class="check-btn" data-ans="Écoutez-vous souvent de la musique ?" id="chk-bl-6B-ex3-3" onclick="checkBlankData(this,'bl-6B-ex3-3','fb-bl-6B-ex3-3')">✓</button><span class="fb" id="fb-bl-6B-ex3-3"></span><span></span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Vocabulaire : les goûts et la musique <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Classez les verbes du moins positif au plus positif : détester / apprécier / adorer / ne pas aimer / aimer Puis complétez : 1. J'___ le rock, c'est ma passion !</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Vocabulaire : les goûts et la musique <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Classez les verbes du moins positif au plus positif : détester / apprécier / adorer / ne pas aimer / aimer Puis complétez : 1. J'___ le rock, c'est ma passion !<span class="comm-zh"> · 按从最不积极到最积极的顺序排列动词</span></div>
 <div class="blank-row">1. <span>Je </span><input autocomplete="off" class="blank-input" id="bl-6B-ex4-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6B-ex4-0').click()" type="text"/><button class="check-btn" data-ans="adore" id="chk-bl-6B-ex4-0" onclick="checkBlankData(this,'bl-6B-ex4-0','fb-bl-6B-ex4-0')">✓</button><span class="fb" id="fb-bl-6B-ex4-0"></span><span> le métal, c'est trop agressif.</span></div>
 <div class="blank-row">2. <span>Elle </span><input autocomplete="off" class="blank-input" id="bl-6B-ex4-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6B-ex4-1').click()" type="text"/><button class="check-btn" data-ans="déteste" id="chk-bl-6B-ex4-1" onclick="checkBlankData(this,'bl-6B-ex4-1','fb-bl-6B-ex4-1')">✓</button><span class="fb" id="fb-bl-6B-ex4-1"></span><span> le jazz mais préfère la pop.</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(5)">← Préc.</button>
-    <button class="btn-ns" onclick="goSlide(7)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(5)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(7)">✍️ À toi ! →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : À TOI ! ══ -->
 <div class="slide" id="slide-7">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-prod">✍️ À toi !</div>
+      <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
       <div class="card-body"><div class="prod-box">✍️ À toi ! Présentez votre style musical préféré : qu'est-ce que vous écoutez, pourquoi
 vous aimez ça, et recommandez un artiste.
 <span class="prod-zh">介绍您最喜欢的音乐风格：您听什么，为什么喜欢，并推荐一位艺术家。</span>
@@ -444,7 +444,7 @@ Leçon 6B · Quelle musique tu aimes ? · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(6)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(6)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='6C_slides.html'">6C →</button>
   </div>
 </div>
@@ -498,7 +498,7 @@ function goSlide(n){
   tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
   currentSlide=n;
 }
-function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');}
+function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=lang==='zh'?el.dataset.zh:(el.dataset.fr||el.textContent);});}
 document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
 function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}

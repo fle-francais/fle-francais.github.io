@@ -265,20 +265,20 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <a class="ph-next" href="4A_slides.html">4A →</a>
 </header>
 <nav class="slide-nav" id="slide-nav">
-  <button class="slide-tab active" onclick="goSlide(0)">💬 Dialogue</button>
-  <button class="slide-tab" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" onclick="goSlide(2)">🗣️ Communiquer</button>
-  <button class="slide-tab" onclick="goSlide(3)">🎵 Phonétique</button>
-  <button class="slide-tab" onclick="goSlide(4)">📖 Grammaire</button>
-  <button class="slide-tab" onclick="goSlide(5)">✏️ Exercices</button>
-  <button class="slide-tab" onclick="goSlide(7)">✍️ À toi !</button>
+  <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
+  <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(4)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(5)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(7)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
 <div class="slide s-active" id="slide-0">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-dialogue">💬 Dialogue</div>
+      <div class="card-head head-dialogue">💬 Dialogue<span class="comm-zh"> · 对话</span></div>
       <div class="card-body dl-layout">
         <div class="dl-img-col">
           <img alt="Illustration leçon 3C" loading="lazy" src="../images/dialogue/dialogue_3C.jpg"/>
@@ -301,27 +301,27 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer">
-    <button class="btn-ns" onclick="goSlide(1)">🔍 Comprendre →</button>
+    <button class="btn-ns" data-fr="🔍 Comprendre →" data-zh="🔍 理解 →" onclick="goSlide(1)">🔍 Comprendre →</button>
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
 <div class="slide" id="slide-1">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension</div>
+      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
       <div class="card-body"></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
-    <button class="btn-ns" onclick="goSlide(2)">🗣️ Communiquer →</button>
+    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
+    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
   </div>
 </div>
 <!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
 <div class="slide" id="slide-2">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-comm">🗣️ Pour communiquer</div>
+      <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
       <div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr">En général, le week-end, je…</div><div class="comm-zh">一般来说，周末我……</div></div>
 <div class="comm-item"><div class="comm-fr">Je fais souvent / parfois / rarement…</div><div class="comm-zh">我经常／有时／很少……</div></div>
 <div class="comm-item"><div class="comm-fr">Je ne… jamais le week-end. / Je n'ai jamais le temps.</div><div class="comm-zh">我周末从不……／我从没有时间……</div></div>
@@ -330,7 +330,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 </div></div>
     </div>
     <div class="card">
-      <div class="card-head head-vocab">📚 Vocabulaire clé</div>
+      <div class="card-head head-vocab">📚 Vocabulaire clé<span class="comm-zh"> · 核心词汇</span></div>
       <div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">week-end</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">周末</div></div>
 <div class="vocab-card"><div class="vocab-word">toujours</div><div class="vocab-gram">adv.</div><div class="vocab-zh">总是</div></div>
 <div class="vocab-card"><div class="vocab-word">souvent</div><div class="vocab-gram">adv.</div><div class="vocab-zh">经常</div></div>
@@ -345,15 +345,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(1)">← Comprendre</button>
-    <button class="btn-ns" onclick="goSlide(3)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE ══ -->
 <div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-phon">🎵 Phonétique</div>
+      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span></div>
       <div class="card-body"><div class="phon-body">§ Phonétique — L'intonation — affirmation vs question
 Règle Affirmation : intonation descendante ↘. Question sans mot interrogatif : intonation
 montante ↗.
@@ -363,21 +363,21 @@ Exercice Lisez avec la bonne intonation : Tu fais du sport. / Tu fais du sport ?
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(2)">← Communiquer</button>
-    <button class="btn-ns" onclick="goSlide(4)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(4)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : GRAMMAIRE ══ -->
 <div class="slide" id="slide-4">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-gram">📖 Point de langue</div>
+      <div class="card-head head-gram">📖 Point de langue<span class="comm-zh"> · 语法要点</span></div>
       <div class="card-body"><div class="gram-rule">§§ Toujours &gt; souvent &gt; assez souvent &gt; parfois &gt; rarement &gt; jamais. Ils se placent après le verbe conjugué.</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>Je fais</td><td></td></tr><tr><td>Tu fais</td><td>Vous sortez</td></tr><tr><td>Il sort</td><td>Ils se</td></tr></tbody></table><div class="gram-ex">• On se voit souvent. / Elle part parfois en week-end.<br/>• Forme négative : Je ne sors jamais le dimanche. (ne… jamais)<br/>• Forme interrogative : Vous sortez souvent ? / Tu fais parfois du sport ?</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(3)">← Phonétique</button>
-    <button class="btn-ns" onclick="goSlide(5)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(3)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(5)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : EXERCICES 1/2 ══ -->
@@ -388,7 +388,7 @@ Exercice Lisez avec la bonne intonation : Tu fais du sport. / Tu fais du sport ?
     <button class="sub-nav-btn" onclick="goSlide(6)">→</button>
   </div>
   <div class="slide-body">
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Placez l'adverbe <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Insérez l'adverbe au bon endroit :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Placez l'adverbe <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Insérez l'adverbe au bon endroit :<span class="comm-zh"> · 将副词插入正确位置</span></div>
 <div class="trans-row" data-ans="Je lis souvent…">
 <div class="trans-src">1. Je lis le week-end. (souvent) →</div>
 <input autocomplete="off" class="trans-input" id="ts-3C-ex1-0" placeholder="Écrivez la phrase transformée…" type="text"/>
@@ -425,7 +425,7 @@ Exercice Lisez avec la bonne intonation : Tu fais du sport. / Tu fais du sport ?
 <span class="trans-ans">Nous regardons toujours…</span>
 </div>
 </div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Sondage de classe <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Répondez, puis interrogez un(e) camarade :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Sondage de classe <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Répondez, puis interrogez un(e) camarade :<span class="comm-zh"> · 回答，然后询问同学</span></div>
 <div class="assoc-row">
 <div class="assoc-left"><span class="assoc-word">1. Vous sortez combien de fois par semaine ?</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-3C-ex2-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-3C-ex2-0','fb-ma-3C-ex2-0')">✓</button><span class="fb" id="fb-ma-3C-ex2-0"></span></div>
 </div>
@@ -437,8 +437,8 @@ Exercice Lisez avec la bonne intonation : Tu fais du sport. / Tu fais du sport ?
 </div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(4)">← Grammaire</button>
-    <button class="btn-ns" onclick="goSlide(6)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(4)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(6)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 2/2 ══ -->
@@ -449,8 +449,8 @@ Exercice Lisez avec la bonne intonation : Tu fais du sport. / Tu fais du sport ?
     <button class="sub-nav-btn" disabled>→</button>
   </div>
   <div class="slide-body">
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Du moins au plus fréquent <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Remettez dans l'ordre, du moins au plus fréquent : parfois — toujours — jamais — souvent — rarement Ordre : ___ &lt; ___ &lt; ___ &lt; ___ &lt; ___</div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Activités du week-end <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Reliez chaque activité à sa catégorie :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Du moins au plus fréquent <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Remettez dans l'ordre, du moins au plus fréquent : parfois — toujours — jamais — souvent — rarement Ordre : ___ &lt; ___ &lt; ___ &lt; ___ &lt; ___<span class="comm-zh"> · 从最不频繁到最频繁排序</span></div></div></div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Activités du week-end <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Reliez chaque activité à sa catégorie :<span class="comm-zh"> · 将每个活动与其类别配对</span></div>
 <div class="assoc-ref"><span class="assoc-ref-item"><strong>a.</strong> culture</span>  |  <span class="assoc-ref-item"><strong>b.</strong> sport</span>  |  <span class="assoc-ref-item"><strong>c.</strong> famille</span>  |  <span class="assoc-ref-item"><strong>d.</strong> maison</span></div>
 <div class="assoc-row">
 <div class="assoc-left"><span class="assoc-word">1. courir dans le parc</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-3C-ex4-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="b" onclick="checkBlankData(this,'ma-3C-ex4-0','fb-ma-3C-ex4-0')">✓</button><span class="fb" id="fb-ma-3C-ex4-0"></span></div>
@@ -466,15 +466,15 @@ Exercice Lisez avec la bonne intonation : Tu fais du sport. / Tu fais du sport ?
 </div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(5)">← Préc.</button>
-    <button class="btn-ns" onclick="goSlide(7)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(5)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(7)">✍️ À toi ! →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : À TOI ! ══ -->
 <div class="slide" id="slide-7">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-prod">✍️ À toi !</div>
+      <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
       <div class="card-body"><div class="prod-box">✍️ À toi ! Décrivez vos activités du week-end en 8 phrases. Utilisez au moins 4 adverbes
 de fréquence différents.
 <span class="prod-zh">用8句话描述您的周末活动。至少使用4个不同的频率副词。</span>
@@ -485,7 +485,7 @@ Leçon 3C · Le week-end, c'est différent ! · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(6)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(6)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='4A_slides.html'">4A →</button>
   </div>
 </div>
@@ -539,7 +539,7 @@ function goSlide(n){
   tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
   currentSlide=n;
 }
-function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');}
+function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=lang==='zh'?el.dataset.zh:(el.dataset.fr||el.textContent);});}
 document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
 function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}

@@ -265,20 +265,20 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <a class="ph-next" href="5A_slides.html">5A →</a>
 </header>
 <nav class="slide-nav" id="slide-nav">
-  <button class="slide-tab active" onclick="goSlide(0)">💬 Dialogue</button>
-  <button class="slide-tab" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" onclick="goSlide(2)">🗣️ Communiquer</button>
-  <button class="slide-tab" onclick="goSlide(3)">🎵 Phonétique</button>
-  <button class="slide-tab" onclick="goSlide(4)">📖 Grammaire</button>
-  <button class="slide-tab" onclick="goSlide(5)">✏️ Exercices</button>
-  <button class="slide-tab" onclick="goSlide(7)">✍️ À toi !</button>
+  <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
+  <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(4)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(5)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(7)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
 <div class="slide s-active" id="slide-0">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-dialogue">💬 Dialogue</div>
+      <div class="card-head head-dialogue">💬 Dialogue<span class="comm-zh"> · 对话</span></div>
       <div class="card-body dl-layout">
         <div class="dl-img-col">
           <img alt="Illustration leçon 4C" loading="lazy" src="../images/dialogue/dialogue_4C.jpg"/>
@@ -302,14 +302,14 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer">
-    <button class="btn-ns" onclick="goSlide(1)">🔍 Comprendre →</button>
+    <button class="btn-ns" data-fr="🔍 Comprendre →" data-zh="🔍 理解 →" onclick="goSlide(1)">🔍 Comprendre →</button>
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
 <div class="slide" id="slide-1">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension</div>
+      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
       <div class="card-body"><div class="compr-item">
 <div class="compr-q">Comment Amira trouve-t-elle son quartier ?</div>
 <button class="btn-reveal" onclick="revealAnswer('ca-4C-0')">Voir</button>
@@ -328,15 +328,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
-    <button class="btn-ns" onclick="goSlide(2)">🗣️ Communiquer →</button>
+    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
+    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
   </div>
 </div>
 <!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
 <div class="slide" id="slide-2">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-comm">🗣️ Pour communiquer</div>
+      <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
       <div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr">Je vais à… à pied / en vélo / en voiture / en métro.</div><div class="comm-zh">我步行／骑自行车／开车／坐地铁去……</div></div>
 <div class="comm-item"><div class="comm-fr">Je prends le bus / le métro / le train.</div><div class="comm-zh">我乘公共汽车／地铁／火车。</div></div>
 <div class="comm-item"><div class="comm-fr">Mon quartier est calme / bruyant / pratique.</div><div class="comm-zh">我的街区安静／嘈杂／方便。</div></div>
@@ -345,7 +345,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 </div></div>
     </div>
     <div class="card">
-      <div class="card-head head-vocab">📚 Vocabulaire clé</div>
+      <div class="card-head head-vocab">📚 Vocabulaire clé<span class="comm-zh"> · 核心词汇</span></div>
       <div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">quartier</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">街区</div></div>
 <div class="vocab-card"><div class="vocab-word">calme</div><div class="vocab-gram">adj.</div><div class="vocab-zh">安静的</div></div>
 <div class="vocab-card"><div class="vocab-word">bruyant(e)</div><div class="vocab-gram">adj.</div><div class="vocab-zh">嘈杂的</div></div>
@@ -360,15 +360,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(1)">← Comprendre</button>
-    <button class="btn-ns" onclick="goSlide(3)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE ══ -->
 <div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-phon">🎵 Phonétique</div>
+      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span></div>
       <div class="card-body"><div class="phon-body">§ Phonétique — Le son [wa] — oi
 Règle La combinaison -oi- se prononce [wa] : voiture, moi, toi, soir, boire, voir.
 Exemples voiture [wa] — moi [wa] — soir [wa] — boire [wa]
@@ -376,21 +376,21 @@ Exercice Répétez : moi — toi — soir — voir — voiture — poivre — bo
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(2)">← Communiquer</button>
-    <button class="btn-ns" onclick="goSlide(4)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(4)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : GRAMMAIRE ══ -->
 <div class="slide" id="slide-4">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-gram">📖 Point de langue</div>
+      <div class="card-head head-gram">📖 Point de langue<span class="comm-zh"> · 语法要点</span></div>
       <div class="card-body"><div class="gram-rule">§§ Aller (irrégulier) = se déplacer vers un lieu. Prendre (irrégulier) = utiliser un moyen de transport.</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>je vais,</td><td>nous prendre</td></tr><tr><td>tu vas,</td><td>vous allez,</td></tr><tr><td>il va,</td><td>ils vont</td></tr></tbody></table><div class="gram-ex">• Il prend le métro tous les jours. / Nous prenons le bus.<br/>• Forme négative : Je ne prends pas la voiture. / Il ne va pas au travail à pied.<br/>• Forme interrogative : Tu vas comment au bureau ? / Vous prenez le métro ?</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(3)">← Phonétique</button>
-    <button class="btn-ns" onclick="goSlide(5)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(3)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(5)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : EXERCICES 1/2 ══ -->
@@ -407,7 +407,7 @@ Exercice Répétez : moi — toi — soir — voir — voiture — poivre — bo
 <div class="blank-row">3. <span>Nous </span><input autocomplete="off" class="blank-input" id="bl-4C-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex1-2').click()" type="text"/><button class="check-btn" data-ans="allons" id="chk-bl-4C-ex1-2" onclick="checkBlankData(this,'bl-4C-ex1-2','fb-bl-4C-ex1-2')">✓</button><span class="fb" id="fb-bl-4C-ex1-2"></span><span> (aller) au restaurant ce soir.</span></div>
 <div class="blank-row">4. <span>Vous </span><input autocomplete="off" class="blank-input" id="bl-4C-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex1-3').click()" type="text"/><button class="check-btn" data-ans="prenez" id="chk-bl-4C-ex1-3" onclick="checkBlankData(this,'bl-4C-ex1-3','fb-bl-4C-ex1-3')">✓</button><span class="fb" id="fb-bl-4C-ex1-3"></span><span> (prendre) le métro ou le bus ?</span></div>
 <div class="blank-row">5. <span>Ils </span><input autocomplete="off" class="blank-input" id="bl-4C-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex1-4').click()" type="text"/><button class="check-btn" data-ans="vont" id="chk-bl-4C-ex1-4" onclick="checkBlankData(this,'bl-4C-ex1-4','fb-bl-4C-ex1-4')">✓</button><span class="fb" id="fb-bl-4C-ex1-4"></span><span> (aller) à Paris en train.</span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Vos transports <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Répondez à ces questions :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Vos transports <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Répondez à ces questions :<span class="comm-zh"> · 回答这些问题</span></div>
 <div class="assoc-row">
 <div class="assoc-left"><span class="assoc-word">1. Comment vous allez à l'école / au travail ?</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-4C-ex2-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-4C-ex2-0','fb-ma-4C-ex2-0')">✓</button><span class="fb" id="fb-ma-4C-ex2-0"></span></div>
 </div>
@@ -419,8 +419,8 @@ Exercice Répétez : moi — toi — soir — voir — voiture — poivre — bo
 </div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(4)">← Grammaire</button>
-    <button class="btn-ns" onclick="goSlide(6)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(4)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(6)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 2/2 ══ -->
@@ -431,27 +431,27 @@ Exercice Répétez : moi — toi — soir — voir — voiture — poivre — bo
     <button class="sub-nav-btn" disabled>→</button>
   </div>
   <div class="slide-body">
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — À, au, à la, aux ? <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Complétez :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — À, au, à la, aux ? <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Complétez :<span class="comm-zh"> · 填空</span></div>
 <div class="blank-row">1. <span>Je vais </span><input autocomplete="off" class="blank-input" id="bl-4C-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex3-0').click()" type="text"/><button class="check-btn" data-ans="au" id="chk-bl-4C-ex3-0" onclick="checkBlankData(this,'bl-4C-ex3-0','fb-bl-4C-ex3-0')">✓</button><span class="fb" id="fb-bl-4C-ex3-0"></span><span> marché samedi matin.</span></div>
 <div class="blank-row">2. <span>Il va </span><input autocomplete="off" class="blank-input" id="bl-4C-ex3-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex3-1').click()" type="text"/><button class="check-btn" data-ans="à la" id="chk-bl-4C-ex3-1" onclick="checkBlankData(this,'bl-4C-ex3-1','fb-bl-4C-ex3-1')">✓</button><span class="fb" id="fb-bl-4C-ex3-1"></span><span> pharmacie.</span></div>
 <div class="blank-row">3. <span>Nous allons </span><input autocomplete="off" class="blank-input" id="bl-4C-ex3-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex3-2').click()" type="text"/><button class="check-btn" data-ans="aux" id="chk-bl-4C-ex3-2" onclick="checkBlankData(this,'bl-4C-ex3-2','fb-bl-4C-ex3-2')">✓</button><span class="fb" id="fb-bl-4C-ex3-2"></span><span> États-Unis cet été.</span></div>
 <div class="blank-row">4. <span>Tu vas </span><input autocomplete="off" class="blank-input" id="bl-4C-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex3-3').click()" type="text"/><button class="check-btn" data-ans="à l'" id="chk-bl-4C-ex3-3" onclick="checkBlankData(this,'bl-4C-ex3-3','fb-bl-4C-ex3-3')">✓</button><span class="fb" id="fb-bl-4C-ex3-3"></span><span> école comment ?</span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Opinion sur les transports <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Donnez votre opinion (pratique / écologique / rapide / cher / bruyant…) :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Opinion sur les transports <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Donnez votre opinion (pratique / écologique / rapide / cher / bruyant…) :<span class="comm-zh"> · 给出您的看法（实用/环保/快速/贵/嘈杂…）</span></div>
 <div class="blank-row">1. <span>La voiture : c'est </span><input autocomplete="off" class="blank-input" id="bl-4C-ex4-0a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-0a').click()" type="text"/><button class="check-btn" data-ans="Réponses libres" id="chk-bl-4C-ex4-0a" onclick="checkBlankData(this,'bl-4C-ex4-0a','fb-bl-4C-ex4-0a')">✓</button><span class="fb" id="fb-bl-4C-ex4-0a"></span><span> mais </span><input <input="" autocomplete="off" class="blank-input" id="bl-4C-ex4-0b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-0b').click()" type="text"/><button class="check-btn" data-ans="Réponses libres" id="chk-bl-4C-ex4-0b" onclick="checkBlankData(this,'bl-4C-ex4-0b','fb-bl-4C-ex4-0b')">✓</button><span class="fb" id="fb-bl-4C-ex4-0b"></span><span>.</span></div>
 <div class="blank-row">2. <span>Le vélo : c'est </span><input <input="" autocomplete="off" class="blank-input" id="bl-4C-ex4-1a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-1a').click()" type="text"/><button class="check-btn" data-ans="Réponses libres" id="chk-bl-4C-ex4-1a" onclick="checkBlankData(this,'bl-4C-ex4-1a','fb-bl-4C-ex4-1a')">✓</button><span class="fb" id="fb-bl-4C-ex4-1a"></span><span> et </span><input <input="" autocomplete="off" class="blank-input" id="bl-4C-ex4-1b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-1b').click()" type="text"/><button class="check-btn" data-ans="Réponses libres" id="chk-bl-4C-ex4-1b" onclick="checkBlankData(this,'bl-4C-ex4-1b','fb-bl-4C-ex4-1b')">✓</button><span class="fb" id="fb-bl-4C-ex4-1b"></span><span>.</span></div>
 <div class="blank-row">3. <span>Le métro : c'est </span><input <input="" autocomplete="off" class="blank-input" id="bl-4C-ex4-2a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-2a').click()" type="text"/><button class="check-btn" data-ans="Réponses libres" id="chk-bl-4C-ex4-2a" onclick="checkBlankData(this,'bl-4C-ex4-2a','fb-bl-4C-ex4-2a')">✓</button><span class="fb" id="fb-bl-4C-ex4-2a"></span><span> mais </span><input <input="" autocomplete="off" class="blank-input" id="bl-4C-ex4-2b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-2b').click()" type="text"/><button class="check-btn" data-ans="Réponses libres" id="chk-bl-4C-ex4-2b" onclick="checkBlankData(this,'bl-4C-ex4-2b','fb-bl-4C-ex4-2b')">✓</button><span class="fb" id="fb-bl-4C-ex4-2b"></span><span>.</span></div>
 <div class="blank-row">4. <span>La marche à pied : c'est </span><input <input="" autocomplete="off" class="blank-input" id="bl-4C-ex4-3a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-3a').click()" type="text"/><button class="check-btn" data-ans="Réponses libres" id="chk-bl-4C-ex4-3a" onclick="checkBlankData(this,'bl-4C-ex4-3a','fb-bl-4C-ex4-3a')">✓</button><span class="fb" id="fb-bl-4C-ex4-3a"></span><span> et </span><input <input="" autocomplete="off" class="blank-input" id="bl-4C-ex4-3b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4C-ex4-3b').click()" type="text"/><button class="check-btn" data-ans="Réponses libres" id="chk-bl-4C-ex4-3b" onclick="checkBlankData(this,'bl-4C-ex4-3b','fb-bl-4C-ex4-3b')">✓</button><span class="fb" id="fb-bl-4C-ex4-3b"></span><span>.</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(5)">← Préc.</button>
-    <button class="btn-ns" onclick="goSlide(7)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(5)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(7)">✍️ À toi ! →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : À TOI ! ══ -->
 <div class="slide" id="slide-7">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-prod">✍️ À toi !</div>
+      <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
       <div class="card-body"><div class="prod-box">✍️ À toi ! Décrivez votre quartier idéal en 8 phrases : transports, commerces, ambiance.
 <span class="prod-zh">用8句话描述您理想的街区：交通、商店、氛围。</span>
 Leçon 4C · J'aime mon quartier ! · A1</div>
@@ -461,7 +461,7 @@ Leçon 4C · J'aime mon quartier ! · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(6)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(6)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='5A_slides.html'">5A →</button>
   </div>
 </div>
@@ -515,7 +515,7 @@ function goSlide(n){
   tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
   currentSlide=n;
 }
-function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');}
+function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=lang==='zh'?el.dataset.zh:(el.dataset.fr||el.textContent);});}
 document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
 function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}

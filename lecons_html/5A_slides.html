@@ -265,20 +265,20 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <a class="ph-next" href="5B_slides.html">5B →</a>
 </header>
 <nav class="slide-nav" id="slide-nav">
-  <button class="slide-tab active" onclick="goSlide(0)">💬 Dialogue</button>
-  <button class="slide-tab" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" onclick="goSlide(2)">🗣️ Communiquer</button>
-  <button class="slide-tab" onclick="goSlide(3)">🎵 Phonétique</button>
-  <button class="slide-tab" onclick="goSlide(4)">📖 Grammaire</button>
-  <button class="slide-tab" onclick="goSlide(5)">✏️ Exercices</button>
-  <button class="slide-tab" onclick="goSlide(7)">✍️ À toi !</button>
+  <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
+  <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(4)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(5)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(7)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
 <div class="slide s-active" id="slide-0">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-dialogue">💬 Dialogue</div>
+      <div class="card-head head-dialogue">💬 Dialogue<span class="comm-zh"> · 对话</span></div>
       <div class="card-body dl-layout">
         <div class="dl-img-col">
           <img alt="Illustration leçon 5A" loading="lazy" src="../images/dialogue/dialogue_5A.jpg"/>
@@ -303,14 +303,14 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer">
-    <button class="btn-ns" onclick="goSlide(1)">🔍 Comprendre →</button>
+    <button class="btn-ns" data-fr="🔍 Comprendre →" data-zh="🔍 理解 →" onclick="goSlide(1)">🔍 Comprendre →</button>
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
 <div class="slide" id="slide-1">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension</div>
+      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
       <div class="card-body"><div class="compr-item">
 <div class="compr-q">Que mange Ling le matin ?</div>
 <button class="btn-reveal" onclick="revealAnswer('ca-5A-0')">Voir</button>
@@ -324,15 +324,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
-    <button class="btn-ns" onclick="goSlide(2)">🗣️ Communiquer →</button>
+    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
+    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
   </div>
 </div>
 <!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
 <div class="slide" id="slide-2">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-comm">🗣️ Pour communiquer</div>
+      <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
       <div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr">Qu'est-ce que tu manges / bois ?</div><div class="comm-zh">你吃／喝什么？</div></div>
 <div class="comm-item"><div class="comm-fr">Je mange du / de la / de l' / des…</div><div class="comm-zh">我吃du／de la／de l'／des……</div></div>
 <div class="comm-item"><div class="comm-fr">Je ne mange pas de… / Je suis végétarien(ne).</div><div class="comm-zh">我不吃……／我是素食者。</div></div>
@@ -341,7 +341,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 </div></div>
     </div>
     <div class="card">
-      <div class="card-head head-vocab">📚 Vocabulaire clé</div>
+      <div class="card-head head-vocab">📚 Vocabulaire clé<span class="comm-zh"> · 核心词汇</span></div>
       <div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word">manger</div><div class="vocab-gram">v.</div><div class="vocab-zh">吃</div></div>
 <div class="vocab-card"><div class="vocab-word">boire</div><div class="vocab-gram">v.</div><div class="vocab-zh">喝</div></div>
 <div class="vocab-card"><div class="vocab-word">repas</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">餐；饭</div></div>
@@ -356,15 +356,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(1)">← Comprendre</button>
-    <button class="btn-ns" onclick="goSlide(3)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE ══ -->
 <div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-phon">🎵 Phonétique</div>
+      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span></div>
       <div class="card-body"><div class="phon-body">§ Phonétique — Les voyelles [u] et [y]
 Règle [u] : bouche arrondie, langue en arrière (ou). [y] : bouche arrondie, langue en avant
 (u). Absent en anglais.
@@ -373,22 +373,22 @@ Exercice Distinguez : dessous / dessus — pour / pur — roue / rue — doux / 
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(2)">← Communiquer</button>
-    <button class="btn-ns" onclick="goSlide(4)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(4)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : GRAMMAIRE ══ -->
 <div class="slide" id="slide-4">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-gram">📖 Point de langue</div>
+      <div class="card-head head-gram">📖 Point de langue<span class="comm-zh"> · 语法要点</span></div>
       <div class="card-body"><div class="gram-rule">§§ Les partitifs expriment une quantité indéfinie. Ils s'utilisent avec les aliments et boissons.</div><table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>Je mange</td><td></td></tr><tr><td>Tu manges</td><td></td></tr><tr><td>il
 de</td><td>Ils s'utilisent</td></tr></tbody></table><div class="gram-ex">• Il y a des légumes dans la soupe.<br/>• Forme négative : Je ne mange pas de viande. / Je ne bois pas de café. (du/de<br/>• Forme interrogative : Tu manges du poisson ? / Il boit de l'alcool ?</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(3)">← Phonétique</button>
-    <button class="btn-ns" onclick="goSlide(5)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(3)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(5)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : EXERCICES 1/2 ══ -->
@@ -405,7 +405,7 @@ de</td><td>Ils s'utilisent</td></tr></tbody></table><div class="gram-ex">• Il 
 <div class="blank-row">3. <span>Nous préparons </span><input autocomplete="off" class="blank-input" id="bl-5A-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex1-2').click()" type="text"/><button class="check-btn" data-ans="des" id="chk-bl-5A-ex1-2" onclick="checkBlankData(this,'bl-5A-ex1-2','fb-bl-5A-ex1-2')">✓</button><span class="fb" id="fb-bl-5A-ex1-2"></span><span> légumes pour le dîner.</span></div>
 <div class="blank-row">4. <span>Tu veux </span><input <input="" autocomplete="off" class="blank-input" id="bl-5A-ex1-3a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex1-3a').click()" type="text"/><button class="check-btn" data-ans="de l'" id="chk-bl-5A-ex1-3a" onclick="checkBlankData(this,'bl-5A-ex1-3a','fb-bl-5A-ex1-3a')">✓</button><span class="fb" id="fb-bl-5A-ex1-3a"></span><span> eau ou </span><input <input="" autocomplete="off" class="blank-input" id="bl-5A-ex1-3b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex1-3b').click()" type="text"/><button class="check-btn" data-ans="du" id="chk-bl-5A-ex1-3b" onclick="checkBlankData(this,'bl-5A-ex1-3b','fb-bl-5A-ex1-3b')">✓</button><span class="fb" id="fb-bl-5A-ex1-3b"></span><span> jus ?</span></div>
 <div class="blank-row">5. <span>Il mange </span><input <input="" autocomplete="off" class="blank-input" id="bl-5A-ex1-4a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex1-4a').click()" type="text"/><button class="check-btn" data-ans="du" id="chk-bl-5A-ex1-4a" onclick="checkBlankData(this,'bl-5A-ex1-4a','fb-bl-5A-ex1-4a')">✓</button><span class="fb" id="fb-bl-5A-ex1-4a"></span><span> riz avec </span><input <input="" autocomplete="off" class="blank-input" id="bl-5A-ex1-4b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex1-4b').click()" type="text"/><button class="check-btn" data-ans="du" id="chk-bl-5A-ex1-4b" onclick="checkBlankData(this,'bl-5A-ex1-4b','fb-bl-5A-ex1-4b')">✓</button><span class="fb" id="fb-bl-5A-ex1-4b"></span><span> poisson.</span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Vos habitudes alimentaires <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Répondez :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Vos habitudes alimentaires <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Répondez :<span class="comm-zh"> · 回答</span></div>
 <div class="assoc-row">
 <div class="assoc-left"><span class="assoc-word">1. Qu'est-ce que vous mangez au petit-déjeuner ?</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-5A-ex2-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-5A-ex2-0','fb-ma-5A-ex2-0')">✓</button><span class="fb" id="fb-ma-5A-ex2-0"></span></div>
 </div>
@@ -417,8 +417,8 @@ de</td><td>Ils s'utilisent</td></tr></tbody></table><div class="gram-ex">• Il 
 </div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(4)">← Grammaire</button>
-    <button class="btn-ns" onclick="goSlide(6)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(4)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(6)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 2/2 ══ -->
@@ -429,7 +429,7 @@ de</td><td>Ils s'utilisent</td></tr></tbody></table><div class="gram-ex">• Il 
     <button class="sub-nav-btn" disabled>→</button>
   </div>
   <div class="slide-body">
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Forme négative avec les partitifs <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez à la forme négative :</div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Forme négative avec les partitifs <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez à la forme négative :<span class="comm-zh"> · 改写成否定形式</span></div>
 <div class="trans-row" data-ans="Je ne mange pas de sucre.">
 <div class="trans-src">1. Je mange du sucre. →</div>
 <input autocomplete="off" class="trans-input" id="ts-5A-ex3-0" placeholder="Écrivez la phrase transformée…" type="text"/>
@@ -458,18 +458,18 @@ de</td><td>Ils s'utilisent</td></tr></tbody></table><div class="gram-ex">• Il 
 </div>
 </div>
 <div class="blank-row">4. <span>Tu bois du café ? → Non, je </span><input autocomplete="off" class="blank-input" id="bl-5A-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex3-3').click()" type="text"/><button class="check-btn" data-ans="ne bois pas de café." id="chk-bl-5A-ex3-3" onclick="checkBlankData(this,'bl-5A-ex3-3','fb-bl-5A-ex3-3')">✓</button><span class="fb" id="fb-bl-5A-ex3-3"></span><span>.</span></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Classer les aliments <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Classez dans la bonne catégorie : poulet — pomme — carotte — saumon — fromage — fraise — bœuf — épinard Viandes : ___ | Poissons : ___ | Légumes : ___ | Fruits : ___</div></div></div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Classer les aliments <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Classez dans la bonne catégorie : poulet — pomme — carotte — saumon — fromage — fraise — bœuf — épinard Viandes : ___ | Poissons : ___ | Légumes : ___ | Fruits : ___<span class="comm-zh"> · 按正确类别分类：鸡肉 — 苹果 — 胡萝卜 — 鲑鱼 — 奶酪…</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(5)">← Préc.</button>
-    <button class="btn-ns" onclick="goSlide(7)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(5)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(7)">✍️ À toi ! →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : À TOI ! ══ -->
 <div class="slide" id="slide-7">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-prod">✍️ À toi !</div>
+      <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
       <div class="card-body"><div class="prod-box">✍️ À toi ! Décrivez vos habitudes alimentaires en 8 phrases (3 repas + aliments préférés
 + aliments que vous n'aimez pas).
 <span class="prod-zh">用8句话描述您的饮食习惯（三餐+最喜欢的食物+不喜欢的食物）。</span>
@@ -480,7 +480,7 @@ Leçon 5A · Qu'est-ce que tu manges ? · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(6)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(6)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='5B_slides.html'">5B →</button>
   </div>
 </div>
@@ -534,7 +534,7 @@ function goSlide(n){
   tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
   currentSlide=n;
 }
-function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');}
+function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=lang==='zh'?el.dataset.zh:(el.dataset.fr||el.textContent);});}
 document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
 function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}
