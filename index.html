@@ -415,7 +415,23 @@ function checkGate(){
 <!-- ═══════════════ NAVIGATION ═══════════════ -->
 <nav>
   <div class="nav-inner">
-    <a class="logo" href="#" onclick="showPage('home')">français<span>+</span></a>
+    <a class="logo" href="#" onclick="showPage('home')" style="display:flex;align-items:center;text-decoration:none">
+      <svg style="width:110px;height:auto;display:block" viewBox="0 0 312 160" xmlns="http://www.w3.org/2000/svg">
+        <defs><clipPath id="nfc"><rect width="312" height="160" rx="14"/></clipPath></defs>
+        <g clip-path="url(#nfc)">
+          <rect x="0"   y="0" width="104" height="160" fill="#002395"/>
+          <rect x="104" y="0" width="104" height="160" fill="#ffffff"/>
+          <rect x="208" y="0" width="104" height="160" fill="#DE2910"/>
+        </g>
+        <g clip-path="url(#nfc)">
+          <polygon fill="#FFDE00" points="232.00,36.00 236.49,49.82 251.02,49.82 239.27,58.36 243.76,72.18 232.00,63.64 220.24,72.18 224.73,58.36 212.98,49.82 227.51,49.82"/>
+          <polygon fill="#FFDE00" points="248.64,20.11 254.55,18.07 254.44,11.83 258.20,16.82 264.11,14.78 260.52,19.90 264.28,24.89 258.31,23.06 254.72,28.18 254.61,21.93"/>
+          <polygon fill="#FFDE00" points="278.90,35.45 276.97,41.39 282.03,45.06 275.78,45.06 273.85,51.00 271.92,45.06 265.67,45.06 270.72,41.39 268.79,35.45 273.85,39.12"/>
+          <polygon fill="#FFDE00" points="273.85,61.00 275.78,66.94 282.03,66.94 276.97,70.61 278.90,76.55 273.85,72.88 268.79,76.55 270.72,70.61 265.67,66.94 271.92,66.94"/>
+          <polygon fill="#FFDE00" points="252.30,85.00 257.29,88.76 262.41,85.17 260.38,91.08 265.37,94.84 259.12,94.73 257.09,100.64 255.26,94.67 249.01,94.56 254.13,90.97"/>
+        </g>
+      </svg>
+    </a>
     <div class="nav-levels">
       <button class="nav-btn" onclick="showLevel('A1')">A1</button>
       <button class="nav-btn" onclick="showLevel('A2')">A2</button>
