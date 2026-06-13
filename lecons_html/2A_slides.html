@@ -113,8 +113,8 @@ body.lang-zh .dl-zh-line{display:block}
 .compr-a{background:#f0faf5;border-left:3px solid var(--green);border-radius:0 6px 6px 0;
   padding:5px 10px;display:none;font-size:.82rem;color:#1a5c35;margin-top:3px}
 .compr-a.visible{display:block}
-.btn-show{background:none;border:1px solid var(--green);color:var(--green);
-  border-radius:15px;padding:3px 10px;font-size:.72rem;font-weight:700;cursor:pointer;margin-top:4px}
+.btn-show,.btn-reveal{background:none;border:1px solid var(--green);color:var(--green);
+  border-radius:15px;padding:3px 10px;font-size:.72rem;font-weight:700;cursor:pointer;margin-top:4px;display:inline-block}
 .comm-zh{font-size:.72rem;color:var(--purp);margin-top:1px;display:none}
 body.lang-zh .comm-zh{display:block}
 .vocab-grid{display:flex;flex-wrap:wrap;gap:7px}
@@ -473,6 +473,7 @@ function dlPrev(){if(_dlIdx>0){_dlIdx--;if(_dlAudio){_dlAudio.pause();_dlAudio=n
 function dlNext(){if(_dlAudio){_dlAudio.pause();_dlAudio=null;}_dlIdx++;var rows=document.querySelectorAll('#slide-0 .dl-row');if(_dlIdx>=rows.length){dlStop();return;}_dlPlaying=true;dlStep(rows,rows.length);}
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
 function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}
+function revealAnswer(id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');}
 function checkBlankData(btn,inputId,fbId){
   var inp=document.getElementById(inputId),fb=document.getElementById(fbId);
   var ans=(inp.value||'').trim().toLowerCase(),correct=(btn.dataset.ans||'').toLowerCase();
@@ -495,11 +496,7 @@ function resetBlanks(inputIds,fbIds){
   inputIds.forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
   fbIds.forEach(function(id){var el=document.getElementById(id);if(el){el.textContent='';el.className='fb';}});
 }
-function checkLT(btn){
-  var box=btn.parentNode,inp=box.querySelector('.prod-input'),res=box.querySelector('.lt-result');
-  if(!inp||!inp.value.trim()){res.textContent='Écrivez votre réponse d'abord.';return;}
-  res.textContent='✓ Réponse enregistrée. Bonne continuation !';
-}
+async function checkLT(btn){var ta=btn.previousElementSibling,res=btn.nextElementSibling,txt=(ta.value||'').trim();if(!txt){res.innerHTML='<p style="color:var(--orange);font-size:.82rem">Ecrivez votre reponse avant de corriger.</p>';return;}btn.disabled=true;btn.textContent='...';res.innerHTML='<p style="font-size:.82rem;color:var(--muted)">Correction en cours...</p>';try{var r=await fetch('https://api.languagetool.org/v2/check',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'text='+encodeURIComponent(txt)+'&language=fr'});var d=await r.json();if(!d.matches||!d.matches.length){res.innerHTML='<p style="color:var(--green);font-size:.82rem">Aucune erreur detectee — bravo !</p>';}else{var n=d.matches.length,html='<p style="font-size:.82rem;font-weight:700">'+n+' point'+(n>1?'s':'')+' a corriger :</p><ul style="font-size:.82rem;padding-left:16px;line-height:1.7">';for(var m of d.matches){var orig=txt.slice(m.offset,m.offset+m.length),sugs=(m.replacements||[]).slice(0,3).map(function(x){return'<span style="color:var(--green);font-weight:700">'+x.value+'</span>';}).join(', ');html+='<li><span style="color:#e74c3c">'+orig+'</span> — '+m.message+(sugs?' → '+sugs:'')+' </li>';}html+='</ul>';res.innerHTML=html;}}catch(e){res.innerHTML='<p style="color:var(--orange);font-size:.82rem">Impossible de joindre le correcteur.</p>';}btn.disabled=false;btn.textContent='Corriger ✓';}
 
 function openModal(id){document.getElementById(id).classList.add('open');document.querySelector('.fle-modal-overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeModal(id){document.getElementById(id).classList.remove('open');document.querySelector('.fle-modal-overlay').classList.remove('open');document.body.style.overflow='';}
