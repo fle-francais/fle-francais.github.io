@@ -277,20 +277,20 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <a class="ph-next" href="1B_slides.html">1B →</a>
 </header>
 <nav class="slide-nav" id="slide-nav">
-  <button class="slide-tab active" onclick="goSlide(0)">💬 Dialogue</button>
-  <button class="slide-tab" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" onclick="goSlide(3)">🗣️ Communiquer</button>
-  <button class="slide-tab" onclick="goSlide(4)">🎵 Phonétique</button>
-  <button class="slide-tab" onclick="goSlide(7)">📖 Grammaire</button>
-  <button class="slide-tab" onclick="goSlide(8)">✏️ Exercices</button>
-  <button class="slide-tab" onclick="goSlide(11)">✍️ À toi !</button>
+  <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
+  <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(3)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(4)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(7)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(8)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(11)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
 <div class="slide s-active" id="slide-0">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-dialogue">💬 Dialogue — À la bibliothèque</div>
+      <div class="card-head head-dialogue">💬 Dialogue — À la bibliothèque<span class="comm-zh"> · 对话</span></div>
       <div class="card-body dl-layout">
         <div class="dl-img-col">
           <img alt="Illustration leçon 1A" loading="lazy" src="../images/dialogue/dialogue_1A.jpg"/>
@@ -313,7 +313,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer">
-    <button class="btn-ns" onclick="goSlide(1)">🔍 Comprendre →</button>
+    <button class="btn-ns" onclick="goSlide(1)" data-fr="🔍 Comprendre →" data-zh="🔍 理解 →">🔍 Comprendre →</button>
   </div>
 </div>
 
@@ -326,7 +326,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   </div>
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension — Questions 1 à 3</div>
+      <div class="card-head head-compr">🔍 Compréhension — Questions 1 à 3<span class="comm-zh"> · 理解练习</span></div>
       <div class="card-body">
         <div class="qcm-list">
           <div class="qcm-item">
@@ -363,8 +363,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
-    <button class="btn-ns" onclick="goSlide(2)">Suite →</button>
+    <button class="btn-ns" onclick="goSlide(0)" data-fr="← Dialogue" data-zh="← 对话">← Dialogue</button>
+    <button class="btn-ns" onclick="goSlide(2)" data-fr="Suite →" data-zh="继续 →">Suite →</button>
   </div>
 </div>
 
@@ -377,7 +377,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   </div>
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension — Questions 4 à 6</div>
+      <div class="card-head head-compr">🔍 Compréhension — Questions 4 à 6<span class="comm-zh"> · 理解练习</span></div>
       <div class="card-body">
         <div class="qcm-list">
           <div class="qcm-item">
@@ -414,8 +414,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(1)">← Comprendre 1/2</button>
-    <button class="btn-ns" onclick="goSlide(3)">🗣️ Communiquer →</button>
+    <button class="btn-ns" onclick="goSlide(1)" data-fr="← Comprendre 1/2" data-zh="← 理解 1/2">← Comprendre 1/2</button>
+    <button class="btn-ns" onclick="goSlide(3)" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →">🗣️ Communiquer →</button>
   </div>
 </div>
 
@@ -423,7 +423,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-comm">🗣️ Pour communiquer</div>
+      <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
       <div class="card-body">
         <div class="comm-list">
           <div class="comm-item"><div class="comm-fr" onclick="playAudio('../audio/comm_1A_0.mp3')" title="Écouter">Bonjour ! / Bonsoir ! / Salut ! (informel)</div><div class="comm-zh">你好！/ 晚上好！/ 嗨！（非正式）</div></div>
@@ -435,7 +435,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
       </div>
     </div>
     <div class="card">
-      <div class="card-head head-vocab">📚 Vocabulaire clé</div>
+      <div class="card-head head-vocab">📚 Vocabulaire clé<span class="comm-zh"> · 核心词汇</span></div>
       <div class="card-body">
         <div class="vocab-grid">
           <div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_bonjour.mp3')">bonjour</div><div class="vocab-gram">interj.</div><div class="vocab-zh">你好</div></div>
@@ -453,8 +453,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(2)">← Comprendre</button>
-    <button class="btn-ns" onclick="goSlide(4)">🎵 Phonétique →</button>
+    <button class="btn-ns" onclick="goSlide(2)" data-fr="← Comprendre" data-zh="← 理解">← Comprendre</button>
+    <button class="btn-ns" onclick="goSlide(4)" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : PHONÉTIQUE 1/3 — SCHÉMA ══ -->
@@ -466,7 +466,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   </div>
   <div class="slide-body" style="display:flex;flex-direction:column">
     <div class="card" style="flex:1;display:flex;flex-direction:column;overflow:hidden">
-      <div class="card-head head-phon">🎵 Phonétique — [e] fermé vs [ɛ] ouvert</div>
+      <div class="card-head head-phon">🎵 Phonétique — [e] fermé vs [ɛ] ouvert<span class="comm-zh"> · 语音</span></div>
       <div class="card-body" style="flex:1;display:flex;flex-direction:column;min-height:0">
         <div class="phon-rule">
           <strong>[e] fermé</strong> — lèvres tendues, bouche souriante <span class="comm-zh">（闭口音：嘴角上扬）</span> → <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_ete.mp3')">été</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_parler.mp3')">parler</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_enchante.mp3')">enchanté</span><br/>
@@ -523,8 +523,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(3)">← Communiquer</button>
-    <button class="btn-ns" onclick="goSlide(5)">Exercice →</button>
+    <button class="btn-ns" onclick="goSlide(3)" data-fr="← Communiquer" data-zh="← 表达">← Communiquer</button>
+    <button class="btn-ns" onclick="goSlide(5)" data-fr="Exercice →" data-zh="练习 →">Exercice →</button>
   </div>
 </div>
 
@@ -537,7 +537,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   </div>
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-phon">🎵 Phonie-graphie — [e] ou [ɛ] ?</div>
+      <div class="card-head head-phon">🎵 Phonie-graphie — [e] ou [ɛ] ?<span class="comm-zh"> · 语音</span></div>
       <div class="card-body">
         <p class="ex-inst">Cliquez sur 🔊 pour écouter, puis choisissez [e] ou [ɛ]. <span class="comm-zh">点击🔊试听，然后选择听到的元音。</span></p>
         <div class="phon-grid-ex">
@@ -559,8 +559,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(4)">← Schéma</button>
-    <button class="btn-ns" onclick="goSlide(6)">🎤 Prononciation →</button>
+    <button class="btn-ns" onclick="goSlide(4)" data-fr="← Schéma" data-zh="← 图示">← Schéma</button>
+    <button class="btn-ns" onclick="goSlide(6)" data-fr="🎤 Prononciation →" data-zh="🎤 发音 →">🎤 Prononciation →</button>
   </div>
 </div>
 
@@ -573,7 +573,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   </div>
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-phon">🎤 Prononciation</div>
+      <div class="card-head head-phon">🎤 Prononciation<span class="comm-zh"> · 语音</span></div>
       <div class="card-body">
         <p class="ex-inst">Écoutez, puis cliquez sur 🎤 et répétez. <span class="comm-zh">听每句话，然后点击🎤重复。</span></p>
         <div class="prono-no-support" id="prono-no-support">⚠️ Votre navigateur ne supporte pas la reconnaissance vocale (Safari 14+ ou Chrome).</div>
@@ -587,15 +587,15 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(5)">← Phonie-graphie</button>
-    <button class="btn-ns" onclick="goSlide(7)">📖 Grammaire →</button>
+    <button class="btn-ns" onclick="goSlide(5)" data-fr="← Phonie-graphie" data-zh="← 拼写">← Phonie-graphie</button>
+    <button class="btn-ns" onclick="goSlide(7)" data-fr="📖 Grammaire →" data-zh="📖 语法 →">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : GRAMMAIRE — RÈGLE ══ -->
 <div class="slide" id="slide-7">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-gram">📖 Le verbe ÊTRE au présent</div>
+      <div class="card-head head-gram">📖 Le verbe ÊTRE au présent<span class="comm-zh"> · 语法要点</span></div>
       <div class="card-body">
         <div class="gram-rule">Verbe irrégulier — identité, nationalité, profession. <span class="comm-zh">不规则动词，用于表达身份、国籍和职业。</span></div>
         <table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>je suis</td><td>nous sommes</td></tr><tr><td>tu es</td><td>vous êtes</td></tr><tr><td>il / elle est</td><td>ils / elles sont</td></tr></tbody></table>
@@ -604,8 +604,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(6)">← Phonétique</button>
-    <button class="btn-ns" onclick="goSlide(8)">✏️ Exercices →</button>
+    <button class="btn-ns" onclick="goSlide(6)" data-fr="← Phonétique" data-zh="← 语音">← Phonétique</button>
+    <button class="btn-ns" onclick="goSlide(8)" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →">✏️ Exercices →</button>
   </div>
 </div>
 
@@ -634,8 +634,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(7)">← Grammaire</button>
-    <button class="btn-ns" onclick="goSlide(9)">Suite →</button>
+    <button class="btn-ns" onclick="goSlide(7)" data-fr="← Grammaire" data-zh="← 语法">← Grammaire</button>
+    <button class="btn-ns" onclick="goSlide(9)" data-fr="Suite →" data-zh="继续 →">Suite →</button>
   </div>
 </div>
 
@@ -678,8 +678,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(8)">← Préc.</button>
-    <button class="btn-ns" onclick="goSlide(10)">Suite →</button>
+    <button class="btn-ns" onclick="goSlide(8)" data-fr="← Préc." data-zh="← 上一页">← Préc.</button>
+    <button class="btn-ns" onclick="goSlide(10)" data-fr="Suite →" data-zh="继续 →">Suite →</button>
   </div>
 </div>
 
@@ -729,8 +729,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(9)">← Préc.</button>
-    <button class="btn-ns" onclick="goSlide(11)">✍️ À toi ! →</button>
+    <button class="btn-ns" onclick="goSlide(9)" data-fr="← Préc." data-zh="← 上一页">← Préc.</button>
+    <button class="btn-ns" onclick="goSlide(11)" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →">✍️ À toi ! →</button>
   </div>
 </div>
 
@@ -738,7 +738,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <div class="slide" id="slide-11">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-prod">✍️ À toi !</div>
+      <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
       <div class="card-body">
         <div class="prod-box">Présentez-vous en 5 phrases : votre nom, nationalité, profession et ville. <span class="prod-zh">用5句话介绍自己：姓名、国籍、职业和城市。</span></div>
         <textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea>
@@ -748,7 +748,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(10)">← Grammaire</button>
+    <button class="btn-ns" onclick="goSlide(10)" data-fr="← Grammaire" data-zh="← 语法">← Grammaire</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='1B_slides.html'">Leçon 1B →</button>
   </div>
 </div>
@@ -833,7 +833,7 @@ function closeModal(id){document.getElementById(id).classList.remove('open');doc
 function closeAllModals(){document.querySelectorAll('.fle-modal').forEach(function(m){m.classList.remove('open');});document.querySelector('.fle-modal-overlay').classList.remove('open');document.body.style.overflow='';}
 function submitForm(e,formId,modalId){e.preventDefault();var form=document.getElementById(formId),data=new FormData(form),btn=form.querySelector('.btn-send');btn.disabled=true;btn.textContent='Envoi…';fetch('https://formspree.io/f/mvznqaze',{method:'POST',body:data,headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){form.reset();var s=document.getElementById('success-'+formId.replace('form-',''));if(s)s.style.display='block';setTimeout(function(){closeModal(modalId);if(s)s.style.display='none';btn.disabled=false;btn.textContent='Envoyer';},2500);}else{alert('Erreur.');btn.disabled=false;btn.textContent='Envoyer';}}).catch(function(){alert('Erreur réseau.');btn.disabled=false;});}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModals();});
-function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);document.getElementById('btn-lang-fr').classList.toggle('active',lang==='fr');document.getElementById('btn-lang-zh').classList.toggle('active',lang==='zh');}
+function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);document.getElementById('btn-lang-fr').classList.toggle('active',lang==='fr');document.getElementById('btn-lang-zh').classList.toggle('active',lang==='zh');document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=lang==='zh'?el.dataset.zh:(el.dataset.fr||el.textContent);});}
 document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
 </script>
 <script>var DIALOGUE_TIMINGS={"0":[{"w":"Bonjour","s":0.0,"e":0.522},{"w":"!","s":0.615,"e":0.639},{"w":"Je","s":0.964,"e":1.068},{"w":"voudrais","s":1.103,"e":1.347},{"w":"m'inscrire","s":1.37,"e":1.823},{"w":"à","s":1.846,"e":1.869},{"w":"la","s":1.904,"e":1.962},{"w":"bibliothèque.","s":2.009,"e":3.065}],"1":[{"w":"Bien","s":0.0,"e":0.232},{"w":"sûr","s":0.279,"e":0.592},{"w":"!","s":0.627,"e":0.673},{"w":"Votre","s":0.882,"e":1.149},{"w":"nom","s":1.196,"e":1.3},{"w":"s'il","s":1.347,"e":1.451},{"w":"vous","s":1.498,"e":1.602},{"w":"plaît.","s":1.625,"e":2.136}],"2":[{"w":"Sofia","s":0.0,"e":0.418},{"w":"Russo.","s":0.476,"e":1.161}],"3":[{"w":"Vous","s":0.0,"e":0.209},{"w":"pouvez","s":0.232,"e":0.534},{"w":"épeler","s":0.604,"e":0.975},{"w":"?","s":1.045,"e":1.347}],"4":[{"w":"S","s":0.0,"e":0.151},{"w":"O","s":0.302,"e":0.418},{"w":"F","s":0.534,"e":0.685},{"w":"I","s":0.801,"e":0.871},{"w":"A.","s":1.022,"e":1.254},{"w":"Russo","s":1.463,"e":1.95},{"w":":","s":1.997,"e":2.032},{"w":"R","s":2.241,"e":2.392},{"w":"U","s":2.508,"e":2.624},{"w":"S","s":2.74,"e":2.914},{"w":"S","s":3.065,"e":3.239},{"w":"O...","s":3.413,"e":3.646},{"w":"Je","s":3.855,"e":3.982},{"w":"suis","s":4.029,"e":4.18},{"w":"italienne.","s":4.238,"e":5.062}],"5":[{"w":"Vous","s":0.0,"e":0.197},{"w":"êtes","s":0.267,"e":0.395},{"w":"étudiante","s":0.453,"e":0.987},{"w":"?","s":1.057,"e":1.347}],"6":[{"w":"Oui,","s":0.0,"e":0.441},{"w":"je","s":0.766,"e":0.871},{"w":"suis","s":0.917,"e":1.057},{"w":"étudiante","s":1.126,"e":1.591},{"w":"en","s":1.614,"e":1.672},{"w":"langues","s":1.718,"e":1.962},{"w":"à","s":2.009,"e":2.032},{"w":"l'université.","s":2.067,"e":3.111}],"7":[{"w":"Salut","s":0.0,"e":0.372},{"w":"Sofia","s":0.406,"e":0.882},{"w":"!","s":0.975,"e":1.022},{"w":"Moi","s":1.405,"e":1.649},{"w":"c'est","s":1.683,"e":1.869},{"w":"Thomas","s":1.904,"e":2.345},{"w":"!","s":2.415,"e":2.473},{"w":"On","s":2.717,"e":2.891},{"w":"est","s":2.961,"e":3.03},{"w":"dans","s":3.053,"e":3.193},{"w":"le","s":3.228,"e":3.297},{"w":"même","s":3.355,"e":3.576},{"w":"cours.","s":3.611,"e":4.365}],"8":[{"w":"Salut","s":0.0,"e":0.313},{"w":"Thomas.","s":0.337,"e":0.673},{"w":"Enchantée","s":0.789,"e":1.289},{"w":"!","s":1.324,"e":1.579}],"9":[{"w":"Bienvenue","s":0.0,"e":0.662},{"w":"à","s":0.697,"e":0.72},{"w":"Grenoble","s":0.778,"e":1.44},{"w":"!","s":1.498,"e":1.718}]};</script>
