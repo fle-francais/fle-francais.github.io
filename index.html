@@ -54,21 +54,27 @@
   .section-sub { color: var(--muted); margin-bottom: 32px; }
   .levels-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
   .level-card { border-radius: var(--radius); padding: 28px 20px; text-align: center; cursor: pointer; transition: transform .15s, box-shadow .15s; border: 2px solid transparent; }
-  .level-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
-  .level-card.A { background: var(--a-light); border-color: var(--a-color); }
-  .level-card.B { background: var(--b-light); border-color: var(--b-color); }
-  .level-card.C { background: var(--c-light); border-color: var(--c-color); }
+  .level-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+  .level-card.A { background: #0d1b32; border-color: #1c2e5a; }
+  .level-card.B { background: #1c0d28; border-color: #3a1a50; }
+  .level-card.C { background: #2e0808; border-color: #6a1010; }
   .level-badge { font-size: 2.2rem; font-weight: 900; display: block; margin-bottom: 6px; }
-  .level-card.A .level-badge { color: var(--a-color); }
-  .level-card.B .level-badge { color: var(--b-color); }
-  .level-card.C .level-badge { color: var(--c-color); }
-  .level-name { font-size: .85rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
-  .level-desc { font-size: .8rem; color: var(--muted); margin-top: 6px; }
-  .level-progress { height: 5px; background: #e0e0e0; border-radius: 3px; margin-top: 14px; overflow: hidden; }
+  .level-card.A .level-badge { color: #a0b4d4; }
+  .level-card.B .level-badge { color: #c0a0d8; }
+  .level-card.C .level-badge { color: #f0a0a0; }
+  .level-name { font-size: .85rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+  .level-card.A .level-name { color: #6a88b8; }
+  .level-card.B .level-name { color: #9060b8; }
+  .level-card.C .level-name { color: #b85050; }
+  .level-desc { font-size: .8rem; margin-top: 6px; }
+  .level-card.A .level-desc { color: #6070a0; }
+  .level-card.B .level-desc { color: #7050a0; }
+  .level-card.C .level-desc { color: #8a4040; }
+  .level-progress { height: 5px; background: rgba(255,255,255,.1); border-radius: 3px; margin-top: 14px; overflow: hidden; }
   .level-progress-bar { height: 100%; border-radius: 3px; transition: width .4s; }
-  .A .level-progress-bar { background: var(--a-color); }
-  .B .level-progress-bar { background: var(--b-color); }
-  .C .level-progress-bar { background: var(--c-color); }
+  .A .level-progress-bar { background: #a0b4d4; }
+  .B .level-progress-bar { background: #c0a0d8; }
+  .C .level-progress-bar { background: #f0a0a0; }
 
   /* ── PAGE NIVEAU ── */
   .level-page { display: none; }
@@ -468,27 +474,27 @@ function checkGate(){
       <div class="level-card A" onclick="showLevel('A2')" style="opacity:.65">
         <span class="level-badge">A2</span>
         <div class="level-name">Survie</div>
-        <div style="font-size:.8rem;font-weight:700;color:#e67e22;background:#fef9f0;border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
+        <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
       </div>
       <div class="level-card B" onclick="showLevel('B1')" style="opacity:.65">
         <span class="level-badge">B1</span>
         <div class="level-name">Seuil</div>
-        <div style="font-size:.8rem;font-weight:700;color:#e67e22;background:#fef9f0;border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
+        <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
       </div>
       <div class="level-card B" onclick="showLevel('B2')" style="opacity:.65">
         <span class="level-badge">B2</span>
         <div class="level-name">Avancé</div>
-        <div style="font-size:.8rem;font-weight:700;color:#e67e22;background:#fef9f0;border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
+        <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
       </div>
       <div class="level-card C" onclick="showLevel('C1')" style="opacity:.65">
         <span class="level-badge">C1</span>
         <div class="level-name">Autonome</div>
-        <div style="font-size:.8rem;font-weight:700;color:#e67e22;background:#fef9f0;border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
+        <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
       </div>
       <div class="level-card C" onclick="showLevel('C2')" style="opacity:.65">
         <span class="level-badge">C2</span>
         <div class="level-name">Maîtrise</div>
-        <div style="font-size:.8rem;font-weight:700;color:#e67e22;background:#fef9f0;border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
+        <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
       </div>
     </div>
   </div>
