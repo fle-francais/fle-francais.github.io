@@ -474,9 +474,11 @@ function playParts(parts, idx){
   const next = ()=>{ playParts(parts, idx+1); };
   const fname = normalizeFilename(part) + '.mp3';
   const audio = new Audio(AUDIO_BASE + fname);
+  let handled = false;
+  const onFail = ()=>{ if(handled) return; handled=true; fallbackSpeak(part, next); };
   audio.onended = next;
-  audio.onerror = ()=>{ fallbackSpeak(part, next); };
-  audio.play().catch(()=>{ fallbackSpeak(part, next); });
+  audio.onerror = onFail;
+  audio.play().catch(onFail);
 }
 
 function fallbackSpeak(text, onEnd){
