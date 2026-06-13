@@ -38,9 +38,10 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
 .slides-viewport{flex:1;overflow:hidden;position:relative;min-height:0}
 .slide{position:absolute;inset:0;display:flex;flex-direction:column;
   padding:10px 14px 8px;transform:translateX(100%);
-  transition:transform .32s cubic-bezier(.4,0,.2,1);will-change:transform}
+  transition:transform .36s cubic-bezier(.4,0,.2,1);will-change:transform;background:var(--bg)}
 .slide.s-active{transform:translateX(0)}
-.slide.s-left{transform:translateX(-100%)}
+.slide.s-prev{transform:translateX(-100%)}
+.slide.s-next{transform:translateX(100%)}
 .slide-body{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;
   display:flex;flex-direction:column;justify-content:center}
 .slide-body::-webkit-scrollbar{width:4px}
@@ -84,8 +85,14 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
 .dl-img-col{width:30%;flex-shrink:0;min-width:80px}
 .dl-img-col img{width:100%;border-radius:8px;box-shadow:0 3px 12px rgba(0,0,0,.09);display:block;object-fit:cover}
 .dl-content-col{flex:1;min-width:0}
+.dl-player{display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--purp-l);border-radius:10px;margin-bottom:10px;flex-shrink:0}
+.dl-player-btn{border:none;border-radius:50%;width:32px;height:32px;background:var(--purp);color:#fff;font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity .15s}
+.dl-player-btn:hover{opacity:.85}
+.dl-player-btn.sm{width:26px;height:26px;font-size:.75rem;background:rgba(0,0,0,.08);color:var(--purp)}
+.dl-player-label{font-size:.72rem;color:var(--purp);font-weight:700;flex:1}
 .dl-row{display:grid;grid-template-columns:108px 1fr;gap:7px;
-  padding:5px 0;border-bottom:1px solid #f5f5f5;font-size:.83rem}
+  padding:5px 0;border-bottom:1px solid #f5f5f5;font-size:.83rem;border-radius:6px;transition:background .2s}
+.dl-row.dl-playing{background:var(--purp-l);padding-left:6px;padding-right:6px}
 .dl-speaker{font-weight:800;color:var(--purp);font-size:.75rem;
   text-transform:uppercase;letter-spacing:.3px;padding-top:2px;overflow-wrap:break-word;word-break:break-word}
 .dl-line{line-height:1.55;color:var(--text)}
@@ -223,7 +230,14 @@ body.lang-zh .prod-zh{display:block}
       <div class="card-head head-dialogue">💬 Dialogue</div>
       <div class="card-body dl-layout">
         <div class="dl-img-col"><img src="../images/dialogue/dialogue_7C.jpg" alt="Illustration 7C" loading="lazy"/></div>
-        <div class="dl-content-col"><!-- dialogue-image-patched -->
+        <div class="dl-content-col">
+          <div class="dl-player">
+            <button class="dl-player-btn sm" id="dl-prev-btn" onclick="dlPrev()" title="Ligne précédente">◀</button>
+            <button class="dl-player-btn" id="dl-play-btn" onclick="dlToggle()" title="Lire / Pause">▶</button>
+            <button class="dl-player-btn sm" id="dl-next-btn" onclick="dlNext()" title="Ligne suivante">▶▶</button>
+            <span class="dl-player-label">Écouter le dialogue</span>
+          </div>
+          <!-- dialogue-image-patched -->
 <div class="dialogue"><div class="dl-row"><div class="dl-speaker">JULIE</div><div class="dl-line">Je cherche un cadeau pour ma mère. Qu'est-ce que tu en penses ?</div></div>
 <div class="dl-row"><div class="dl-speaker">ÉRIC</div><div class="dl-line">Ce foulard est joli. Tu peux le prendre.</div></div>
 <div class="dl-row"><div class="dl-speaker">JULIE</div><div class="dl-line">Oui, mais je le trouve un peu ordinaire. Et ce sac ?</div></div>
@@ -234,7 +248,8 @@ body.lang-zh .prod-zh{display:block}
 <div class="dl-row"><div class="dl-speaker">VENDEUR</div><div class="dl-line">Bien sûr ! Vous voulez un papier cadeau ?</div></div>
 <div class="dl-row"><div class="dl-speaker">JULIE</div><div class="dl-line">Oui, s'il vous plaît. Ma mère va les adorer !</div></div>
 <div class="dl-row"><div class="dl-speaker">ÉRIC</div><div class="dl-line">Excellent choix. Elle va être contente !</div></div>
-</div></div>
+</div>
+        </div>
       </div>
     </div>
   </div>
@@ -433,23 +448,47 @@ Leçon 7C · Je le prends ! · A1</div>
 </div>
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
+var LESSON='7C';
 var TAB_FOR_SLIDE=[0, 1, 2, 3, 4, 5, 5, 6];
 
 var currentSlide=0;
-document.head.insertAdjacentHTML('beforeend','<style>.s-right{transform:translateX(100%)!important}</style>');
 function goSlide(n){
   if(n===currentSlide)return;
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;
   slides[currentSlide].classList.remove('s-active');
-  slides[currentSlide].classList.add(dir>0?'s-left':'s-right');
-  slides[n].classList.remove('s-left','s-right');
+  slides[currentSlide].classList.add(dir>0?'s-prev':'s-next');
+  slides[n].classList.remove('s-prev','s-next');
   slides[n].classList.add('s-active');
   var sb=slides[n].querySelector('.slide-body');if(sb)sb.scrollTop=0;
-  if(TAB_FOR_SLIDE.length)tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
+  tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
   currentSlide=n;
 }
 function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');}
 document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
+var _dlIdx=-1,_dlAudio=null,_dlPlaying=false;
+function dlPlay(){
+  var rows=document.querySelectorAll('#slide-0 .dl-row'),n=rows.length;
+  if(!n)return;
+  _dlIdx=0;_dlPlaying=true;dlStep(rows,n);
+}
+function dlStep(rows,n){
+  if(!_dlPlaying||_dlIdx>=n){dlStop();return;}
+  rows.forEach(function(r,i){r.classList.toggle('dl-playing',i===_dlIdx);});
+  var src='../audio/dialogue_'+LESSON+'_'+_dlIdx+'.mp3';
+  _dlAudio=new Audio(src);
+  _dlAudio.onended=function(){_dlIdx++;dlStep(rows,n);};
+  _dlAudio.onerror=function(){_dlIdx++;dlStep(rows,n);};
+  _dlAudio.play().catch(function(){_dlIdx++;dlStep(rows,n);});
+  var btn=document.getElementById('dl-play-btn');if(btn)btn.textContent='⏸';
+}
+function dlStop(){
+  _dlPlaying=false;if(_dlAudio){_dlAudio.pause();_dlAudio=null;}
+  document.querySelectorAll('.dl-row').forEach(function(r){r.classList.remove('dl-playing');});
+  var btn=document.getElementById('dl-play-btn');if(btn)btn.textContent='▶';
+}
+function dlToggle(){if(_dlPlaying){dlStop();}else{dlPlay();}}
+function dlPrev(){if(_dlIdx>0){_dlIdx--;if(_dlAudio){_dlAudio.pause();_dlAudio=null;}var rows=document.querySelectorAll('#slide-0 .dl-row');_dlPlaying=true;dlStep(rows,rows.length);}}
+function dlNext(){if(_dlAudio){_dlAudio.pause();_dlAudio=null;}_dlIdx++;var rows=document.querySelectorAll('#slide-0 .dl-row');if(_dlIdx>=rows.length){dlStop();return;}_dlPlaying=true;dlStep(rows,rows.length);}
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
 function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}
 function checkBlankData(btn,inputId,fbId){
