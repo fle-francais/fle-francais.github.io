@@ -16,8 +16,8 @@ a{color:var(--blue);text-decoration:none}
 .ph-back:hover{background:rgba(255,255,255,.2)}
 .ph-title{font-size:.88rem;font-weight:800;flex:1}
 .ph-sub{font-size:.68rem;opacity:.8}
-.ph-next{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
-.ph-next:hover{background:rgba(255,255,255,.2)}
+.ph-next,.ph-prev{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
+.ph-next:hover,.ph-prev:hover{background:rgba(255,255,255,.2)}
 .ph-lang{display:flex;gap:3px;margin-right:4px}
 .ph-lang-btn{padding:3px 8px;border-radius:12px;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.75);background:none;font-size:.68rem;font-weight:800;cursor:pointer;transition:all .15s;letter-spacing:.02em}
 .ph-lang-btn:hover{border-color:#fff;color:#fff}
@@ -256,6 +256,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <body>
 <header class="page-header">
   <a class="ph-back" href="../index.html">🏠</a>
+  <a class="ph-prev" href="2B_slides.html">← 2B</a>
   <div style="flex:1"><div class="ph-title">Mon meilleur ami</div><div class="ph-sub">Leçon 2C · A1</div></div>
   <div class="ph-lang">
     <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')">FR</button>
@@ -283,7 +284,6 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
           <img alt="Illustration leçon 2C" loading="lazy" src="../images/dialogue/dialogue_2C.jpg"/>
         </div>
         <div class="dl-content-col">
-          <div class="dialogue">
 <!-- dialogue-image-patched -->
 <div class="dialogue"><div class="dl-row"><div class="dl-speaker">EMMA</div><div class="dl-line">Mon meilleur ami s'appelle Julien. On se connaît depuis le lycée.</div></div>
 <div class="dl-row"><div class="dl-speaker">PROF</div><div class="dl-line">Comment il est, Julien ?</div></div>
@@ -297,7 +297,6 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <div class="dl-row"><div class="dl-speaker">PROF</div><div class="dl-line">C'est une belle amitié !</div></div>
 <div class="dl-row"><div class="dl-speaker">EMMA</div><div class="dl-line">Oui ! On se fait confiance et on se respecte. C'est important.</div></div>
 </div>
-          </div>
         </div>
       </div>
     </div>
@@ -518,11 +517,11 @@ function resetPhon(){document.querySelectorAll('.phon-item-ex').forEach(function
 var ex5Selected=null;
 function ex5Click(chip){if(chip.classList.contains('chip-ok')||chip.classList.contains('chip-ko'))return;if(ex5Selected===chip){chip.classList.remove('chip-sel');ex5Selected=null;document.querySelectorAll('.ex5-zone').forEach(function(z){z.classList.remove('zone-active');});return;}document.querySelectorAll('.drag-chip').forEach(function(c){c.classList.remove('chip-sel');});chip.classList.add('chip-sel');ex5Selected=chip;document.querySelectorAll('.ex5-zone').forEach(function(z){z.classList.add('zone-active');});}
 function ex5Drop(zone){if(!ex5Selected)return;var items=zone.querySelector('.ex5-zone-items');if(items)items.appendChild(ex5Selected);ex5Selected.classList.remove('chip-sel');ex5Selected=null;document.querySelectorAll('.ex5-zone').forEach(function(z){z.classList.remove('zone-active');});}
-function checkEx5(){var allChips=document.querySelectorAll('#ex5-pool .drag-chip, .ex5-zone-items .drag-chip'),correct=0,wrong=0,missing=0;allChips.forEach(function(chip){var zone=chip.closest('.ex5-zone');if(!zone){missing++;return;}if(zone.id==='zone-'+chip.dataset.cat){chip.classList.add('chip-ok');correct++;}else{chip.classList.add('chip-ko');wrong++;}});var fb=document.getElementById('ex5-fb');if(!fb)return;if(missing>0){fb.innerHTML='⚠️ Classez toutes les expressions d’abord.';fb.style.color='var(--orange)';}else if(wrong===0){fb.innerHTML='✅ Parfait !';fb.style.color='var(--green)';}else{fb.innerHTML='❌ '+wrong+' mal classée(s).';fb.style.color='#e74c3c';}}
+function checkEx5(){var allChips=document.querySelectorAll('#ex5-pool .drag-chip, .ex5-zone-items .drag-chip'),correct=0,wrong=0,missing=0;allChips.forEach(function(chip){var zone=chip.closest('.ex5-zone');if(!zone){missing++;return;}if(zone.id==='zone-'+chip.dataset.cat){chip.classList.add('chip-ok');correct++;}else{chip.classList.add('chip-ko');wrong++;}});var fb=document.getElementById('ex5-fb');if(!fb)return;if(missing>0){fb.innerHTML='⚠️ Classez toutes les expressions d\'abord.';fb.style.color='var(--orange)';}else if(wrong===0){fb.innerHTML='✅ Parfait !';fb.style.color='var(--green)';}else{fb.innerHTML='❌ '+wrong+' mal classée(s).';fb.style.color='#e74c3c';}}
 function resetEx5(){var pool=document.getElementById('ex5-pool');if(!pool)return;document.querySelectorAll('.drag-chip').forEach(function(chip){chip.classList.remove('chip-ok','chip-ko','chip-sel');pool.appendChild(chip);});document.querySelectorAll('.ex5-zone').forEach(function(z){z.classList.remove('zone-active');});ex5Selected=null;var fb=document.getElementById('ex5-fb');if(fb)fb.innerHTML='';}
 function playEx6Audio(btn,src){btn.innerHTML='🔊 …';var audio=new Audio(src);audio.onended=function(){btn.innerHTML='🔊';};audio.play().catch(function(){btn.innerHTML='🔊';});}
 function checkEx6(btn){var item=btn.closest('.listen-item');if(!item||item.dataset.done)return;item.dataset.done='1';var ans=item.dataset.ans,val=btn.dataset.val,fb=item.querySelector('.listen-fb');item.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;});if(val===ans){btn.classList.add('choice-correct');if(fb){fb.textContent='✅';fb.style.color='var(--green)';}}else{btn.classList.add('choice-wrong');item.querySelectorAll('.choice-btn').forEach(function(b){if(b.dataset.val===ans)b.classList.add('choice-correct');});if(fb){fb.textContent='❌ → '+ans;fb.style.color='#e74c3c';}}}
-async function checkLT(btn){var ta=btn.previousElementSibling,res=btn.nextElementSibling,txt=(ta.value||'').trim();if(!txt){res.innerHTML='<p class="lt-info">✏️ Écris d’abord ta réponse.</p>';return;}btn.disabled=true;btn.textContent='…';res.innerHTML='<p class="lt-info">Correction en cours…</p>';try{var r=await fetch('https://api.languagetool.org/v2/check',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'text='+encodeURIComponent(txt)+'&language=fr'});var d=await r.json();if(!d.matches||!d.matches.length){res.innerHTML='<p class="lt-ok">✅ Aucune erreur — bravo !</p>';}else{var n=d.matches.length,html='<p class="lt-count">'+n+' point'+(n>1?'s':'')+' à corriger :</p><ul class="lt-list">';for(var m of d.matches){var orig=txt.slice(m.offset,m.offset+m.length),sugs=(m.replacements||[]).slice(0,3).map(function(x){return'<span class="lt-sug">'+x.value+'</span>';}).join(', ');html+='<li><span class="lt-err">« '+orig+' »</span> — '+m.message+(sugs?' → '+sugs:'')+' </li>';}html+='</ul>';res.innerHTML=html;}}catch(e){res.innerHTML='<p class="lt-warn">⚠️ Impossible de joindre le correcteur.</p>';}btn.disabled=false;btn.textContent='Corriger ✓';}
+async function checkLT(btn){var ta=btn.previousElementSibling,res=btn.nextElementSibling,txt=(ta.value||'').trim();if(!txt){res.innerHTML='<p class="lt-info">✏️ Écris d\'abord ta réponse.</p>';return;}btn.disabled=true;btn.textContent='…';res.innerHTML='<p class="lt-info">Correction en cours…</p>';try{var r=await fetch('https://api.languagetool.org/v2/check',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'text='+encodeURIComponent(txt)+'&language=fr'});var d=await r.json();if(!d.matches||!d.matches.length){res.innerHTML='<p class="lt-ok">✅ Aucune erreur — bravo !</p>';}else{var n=d.matches.length,html='<p class="lt-count">'+n+' point'+(n>1?'s':'')+' à corriger :</p><ul class="lt-list">';for(var m of d.matches){var orig=txt.slice(m.offset,m.offset+m.length),sugs=(m.replacements||[]).slice(0,3).map(function(x){return'<span class="lt-sug">'+x.value+'</span>';}).join(', ');html+='<li><span class="lt-err">« '+orig+' »</span> — '+m.message+(sugs?' → '+sugs:'')+' </li>';}html+='</ul>';res.innerHTML=html;}}catch(e){res.innerHTML='<p class="lt-warn">⚠️ Impossible de joindre le correcteur.</p>';}btn.disabled=false;btn.textContent='Corriger ✓';}
 
 function openModal(id){document.getElementById(id).classList.add('open');document.querySelector('.fle-modal-overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeModal(id){document.getElementById(id).classList.remove('open');document.querySelector('.fle-modal-overlay').classList.remove('open');document.body.style.overflow='';}
