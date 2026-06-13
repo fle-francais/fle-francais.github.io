@@ -198,7 +198,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
       <div class="card-body dl-layout">
         <div class="dl-img-col"><img src="../images/dialogue/dialogue_8B.jpg" alt="Illustration 8B" loading="lazy"/></div>
         <div class="dl-content-col"><!-- dialogue-image-patched -->
-<img alt="Illustration leçon 8B" class="dl-illustration" loading="lazy" src="../images/dialogue/dialogue_8B.jpg"/>
 <div class="dialogue"><div class="dl-row"><div class="dl-speaker">SARAH</div><div class="dl-line">Allô, Romain ? Tu peux m'aider ? Je dois déménager samedi.</div></div>
 <div class="dl-row"><div class="dl-speaker">ROMAIN</div><div class="dl-line">Déménager ? Bien sûr ! Vous devez porter des meubles lourds ?</div></div>
 <div class="dl-row"><div class="dl-speaker">SARAH</div><div class="dl-line">Oui, un canapé et une armoire. Je ne peux pas faire ça seule.</div></div>
@@ -370,7 +369,6 @@ Leçon 8B · Tu peux m'aider ? · A1</div>
 var TAB_FOR_SLIDE=[0, 1, 2, 3, 4, 5, 5, 6];
 
 var currentSlide=0;
-var TAB_FOR_SLIDE=[];
 document.head.insertAdjacentHTML('beforeend','<style>.s-right{transform:translateX(100%)!important}</style>');
 function goSlide(n){
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;

@@ -198,7 +198,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
       <div class="card-body dl-layout">
         <div class="dl-img-col"><img src="../images/dialogue/dialogue_3A.jpg" alt="Illustration 3A" loading="lazy"/></div>
         <div class="dl-content-col"><!-- dialogue-image-patched -->
-<img alt="Illustration leçon 3A" class="dl-illustration" loading="lazy" src="../images/dialogue/dialogue_3A.jpg"/>
 <div class="dialogue"><div class="dl-row"><div class="dl-speaker">LEA</div><div class="dl-line">On peut se voir demain pour le projet ?</div></div>
 <div class="dl-row"><div class="dl-speaker">MAX</div><div class="dl-line">Oui ! Tu es libre à quelle heure ?</div></div>
 <div class="dl-row"><div class="dl-speaker">LEA</div><div class="dl-line">Le matin, je travaille. L'après-midi, j'ai une réunion à 14h.</div></div>
@@ -383,7 +382,6 @@ Leçon 3A · Quelle heure est-il ? · A1</div>
 var TAB_FOR_SLIDE=[0, 1, 2, 3, 4, 5, 5, 6];
 
 var currentSlide=0;
-var TAB_FOR_SLIDE=[];
 document.head.insertAdjacentHTML('beforeend','<style>.s-right{transform:translateX(100%)!important}</style>');
 function goSlide(n){
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;

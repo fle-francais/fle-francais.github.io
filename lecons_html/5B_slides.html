@@ -198,7 +198,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
       <div class="card-body dl-layout">
         <div class="dl-img-col"><img src="../images/dialogue/dialogue_5B.jpg" alt="Illustration 5B" loading="lazy"/></div>
         <div class="dl-content-col"><!-- dialogue-image-patched -->
-<img alt="Illustration leçon 5B" class="dl-illustration" loading="lazy" src="../images/dialogue/dialogue_5B.jpg"/>
 <div class="dialogue">
 <div class="dl-row"><div class="dl-speaker">SERVEUR</div><div class="dl-line">Bonjour ! Vous avez choisi ?</div></div>
 <div class="dl-row"><div class="dl-speaker">CLIENT</div><div class="dl-line">Je voudrais un café allongé, s'il vous plaît.</div></div>
@@ -368,7 +367,6 @@ Leçon 5B · Je voudrais… · A1</div>
 var TAB_FOR_SLIDE=[0, 1, 2, 3, 4, 5, 5, 6];
 
 var currentSlide=0;
-var TAB_FOR_SLIDE=[];
 document.head.insertAdjacentHTML('beforeend','<style>.s-right{transform:translateX(100%)!important}</style>');
 function goSlide(n){
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;

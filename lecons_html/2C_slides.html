@@ -198,7 +198,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
       <div class="card-body dl-layout">
         <div class="dl-img-col"><img src="../images/dialogue/dialogue_2C.jpg" alt="Illustration 2C" loading="lazy"/></div>
         <div class="dl-content-col"><!-- dialogue-image-patched -->
-<img alt="Illustration leçon 2C" class="dl-illustration" loading="lazy" src="../images/dialogue/dialogue_2C.jpg"/>
 <div class="dialogue"><div class="dl-row"><div class="dl-speaker">EMMA</div><div class="dl-line">Mon meilleur ami s'appelle Julien. On se connaît depuis le lycée.</div></div>
 <div class="dl-row"><div class="dl-speaker">PROF</div><div class="dl-line">Comment il est, Julien ?</div></div>
 <div class="dl-row"><div class="dl-speaker">EMMA</div><div class="dl-line">Il est vraiment sympa et généreux. Il aide toujours les autres.</div></div>
@@ -369,7 +368,6 @@ Leçon 2C · Mon meilleur ami · A1</div>
 var TAB_FOR_SLIDE=[0, 1, 2, 3, 4, 5, 5, 6];
 
 var currentSlide=0;
-var TAB_FOR_SLIDE=[];
 document.head.insertAdjacentHTML('beforeend','<style>.s-right{transform:translateX(100%)!important}</style>');
 function goSlide(n){
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;

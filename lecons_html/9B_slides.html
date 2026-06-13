@@ -198,7 +198,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);
       <div class="card-body dl-layout">
         <div class="dl-img-col"><img src="../images/dialogue/dialogue_9B.jpg" alt="Illustration 9B" loading="lazy"/></div>
         <div class="dl-content-col"><!-- dialogue-image-patched -->
-<img alt="Illustration leçon 9B" class="dl-illustration" loading="lazy" src="../images/dialogue/dialogue_9B.jpg"/>
 <div class="dialogue"><div class="dl-row"><div class="dl-speaker">MÉTÉO</div><div class="dl-line">Bonjour. Il vient de pleuvoir sur la côte atlantique, mais ça va s'améliorer.</div></div>
 <div class="dl-row"><div class="dl-speaker">MÉTÉO</div><div class="dl-line">Il fait 22 degrés à Bordeaux. Il y a du vent sur les plages.</div></div>
 <div class="dl-row"><div class="dl-speaker">VACANCIER</div><div class="dl-line">Alors, quel temps il va faire cet après-midi ?</div></div>
@@ -384,7 +383,6 @@ Leçon 9B · Quel temps fait-il ? · A1</div>
 var TAB_FOR_SLIDE=[0, 1, 2, 3, 4, 5, 5, 6];
 
 var currentSlide=0;
-var TAB_FOR_SLIDE=[];
 document.head.insertAdjacentHTML('beforeend','<style>.s-right{transform:translateX(100%)!important}</style>');
 function goSlide(n){
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;
