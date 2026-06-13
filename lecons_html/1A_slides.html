@@ -209,6 +209,12 @@ body.lang-zh .prod-zh{display:block}
 .prono-score-text{font-size:.74rem;color:var(--muted)}
 .prono-heard{font-style:italic;color:var(--muted);font-size:.74rem;margin-top:2px}
 .prono-no-support{background:#fff8e1;border:1px solid #ffe082;border-radius:7px;padding:7px 11px;font-size:.8rem;color:#795548;margin-bottom:8px;display:none}
+/* EXERCISE CATEGORY BADGES */
+.ex-cat-badge{margin-left:auto;font-size:.68rem;padding:2px 9px;border-radius:10px;font-weight:700;white-space:nowrap}
+.badge-gram{background:#e8f0fe;color:#3d6bce}
+.badge-lex{background:#e6f4ea;color:#2d7d46}
+.badge-phon{background:#f3e8ff;color:#7c3aed}
+.badge-comm{background:#fff3e0;color:#e65100}
 /* PRODUCTION */
 .prod-box{background:#fffde7;border-left:4px solid var(--orange);border-radius:0 8px 8px 0;padding:11px 13px;font-size:.86rem;line-height:1.55}
 textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #ffe082;border-radius:7px;padding:8px;font-family:inherit;font-size:.84rem;resize:vertical;background:#fff}
@@ -276,6 +282,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <button class="slide-tab" onclick="goSlide(3)">🗣️ Communiquer</button>
   <button class="slide-tab" onclick="goSlide(4)">🎵 Phonétique</button>
   <button class="slide-tab" onclick="goSlide(7)">📖 Grammaire</button>
+  <button class="slide-tab" onclick="goSlide(8)">✏️ Exercices</button>
   <button class="slide-tab" onclick="goSlide(11)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
@@ -584,13 +591,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     <button class="btn-ns" onclick="goSlide(7)">📖 Grammaire →</button>
   </div>
 </div>
-<!-- ══ SLIDE 7 : GRAMMAIRE 1/4 — RÈGLE ══ -->
+<!-- ══ SLIDE 7 : GRAMMAIRE — RÈGLE ══ -->
 <div class="slide" id="slide-7">
-  <div class="sub-nav">
-    <button class="sub-nav-btn" disabled>←</button>
-    <span class="sub-nav-count">1 / 4</span>
-    <button class="sub-nav-btn" onclick="goSlide(8)">→</button>
-  </div>
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-gram">📖 Le verbe ÊTRE au présent</div>
@@ -603,20 +605,20 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   </div>
   <div class="slide-footer" style="justify-content:space-between">
     <button class="btn-ns" onclick="goSlide(6)">← Phonétique</button>
-    <button class="btn-ns" onclick="goSlide(8)">Ex. 1 →</button>
+    <button class="btn-ns" onclick="goSlide(8)">✏️ Exercices →</button>
   </div>
 </div>
 
-<!-- ══ SLIDE 8 : GRAMMAIRE 2/4 — EX1 ══ -->
+<!-- ══ SLIDE 8 : EXERCICES 1/3 — EX1 + EX3 ══ -->
 <div class="slide" id="slide-8">
   <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(7)">←</button>
-    <span class="sub-nav-count">2 / 4</span>
+    <button class="sub-nav-btn" disabled>←</button>
+    <span class="sub-nav-count">1 / 3</span>
     <button class="sub-nav-btn" onclick="goSlide(9)">→</button>
   </div>
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-ex">✏️ Ex. 1 — Conjuguez ÊTRE</div>
+      <div class="card-head head-ex">✏️ Ex. 1 — Conjuguez ÊTRE <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div>
       <div class="card-body">
         <div class="blank-row">1. Je <input autocomplete="off" class="blank-input" id="bl-ex1-0" type="text"/><button class="check-btn" data-ans="suis" id="chk-ex1-0" onclick="checkBlankData(this,'bl-ex1-0','fb-bl-ex1-0')">✓</button><span class="fb" id="fb-bl-ex1-0"></span> français(e).</div>
         <div class="blank-row">2. Il <input autocomplete="off" class="blank-input" id="bl-ex1-1" type="text"/><button class="check-btn" data-ans="est" id="chk-ex1-1" onclick="checkBlankData(this,'bl-ex1-1','fb-bl-ex1-1')">✓</button><span class="fb" id="fb-bl-ex1-1"></span> étudiant en médecine.</div>
@@ -632,21 +634,21 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(7)">← Règle</button>
-    <button class="btn-ns" onclick="goSlide(9)">Ex. 3–4 →</button>
+    <button class="btn-ns" onclick="goSlide(7)">← Grammaire</button>
+    <button class="btn-ns" onclick="goSlide(9)">Suite →</button>
   </div>
 </div>
 
-<!-- ══ SLIDE 9 : GRAMMAIRE 3/4 — EX3 + EX4 ══ -->
+<!-- ══ SLIDE 9 : EXERCICES 2/3 — EX3 + EX4 ══ -->
 <div class="slide" id="slide-9">
   <div class="sub-nav">
     <button class="sub-nav-btn" onclick="goSlide(8)">←</button>
-    <span class="sub-nav-count">3 / 4</span>
+    <span class="sub-nav-count">2 / 3</span>
     <button class="sub-nav-btn" onclick="goSlide(10)">→</button>
   </div>
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-ex">✏️ Ex. 3 — Négative et interrogative</div>
+      <div class="card-head head-ex">✏️ Ex. 3 — Négative et interrogative <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div>
       <div class="card-body">
         <div class="blank-row">1. Il est professeur. → Il <input autocomplete="off" class="blank-input" id="bl-ex3-0" type="text" style="width:100px"/><button class="check-btn" data-ans="n'est pas" id="chk-ex3-0" onclick="checkBlankData(this,'bl-ex3-0','fb-bl-ex3-0')">✓</button><span class="fb" id="fb-bl-ex3-0"></span> professeur.</div>
         <div class="blank-row">2. Vous êtes française. → Est-ce que vous <input autocomplete="off" class="blank-input" id="bl-ex3-1" type="text"/><button class="check-btn" data-ans="êtes" id="chk-ex3-1" onclick="checkBlankData(this,'bl-ex3-1','fb-bl-ex3-1')">✓</button><span class="fb" id="fb-bl-ex3-1"></span> française ?</div>
@@ -660,7 +662,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
       </div>
     </div>
     <div class="card">
-      <div class="card-head head-ex">✏️ Ex. 4 — Associez</div>
+      <div class="card-head head-ex">✏️ Ex. 4 — Associez <span class="ex-cat-badge badge-lex">📚 Lexique</span></div>
       <div class="card-body">
         <div class="assoc-ref"><strong>a.</strong> lieu d'études &nbsp;|&nbsp; <strong>b.</strong> mettre son nom sur une liste &nbsp;|&nbsp; <strong>c.</strong> emprunter des livres &nbsp;|&nbsp; <strong>d.</strong> fait des études</div>
         <div class="assoc-row"><div class="assoc-left"><span class="assoc-word">1. bibliothèque</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-ex4-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="c" onclick="checkBlankData(this,'ma-ex4-0','fb-ma-ex4-0')">✓</button><span class="fb" id="fb-ma-ex4-0"></span></div></div>
@@ -676,21 +678,21 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(8)">← Ex.1</button>
-    <button class="btn-ns" onclick="goSlide(10)">Ex.5–6 →</button>
+    <button class="btn-ns" onclick="goSlide(8)">← Préc.</button>
+    <button class="btn-ns" onclick="goSlide(10)">Suite →</button>
   </div>
 </div>
 
-<!-- ══ SLIDE 10 : GRAMMAIRE 4/4 — EX5 + EX6 ══ -->
+<!-- ══ SLIDE 10 : EXERCICES 3/3 — EX5 + EX6 ══ -->
 <div class="slide" id="slide-10">
   <div class="sub-nav">
     <button class="sub-nav-btn" onclick="goSlide(9)">←</button>
-    <span class="sub-nav-count">4 / 4</span>
+    <span class="sub-nav-count">3 / 3</span>
     <button class="sub-nav-btn" disabled>→</button>
   </div>
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-ex">🎯 Ex. 5 — Formel ou informel ?</div>
+      <div class="card-head head-ex">🎯 Ex. 5 — Formel ou informel ? <span class="ex-cat-badge badge-comm">💬 Communication</span></div>
       <div class="card-body">
         <div class="ex-inst">Cliquez sur une expression, puis sur la bonne colonne. <span class="comm-zh">点击一个表达选中，再点击正确的栏。</span></div>
         <div id="ex5-pool" class="ex5-pool">
@@ -715,7 +717,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
       </div>
     </div>
     <div class="card">
-      <div class="card-head head-ex">🔊 Ex. 6 — Écoute et choisissez</div>
+      <div class="card-head head-ex">🔊 Ex. 6 — Écoute et choisissez <span class="ex-cat-badge badge-phon">🎵 Prononciation</span></div>
       <div class="card-body">
         <div class="ex-inst">Écoutez et choisissez le bon pronom sujet. <span class="comm-zh">听句子，选择正确的主语代词。</span></div>
         <div class="listen-item" data-ans="vous"><div class="listen-sentence"><span class="listen-blank">___</span> êtes professeur ?</div><button class="listen-btn" onclick="playEx6Audio(this,'../audio/ex6_1A_0.mp3')">🔊</button><div class="listen-choices"><button class="choice-btn" data-val="je" onclick="checkEx6(this)">je</button><button class="choice-btn" data-val="vous" onclick="checkEx6(this)">vous</button><button class="choice-btn" data-val="ils" onclick="checkEx6(this)">ils</button></div><div class="listen-fb"></div></div>
@@ -727,7 +729,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(9)">← Ex.3–4</button>
+    <button class="btn-ns" onclick="goSlide(9)">← Préc.</button>
     <button class="btn-ns" onclick="goSlide(11)">✍️ À toi ! →</button>
   </div>
 </div>
@@ -787,7 +789,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 // TAB_FOR_SLIDE[i] = tab index active for slide i
-var TAB_FOR_SLIDE=[0,1,1,2,3,3,3,4,4,4,4,5];
+var TAB_FOR_SLIDE=[0,1,1,2,3,3,3,4,5,5,5,6];
 var currentSlide=0;
 function goSlide(n){
   if(n===currentSlide)return;
