@@ -1547,20 +1547,20 @@ window.addEventListener('popstate', function(e) {
 });
 
 function toggleHeroPanel(which) {
-  var panels = {
-    levels: { panel: 'hero-level-picker', btn: 'btn-level-picker', label: 'Choisissez votre niveau' },
-    bio:    { panel: 'hero-bio-panel',    btn: 'btn-bio-picker',   label: 'Votre professeur' }
-  };
-  var other = which === 'levels' ? 'bio' : 'levels';
-  var cur = panels[which], oth = panels[other];
-  var curPanel = document.getElementById(cur.panel);
+  var panels = { levels: 'hero-level-picker', bio: 'hero-bio-panel' };
+  var btns   = { levels: 'btn-level-picker',  bio: 'btn-bio-picker' };
+  var other  = which === 'levels' ? 'bio' : 'levels';
+  var curPanel = document.getElementById(panels[which]);
+  var othPanel = document.getElementById(panels[other]);
+  var curBtn   = document.getElementById(btns[which]);
+  var othBtn   = document.getElementById(btns[other]);
   var isOpen = curPanel.style.display !== 'none' && curPanel.style.display !== '';
-  // fermer l'autre
-  document.getElementById(oth.panel).style.display = 'none';
-  document.getElementById(oth.btn).textContent = oth.label + ' ▾';
+  // fermer l'autre (conserver le label traduit, juste changer la flèche)
+  othPanel.style.display = 'none';
+  othBtn.textContent = othBtn.textContent.replace(/[▴▾]/, '▾');
   // toggle le courant
   curPanel.style.display = isOpen ? 'none' : 'block';
-  document.getElementById(cur.btn).textContent = cur.label + (isOpen ? ' ▾' : ' ▴');
+  curBtn.textContent = curBtn.textContent.replace(/[▴▾]/, isOpen ? '▾' : '▴');
 }
 
 function showLevel(lvl) {
@@ -2065,6 +2065,8 @@ const I18N = {
     hero_h1: 'Apprenez le français,<br>à votre rythme',
     hero_p: 'Un parcours structuré selon le CECRL, du niveau A1 au C2. Le niveau A1 est entièrement gratuit : exercices interactifs + 27 leçons complètes.',
     btn_test: 'Tester mon niveau',
+    btn_niveau: 'Choisissez votre niveau',
+    btn_prof: 'Votre professeur',
     btn_a1: 'Commencer en A1 — gratuit',
     section_level_title: 'Choisissez votre niveau',
     section_level_sub: 'Cliquez sur un niveau pour accéder aux leçons et exercices.',
@@ -2151,6 +2153,8 @@ const I18N = {
     hero_h1: '学习法语，<br>按您的节奏',
     hero_p: '按照欧洲语言共同参考框架（CECR）设计的结构化课程，从A1到C2。A1级完全免费：互动练习 + 27节完整课程。',
     btn_test: '测试我的级别',
+    btn_niveau: '选择您的级别',
+    btn_prof: '您的老师',
     btn_a1: '从A1开始 — 免费',
     section_level_title: '选择您的级别',
     section_level_sub: '点击一个级别以访问课程和练习。',
@@ -2253,6 +2257,10 @@ function setLang(lang) {
   if (heroH1) heroH1.innerHTML = T.hero_h1;
   if (heroP)  heroP.textContent = T.hero_p;
   if (heroBtns[0]) heroBtns[0].textContent = T.btn_test;
+  var niveauBtn = document.getElementById('btn-level-picker');
+  var profBtn   = document.getElementById('btn-bio-picker');
+  if (niveauBtn) { var a1 = niveauBtn.textContent.slice(-1); niveauBtn.textContent = T.btn_niveau + ' ' + (a1 === '▴' ? '▴' : '▾'); }
+  if (profBtn)   { var a2 = profBtn.textContent.slice(-1);   profBtn.textContent   = T.btn_prof   + ' ' + (a2 === '▴' ? '▴' : '▾'); }
 
   // Section titles on home (2: level + why)
   const secTitles = document.querySelectorAll('#home .section-title');
