@@ -22,7 +22,7 @@
     --radius: 12px; --shadow: 0 2px 12px rgba(0,0,0,.08);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(160deg,#0d1b32 0%,#1c2e5a 45%,#2e1230 100%) fixed; color: var(--text); line-height: 1.6; min-height: 100vh; }
 
   /* ── NAV ── */
   nav { background:transparent; position:fixed; top:0; right:0; z-index:100; width:auto; }
@@ -34,8 +34,8 @@
   .nav-btn:hover, .nav-btn.active { background: var(--b-color); color: #fff; }
 
   /* ── HERO ── */
-  #home { display: block; background: linear-gradient(160deg,#0d1b32 0%,#1c2e5a 45%,#2e1230 100%); min-height: 100vh; }
-  .hero { color: #fff; text-align: center; padding: 48px 20px 40px; }
+  #home { display: block; }
+  .hero { color: #fff; text-align: center; padding: 48px 20px 28px; }
   .hero-flag-banner{width:160px;display:block;margin:0 auto 12px}
   .hero-wordmark{margin-bottom:4px}
   .hero-brand{font-size:clamp(1.5rem,4vw,2.4rem);font-weight:900;color:#fff;letter-spacing:-.5px;display:block}
