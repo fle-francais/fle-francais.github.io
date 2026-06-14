@@ -77,7 +77,7 @@
   .C .level-progress-bar { background: #f0a0a0; }
 
   /* ── PAGE NIVEAU ── */
-  .level-page { display: none; }
+  .level-page { display: none; background: var(--bg); min-height: 100vh; }
   .level-header { padding: 20px 20px 16px; color: #fff; }
   .level-header.A { background: linear-gradient(135deg, #0d1b32, #1c2e5a); }
   .level-header.B { background: linear-gradient(135deg, #1c0d28, #3a1a50); }
@@ -2597,6 +2597,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const detected = ['fr','zh'].includes(browserLang) ? browserLang : 'fr';
   setLang(saved || detected);
   history.replaceState({page:'home'}, '');
+  var lvlParam = new URLSearchParams(window.location.search).get('level');
+  if (lvlParam) showLevel(lvlParam);
 });
 
 // ── EXERCICES A1 : nouvelles signatures ──
