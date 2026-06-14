@@ -252,6 +252,32 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   .ex5-zones{grid-template-columns:1fr}
   .vocab-grid{grid-template-columns:repeat(2,1fr)}
 }
+/* ── PRONONCIATION SLIDE ── */
+.prono-item{background:#fff;border:1px solid #e8e0f5;border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#7d3c98;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.prono-phrase{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:7px}
+.prono-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.prono-btn{padding:5px 12px;border:none;border-radius:20px;cursor:pointer;font-size:.82rem;font-weight:600;transition:background .15s}
+.prono-btn-listen{background:#f0e6ff;color:#7d3c98}
+.prono-btn-listen:hover{background:#e0ccff}
+.prono-btn-mic{background:#d8f5ef;color:#16a085}
+.prono-btn-mic:hover{background:#b0e8d8}
+.prono-btn-mic.recording{background:#e74c3c;color:#fff;animation:pulse-rec .8s infinite}
+@keyframes pulse-rec{0%,100%{opacity:1}50%{opacity:.6}}
+.prono-score{overflow:hidden;max-height:0;transition:max-height .3s}
+.prono-score.visible,.prono-score:has(.prono-score-text:not(:empty)){max-height:60px}
+.prono-score-bar{height:6px;background:#eee;border-radius:3px;margin-bottom:4px}
+.prono-score-fill{height:100%;border-radius:3px;transition:width .5s;background:var(--green)}
+.prono-score-text{font-size:.82rem;font-weight:600;color:var(--text)}
+.prono-score-text.score-high{color:var(--green)}
+.prono-score-text.score-mid{color:var(--orange)}
+.prono-score-text.score-low{color:#e74c3c}
+.prono-heard{font-size:.78rem;color:var(--muted);font-style:italic}
+.prono-no-support{background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#856404;margin-bottom:8px}
+/* ── SUB-NAV (phonétique 1/2 · 2/2) ── */
+.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#7d3c98}
+.phon-sub-header span{opacity:.7;font-weight:400}
+
 </style>
 </head>
 <body>
@@ -270,9 +296,9 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
   <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
   <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
-  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(4)">📖 Grammaire</button>
-  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(5)">✏️ Exercices</button>
-  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(7)">✍️ À toi !</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(5)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(6)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(8)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -359,25 +385,55 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
   </div>
 </div>
-<!-- ══ SLIDE 3 : PHONÉTIQUE ══ -->
+<!-- ══ SLIDE 3 : PHONÉTIQUE 1/2 — SCHÉMA ══ -->
 <div class="slide" id="slide-3">
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span></div>
-      <div class="card-body"><div class="phon-body">§ Phonétique — Le son [ʁ] — le R français
+  <div class="slide-body" style="display:flex;flex-direction:column">
+    <div class="card" style="flex:1;display:flex;flex-direction:column">
+      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span>
+        <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">1 / 2</span>
+      </div>
+      <div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:8px">
+<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/><text x="340" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c3e50">Le son [ʁ] — le R français</text><line x1="222" y1="32" x2="222" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><line x1="492" y1="32" x2="492" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><rect x="8" y="32" width="208" height="215" rx="8" fill="#7d3c98" opacity=".09" stroke="#7d3c98" stroke-width="0.8"/><circle cx="112" cy="115" r="52" fill="#7d3c98" opacity=".09"><animate attributeName="r" values="52;70;52" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="112" cy="115" r="48" fill="#7d3c98" opacity=".88"/><text x="112" y="125" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" font-family="monospace">[ʁ]</text><text x="112" y="190" text-anchor="middle" font-size="10.5" fill="#7d3c98" font-weight="600">Prononcé dans la gorge (uvulaire).</text><text x="112" y="207" text-anchor="middle" font-size="10.5" fill="#7d3c98" font-weight="600">Différent du R espagnol ou anglais.</text><text x="357" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">GRAPHIE → SON</text><rect x="246" y="52" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="67" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">r</text><text x="472" y="67" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[ʁ]</text><rect x="246" y="78" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="93" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">rr</text><text x="472" y="93" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[ʁ]</text><rect x="496" y="32" width="177" height="215" rx="8" fill="#7d3c98" opacity=".06" stroke="#7d3c98" stroke-width="0.5"/><text x="584" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">EXEMPLES</text><text x="546" y="66" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">parler</text><text x="546" y="94" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">français</text><text x="546" y="122" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">apprendre</text><text x="546" y="150" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">cours</text></svg>
+        <details style="margin-top:8px;font-size:.85rem;color:var(--muted)">
+          <summary style="cursor:pointer;color:var(--purp);font-weight:600">📌 Note</summary>
+          <div style="margin-top:4px;line-height:1.5"><div class="phon-body">§ Phonétique — Le son [ʁ] — le R français
 Règle Le R français est uvulaire : il se prononce dans la gorge, pas comme le R espagnol
 ou anglais.
 Exemples parler [ʁ] — français [ʁ] — apprendre [ʁ] — cours [ʁ]
 Exercice Entraînez-vous : rouge — rue — partir — apprendre — parfois — difficile.</div></div>
+        </details>
+      </div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
     <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
-    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(4)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(4)">🎤 Prononciation →</button>
   </div>
 </div>
-<!-- ══ SLIDE 4 : GRAMMAIRE ══ -->
+<!-- ══ SLIDE 4 : PHONÉTIQUE 2/2 — PRONONCIATION ══ -->
 <div class="slide" id="slide-4">
+  <div class="slide-body">
+    <div class="card">
+      <div class="card-head head-phon">🎤 Prononciation<span class="comm-zh"> · 发音练习</span>
+        <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">2 / 2</span>
+      </div>
+      <div class="card-body">
+<p class="ex-inst">Écoutez, puis cliquez sur 🎤 et répétez.</p><div class="prono-no-support" id="prono-no-support" style="display:none">⚠️ Votre navigateur ne supporte pas la reconnaissance vocale.</div><div class="prono-item"><div class="prono-speaker-tag">MEI</div><div class="prono-phrase">Vous parlez quelles langues ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Vous parlez quelles langues ?" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Vous parlez quelles langues ?" data-idx="0" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(0)">↺</button></div><div class="prono-score" id="prono-score-0"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-0" style="width:0%"></div></div><div id="prono-pct-0" class="prono-score-text"></div><div id="prono-heard-0" class="prono-heard"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">HIROSHI</div><div class="prono-phrase">Je parle japonais et anglais. J'apprends le français depuis 6 mois.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Je parle japonais et anglais. J'apprends le français depuis 6 mois." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Je parle japonais et anglais. J'apprends le français depuis 6 mois." data-idx="1" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(1)">↺</button></div><div class="prono-score" id="prono-score-1"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-1" style="width:0%"></div></div><div id="prono-pct-1" class="prono-score-text"></div><div id="prono-heard-1" class="prono-heard"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">MEI</div><div class="prono-phrase">Vous habitez au Japon ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Vous habitez au Japon ?" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Vous habitez au Japon ?" data-idx="2" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(2)">↺</button></div><div class="prono-score" id="prono-score-2"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-2" style="width:0%"></div></div><div id="prono-pct-2" class="prono-score-text"></div><div id="prono-heard-2" class="prono-heard"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">HIROSHI</div><div class="prono-phrase">Non, j'habite à Lyon maintenant pour mon travail. Et vous, d'où venez-vous ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Non, j'habite à Lyon maintenant pour mon travail. Et vous, d'où venez-vous ?" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Non, j'habite à Lyon maintenant pour mon travail. Et vous, d'où venez-vous ?" data-idx="3" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(3)">↺</button></div><div class="prono-score" id="prono-score-3"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-3" style="width:0%"></div></div><div id="prono-pct-3" class="prono-score-text"></div><div id="prono-heard-3" class="prono-heard"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">MEI</div><div class="prono-phrase">Moi, je suis chinoise. Je parle mandarin, anglais et un peu français.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Moi, je suis chinoise. Je parle mandarin, anglais et un peu français." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Moi, je suis chinoise. Je parle mandarin, anglais et un peu français." data-idx="4" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(4)">↺</button></div><div class="prono-score" id="prono-score-4"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-4" style="width:0%"></div></div><div id="prono-pct-4" class="prono-score-text"></div><div id="prono-heard-4" class="prono-heard"></div></div></div>
+
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer" style="justify-content:space-between">
+    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(3)">← Schéma</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(5)">📖 Grammaire →</button>
+  </div>
+</div>
+<!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
+<div class="slide" id="slide-5">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-gram">📖 Point de langue<span class="comm-zh"> · 语法要点</span></div>
@@ -385,16 +441,16 @@ Exercice Entraînez-vous : rouge — rue — partir — apprendre — parfois �
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(3)">← Phonétique</button>
-    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(5)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(4)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(6)">✏️ Exercices →</button>
   </div>
 </div>
-<!-- ══ SLIDE 5 : EXERCICES 1/2 ══ -->
-<div class="slide" id="slide-5">
+<!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
+<div class="slide" id="slide-6">
   <div class="sub-nav">
     <button class="sub-nav-btn" disabled>←</button>
     <span class="sub-nav-count">1 / 2</span>
-    <button class="sub-nav-btn" onclick="goSlide(6)">→</button>
+    <button class="sub-nav-btn" onclick="goSlide(7)">→</button>
   </div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Conjuguez AVOIR <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
@@ -415,14 +471,14 @@ Exercice Entraînez-vous : rouge — rue — partir — apprendre — parfois �
 </div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(4)">← Grammaire</button>
-    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(6)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(5)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(7)">Suite →</button>
   </div>
 </div>
-<!-- ══ SLIDE 6 : EXERCICES 2/2 ══ -->
-<div class="slide" id="slide-6">
+<!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
+<div class="slide" id="slide-7">
   <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(5)">←</button>
+    <button class="sub-nav-btn" onclick="goSlide(6)">←</button>
     <span class="sub-nav-count">2 / 2</span>
     <button class="sub-nav-btn" disabled>→</button>
   </div>
@@ -471,12 +527,12 @@ Exercice Entraînez-vous : rouge — rue — partir — apprendre — parfois �
 <div class="blank-row">4. <span>Hiroshi a un cours de conversation le mardi. </span><input autocomplete="off" class="blank-input" id="bl-1B-ex4-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex4-3').click()" type="text"/><button class="check-btn" data-ans="V" id="chk-bl-1B-ex4-3" onclick="checkBlankData(this,'bl-1B-ex4-3','fb-bl-1B-ex4-3')">✓</button><span class="fb" id="fb-bl-1B-ex4-3"></span><span></span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(5)">← Préc.</button>
-    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(7)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(6)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(8)">✍️ À toi ! →</button>
   </div>
 </div>
-<!-- ══ SLIDE 7 : À TOI ! ══ -->
-<div class="slide" id="slide-7">
+<!-- ══ SLIDE 8 : À TOI ! ══ -->
+<div class="slide" id="slide-8">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
@@ -490,7 +546,7 @@ Leçon 1B · Tu parles quelles langues ? · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(6)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(7)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='1C_slides.html'">1C →</button>
   </div>
 </div>
@@ -530,7 +586,7 @@ Leçon 1B · Tu parles quelles langues ? · A1</div>
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var LESSON='1B';
-var TAB_FOR_SLIDE=[0, 1, 2, 3, 4, 5, 5, 6];
+var TAB_FOR_SLIDE=[0, 1, 2, 3, 3, 4, 5, 5, 6];
 
 var currentSlide=0;
 function goSlide(n){
@@ -566,6 +622,13 @@ function resetEx5(){var pool=document.getElementById('ex5-pool');if(!pool)return
 function playEx6Audio(btn,src){btn.innerHTML='🔊 …';var audio=new Audio(src);audio.onended=function(){btn.innerHTML='🔊';};audio.play().catch(function(){btn.innerHTML='🔊';});}
 function checkEx6(btn){var item=btn.closest('.listen-item');if(!item||item.dataset.done)return;item.dataset.done='1';var ans=item.dataset.ans,val=btn.dataset.val,fb=item.querySelector('.listen-fb');item.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;});if(val===ans){btn.classList.add('choice-correct');if(fb){fb.textContent='✅';fb.style.color='var(--green)';}}else{btn.classList.add('choice-wrong');item.querySelectorAll('.choice-btn').forEach(function(b){if(b.dataset.val===ans)b.classList.add('choice-correct');});if(fb){fb.textContent='❌ → '+ans;fb.style.color='#e74c3c';}}}
 async function checkLT(btn){var ta=btn.previousElementSibling,res=btn.nextElementSibling,txt=(ta.value||'').trim();var zh=document.body.classList.contains('lang-zh');if(!txt){res.innerHTML='<p class="lt-info">'+(zh?'✏️ 请先写下您的答案。':'✏️ Écris d\'abord ta réponse.')+'</p>';return;}btn.disabled=true;btn.textContent='…';res.innerHTML='<p class="lt-info">'+(zh?'批改中…':'Correction en cours…')+'</p>';try{var r=await fetch('https://api.languagetool.org/v2/check',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'text='+encodeURIComponent(txt)+'&language=fr'});var d=await r.json();if(!d.matches||!d.matches.length){res.innerHTML='<p class="lt-ok">'+(zh?'✅ 没有错误 — 太棒了！':'✅ Aucune erreur — bravo !')+'</p>';}else{var n=d.matches.length,html='<p class="lt-count">'+n+(zh?' 处需要修改：':' point'+(n>1?'s':'')+' à corriger :')+'</p><ul class="lt-list">';for(var m of d.matches){var orig=txt.slice(m.offset,m.offset+m.length),sugs=(m.replacements||[]).slice(0,3).map(function(x){return'<span class="lt-sug">'+x.value+'</span>';}).join(', ');html+='<li><span class="lt-err">« '+orig+' »</span> — '+m.message+(sugs?' → '+sugs:'')+' </li>';}html+='</ul>';res.innerHTML=html;}}catch(e){res.innerHTML='<p class="lt-warn">'+(zh?'⚠️ 无法连接到批改服务器。':'⚠️ Impossible de joindre le correcteur.')+'</p>';}btn.disabled=false;btn.textContent=zh?'批改 ✓':'Corriger ✓';}
+var _pronoRec=false;
+function pronoListen(btn){var text=btn.getAttribute('data-text');if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';setTimeout(function(){var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.88;u.onend=function(){btn.innerHTML='🔊 Réécouter';};u.onerror=function(){btn.innerHTML='🔊 Écouter';};window.speechSynthesis.speak(u);},80);}
+function pronoSimilarity(ref,heard){function n(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9\s]/g,'').trim().split(/\s+/).filter(Boolean);}var rw=n(ref),hw=n(heard);if(!rw.length)return 0;var matched=0,hc=hw.slice();rw.forEach(function(w){var i=hc.indexOf(w);if(i!==-1){matched++;hc.splice(i,1);}});return Math.round((matched/rw.length)*100);}
+function pronoRecord(btn){var target=btn.getAttribute('data-text'),idx=parseInt(btn.getAttribute('data-idx'),10);if(_pronoRec||!target)return;var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){var ns=document.getElementById('prono-no-support');if(ns)ns.style.display='block';return;}_pronoRec=true;btn.classList.add('recording');btn.textContent='⏹ Arrêter';var r=new SR();r.lang='fr-FR';r.continuous=false;r.interimResults=false;r.onresult=function(e){pronoShowScore(idx,pronoSimilarity(target,e.results[0][0].transcript),e.results[0][0].transcript);};r.onerror=function(e){pronoShowScore(idx,null,null,e.error);};r.onend=function(){_pronoRec=false;btn.classList.remove('recording');btn.textContent='🎤 Répéter';};r.start();}
+function pronoReset(idx){var fill=document.getElementById('prono-fill-'+idx),pct=document.getElementById('prono-pct-'+idx),heard=document.getElementById('prono-heard-'+idx),score=document.getElementById('prono-score-'+idx);if(fill)fill.style.width='0%';if(pct){pct.textContent='';pct.className='prono-score-text';}if(heard)heard.textContent='';if(score)score.className='prono-score';}
+function pronoShowScore(idx,score,heard,error){var fill=document.getElementById('prono-fill-'+idx),pct=document.getElementById('prono-pct-'+idx),heardEl=document.getElementById('prono-heard-'+idx),scoreEl=document.getElementById('prono-score-'+idx);if(!fill)return;if(error||score===null){if(pct){pct.textContent='Erreur microphone';pct.className='prono-score-text score-low';}return;}var pct_val=score,color=score>=80?'var(--green)':score>=50?'var(--orange)':'#e74c3c',cls=score>=80?'score-high':score>=50?'score-mid':'score-low';fill.style.width=pct_val+'%';fill.style.background=color;if(pct){pct.textContent=pct_val+'% — '+(score>=80?'🎉 Excellent !':score>=50?'👍 Bien !':'💪 Réessayez !');pct.className='prono-score-text '+cls;}if(heardEl)heardEl.textContent=heard?'"'+heard+'"':'';}
+
 
 function openModal(id){document.getElementById(id).classList.add('open');document.querySelector('.fle-modal-overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeModal(id){document.getElementById(id).classList.remove('open');document.querySelector('.fle-modal-overlay').classList.remove('open');document.body.style.overflow='';}

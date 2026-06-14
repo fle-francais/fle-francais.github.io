@@ -252,6 +252,32 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   .ex5-zones{grid-template-columns:1fr}
   .vocab-grid{grid-template-columns:repeat(2,1fr)}
 }
+/* ── PRONONCIATION SLIDE ── */
+.prono-item{background:#fff;border:1px solid #e8e0f5;border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#7d3c98;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.prono-phrase{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:7px}
+.prono-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.prono-btn{padding:5px 12px;border:none;border-radius:20px;cursor:pointer;font-size:.82rem;font-weight:600;transition:background .15s}
+.prono-btn-listen{background:#f0e6ff;color:#7d3c98}
+.prono-btn-listen:hover{background:#e0ccff}
+.prono-btn-mic{background:#d8f5ef;color:#16a085}
+.prono-btn-mic:hover{background:#b0e8d8}
+.prono-btn-mic.recording{background:#e74c3c;color:#fff;animation:pulse-rec .8s infinite}
+@keyframes pulse-rec{0%,100%{opacity:1}50%{opacity:.6}}
+.prono-score{overflow:hidden;max-height:0;transition:max-height .3s}
+.prono-score.visible,.prono-score:has(.prono-score-text:not(:empty)){max-height:60px}
+.prono-score-bar{height:6px;background:#eee;border-radius:3px;margin-bottom:4px}
+.prono-score-fill{height:100%;border-radius:3px;transition:width .5s;background:var(--green)}
+.prono-score-text{font-size:.82rem;font-weight:600;color:var(--text)}
+.prono-score-text.score-high{color:var(--green)}
+.prono-score-text.score-mid{color:var(--orange)}
+.prono-score-text.score-low{color:#e74c3c}
+.prono-heard{font-size:.78rem;color:var(--muted);font-style:italic}
+.prono-no-support{background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#856404;margin-bottom:8px}
+/* ── SUB-NAV (phonétique 1/2 · 2/2) ── */
+.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#7d3c98}
+.phon-sub-header span{opacity:.7;font-weight:400}
+
 </style>
 </head>
 <body>
@@ -270,9 +296,9 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
   <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
   <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
-  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(4)">📖 Grammaire</button>
-  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(5)">✏️ Exercices</button>
-  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(7)">✍️ À toi !</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(5)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(6)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(8)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -359,25 +385,55 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
   </div>
 </div>
-<!-- ══ SLIDE 3 : PHONÉTIQUE ══ -->
+<!-- ══ SLIDE 3 : PHONÉTIQUE 1/2 — SCHÉMA ══ -->
 <div class="slide" id="slide-3">
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span></div>
-      <div class="card-body"><div class="phon-body">§ Phonétique — Le son [œ̃] et [ɛ̃]
+  <div class="slide-body" style="display:flex;flex-direction:column">
+    <div class="card" style="flex:1;display:flex;flex-direction:column">
+      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span>
+        <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">1 / 2</span>
+      </div>
+      <div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:8px">
+<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/><text x="340" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c3e50">[œ̃] vs [ɛ̃]</text><line x1="220" y1="32" x2="220" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><line x1="460" y1="32" x2="460" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><rect x="8" y="32" width="208" height="215" rx="8" fill="#f0e6ff" stroke="#7d3c98" stroke-width="0.8" opacity=".85"/><circle cx="112" cy="95" r="44" fill="#7d3c98" opacity=".09"><animate attributeName="r" values="44;60;44" dur="2.4s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.4s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="112" cy="95" r="40" fill="#7d3c98" opacity=".9"/><text x="112" y="103" text-anchor="middle" font-size="23" font-weight="700" fill="#fff" font-family="monospace">[œ̃]</text><text x="112" y="148" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7d3c98">un / um</text><rect x="22" y="156" width="180" height="20" rx="5" fill="#7d3c98" opacity=".12"/><text x="112" y="170" text-anchor="middle" font-size="10" fill="#7d3c98" font-weight="600">un, um</text><text x="112" y="196" text-anchor="middle" font-size="10" fill="#666">lèvres arrondies · nasale</text><text x="112" y="220" text-anchor="middle" font-size="9.5" fill="#777" font-style="italic">un · lundi · humble</text><text x="340" y="48" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">GRAPHIE → SON</text><rect x="228" y="52" width="224" height="18" rx="5" fill="#7d3c98" opacity=".10"/><text x="234" y="65" font-size="10" fill="#7d3c98" font-weight="600" font-family="monospace">un, um</text><text x="448" y="65" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[œ̃]</text><line x1="232" y1="132" x2="448" y2="132" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="3,3"/><text x="340" y="144" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">≠</text><rect x="228" y="148" width="224" height="18" rx="5" fill="#16a085" opacity=".10"/><text x="234" y="161" font-size="10" fill="#16a085" font-weight="600" font-family="monospace">in, ain, ein, im</text><text x="448" y="161" font-size="11" fill="#16a085" font-weight="700" font-family="monospace" text-anchor="end">[ɛ̃]</text><rect x="464" y="32" width="208" height="215" rx="8" fill="#d8f5ef" stroke="#16a085" stroke-width="0.8" opacity=".85"/><circle cx="568" cy="95" r="44" fill="#16a085" opacity=".09"><animate attributeName="r" values="44;60;44" dur="2.4s" begin="1.2s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.4s" begin="1.2s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="568" cy="95" r="40" fill="#16a085" opacity=".9"/><text x="568" y="103" text-anchor="middle" font-size="23" font-weight="700" fill="#fff" font-family="monospace">[ɛ̃]</text><text x="568" y="148" text-anchor="middle" font-size="12.5" font-weight="700" fill="#16a085">in / ain</text><rect x="478" y="156" width="180" height="20" rx="5" fill="#16a085" opacity=".12"/><text x="568" y="170" text-anchor="middle" font-size="10" fill="#16a085" font-weight="600">in, ain, ein, im</text><text x="568" y="196" text-anchor="middle" font-size="10" fill="#666">lèvres étirées · nasale</text><text x="568" y="220" text-anchor="middle" font-size="9.5" fill="#777" font-style="italic">vin · matin · fin</text></svg>
+        <details style="margin-top:8px;font-size:.85rem;color:var(--muted)">
+          <summary style="cursor:pointer;color:var(--purp);font-weight:600">📌 Note</summary>
+          <div style="margin-top:4px;line-height:1.5"><div class="phon-body">§ Phonétique — Le son [œ̃] et [ɛ̃]
 Règle [œ̃] : un, humble, lundi. [ɛ̃] : vin, matin, fin. Dans beaucoup de régions, ces deux
 sons se confondent aujourd'hui.
 Exemples un [œ̃] — matin [ɛ̃] — lundi [œ̃] — fin [ɛ̃]
 Exercice Répétez : un — vin — brun — matin — lundi — fin — bien — demain.</div></div>
+        </details>
+      </div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
     <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
-    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(4)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(4)">🎤 Prononciation →</button>
   </div>
 </div>
-<!-- ══ SLIDE 4 : GRAMMAIRE ══ -->
+<!-- ══ SLIDE 4 : PHONÉTIQUE 2/2 — PRONONCIATION ══ -->
 <div class="slide" id="slide-4">
+  <div class="slide-body">
+    <div class="card">
+      <div class="card-head head-phon">🎤 Prononciation<span class="comm-zh"> · 发音练习</span>
+        <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">2 / 2</span>
+      </div>
+      <div class="card-body">
+<p class="ex-inst">Écoutez, puis cliquez sur 🎤 et répétez.</p><div class="prono-no-support" id="prono-no-support" style="display:none">⚠️ Votre navigateur ne supporte pas la reconnaissance vocale.</div><div class="prono-item"><div class="prono-speaker-tag">LEA</div><div class="prono-phrase">On peut se voir demain pour le projet ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="On peut se voir demain pour le projet ?" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="On peut se voir demain pour le projet ?" data-idx="0" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(0)">↺</button></div><div class="prono-score" id="prono-score-0"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-0" style="width:0%"></div></div><div id="prono-pct-0" class="prono-score-text"></div><div id="prono-heard-0" class="prono-heard"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">MAX</div><div class="prono-phrase">Oui ! Tu es libre à quelle heure ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Oui ! Tu es libre à quelle heure ?" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Oui ! Tu es libre à quelle heure ?" data-idx="1" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(1)">↺</button></div><div class="prono-score" id="prono-score-1"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-1" style="width:0%"></div></div><div id="prono-pct-1" class="prono-score-text"></div><div id="prono-heard-1" class="prono-heard"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">LEA</div><div class="prono-phrase">Le matin, je travaille. L'après-midi, j'ai une réunion à 14h.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Le matin, je travaille. L'après-midi, j'ai une réunion à 14h." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Le matin, je travaille. L'après-midi, j'ai une réunion à 14h." data-idx="2" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(2)">↺</button></div><div class="prono-score" id="prono-score-2"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-2" style="width:0%"></div></div><div id="prono-pct-2" class="prono-score-text"></div><div id="prono-heard-2" class="prono-heard"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">MAX</div><div class="prono-phrase">Elle finit à quelle heure, ta réunion ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Elle finit à quelle heure, ta réunion ?" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Elle finit à quelle heure, ta réunion ?" data-idx="3" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(3)">↺</button></div><div class="prono-score" id="prono-score-3"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-3" style="width:0%"></div></div><div id="prono-pct-3" class="prono-score-text"></div><div id="prono-heard-3" class="prono-heard"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">LEA</div><div class="prono-phrase">Normalement à 16h, mais parfois plus tard.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Normalement à 16h, mais parfois plus tard." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Normalement à 16h, mais parfois plus tard." data-idx="4" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(4)">↺</button></div><div class="prono-score" id="prono-score-4"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-4" style="width:0%"></div></div><div id="prono-pct-4" class="prono-score-text"></div><div id="prono-heard-4" class="prono-heard"></div></div></div>
+
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer" style="justify-content:space-between">
+    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(3)">← Schéma</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(5)">📖 Grammaire →</button>
+  </div>
+</div>
+<!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
+<div class="slide" id="slide-5">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-gram">📖 Point de langue<span class="comm-zh"> · 语法要点</span></div>
@@ -385,16 +441,16 @@ Exercice Répétez : un — vin — brun — matin — lundi — fin — bien �
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(3)">← Phonétique</button>
-    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(5)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(4)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(6)">✏️ Exercices →</button>
   </div>
 </div>
-<!-- ══ SLIDE 5 : EXERCICES 1/2 ══ -->
-<div class="slide" id="slide-5">
+<!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
+<div class="slide" id="slide-6">
   <div class="sub-nav">
     <button class="sub-nav-btn" disabled>←</button>
     <span class="sub-nav-count">1 / 2</span>
-    <button class="sub-nav-btn" onclick="goSlide(6)">→</button>
+    <button class="sub-nav-btn" onclick="goSlide(7)">→</button>
   </div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Écrivez l'heure en lettres <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
@@ -406,14 +462,14 @@ Exercice Répétez : un — vin — brun — matin — lundi — fin — bien �
     <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Votre emploi du temps <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Décrivez votre journée typique : Je me lève à… / Je commence à travailler / étudier à… À midi, je… / L'après-midi, je… Le soir, je… / Je me couche à…<span class="comm-zh"> · 描述您的典型一天</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(4)">← Grammaire</button>
-    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(6)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(5)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(7)">Suite →</button>
   </div>
 </div>
-<!-- ══ SLIDE 6 : EXERCICES 2/2 ══ -->
-<div class="slide" id="slide-6">
+<!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
+<div class="slide" id="slide-7">
   <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(5)">←</button>
+    <button class="sub-nav-btn" onclick="goSlide(6)">←</button>
     <span class="sub-nav-count">2 / 2</span>
     <button class="sub-nav-btn" disabled>→</button>
   </div>
@@ -442,12 +498,12 @@ Exercice Répétez : un — vin — brun — matin — lundi — fin — bien �
 </div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(5)">← Préc.</button>
-    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(7)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(6)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(8)">✍️ À toi ! →</button>
   </div>
 </div>
-<!-- ══ SLIDE 7 : À TOI ! ══ -->
-<div class="slide" id="slide-7">
+<!-- ══ SLIDE 8 : À TOI ! ══ -->
+<div class="slide" id="slide-8">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
@@ -461,7 +517,7 @@ Leçon 3A · Quelle heure est-il ? · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(6)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(7)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='3B_slides.html'">3B →</button>
   </div>
 </div>
@@ -501,7 +557,7 @@ Leçon 3A · Quelle heure est-il ? · A1</div>
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var LESSON='3A';
-var TAB_FOR_SLIDE=[0, 1, 2, 3, 4, 5, 5, 6];
+var TAB_FOR_SLIDE=[0, 1, 2, 3, 3, 4, 5, 5, 6];
 
 var currentSlide=0;
 function goSlide(n){
@@ -537,6 +593,13 @@ function resetEx5(){var pool=document.getElementById('ex5-pool');if(!pool)return
 function playEx6Audio(btn,src){btn.innerHTML='🔊 …';var audio=new Audio(src);audio.onended=function(){btn.innerHTML='🔊';};audio.play().catch(function(){btn.innerHTML='🔊';});}
 function checkEx6(btn){var item=btn.closest('.listen-item');if(!item||item.dataset.done)return;item.dataset.done='1';var ans=item.dataset.ans,val=btn.dataset.val,fb=item.querySelector('.listen-fb');item.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;});if(val===ans){btn.classList.add('choice-correct');if(fb){fb.textContent='✅';fb.style.color='var(--green)';}}else{btn.classList.add('choice-wrong');item.querySelectorAll('.choice-btn').forEach(function(b){if(b.dataset.val===ans)b.classList.add('choice-correct');});if(fb){fb.textContent='❌ → '+ans;fb.style.color='#e74c3c';}}}
 async function checkLT(btn){var ta=btn.previousElementSibling,res=btn.nextElementSibling,txt=(ta.value||'').trim();var zh=document.body.classList.contains('lang-zh');if(!txt){res.innerHTML='<p class="lt-info">'+(zh?'✏️ 请先写下您的答案。':'✏️ Écris d\'abord ta réponse.')+'</p>';return;}btn.disabled=true;btn.textContent='…';res.innerHTML='<p class="lt-info">'+(zh?'批改中…':'Correction en cours…')+'</p>';try{var r=await fetch('https://api.languagetool.org/v2/check',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'text='+encodeURIComponent(txt)+'&language=fr'});var d=await r.json();if(!d.matches||!d.matches.length){res.innerHTML='<p class="lt-ok">'+(zh?'✅ 没有错误 — 太棒了！':'✅ Aucune erreur — bravo !')+'</p>';}else{var n=d.matches.length,html='<p class="lt-count">'+n+(zh?' 处需要修改：':' point'+(n>1?'s':'')+' à corriger :')+'</p><ul class="lt-list">';for(var m of d.matches){var orig=txt.slice(m.offset,m.offset+m.length),sugs=(m.replacements||[]).slice(0,3).map(function(x){return'<span class="lt-sug">'+x.value+'</span>';}).join(', ');html+='<li><span class="lt-err">« '+orig+' »</span> — '+m.message+(sugs?' → '+sugs:'')+' </li>';}html+='</ul>';res.innerHTML=html;}}catch(e){res.innerHTML='<p class="lt-warn">'+(zh?'⚠️ 无法连接到批改服务器。':'⚠️ Impossible de joindre le correcteur.')+'</p>';}btn.disabled=false;btn.textContent=zh?'批改 ✓':'Corriger ✓';}
+var _pronoRec=false;
+function pronoListen(btn){var text=btn.getAttribute('data-text');if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';setTimeout(function(){var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.88;u.onend=function(){btn.innerHTML='🔊 Réécouter';};u.onerror=function(){btn.innerHTML='🔊 Écouter';};window.speechSynthesis.speak(u);},80);}
+function pronoSimilarity(ref,heard){function n(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9\s]/g,'').trim().split(/\s+/).filter(Boolean);}var rw=n(ref),hw=n(heard);if(!rw.length)return 0;var matched=0,hc=hw.slice();rw.forEach(function(w){var i=hc.indexOf(w);if(i!==-1){matched++;hc.splice(i,1);}});return Math.round((matched/rw.length)*100);}
+function pronoRecord(btn){var target=btn.getAttribute('data-text'),idx=parseInt(btn.getAttribute('data-idx'),10);if(_pronoRec||!target)return;var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){var ns=document.getElementById('prono-no-support');if(ns)ns.style.display='block';return;}_pronoRec=true;btn.classList.add('recording');btn.textContent='⏹ Arrêter';var r=new SR();r.lang='fr-FR';r.continuous=false;r.interimResults=false;r.onresult=function(e){pronoShowScore(idx,pronoSimilarity(target,e.results[0][0].transcript),e.results[0][0].transcript);};r.onerror=function(e){pronoShowScore(idx,null,null,e.error);};r.onend=function(){_pronoRec=false;btn.classList.remove('recording');btn.textContent='🎤 Répéter';};r.start();}
+function pronoReset(idx){var fill=document.getElementById('prono-fill-'+idx),pct=document.getElementById('prono-pct-'+idx),heard=document.getElementById('prono-heard-'+idx),score=document.getElementById('prono-score-'+idx);if(fill)fill.style.width='0%';if(pct){pct.textContent='';pct.className='prono-score-text';}if(heard)heard.textContent='';if(score)score.className='prono-score';}
+function pronoShowScore(idx,score,heard,error){var fill=document.getElementById('prono-fill-'+idx),pct=document.getElementById('prono-pct-'+idx),heardEl=document.getElementById('prono-heard-'+idx),scoreEl=document.getElementById('prono-score-'+idx);if(!fill)return;if(error||score===null){if(pct){pct.textContent='Erreur microphone';pct.className='prono-score-text score-low';}return;}var pct_val=score,color=score>=80?'var(--green)':score>=50?'var(--orange)':'#e74c3c',cls=score>=80?'score-high':score>=50?'score-mid':'score-low';fill.style.width=pct_val+'%';fill.style.background=color;if(pct){pct.textContent=pct_val+'% — '+(score>=80?'🎉 Excellent !':score>=50?'👍 Bien !':'💪 Réessayez !');pct.className='prono-score-text '+cls;}if(heardEl)heardEl.textContent=heard?'"'+heard+'"':'';}
+
 
 function openModal(id){document.getElementById(id).classList.add('open');document.querySelector('.fle-modal-overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeModal(id){document.getElementById(id).classList.remove('open');document.querySelector('.fle-modal-overlay').classList.remove('open');document.body.style.overflow='';}
