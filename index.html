@@ -1519,7 +1519,7 @@ const progress = JSON.parse(localStorage.getItem('fle_progress') || '{}');
 const scores = JSON.parse(localStorage.getItem('fle_scores') || '{}');
 
 // ── NAVIGATION ──
-function showPage(page) {
+function showPage(page, fromPopState) {
   document.getElementById('home').style.display = 'none';
   document.getElementById('test-page').style.display = 'none';
   ['A1','A2','B1','B2','C1','C2'].forEach(l => {
@@ -1529,11 +1529,22 @@ function showPage(page) {
   if (page === 'home') {
     document.getElementById('home').style.display = 'block';
     updateAllProgress();
+    if (!fromPopState) history.pushState({page:'home'}, '');
   } else if (page === 'test') {
     document.getElementById('test-page').style.display = 'block';
     initTest();
+    if (!fromPopState) history.pushState({page:'test'}, '');
   }
 }
+
+window.addEventListener('popstate', function(e) {
+  var p = (e.state && e.state.page) ? e.state.page : 'home';
+  if (p === 'home' || p === 'test') {
+    showPage(p, true);
+  } else {
+    showPage('home', true);
+  }
+});
 
 function toggleHeroPanel(which) {
   var panels = {
@@ -2581,6 +2592,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const browserLang = (navigator.language || 'fr').slice(0,2).toLowerCase();
   const detected = ['fr','zh'].includes(browserLang) ? browserLang : 'fr';
   setLang(saved || detected);
+  history.replaceState({page:'home'}, '');
 });
 
 // ── EXERCICES A1 : nouvelles signatures ──
