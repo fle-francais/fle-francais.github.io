@@ -44,7 +44,7 @@ a{color:var(--blue);text-decoration:none}
 /* SLIDE FOOTER */
 .slide-footer{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:8px 0 0;margin-top:auto;flex-shrink:0}
 .btn-ns{padding:7px 16px;border:none;border-radius:20px;background:var(--purp);color:#fff;font-weight:700;font-size:.78rem;cursor:pointer;transition:background .15s,transform .1s;display:inline-flex;align-items:center;gap:5px}
-.btn-ns:hover{background:#7d3c98}
+.btn-ns:hover{background:#2a4a8a}
 .btn-ns:active{transform:scale(.97)}
 /* SCROLLABLE BODY */
 .slide-body{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column;justify-content:center}
@@ -72,7 +72,7 @@ a{color:var(--blue);text-decoration:none}
 .dl-speaker{font-weight:800;font-size:.68rem;color:var(--purp);text-transform:uppercase;letter-spacing:.4px;padding-top:1px;line-height:1.4;overflow-wrap:break-word;word-break:break-word}
 .dl-line{font-size:.84rem;line-height:1.4;color:var(--text)}
 .dl-word{display:inline;border-radius:2px;padding:0 1px;transition:background .3s,color .3s}
-.dl-word.dl-lit{background:#d7bff5;color:#6c3483}
+.dl-word.dl-lit{background:#c8d8f0;color:#1c2e5a}
 .dl-wave{display:none;align-items:center;gap:2px;height:10px;margin-left:4px;vertical-align:middle}
 .dl-row.dl-playing .dl-wave{display:inline-flex}
 .dl-wave span{width:2px;border-radius:2px;background:var(--purp);display:inline-block;animation:dlwv .7s ease-in-out infinite}
@@ -87,7 +87,7 @@ a{color:var(--blue);text-decoration:none}
 .dialogue.dl-zh-on .dl-zh-line{display:block}
 /* Bouton lecture dialogue (injecté par JS) */
 .dl-play-btn{display:inline-flex;align-items:center;gap:7px;background:var(--purp);color:#fff;border:none;border-radius:18px;padding:7px 16px;font-size:.8rem;font-weight:700;cursor:pointer;margin-bottom:9px;transition:background .15s}
-.dl-play-btn:hover{background:#7d3c98}
+.dl-play-btn:hover{background:#2a4a8a}
 /* Bouton 中 propre au dialogue (injecté par JS) */
 .dl-zh-btn{border:2px solid var(--purp);color:var(--purp);background:none;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:700;cursor:pointer;flex-shrink:0;transition:all .15s}
 .dl-zh-btn:hover,.dl-zh-btn.zactive{background:var(--purp);color:#fff}
@@ -135,7 +135,7 @@ body.lang-zh .prod-zh{display:block}
 .fb.ko{color:#e74c3c}
 .verify-bar{display:flex;gap:7px;margin-top:10px;align-items:center;flex-wrap:wrap}
 .btn-verify{padding:5px 16px;border-radius:18px;border:none;background:var(--purp);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap;transition:background .15s}
-.btn-verify:hover{background:#7d3c98}
+.btn-verify:hover{background:#2a4a8a}
 .btn-restart{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap}
 .btn-restart:hover{background:#7f8c8d}
 .check-btn-global{padding:5px 16px;border-radius:18px;border:none;background:var(--orange);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
@@ -254,11 +254,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 }
 /* ── PRONONCIATION SLIDE ── */
 .prono-item{background:#fff;border:1px solid #e8e0f5;border-radius:8px;padding:10px 12px;margin-bottom:8px}
-.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#7d3c98;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#2a4a8a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
 .prono-phrase{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:7px}
 .prono-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
 .prono-btn{padding:5px 12px;border:none;border-radius:20px;cursor:pointer;font-size:.82rem;font-weight:600;transition:background .15s}
-.prono-btn-listen{background:#f0e6ff;color:#7d3c98}
+.prono-btn-listen{background:#f0e6ff;color:#2a4a8a}
 .prono-btn-listen:hover{background:#e0ccff}
 .prono-btn-mic{background:#d8f5ef;color:#16a085}
 .prono-btn-mic:hover{background:#b0e8d8}
@@ -275,7 +275,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .prono-heard{font-size:.78rem;color:var(--muted);font-style:italic}
 .prono-no-support{background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#856404;margin-bottom:8px}
 /* ── SUB-NAV (phonétique 1/2 · 2/2) ── */
-.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#7d3c98}
+.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#2a4a8a}
 .phon-sub-header span{opacity:.7;font-weight:400}
 
 </style>
@@ -378,7 +378,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
         <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">1 / 2</span>
       </div>
       <div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:8px">
-<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/><text x="340" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c3e50">Le son [j] — semi-voyelle</text><line x1="222" y1="32" x2="222" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><line x1="492" y1="32" x2="492" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><rect x="8" y="32" width="208" height="215" rx="8" fill="#7d3c98" opacity=".09" stroke="#7d3c98" stroke-width="0.8"/><circle cx="112" cy="115" r="52" fill="#7d3c98" opacity=".09"><animate attributeName="r" values="52;70;52" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="112" cy="115" r="48" fill="#7d3c98" opacity=".88"/><text x="112" y="125" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" font-family="monospace">[j]</text><text x="112" y="190" text-anchor="middle" font-size="10.5" fill="#7d3c98" font-weight="600">Semi-voyelle rapide entre deux sons.</text><text x="112" y="207" text-anchor="middle" font-size="10.5" fill="#7d3c98" font-weight="600">Graphèmes : -ill-, -ille, -il, vieux.</text><text x="357" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">GRAPHIE → SON</text><rect x="246" y="52" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="67" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">-ill-</text><text x="472" y="67" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[j]</text><rect x="246" y="78" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="93" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">-ille</text><text x="472" y="93" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[j]</text><rect x="246" y="104" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="119" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">-il</text><text x="472" y="119" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[j]</text><rect x="496" y="32" width="177" height="215" rx="8" fill="#7d3c98" opacity=".06" stroke="#7d3c98" stroke-width="0.5"/><text x="584" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">EXEMPLES</text><text x="546" y="66" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">famille</text><text x="546" y="94" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">fille</text><text x="546" y="122" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">travail</text><text x="546" y="150" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">vieux</text></svg>
+<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/><text x="340" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c3e50">Le son [j] — semi-voyelle</text><line x1="222" y1="32" x2="222" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><line x1="492" y1="32" x2="492" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><rect x="8" y="32" width="208" height="215" rx="8" fill="#2a4a8a" opacity=".09" stroke="#2a4a8a" stroke-width="0.8"/><circle cx="112" cy="115" r="52" fill="#2a4a8a" opacity=".09"><animate attributeName="r" values="52;70;52" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="112" cy="115" r="48" fill="#2a4a8a" opacity=".88"/><text x="112" y="125" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" font-family="monospace">[j]</text><text x="112" y="190" text-anchor="middle" font-size="10.5" fill="#2a4a8a" font-weight="600">Semi-voyelle rapide entre deux sons.</text><text x="112" y="207" text-anchor="middle" font-size="10.5" fill="#2a4a8a" font-weight="600">Graphèmes : -ill-, -ille, -il, vieux.</text><text x="357" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">GRAPHIE → SON</text><rect x="246" y="52" width="230" height="21" rx="5" fill="#2a4a8a" opacity=".10"/><text x="253" y="67" font-size="10.5" fill="#2a4a8a" font-weight="600" font-family="monospace">-ill-</text><text x="472" y="67" font-size="11" fill="#2a4a8a" font-weight="700" font-family="monospace" text-anchor="end">[j]</text><rect x="246" y="78" width="230" height="21" rx="5" fill="#2a4a8a" opacity=".10"/><text x="253" y="93" font-size="10.5" fill="#2a4a8a" font-weight="600" font-family="monospace">-ille</text><text x="472" y="93" font-size="11" fill="#2a4a8a" font-weight="700" font-family="monospace" text-anchor="end">[j]</text><rect x="246" y="104" width="230" height="21" rx="5" fill="#2a4a8a" opacity=".10"/><text x="253" y="119" font-size="10.5" fill="#2a4a8a" font-weight="600" font-family="monospace">-il</text><text x="472" y="119" font-size="11" fill="#2a4a8a" font-weight="700" font-family="monospace" text-anchor="end">[j]</text><rect x="496" y="32" width="177" height="215" rx="8" fill="#2a4a8a" opacity=".06" stroke="#2a4a8a" stroke-width="0.5"/><text x="584" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">EXEMPLES</text><text x="546" y="66" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">famille</text><text x="546" y="94" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">fille</text><text x="546" y="122" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">travail</text><text x="546" y="150" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">vieux</text></svg>
         <details style="margin-top:8px;font-size:.85rem;color:var(--muted)">
           <summary style="cursor:pointer;color:var(--purp);font-weight:600">📌 Note</summary>
           <div style="margin-top:4px;line-height:1.5"><div class="phon-body">§ Phonétique — Le son [j] — semi-voyelle
