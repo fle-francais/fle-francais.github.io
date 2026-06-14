@@ -514,44 +514,41 @@ function checkGate(){
     <p>Un parcours structuré selon le CECRL, du niveau A1 au C2. Le niveau A1 est entièrement gratuit : exercices interactifs + 27 leçons complètes.</p>
     <div class="hero-btns">
       <button class="btn-primary" onclick="showPage('test')">Tester mon niveau</button>
-      <button class="btn-secondary" onclick="showLevel('A1')">Commencer en A1 — gratuit</button>
+      <button class="btn-secondary" id="btn-level-picker" onclick="toggleLevelPicker()">Choisissez votre niveau ▾</button>
     </div>
-  </div>
-
-  <div class="section">
-    <h2 class="section-title">Choisissez votre niveau</h2>
-    <p class="section-sub">Cliquez sur un niveau pour accéder aux leçons et exercices.</p>
-    <div class="levels-grid">
-      <div class="level-card A" onclick="showLevel('A1')">
-        <span class="level-badge">A1</span>
-        <div class="level-name">Découverte</div>
-        <div class="level-desc">Premiers mots, premières phrases</div>
-        <div class="level-progress"><div class="level-progress-bar" id="prog-A1" style="width:0%"></div></div>
-      </div>
-      <div class="level-card A" onclick="showLevel('A2')" style="opacity:.65">
-        <span class="level-badge">A2</span>
-        <div class="level-name">Survie</div>
-        <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
-      </div>
-      <div class="level-card B" onclick="showLevel('B1')" style="opacity:.65">
-        <span class="level-badge">B1</span>
-        <div class="level-name">Seuil</div>
-        <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
-      </div>
-      <div class="level-card B" onclick="showLevel('B2')" style="opacity:.65">
-        <span class="level-badge">B2</span>
-        <div class="level-name">Avancé</div>
-        <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
-      </div>
-      <div class="level-card C" onclick="showLevel('C1')" style="opacity:.65">
-        <span class="level-badge">C1</span>
-        <div class="level-name">Autonome</div>
-        <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
-      </div>
-      <div class="level-card C" onclick="showLevel('C2')" style="opacity:.65">
-        <span class="level-badge">C2</span>
-        <div class="level-name">Maîtrise</div>
-        <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
+    <div id="hero-level-picker" style="display:none;margin-top:24px">
+      <div class="levels-grid">
+        <div class="level-card A" onclick="showLevel('A1')">
+          <span class="level-badge">A1</span>
+          <div class="level-name">Découverte</div>
+          <div class="level-desc">Premiers mots, premières phrases</div>
+          <div class="level-progress"><div class="level-progress-bar" id="prog-A1" style="width:0%"></div></div>
+        </div>
+        <div class="level-card A" onclick="showLevel('A2')" style="opacity:.65">
+          <span class="level-badge">A2</span>
+          <div class="level-name">Survie</div>
+          <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
+        </div>
+        <div class="level-card B" onclick="showLevel('B1')" style="opacity:.65">
+          <span class="level-badge">B1</span>
+          <div class="level-name">Seuil</div>
+          <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
+        </div>
+        <div class="level-card B" onclick="showLevel('B2')" style="opacity:.65">
+          <span class="level-badge">B2</span>
+          <div class="level-name">Avancé</div>
+          <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
+        </div>
+        <div class="level-card C" onclick="showLevel('C1')" style="opacity:.65">
+          <span class="level-badge">C1</span>
+          <div class="level-name">Autonome</div>
+          <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
+        </div>
+        <div class="level-card C" onclick="showLevel('C2')" style="opacity:.65">
+          <span class="level-badge">C2</span>
+          <div class="level-name">Maîtrise</div>
+          <div style="font-size:.8rem;font-weight:700;color:rgba(255,255,255,.45);background:rgba(255,255,255,.08);border-radius:20px;padding:3px 10px;display:inline-block;margin-top:6px">🚧 En préparation</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1566,6 +1563,14 @@ function showPage(page) {
     document.getElementById('test-page').style.display = 'block';
     initTest();
   }
+}
+
+function toggleLevelPicker() {
+  var p = document.getElementById('hero-level-picker');
+  var btn = document.getElementById('btn-level-picker');
+  var open = p.style.display === 'none' || p.style.display === '';
+  p.style.display = open ? 'block' : 'none';
+  btn.textContent = open ? 'Choisissez votre niveau ▴' : 'Choisissez votre niveau ▾';
 }
 
 function showLevel(lvl) {
