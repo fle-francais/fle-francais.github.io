@@ -360,18 +360,14 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <body>
 
 <!-- HEADER -->
-<header class="lesson-header" style="background:linear-gradient(135deg,#16a085,#1abc9c)">
-  <div class="lesson-header-inner">
-    <div>
-      <div class="lesson-code">U0</div>
-      <div class="lesson-title" data-fr="Les Bases du Français" data-zh="法语基础">Les Bases du Français</div>
-      <div class="lesson-sub" data-fr="Alphabet · Chiffres · Jours · Mois" data-zh="字母表 · 数字 · 星期 · 月份">Alphabet · Chiffres · Jours · Mois</div>
-    </div>
-    <div class="header-right">
-      <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')" title="Français"><img src="../icons/flag-fr.svg" alt="FR"/></button>
-      <button class="ph-lang-btn" id="btn-lang-zh" onclick="setLang('zh')" title="中文"><img src="../icons/flag-zh.svg" alt="中"/></button>
-    </div>
+<header class="page-header" style="background:linear-gradient(135deg,#16a085,#1abc9c)">
+  <a class="ph-back" href="../index.html">🏠</a>
+  <div style="flex:1"><div class="ph-title" data-fr="Les Bases du Français" data-zh="法语基础">Les Bases du Français</div><div class="ph-sub">Leçon U0 · A1</div></div>
+  <div class="ph-lang">
+    <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')" title="Français"><img src="../icons/flag-fr.svg" alt="FR"/></button>
+    <button class="ph-lang-btn" id="btn-lang-zh" onclick="setLang('zh')" title="中文"><img src="../icons/flag-zh.svg" alt="中"/></button>
   </div>
+  <a class="ph-next" href="1A_slides.html" style="background:linear-gradient(135deg,#16a085,#1abc9c)">1A →</a>
 </header>
 
 <!-- NAV TABS -->
@@ -384,8 +380,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(5)">✍️ À toi !</button>
 </nav>
 
-<!-- SLIDES WRAPPER -->
-<div class="slides-wrap" id="slides-wrap">
+<!-- SLIDES VIEWPORT -->
+<div class="slides-viewport" id="slides-vp">
 
 <!-- SLIDE 0 : Alphabet -->
 <div class="slide" id="slide-0">
@@ -551,17 +547,44 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   </div>
 </div>
 
-</div><!-- /slides-wrap -->
+</div><!-- /slides-viewport -->
+
+<!-- MODALS + FLOAT BTNS -->
+<div class="float-btns">
+  <button class="float-btn btn-bug" onclick="openModal('modal-bug')" title="Signaler un problème">🐛</button>
+  <button class="float-btn btn-ask" onclick="openModal('modal-ask')" title="Poser une question">💬</button>
+</div>
+<div class="fle-modal" id="modal-bug" role="dialog" aria-modal="true" aria-labelledby="bug-title">
+  <div class="fle-modal-box">
+    <button class="modal-close" aria-label="Fermer" onclick="closeModal('modal-bug')">✕</button>
+    <h2 id="bug-title" data-fr="🐛 Signaler un problème" data-zh="🐛 反馈问题">🐛 Signaler un problème</h2><p class="modal-sub" data-fr="Aidez-nous à améliorer cette leçon." data-zh="帮助我们改进本课内容。">Aidez-nous à améliorer cette leçon.</p>
+    <form id="form-bug" onsubmit="submitForm(event,'form-bug','modal-bug')">
+      <input name="lecon" type="hidden" value="U0 — Les Bases du Français"/><input name="_subject" type="hidden" value="[Bug] Leçon U0"/>
+      <div class="form-group"><label data-fr="Section" data-zh="章节">Section</label><select name="exercice" required=""><option data-fr="— Choisissez —" data-zh="— 请选择 —" value="">— Choisissez —</option><option data-fr="Alphabet" data-zh="字母表">Alphabet</option><option data-fr="Chiffres" data-zh="数字">Chiffres</option><option data-fr="Jours" data-zh="星期">Jours</option><option data-fr="Mois" data-zh="月份">Mois</option><option data-fr="Exercices" data-zh="练习">Exercices</option><option data-fr="À toi !" data-zh="轮到你了">À toi !</option><option data-fr="Autre" data-zh="其他">Autre</option></select></div>
+      <div class="form-group"><label data-fr="Description" data-zh="描述">Description</label><textarea data-placeholder-fr="Décrivez le problème…" data-placeholder-zh="请描述问题…" name="description" placeholder="Décrivez le problème…" required="" rows="3"></textarea></div>
+      <div class="form-group"><label><span data-fr="Prénom" data-zh="姓名">Prénom</span> <span class="opt" data-fr="(facultatif)" data-zh="（选填）">(facultatif)</span></label><input name="prenom" type="text"/></div>
+      <button class="btn-send" type="submit">Envoyer</button><p class="form-success" id="success-bug" data-fr="✅ Merci !" data-zh="✅ 谢谢！">✅ Merci !</p>
+    </form>
+  </div>
+</div>
+<div class="fle-modal" id="modal-ask" role="dialog" aria-modal="true" aria-labelledby="ask-title">
+  <div class="fle-modal-box">
+    <button class="modal-close" aria-label="Fermer" onclick="closeModal('modal-ask')">✕</button>
+    <h2 id="ask-title" data-fr="💬 Poser une question" data-zh="💬 提问">💬 Poser une question</h2><p class="modal-sub" data-fr="Votre question sera transmise au professeur." data-zh="您的问题将转交给老师。">Votre question sera transmise au professeur.</p>
+    <form id="form-ask" onsubmit="submitForm(event,'form-ask','modal-ask')">
+      <input name="lecon" type="hidden" value="U0 — Les Bases du Français"/><input name="_subject" type="hidden" value="[Question] Leçon U0"/>
+      <div class="form-group"><label data-fr="Sujet" data-zh="主题">Sujet</label><select name="sujet" required=""><option data-fr="— Choisissez —" data-zh="— 请选择 —" value="">— Choisissez —</option><option data-fr="📖 Alphabet / Chiffres" data-zh="📖 字母/数字" value="Alphabet">📖 Alphabet / Chiffres</option><option data-fr="📝 Vocabulaire" data-zh="📝 词汇" value="Vocabulaire">📝 Vocabulaire</option><option data-fr="✏️ Exercice" data-zh="✏️ 练习" value="Exercice">✏️ Exercice</option></select></div>
+      <div class="form-group"><label data-fr="Votre question" data-zh="您的问题">Votre question</label><textarea data-placeholder-fr="Posez votre question…" data-placeholder-zh="请输入您的问题…" name="question" placeholder="Posez votre question…" required="" rows="3"></textarea></div>
+      <div class="form-group"><label><span data-fr="Prénom" data-zh="姓名">Prénom</span> <span class="opt" data-fr="(facultatif)" data-zh="（选填）">(facultatif)</span></label><input name="prenom" type="text"/></div>
+      <button class="btn-send" type="submit">Envoyer</button><p class="form-success" id="success-ask" data-fr="✅ Merci !" data-zh="✅ 谢谢！">✅ Merci !</p>
+    </form>
+  </div>
+</div>
+<div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 
 <script>
 
-var LESSON='1B';
-
-
-var currentSlide=0;
-);
-  currentSlide=n;
-}
+var LESSON='U0';
 function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');var zh=lang==='zh';document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=zh?el.dataset.zh:(el.dataset.fr||el.textContent);});document.querySelectorAll('[data-placeholder-zh]').forEach(function(el){el.placeholder=zh?el.dataset.placeholderZh:(el.dataset.placeholderFr||el.placeholder);});document.querySelectorAll('.lt-btn').forEach(function(el){if(!el.disabled)el.textContent=zh?'批改 ✓':'Corriger ✓';});document.querySelectorAll('.btn-send').forEach(function(el){el.textContent=zh?'发送':'Envoyer';});document.querySelectorAll('.btn-reveal').forEach(function(el){if(!el.dataset.zh)el.textContent=zh?'查看':'Voir';});document.querySelectorAll('.btn-verify').forEach(function(el){el.textContent=zh?'验证 ✓':'Vérifier ✓';});document.querySelectorAll('.btn-restart').forEach(function(el){el.textContent=zh?'重新开始 ↺':'Recommencer ↺';});document.querySelectorAll('.dl-play-btn[data-state]').forEach(function(el){var st=el.dataset.state;el.innerHTML=st==='play'?(zh?'▶︎  播放':'▶︎  Écouter'):st==='pause'?(zh?'❚❚  暂停':'❚❚  Pause'):(zh?'▶︎  继续':'▶︎  Reprendre');});}
 document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
