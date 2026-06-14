@@ -514,7 +514,8 @@ function checkGate(){
     <p>Un parcours structuré selon le CECRL, du niveau A1 au C2. Le niveau A1 est entièrement gratuit : exercices interactifs + 27 leçons complètes.</p>
     <div class="hero-btns">
       <button class="btn-primary" onclick="showPage('test')">Tester mon niveau</button>
-      <button class="btn-secondary" id="btn-level-picker" onclick="toggleLevelPicker()">Choisissez votre niveau ▾</button>
+      <button class="btn-secondary" id="btn-level-picker" onclick="toggleHeroPanel('levels')">Choisissez votre niveau ▾</button>
+      <button class="btn-secondary" id="btn-bio-picker" onclick="toggleHeroPanel('bio')">Votre professeur ▾</button>
     </div>
     <div id="hero-level-picker" style="display:none;margin-top:24px">
       <div class="levels-grid">
@@ -551,26 +552,22 @@ function checkGate(){
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- ── BIOGRAPHIE ── -->
-  <div class="section" style="padding-top:0">
-    <div style="background:#0d1b32;border-radius:var(--radius);border:1.5px solid #1c2e5a;border-left:4px solid #e84040;padding:36px;max-width:780px;margin:0 auto;display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap">
-      <div style="flex-shrink:0;text-align:center">
-        <img src="images/arnaud.jpeg" alt="Arnaud Morandi" style="width:130px;height:130px;border-radius:50%;object-fit:cover;border:3px solid #e84040;display:block;margin:0 auto 10px">
-        <div style="font-weight:800;font-size:1.05rem;color:#e0e8f4">Arnaud Morandi</div>
-        <div style="font-size:.82rem;color:#6070a0;margin-top:2px">📍 Shanghai, Chine</div>
-      </div>
-      <div style="flex:1;min-width:220px">
-        <h2 style="font-size:1.25rem;font-weight:900;margin-bottom:12px;color:#e84040" data-i18n="bio-title">Votre professeur</h2>
-        <p style="color:#8090b4;font-size:.93rem;line-height:1.7;margin-bottom:14px" data-i18n="bio-p1">Titulaire d'un <strong style="color:#c8d8f0">Master 2 FLE/FLES</strong> (Université Grenoble Alpes) et du <strong style="color:#c8d8f0">DAEFLE</strong> (Alliance Française de Paris), j'enseigne le français langue étrangère depuis plusieurs années, du niveau A1 au C2, en France, en Chine et en Italie.</p>
-        <p style="color:#8090b4;font-size:.93rem;line-height:1.7;margin-bottom:14px" data-i18n="bio-p2">J'ai exercé au sein des <strong style="color:#c8d8f0">Alliances Françaises de Strasbourg, Nanjing, Turin et Grenoble</strong>, ainsi qu'à l'<strong style="color:#c8d8f0">Université SKEMA Business School</strong> (Chine). Je suis <strong style="color:#c8d8f0">examinateur-correcteur habilité DELF/DALF A1–C2</strong> et examinateur <strong style="color:#c8d8f0">TCF</strong> (IRN, TP, Canada).</p>
-        <p style="color:#8090b4;font-size:.93rem;line-height:1.7" data-i18n="bio-p3">Doté d'une approche pédagogique adaptée à chaque profil, je conçois des parcours sur mesure pour vous accompagner efficacement vers vos objectifs.</p>
-        <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
-          <span style="background:rgba(255,255,255,.1);color:#ffffff;border-radius:20px;padding:4px 12px;font-size:.78rem;font-weight:700">Master 2 FLE/FLES</span>
-          <span style="background:rgba(255,255,255,.1);color:#ffffff;border-radius:20px;padding:4px 12px;font-size:.78rem;font-weight:700">DAEFLE</span>
-          <span style="background:rgba(255,255,255,.1);color:#ffffff;border-radius:20px;padding:4px 12px;font-size:.78rem;font-weight:700">Examinateur DELF/DALF</span>
-          <span style="background:rgba(255,255,255,.1);color:#ffffff;border-radius:20px;padding:4px 12px;font-size:.78rem;font-weight:700">Examinateur TCF</span>
+    <div id="hero-bio-panel" style="display:none;margin-top:24px;max-width:720px;margin-left:auto;margin-right:auto">
+      <div style="background:rgba(255,255,255,.08);border-radius:16px;border:1px solid rgba(255,255,255,.15);border-left:3px solid #e84040;padding:24px 28px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex-shrink:0;text-align:center">
+          <img src="images/arnaud.jpeg" alt="Arnaud Morandi" style="width:90px;height:90px;border-radius:50%;object-fit:cover;border:2px solid #e84040;display:block;margin:0 auto 8px">
+          <div style="font-weight:800;font-size:.9rem;color:#e0e8f4">Arnaud Morandi</div>
+          <div style="font-size:.75rem;color:rgba(255,255,255,.45);margin-top:2px">📍 Shanghai</div>
+        </div>
+        <div style="flex:1;min-width:200px">
+          <p style="color:rgba(255,255,255,.8);font-size:.85rem;line-height:1.6;margin-bottom:10px">Titulaire d'un <strong style="color:#fff">Master 2 FLE/FLES</strong> (Grenoble Alpes) et du <strong style="color:#fff">DAEFLE</strong> (Alliance Française de Paris). Enseignant FLE depuis plusieurs années, du A1 au C2, en France, en Chine et en Italie.</p>
+          <p style="color:rgba(255,255,255,.8);font-size:.85rem;line-height:1.6;margin-bottom:12px"><strong style="color:#fff">Examinateur-correcteur habilité DELF/DALF A1–C2</strong> et examinateur <strong style="color:#fff">TCF</strong> (IRN, TP, Canada). Alliances Françaises de Strasbourg, Nanjing, Turin, Grenoble · SKEMA Business School.</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:20px;padding:3px 10px;font-size:.72rem;font-weight:700">Master 2 FLE/FLES</span>
+            <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:20px;padding:3px 10px;font-size:.72rem;font-weight:700">DAEFLE</span>
+            <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:20px;padding:3px 10px;font-size:.72rem;font-weight:700">Examinateur DELF/DALF</span>
+            <span style="background:rgba(255,255,255,.12);color:#fff;border-radius:20px;padding:3px 10px;font-size:.72rem;font-weight:700">Examinateur TCF</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1539,12 +1536,21 @@ function showPage(page) {
   }
 }
 
-function toggleLevelPicker() {
-  var p = document.getElementById('hero-level-picker');
-  var btn = document.getElementById('btn-level-picker');
-  var open = p.style.display === 'none' || p.style.display === '';
-  p.style.display = open ? 'block' : 'none';
-  btn.textContent = open ? 'Choisissez votre niveau ▴' : 'Choisissez votre niveau ▾';
+function toggleHeroPanel(which) {
+  var panels = {
+    levels: { panel: 'hero-level-picker', btn: 'btn-level-picker', label: 'Choisissez votre niveau' },
+    bio:    { panel: 'hero-bio-panel',    btn: 'btn-bio-picker',   label: 'Votre professeur' }
+  };
+  var other = which === 'levels' ? 'bio' : 'levels';
+  var cur = panels[which], oth = panels[other];
+  var curPanel = document.getElementById(cur.panel);
+  var isOpen = curPanel.style.display !== 'none' && curPanel.style.display !== '';
+  // fermer l'autre
+  document.getElementById(oth.panel).style.display = 'none';
+  document.getElementById(oth.btn).textContent = oth.label + ' ▾';
+  // toggle le courant
+  curPanel.style.display = isOpen ? 'none' : 'block';
+  document.getElementById(cur.btn).textContent = cur.label + (isOpen ? ' ▾' : ' ▴');
 }
 
 function showLevel(lvl) {
