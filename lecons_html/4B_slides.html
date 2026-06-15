@@ -72,7 +72,7 @@ a{color:var(--blue);text-decoration:none}
 .dl-speaker{font-weight:800;font-size:.68rem;color:var(--purp);text-transform:uppercase;letter-spacing:.4px;padding-top:1px;line-height:1.4;overflow-wrap:break-word;word-break:break-word}
 .dl-line{font-size:.84rem;line-height:1.4;color:var(--text)}
 .dl-word{display:inline;border-radius:2px;padding:0 1px;transition:background .3s,color .3s}
-.dl-word.dl-lit{background:#d7bff5;color:#1c2e5a}
+.dl-word.dl-lit{background:#c8d8f0;color:#1c2e5a}
 .dl-wave{display:none;align-items:center;gap:2px;height:10px;margin-left:4px;vertical-align:middle}
 .dl-row.dl-playing .dl-wave{display:inline-flex}
 .dl-wave span{width:2px;border-radius:2px;background:var(--purp);display:inline-block;animation:dlwv .7s ease-in-out infinite}
@@ -297,7 +297,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .head-compr{background:#fff!important;color:var(--purp)!important}
 .head-prod{background:#fff!important;color:var(--purp)!important}
 .ex-cat-badge{color:var(--muted)!important;font-weight:600}
-#slide-7 .slide-body,#slide-8 .slide-body{justify-content:flex-start}
+.ex5-actions{margin-top:12px}
+#slide-7 .slide-body,#slide-8 .slide-body{justify-content:space-between}
 </style>
 </head>
 <body>
@@ -517,11 +518,7 @@ tout droit.</div></div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
 <div class="slide" id="slide-7">
-  <div class="sub-nav">
-    <button class="sub-nav-btn" disabled>←</button>
-    <span class="sub-nav-count">1 / 3</span>
-    <button class="sub-nav-btn" onclick="goSlide(8)">→</button>
-  </div>
+  <div class="slide-header">Exercices <span class="slide-part">1/3</span></div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Conjuguez à l'impératif (3 formes) <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
 <div class="blank-row">1. <span>tourner → </span><input <input="" autocomplete="off" class="blank-input" id="bl-4B-ex1-0a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4B-ex1-0a').click()" type="text"/><button class="check-btn" data-ans="Tourne" id="chk-bl-4B-ex1-0a" onclick="checkBlankData(this,'bl-4B-ex1-0a','fb-bl-4B-ex1-0a')">✓</button><span class="fb" id="fb-bl-4B-ex1-0a"></span><span> ! / Tournez ! / </span><input <input="" autocomplete="off" class="blank-input" id="bl-4B-ex1-0b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4B-ex1-0b').click()" type="text"/><button class="check-btn" data-ans="Tournons" id="chk-bl-4B-ex1-0b" onclick="checkBlankData(this,'bl-4B-ex1-0b','fb-bl-4B-ex1-0b')">✓</button><span class="fb" id="fb-bl-4B-ex1-0b"></span><span>!</span></div>
@@ -537,11 +534,7 @@ tout droit.</div></div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
 <div class="slide" id="slide-8">
-  <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(7)">←</button>
-    <span class="sub-nav-count">2 / 3</span>
-    <button class="sub-nav-btn" onclick="goSlide(9)">→</button>
-  </div>
+  <div class="slide-header">Exercices <span class="slide-part">2/3</span></div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Impératif négatif <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez à l'impératif négatif :<span class="comm-zh"> · 改写成否定命令式</span></div>
 <div class="blank-row">1. <span>Prenez le tunnel. → </span><input autocomplete="off" class="blank-input" id="bl-4B-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-4B-ex3-0').click()" type="text"/><button class="check-btn" data-ans="Ne prenez pas le tunnel." id="chk-bl-4B-ex3-0" onclick="checkBlankData(this,'bl-4B-ex3-0','fb-bl-4B-ex3-0')">✓</button><span class="fb" id="fb-bl-4B-ex3-0"></span><span></span></div>
