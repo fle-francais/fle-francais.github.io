@@ -279,15 +279,18 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .phon-sub-header span{opacity:.7;font-weight:400}
 
 
-.slide-header{background:var(--purp);color:#fff;font-weight:700;font-size:.82rem;padding:5px 13px;border-radius:7px;margin-bottom:8px;letter-spacing:.3px}
-.slide-part{font-weight:400;opacity:.85;margin-left:5px}
-.qcm-block{overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:8px;padding-right:2px}
+.slide-inner{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column}
+.slide-header{background:var(--purp);color:#fff;font-weight:700;font-size:.82rem;padding:5px 13px;border-radius:7px;margin-bottom:8px;letter-spacing:.3px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.slide-part{font-weight:400;opacity:.8;font-size:.78rem}
+.slide-badge{font-size:.72rem;opacity:.75;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.qcm-block{overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:8px;min-height:0}
 .qcm-items{display:flex;flex-direction:column;gap:9px}
 .qcm-item{background:#fff;border-radius:8px;padding:10px 12px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
-.qcm-actions{display:flex;align-items:center;gap:10px;margin-top:10px;padding-top:8px;border-top:1px solid #eee}
-.ex-blocks{display:flex;flex-direction:column;gap:12px;overflow-y:auto;flex:1}
+.qcm-actions{display:flex;align-items:center;gap:10px;margin-top:10px;padding-top:8px;border-top:1px solid #eee;flex-shrink:0}
+.ex-blocks{display:flex;flex-direction:column;gap:12px;flex:1;min-height:0;overflow-y:auto}
 .ex-block{background:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 1px 5px rgba(0,0,0,.06)}
-.ex-title{font-weight:700;font-size:.84rem;color:var(--purp);margin-bottom:3px}
+.ex-title{font-weight:700;font-size:.84rem;color:var(--purp);margin-bottom:2px;display:flex;justify-content:space-between;align-items:baseline}
+.ex-badge{font-size:.7rem;font-weight:600;color:var(--muted);opacity:.8}
 .ex-inst{margin:2px 0 8px;font-size:.8rem;color:var(--muted);font-style:italic}
 .btn-reset{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
 </style>
@@ -377,7 +380,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
         </div>
         <div class="qcm-actions">
           <button class="btn-verify" onclick="verifyQCM('qcm-score-1C-1')">Vérifier ✔</button>
-          <button class="btn-reset" onclick="resetQCM('qcm-score-1C-1')">↺ Réessayer</button>
+          <button class="btn-reset" onclick="resetQCM('qcm-score-1C-1')">↺ Recommencer</button>
           <span class="qcm-score" id="qcm-score-1C-1"></span>
         </div>
       </div>
@@ -420,7 +423,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
         </div>
         <div class="qcm-actions">
           <button class="btn-verify" onclick="verifyQCM('qcm-score-1C-2')">Vérifier ✔</button>
-          <button class="btn-reset" onclick="resetQCM('qcm-score-1C-2')">↺ Réessayer</button>
+          <button class="btn-reset" onclick="resetQCM('qcm-score-1C-2')">↺ Recommencer</button>
           <span class="qcm-score" id="qcm-score-1C-2"></span>
         </div>
       </div>
@@ -562,7 +565,7 @@ en.</div></div>
       <div class="slide-header">Exercices <span class="slide-part">3/3</span></div>
       <div class="ex-blocks">
         <div class="ex-block">
-          <div class="ex-title">Ex. 5 — Pays ou ville ? <span class="comm-zh">将每个词归入正确的栏目。</span></div>
+          <div class="ex-title"><span>Ex. 5 — Pays ou ville ? <span class="comm-zh">将每个词归入正确的栏目。</span></span><span class="ex-badge">📖 Vocabulaire</span></div>
           <p class="ex-inst">Classez chaque mot dans la bonne colonne.</p>
           <div id="ex5-pool" class="ex5-pool">
         <span class="drag-chip" data-cat="pays" onclick="ex5Click(this)">la France</span>
@@ -586,12 +589,12 @@ en.</div></div>
           </div>
           <div class="ex5-actions">
             <button class="btn-verify" onclick="checkEx5()">Vérifier ✔</button>
-            <button class="btn-reset" onclick="resetEx5()">↺ Réessayer</button>
+            <button class="btn-reset" onclick="resetEx5()">↺ Recommencer</button>
             <span class="ex5-score" id="ex5-score-1C"></span>
           </div>
         </div>
         <div class="ex-block">
-          <div class="ex-title">Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确答案。</span></div>
+          <div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确答案。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
           <p class="ex-inst">Choisissez la bonne réponse.</p>
           <div class="listen-list">
           <div class="listen-item" data-ans="viens">
