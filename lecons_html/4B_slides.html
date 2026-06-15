@@ -7,11 +7,11 @@
 <title>Leçon 4B — Pour aller à… | FrançaisPlus A1</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#8e44ad;--purp-l:#f5eef8;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
+:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#1c2e5a;--purp-l:#e6ecf6;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
 body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);font-size:14px;height:100vh;overflow:hidden;display:flex;flex-direction:column}
 a{color:var(--blue);text-decoration:none}
 /* HEADER */
-.page-header{background:linear-gradient(135deg,var(--purp),#c0392b);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.page-header{background:linear-gradient(135deg,#0d1b32,#2a4a8a);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
 .ph-back{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
 .ph-back:hover{background:rgba(255,255,255,.2)}
 .ph-title{font-size:.88rem;font-weight:800;flex:1}
@@ -44,7 +44,7 @@ a{color:var(--blue);text-decoration:none}
 /* SLIDE FOOTER */
 .slide-footer{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:8px 0 0;margin-top:auto;flex-shrink:0}
 .btn-ns{padding:7px 16px;border:none;border-radius:20px;background:var(--purp);color:#fff;font-weight:700;font-size:.78rem;cursor:pointer;transition:background .15s,transform .1s;display:inline-flex;align-items:center;gap:5px}
-.btn-ns:hover{background:#7d3c98}
+.btn-ns:hover{background:#2a4a8a}
 .btn-ns:active{transform:scale(.97)}
 /* SCROLLABLE BODY */
 .slide-body{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column;justify-content:center}
@@ -72,7 +72,7 @@ a{color:var(--blue);text-decoration:none}
 .dl-speaker{font-weight:800;font-size:.68rem;color:var(--purp);text-transform:uppercase;letter-spacing:.4px;padding-top:1px;line-height:1.4;overflow-wrap:break-word;word-break:break-word}
 .dl-line{font-size:.84rem;line-height:1.4;color:var(--text)}
 .dl-word{display:inline;border-radius:2px;padding:0 1px;transition:background .3s,color .3s}
-.dl-word.dl-lit{background:#d7bff5;color:#6c3483}
+.dl-word.dl-lit{background:#d7bff5;color:#1c2e5a}
 .dl-wave{display:none;align-items:center;gap:2px;height:10px;margin-left:4px;vertical-align:middle}
 .dl-row.dl-playing .dl-wave{display:inline-flex}
 .dl-wave span{width:2px;border-radius:2px;background:var(--purp);display:inline-block;animation:dlwv .7s ease-in-out infinite}
@@ -87,7 +87,7 @@ a{color:var(--blue);text-decoration:none}
 .dialogue.dl-zh-on .dl-zh-line{display:block}
 /* Bouton lecture dialogue (injecté par JS) */
 .dl-play-btn{display:inline-flex;align-items:center;gap:7px;background:var(--purp);color:#fff;border:none;border-radius:18px;padding:7px 16px;font-size:.8rem;font-weight:700;cursor:pointer;margin-bottom:9px;transition:background .15s}
-.dl-play-btn:hover{background:#7d3c98}
+.dl-play-btn:hover{background:#2a4a8a}
 /* Bouton 中 propre au dialogue (injecté par JS) */
 .dl-zh-btn{border:2px solid var(--purp);color:var(--purp);background:none;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:700;cursor:pointer;flex-shrink:0;transition:all .15s}
 .dl-zh-btn:hover,.dl-zh-btn.zactive{background:var(--purp);color:#fff}
@@ -135,7 +135,7 @@ body.lang-zh .prod-zh{display:block}
 .fb.ko{color:#e74c3c}
 .verify-bar{display:flex;gap:7px;margin-top:10px;align-items:center;flex-wrap:wrap}
 .btn-verify{padding:5px 16px;border-radius:18px;border:none;background:var(--purp);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap;transition:background .15s}
-.btn-verify:hover{background:#7d3c98}
+.btn-verify:hover{background:#2a4a8a}
 .btn-restart{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap}
 .btn-restart:hover{background:#7f8c8d}
 .check-btn-global{padding:5px 16px;border-radius:18px;border:none;background:var(--orange);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
@@ -254,11 +254,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 }
 /* ── PRONONCIATION SLIDE ── */
 .prono-item{background:#fff;border:1px solid #e8e0f5;border-radius:8px;padding:10px 12px;margin-bottom:8px}
-.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#7d3c98;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#2a4a8a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
 .prono-phrase{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:7px}
 .prono-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
 .prono-btn{padding:5px 12px;border:none;border-radius:20px;cursor:pointer;font-size:.82rem;font-weight:600;transition:background .15s}
-.prono-btn-listen{background:#f0e6ff;color:#7d3c98}
+.prono-btn-listen{background:#f0e6ff;color:#2a4a8a}
 .prono-btn-listen:hover{background:#e0ccff}
 .prono-btn-mic{background:#d8f5ef;color:#16a085}
 .prono-btn-mic:hover{background:#b0e8d8}
@@ -275,9 +275,21 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .prono-heard{font-size:.78rem;color:var(--muted);font-style:italic}
 .prono-no-support{background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#856404;margin-bottom:8px}
 /* ── SUB-NAV (phonétique 1/2 · 2/2) ── */
-.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#7d3c98}
+.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#2a4a8a}
 .phon-sub-header span{opacity:.7;font-weight:400}
 
+
+.slide-header{background:var(--purp);color:#fff;font-weight:700;font-size:.82rem;padding:5px 13px;border-radius:7px;margin-bottom:8px;letter-spacing:.3px}
+.slide-part{font-weight:400;opacity:.85;margin-left:5px}
+.qcm-block{overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:8px;padding-right:2px}
+.qcm-items{display:flex;flex-direction:column;gap:9px}
+.qcm-item{background:#fff;border-radius:8px;padding:10px 12px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.qcm-actions{display:flex;align-items:center;gap:10px;margin-top:10px;padding-top:8px;border-top:1px solid #eee}
+.ex-blocks{display:flex;flex-direction:column;gap:12px;overflow-y:auto;flex:1}
+.ex-block{background:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 1px 5px rgba(0,0,0,.06)}
+.ex-title{font-weight:700;font-size:.84rem;color:var(--purp);margin-bottom:3px}
+.ex-inst{margin:2px 0 8px;font-size:.8rem;color:var(--muted);font-style:italic}
+.btn-reset{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
 </style>
 </head>
 <body>
@@ -370,9 +382,9 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
         </div>
       </div>
     </div>
-    <div class="slide-footer">
-      <button onclick="goSlide(0)">← Dialogue</button>
-      <button onclick="goSlide(2)">Comprendre 2/2 →</button>
+    <div class="slide-footer" style="justify-content:space-between">
+      <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
+      <button class="btn-ns" onclick="goSlide(2)">Comprendre 2/2 →</button>
     </div>
   </div>
   <!-- SLIDE 2: Comprendre 2/2 -->
@@ -413,9 +425,9 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
         </div>
       </div>
     </div>
-    <div class="slide-footer">
-      <button onclick="goSlide(1)">← Comprendre 1/2</button>
-      <button onclick="goSlide(3)">Communiquer →</button>
+    <div class="slide-footer" style="justify-content:space-between">
+      <button class="btn-ns" onclick="goSlide(1)">← Comprendre 1/2</button>
+      <button class="btn-ns" onclick="goSlide(3)">Communiquer →</button>
     </div>
   </div>
 <div class="slide" id="slide-3">
@@ -532,7 +544,7 @@ tout droit.</div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
     <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(7)">← Préc.</button>
-    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(9)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(9)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 8 : À TOI ! ══ -->
@@ -628,9 +640,9 @@ tout droit.</div></div>
         </div>
       </div>
     </div>
-    <div class="slide-footer">
-      <button onclick="goSlide(8)">← Exercices 2/3</button>
-      <button onclick="goSlide(10)">À toi →</button>
+    <div class="slide-footer" style="justify-content:space-between">
+      <button class="btn-ns" onclick="goSlide(8)">← Exercices 2/3</button>
+      <button class="btn-ns" onclick="goSlide(10)">✍️ À toi ! →</button>
     </div>
   </div>
 <div class="slide" id="slide-10">
