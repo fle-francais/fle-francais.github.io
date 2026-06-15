@@ -6,8 +6,8 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Leçon 1A — Enchanté ! | FrançaisPlus A1</title>
 <style>
-:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#1c2e5a;--purp-l:#e6ecf6;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
 *{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#1c2e5a;--purp-l:#e6ecf6;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
 body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);font-size:14px;height:100vh;overflow:hidden;display:flex;flex-direction:column}
 a{color:var(--blue);text-decoration:none}
 /* HEADER */
@@ -16,8 +16,8 @@ a{color:var(--blue);text-decoration:none}
 .ph-back:hover{background:rgba(255,255,255,.2)}
 .ph-title{font-size:.88rem;font-weight:800;flex:1}
 .ph-sub{font-size:.68rem;opacity:.8}
-.ph-next{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
-.ph-next:hover{background:rgba(255,255,255,.2)}
+.ph-next,.ph-prev{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
+.ph-next:hover,.ph-prev:hover{background:rgba(255,255,255,.2)}
 .ph-lang{display:flex;gap:5px;margin-right:4px;align-items:center}
 .ph-lang-btn{padding:2px;border-radius:50%;border:2px solid transparent;background:none;cursor:pointer;transition:all .2s;opacity:.55;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .ph-lang-btn:hover{opacity:.9;border-color:rgba(255,255,255,.6)}
@@ -72,7 +72,7 @@ a{color:var(--blue);text-decoration:none}
 .dl-speaker{font-weight:800;font-size:.68rem;color:var(--purp);text-transform:uppercase;letter-spacing:.4px;padding-top:1px;line-height:1.4;overflow-wrap:break-word;word-break:break-word}
 .dl-line{font-size:.84rem;line-height:1.4;color:var(--text)}
 .dl-word{display:inline;border-radius:2px;padding:0 1px;transition:background .3s,color .3s}
-.dl-word.dl-lit{background:#c8d8f0;color:#1c2e5a}
+.dl-word.dl-lit{background:#d7bff5;color:#1c2e5a}
 .dl-wave{display:none;align-items:center;gap:2px;height:10px;margin-left:4px;vertical-align:middle}
 .dl-row.dl-playing .dl-wave{display:inline-flex}
 .dl-wave span{width:2px;border-radius:2px;background:var(--purp);display:inline-block;animation:dlwv .7s ease-in-out infinite}
@@ -82,10 +82,13 @@ a{color:var(--blue);text-decoration:none}
 .dl-wave span:nth-child(4){height:9px;animation-delay:.18s}
 .dl-wave span:nth-child(5){height:4px;animation-delay:.09s}
 @keyframes dlwv{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.7)}}
+/* Traduction dialogue : contrôlée par .dialogue.dl-zh-on (bouton 中 propre au dialogue) */
 .dl-zh-line{font-size:.74rem;color:var(--muted);font-style:italic;display:none;grid-column:2;padding-bottom:2px}
 .dialogue.dl-zh-on .dl-zh-line{display:block}
+/* Bouton lecture dialogue (injecté par JS) */
 .dl-play-btn{display:inline-flex;align-items:center;gap:7px;background:var(--purp);color:#fff;border:none;border-radius:18px;padding:7px 16px;font-size:.8rem;font-weight:700;cursor:pointer;margin-bottom:9px;transition:background .15s}
 .dl-play-btn:hover{background:#2a4a8a}
+/* Bouton 中 propre au dialogue (injecté par JS) */
 .dl-zh-btn{border:2px solid var(--purp);color:var(--purp);background:none;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:700;cursor:pointer;flex-shrink:0;transition:all .15s}
 .dl-zh-btn:hover,.dl-zh-btn.zactive{background:var(--purp);color:#fff}
 .dl-layout{display:flex;gap:14px;align-items:flex-start}
@@ -109,6 +112,7 @@ a{color:var(--blue);text-decoration:none}
 .vocab-word{font-weight:800;font-size:.82rem;color:var(--text);cursor:pointer}
 .vocab-word:hover{color:var(--blue);text-decoration:underline dotted}
 .vocab-gram{font-size:.66rem;color:var(--muted);font-style:italic}
+/* Traductions vocab/comm/prod : contrôlées par body.lang-zh (bouton global FR/中) */
 .vocab-zh{font-size:.78rem;color:var(--blue);font-weight:600;margin-top:2px;display:none}
 body.lang-zh .vocab-zh,body.lang-zh .comm-zh{display:block}
 body.lang-zh .prod-zh{display:block}
@@ -177,7 +181,7 @@ body.lang-zh .prod-zh{display:block}
 .comm-zh{display:none;font-size:.75rem;color:var(--purp);margin-top:1px}
 /* PHONÉTIQUE */
 .phon-rule{background:#e8f8f5;border-left:4px solid #1abc9c;border-radius:0 7px 7px 0;padding:8px 12px;margin-bottom:9px;font-size:.82rem;line-height:1.6}
-.phon-grid-ex{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:7px;margin-top:7px;justify-items:center}
+.phon-grid-ex{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:7px;margin-top:7px;justify-items:center}
 .phon-item-ex{background:#f0fff8;border-radius:8px;padding:9px;text-align:center;border:2px solid #d5f5e3}
 .phon-word-ex{font-size:1rem;font-weight:800;color:var(--text);margin-bottom:4px}
 .phon-hear-ex{background:#1abc9c;color:#fff;border:none;border-radius:18px;padding:3px 9px;cursor:pointer;font-size:.74rem;font-weight:600;margin-bottom:5px;display:inline-flex;align-items:center;gap:3px}
@@ -190,32 +194,10 @@ body.lang-zh .prod-zh{display:block}
 .phon-btn-ex.phon-selected{background:#1abc9c;color:#fff;border-color:#1abc9c}
 .phon-fb-ex{font-size:.7rem;margin-top:3px;font-weight:600;min-height:11px}
 .phon-score{margin-top:10px;padding:7px 12px;background:#e8f8f5;border-radius:8px;font-weight:700;text-align:center;font-size:.84rem;display:none;color:#148f77}
-.phon-ex-w{cursor:pointer;border-bottom:2px dotted #1abc9c;color:#148f77;font-style:normal;font-weight:700;padding:0 1px;border-radius:2px}
-.phon-ex-w:hover{background:#e8f8f5}
-/* PRONONCIATION */
-.prono-item{background:var(--card);border:1.5px solid #ebebeb;border-radius:9px;padding:9px 12px;margin-bottom:7px}
-.prono-phrase{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.35}
-.prono-speaker-tag{font-size:.64rem;font-weight:700;color:var(--purp);text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px}
-.prono-btns{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
-.prono-btn{padding:4px 11px;border-radius:18px;border:none;cursor:pointer;font-size:.76rem;font-weight:600;transition:opacity .15s,transform .1s}
-.prono-btn:active{transform:scale(.96)}
-.prono-btn-listen{background:#e8f4fd;color:#2196f3}
-.prono-btn-mic{background:#fde8e8;color:#e53935}
-.prono-btn-mic.recording{background:#e53935;color:#fff;animation:prono-pulse 1s infinite}
-@keyframes prono-pulse{0%,100%{opacity:1}50%{opacity:.6}}
-.prono-score{margin-top:6px;font-size:.82rem;display:none}
-.prono-score.visible{display:block}
-.prono-score-bar{height:5px;border-radius:3px;background:#eee;margin:4px 0 2px;overflow:hidden}
-.prono-score-fill{height:100%;border-radius:3px;transition:width .5s ease}
-.prono-score-text{font-size:.74rem;color:var(--muted)}
-.prono-heard{font-style:italic;color:var(--muted);font-size:.74rem;margin-top:2px}
-.prono-no-support{background:#fff8e1;border:1px solid #ffe082;border-radius:7px;padding:7px 11px;font-size:.8rem;color:#795548;margin-bottom:8px;display:none}
-/* EXERCISE CATEGORY BADGES */
-.ex-cat-badge{margin-left:auto;font-size:.68rem;padding:2px 9px;border-radius:10px;font-weight:700;white-space:nowrap}
-.badge-gram{background:#e8f0fe;color:#3d6bce}
-.badge-lex{background:#e6f4ea;color:#2d7d46}
-.badge-phon{background:#f3e8ff;color:#7c3aed}
-.badge-comm{background:#fff3e0;color:#e65100}
+/* RÉPONSES COMPRENDRE */
+.compr-a{background:#f0faf5;border-left:3px solid var(--green);border-radius:0 6px 6px 0;padding:5px 10px;display:none;font-size:.82rem;color:#1a5c35;margin-top:3px}
+.compr-a.visible{display:block}
+.btn-show,.btn-reveal{background:none;border:1px solid var(--green);color:var(--green);border-radius:15px;padding:3px 10px;font-size:.72rem;font-weight:700;cursor:pointer;margin-top:4px;display:inline-block}
 /* PRODUCTION */
 .prod-box{background:#fffde7;border-left:4px solid var(--orange);border-radius:0 8px 8px 0;padding:11px 13px;font-size:.86rem;line-height:1.55}
 textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #ffe082;border-radius:7px;padding:8px;font-family:inherit;font-size:.84rem;resize:vertical;background:#fff}
@@ -231,6 +213,12 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .lt-list li{margin-bottom:5px}
 .lt-err{background:#fff3cd;padding:1px 4px;border-radius:3px;font-weight:600}
 .lt-sug{color:#1b5e20;font-weight:600}
+/* EXERCICE BADGE */
+.ex-cat-badge{margin-left:auto;font-size:.68rem;padding:2px 9px;border-radius:10px;font-weight:700;white-space:nowrap}
+.badge-gram{background:#e8f0fe;color:#3d6bce}
+.badge-lex{background:#e6f4ea;color:#2d7d46}
+.badge-phon{background:#f3e8ff;color:#7c3aed}
+.badge-comm{background:#fff3e0;color:#e65100}
 /* MODALS */
 .fle-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:300;backdrop-filter:blur(2px)}
 .fle-modal-overlay.open{display:block}
@@ -262,19 +250,64 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   .dl-speaker{font-size:.62rem}
   .dl-line{font-size:.78rem}
   .ex5-zones{grid-template-columns:1fr}
-  .phon-grid-ex{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}
   .vocab-grid{grid-template-columns:repeat(2,1fr)}
 }
+/* ── PRONONCIATION SLIDE ── */
+.prono-item{background:#fff;border:1px solid #e8e0f5;border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#2a4a8a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.prono-phrase{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:7px}
+.prono-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.prono-btn{padding:5px 12px;border:none;border-radius:20px;cursor:pointer;font-size:.82rem;font-weight:600;transition:background .15s}
+.prono-btn-listen{background:#f0e6ff;color:#2a4a8a}
+.prono-btn-listen:hover{background:#e0ccff}
+.prono-btn-mic{background:#d8f5ef;color:#16a085}
+.prono-btn-mic:hover{background:#b0e8d8}
+.prono-btn-mic.recording{background:#e74c3c;color:#fff;animation:pulse-rec .8s infinite}
+@keyframes pulse-rec{0%,100%{opacity:1}50%{opacity:.6}}
+.prono-score{overflow:hidden;max-height:0;transition:max-height .3s}
+.prono-score.visible,.prono-score:has(.prono-score-text:not(:empty)){max-height:60px}
+.prono-score-bar{height:6px;background:#eee;border-radius:3px;margin-bottom:4px}
+.prono-score-fill{height:100%;border-radius:3px;transition:width .5s;background:var(--green)}
+.prono-score-text{font-size:.82rem;font-weight:600;color:var(--text)}
+.prono-score-text.score-high{color:var(--green)}
+.prono-score-text.score-mid{color:var(--orange)}
+.prono-score-text.score-low{color:#e74c3c}
+.prono-heard{font-size:.78rem;color:var(--muted);font-style:italic}
+.prono-no-support{background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#856404;margin-bottom:8px}
+/* ── SUB-NAV (phonétique 1/2 · 2/2) ── */
+.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#2a4a8a}
+.phon-sub-header span{opacity:.7;font-weight:400}
+
+
+.slide-inner{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column}
+.slide-header{background:var(--purp);color:#fff;font-weight:700;font-size:.82rem;padding:5px 13px;border-radius:7px;margin-bottom:8px;letter-spacing:.3px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.slide-part{font-weight:400;opacity:.8;font-size:.78rem}
+.slide-badge{font-size:.72rem;opacity:.75;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.qcm-block{overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:8px;min-height:0}
+.qcm-items{display:flex;flex-direction:column;gap:9px}
+.qcm-item{background:#fff;border-radius:8px;padding:10px 12px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.qcm-actions{display:flex;align-items:center;gap:10px;margin-top:10px;padding-top:8px;border-top:1px solid #eee;flex-shrink:0}
+.ex-blocks{display:flex;flex-direction:column;gap:12px;flex:1;min-height:0;overflow-y:auto}
+.ex-block{background:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 1px 5px rgba(0,0,0,.06)}
+.ex-title{font-weight:700;font-size:.84rem;color:var(--purp);margin-bottom:2px;display:flex;justify-content:space-between;align-items:baseline}
+.ex-badge{font-size:.7rem;font-weight:600;color:var(--muted);opacity:.8}
+.ex-inst{margin:2px 0 8px;font-size:.8rem;color:var(--muted);font-style:italic}
+.btn-reset{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
+.head-ex{background:#fff!important;color:var(--purp)!important}
+.head-compr{background:#fff!important;color:var(--purp)!important}
+.head-prod{background:#fff!important;color:var(--purp)!important}
+.ex-cat-badge{color:var(--muted)!important;font-weight:600}
 </style>
 </head>
 <body>
 <header class="page-header">
-  <a class="ph-back" href="../index.html?level=A1">🏠</a>
-  <div style="flex:1"><div class="ph-title">Enchanté !</div><div class="ph-sub">Leçon 1A · A1 · Unité 1</div></div>
+  <a class="ph-back" href="../index.html">🏠</a>
+  <div style="flex:1"><div class="ph-title">Enchanté !</div><div class="ph-sub">Leçon 1A · A1</div></div>
   <div class="ph-lang">
     <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')" title="Français"><img src="../icons/flag-fr.svg" alt="FR"/></button>
     <button class="ph-lang-btn" id="btn-lang-zh" onclick="setLang('zh')" title="中文"><img src="../icons/flag-zh.svg" alt="中"/></button>
   </div>
+
   <a class="ph-next" href="1B_slides.html">1B →</a>
 </header>
 <nav class="slide-nav" id="slide-nav">
@@ -282,478 +315,569 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
   <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(3)">🗣️ Communiquer</button>
   <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(4)">🎵 Phonétique</button>
-  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(7)">📖 Grammaire</button>
-  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(8)">✏️ Exercices</button>
-  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(11)">✍️ À toi !</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(7)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(10)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
 <div class="slide s-active" id="slide-0">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-dialogue">💬 Dialogue — À la bibliothèque<span class="comm-zh"> · 对话</span></div>
+      <div class="card-head head-dialogue">💬 Dialogue<span class="comm-zh"> · 对话</span></div>
       <div class="card-body dl-layout">
         <div class="dl-img-col">
           <img alt="Illustration leçon 1A" loading="lazy" src="../images/dialogue/dialogue_1A.jpg"/>
         </div>
         <div class="dl-content-col">
-        <div class="dialogue">
-          <div class="dl-row" data-idx="0"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Bonjour</span> <span class="dl-word">!</span> <span class="dl-word">Je</span> <span class="dl-word">voudrais</span> <span class="dl-word">m'inscrire</span> <span class="dl-word">à</span> <span class="dl-word">la</span> <span class="dl-word">bibliothèque.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">你好！我想在图书馆登记注册。</div></div>
-          <div class="dl-row" data-idx="1"><div class="dl-speaker">BIBLIOTHÉCAIRE</div><div class="dl-line"><span class="dl-word">Bien</span> <span class="dl-word">sûr</span> <span class="dl-word">!</span> <span class="dl-word">Votre</span> <span class="dl-word">nom</span> <span class="dl-word">s'il</span> <span class="dl-word">vous</span> <span class="dl-word">plaît.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">当然！请问您的姓名。</div></div>
-          <div class="dl-row" data-idx="2"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Sofia</span> <span class="dl-word">Russo.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">索菲亚·鲁索。</div></div>
-          <div class="dl-row" data-idx="3"><div class="dl-speaker">BIBLIOTHÉCAIRE</div><div class="dl-line"><span class="dl-word">Vous</span> <span class="dl-word">pouvez</span> <span class="dl-word">épeler</span> <span class="dl-word">?</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">您能拼写一下吗？</div></div>
-          <div class="dl-row" data-idx="4"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">S</span> <span class="dl-word">O</span> <span class="dl-word">F</span> <span class="dl-word">I</span> <span class="dl-word">A.</span> <span class="dl-word">Russo</span> <span class="dl-word">:</span> <span class="dl-word">R</span> <span class="dl-word">U</span> <span class="dl-word">S</span> <span class="dl-word">S</span> <span class="dl-word">O...</span> <span class="dl-word">Je</span> <span class="dl-word">suis</span> <span class="dl-word">italienne.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">S，O，F，I，A。鲁索：R，U，S，S，O……我是意大利人。</div></div>
-          <div class="dl-row" data-idx="5"><div class="dl-speaker">BIBLIOTHÉCAIRE</div><div class="dl-line"><span class="dl-word">Vous</span> <span class="dl-word">êtes</span> <span class="dl-word">étudiante</span> <span class="dl-word">?</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">您是学生吗？</div></div>
-          <div class="dl-row" data-idx="6"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Oui,</span> <span class="dl-word">je</span> <span class="dl-word">suis</span> <span class="dl-word">étudiante</span> <span class="dl-word">en</span> <span class="dl-word">langues</span> <span class="dl-word">à</span> <span class="dl-word">l'université.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">是的，我是大学语言系的学生。</div></div>
-          <div class="dl-row" data-idx="7"><div class="dl-speaker">THOMAS</div><div class="dl-line"><span class="dl-word">Salut</span> <span class="dl-word">Sofia</span> <span class="dl-word">!</span> <span class="dl-word">Moi</span> <span class="dl-word">c'est</span> <span class="dl-word">Thomas</span> <span class="dl-word">!</span> <span class="dl-word">On</span> <span class="dl-word">est</span> <span class="dl-word">dans</span> <span class="dl-word">le</span> <span class="dl-word">même</span> <span class="dl-word">cours.</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">索菲亚？我是托马斯！我们在同一个班！</div></div>
-          <div class="dl-row" data-idx="8"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Salut</span> <span class="dl-word">Thomas.</span> <span class="dl-word">Enchantée</span> <span class="dl-word">!</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">嗨，托马斯！幸会！</div></div>
-          <div class="dl-row" data-idx="9"><div class="dl-speaker">THOMAS</div><div class="dl-line"><span class="dl-word">Bienvenue</span> <span class="dl-word">à</span> <span class="dl-word">Grenoble</span> <span class="dl-word">!</span> <span class="dl-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">欢迎来到格勒诺布尔！</div></div>
-        </div>
+<!-- dialogue-image-patched -->
+<div class="dialogue">
+<div class="dl-row" data-idx="0"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Bonjour</span> <span class="dl-word">!</span> <span class="dl-word">Je</span> <span class="dl-word">voudrais</span> <span class="dl-word">m'inscrire</span> <span class="dl-word">à</span> <span class="dl-word">la</span> <span class="dl-word">bibliothèque.</span> <span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">你好！我想在图书馆登记注册。</div></div>
+<div class="dl-row" data-idx="1"><div class="dl-speaker">BIBLIOTHÉCAIRE</div><div class="dl-line"><span class="dl-word">Bien</span> <span class="dl-word">sûr</span> <span class="dl-word">!</span> <span class="dl-word">Votre</span> <span class="dl-word">nom</span> <span class="dl-word">s'il</span> <span class="dl-word">vous</span> <span class="dl-word">plaît.</span> <span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">当然！请问您的姓名。</div></div>
+<div class="dl-row" data-idx="2"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Sofia</span> <span class="dl-word">Russo.</span> <span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">索菲亚·鲁索。</div></div>
+<div class="dl-row" data-idx="3"><div class="dl-speaker">BIBLIOTHÉCAIRE</div><div class="dl-line"><span class="dl-word">Vous</span> <span class="dl-word">pouvez</span> <span class="dl-word">épeler</span> <span class="dl-word">?</span> <span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">您能拼写一下吗？</div></div>
+<div class="dl-row" data-idx="4"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">S</span> <span class="dl-word">O</span> <span class="dl-word">F</span> <span class="dl-word">I</span> <span class="dl-word">A.</span> <span class="dl-word">Russo</span> <span class="dl-word">:</span> <span class="dl-word">R</span> <span class="dl-word">U</span> <span class="dl-word">S</span> <span class="dl-word">S</span> <span class="dl-word">O...</span> <span class="dl-word">Je</span> <span class="dl-word">suis</span> <span class="dl-word">italienne.</span> <span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">S，O，F，I，A。鲁索：R，U，S，S，O……我是意大利人。</div></div>
+<div class="dl-row" data-idx="5"><div class="dl-speaker">BIBLIOTHÉCAIRE</div><div class="dl-line"><span class="dl-word">Vous</span> <span class="dl-word">êtes</span> <span class="dl-word">étudiante</span> <span class="dl-word">?</span> <span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">您是学生吗？</div></div>
+<div class="dl-row" data-idx="6"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Oui,</span> <span class="dl-word">je</span> <span class="dl-word">suis</span> <span class="dl-word">étudiante</span> <span class="dl-word">en</span> <span class="dl-word">langues</span> <span class="dl-word">à</span> <span class="dl-word">l'université.</span> <span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">是的，我是大学语言系的学生。</div></div>
+<div class="dl-row" data-idx="7"><div class="dl-speaker">THOMAS</div><div class="dl-line"><span class="dl-word">Salut</span> <span class="dl-word">Sofia</span> <span class="dl-word">!</span> <span class="dl-word">Moi</span> <span class="dl-word">c'est</span> <span class="dl-word">Thomas</span> <span class="dl-word">!</span> <span class="dl-word">On</span> <span class="dl-word">est</span> <span class="dl-word">dans</span> <span class="dl-word">le</span> <span class="dl-word">même</span> <span class="dl-word">cours.</span> <span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">索菲亚？我是托马斯！我们在同一个班！</div></div>
+<div class="dl-row" data-idx="8"><div class="dl-speaker">SOFIA</div><div class="dl-line"><span class="dl-word">Salut</span> <span class="dl-word">Thomas.</span> <span class="dl-word">Enchantée</span> <span class="dl-word">!</span> <span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">嗨，托马斯！幸会！</div></div>
+<div class="dl-row" data-idx="9"><div class="dl-speaker">THOMAS</div><div class="dl-line"><span class="dl-word">Bienvenue</span> <span class="dl-word">à</span> <span class="dl-word">Grenoble</span> <span class="dl-word">!</span> <span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">欢迎来到格勒诺布尔！</div></div>
+</div>
         </div>
       </div>
     </div>
   </div>
   <div class="slide-footer">
-    <button class="btn-ns" onclick="goSlide(1)" data-fr="🔍 Comprendre →" data-zh="🔍 理解 →">🔍 Comprendre →</button>
+    <button class="btn-ns" data-fr="🔍 Comprendre →" data-zh="🔍 理解 →" onclick="goSlide(1)">🔍 Comprendre →</button>
   </div>
 </div>
-
-<!-- ══ SLIDE 1 : COMPRENDRE 1/2 ══ -->
-<div class="slide" id="slide-1">
-  <div class="sub-nav">
-    <button class="sub-nav-btn" disabled>←</button>
-    <span class="sub-nav-count">1 / 2</span>
-    <button class="sub-nav-btn" onclick="goSlide(2)">→</button>
-  </div>
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension — Questions 1 à 3<span class="comm-zh"> · 理解练习</span></div>
-      <div class="card-body">
-        <div class="qcm-list">
-          <div class="qcm-item">
-            <div class="qcm-q">1. Où est-ce que Sofia veut s'inscrire ? <span class="comm-zh">索菲亚想去哪里登记？</span></div>
-            <div class="qcm-opts">
+<!-- ══ SLIDE 1 : COMPRENDRE ══ -->
+  <!-- SLIDE 1: Comprendre 1/2 -->
+  <div class="slide" id="slide-1">
+    <div class="slide-inner">
+      <div class="slide-header">Comprendre <span class="slide-part">1/2</span></div>
+      <div class="qcm-block">
+        <div class="qcm-items">
+        <div class="qcm-item">
+          <div class="qcm-q">1. Où est-ce que Sofia veut s'inscrire ? <span class="comm-zh">索菲亚想去哪里登记注册？</span></div>
+          <div class="qcm-opts">
               <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) À la mairie</button>
               <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) À la bibliothèque</button>
               <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) À l'université</button>
-            </div>
           </div>
-          <div class="qcm-item">
-            <div class="qcm-q">2. Quelle est la nationalité de Sofia ? <span class="comm-zh">索菲亚的国籍是什么？</span></div>
-            <div class="qcm-opts">
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">2. Quelle est la nationalité de Sofia ? <span class="comm-zh">索菲亚的国籍是什么？</span></div>
+          <div class="qcm-opts">
               <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Française</button>
               <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Espagnole</button>
               <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Italienne</button>
-            </div>
           </div>
-          <div class="qcm-item">
-            <div class="qcm-q">3. Qu'est-ce que Sofia étudie ? <span class="comm-zh">索菲亚在大学学什么？</span></div>
-            <div class="qcm-opts">
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">3. Qu'est-ce que Sofia étudie à l'université ? <span class="comm-zh">索菲亚在大学学什么？</span></div>
+          <div class="qcm-opts">
               <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) La médecine</button>
               <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Les langues</button>
               <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) L'économie</button>
-            </div>
           </div>
         </div>
-        <div class="verify-bar">
-          <button class="btn-verify" onclick="verifyQCM('qcm-score-1A-1')">Vérifier ✓</button>
-          <button class="btn-restart" onclick="resetQCM('qcm-score-1A-1')">Recommencer ↺</button>
         </div>
-        <div class="qcm-score" id="qcm-score-1A-1"></div>
+        <div class="qcm-actions">
+          <button class="btn-verify" onclick="verifyQCM('qcm-score-1A-1')">Vérifier ✔</button>
+          <button class="btn-reset" onclick="resetQCM('qcm-score-1A-1')">↺ Recommencer</button>
+          <span class="qcm-score" id="qcm-score-1A-1"></span>
+        </div>
       </div>
     </div>
+    <div class="slide-footer" style="justify-content:space-between">
+      <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
+      <button class="btn-ns" onclick="goSlide(2)">Comprendre 2/2 →</button>
+    </div>
   </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(0)" data-fr="← Dialogue" data-zh="← 对话">← Dialogue</button>
-    <button class="btn-ns" onclick="goSlide(2)" data-fr="Suite →" data-zh="继续 →">Suite →</button>
-  </div>
-</div>
-
-<!-- ══ SLIDE 2 : COMPRENDRE 2/2 ══ -->
-<div class="slide" id="slide-2">
-  <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(1)">←</button>
-    <span class="sub-nav-count">2 / 2</span>
-    <button class="sub-nav-btn" disabled>→</button>
-  </div>
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension — Questions 4 à 6<span class="comm-zh"> · 理解练习</span></div>
-      <div class="card-body">
-        <div class="qcm-list">
-          <div class="qcm-item">
-            <div class="qcm-q">4. Qui est Thomas par rapport à Sofia ? <span class="comm-zh">托马斯和索菲亚是什么关系？</span></div>
-            <div class="qcm-opts">
+  <!-- SLIDE 2: Comprendre 2/2 -->
+  <div class="slide" id="slide-2">
+    <div class="slide-inner">
+      <div class="slide-header">Comprendre <span class="slide-part">2/2</span></div>
+      <div class="qcm-block">
+        <div class="qcm-items">
+        <div class="qcm-item">
+          <div class="qcm-q">4. Qui est Thomas par rapport à Sofia ? <span class="comm-zh">托马斯和索菲亚是什么关系？</span></div>
+          <div class="qcm-opts">
               <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Le bibliothécaire</button>
               <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Un professeur</button>
               <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Un étudiant du même cours</button>
-            </div>
           </div>
-          <div class="qcm-item">
-            <div class="qcm-q">5. Quel est le nom complet de Sofia ? <span class="comm-zh">索菲亚的全名是什么？</span></div>
-            <div class="qcm-opts">
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">5. Quel est le nom complet de Sofia ? <span class="comm-zh">索菲亚的全名是什么？</span></div>
+          <div class="qcm-opts">
               <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'a')">A) Sofia Russo</button>
               <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'a')">B) Sofia Romano</button>
               <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'a')">C) Sofia Rossi</button>
-            </div>
           </div>
-          <div class="qcm-item">
-            <div class="qcm-q">6. Comment se termine le dialogue ? <span class="comm-zh">对话是怎么结束的？</span></div>
-            <div class="qcm-opts">
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">6. Comment se termine le dialogue ? <span class="comm-zh">对话是怎么结束的？</span></div>
+          <div class="qcm-opts">
               <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Thomas part sans rien dire</button>
               <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Thomas souhaite la bienvenue à Grenoble</button>
               <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) La bibliothécaire félicite Sofia</button>
-            </div>
           </div>
         </div>
-        <div class="verify-bar">
-          <button class="btn-verify" onclick="verifyQCM('qcm-score-1A-2')">Vérifier ✓</button>
-          <button class="btn-restart" onclick="resetQCM('qcm-score-1A-2')">Recommencer ↺</button>
         </div>
-        <div class="qcm-score" id="qcm-score-1A-2"></div>
+        <div class="qcm-actions">
+          <button class="btn-verify" onclick="verifyQCM('qcm-score-1A-2')">Vérifier ✔</button>
+          <button class="btn-reset" onclick="resetQCM('qcm-score-1A-2')">↺ Recommencer</button>
+          <span class="qcm-score" id="qcm-score-1A-2"></span>
+        </div>
       </div>
     </div>
+    <div class="slide-footer" style="justify-content:space-between">
+      <button class="btn-ns" onclick="goSlide(1)">← Comprendre 1/2</button>
+      <button class="btn-ns" onclick="goSlide(3)">Communiquer →</button>
+    </div>
   </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(1)" data-fr="← Comprendre 1/2" data-zh="← 理解 1/2">← Comprendre 1/2</button>
-    <button class="btn-ns" onclick="goSlide(3)" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →">🗣️ Communiquer →</button>
-  </div>
-</div>
-
-<!-- ══ SLIDE 3 : COMMUNIQUER + VOCAB ══ -->
 <div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
-      <div class="card-body">
-        <div class="comm-list">
-          <div class="comm-item"><div class="comm-fr" onclick="playAudio('../audio/comm_1A_0.mp3')" title="Écouter">Bonjour ! / Bonsoir ! / Salut ! (informel)</div><div class="comm-zh">你好！/ 晚上好！/ 嗨！（非正式）</div></div>
-          <div class="comm-item"><div class="comm-fr" onclick="playAudio('../audio/comm_1A_1.mp3')" title="Écouter">Comment vous appelez-vous ? / Tu t'appelles comment ?</div><div class="comm-zh">您叫什么名字？/ 你叫什么名字？</div></div>
-          <div class="comm-item"><div class="comm-fr" onclick="playAudio('../audio/comm_1A_2.mp3')" title="Écouter">Je m'appelle… — Mon prénom, c'est… — Je suis…</div><div class="comm-zh">我叫……/ 我的名字是……/ 我是……</div></div>
-          <div class="comm-item"><div class="comm-fr" onclick="playAudio('../audio/comm_1A_3.mp3')" title="Écouter">Enchanté(e) ! / Ravi(e) de vous rencontrer.</div><div class="comm-zh">幸会！/ 很高兴认识您。</div></div>
-          <div class="comm-item"><div class="comm-fr" onclick="playAudio('../audio/comm_1A_4.mp3')" title="Écouter">Au revoir ! / À bientôt ! / Bonne journée !</div><div class="comm-zh">再见！/ 一会儿见！/ 祝您今天愉快！</div></div>
-        </div>
-      </div>
+      <div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_1A_0.mp3')" title="Cliquer pour écouter">Bonjour ! / Bonsoir ! / Salut ! (informel)</div><div class="comm-zh">你好！/ 晚上好！/ 嗨！（非正式）</div></div>
+<div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_1A_1.mp3')" title="Cliquer pour écouter">Comment vous appelez-vous ? / Tu t'appelles comment ?</div><div class="comm-zh">您叫什么名字？/ 你叫什么名字？</div></div>
+<div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_1A_2.mp3')" title="Cliquer pour écouter">Je m'appelle… — Mon prénom, c'est… — Je suis…</div><div class="comm-zh">我叫……/ 我的名字是……/ 我是……</div></div>
+<div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_1A_3.mp3')" title="Cliquer pour écouter">Enchanté(e) ! / Ravi(e) de vous rencontrer.</div><div class="comm-zh">幸会！/ 很高兴认识您。</div></div>
+<div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_1A_4.mp3')" title="Cliquer pour écouter">Au revoir ! / À bientôt ! / Bonne journée !</div><div class="comm-zh">再见！/ 一会儿见！/ 祝您今天愉快！</div></div>
+</div></div>
     </div>
     <div class="card">
       <div class="card-head head-vocab">📚 Vocabulaire clé<span class="comm-zh"> · 核心词汇</span></div>
-      <div class="card-body">
-        <div class="vocab-grid">
-          <div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_bonjour.mp3')">bonjour</div><div class="vocab-gram">interj.</div><div class="vocab-zh">你好</div></div>
-          <div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_bonsoir.mp3')">bonsoir</div><div class="vocab-gram">interj.</div><div class="vocab-zh">晚上好</div></div>
-          <div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_enchante.mp3')">enchanté(e)</div><div class="vocab-gram">adj.</div><div class="vocab-zh">幸会</div></div>
-          <div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_s_appeler.mp3')">s'appeler</div><div class="vocab-gram">v. pron.</div><div class="vocab-zh">叫（名字）</div></div>
-          <div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/phon_1A_etre.mp3')">être</div><div class="vocab-gram">v.</div><div class="vocab-zh">是</div></div>
-          <div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/phon_1A_etudiant.mp3')">étudiant(e)</div><div class="vocab-gram">n.</div><div class="vocab-zh">学生</div></div>
-          <div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/phon_1A_bibliotheque.mp3')">bibliothèque</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">图书馆</div></div>
-          <div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_universite.mp3')">université</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">大学</div></div>
-          <div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_s_inscrire.mp3')">s'inscrire</div><div class="vocab-gram">v. pron.</div><div class="vocab-zh">注册；报名</div></div>
-          <div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_bienvenue.mp3')">bienvenue</div><div class="vocab-gram">interj.</div><div class="vocab-zh">欢迎</div></div>
-        </div>
-      </div>
+      <div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_bonjour.mp3')" title="Écouter">bonjour</div><div class="vocab-gram">interj.</div><div class="vocab-zh">你好</div></div>
+<div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_bonsoir.mp3')" title="Écouter">bonsoir</div><div class="vocab-gram">interj.</div><div class="vocab-zh">晚上好</div></div>
+<div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_enchante.mp3')" title="Écouter">enchanté(e)</div><div class="vocab-gram">adj.</div><div class="vocab-zh">幸会</div></div>
+<div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_s_appeler.mp3')" title="Écouter">s'appeler</div><div class="vocab-gram">v. pron.</div><div class="vocab-zh">叫（名字）</div></div>
+<div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/phon_1A_etre.mp3')" title="Écouter">être</div><div class="vocab-gram">v.</div><div class="vocab-zh">是</div></div>
+<div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/phon_1A_etudiant.mp3')" title="Écouter">étudiant(e)</div><div class="vocab-gram">n.</div><div class="vocab-zh">学生</div></div>
+<div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/phon_1A_bibliotheque.mp3')" title="Écouter">bibliothèque</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">图书馆</div></div>
+<div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_universite.mp3')" title="Écouter">université</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">大学</div></div>
+<div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_s_inscrire.mp3')" title="Écouter">s'inscrire</div><div class="vocab-gram">v. pron.</div><div class="vocab-zh">注册；报名</div></div>
+<div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_1A_bienvenue.mp3')" title="Écouter">bienvenue</div><div class="vocab-gram">interj.</div><div class="vocab-zh">欢迎</div></div>
+</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(2)" data-fr="← Comprendre" data-zh="← 理解">← Comprendre</button>
-    <button class="btn-ns" onclick="goSlide(4)" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(2)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(4)">🎵 Phonétique →</button>
   </div>
 </div>
-<!-- ══ SLIDE 4 : PHONÉTIQUE 1/3 — SCHÉMA ══ -->
+<!-- ══ SLIDE 3 : PHONÉTIQUE 1/2 — SCHÉMA ══ -->
 <div class="slide" id="slide-4">
-  <div class="sub-nav">
-    <button class="sub-nav-btn" disabled>←</button>
-    <span class="sub-nav-count">1 / 3</span>
-    <button class="sub-nav-btn" onclick="goSlide(5)">→</button>
-  </div>
   <div class="slide-body" style="display:flex;flex-direction:column">
-    <div class="card" style="flex:1;display:flex;flex-direction:column;overflow:hidden">
-      <div class="card-head head-phon">🎵 Phonétique — [e] fermé vs [ɛ] ouvert<span class="comm-zh"> · 语音</span></div>
-      <div class="card-body" style="flex:1;display:flex;flex-direction:column;min-height:0">
-        <div class="phon-rule">
-          <strong>[e] fermé</strong> — lèvres tendues, bouche souriante <span class="comm-zh">（闭口音：嘴角上扬）</span> → <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_ete.mp3')">été</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_parler.mp3')">parler</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_enchante.mp3')">enchanté</span><br/>
-          <strong>[ɛ] ouvert</strong> — bouche plus ouverte, mâchoire basse <span class="comm-zh">（开口音：嘴巴张得更开）</span> → <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_etre.mp3')">être</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_bibliotheque.mp3')">bibliothèque</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_elle.mp3')">elle</span>
-        </div>
-        <svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;max-height:52vh;display:block;margin:0 auto;border-radius:10px;font-family:sans-serif">
-          <defs>
-            <marker id="a1" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#1c2e5a" opacity=".85"/></marker>
-            <marker id="a2" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#16a085" opacity=".85"/></marker>
-            <marker id="a3" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L6,3.5 L0,7 Z" fill="#777"/></marker>
-          </defs>
-          <rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/>
-          <line x1="218" y1="12" x2="218" y2="243" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/>
-          <line x1="462" y1="12" x2="462" y2="243" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/>
-          <text x="109" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#2a4a8a" font-family="monospace">[e]</text>
-          <text x="109" y="44" text-anchor="middle" font-size="12" fill="#2a4a8a">fermé</text>
-          <circle cx="109" cy="125" r="58" fill="#f0e6ff" stroke="#d4b0ec" stroke-width="1.2"/>
-          <ellipse cx="109" cy="125" rx="54" ry="19" fill="#e2c4f5" stroke="#a868d0" stroke-width="1.6"/>
-          <path d="M 54,123 C 68,109 90,106 109,107 C 128,106 150,109 164,123" fill="#d4a0e8" stroke="#9050c0" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M 54,123 C 68,135 90,133 109,132 C 128,133 150,135 164,123" fill="#d4a0e8" stroke="#9050c0" stroke-width="2" stroke-linejoin="round"/>
-          <ellipse cx="109" cy="123" rx="46" ry="4" fill="#220a2a"><animate attributeName="ry" values="4;2;4" dur="2s" repeatCount="indefinite" calcMode="ease-in-out"/></ellipse>
-          <line x1="48" y1="123" x2="30" y2="123" stroke="#1c2e5a" stroke-width="1.5" marker-end="url(#a1)"><animate attributeName="x2" values="30;22;30" dur="1.6s" repeatCount="indefinite" calcMode="ease-in-out"/></line>
-          <line x1="170" y1="123" x2="188" y2="123" stroke="#1c2e5a" stroke-width="1.5" marker-end="url(#a1)"><animate attributeName="x2" values="188;196;188" dur="1.6s" repeatCount="indefinite" calcMode="ease-in-out"/></line>
-          <text x="109" y="162" text-anchor="middle" font-size="10" fill="#2a4a8a">lèvres étirées, ouverture étroite</text>
-          <text x="109" y="198" text-anchor="middle" font-size="10.5" fill="#666" font-style="italic">été · parler · enchanté</text>
-          <text x="109" y="213" text-anchor="middle" font-size="9" fill="#aaa">✦ -er, -ez, -é</text>
-          <text x="340" y="24" text-anchor="middle" font-size="11.5" font-weight="700" fill="#444">Trapèze vocalique</text>
-          <text x="340" y="52" text-anchor="middle" font-size="8" fill="#bbb">— FERMÉ —</text>
-          <polygon points="228,57 440,57 416,184 252,184" fill="none" stroke="#b898d8" stroke-width="1.5"/>
-          <text x="340" y="198" text-anchor="middle" font-size="8" fill="#bbb">— OUVERT —</text>
-          <circle cx="436" cy="62" r="4" fill="#ccc"/><text x="444" y="66" font-size="10" fill="#aaa" font-family="monospace">[i]</text>
-          <circle cx="232" cy="62" r="4" fill="#ccc"/><text x="210" y="66" text-anchor="end" font-size="10" fill="#aaa" font-family="monospace">[u]</text>
-          <circle cx="407" cy="182" r="4" fill="#ccc"/><text x="414" y="186" font-size="10" fill="#aaa" font-family="monospace">[a]</text>
-          <circle cx="426" cy="102" r="8" fill="#2a4a8a" opacity=".25"><animate attributeName="r" values="8;14;8" dur="2s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".25;0;.25" dur="2s" repeatCount="indefinite" calcMode="ease-in-out"/></circle>
-          <circle cx="426" cy="102" r="8" fill="#2a4a8a"/>
-          <text x="438" y="107" font-size="13" fill="#2a4a8a" font-weight="700" font-family="monospace">[e]</text>
-          <circle cx="416" cy="148" r="8" fill="#16a085" opacity=".25"><animate attributeName="r" values="8;14;8" dur="2s" begin="1s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".25;0;.25" dur="2s" begin="1s" repeatCount="indefinite" calcMode="ease-in-out"/></circle>
-          <circle cx="416" cy="148" r="8" fill="#16a085"/>
-          <text x="428" y="153" font-size="13" fill="#16a085" font-weight="700" font-family="monospace">[ɛ]</text>
-          <line x1="423" y1="112" x2="418" y2="138" stroke="#888" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#a3)"><animate attributeName="stroke-dashoffset" values="0;-5" dur="0.5s" repeatCount="indefinite"/></line>
-          <text x="571" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#16a085" font-family="monospace">[ɛ]</text>
-          <text x="571" y="44" text-anchor="middle" font-size="12" fill="#16a085">ouvert</text>
-          <circle cx="571" cy="125" r="58" fill="#d8f5ef" stroke="#90d8c8" stroke-width="1.2"/>
-          <ellipse cx="571" cy="125" rx="52" ry="26" fill="#b0e8da" stroke="#40a090" stroke-width="1.6"/>
-          <path d="M 518,114 C 532,100 554,97 571,98 C 588,97 610,100 624,114" fill="#88d8c8" stroke="#30a090" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M 518,114 C 532,142 554,146 571,147 C 588,146 610,142 624,114" fill="#88d8c8" stroke="#30a090" stroke-width="2" stroke-linejoin="round"/>
-          <ellipse cx="571" cy="123" rx="42" ry="16" fill="#082820"><animate attributeName="ry" values="16;20;16" dur="2s" begin="0.4s" repeatCount="indefinite" calcMode="ease-in-out"/></ellipse>
-          <line x1="571" y1="147" x2="571" y2="162" stroke="#16a085" stroke-width="1.6" marker-end="url(#a2)"><animate attributeName="y2" values="162;169;162" dur="1.4s" repeatCount="indefinite" calcMode="ease-in-out"/></line>
-          <text x="571" y="180" text-anchor="middle" font-size="10" fill="#16a085">lèvres détendues, ouverture large</text>
-          <text x="571" y="210" text-anchor="middle" font-size="10.5" fill="#666" font-style="italic">être · bibliothèque · elle</text>
-          <text x="571" y="225" text-anchor="middle" font-size="9" fill="#aaa">✦ è, ê, ai, ei, -ais, -ait</text>
-        </svg>
+    <div class="card" style="flex:1;display:flex;flex-direction:column">
+      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span>
+        <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">1 / 2</span>
+      </div>
+      <div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:8px">
+<p style="color:var(--muted);padding:1rem">Schéma phonétique à ajouter.</p>
+        <details style="margin-top:8px;font-size:.85rem;color:var(--muted)">
+          <summary style="cursor:pointer;color:var(--purp);font-weight:600">📌 Note</summary>
+          <div style="margin-top:4px;line-height:1.5"><div class="gram-rule" style="margin-bottom:12px">
+<strong>[e] fermé</strong> : bouche souriante, lèvres tendues <span class="comm-zh">（闭口音：嘴角上扬，嘴唇收紧）</span>  →  <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_ete.mp3')"><em>é</em>t<em>é</em></span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_parler.mp3')">parl<em>er</em></span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_enchante.mp3')">enchanté</span><br/>
+<strong>[ɛ] ouvert</strong> : bouche plus ouverte <span class="comm-zh">（开口音：嘴巴张得更开）</span>  →  <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_etre.mp3')"><em>ê</em>tre</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_bibliotheque.mp3')">biblioth<em>è</em>que</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_bete.mp3')">b<em>ê</em>te</span>, <span class="phon-ex-w" onclick="playAudio('../audio/phon_1A_elle.mp3')">elle</span>
+</div>
+<!-- ── Schéma phonétique [e] vs [ɛ] ── -->
+<div style="margin:14px 0 18px;line-height:1">
+<svg style="width:100%;max-width:680px;display:block;margin:0 auto;border-radius:12px;font-family:sans-serif" viewbox="0 0 680 285" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="ph-a1" markerheight="7" markerwidth="8" orient="auto" refx="6" refy="3.5">
+<path d="M0,0 L7,3.5 L0,7 Z" fill="#1c2e5a" opacity=".85"></path>
+</marker>
+<marker id="ph-a2" markerheight="7" markerwidth="8" orient="auto" refx="6" refy="3.5">
+<path d="M0,0 L7,3.5 L0,7 Z" fill="#16a085" opacity=".85"></path>
+</marker>
+<marker id="ph-a3" markerheight="7" markerwidth="7" orient="auto" refx="5" refy="3.5">
+<path d="M0,0 L6,3.5 L0,7 Z" fill="#777"></path>
+</marker>
+</defs>
+<!-- Background -->
+<rect fill="#f8f4ff" height="285" rx="14" stroke="#c5aee8" stroke-width="1.5" width="680"></rect>
+<!-- Dividers -->
+<line stroke="#d4b8ec" stroke-dasharray="4,3" stroke-width="1" x1="218" x2="218" y1="14" y2="271"></line>
+<line stroke="#d4b8ec" stroke-dasharray="4,3" stroke-width="1" x1="462" x2="462" y1="14" y2="271"></line>
+<!-- ══ LEFT : [e] fermé ══ -->
+<text fill="#2a4a8a" font-family="monospace" font-size="22" font-weight="700" text-anchor="middle" x="109" y="36">[e]</text>
+<text fill="#2a4a8a" font-size="13" text-anchor="middle" x="109" y="52">fermé</text>
+<circle cx="109" cy="140" fill="#f0e6ff" r="66" stroke="#d4b0ec" stroke-width="1.2"></circle>
+<!-- Lips [e]: wide flat, tiny opening -->
+<ellipse cx="109" cy="140" fill="#e2c4f5" rx="62" ry="22" stroke="#a868d0" stroke-width="1.8"></ellipse>
+<path d="M 50,138 C 65,122 93,118 109,119 C 125,118 153,122 168,138" fill="#d4a0e8" stroke="#9050c0" stroke-linejoin="round" stroke-width="2.2"></path>
+<path d="M 50,138 C 65,150 93,148 109,147 C 125,148 153,150 168,138" fill="#d4a0e8" stroke="#9050c0" stroke-linejoin="round" stroke-width="2.2"></path>
+<!-- Mouth opening [e]: breathes subtly -->
+<ellipse cx="109" cy="138" fill="#220a2a" rx="52" ry="5">
+<animate attributename="ry" calcmode="ease-in-out" dur="2s" repeatcount="indefinite" values="5;3;5"></animate>
+</ellipse>
+<!-- Spread arrows: oscillate outward -->
+<line marker-end="url(#ph-a1)" stroke="#1c2e5a" stroke-width="1.6" x1="44" x2="26" y1="138" y2="138">
+<animate attributename="x2" calcmode="ease-in-out" dur="1.6s" repeatcount="indefinite" values="26;19;26"></animate>
+</line>
+<line marker-end="url(#ph-a1)" stroke="#1c2e5a" stroke-width="1.6" x1="174" x2="192" y1="138" y2="138">
+<animate attributename="x2" calcmode="ease-in-out" dur="1.6s" repeatcount="indefinite" values="192;199;192"></animate>
+</line>
+<text fill="#2a4a8a" font-size="11" text-anchor="middle" x="109" y="180">lèvres étirées, ouverture étroite</text>
+<text class="comm-zh" fill="#9b59b6" font-size="11" text-anchor="middle" x="109" y="195">嘴唇展开，开口小</text>
+<text fill="#666" font-size="11.5" font-style="italic" text-anchor="middle" x="109" y="224">été · parler · enchanté</text>
+<text fill="#aaa" font-size="10" text-anchor="middle" x="109" y="242">✦ -er, -ez, -é</text>
+<!-- ══ CENTER : Trapèze vocalique ══ -->
+<text fill="#444" font-size="12.5" font-weight="700" text-anchor="middle" x="340" y="28">Trapèze vocalique</text>
+<text class="comm-zh" fill="#999" font-size="11" text-anchor="middle" x="340" y="43">元音梯形图</text>
+<text fill="#bbb" font-size="9" text-anchor="middle" x="340" y="60">— FERMÉ —</text>
+<polygon fill="none" points="228,67 440,67 414,204 252,204" stroke="#b898d8" stroke-width="1.6"></polygon>
+<text fill="#bbb" font-size="9" text-anchor="middle" x="340" y="219">— OUVERT —</text>
+<text fill="#ccc" font-size="9" text-anchor="end" x="224" y="138">Arrière</text>
+<text fill="#ccc" font-size="9" x="444" y="138">Avant</text>
+<!-- Neutral vowels -->
+<circle cx="436" cy="72" fill="#ccc" r="4"></circle><text fill="#aaa" font-family="monospace" font-size="11" x="444" y="76">[i]</text>
+<circle cx="232" cy="72" fill="#ccc" r="4"></circle><text fill="#aaa" font-family="monospace" font-size="11" text-anchor="end" x="210" y="76">[u]</text>
+<circle cx="240" cy="115" fill="#ccc" r="4"></circle><text fill="#aaa" font-family="monospace" font-size="11" text-anchor="end" x="218" y="119">[o]</text>
+<circle cx="248" cy="160" fill="#ccc" r="4"></circle><text fill="#aaa" font-family="monospace" font-size="11" text-anchor="end" x="226" y="164">[ɔ]</text>
+<circle cx="407" cy="202" fill="#ccc" r="4"></circle><text fill="#aaa" font-family="monospace" font-size="11" x="414" y="206">[a]</text>
+<!-- Highlighted [e]: pulse ring + dot -->
+<circle cx="426" cy="115" fill="#2a4a8a" opacity=".25" r="9">
+<animate attributename="r" calcmode="ease-in-out" dur="2s" repeatcount="indefinite" values="9;16;9"></animate>
+<animate attributename="opacity" calcmode="ease-in-out" dur="2s" repeatcount="indefinite" values=".25;0;.25"></animate>
+</circle>
+<circle cx="426" cy="115" fill="#2a4a8a" r="9"></circle>
+<text fill="#2a4a8a" font-family="monospace" font-size="13.5" font-weight="700" x="438" y="120">[e]</text>
+<!-- Highlighted [ɛ]: pulse ring + dot (offset) -->
+<circle cx="416" cy="160" fill="#16a085" opacity=".25" r="9">
+<animate attributename="r" begin="1s" calcmode="ease-in-out" dur="2s" repeatcount="indefinite" values="9;16;9"></animate>
+<animate attributename="opacity" begin="1s" calcmode="ease-in-out" dur="2s" repeatcount="indefinite" values=".25;0;.25"></animate>
+</circle>
+<circle cx="416" cy="160" fill="#16a085" r="9"></circle>
+<text fill="#16a085" font-family="monospace" font-size="13.5" font-weight="700" x="428" y="165">[ɛ]</text>
+<!-- Arrow [e]→[ɛ]: marching ants -->
+<line marker-end="url(#ph-a3)" stroke="#888" stroke-dasharray="3,2" stroke-width="1.6" x1="423" x2="418" y1="126" y2="149">
+<animate attributename="stroke-dashoffset" dur="0.5s" repeatcount="indefinite" values="0;-5"></animate>
+</line>
+<text fill="#999" font-size="8.5" text-anchor="end" x="348" y="143">+ouvert↓</text>
+<!-- Legend -->
+<circle cx="238" cy="242" fill="#2a4a8a" r="5"></circle>
+<text fill="#2a4a8a" font-size="10" x="247" y="246">[e] — leçon 1A</text>
+<circle cx="238" cy="258" fill="#16a085" r="5"></circle>
+<text fill="#16a085" font-size="10" x="247" y="262">[ɛ] — leçon 1A</text>
+<!-- ══ RIGHT : [ɛ] ouvert ══ -->
+<text fill="#16a085" font-family="monospace" font-size="22" font-weight="700" text-anchor="middle" x="571" y="36">[ɛ]</text>
+<text fill="#16a085" font-size="13" text-anchor="middle" x="571" y="52">ouvert</text>
+<circle cx="571" cy="140" fill="#d8f5ef" r="66" stroke="#90d8c8" stroke-width="1.2"></circle>
+<!-- Lips [ɛ]: taller opening -->
+<ellipse cx="571" cy="140" fill="#b0e8da" rx="60" ry="30" stroke="#40a090" stroke-width="1.8"></ellipse>
+<path d="M 514,128 C 528,112 551,109 571,110 C 591,109 614,112 628,128" fill="#88d8c8" stroke="#30a090" stroke-linejoin="round" stroke-width="2.2"></path>
+<path d="M 514,128 C 528,158 551,162 571,163 C 591,162 614,158 628,128" fill="#88d8c8" stroke="#30a090" stroke-linejoin="round" stroke-width="2.2"></path>
+<!-- Mouth opening [ɛ]: breathes wider -->
+<ellipse cx="571" cy="137" fill="#082820" rx="48" ry="18">
+<animate attributename="ry" begin="0.4s" calcmode="ease-in-out" dur="2s" repeatcount="indefinite" values="18;22;18"></animate>
+</ellipse>
+<line opacity=".55" stroke="#e0e8e4" stroke-width="1.8" x1="526" x2="616" y1="128" y2="128"></line>
+<!-- Jaw arrow: bounces down -->
+<line marker-end="url(#ph-a2)" stroke="#16a085" stroke-width="1.8" x1="571" x2="571" y1="163" y2="178">
+<animate attributename="y2" calcmode="ease-in-out" dur="1.4s" repeatcount="indefinite" values="178;185;178"></animate>
+</line>
+<text dx="2" fill="#16a085" font-size="9" x="574" y="176">↓ mâchoire</text>
+<text fill="#16a085" font-size="11" text-anchor="middle" x="571" y="200">lèvres détendues, ouverture large</text>
+<text class="comm-zh" fill="#1abc9c" font-size="11" text-anchor="middle" x="571" y="215">嘴唇放松，开口大</text>
+<text fill="#666" font-size="11.5" font-style="italic" text-anchor="middle" x="571" y="243">être · bibliothèque · elle</text>
+<text fill="#aaa" font-size="10" text-anchor="middle" x="571" y="261">✦ è, ê, ai, ei, -ais, -ait</text>
+</svg>
+</div>
+<div class="ex-inst">Cliquez sur 🔊 pour écouter, puis indiquez si vous entendez [e] ou [ɛ].
+<span class="comm-zh">点击🔊试听，然后选择听到的元音。</span></div>
+<div class="phon-grid-ex">
+<div class="phon-item-ex" data-ans="e">
+<div class="phon-word-ex">été</div>
+<button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_ete.mp3')">🔊</button>
+<div class="phon-choices-ex">
+<button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button>
+<button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
+</div>
+<div class="phon-fb-ex"></div>
+</div>
+<div class="phon-item-ex" data-ans="ɛ">
+<div class="phon-word-ex">être</div>
+<button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_etre.mp3')">🔊</button>
+<div class="phon-choices-ex">
+<button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button>
+<button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
+</div>
+<div class="phon-fb-ex"></div>
+</div>
+<div class="phon-item-ex" data-ans="e">
+<div class="phon-word-ex">parler</div>
+<button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_parler.mp3')">🔊</button>
+<div class="phon-choices-ex">
+<button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button>
+<button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
+</div>
+<div class="phon-fb-ex"></div>
+</div>
+<div class="phon-item-ex" data-ans="ɛ">
+<div class="phon-word-ex">bibliothèque</div>
+<button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_bibliotheque.mp3')">🔊</button>
+<div class="phon-choices-ex">
+<button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button>
+<button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
+</div>
+<div class="phon-fb-ex"></div>
+</div>
+<div class="phon-item-ex" data-ans="e">
+<div class="phon-word-ex">enchanté</div>
+<button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_enchante.mp3')">🔊</button>
+<div class="phon-choices-ex">
+<button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button>
+<button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
+</div>
+<div class="phon-fb-ex"></div>
+</div>
+<div class="phon-item-ex" data-ans="ɛ">
+<div class="phon-word-ex">bête</div>
+<button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_bete.mp3')">🔊</button>
+<div class="phon-choices-ex">
+<button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button>
+<button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
+</div>
+<div class="phon-fb-ex"></div>
+</div>
+<div class="phon-item-ex" data-ans="e">
+<div class="phon-word-ex">étudiant</div>
+<button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_etudiant.mp3')">🔊</button>
+<div class="phon-choices-ex">
+<button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button>
+<button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
+</div>
+<div class="phon-fb-ex"></div>
+</div>
+<div class="phon-item-ex" data-ans="ɛ">
+<div class="phon-word-ex">elle</div>
+<button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_elle.mp3')">🔊</button>
+<div class="phon-choices-ex">
+<button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button>
+<button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button>
+</div>
+<div class="phon-fb-ex"></div>
+</div>
+<div class="verify-bar"><button class="btn-verify check-btn-global" data-fr="Vérifier ✓" onclick="verifyPhon()">Vérifier ✓</button><button class="btn-restart check-btn-reset" data-fr="Recommencer ↺" onclick="resetPhon()">Recommencer ↺</button></div><div class="phon-score" id="phon-score-1A"></div>
+</div><!-- /.phon-grid-ex --></div>
+        </details>
       </div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(3)" data-fr="← Communiquer" data-zh="← 表达">← Communiquer</button>
-    <button class="btn-ns" onclick="goSlide(5)" data-fr="Exercice →" data-zh="练习 →">Exercice →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(3)">← Communiquer</button>
+    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(5)">🎤 Prononciation →</button>
   </div>
 </div>
-
-<!-- ══ SLIDE 5 : PHONÉTIQUE 2/3 — PHONIE-GRAPHIE ══ -->
+<!-- ══ SLIDE 4 : PHONÉTIQUE 2/2 — PRONONCIATION ══ -->
 <div class="slide" id="slide-5">
-  <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(4)">←</button>
-    <span class="sub-nav-count">2 / 3</span>
-    <button class="sub-nav-btn" onclick="goSlide(6)">→</button>
-  </div>
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-phon">🎵 Phonie-graphie — [e] ou [ɛ] ?<span class="comm-zh"> · 语音</span></div>
-      <div class="card-body">
-        <p class="ex-inst">Cliquez sur 🔊 pour écouter, puis choisissez [e] ou [ɛ]. <span class="comm-zh">点击🔊试听，然后选择听到的元音。</span></p>
-        <div class="phon-grid-ex">
-          <div class="phon-item-ex" data-ans="e"><div class="phon-word-ex">été</div><button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_ete.mp3')">🔊</button><div class="phon-choices-ex"><button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button><button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button></div><div class="phon-fb-ex"></div></div>
-          <div class="phon-item-ex" data-ans="ɛ"><div class="phon-word-ex">être</div><button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_etre.mp3')">🔊</button><div class="phon-choices-ex"><button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button><button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button></div><div class="phon-fb-ex"></div></div>
-          <div class="phon-item-ex" data-ans="e"><div class="phon-word-ex">parler</div><button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_parler.mp3')">🔊</button><div class="phon-choices-ex"><button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button><button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button></div><div class="phon-fb-ex"></div></div>
-          <div class="phon-item-ex" data-ans="ɛ"><div class="phon-word-ex">bibliothèque</div><button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_bibliotheque.mp3')">🔊</button><div class="phon-choices-ex"><button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button><button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button></div><div class="phon-fb-ex"></div></div>
-          <div class="phon-item-ex" data-ans="e"><div class="phon-word-ex">enchanté</div><button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_enchante.mp3')">🔊</button><div class="phon-choices-ex"><button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button><button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button></div><div class="phon-fb-ex"></div></div>
-          <div class="phon-item-ex" data-ans="ɛ"><div class="phon-word-ex">bête</div><button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_bete.mp3')">🔊</button><div class="phon-choices-ex"><button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button><button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button></div><div class="phon-fb-ex"></div></div>
-          <div class="phon-item-ex" data-ans="e"><div class="phon-word-ex">étudiant</div><button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_etudiant.mp3')">🔊</button><div class="phon-choices-ex"><button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button><button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button></div><div class="phon-fb-ex"></div></div>
-          <div class="phon-item-ex" data-ans="ɛ"><div class="phon-word-ex">elle</div><button class="phon-hear-ex" onclick="playAudio('../audio/phon_1A_elle.mp3')">🔊</button><div class="phon-choices-ex"><button class="phon-btn-ex" data-val="e" onclick="selectPhon(this)">[e]</button><button class="phon-btn-ex" data-val="ɛ" onclick="selectPhon(this)">[ɛ]</button></div><div class="phon-fb-ex"></div></div>
-        </div>
-        <div class="verify-bar">
-          <button class="btn-verify" onclick="verifyPhon()">Vérifier ✓</button>
-          <button class="btn-restart" onclick="resetPhon()">Recommencer ↺</button>
-        </div>
-        <div class="phon-score" id="phon-score-1A"></div>
+      <div class="card-head head-phon">🎤 Prononciation<span class="comm-zh"> · 发音练习</span>
+        <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">2 / 2</span>
       </div>
-    </div>
-  </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(4)" data-fr="← Schéma" data-zh="← 图示">← Schéma</button>
-    <button class="btn-ns" onclick="goSlide(6)" data-fr="🎤 Prononciation →" data-zh="🎤 发音 →">🎤 Prononciation →</button>
-  </div>
-</div>
+      <div class="card-body">
+<p class="ex-inst">Écoutez, puis cliquez sur 🎤 et répétez.</p><div class="prono-no-support" id="prono-no-support" style="display:none">⚠️ Votre navigateur ne supporte pas la reconnaissance vocale.</div><div class="prono-item"><div class="prono-speaker-tag">SOFIA</div><div class="prono-phrase">Bonjour!Jevoudraism'inscrireàlabibliothèque.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Bonjour!Jevoudraism'inscrireàlabibliothèque." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Bonjour!Jevoudraism'inscrireàlabibliothèque." data-idx="0" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(0)">↺</button></div><div class="prono-score" id="prono-score-0"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-0" style="width:0%"></div></div><div id="prono-pct-0" class="prono-score-text"></div><div id="prono-heard-0" class="prono-heard"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">BIBLIOTHÉCAIRE</div><div class="prono-phrase">Biensûr!Votrenoms'ilvousplaît.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Biensûr!Votrenoms'ilvousplaît." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Biensûr!Votrenoms'ilvousplaît." data-idx="1" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(1)">↺</button></div><div class="prono-score" id="prono-score-1"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-1" style="width:0%"></div></div><div id="prono-pct-1" class="prono-score-text"></div><div id="prono-heard-1" class="prono-heard"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">SOFIA</div><div class="prono-phrase">SofiaRusso.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="SofiaRusso." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="SofiaRusso." data-idx="2" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(2)">↺</button></div><div class="prono-score" id="prono-score-2"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-2" style="width:0%"></div></div><div id="prono-pct-2" class="prono-score-text"></div><div id="prono-heard-2" class="prono-heard"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">BIBLIOTHÉCAIRE</div><div class="prono-phrase">Vouspouvezépeler?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Vouspouvezépeler?" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Vouspouvezépeler?" data-idx="3" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(3)">↺</button></div><div class="prono-score" id="prono-score-3"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-3" style="width:0%"></div></div><div id="prono-pct-3" class="prono-score-text"></div><div id="prono-heard-3" class="prono-heard"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">SOFIA</div><div class="prono-phrase">SOFIA.Russo:RUSSO...Jesuisitalienne.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="SOFIA.Russo:RUSSO...Jesuisitalienne." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="SOFIA.Russo:RUSSO...Jesuisitalienne." data-idx="4" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(4)">↺</button></div><div class="prono-score" id="prono-score-4"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-4" style="width:0%"></div></div><div id="prono-pct-4" class="prono-score-text"></div><div id="prono-heard-4" class="prono-heard"></div></div></div>
 
-<!-- ══ SLIDE 6 : PHONÉTIQUE 3/3 — PRONONCIATION ══ -->
-<div class="slide" id="slide-6">
-  <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(5)">←</button>
-    <span class="sub-nav-count">3 / 3</span>
-    <button class="sub-nav-btn" disabled>→</button>
-  </div>
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-phon">🎤 Prononciation<span class="comm-zh"> · 语音</span></div>
-      <div class="card-body">
-        <p class="ex-inst">Écoutez, puis cliquez sur 🎤 et répétez. <span class="comm-zh">听每句话，然后点击🎤重复。</span></p>
-        <div class="prono-no-support" id="prono-no-support">⚠️ Votre navigateur ne supporte pas la reconnaissance vocale (Safari 14+ ou Chrome).</div>
-        <div class="prono-item"><div class="prono-speaker-tag">SOFIA</div><div class="prono-phrase">Bonjour ! Je voudrais m'inscrire à la bibliothèque.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Bonjour ! Je voudrais m'inscrire à la bibliothèque." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Bonjour ! Je voudrais m'inscrire à la bibliothèque." data-idx="0" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666" onclick="pronoReset(0)">↺</button></div><div class="prono-score" id="prono-score-0"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-0" style="width:0%"></div></div><div id="prono-pct-0" class="prono-score-text"></div><div id="prono-heard-0" class="prono-heard"></div></div></div>
-        <div class="prono-item"><div class="prono-speaker-tag">BIBLIOTHÉCAIRE</div><div class="prono-phrase">Bien sûr. Votre nom s'il vous plaît.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Bien sûr. Votre nom s'il vous plaît." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Bien sûr. Votre nom s'il vous plaît." data-idx="1" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666" onclick="pronoReset(1)">↺</button></div><div class="prono-score" id="prono-score-1"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-1" style="width:0%"></div></div><div id="prono-pct-1" class="prono-score-text"></div><div id="prono-heard-1" class="prono-heard"></div></div></div>
-        <div class="prono-item"><div class="prono-speaker-tag">SOFIA</div><div class="prono-phrase">Oui, je suis étudiante en langues à l'université.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Oui, je suis étudiante en langues à l'université." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Oui, je suis étudiante en langues à l'université." data-idx="2" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666" onclick="pronoReset(2)">↺</button></div><div class="prono-score" id="prono-score-2"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-2" style="width:0%"></div></div><div id="prono-pct-2" class="prono-score-text"></div><div id="prono-heard-2" class="prono-heard"></div></div></div>
-        <div class="prono-item"><div class="prono-speaker-tag">THOMAS</div><div class="prono-phrase">Salut Sofia ! Moi c'est Thomas ! On est dans le même cours.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Salut Sofia ! Moi c'est Thomas ! On est dans le même cours." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Salut Sofia ! Moi c'est Thomas ! On est dans le même cours." data-idx="3" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666" onclick="pronoReset(3)">↺</button></div><div class="prono-score" id="prono-score-3"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-3" style="width:0%"></div></div><div id="prono-pct-3" class="prono-score-text"></div><div id="prono-heard-3" class="prono-heard"></div></div></div>
-        <div class="prono-item"><div class="prono-speaker-tag">SOFIA</div><div class="prono-phrase">Enchantée !</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Enchantée !" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Enchantée !" data-idx="4" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666" onclick="pronoReset(4)">↺</button></div><div class="prono-score" id="prono-score-4"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-4" style="width:0%"></div></div><div id="prono-pct-4" class="prono-score-text"></div><div id="prono-heard-4" class="prono-heard"></div></div></div>
-        <div class="prono-item"><div class="prono-speaker-tag">THOMAS</div><div class="prono-phrase">Bienvenue à Grenoble !</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Bienvenue à Grenoble !" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Bienvenue à Grenoble !" data-idx="5" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666" onclick="pronoReset(5)">↺</button></div><div class="prono-score" id="prono-score-5"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-5" style="width:0%"></div></div><div id="prono-pct-5" class="prono-score-text"></div><div id="prono-heard-5" class="prono-heard"></div></div></div>
       </div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(5)" data-fr="← Phonie-graphie" data-zh="← 拼写">← Phonie-graphie</button>
-    <button class="btn-ns" onclick="goSlide(7)" data-fr="📖 Grammaire →" data-zh="📖 语法 →">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(4)">← Schéma</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(6)">📖 Grammaire →</button>
   </div>
 </div>
-<!-- ══ SLIDE 7 : GRAMMAIRE — RÈGLE ══ -->
-<div class="slide" id="slide-7">
+<!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
+<div class="slide" id="slide-6">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-gram">📖 Le verbe ÊTRE au présent<span class="comm-zh"> · 语法要点</span></div>
-      <div class="card-body">
-        <div class="gram-rule">Verbe irrégulier — identité, nationalité, profession. <span class="comm-zh">不规则动词，用于表达身份、国籍和职业。</span></div>
-        <table class="gram-table"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td>je suis</td><td>nous sommes</td></tr><tr><td>tu es</td><td>vous êtes</td></tr><tr><td>il / elle est</td><td>ils / elles sont</td></tr></tbody></table>
-        <div class="gram-ex">Nég. : Je <em>ne suis pas</em> professeur. &nbsp;|&nbsp; Inter. : <em>Est-ce que</em> vous êtes étudiant(e) ?</div>
-      </div>
+      <div class="card-body"><div class="gram-rule">§§ Le verbe être est irrégulier. On l'utilise pour exprimer l'identité, la nationalité et la profession.<span class="comm-zh"> 动词être是不规则动词，用于表达身份、国籍和职业。</span></div><table class="gram-table"><thead><tr><th>Singulier<span class="comm-zh"> 单数</span></th><th>Pluriel<span class="comm-zh"> 复数</span></th></tr></thead><tbody><tr><td>je suis</td><td>nous sommes</td></tr><tr><td>tu es</td><td>vous êtes</td></tr><tr><td>il / elle est</td><td>ils / elles sont</td></tr></tbody></table><div class="gram-ex">• Nous sommes dans le même cours de français.<span class="comm-zh"> 我们在同一个法语班。</span><br/>• Forme négative : Je ne suis pas professeur. / Tu n'es pas espagnole.<span class="comm-zh"> 否定形式：我不是老师。/ 你不是西班牙人。</span><br/>• Forme interrogative : Est-ce que vous êtes étudiant(e) ? / Vous êtes d'où ?<span class="comm-zh"> 疑问形式：您是学生吗？/ 您从哪里来？</span></div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(6)" data-fr="← Phonétique" data-zh="← 语音">← Phonétique</button>
-    <button class="btn-ns" onclick="goSlide(8)" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(5)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(7)">✏️ Exercices →</button>
   </div>
 </div>
-
-<!-- ══ SLIDE 8 : EXERCICES 1/3 — EX1 + EX3 ══ -->
-<div class="slide" id="slide-8">
+<!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
+<div class="slide" id="slide-7">
   <div class="sub-nav">
     <button class="sub-nav-btn" disabled>←</button>
     <span class="sub-nav-count">1 / 3</span>
+    <button class="sub-nav-btn" onclick="goSlide(8)">→</button>
+  </div>
+  <div class="slide-body">
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Conjuguez le verbe ÊTRE <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
+<div class="blank-row">1. <span>Je </span><input autocomplete="off" class="blank-input" id="bl-1A-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1A-ex1-0').click()" type="text"/><button class="check-btn" data-ans="suis" id="chk-bl-1A-ex1-0" onclick="checkBlankData(this,'bl-1A-ex1-0','fb-bl-1A-ex1-0')">✓</button><span class="fb" id="fb-bl-1A-ex1-0"></span><span> français(e).</span></div>
+<div class="blank-row">2. <span>Il </span><input autocomplete="off" class="blank-input" id="bl-1A-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1A-ex1-1').click()" type="text"/><button class="check-btn" data-ans="est" id="chk-bl-1A-ex1-1" onclick="checkBlankData(this,'bl-1A-ex1-1','fb-bl-1A-ex1-1')">✓</button><span class="fb" id="fb-bl-1A-ex1-1"></span><span> étudiant en médecine.</span></div>
+<div class="blank-row">3. <span>Nous </span><input autocomplete="off" class="blank-input" id="bl-1A-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1A-ex1-2').click()" type="text"/><button class="check-btn" data-ans="sommes" id="chk-bl-1A-ex1-2" onclick="checkBlankData(this,'bl-1A-ex1-2','fb-bl-1A-ex1-2')">✓</button><span class="fb" id="fb-bl-1A-ex1-2"></span><span> dans la même classe.</span></div>
+<div class="blank-row">4. <span>Vous </span><input autocomplete="off" class="blank-input" id="bl-1A-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1A-ex1-3').click()" type="text"/><button class="check-btn" data-ans="êtes" id="chk-bl-1A-ex1-3" onclick="checkBlankData(this,'bl-1A-ex1-3','fb-bl-1A-ex1-3')">✓</button><span class="fb" id="fb-bl-1A-ex1-3"></span><span> professeur de français ?</span></div>
+<div class="blank-row">5. <span>Elles </span><input autocomplete="off" class="blank-input" id="bl-1A-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1A-ex1-4').click()" type="text"/><button class="check-btn" data-ans="sont" id="chk-bl-1A-ex1-4" onclick="checkBlankData(this,'bl-1A-ex1-4','fb-bl-1A-ex1-4')">✓</button><span class="fb" id="fb-bl-1A-ex1-4"></span><span> espagnoles.</span></div></div></div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Présentez-vous <span class="ex-cat-badge badge-comm">💬 Communication</span></div><div class="card-body"><div class="ex-inst">Écrivez 3 phrases pour vous présenter : Je m'appelle ___. Je suis ___ (nationalité). Je suis ___ (profession / étudiant·e). Je suis ___ (adjectif : content·e, fatigué·e, prêt·e...).<span class="comm-zh"> · 用3句话介绍自己</span></div></div></div>
+  </div>
+  <div class="slide-footer" style="justify-content:space-between">
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(8)">Suite →</button>
+  </div>
+</div>
+<!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
+<div class="slide" id="slide-8">
+  <div class="sub-nav">
+    <button class="sub-nav-btn" onclick="goSlide(7)">←</button>
+    <span class="sub-nav-count">2 / 3</span>
     <button class="sub-nav-btn" onclick="goSlide(9)">→</button>
   </div>
   <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-ex">✏️ Ex. 1 — Conjuguez ÊTRE <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div>
-      <div class="card-body">
-        <div class="blank-row">1. Je <input autocomplete="off" class="blank-input" id="bl-ex1-0" type="text"/><button class="check-btn" data-ans="suis" id="chk-ex1-0" onclick="checkBlankData(this,'bl-ex1-0','fb-bl-ex1-0')">✓</button><span class="fb" id="fb-bl-ex1-0"></span> français(e).</div>
-        <div class="blank-row">2. Il <input autocomplete="off" class="blank-input" id="bl-ex1-1" type="text"/><button class="check-btn" data-ans="est" id="chk-ex1-1" onclick="checkBlankData(this,'bl-ex1-1','fb-bl-ex1-1')">✓</button><span class="fb" id="fb-bl-ex1-1"></span> étudiant en médecine.</div>
-        <div class="blank-row">3. Nous <input autocomplete="off" class="blank-input" id="bl-ex1-2" type="text"/><button class="check-btn" data-ans="sommes" id="chk-ex1-2" onclick="checkBlankData(this,'bl-ex1-2','fb-bl-ex1-2')">✓</button><span class="fb" id="fb-bl-ex1-2"></span> dans la même classe.</div>
-        <div class="blank-row">4. Vous <input autocomplete="off" class="blank-input" id="bl-ex1-3" type="text"/><button class="check-btn" data-ans="êtes" id="chk-ex1-3" onclick="checkBlankData(this,'bl-ex1-3','fb-bl-ex1-3')">✓</button><span class="fb" id="fb-bl-ex1-3"></span> professeur de français ?</div>
-        <div class="blank-row">5. Elles <input autocomplete="off" class="blank-input" id="bl-ex1-4" type="text"/><button class="check-btn" data-ans="sont" id="chk-ex1-4" onclick="checkBlankData(this,'bl-ex1-4','fb-bl-ex1-4')">✓</button><span class="fb" id="fb-bl-ex1-4"></span> espagnoles.</div>
-        <div class="verify-bar">
-          <button class="btn-verify" onclick="verifyBlanks('ex1-1A',['bl-ex1-0','bl-ex1-1','bl-ex1-2','bl-ex1-3','bl-ex1-4'],['chk-ex1-0','chk-ex1-1','chk-ex1-2','chk-ex1-3','chk-ex1-4'])">Vérifier ✓</button>
-          <button class="btn-restart" onclick="resetBlanks(['bl-ex1-0','bl-ex1-1','bl-ex1-2','bl-ex1-3','bl-ex1-4'],['fb-bl-ex1-0','fb-bl-ex1-1','fb-bl-ex1-2','fb-bl-ex1-3','fb-bl-ex1-4'])">Recommencer ↺</button>
-          <span id="score-ex1-1A" style="font-weight:800;font-size:.86rem"></span>
-        </div>
-      </div>
-    </div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Formes négative et interrogative <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez les phrases :<span class="comm-zh"> · 改写句子</span></div>
+<div class="blank-row">1. <span>Il est professeur. → Il </span><input autocomplete="off" class="blank-input" id="bl-1A-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1A-ex3-0').click()" type="text"/><button class="check-btn" data-ans="n'est pas" id="chk-bl-1A-ex3-0" onclick="checkBlankData(this,'bl-1A-ex3-0','fb-bl-1A-ex3-0')">✓</button><span class="fb" id="fb-bl-1A-ex3-0"></span><span> professeur.</span></div>
+<div class="blank-row">2. <span>Vous êtes française. → Est-ce que vous </span><input autocomplete="off" class="blank-input" id="bl-1A-ex3-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1A-ex3-1').click()" type="text"/><button class="check-btn" data-ans="êtes" id="chk-bl-1A-ex3-1" onclick="checkBlankData(this,'bl-1A-ex3-1','fb-bl-1A-ex3-1')">✓</button><span class="fb" id="fb-bl-1A-ex3-1"></span><span> française ?</span></div>
+<div class="blank-row">3. <span>Je suis fatigué. → Je </span><input autocomplete="off" class="blank-input" id="bl-1A-ex3-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1A-ex3-2').click()" type="text"/><button class="check-btn" data-ans="ne suis pas" id="chk-bl-1A-ex3-2" onclick="checkBlankData(this,'bl-1A-ex3-2','fb-bl-1A-ex3-2')">✓</button><span class="fb" id="fb-bl-1A-ex3-2"></span><span> fatigué.</span></div>
+<div class="blank-row">4. <span>Elle est étudiante. → Est-ce qu'elle </span><input autocomplete="off" class="blank-input" id="bl-1A-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1A-ex3-3').click()" type="text"/><button class="check-btn" data-ans="est" id="chk-bl-1A-ex3-3" onclick="checkBlankData(this,'bl-1A-ex3-3','fb-bl-1A-ex3-3')">✓</button><span class="fb" id="fb-bl-1A-ex3-3"></span><span> étudiante ?</span></div></div></div>
+    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Vocabulaire : associez <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Reliez chaque mot à sa définition :<span class="comm-zh"> · 将每个词与其定义配对</span></div>
+<div class="assoc-ref"><span class="assoc-ref-item"><strong>a.</strong> lieu d'études supérieures</span>  |  <span class="assoc-ref-item"><strong>b.</strong> action de rejoindre un service</span>  |  <span class="assoc-ref-item"><strong>c.</strong> lieu pour emprunter des livres</span>  |  <span class="assoc-ref-item"><strong>d.</strong> personne qui fait des études</span></div>
+<div class="assoc-row">
+<div class="assoc-left"><span class="assoc-word">1. bibliothèque</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-1A-ex4-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="c" onclick="checkBlankData(this,'ma-1A-ex4-0','fb-ma-1A-ex4-0')">✓</button><span class="fb" id="fb-ma-1A-ex4-0"></span></div>
+</div>
+<div class="assoc-row">
+<div class="assoc-left"><span class="assoc-word">2. université</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-1A-ex4-1" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="a" onclick="checkBlankData(this,'ma-1A-ex4-1','fb-ma-1A-ex4-1')">✓</button><span class="fb" id="fb-ma-1A-ex4-1"></span></div>
+</div>
+<div class="assoc-row">
+<div class="assoc-left"><span class="assoc-word">3. s'inscrire</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-1A-ex4-2" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="b" onclick="checkBlankData(this,'ma-1A-ex4-2','fb-ma-1A-ex4-2')">✓</button><span class="fb" id="fb-ma-1A-ex4-2"></span></div>
+</div>
+<div class="assoc-row">
+<div class="assoc-left"><span class="assoc-word">4. étudiant(e)</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-1A-ex4-3" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="d" onclick="checkBlankData(this,'ma-1A-ex4-3','fb-ma-1A-ex4-3')">✓</button><span class="fb" id="fb-ma-1A-ex4-3"></span></div>
+</div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(7)" data-fr="← Grammaire" data-zh="← 语法">← Grammaire</button>
-    <button class="btn-ns" onclick="goSlide(9)" data-fr="Suite →" data-zh="继续 →">Suite →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(7)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(9)">Suite →</button>
   </div>
 </div>
-
-<!-- ══ SLIDE 9 : EXERCICES 2/3 — EX3 + EX4 ══ -->
-<div class="slide" id="slide-9">
-  <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(8)">←</button>
-    <span class="sub-nav-count">2 / 3</span>
-    <button class="sub-nav-btn" onclick="goSlide(10)">→</button>
-  </div>
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-ex">✏️ Ex. 3 — Négative et interrogative <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div>
-      <div class="card-body">
-        <div class="blank-row">1. Il est professeur. → Il <input autocomplete="off" class="blank-input" id="bl-ex3-0" type="text" style="width:100px"/><button class="check-btn" data-ans="n'est pas" id="chk-ex3-0" onclick="checkBlankData(this,'bl-ex3-0','fb-bl-ex3-0')">✓</button><span class="fb" id="fb-bl-ex3-0"></span> professeur.</div>
-        <div class="blank-row">2. Vous êtes française. → Est-ce que vous <input autocomplete="off" class="blank-input" id="bl-ex3-1" type="text"/><button class="check-btn" data-ans="êtes" id="chk-ex3-1" onclick="checkBlankData(this,'bl-ex3-1','fb-bl-ex3-1')">✓</button><span class="fb" id="fb-bl-ex3-1"></span> française ?</div>
-        <div class="blank-row">3. Je suis fatigué. → Je <input autocomplete="off" class="blank-input" id="bl-ex3-2" type="text" style="width:106px"/><button class="check-btn" data-ans="ne suis pas" id="chk-ex3-2" onclick="checkBlankData(this,'bl-ex3-2','fb-bl-ex3-2')">✓</button><span class="fb" id="fb-bl-ex3-2"></span> fatigué.</div>
-        <div class="blank-row">4. Elle est étudiante. → Est-ce qu'elle <input autocomplete="off" class="blank-input" id="bl-ex3-3" type="text"/><button class="check-btn" data-ans="est" id="chk-ex3-3" onclick="checkBlankData(this,'bl-ex3-3','fb-bl-ex3-3')">✓</button><span class="fb" id="fb-bl-ex3-3"></span> étudiante ?</div>
-        <div class="verify-bar">
-          <button class="btn-verify" onclick="verifyBlanks('ex3-1A',['bl-ex3-0','bl-ex3-1','bl-ex3-2','bl-ex3-3'],['chk-ex3-0','chk-ex3-1','chk-ex3-2','chk-ex3-3'])">Vérifier ✓</button>
-          <button class="btn-restart" onclick="resetBlanks(['bl-ex3-0','bl-ex3-1','bl-ex3-2','bl-ex3-3'],['fb-bl-ex3-0','fb-bl-ex3-1','fb-bl-ex3-2','fb-bl-ex3-3'])">Recommencer ↺</button>
-          <span id="score-ex3-1A" style="font-weight:800;font-size:.86rem"></span>
+<!-- ══ SLIDE 8 : À TOI ! ══ -->
+  <!-- SLIDE 9: Exercices 3/3 -->
+  <div class="slide" id="slide-9">
+    <div class="slide-inner">
+      <div class="slide-header">Exercices <span class="slide-part">3/3</span></div>
+      <div class="ex-blocks">
+        <div class="ex-block">
+          <div class="ex-title"><span>Ex. 5 — Formel ou informel ? <span class="comm-zh">把每个表达式归入正确的栏目。</span></span><span class="ex-badge">📖 Vocabulaire</span></div>
+          <p class="ex-inst">Classez chaque expression dans la bonne colonne.</p>
+          <div id="ex5-pool" class="ex5-pool">
+        <span class="drag-chip" data-cat="informel" onclick="ex5Click(this)">Salut !</span>
+        <span class="drag-chip" data-cat="formel" onclick="ex5Click(this)">Bonjour !</span>
+        <span class="drag-chip" data-cat="informel" onclick="ex5Click(this)">Coucou !</span>
+        <span class="drag-chip" data-cat="formel" onclick="ex5Click(this)">Bonsoir !</span>
+        <span class="drag-chip" data-cat="informel" onclick="ex5Click(this)">À plus !</span>
+        <span class="drag-chip" data-cat="formel" onclick="ex5Click(this)">Enchanté(e) !</span>
+        <span class="drag-chip" data-cat="informel" onclick="ex5Click(this)">Ça roule ?</span>
+        <span class="drag-chip" data-cat="formel" onclick="ex5Click(this)">Au revoir !</span>
+          </div>
+          <div class="ex5-zones">
+            <div class="ex5-zone" id="zone-formel" onclick="ex5Drop(this)">
+              <div class="ex5-zone-label">🎩 Formel</div>
+              <div class="ex5-zone-items" id="zone-formel-items"></div>
+            </div>
+            <div class="ex5-zone" id="zone-informel" onclick="ex5Drop(this)">
+              <div class="ex5-zone-label">👋 Informel</div>
+              <div class="ex5-zone-items" id="zone-informel-items"></div>
+            </div>
+          </div>
+          <div class="ex5-actions">
+            <button class="btn-verify" onclick="checkEx5()">Vérifier ✔</button>
+            <button class="btn-reset" onclick="resetEx5()">↺ Recommencer</button>
+            <span class="ex5-score" id="ex5-score-1A"></span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确的主语代词。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
+          <p class="ex-inst">Choisissez le bon pronom sujet.</p>
+          <div class="listen-list">
+          <div class="listen-item" data-ans="vous">
+            <div class="listen-sentence"><span class="listen-blank">___</span>__ êtes professeur ?</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Vous êtes professeur ?')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="je" onclick="checkEx6(this)">je</button>
+              <button class="choice-btn" data-val="vous" onclick="checkEx6(this)">vous</button>
+              <button class="choice-btn" data-val="ils" onclick="checkEx6(this)">ils</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="il">
+            <div class="listen-sentence"><span class="listen-blank">___</span>__ est étudiant.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Il est étudiant.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="je" onclick="checkEx6(this)">je</button>
+              <button class="choice-btn" data-val="il" onclick="checkEx6(this)">il</button>
+              <button class="choice-btn" data-val="elles" onclick="checkEx6(this)">elles</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="nous">
+            <div class="listen-sentence"><span class="listen-blank">___</span>__ sommes dans la même classe.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Nous sommes dans la même classe.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="je" onclick="checkEx6(this)">je</button>
+              <button class="choice-btn" data-val="vous" onclick="checkEx6(this)">vous</button>
+              <button class="choice-btn" data-val="nous" onclick="checkEx6(this)">nous</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="je">
+            <div class="listen-sentence"><span class="listen-blank">___</span>__ suis bibliothécaire.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Je suis bibliothécaire.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="je" onclick="checkEx6(this)">je</button>
+              <button class="choice-btn" data-val="tu" onclick="checkEx6(this)">tu</button>
+              <button class="choice-btn" data-val="il" onclick="checkEx6(this)">il</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="elles">
+            <div class="listen-sentence"><span class="listen-blank">___</span>__ sont françaises.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Elles sont françaises.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="il" onclick="checkEx6(this)">il</button>
+              <button class="choice-btn" data-val="nous" onclick="checkEx6(this)">nous</button>
+              <button class="choice-btn" data-val="elles" onclick="checkEx6(this)">elles</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-head head-ex">✏️ Ex. 4 — Associez <span class="ex-cat-badge badge-lex">📚 Lexique</span></div>
-      <div class="card-body">
-        <div class="assoc-ref"><strong>a.</strong> lieu d'études &nbsp;|&nbsp; <strong>b.</strong> mettre son nom sur une liste &nbsp;|&nbsp; <strong>c.</strong> emprunter des livres &nbsp;|&nbsp; <strong>d.</strong> fait des études</div>
-        <div class="assoc-row"><div class="assoc-left"><span class="assoc-word">1. bibliothèque</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-ex4-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="c" onclick="checkBlankData(this,'ma-ex4-0','fb-ma-ex4-0')">✓</button><span class="fb" id="fb-ma-ex4-0"></span></div></div>
-        <div class="assoc-row"><div class="assoc-left"><span class="assoc-word">2. université</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-ex4-1" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="a" onclick="checkBlankData(this,'ma-ex4-1','fb-ma-ex4-1')">✓</button><span class="fb" id="fb-ma-ex4-1"></span></div></div>
-        <div class="assoc-row"><div class="assoc-left"><span class="assoc-word">3. s'inscrire</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-ex4-2" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="b" onclick="checkBlankData(this,'ma-ex4-2','fb-ma-ex4-2')">✓</button><span class="fb" id="fb-ma-ex4-2"></span></div></div>
-        <div class="assoc-row"><div class="assoc-left"><span class="assoc-word">4. étudiant(e)</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-ex4-3" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="d" onclick="checkBlankData(this,'ma-ex4-3','fb-ma-ex4-3')">✓</button><span class="fb" id="fb-ma-ex4-3"></span></div></div>
-        <div class="verify-bar">
-          <button class="btn-verify" onclick="verifyBlanks('ex4-1A',['ma-ex4-0','ma-ex4-1','ma-ex4-2','ma-ex4-3'],['chk-ma4-0','chk-ma4-1','chk-ma4-2','chk-ma4-3'])">Vérifier ✓</button>
-          <button class="btn-restart" onclick="resetBlanks(['ma-ex4-0','ma-ex4-1','ma-ex4-2','ma-ex4-3'],['fb-ma-ex4-0','fb-ma-ex4-1','fb-ma-ex4-2','fb-ma-ex4-3'])">Recommencer ↺</button>
-          <span id="score-ex4-1A" style="font-weight:800;font-size:.86rem"></span>
-        </div>
-      </div>
+    <div class="slide-footer" style="justify-content:space-between">
+      <button class="btn-ns" onclick="goSlide(8)">← Exercices 2/3</button>
+      <button class="btn-ns" onclick="goSlide(10)">✍️ À toi ! →</button>
     </div>
   </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(8)" data-fr="← Préc." data-zh="← 上一页">← Préc.</button>
-    <button class="btn-ns" onclick="goSlide(10)" data-fr="Suite →" data-zh="继续 →">Suite →</button>
-  </div>
-</div>
-
-<!-- ══ SLIDE 10 : EXERCICES 3/3 — EX5 + EX6 ══ -->
 <div class="slide" id="slide-10">
-  <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(9)">←</button>
-    <span class="sub-nav-count">3 / 3</span>
-    <button class="sub-nav-btn" disabled>→</button>
-  </div>
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-ex">🎯 Ex. 5 — Formel ou informel ? <span class="ex-cat-badge badge-comm">💬 Communication</span></div>
-      <div class="card-body">
-        <div class="ex-inst">Cliquez sur une expression, puis sur la bonne colonne. <span class="comm-zh">点击一个表达选中，再点击正确的栏。</span></div>
-        <div id="ex5-pool" class="ex5-pool">
-          <span class="drag-chip" data-cat="informel" onclick="ex5Click(this)">Salut !</span>
-          <span class="drag-chip" data-cat="formel"   onclick="ex5Click(this)">Bonjour !</span>
-          <span class="drag-chip" data-cat="informel" onclick="ex5Click(this)">Coucou !</span>
-          <span class="drag-chip" data-cat="formel"   onclick="ex5Click(this)">Bonsoir !</span>
-          <span class="drag-chip" data-cat="informel" onclick="ex5Click(this)">À plus !</span>
-          <span class="drag-chip" data-cat="formel"   onclick="ex5Click(this)">Enchanté(e) !</span>
-          <span class="drag-chip" data-cat="informel" onclick="ex5Click(this)">Ça roule ?</span>
-          <span class="drag-chip" data-cat="formel"   onclick="ex5Click(this)">Au revoir !</span>
-        </div>
-        <div class="ex5-zones">
-          <div class="ex5-zone" id="zone-formel" onclick="ex5Drop(this)"><div class="ex5-zone-label">🎩 Formel</div><div class="ex5-zone-items" id="zone-formel-items"></div></div>
-          <div class="ex5-zone" id="zone-informel" onclick="ex5Drop(this)"><div class="ex5-zone-label">👋 Informel</div><div class="ex5-zone-items" id="zone-informel-items"></div></div>
-        </div>
-        <div class="ex-inline-btns">
-          <button class="check-btn-global" onclick="checkEx5()">Vérifier ✓</button>
-          <button class="check-btn-reset" onclick="resetEx5()">Recommencer ↺</button>
-        </div>
-        <div id="ex5-fb" class="ex5-fb"></div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-head head-ex">🔊 Ex. 6 — Écoute et choisissez <span class="ex-cat-badge badge-phon">🎵 Prononciation</span></div>
-      <div class="card-body">
-        <div class="ex-inst">Écoutez et choisissez le bon pronom sujet. <span class="comm-zh">听句子，选择正确的主语代词。</span></div>
-        <div class="listen-item" data-ans="vous"><div class="listen-sentence"><span class="listen-blank">___</span> êtes professeur ?</div><button class="listen-btn" onclick="playEx6Audio(this,'../audio/ex6_1A_0.mp3')">🔊</button><div class="listen-choices"><button class="choice-btn" data-val="je" onclick="checkEx6(this)">je</button><button class="choice-btn" data-val="vous" onclick="checkEx6(this)">vous</button><button class="choice-btn" data-val="ils" onclick="checkEx6(this)">ils</button></div><div class="listen-fb"></div></div>
-        <div class="listen-item" data-ans="il"><div class="listen-sentence"><span class="listen-blank">___</span> est étudiant.</div><button class="listen-btn" onclick="playEx6Audio(this,'../audio/ex6_1A_1.mp3')">🔊</button><div class="listen-choices"><button class="choice-btn" data-val="je" onclick="checkEx6(this)">je</button><button class="choice-btn" data-val="il" onclick="checkEx6(this)">il</button><button class="choice-btn" data-val="elles" onclick="checkEx6(this)">elles</button></div><div class="listen-fb"></div></div>
-        <div class="listen-item" data-ans="nous"><div class="listen-sentence"><span class="listen-blank">___</span> sommes dans la même classe.</div><button class="listen-btn" onclick="playEx6Audio(this,'../audio/ex6_1A_2.mp3')">🔊</button><div class="listen-choices"><button class="choice-btn" data-val="je" onclick="checkEx6(this)">je</button><button class="choice-btn" data-val="vous" onclick="checkEx6(this)">vous</button><button class="choice-btn" data-val="nous" onclick="checkEx6(this)">nous</button></div><div class="listen-fb"></div></div>
-        <div class="listen-item" data-ans="je"><div class="listen-sentence"><span class="listen-blank">___</span> suis bibliothécaire.</div><button class="listen-btn" onclick="playEx6Audio(this,'../audio/ex6_1A_3.mp3')">🔊</button><div class="listen-choices"><button class="choice-btn" data-val="je" onclick="checkEx6(this)">je</button><button class="choice-btn" data-val="tu" onclick="checkEx6(this)">tu</button><button class="choice-btn" data-val="il" onclick="checkEx6(this)">il</button></div><div class="listen-fb"></div></div>
-        <div class="listen-item" data-ans="elles"><div class="listen-sentence"><span class="listen-blank">___</span> sont françaises.</div><button class="listen-btn" onclick="playEx6Audio(this,'../audio/ex6_1A_4.mp3')">🔊</button><div class="listen-choices"><button class="choice-btn" data-val="il" onclick="checkEx6(this)">il</button><button class="choice-btn" data-val="nous" onclick="checkEx6(this)">nous</button><button class="choice-btn" data-val="elles" onclick="checkEx6(this)">elles</button></div><div class="listen-fb"></div></div>
-      </div>
-    </div>
-  </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(9)" data-fr="← Préc." data-zh="← 上一页">← Préc.</button>
-    <button class="btn-ns" onclick="goSlide(11)" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →">✍️ À toi ! →</button>
-  </div>
-</div>
-
-<!-- ══ SLIDE 11 : À TOI ! ══ -->
-<div class="slide" id="slide-11">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
-      <div class="card-body">
-        <div class="prod-box">Présentez-vous en 5 phrases : votre nom, nationalité, profession et ville. <span class="prod-zh">用5句话介绍自己：姓名、国籍、职业和城市。</span></div>
-        <textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea>
-        <button class="lt-btn" onclick="checkLT(this)">Corriger ✓</button>
-        <div class="lt-result"></div>
-      </div>
+      <div class="card-body"><div class="prod-box">✍️ À toi ! Présentez-vous en 5 phrases : votre nom, nationalité, profession et ville.
+<span class="prod-zh">用5句话介绍自己：姓名、国籍、职业和所在城市。</span>
+Leçon 1A · Enchanté ! · A1</div>
+<textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea>
+<button class="lt-btn" onclick="checkLT(this)">Corriger ✓</button>
+<div class="lt-result"></div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" onclick="goSlide(10)" data-fr="← Grammaire" data-zh="← 语法">← Grammaire</button>
-    <button class="btn-ns" style="background:var(--green)" onclick="location.href='1B_slides.html'">Leçon 1B →</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(9)">← Exercices</button>
+    <button class="btn-ns" style="background:var(--green)" onclick="location.href='1B_slides.html'">1B →</button>
   </div>
 </div>
-
 </div><!-- /slides-viewport -->
 
 <!-- MODALS + FLOAT BTNS -->
@@ -767,8 +891,8 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     <h2 id="bug-title" data-fr="🐛 Signaler un problème" data-zh="🐛 反馈问题">🐛 Signaler un problème</h2><p class="modal-sub" data-fr="Aidez-nous à améliorer cette leçon." data-zh="帮助我们改进本课内容。">Aidez-nous à améliorer cette leçon.</p>
     <form id="form-bug" onsubmit="submitForm(event,'form-bug','modal-bug')">
       <input name="lecon" type="hidden" value="1A — Enchanté !"/><input name="_subject" type="hidden" value="[Bug] Leçon 1A"/>
-      <div class="form-group"><label data-fr="Section" data-zh="章节">Section</label><select name="exercice" required=""><option data-fr="— Choisissez —" data-zh="— 请选择 —" value="">— Choisissez —</option><option data-fr="Exercice 1" data-zh="练习 1">Exercice 1</option><option data-fr="Exercice 3" data-zh="练习 3">Exercice 3</option><option data-fr="Exercice 4" data-zh="练习 4">Exercice 4</option><option data-fr="Exercice 5" data-zh="练习 5">Exercice 5</option><option data-fr="Exercice 6" data-zh="练习 6">Exercice 6</option><option data-fr="Vocabulaire" data-zh="词汇">Vocabulaire</option><option data-fr="Grammaire" data-zh="语法">Grammaire</option><option data-fr="Autre" data-zh="其他">Autre</option></select></div>
-      <div class="form-group"><label data-fr="Description" data-zh="描述">Description</label><textarea data-placeholder-fr="Décrivez le bug…" data-placeholder-zh="请描述问题…" name="description" placeholder="Décrivez le bug…" required="" rows="3"></textarea></div>
+      <div class="form-group"><label data-fr="Section" data-zh="章节">Section</label><select name="exercice" required=""><option data-fr="— Choisissez —" data-zh="— 请选择 —" value="">— Choisissez —</option><option data-fr="Dialogue" data-zh="对话">Dialogue</option><option data-fr="Comprendre" data-zh="理解">Comprendre</option><option data-fr="Communiquer" data-zh="表达">Communiquer</option><option data-fr="Vocabulaire" data-zh="词汇">Vocabulaire</option><option data-fr="Phonétique" data-zh="语音">Phonétique</option><option data-fr="Grammaire" data-zh="语法">Grammaire</option><option data-fr="Exercice" data-zh="练习">Exercice</option><option data-fr="À toi !" data-zh="轮到你了">À toi !</option><option data-fr="Autre" data-zh="其他">Autre</option></select></div>
+      <div class="form-group"><label data-fr="Description" data-zh="描述">Description</label><textarea data-placeholder-fr="Décrivez le problème…" data-placeholder-zh="请描述问题…" name="description" placeholder="Décrivez le problème…" required="" rows="3"></textarea></div>
       <div class="form-group"><label><span data-fr="Prénom" data-zh="姓名">Prénom</span> <span class="opt" data-fr="(facultatif)" data-zh="（选填）">(facultatif)</span></label><input name="prenom" type="text"/></div>
       <button class="btn-send" type="submit">Envoyer</button><p class="form-success" id="success-bug" data-fr="✅ Merci !" data-zh="✅ 谢谢！">✅ Merci !</p>
     </form>
@@ -789,10 +913,13 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 </div>
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
-// TAB_FOR_SLIDE[i] = tab index active for slide i
-var TAB_FOR_SLIDE=[0,1,1,2,3,3,3,4,5,5,5,6];
+var LESSON='1A';
+var TAB_FOR_SLIDE=[0,1,1,2,3,3,4,5,5,5,6];
+
 var currentSlide=0;
-function goSlide(n){
+
+    function playEx6TTS(btn,text){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.85;u.onend=function(){btn.innerHTML='🔊';};u.onerror=function(){btn.innerHTML='🔊';};window.speechSynthesis.speak(u);}
+    function goSlide(n){
   if(n===currentSlide)return;
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;
   slides[currentSlide].classList.remove('s-active');
@@ -803,17 +930,20 @@ function goSlide(n){
   tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
   currentSlide=n;
 }
+function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');var zh=lang==='zh';document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=zh?el.dataset.zh:(el.dataset.fr||el.textContent);});document.querySelectorAll('[data-placeholder-zh]').forEach(function(el){el.placeholder=zh?el.dataset.placeholderZh:(el.dataset.placeholderFr||el.placeholder);});document.querySelectorAll('.lt-btn').forEach(function(el){if(!el.disabled)el.textContent=zh?'批改 ✓':'Corriger ✓';});document.querySelectorAll('.btn-send').forEach(function(el){el.textContent=zh?'发送':'Envoyer';});document.querySelectorAll('.btn-reveal').forEach(function(el){if(!el.dataset.zh)el.textContent=zh?'查看':'Voir';});document.querySelectorAll('.btn-verify').forEach(function(el){el.textContent=zh?'验证 ✓':'Vérifier ✓';});document.querySelectorAll('.btn-restart').forEach(function(el){el.textContent=zh?'重新开始 ↺':'Recommencer ↺';});document.querySelectorAll('.dl-play-btn[data-state]').forEach(function(el){var st=el.dataset.state;el.innerHTML=st==='play'?(zh?'▶︎  播放':'▶︎  Écouter'):st==='pause'?(zh?'❚❚  暂停':'❚❚  Pause'):(zh?'▶︎  继续':'▶︎  Reprendre');});}
+document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
-function checkBlank(inputId,answer,fbId){var inp=document.getElementById(inputId),fb=document.getElementById(fbId);if(!inp)return false;var val=inp.value.trim().toLowerCase(),ok=answer.toLowerCase().split(' / ').some(function(a){return val===a.trim();});inp.style.borderBottomColor=ok?'var(--green)':'#e74c3c';inp.style.color=ok?'var(--green)':'#e74c3c';if(fb){fb.textContent=ok?'✅':'❌ → '+answer;fb.className='fb '+(ok?'ok':'ko');}return ok;}
-function checkBlankData(btn,inputId,fbId){checkBlank(inputId,btn.dataset.ans,fbId);}
+function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}
+function revealAnswer(id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');}
+function checkBlankData(btn,inputId,fbId){var inp=document.getElementById(inputId),fb=document.getElementById(fbId);if(!inp)return false;var val=inp.value.trim().toLowerCase(),ok=(btn.dataset.ans||'').toLowerCase().split(' / ').some(function(a){return val===a.trim().replace(/['']/g,"'");});inp.style.borderBottomColor=ok?'var(--green)':'#e74c3c';inp.style.color=ok?'var(--green)':'#e74c3c';if(fb){fb.textContent=ok?'✅':'❌ → '+btn.dataset.ans;fb.className='fb '+(ok?'ok':'ko');}return ok;}
 function verifyBlanks(scoreId,inputIds,btnIds){var ok=0;btnIds.forEach(function(bid,i){var btn=document.getElementById(bid);if(btn)checkBlankData(btn,inputIds[i],'fb-'+inputIds[i]);});inputIds.forEach(function(id){var inp=document.getElementById(id);if(inp&&inp.style.color.indexOf('green')>-1)ok++;});var s=document.getElementById('score-'+scoreId);if(s){s.textContent=ok+'/'+inputIds.length;s.style.color=ok===inputIds.length?'var(--green)':ok>=inputIds.length/2?'var(--orange)':'#e74c3c';}}
 function resetBlanks(inputIds,fbIds){inputIds.forEach(function(id){var i=document.getElementById(id);if(i){i.value='';i.style.borderBottomColor='var(--blue)';i.style.color='var(--text)';}});fbIds.forEach(function(id){var f=document.getElementById(id);if(f){f.textContent='';f.className='fb';}});}
 function selectQCM(btn,correct){var item=btn.closest('.qcm-item');if(!item||item.dataset.done)return;item.dataset.correct=correct;item.querySelectorAll('.qcm-opt').forEach(function(o){o.classList.remove('qcm-selected');});btn.classList.add('qcm-selected');}
 function verifyQCM(scoreId){var container=document.getElementById(scoreId)?document.getElementById(scoreId).closest('.card-body'):document;var items=(container||document).querySelectorAll('.qcm-item'),ok=0,answered=0;items.forEach(function(item){var sel=item.querySelector('.qcm-opt.qcm-selected');if(!sel)return;answered++;item.dataset.done='1';var correct=item.dataset.correct;item.querySelectorAll('.qcm-opt').forEach(function(o){o.disabled=true;});if(sel.dataset.val===correct){sel.classList.add('qcm-correct');ok++;}else{sel.classList.add('qcm-wrong');item.querySelectorAll('.qcm-opt').forEach(function(o){if(o.dataset.val===correct)o.classList.add('qcm-correct');});}});if(!answered)return;var s=document.getElementById(scoreId);if(s){s.style.display='block';var msg=ok===items.length?'🎉 Parfait !':ok>=2?'👍 Bien !':'💪 Réessayez !';s.textContent=ok+'/'+items.length+' — '+msg;}}
 function resetQCM(scoreId){var container=document.getElementById(scoreId)?document.getElementById(scoreId).closest('.card-body'):document;(container||document).querySelectorAll('.qcm-item').forEach(function(item){delete item.dataset.done;delete item.dataset.correct;item.querySelectorAll('.qcm-opt').forEach(function(o){o.disabled=false;o.classList.remove('qcm-correct','qcm-wrong','qcm-selected');});});var s=document.getElementById(scoreId);if(s){s.style.display='none';s.textContent='';}}
 function selectPhon(btn){var item=btn.closest('.phon-item-ex');if(!item||item.dataset.done)return;item.querySelectorAll('.phon-btn-ex').forEach(function(b){b.classList.remove('phon-selected');});btn.classList.add('phon-selected');}
-function verifyPhon(){var items=document.querySelectorAll('.phon-item-ex'),ok=0,answered=0;items.forEach(function(item){var sel=item.querySelector('.phon-btn-ex.phon-selected');if(!sel)return;answered++;item.dataset.done='1';var ans=item.dataset.ans,fb=item.querySelector('.phon-fb-ex');item.querySelectorAll('.phon-btn-ex').forEach(function(b){b.disabled=true;});if(sel.dataset.val===ans){sel.classList.add('phon-ok');if(fb){fb.textContent='✅';fb.style.color='var(--green)';}ok++;}else{sel.classList.add('phon-ko');item.querySelectorAll('.phon-btn-ex').forEach(function(b){if(b.dataset.val===ans)b.classList.add('phon-ok');});if(fb){fb.textContent='❌['+ans+']';fb.style.color='#e74c3c';}}});if(!answered)return;var s=document.getElementById('phon-score-1A');if(s){s.style.display='block';var msg=ok===items.length?'🎉 Parfait !':ok>=6?'👍 Bien !':'💪 Réessayez !';s.textContent=ok+'/'+items.length+' — '+msg;}}
-function resetPhon(){document.querySelectorAll('.phon-item-ex').forEach(function(item){delete item.dataset.done;item.querySelectorAll('.phon-btn-ex').forEach(function(b){b.disabled=false;b.classList.remove('phon-ok','phon-ko','phon-selected');});var fb=item.querySelector('.phon-fb-ex');if(fb)fb.textContent='';});var s=document.getElementById('phon-score-1A');if(s){s.style.display='none';s.textContent='';}}
+function verifyPhon(){var items=document.querySelectorAll('.phon-item-ex'),ok=0,answered=0;items.forEach(function(item){var sel=item.querySelector('.phon-btn-ex.phon-selected');if(!sel)return;answered++;item.dataset.done='1';var ans=item.dataset.ans,fb=item.querySelector('.phon-fb-ex');item.querySelectorAll('.phon-btn-ex').forEach(function(b){b.disabled=true;});if(sel.dataset.val===ans){sel.classList.add('phon-ok');if(fb){fb.textContent='✅';fb.style.color='var(--green)';}ok++;}else{sel.classList.add('phon-ko');item.querySelectorAll('.phon-btn-ex').forEach(function(b){if(b.dataset.val===ans)b.classList.add('phon-ok');});if(fb){fb.textContent='❌['+ans+']';fb.style.color='#e74c3c';}}});if(!answered)return;var sc=document.getElementById('phon-score');if(sc){sc.style.display='block';sc.textContent=ok+'/'+items.length+' — '+(ok===items.length?'🎉 Parfait !':'💪 Réessayez !');}}
+function resetPhon(){document.querySelectorAll('.phon-item-ex').forEach(function(item){delete item.dataset.done;item.querySelectorAll('.phon-btn-ex').forEach(function(b){b.disabled=false;b.classList.remove('phon-ok','phon-ko','phon-selected');});var fb=item.querySelector('.phon-fb-ex');if(fb)fb.textContent='';});var sc=document.getElementById('phon-score');if(sc){sc.style.display='none';sc.textContent='';}}
 var ex5Selected=null;
 function ex5Click(chip){if(chip.classList.contains('chip-ok')||chip.classList.contains('chip-ko'))return;if(ex5Selected===chip){chip.classList.remove('chip-sel');ex5Selected=null;document.querySelectorAll('.ex5-zone').forEach(function(z){z.classList.remove('zone-active');});return;}document.querySelectorAll('.drag-chip').forEach(function(c){c.classList.remove('chip-sel');});chip.classList.add('chip-sel');ex5Selected=chip;document.querySelectorAll('.ex5-zone').forEach(function(z){z.classList.add('zone-active');});}
 function ex5Drop(zone){if(!ex5Selected)return;var items=zone.querySelector('.ex5-zone-items');if(items)items.appendChild(ex5Selected);ex5Selected.classList.remove('chip-sel');ex5Selected=null;document.querySelectorAll('.ex5-zone').forEach(function(z){z.classList.remove('zone-active');});}
@@ -821,42 +951,38 @@ function checkEx5(){var allChips=document.querySelectorAll('#ex5-pool .drag-chip
 function resetEx5(){var pool=document.getElementById('ex5-pool');if(!pool)return;document.querySelectorAll('.drag-chip').forEach(function(chip){chip.classList.remove('chip-ok','chip-ko','chip-sel');pool.appendChild(chip);});document.querySelectorAll('.ex5-zone').forEach(function(z){z.classList.remove('zone-active');});ex5Selected=null;var fb=document.getElementById('ex5-fb');if(fb)fb.innerHTML='';}
 function playEx6Audio(btn,src){btn.innerHTML='🔊 …';var audio=new Audio(src);audio.onended=function(){btn.innerHTML='🔊';};audio.play().catch(function(){btn.innerHTML='🔊';});}
 function checkEx6(btn){var item=btn.closest('.listen-item');if(!item||item.dataset.done)return;item.dataset.done='1';var ans=item.dataset.ans,val=btn.dataset.val,fb=item.querySelector('.listen-fb');item.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;});if(val===ans){btn.classList.add('choice-correct');if(fb){fb.textContent='✅';fb.style.color='var(--green)';}}else{btn.classList.add('choice-wrong');item.querySelectorAll('.choice-btn').forEach(function(b){if(b.dataset.val===ans)b.classList.add('choice-correct');});if(fb){fb.textContent='❌ → '+ans;fb.style.color='#e74c3c';}}}
+async function checkLT(btn){var ta=btn.previousElementSibling,res=btn.nextElementSibling,txt=(ta.value||'').trim();var zh=document.body.classList.contains('lang-zh');if(!txt){res.innerHTML='<p class="lt-info">'+(zh?'✏️ 请先写下您的答案。':'✏️ Écris d\'abord ta réponse.')+'</p>';return;}btn.disabled=true;btn.textContent='…';res.innerHTML='<p class="lt-info">'+(zh?'批改中…':'Correction en cours…')+'</p>';try{var r=await fetch('https://api.languagetool.org/v2/check',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'text='+encodeURIComponent(txt)+'&language=fr'});var d=await r.json();if(!d.matches||!d.matches.length){res.innerHTML='<p class="lt-ok">'+(zh?'✅ 没有错误 — 太棒了！':'✅ Aucune erreur — bravo !')+'</p>';}else{var n=d.matches.length,html='<p class="lt-count">'+n+(zh?' 处需要修改：':' point'+(n>1?'s':'')+' à corriger :')+'</p><ul class="lt-list">';for(var m of d.matches){var orig=txt.slice(m.offset,m.offset+m.length),sugs=(m.replacements||[]).slice(0,3).map(function(x){return'<span class="lt-sug">'+x.value+'</span>';}).join(', ');html+='<li><span class="lt-err">« '+orig+' »</span> — '+m.message+(sugs?' → '+sugs:'')+' </li>';}html+='</ul>';res.innerHTML=html;}}catch(e){res.innerHTML='<p class="lt-warn">'+(zh?'⚠️ 无法连接到批改服务器。':'⚠️ Impossible de joindre le correcteur.')+'</p>';}btn.disabled=false;btn.textContent=zh?'批改 ✓':'Corriger ✓';}
 var _pronoRec=false;
-(function(){var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){var el=document.getElementById('prono-no-support');if(el)el.style.display='block';}})();
 function pronoListen(btn){var text=btn.getAttribute('data-text');if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';setTimeout(function(){var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.88;u.onend=function(){btn.innerHTML='🔊 Réécouter';};u.onerror=function(){btn.innerHTML='🔊 Écouter';};window.speechSynthesis.speak(u);},80);}
 function pronoSimilarity(ref,heard){function n(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9\s]/g,'').trim().split(/\s+/).filter(Boolean);}var rw=n(ref),hw=n(heard);if(!rw.length)return 0;var matched=0,hc=hw.slice();rw.forEach(function(w){var i=hc.indexOf(w);if(i!==-1){matched++;hc.splice(i,1);}});return Math.round((matched/rw.length)*100);}
-function pronoRecord(btn){var target=btn.getAttribute('data-text'),idx=parseInt(btn.getAttribute('data-idx'),10);if(_pronoRec||!target)return;var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)return;_pronoRec=true;btn.classList.add('recording');btn.textContent='⏹ Arrêter';var r=new SR();r.lang='fr-FR';r.continuous=false;r.interimResults=false;r.onresult=function(e){pronoShowScore(idx,pronoSimilarity(target,e.results[0][0].transcript),e.results[0][0].transcript);};r.onerror=function(e){pronoShowScore(idx,null,null,e.error);};r.onend=function(){_pronoRec=false;btn.classList.remove('recording');btn.textContent='🎤 Répéter';};r.start();}
-function pronoReset(idx){var s=document.getElementById('prono-score-'+idx);if(s)s.classList.remove('visible');var f=document.getElementById('prono-fill-'+idx);if(f){f.style.width='0%';f.style.background='#eee';}var p=document.getElementById('prono-pct-'+idx);if(p)p.textContent='';var h=document.getElementById('prono-heard-'+idx);if(h)h.textContent='';}
-function pronoShowScore(idx,score,heard,error){var se=document.getElementById('prono-score-'+idx),fe=document.getElementById('prono-fill-'+idx),pe=document.getElementById('prono-pct-'+idx),he=document.getElementById('prono-heard-'+idx);if(!se)return;se.classList.add('visible');if(error||score===null){fe.style.width='0%';fe.style.background='#ccc';pe.textContent='Reconnaissance impossible';he.textContent='';return;}fe.style.width=score+'%';fe.style.background=score>=80?'#4caf50':score>=50?'#ff9800':'#f44336';pe.textContent=(score>=80?'🎉':score>=50?'👍':'💪')+' '+score+' %';he.textContent='« '+heard+' »';}
-async function checkLT(btn){var ta=btn.previousElementSibling,res=btn.nextElementSibling,txt=(ta.value||'').trim();var zh=document.body.classList.contains('lang-zh');if(!txt){res.innerHTML='<p class="lt-info">'+(zh?'✏️ 请先写下您的答案。':"✏️ Écris d'abord ta réponse.")+"</p>";return;}btn.disabled=true;btn.textContent='…';res.innerHTML='<p class="lt-info">'+(zh?'批改中…':'Correction en cours…')+'</p>';try{var r=await fetch('https://api.languagetool.org/v2/check',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'text='+encodeURIComponent(txt)+'&language=fr'});var d=await r.json();if(!d.matches||!d.matches.length){res.innerHTML='<p class="lt-ok">'+(zh?'✅ 没有错误 — 太棒了！':'✅ Aucune erreur — bravo !')+'</p>';}else{var n=d.matches.length,html='<p class="lt-count">'+n+(zh?' 处需要修改：':' point'+(n>1?'s':'')+' à corriger :')+'</p><ul class="lt-list">';for(var m of d.matches){var orig=txt.slice(m.offset,m.offset+m.length),sugs=(m.replacements||[]).slice(0,3).map(function(x){return'<span class="lt-sug">'+x.value+'</span>';}).join(', ');html+='<li><span class="lt-err">« '+orig+' »</span> — '+m.message+(sugs?' → '+sugs:'')+' </li>';}html+='</ul>';res.innerHTML=html;}}catch(e){res.innerHTML='<p class="lt-warn">'+(zh?'⚠️ 无法连接到批改服务器。':'⚠️ Impossible de joindre le correcteur.')+'</p>';}btn.disabled=false;btn.textContent=zh?'批改 ✓':'Corriger ✓';}
+function pronoRecord(btn){var target=btn.getAttribute('data-text'),idx=parseInt(btn.getAttribute('data-idx'),10);if(_pronoRec||!target)return;var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){var ns=document.getElementById('prono-no-support');if(ns)ns.style.display='block';return;}_pronoRec=true;btn.classList.add('recording');btn.textContent='⏹ Arrêter';var r=new SR();r.lang='fr-FR';r.continuous=false;r.interimResults=false;r.onresult=function(e){pronoShowScore(idx,pronoSimilarity(target,e.results[0][0].transcript),e.results[0][0].transcript);};r.onerror=function(e){pronoShowScore(idx,null,null,e.error);};r.onend=function(){_pronoRec=false;btn.classList.remove('recording');btn.textContent='🎤 Répéter';};r.start();}
+function pronoReset(idx){var fill=document.getElementById('prono-fill-'+idx),pct=document.getElementById('prono-pct-'+idx),heard=document.getElementById('prono-heard-'+idx),score=document.getElementById('prono-score-'+idx);if(fill)fill.style.width='0%';if(pct){pct.textContent='';pct.className='prono-score-text';}if(heard)heard.textContent='';if(score)score.className='prono-score';}
+function pronoShowScore(idx,score,heard,error){var fill=document.getElementById('prono-fill-'+idx),pct=document.getElementById('prono-pct-'+idx),heardEl=document.getElementById('prono-heard-'+idx),scoreEl=document.getElementById('prono-score-'+idx);if(!fill)return;if(error||score===null){if(pct){pct.textContent='Erreur microphone';pct.className='prono-score-text score-low';}return;}var pct_val=score,color=score>=80?'var(--green)':score>=50?'var(--orange)':'#e74c3c',cls=score>=80?'score-high':score>=50?'score-mid':'score-low';fill.style.width=pct_val+'%';fill.style.background=color;if(pct){pct.textContent=pct_val+'% — '+(score>=80?'🎉 Excellent !':score>=50?'👍 Bien !':'💪 Réessayez !');pct.className='prono-score-text '+cls;}if(heardEl)heardEl.textContent=heard?'"'+heard+'"':'';}
+
+
 function openModal(id){document.getElementById(id).classList.add('open');document.querySelector('.fle-modal-overlay').classList.add('open');document.body.style.overflow='hidden';}
 function closeModal(id){document.getElementById(id).classList.remove('open');document.querySelector('.fle-modal-overlay').classList.remove('open');document.body.style.overflow='';}
 function closeAllModals(){document.querySelectorAll('.fle-modal').forEach(function(m){m.classList.remove('open');});document.querySelector('.fle-modal-overlay').classList.remove('open');document.body.style.overflow='';}
 function submitForm(e,formId,modalId){e.preventDefault();var form=document.getElementById(formId),data=new FormData(form),btn=form.querySelector('.btn-send'),zh=document.body.classList.contains('lang-zh');btn.disabled=true;btn.textContent=zh?'发送中…':'Envoi…';fetch('https://formspree.io/f/mvznqaze',{method:'POST',body:data,headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){form.reset();var s=document.getElementById('success-'+formId.replace('form-',''));if(s)s.style.display='block';setTimeout(function(){closeModal(modalId);if(s)s.style.display='none';btn.disabled=false;btn.textContent=zh?'发送':'Envoyer';},2500);}else{alert(zh?'错误。':'Erreur.');btn.disabled=false;btn.textContent=zh?'发送':'Envoyer';}}).catch(function(){alert(zh?'网络错误。':'Erreur réseau.');btn.disabled=false;});}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModals();});
-function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);document.getElementById('btn-lang-fr').classList.toggle('active',lang==='fr');document.getElementById('btn-lang-zh').classList.toggle('active',lang==='zh');document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=lang==='zh'?el.dataset.zh:(el.dataset.fr||el.textContent);});}
-document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
-</script>
-<script>var DIALOGUE_TIMINGS={"0":[{"w":"Bonjour","s":0.0,"e":0.522},{"w":"!","s":0.615,"e":0.639},{"w":"Je","s":0.964,"e":1.068},{"w":"voudrais","s":1.103,"e":1.347},{"w":"m'inscrire","s":1.37,"e":1.823},{"w":"à","s":1.846,"e":1.869},{"w":"la","s":1.904,"e":1.962},{"w":"bibliothèque.","s":2.009,"e":3.065}],"1":[{"w":"Bien","s":0.0,"e":0.232},{"w":"sûr","s":0.279,"e":0.592},{"w":"!","s":0.627,"e":0.673},{"w":"Votre","s":0.882,"e":1.149},{"w":"nom","s":1.196,"e":1.3},{"w":"s'il","s":1.347,"e":1.451},{"w":"vous","s":1.498,"e":1.602},{"w":"plaît.","s":1.625,"e":2.136}],"2":[{"w":"Sofia","s":0.0,"e":0.418},{"w":"Russo.","s":0.476,"e":1.161}],"3":[{"w":"Vous","s":0.0,"e":0.209},{"w":"pouvez","s":0.232,"e":0.534},{"w":"épeler","s":0.604,"e":0.975},{"w":"?","s":1.045,"e":1.347}],"4":[{"w":"S","s":0.0,"e":0.151},{"w":"O","s":0.302,"e":0.418},{"w":"F","s":0.534,"e":0.685},{"w":"I","s":0.801,"e":0.871},{"w":"A.","s":1.022,"e":1.254},{"w":"Russo","s":1.463,"e":1.95},{"w":":","s":1.997,"e":2.032},{"w":"R","s":2.241,"e":2.392},{"w":"U","s":2.508,"e":2.624},{"w":"S","s":2.74,"e":2.914},{"w":"S","s":3.065,"e":3.239},{"w":"O...","s":3.413,"e":3.646},{"w":"Je","s":3.855,"e":3.982},{"w":"suis","s":4.029,"e":4.18},{"w":"italienne.","s":4.238,"e":5.062}],"5":[{"w":"Vous","s":0.0,"e":0.197},{"w":"êtes","s":0.267,"e":0.395},{"w":"étudiante","s":0.453,"e":0.987},{"w":"?","s":1.057,"e":1.347}],"6":[{"w":"Oui,","s":0.0,"e":0.441},{"w":"je","s":0.766,"e":0.871},{"w":"suis","s":0.917,"e":1.057},{"w":"étudiante","s":1.126,"e":1.591},{"w":"en","s":1.614,"e":1.672},{"w":"langues","s":1.718,"e":1.962},{"w":"à","s":2.009,"e":2.032},{"w":"l'université.","s":2.067,"e":3.111}],"7":[{"w":"Salut","s":0.0,"e":0.372},{"w":"Sofia","s":0.406,"e":0.882},{"w":"!","s":0.975,"e":1.022},{"w":"Moi","s":1.405,"e":1.649},{"w":"c'est","s":1.683,"e":1.869},{"w":"Thomas","s":1.904,"e":2.345},{"w":"!","s":2.415,"e":2.473},{"w":"On","s":2.717,"e":2.891},{"w":"est","s":2.961,"e":3.03},{"w":"dans","s":3.053,"e":3.193},{"w":"le","s":3.228,"e":3.297},{"w":"même","s":3.355,"e":3.576},{"w":"cours.","s":3.611,"e":4.365}],"8":[{"w":"Salut","s":0.0,"e":0.313},{"w":"Thomas.","s":0.337,"e":0.673},{"w":"Enchantée","s":0.789,"e":1.289},{"w":"!","s":1.324,"e":1.579}],"9":[{"w":"Bienvenue","s":0.0,"e":0.662},{"w":"à","s":0.697,"e":0.72},{"w":"Grenoble","s":0.778,"e":1.44},{"w":"!","s":1.498,"e":1.718}]};</script>
-<script>
 (function(){
-  var LESSON='1A',BASE='../audio/';
+  var BASE='../audio/';
   var dlg=document.querySelector('.dialogue');if(!dlg)return;
   var rows=Array.from(dlg.querySelectorAll('.dl-row'));
   var pool=rows.map(function(r,i){var a=new Audio(BASE+'dialogue_'+LESSON+'_'+i+'.mp3');a.preload='auto';return a;});
   var wrap=document.createElement('div');wrap.style.cssText='display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-bottom:9px;width:100%;';
   var pb=document.createElement('button');pb.className='dl-play-btn';
-  function lb(s){var zh=document.body.classList.contains('lang-zh');return s==='play'?(zh?'▶︎ &nbsp;播放':'▶︎ &nbsp;Écouter'):s==='pause'?(zh?'❚❚ &nbsp;暂停':'❚❚ &nbsp;Pause'):(zh?'▶︎ &nbsp;继续':'▶︎ &nbsp;Reprendre');}
+  function lb(s){var zh=document.body.classList.contains('lang-zh');return s==='play'?(zh?'▶︎  播放':'▶︎  Écouter'):s==='pause'?(zh?'❚❚  暂停':'❚❚  Pause'):(zh?'▶︎  继续':'▶︎  Reprendre');}
   function setState(s){pb.dataset.state=s;pb.innerHTML=lb(s);}
   setState('play');
   var zb=document.createElement('button');zb.className='dl-zh-btn';zb.textContent='中';zb.title='Traduction';zb.style.marginLeft='auto';
   zb.addEventListener('click',function(){dlg.classList.toggle('dl-zh-on');zb.classList.toggle('zactive');});
-  wrap.appendChild(pb);wrap.appendChild(zb);dlg.parentNode.insertBefore(wrap,dlg);
+  wrap.appendChild(pb);if(dlg.querySelectorAll('.dl-zh-line').length>0){wrap.appendChild(zb);}dlg.parentNode.insertBefore(wrap,dlg);
   var ca=null,playing=false,paused=false,rafId=null;
   rows.forEach(function(row,i){row.addEventListener('click',function(e){if(e.target.closest('.dl-wave'))return;stop();playLine(i);});});
   pb.addEventListener('click',function(e){e.stopPropagation();if(playing&&!paused){if(ca)ca.pause();paused=true;setState('resume');return;}if(paused){if(ca)ca.play().catch(function(){});paused=false;setState('pause');return;}playLine(0);});
   function stop(){if(rafId){cancelAnimationFrame(rafId);rafId=null;}if(ca){ca.onended=null;ca.onerror=null;ca.pause();ca=null;}rows.forEach(function(r){r.classList.remove('dl-playing','dl-played');r.querySelectorAll('.dl-word').forEach(function(w){w.classList.remove('dl-lit');});});playing=false;paused=false;setState('play');}
-  function playLine(idx){if(idx>=rows.length){rows.forEach(function(r){r.classList.remove('dl-playing');});setState('play');playing=false;paused=false;ca=null;return;}playing=true;paused=false;setState('pause');rows.forEach(function(r,i){r.classList.remove('dl-playing');r.querySelectorAll('.dl-word').forEach(function(w){w.classList.remove('dl-lit');});if(i<idx)r.classList.add('dl-played');else r.classList.remove('dl-played');});rows[idx].classList.add('dl-playing');rows[idx].scrollIntoView({behavior:'smooth',block:'nearest'});var audio=pool[idx];audio.currentTime=0;ca=audio;var words=Array.from(rows[idx].querySelectorAll('.dl-word'));if(rafId){cancelAnimationFrame(rafId);rafId=null;}var lt=(typeof DIALOGUE_TIMINGS!=='undefined')?DIALOGUE_TIMINGS[String(idx)]:null;function tick(){if(!audio.paused&&!audio.ended){var t=audio.currentTime;if(lt&&lt.length){words.forEach(function(w,wi){var en=lt[wi];w.classList.toggle('dl-lit',en?t>=en.s:false);});}else if(audio.duration){var p=Math.max(0,Math.min(1,(t/audio.duration-0.06)/0.88+0.03)),lit=0;var tc=words.map(function(w,wi){var cum=0;for(var j=0;j<=wi;j++)cum+=Math.max(words[j].textContent.trim().length,1);return cum;});var tot=tc[tc.length-1]||1;for(var ti=0;ti<tc.length;ti++){if(p>=tc[ti]/tot)lit=ti+1;}words.forEach(function(w,wi){w.classList.toggle('dl-lit',wi<lit);});}}if(!audio.ended)rafId=requestAnimationFrame(tick);}rafId=requestAnimationFrame(tick);audio.onended=function(){cancelAnimationFrame(rafId);rafId=null;playLine(idx+1);};audio.onerror=function(){cancelAnimationFrame(rafId);rafId=null;playLine(idx+1);};audio.play().catch(function(e){console.warn('audio:',e);});}
+  function playLine(idx){if(idx>=rows.length){rows.forEach(function(r){r.classList.remove('dl-playing');});setState('play');playing=false;paused=false;ca=null;return;}playing=true;paused=false;setState('pause');rows.forEach(function(r,i){r.classList.remove('dl-playing');r.querySelectorAll('.dl-word').forEach(function(w){w.classList.remove('dl-lit');});if(i<idx)r.classList.add('dl-played');else r.classList.remove('dl-played');});rows[idx].classList.add('dl-playing');rows[idx].scrollIntoView({behavior:'smooth',block:'nearest'});var audio=pool[idx];audio.currentTime=0;ca=audio;var words=Array.from(rows[idx].querySelectorAll('.dl-word'));if(rafId){cancelAnimationFrame(rafId);rafId=null;}function tick(){if(!audio.paused&&!audio.ended&&audio.duration){var t=audio.currentTime,p=Math.max(0,Math.min(1,(t/audio.duration-0.06)/0.88+0.03)),lit=0;var tc=words.map(function(w,wi){var cum=0;for(var j=0;j<=wi;j++)cum+=Math.max(words[j].textContent.trim().length,1);return cum;});var tot=tc[tc.length-1]||1;for(var ti=0;ti<tc.length;ti++){if(p>=tc[ti]/tot)lit=ti+1;}words.forEach(function(w,wi){w.classList.toggle('dl-lit',wi<lit);});}if(!audio.ended)rafId=requestAnimationFrame(tick);}rafId=requestAnimationFrame(tick);audio.onended=function(){cancelAnimationFrame(rafId);rafId=null;playLine(idx+1);};audio.onerror=function(){cancelAnimationFrame(rafId);rafId=null;playLine(idx+1);};audio.play().catch(function(e){console.warn('audio:',e);});}
 })();
 </script>
 </body>
