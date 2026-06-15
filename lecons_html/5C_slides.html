@@ -7,11 +7,11 @@
 <title>Leçon 5C — On mange au restaurant ! | FrançaisPlus A1</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#1c2e5a;--purp-l:#e6ecf6;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
+:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#8e44ad;--purp-l:#f5eef8;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
 body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);font-size:14px;height:100vh;overflow:hidden;display:flex;flex-direction:column}
 a{color:var(--blue);text-decoration:none}
 /* HEADER */
-.page-header{background:linear-gradient(135deg,#0d1b32,#2a4a8a);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.page-header{background:linear-gradient(135deg,var(--purp),#c0392b);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
 .ph-back{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
 .ph-back:hover{background:rgba(255,255,255,.2)}
 .ph-title{font-size:.88rem;font-weight:800;flex:1}
@@ -44,7 +44,7 @@ a{color:var(--blue);text-decoration:none}
 /* SLIDE FOOTER */
 .slide-footer{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:8px 0 0;margin-top:auto;flex-shrink:0}
 .btn-ns{padding:7px 16px;border:none;border-radius:20px;background:var(--purp);color:#fff;font-weight:700;font-size:.78rem;cursor:pointer;transition:background .15s,transform .1s;display:inline-flex;align-items:center;gap:5px}
-.btn-ns:hover{background:#2a4a8a}
+.btn-ns:hover{background:#7d3c98}
 .btn-ns:active{transform:scale(.97)}
 /* SCROLLABLE BODY */
 .slide-body{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column;justify-content:center}
@@ -72,7 +72,7 @@ a{color:var(--blue);text-decoration:none}
 .dl-speaker{font-weight:800;font-size:.68rem;color:var(--purp);text-transform:uppercase;letter-spacing:.4px;padding-top:1px;line-height:1.4;overflow-wrap:break-word;word-break:break-word}
 .dl-line{font-size:.84rem;line-height:1.4;color:var(--text)}
 .dl-word{display:inline;border-radius:2px;padding:0 1px;transition:background .3s,color .3s}
-.dl-word.dl-lit{background:#c8d8f0;color:#1c2e5a}
+.dl-word.dl-lit{background:#d7bff5;color:#6c3483}
 .dl-wave{display:none;align-items:center;gap:2px;height:10px;margin-left:4px;vertical-align:middle}
 .dl-row.dl-playing .dl-wave{display:inline-flex}
 .dl-wave span{width:2px;border-radius:2px;background:var(--purp);display:inline-block;animation:dlwv .7s ease-in-out infinite}
@@ -87,7 +87,7 @@ a{color:var(--blue);text-decoration:none}
 .dialogue.dl-zh-on .dl-zh-line{display:block}
 /* Bouton lecture dialogue (injecté par JS) */
 .dl-play-btn{display:inline-flex;align-items:center;gap:7px;background:var(--purp);color:#fff;border:none;border-radius:18px;padding:7px 16px;font-size:.8rem;font-weight:700;cursor:pointer;margin-bottom:9px;transition:background .15s}
-.dl-play-btn:hover{background:#2a4a8a}
+.dl-play-btn:hover{background:#7d3c98}
 /* Bouton 中 propre au dialogue (injecté par JS) */
 .dl-zh-btn{border:2px solid var(--purp);color:var(--purp);background:none;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:700;cursor:pointer;flex-shrink:0;transition:all .15s}
 .dl-zh-btn:hover,.dl-zh-btn.zactive{background:var(--purp);color:#fff}
@@ -135,7 +135,7 @@ body.lang-zh .prod-zh{display:block}
 .fb.ko{color:#e74c3c}
 .verify-bar{display:flex;gap:7px;margin-top:10px;align-items:center;flex-wrap:wrap}
 .btn-verify{padding:5px 16px;border-radius:18px;border:none;background:var(--purp);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap;transition:background .15s}
-.btn-verify:hover{background:#2a4a8a}
+.btn-verify:hover{background:#7d3c98}
 .btn-restart{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap}
 .btn-restart:hover{background:#7f8c8d}
 .check-btn-global{padding:5px 16px;border-radius:18px;border:none;background:var(--orange);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
@@ -254,11 +254,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 }
 /* ── PRONONCIATION SLIDE ── */
 .prono-item{background:#fff;border:1px solid #e8e0f5;border-radius:8px;padding:10px 12px;margin-bottom:8px}
-.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#2a4a8a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#7d3c98;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
 .prono-phrase{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:7px}
 .prono-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
 .prono-btn{padding:5px 12px;border:none;border-radius:20px;cursor:pointer;font-size:.82rem;font-weight:600;transition:background .15s}
-.prono-btn-listen{background:#f0e6ff;color:#2a4a8a}
+.prono-btn-listen{background:#f0e6ff;color:#7d3c98}
 .prono-btn-listen:hover{background:#e0ccff}
 .prono-btn-mic{background:#d8f5ef;color:#16a085}
 .prono-btn-mic:hover{background:#b0e8d8}
@@ -275,14 +275,14 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .prono-heard{font-size:.78rem;color:var(--muted);font-style:italic}
 .prono-no-support{background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#856404;margin-bottom:8px}
 /* ── SUB-NAV (phonétique 1/2 · 2/2) ── */
-.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#2a4a8a}
+.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#7d3c98}
 .phon-sub-header span{opacity:.7;font-weight:400}
 
 </style>
 </head>
 <body>
 <header class="page-header">
-  <a class="ph-back" href="../index.html?level=A1">🏠</a>
+  <a class="ph-back" href="../index.html">🏠</a>
   <div style="flex:1"><div class="ph-title">On mange au restaurant !</div><div class="ph-sub">Leçon 5C · A1</div></div>
   <div class="ph-lang">
     <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')" title="Français"><img src="../icons/flag-fr.svg" alt="FR"/></button>
@@ -294,11 +294,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <nav class="slide-nav" id="slide-nav">
   <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
   <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
-  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
-  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(5)">📖 Grammaire</button>
-  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(6)">✏️ Exercices</button>
-  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(8)">✍️ À toi !</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(3)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(4)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(7)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(10)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -334,24 +334,93 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
-<div class="slide" id="slide-1">
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
-      <div class="card-body"><div class="compr-item">
-<div class="compr-q">Quel est le plat signature du chef ?</div>
-<button class="btn-reveal" onclick="revealAnswer('ca-5C-0')">Voir</button>
-<div class="compr-a" id="ca-5C-0">Un bœuf bourguignon.</div>
-</div></div>
+  <!-- SLIDE 1: Comprendre 1/2 -->
+  <div class="slide" id="slide-1">
+    <div class="slide-inner">
+      <div class="slide-header">Comprendre <span class="slide-part">1/2</span></div>
+      <div class="qcm-block">
+        <div class="qcm-items">
+        <div class="qcm-item">
+          <div class="qcm-q">1. Depuis combien de temps M. Dupont est-il chef ? <span class="comm-zh">Dupont先生做厨师多少年了？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) 10 ans</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) 20 ans</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) 30 ans</button>
+          </div>
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">2. Quel est le secret du chef ? <span class="comm-zh">厨师的秘诀是什么？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Beaucoup d'épices</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) De bons produits</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Peu de cuisson</button>
+          </div>
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">3. Est-ce que le chef utilise beaucoup de sel ? <span class="comm-zh">厨师用很多盐吗？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Oui, beaucoup</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Oui, un peu</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Non, très peu</button>
+          </div>
+        </div>
+        </div>
+        <div class="qcm-actions">
+          <button class="btn-verify" onclick="verifyQCM('qcm-score-5C-1')">Vérifier ✔</button>
+          <button class="btn-reset" onclick="resetQCM('qcm-score-5C-1')">↺ Réessayer</button>
+          <span class="qcm-score" id="qcm-score-5C-1"></span>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <button onclick="goSlide(0)">← Dialogue</button>
+      <button onclick="goSlide(2)">Comprendre 2/2 →</button>
     </div>
   </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
-    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
+  <!-- SLIDE 2: Comprendre 2/2 -->
+  <div class="slide" id="slide-2">
+    <div class="slide-inner">
+      <div class="slide-header">Comprendre <span class="slide-part">2/2</span></div>
+      <div class="qcm-block">
+        <div class="qcm-items">
+        <div class="qcm-item">
+          <div class="qcm-q">4. Quel est le plat signature du chef ? <span class="comm-zh">厨师的招牌菜是什么？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) La quiche lorraine</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Un bœuf bourguignon</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Une salade niçoise</button>
+          </div>
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">5. Combien de temps faut-il pour cuire le plat ? <span class="comm-zh">烹饪这道菜需要多长时间？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Une heure</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Deux heures</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Trois heures</button>
+          </div>
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">6. Les Français mangent-ils bien à la maison ? <span class="comm-zh">法国人在家吃得好吗？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Oui, comme avant</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Moins qu'avant</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Jamais</button>
+          </div>
+        </div>
+        </div>
+        <div class="qcm-actions">
+          <button class="btn-verify" onclick="verifyQCM('qcm-score-5C-2')">Vérifier ✔</button>
+          <button class="btn-reset" onclick="resetQCM('qcm-score-5C-2')">↺ Réessayer</button>
+          <span class="qcm-score" id="qcm-score-5C-2"></span>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <button onclick="goSlide(1)">← Comprendre 1/2</button>
+      <button onclick="goSlide(3)">Communiquer →</button>
+    </div>
   </div>
-</div>
-<!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
-<div class="slide" id="slide-2">
+<div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
@@ -363,19 +432,19 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
-    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(2)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(4)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE 1/2 — SCHÉMA ══ -->
-<div class="slide" id="slide-3">
+<div class="slide" id="slide-4">
   <div class="slide-body" style="display:flex;flex-direction:column">
     <div class="card" style="flex:1;display:flex;flex-direction:column">
       <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span>
         <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">1 / 2</span>
       </div>
       <div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:8px">
-<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;max-height:52vh;display:block;margin:0 auto;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f0f8ff" stroke="#b0d0f0" stroke-width="1.5"/><defs><marker id="arr-888" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#888" opacity=".85"/></marker><marker id="arr-2a4a8a" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#2a4a8a" opacity=".85"/></marker><marker id="a3" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L6,3.5 L0,7 Z" fill="#777"/></marker></defs><text x="340" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#2a4a8a">La liaison avec les quantités</text><text x="120" y="66" font-size="14" fill="#333" font-weight="600" font-family="monospace">un</text><path d="M 136,56 Q 176,40 380,56" fill="none" stroke="#2a4a8a" stroke-width="2"><animate attributeName="stroke-dasharray" values="0,100;100,0" dur="1.5s" begin="0.0s" repeatCount="indefinite"/></path><text x="171" y="47" text-anchor="middle" font-size="11" fill="#2a4a8a" font-weight="700">[n]</text><text x="380" y="66" font-size="14" fill="#333" font-weight="600" font-family="monospace">euro</text><text x="580" y="66" font-size="9.5" fill="#888" font-style="italic">一欧元</text><text x="120" y="114" font-size="14" fill="#333" font-weight="600" font-family="monospace">deux</text><path d="M 152,104 Q 192,88 380,104" fill="none" stroke="#2a4a8a" stroke-width="2"><animate attributeName="stroke-dasharray" values="0,100;100,0" dur="1.5s" begin="0.4s" repeatCount="indefinite"/></path><text x="187" y="95" text-anchor="middle" font-size="11" fill="#2a4a8a" font-weight="700">[z]</text><text x="380" y="114" font-size="14" fill="#333" font-weight="600" font-family="monospace">euros</text><text x="580" y="114" font-size="9.5" fill="#888" font-style="italic">两欧元</text><text x="120" y="162" font-size="14" fill="#333" font-weight="600" font-family="monospace">cent</text><path d="M 152,152 Q 192,136 380,152" fill="none" stroke="#2a4a8a" stroke-width="2"><animate attributeName="stroke-dasharray" values="0,100;100,0" dur="1.5s" begin="0.8s" repeatCount="indefinite"/></path><text x="187" y="143" text-anchor="middle" font-size="11" fill="#2a4a8a" font-weight="700">[t]</text><text x="380" y="162" font-size="14" fill="#333" font-weight="600" font-family="monospace">euros</text><text x="580" y="162" font-size="9.5" fill="#888" font-style="italic">一百欧元</text><text x="120" y="210" font-size="14" fill="#333" font-weight="600" font-family="monospace">combien</text><path d="M 176,200 Q 216,184 380,200" fill="none" stroke="#2a4a8a" stroke-width="2"><animate attributeName="stroke-dasharray" values="0,100;100,0" dur="1.5s" begin="1.2000000000000002s" repeatCount="indefinite"/></path><text x="211" y="191" text-anchor="middle" font-size="11" fill="#2a4a8a" font-weight="700">[n]</text><text x="380" y="210" font-size="14" fill="#333" font-weight="600" font-family="monospace">en</text><text x="580" y="210" font-size="9.5" fill="#888" font-style="italic">多少</text><text x="340" y="240" text-anchor="middle" font-size="9" fill="#666">Liaisons fréquentes avec les nombres devant un nom.</text></svg>
+<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/><text x="340" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c3e50">Liaisons et quantités</text><line x1="222" y1="32" x2="222" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><line x1="492" y1="32" x2="492" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><rect x="8" y="32" width="208" height="215" rx="8" fill="#7d3c98" opacity=".09" stroke="#7d3c98" stroke-width="0.8"/><circle cx="112" cy="115" r="52" fill="#7d3c98" opacity=".09"><animate attributeName="r" values="52;70;52" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="112" cy="115" r="48" fill="#7d3c98" opacity=".88"/><text x="112" y="125" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" font-family="monospace">⌒</text><text x="112" y="190" text-anchor="middle" font-size="10.5" fill="#7d3c98" font-weight="600">Liaison obligatoire après les mots</text><text x="112" y="207" text-anchor="middle" font-size="10.5" fill="#7d3c98" font-weight="600">de quantité devant voyelle.</text><text x="357" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">GRAPHIE → SON</text><rect x="246" y="52" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="67" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">beaucoup_en</text><text x="472" y="67" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[ku·pɑ̃]</text><rect x="246" y="78" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="93" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">trop_ici</text><text x="472" y="93" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[tʁo·pi]</text><rect x="246" y="104" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="119" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">assez_utile</text><text x="472" y="119" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[ze·zy]</text><rect x="496" y="32" width="177" height="215" rx="8" fill="#7d3c98" opacity=".06" stroke="#7d3c98" stroke-width="0.5"/><text x="584" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">EXEMPLES</text><text x="546" y="66" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">beaucoup_en</text><text x="546" y="94" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">un peu_après</text><text x="546" y="122" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">trop_ici</text><text x="546" y="150" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">assez_utile</text></svg>
         <details style="margin-top:8px;font-size:.85rem;color:var(--muted)">
           <summary style="cursor:pointer;color:var(--purp);font-weight:600">📌 Note</summary>
           <div style="margin-top:4px;line-height:1.5"><div class="phon-body">§ Phonétique — La liaison avec les quantités
@@ -389,12 +458,12 @@ manger.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
-    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(4)">🎤 Prononciation →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(3)">← Communiquer</button>
+    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(5)">🎤 Prononciation →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : PHONÉTIQUE 2/2 — PRONONCIATION ══ -->
-<div class="slide" id="slide-4">
+<div class="slide" id="slide-5">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-phon">🎤 Prononciation<span class="comm-zh"> · 发音练习</span>
@@ -411,12 +480,12 @@ manger.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(3)">← Schéma</button>
-    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(5)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(4)">← Schéma</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(6)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
-<div class="slide" id="slide-5">
+<div class="slide" id="slide-6">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-gram">📖 Les expressions de quantité<span class="comm-zh"> · 语法要点</span></div>
@@ -424,16 +493,16 @@ manger.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(4)">← Phonétique</button>
-    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(6)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(5)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(7)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
-<div class="slide" id="slide-6">
+<div class="slide" id="slide-7">
   <div class="sub-nav">
     <button class="sub-nav-btn" disabled>←</button>
-    <span class="sub-nav-count">1 / 2</span>
-    <button class="sub-nav-btn" onclick="goSlide(7)">→</button>
+    <span class="sub-nav-count">1 / 3</span>
+    <button class="sub-nav-btn" onclick="goSlide(8)">→</button>
   </div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Complétez avec la bonne quantité <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
@@ -445,28 +514,125 @@ manger.</div></div>
     <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Votre recette préférée <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Décrivez les ingrédients de votre recette préférée : Pour faire ___, il faut… Utilisez : du / de la / de l' + beaucoup de / un peu de / assez de.<span class="comm-zh"> · 描述您最喜欢的食谱的食材</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(5)">← Grammaire</button>
-    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(7)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(8)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
-<div class="slide" id="slide-7">
+<div class="slide" id="slide-8">
   <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(6)">←</button>
-    <span class="sub-nav-count">2 / 2</span>
-    <button class="sub-nav-btn" disabled>→</button>
+    <button class="sub-nav-btn" onclick="goSlide(7)">←</button>
+    <span class="sub-nav-count">2 / 3</span>
+    <button class="sub-nav-btn" onclick="goSlide(9)">→</button>
   </div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — L'ordre d'un repas au restaurant <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Remettez dans l'ordre : a. payer l'addition b. choisir un plat c. arriver et s'asseoir d. commander e. manger f. demander l'addition Ordre : ___ → ___ → ___ → ___ → ___ → ___<span class="comm-zh"> · 排列顺序：a. 结账 b. 选菜 c. 入座 d. 点餐</span></div></div></div>
     <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Un repas français typique <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Complétez avec les mots manquants : Un repas français commence par une ___ (ex : soupe, salade). Puis on sert le ___ principal (viande ou poisson). Ensuite, on prend souvent du ___. Le repas se termine avec le ___.<span class="comm-zh"> · 用缺失的词填空</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(6)">← Préc.</button>
-    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(8)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(7)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(9)">✍️ À toi ! →</button>
   </div>
 </div>
 <!-- ══ SLIDE 8 : À TOI ! ══ -->
-<div class="slide" id="slide-8">
+  <!-- SLIDE 9: Exercices 3/3 -->
+  <div class="slide" id="slide-9">
+    <div class="slide-inner">
+      <div class="slide-header">Exercices <span class="slide-part">3/3</span></div>
+      <div class="ex-blocks">
+        <div class="ex-block">
+          <div class="ex-title">Ex. 5 — Condiment ou ingrédient principal ? <span class="comm-zh">将每种食材归入正确的栏目。</span></div>
+          <p class="ex-inst">Classez chaque aliment dans la bonne colonne.</p>
+          <div id="ex5-pool" class="ex5-pool">
+        <span class="drag-chip" data-cat="condiment" onclick="ex5Click(this)">le sel</span>
+        <span class="drag-chip" data-cat="ingredient" onclick="ex5Click(this)">la viande</span>
+        <span class="drag-chip" data-cat="condiment" onclick="ex5Click(this)">les herbes</span>
+        <span class="drag-chip" data-cat="ingredient" onclick="ex5Click(this)">les légumes</span>
+        <span class="drag-chip" data-cat="condiment" onclick="ex5Click(this)">l'ail</span>
+        <span class="drag-chip" data-cat="ingredient" onclick="ex5Click(this)">le vin rouge</span>
+        <span class="drag-chip" data-cat="condiment" onclick="ex5Click(this)">le vinaigre</span>
+        <span class="drag-chip" data-cat="ingredient" onclick="ex5Click(this)">la crème</span>
+          </div>
+          <div class="ex5-zones">
+            <div class="ex5-zone" id="zone-condiment" onclick="ex5Drop(this)">
+              <div class="ex5-zone-label">🧂 Condiment</div>
+              <div class="ex5-zone-items" id="zone-condiment-items"></div>
+            </div>
+            <div class="ex5-zone" id="zone-ingredient" onclick="ex5Drop(this)">
+              <div class="ex5-zone-label">🥩 Ingrédient principal</div>
+              <div class="ex5-zone-items" id="zone-ingredient-items"></div>
+            </div>
+          </div>
+          <div class="ex5-actions">
+            <button class="btn-verify" onclick="checkEx5()">Vérifier ✔</button>
+            <button class="btn-reset" onclick="resetEx5()">↺ Réessayer</button>
+            <span class="ex5-score" id="ex5-score-5C"></span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <div class="ex-title">Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确的数量表达。</span></div>
+          <p class="ex-inst">Choisissez la bonne expression de quantité.</p>
+          <div class="listen-list">
+          <div class="listen-item" data-ans="du">
+            <div class="listen-sentence">J'ajoute <span class="listen-blank">___</span> beurre.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'J\'ajoute du beurre.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="du" onclick="checkEx6(this)">du</button>
+              <button class="choice-btn" data-val="de la" onclick="checkEx6(this)">de la</button>
+              <button class="choice-btn" data-val="des" onclick="checkEx6(this)">des</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="peu de">
+            <div class="listen-sentence">Je mets très <span class="listen-blank">___</span> sel.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Je mets très peu de sel.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="peu de" onclick="checkEx6(this)">peu de</button>
+              <button class="choice-btn" data-val="beaucoup de" onclick="checkEx6(this)">beaucoup de</button>
+              <button class="choice-btn" data-val="assez de" onclick="checkEx6(this)">assez de</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="des">
+            <div class="listen-sentence">J'ajoute <span class="listen-blank">___</span> herbes fraîches.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'J\'ajoute des herbes fraîches.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="des" onclick="checkEx6(this)">des</button>
+              <button class="choice-btn" data-val="du" onclick="checkEx6(this)">du</button>
+              <button class="choice-btn" data-val="de la" onclick="checkEx6(this)">de la</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="de la">
+            <div class="listen-sentence">Il faut <span class="listen-blank">___</span> viande et du vin rouge.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Il faut de la viande et du vin rouge.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="de la" onclick="checkEx6(this)">de la</button>
+              <button class="choice-btn" data-val="du" onclick="checkEx6(this)">du</button>
+              <button class="choice-btn" data-val="des" onclick="checkEx6(this)">des</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="trois">
+            <div class="listen-sentence">Il faut <span class="listen-blank">___</span> heures de cuisson.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Il faut trois heures de cuisson.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="trois" onclick="checkEx6(this)">trois</button>
+              <button class="choice-btn" data-val="deux" onclick="checkEx6(this)">deux</button>
+              <button class="choice-btn" data-val="six" onclick="checkEx6(this)">six</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <button onclick="goSlide(8)">← Exercices 2/3</button>
+      <button onclick="goSlide(10)">À toi →</button>
+    </div>
+  </div>
+<div class="slide" id="slide-10">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
@@ -480,7 +646,7 @@ Leçon 5C · On mange au restaurant ! · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(7)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(9)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='6A_slides.html'">6A →</button>
   </div>
 </div>
@@ -520,10 +686,12 @@ Leçon 5C · On mange au restaurant ! · A1</div>
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var LESSON='5C';
-var TAB_FOR_SLIDE=[0, 1, 2, 3, 3, 4, 5, 5, 6];
+var TAB_FOR_SLIDE=[0,1,1,2,3,3,4,5,5,5,6];
 
 var currentSlide=0;
-function goSlide(n){
+
+    function playEx6TTS(btn,text){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.85;u.onend=function(){btn.innerHTML='🔊';};u.onerror=function(){btn.innerHTML='🔊';};window.speechSynthesis.speak(u);}
+    function goSlide(n){
   if(n===currentSlide)return;
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;
   slides[currentSlide].classList.remove('s-active');

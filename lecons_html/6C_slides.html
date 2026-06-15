@@ -7,11 +7,11 @@
 <title>Leçon 6C — On sort ce soir ? | FrançaisPlus A1</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#1c2e5a;--purp-l:#e6ecf6;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
+:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#8e44ad;--purp-l:#f5eef8;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
 body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);font-size:14px;height:100vh;overflow:hidden;display:flex;flex-direction:column}
 a{color:var(--blue);text-decoration:none}
 /* HEADER */
-.page-header{background:linear-gradient(135deg,#0d1b32,#2a4a8a);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.page-header{background:linear-gradient(135deg,var(--purp),#c0392b);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
 .ph-back{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
 .ph-back:hover{background:rgba(255,255,255,.2)}
 .ph-title{font-size:.88rem;font-weight:800;flex:1}
@@ -44,7 +44,7 @@ a{color:var(--blue);text-decoration:none}
 /* SLIDE FOOTER */
 .slide-footer{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:8px 0 0;margin-top:auto;flex-shrink:0}
 .btn-ns{padding:7px 16px;border:none;border-radius:20px;background:var(--purp);color:#fff;font-weight:700;font-size:.78rem;cursor:pointer;transition:background .15s,transform .1s;display:inline-flex;align-items:center;gap:5px}
-.btn-ns:hover{background:#2a4a8a}
+.btn-ns:hover{background:#7d3c98}
 .btn-ns:active{transform:scale(.97)}
 /* SCROLLABLE BODY */
 .slide-body{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column;justify-content:center}
@@ -72,7 +72,7 @@ a{color:var(--blue);text-decoration:none}
 .dl-speaker{font-weight:800;font-size:.68rem;color:var(--purp);text-transform:uppercase;letter-spacing:.4px;padding-top:1px;line-height:1.4;overflow-wrap:break-word;word-break:break-word}
 .dl-line{font-size:.84rem;line-height:1.4;color:var(--text)}
 .dl-word{display:inline;border-radius:2px;padding:0 1px;transition:background .3s,color .3s}
-.dl-word.dl-lit{background:#c8d8f0;color:#1c2e5a}
+.dl-word.dl-lit{background:#d7bff5;color:#6c3483}
 .dl-wave{display:none;align-items:center;gap:2px;height:10px;margin-left:4px;vertical-align:middle}
 .dl-row.dl-playing .dl-wave{display:inline-flex}
 .dl-wave span{width:2px;border-radius:2px;background:var(--purp);display:inline-block;animation:dlwv .7s ease-in-out infinite}
@@ -87,7 +87,7 @@ a{color:var(--blue);text-decoration:none}
 .dialogue.dl-zh-on .dl-zh-line{display:block}
 /* Bouton lecture dialogue (injecté par JS) */
 .dl-play-btn{display:inline-flex;align-items:center;gap:7px;background:var(--purp);color:#fff;border:none;border-radius:18px;padding:7px 16px;font-size:.8rem;font-weight:700;cursor:pointer;margin-bottom:9px;transition:background .15s}
-.dl-play-btn:hover{background:#2a4a8a}
+.dl-play-btn:hover{background:#7d3c98}
 /* Bouton 中 propre au dialogue (injecté par JS) */
 .dl-zh-btn{border:2px solid var(--purp);color:var(--purp);background:none;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:700;cursor:pointer;flex-shrink:0;transition:all .15s}
 .dl-zh-btn:hover,.dl-zh-btn.zactive{background:var(--purp);color:#fff}
@@ -135,7 +135,7 @@ body.lang-zh .prod-zh{display:block}
 .fb.ko{color:#e74c3c}
 .verify-bar{display:flex;gap:7px;margin-top:10px;align-items:center;flex-wrap:wrap}
 .btn-verify{padding:5px 16px;border-radius:18px;border:none;background:var(--purp);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap;transition:background .15s}
-.btn-verify:hover{background:#2a4a8a}
+.btn-verify:hover{background:#7d3c98}
 .btn-restart{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap}
 .btn-restart:hover{background:#7f8c8d}
 .check-btn-global{padding:5px 16px;border-radius:18px;border:none;background:var(--orange);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
@@ -254,11 +254,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 }
 /* ── PRONONCIATION SLIDE ── */
 .prono-item{background:#fff;border:1px solid #e8e0f5;border-radius:8px;padding:10px 12px;margin-bottom:8px}
-.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#2a4a8a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#7d3c98;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
 .prono-phrase{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:7px}
 .prono-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
 .prono-btn{padding:5px 12px;border:none;border-radius:20px;cursor:pointer;font-size:.82rem;font-weight:600;transition:background .15s}
-.prono-btn-listen{background:#f0e6ff;color:#2a4a8a}
+.prono-btn-listen{background:#f0e6ff;color:#7d3c98}
 .prono-btn-listen:hover{background:#e0ccff}
 .prono-btn-mic{background:#d8f5ef;color:#16a085}
 .prono-btn-mic:hover{background:#b0e8d8}
@@ -275,14 +275,14 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .prono-heard{font-size:.78rem;color:var(--muted);font-style:italic}
 .prono-no-support{background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#856404;margin-bottom:8px}
 /* ── SUB-NAV (phonétique 1/2 · 2/2) ── */
-.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#2a4a8a}
+.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#7d3c98}
 .phon-sub-header span{opacity:.7;font-weight:400}
 
 </style>
 </head>
 <body>
 <header class="page-header">
-  <a class="ph-back" href="../index.html?level=A1">🏠</a>
+  <a class="ph-back" href="../index.html">🏠</a>
   <div style="flex:1"><div class="ph-title">On sort ce soir ?</div><div class="ph-sub">Leçon 6C · A1</div></div>
   <div class="ph-lang">
     <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')" title="Français"><img src="../icons/flag-fr.svg" alt="FR"/></button>
@@ -294,11 +294,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <nav class="slide-nav" id="slide-nav">
   <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
   <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
-  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
-  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(5)">📖 Grammaire</button>
-  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(6)">✏️ Exercices</button>
-  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(8)">✍️ À toi !</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(3)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(4)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(7)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(10)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -333,34 +333,93 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
-<div class="slide" id="slide-1">
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
-      <div class="card-body"><div class="compr-item">
-<div class="compr-q">Où est-ce que Baptiste va ce soir ?</div>
-<button class="btn-reveal" onclick="revealAnswer('ca-6C-0')">Voir</button>
-<div class="compr-a" id="ca-6C-0">À un concert de jazz au Trabendo.</div>
-</div>
-<div class="compr-item">
-<div class="compr-q">Pourquoi Zoé ne peut-elle pas venir ?</div>
-<button class="btn-reveal" onclick="revealAnswer('ca-6C-1')">Voir</button>
-<div class="compr-a" id="ca-6C-1">Elle travaille ce soir.</div>
-</div>
-<div class="compr-item">
-<div class="compr-q">Combien de personnes vont venir au final ?</div>
-<button class="btn-reveal" onclick="revealAnswer('ca-6C-2')">Voir</button>
-<div class="compr-a" id="ca-6C-2">Quatre personnes.</div>
-</div></div>
+  <!-- SLIDE 1: Comprendre 1/2 -->
+  <div class="slide" id="slide-1">
+    <div class="slide-inner">
+      <div class="slide-header">Comprendre <span class="slide-part">1/2</span></div>
+      <div class="qcm-block">
+        <div class="qcm-items">
+        <div class="qcm-item">
+          <div class="qcm-q">1. Où va Baptiste ce soir ? <span class="comm-zh">Baptiste今晚要去哪里？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Au cinéma</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Au concert de jazz au Trabendo</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Au restaurant</button>
+          </div>
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">2. À quelle heure commence le concert ? <span class="comm-zh">音乐会几点开始？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) À 19h</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) À 21h</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) À 20h30</button>
+          </div>
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">3. Baptiste propose de faire quoi avant le concert ? <span class="comm-zh">Baptiste提议音乐会前做什么？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Prendre un verre</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Dîner dans un resto</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Aller au cinéma</button>
+          </div>
+        </div>
+        </div>
+        <div class="qcm-actions">
+          <button class="btn-verify" onclick="verifyQCM('qcm-score-6C-1')">Vérifier ✔</button>
+          <button class="btn-reset" onclick="resetQCM('qcm-score-6C-1')">↺ Réessayer</button>
+          <span class="qcm-score" id="qcm-score-6C-1"></span>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <button onclick="goSlide(0)">← Dialogue</button>
+      <button onclick="goSlide(2)">Comprendre 2/2 →</button>
     </div>
   </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
-    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
+  <!-- SLIDE 2: Comprendre 2/2 -->
+  <div class="slide" id="slide-2">
+    <div class="slide-inner">
+      <div class="slide-header">Comprendre <span class="slide-part">2/2</span></div>
+      <div class="qcm-block">
+        <div class="qcm-items">
+        <div class="qcm-item">
+          <div class="qcm-q">4. Avec qui Marc vient-il ? <span class="comm-zh">Marc和谁一起来？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Avec un ami</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Avec sa femme</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Avec sa sœur</button>
+          </div>
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">5. Pourquoi Zoé ne peut-elle pas venir ? <span class="comm-zh">Zoé为什么不能来？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Elle est malade</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Elle travaille ce soir</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Elle n'aime pas le jazz</button>
+          </div>
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">6. Combien de personnes vont aller au concert ? <span class="comm-zh">有多少人去音乐会？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Trois</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Quatre</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Cinq</button>
+          </div>
+        </div>
+        </div>
+        <div class="qcm-actions">
+          <button class="btn-verify" onclick="verifyQCM('qcm-score-6C-2')">Vérifier ✔</button>
+          <button class="btn-reset" onclick="resetQCM('qcm-score-6C-2')">↺ Réessayer</button>
+          <span class="qcm-score" id="qcm-score-6C-2"></span>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <button onclick="goSlide(1)">← Comprendre 1/2</button>
+      <button onclick="goSlide(3)">Communiquer →</button>
+    </div>
   </div>
-</div>
-<!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
-<div class="slide" id="slide-2">
+<div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
@@ -372,19 +431,19 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
-    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(2)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(4)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE 1/2 — SCHÉMA ══ -->
-<div class="slide" id="slide-3">
+<div class="slide" id="slide-4">
   <div class="slide-body" style="display:flex;flex-direction:column">
     <div class="card" style="flex:1;display:flex;flex-direction:column">
       <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span>
         <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">1 / 2</span>
       </div>
       <div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:8px">
-<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;max-height:52vh;display:block;margin:0 auto;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#fff8f0" stroke="#f0d0b0" stroke-width="1.5"/><defs><marker id="arr-888" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#888" opacity=".85"/></marker><marker id="arr-2a4a8a" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#2a4a8a" opacity=".85"/></marker><marker id="a3" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L6,3.5 L0,7 Z" fill="#777"/></marker></defs><text x="340" y="24" text-anchor="middle" font-size="12" font-weight="700" fill="#2a4a8a">Consonnes finales généralement muettes</text><circle cx="180" cy="60" r="20" fill="#2a4a8a" opacity=".15" stroke="#2a4a8a" stroke-width="1"/><text x="180" y="66" text-anchor="middle" font-size="18" font-weight="700" fill="#2a4a8a">d</text><circle cx="235" cy="60" r="20" fill="#2a4a8a" opacity=".15" stroke="#2a4a8a" stroke-width="1"/><text x="235" y="66" text-anchor="middle" font-size="18" font-weight="700" fill="#2a4a8a">p</text><circle cx="290" cy="60" r="20" fill="#2a4a8a" opacity=".15" stroke="#2a4a8a" stroke-width="1"/><text x="290" y="66" text-anchor="middle" font-size="18" font-weight="700" fill="#2a4a8a">s</text><circle cx="345" cy="60" r="20" fill="#2a4a8a" opacity=".15" stroke="#2a4a8a" stroke-width="1"/><text x="345" y="66" text-anchor="middle" font-size="18" font-weight="700" fill="#2a4a8a">t</text><circle cx="400" cy="60" r="20" fill="#2a4a8a" opacity=".15" stroke="#2a4a8a" stroke-width="1"/><text x="400" y="66" text-anchor="middle" font-size="18" font-weight="700" fill="#2a4a8a">x</text><circle cx="455" cy="60" r="20" fill="#2a4a8a" opacity=".15" stroke="#2a4a8a" stroke-width="1"/><text x="455" y="66" text-anchor="middle" font-size="18" font-weight="700" fill="#2a4a8a">z</text><text x="30" y="105" font-size="10" fill="#666" font-weight="600">Exemples (muets) :</text><text x="60" y="125" font-size="11" fill="#444" font-family="monospace">grand</text><text x="130" y="125" font-size="10" fill="#2a4a8a">✗ muet</text><text x="260" y="125" font-size="11" fill="#444" font-family="monospace">trop</text><text x="330" y="125" font-size="10" fill="#2a4a8a">✗ muet</text><text x="460" y="125" font-size="11" fill="#444" font-family="monospace">vous</text><text x="530" y="125" font-size="10" fill="#2a4a8a">✗ muet</text><text x="60" y="147" font-size="11" fill="#444" font-family="monospace">petit</text><text x="130" y="147" font-size="10" fill="#2a4a8a">✗ muet</text><text x="260" y="147" font-size="11" fill="#444" font-family="monospace">voix</text><text x="330" y="147" font-size="10" fill="#2a4a8a">✗ muet</text><text x="460" y="147" font-size="11" fill="#444" font-family="monospace">nez</text><text x="530" y="147" font-size="10" fill="#2a4a8a">✗ muet</text><text x="30" y="185" font-size="10" fill="#e74c3c" font-weight="600">Exceptions (prononcées) : r, f, l, c, q</text><text x="60" y="208" font-size="11" fill="#444" font-family="monospace">mer</text><text x="120" y="208" font-size="10" fill="#e74c3c">✓</text><text x="215" y="208" font-size="11" fill="#444" font-family="monospace">chef</text><text x="275" y="208" font-size="10" fill="#e74c3c">✓</text><text x="370" y="208" font-size="11" fill="#444" font-family="monospace">sol</text><text x="430" y="208" font-size="10" fill="#e74c3c">✓</text><text x="525" y="208" font-size="11" fill="#444" font-family="monospace">avec</text><text x="585" y="208" font-size="10" fill="#e74c3c">✓</text><text x="340" y="240" text-anchor="middle" font-size="9" fill="#666">En général, les consonnes d, p, s, t, x, z ne se prononcent pas en fin de mot.</text></svg>
+<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/><text x="340" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c3e50">Consonnes finales muettes</text><line x1="222" y1="32" x2="222" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><line x1="492" y1="32" x2="492" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><rect x="8" y="32" width="208" height="215" rx="8" fill="#8e44ad" opacity=".09" stroke="#8e44ad" stroke-width="0.8"/><circle cx="112" cy="115" r="52" fill="#8e44ad" opacity=".09"><animate attributeName="r" values="52;70;52" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="112" cy="115" r="48" fill="#8e44ad" opacity=".88"/><text x="112" y="125" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" font-family="monospace">-∅</text><text x="112" y="190" text-anchor="middle" font-size="10.5" fill="#8e44ad" font-weight="600">La plupart des consonnes finales ne se prononcent pas.</text><text x="112" y="207" text-anchor="middle" font-size="10.5" fill="#8e44ad" font-weight="600">Exceptions : r, l, f, c (RaLFaCe).</text><text x="357" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">GRAPHIE → SON</text><rect x="246" y="52" width="230" height="21" rx="5" fill="#8e44ad" opacity=".10"/><text x="253" y="67" font-size="10.5" fill="#8e44ad" font-weight="600" font-family="monospace">-t, -s, -x, -z, -d</text><text x="472" y="67" font-size="11" fill="#8e44ad" font-weight="700" font-family="monospace" text-anchor="end">→ ∅</text><rect x="246" y="78" width="230" height="21" rx="5" fill="#8e44ad" opacity=".10"/><text x="253" y="93" font-size="10.5" fill="#8e44ad" font-weight="600" font-family="monospace">-r, -l, -f, -c</text><text x="472" y="93" font-size="11" fill="#8e44ad" font-weight="700" font-family="monospace" text-anchor="end">→ prononcé</text><rect x="496" y="32" width="177" height="215" rx="8" fill="#8e44ad" opacity=".06" stroke="#8e44ad" stroke-width="0.5"/><text x="584" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">EXEMPLES</text><text x="546" y="66" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">vous [vu]</text><text x="546" y="94" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">grand [ɡʁɑ̃]</text><text x="546" y="122" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">concert [sɛʁ]</text><text x="546" y="150" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">beaucoup [boku]</text></svg>
         <details style="margin-top:8px;font-size:.85rem;color:var(--muted)">
           <summary style="cursor:pointer;color:var(--purp);font-weight:600">📌 Note</summary>
           <div style="margin-top:4px;line-height:1.5"><div class="phon-body">§ Phonétique — Les consonnes finales muettes
@@ -398,12 +457,12 @@ rendez-vous — soir.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
-    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(4)">🎤 Prononciation →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(3)">← Communiquer</button>
+    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(5)">🎤 Prononciation →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : PHONÉTIQUE 2/2 — PRONONCIATION ══ -->
-<div class="slide" id="slide-4">
+<div class="slide" id="slide-5">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-phon">🎤 Prononciation<span class="comm-zh"> · 发音练习</span>
@@ -420,12 +479,12 @@ rendez-vous — soir.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(3)">← Schéma</button>
-    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(5)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(4)">← Schéma</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(6)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
-<div class="slide" id="slide-5">
+<div class="slide" id="slide-6">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-gram">📖 Le futur proche — aller + infinitif<span class="comm-zh"> · 语法要点</span></div>
@@ -433,16 +492,16 @@ rendez-vous — soir.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(4)">← Phonétique</button>
-    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(6)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(5)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(7)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
-<div class="slide" id="slide-6">
+<div class="slide" id="slide-7">
   <div class="sub-nav">
     <button class="sub-nav-btn" disabled>←</button>
-    <span class="sub-nav-count">1 / 2</span>
-    <button class="sub-nav-btn" onclick="goSlide(7)">→</button>
+    <span class="sub-nav-count">1 / 3</span>
+    <button class="sub-nav-btn" onclick="goSlide(8)">→</button>
   </div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Conjuguez au futur proche <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
@@ -454,16 +513,16 @@ rendez-vous — soir.</div></div>
     <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Vos projets pour ce week-end <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Écrivez 5 phrases sur vos projets avec le futur proche : Samedi matin, je vais… L'après-midi, je vais… Samedi soir, nous allons… Dimanche, je vais… / Je ne vais pas…<span class="comm-zh"> · 用近将来时写5句关于您计划的句子</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(5)">← Grammaire</button>
-    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(7)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(8)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
-<div class="slide" id="slide-7">
+<div class="slide" id="slide-8">
   <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(6)">←</button>
-    <span class="sub-nav-count">2 / 2</span>
-    <button class="sub-nav-btn" disabled>→</button>
+    <button class="sub-nav-btn" onclick="goSlide(7)">←</button>
+    <span class="sub-nav-count">2 / 3</span>
+    <button class="sub-nav-btn" onclick="goSlide(9)">→</button>
   </div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Formes négative et interrogative <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez les phrases :<span class="comm-zh"> · 改写句子</span></div>
@@ -479,12 +538,109 @@ rendez-vous — soir.</div></div>
 <div class="blank-row">5. <span>À </span><input autocomplete="off" class="blank-input" id="bl-6C-ex4-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex4-4').click()" type="text"/><button class="check-btn" data-ans="bientôt" id="chk-bl-6C-ex4-4" onclick="checkBlankData(this,'bl-6C-ex4-4','fb-bl-6C-ex4-4')">✓</button><span class="fb" id="fb-bl-6C-ex4-4"></span><span> ! On se retrouve ce soir !</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(6)">← Préc.</button>
-    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(8)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(7)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(9)">✍️ À toi ! →</button>
   </div>
 </div>
 <!-- ══ SLIDE 8 : À TOI ! ══ -->
-<div class="slide" id="slide-8">
+  <!-- SLIDE 9: Exercices 3/3 -->
+  <div class="slide" id="slide-9">
+    <div class="slide-inner">
+      <div class="slide-header">Exercices <span class="slide-part">3/3</span></div>
+      <div class="ex-blocks">
+        <div class="ex-block">
+          <div class="ex-title">Ex. 5 — Sortir ou rester à la maison ? <span class="comm-zh">将每个活动归入正确的栏目。</span></div>
+          <p class="ex-inst">Classez chaque activité dans la bonne colonne.</p>
+          <div id="ex5-pool" class="ex5-pool">
+        <span class="drag-chip" data-cat="sortir" onclick="ex5Click(this)">aller au concert</span>
+        <span class="drag-chip" data-cat="rester" onclick="ex5Click(this)">regarder une série</span>
+        <span class="drag-chip" data-cat="sortir" onclick="ex5Click(this)">dîner au restaurant</span>
+        <span class="drag-chip" data-cat="rester" onclick="ex5Click(this)">lire</span>
+        <span class="drag-chip" data-cat="sortir" onclick="ex5Click(this)">voir des amis</span>
+        <span class="drag-chip" data-cat="rester" onclick="ex5Click(this)">cuisiner</span>
+        <span class="drag-chip" data-cat="sortir" onclick="ex5Click(this)">aller au cinéma</span>
+        <span class="drag-chip" data-cat="rester" onclick="ex5Click(this)">jouer aux jeux vidéo</span>
+          </div>
+          <div class="ex5-zones">
+            <div class="ex5-zone" id="zone-sortir" onclick="ex5Drop(this)">
+              <div class="ex5-zone-label">🎉 Sortir</div>
+              <div class="ex5-zone-items" id="zone-sortir-items"></div>
+            </div>
+            <div class="ex5-zone" id="zone-rester" onclick="ex5Drop(this)">
+              <div class="ex5-zone-label">🏠 Rester à la maison</div>
+              <div class="ex5-zone-items" id="zone-rester-items"></div>
+            </div>
+          </div>
+          <div class="ex5-actions">
+            <button class="btn-verify" onclick="checkEx5()">Vérifier ✔</button>
+            <button class="btn-reset" onclick="resetEx5()">↺ Réessayer</button>
+            <span class="ex5-score" id="ex5-score-6C"></span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <div class="ex-title">Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确的近将来时形式。</span></div>
+          <p class="ex-inst">Choisissez la bonne forme du futur proche.</p>
+          <div class="listen-list">
+          <div class="listen-item" data-ans="vais">
+            <div class="listen-sentence">Je <span class="listen-blank">___</span> aller au concert.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Je vais aller au concert.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="vais" onclick="checkEx6(this)">vais</button>
+              <button class="choice-btn" data-val="vas" onclick="checkEx6(this)">vas</button>
+              <button class="choice-btn" data-val="va" onclick="checkEx6(this)">va</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="va">
+            <div class="listen-sentence">Il <span class="listen-blank">___</span> venir avec sa sœur.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Il va venir avec sa sœur.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="va" onclick="checkEx6(this)">va</button>
+              <button class="choice-btn" data-val="vais" onclick="checkEx6(this)">vais</button>
+              <button class="choice-btn" data-val="allons" onclick="checkEx6(this)">allons</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="va">
+            <div class="listen-sentence">Zoé ne <span class="listen-blank">___</span> pas pouvoir venir.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Zoé ne va pas pouvoir venir.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="va" onclick="checkEx6(this)">va</button>
+              <button class="choice-btn" data-val="vais" onclick="checkEx6(this)">vais</button>
+              <button class="choice-btn" data-val="allons" onclick="checkEx6(this)">allons</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="allons">
+            <div class="listen-sentence">Nous <span class="listen-blank">___</span> être quatre au concert.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Nous allons être quatre au concert.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="allons" onclick="checkEx6(this)">allons</button>
+              <button class="choice-btn" data-val="vais" onclick="checkEx6(this)">vais</button>
+              <button class="choice-btn" data-val="va" onclick="checkEx6(this)">va</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="va">
+            <div class="listen-sentence">On <span class="listen-blank">___</span> dîner avant le concert.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'On va dîner avant le concert.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="va" onclick="checkEx6(this)">va</button>
+              <button class="choice-btn" data-val="vais" onclick="checkEx6(this)">vais</button>
+              <button class="choice-btn" data-val="allons" onclick="checkEx6(this)">allons</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <button onclick="goSlide(8)">← Exercices 2/3</button>
+      <button onclick="goSlide(10)">À toi →</button>
+    </div>
+  </div>
+<div class="slide" id="slide-10">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
@@ -498,7 +654,7 @@ Leçon 6C · On sort ce soir ? · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(7)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(9)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='7A_slides.html'">7A →</button>
   </div>
 </div>
@@ -538,10 +694,12 @@ Leçon 6C · On sort ce soir ? · A1</div>
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var LESSON='6C';
-var TAB_FOR_SLIDE=[0, 1, 2, 3, 3, 4, 5, 5, 6];
+var TAB_FOR_SLIDE=[0,1,1,2,3,3,4,5,5,5,6];
 
 var currentSlide=0;
-function goSlide(n){
+
+    function playEx6TTS(btn,text){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.85;u.onend=function(){btn.innerHTML='🔊';};u.onerror=function(){btn.innerHTML='🔊';};window.speechSynthesis.speak(u);}
+    function goSlide(n){
   if(n===currentSlide)return;
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;
   slides[currentSlide].classList.remove('s-active');
