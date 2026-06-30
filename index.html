@@ -440,7 +440,7 @@
 </div>
 <script>
 (function(){
-  if(sessionStorage.getItem('fle_auth')==='1'){
+  if(localStorage.getItem('fle_auth')==='1'){
     document.getElementById('gate-overlay').style.display='none';
     return;
   }
@@ -449,7 +449,7 @@
 function checkGate(){
   var v=document.getElementById('gate-pwd').value;
   if(v==='FLE2026'){
-    sessionStorage.setItem('fle_auth','1');
+    localStorage.setItem('fle_auth','1');
     document.getElementById('gate-overlay').style.display='none';
     document.body.style.overflow='';
   }else{
