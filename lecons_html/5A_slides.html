@@ -57,7 +57,7 @@ a{color:var(--blue);text-decoration:none}
 .head-dialogue{background:var(--purp-l);color:var(--purp)}
 .head-compr{background:#fef3cd;color:#856404}
 .head-vocab{background:var(--blue-l);color:var(--blue)}
-.head-gram{background:var(--green-l);color:var(--green)}
+.head-gram{background:#fffbeb;color:#92400e}
 .head-ex{background:var(--orange-l);color:var(--orange)}
 .head-comm{background:var(--purp-l);color:var(--purp)}
 .head-phon{background:#e8f8f5;color:#1abc9c}
@@ -118,14 +118,15 @@ body.lang-zh .vocab-zh,body.lang-zh .comm-zh{display:block}
 body.lang-zh .prod-zh{display:block}
 .prod-zh{display:none}
 /* GRAMMAIRE */
-.gram-rule{border:1.5px solid #d97706;border-radius:9px;overflow:hidden;margin-bottom:8px}
-.gram-rule-head{background:#d97706;color:#fff;font-size:.72rem;font-weight:700;padding:3px 10px;letter-spacing:.3px;text-transform:uppercase}
-.gram-rule-body{font-size:.82rem;line-height:1.55;padding:6px 10px;color:#78350f;background:#fffbeb}
-.gram-table{width:100%;border-collapse:collapse;margin-bottom:6px;font-size:.8rem}
-.gram-table td,.gram-table th{border:1px solid #fde68a;padding:5px 9px}
+.gram-rule{border:1.5px solid #d97706;border-radius:9px;overflow:hidden;margin-bottom:9px}
+.gram-rule-head{background:#d97706;color:#fff;font-size:.72rem;font-weight:700;padding:4px 11px;letter-spacing:.3px;text-transform:uppercase}
+.gram-rule-body{font-size:.82rem;line-height:1.6;padding:8px 11px;color:#78350f;background:#fffbeb}
+.gram-table{width:100%;border-collapse:collapse;margin-bottom:8px;font-size:.8rem}
+.gram-table td,.gram-table th{border:1px solid #fde68a;padding:6px 10px}
 .gram-table th{background:#d97706;color:#fff;font-weight:700}
 .gram-table td:first-child{font-weight:700;color:#92400e}
-.gram-ex{font-size:.8rem;color:var(--muted);line-height:1.5;padding:5px 10px;border-left:3px solid #fbbf24;margin-bottom:5px}
+.gram-ex{font-size:.8rem;color:var(--muted);line-height:1.55;padding:6px 11px;border-left:3px solid #fbbf24;margin-bottom:7px}
+.gram-sep{border:none;border-top:2px dashed #fde68a;margin:10px 0}
 /* GRAMMAIRE INTERACTIVE (flashcards ambrées) */
 .gram-table.gram-fc tbody td{position:relative;transition:color .15s,background .15s;user-select:none}
 .gram-table.gram-fc tbody td:not(.gram-pf):not(.gram-v){cursor:pointer;color:transparent!important;background:#fef9ee}
@@ -137,6 +138,7 @@ body.lang-zh .prod-zh{display:block}
 .gram-sc-btn{font-size:.7rem;padding:3px 10px;border-radius:12px;border:1px solid #d97706;background:transparent;color:#b45309;cursor:pointer}
 .gram-sc-btn:active{background:#fffbeb}
 .gram-qcm{margin-top:6px;border-top:2px dashed #fbbf24;padding-top:6px}
+.gram-qcm-label{font-size:.76rem;font-weight:700;color:#92400e;margin-bottom:5px;letter-spacing:.2px}
 .gram-qcm-prog{font-size:.72rem;color:#b45309;font-weight:600;margin-bottom:4px}
 .gram-qcm-q{font-size:.81rem;font-weight:700;margin-bottom:6px;color:#78350f}
 .gram-qcm-opts{display:flex;gap:7px;flex-wrap:wrap}
@@ -540,7 +542,7 @@ Exercice Distinguez : dessous / dessus — pour / pur — roue / rue — doux / 
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-gram">📖 Les articles partitifs — du, de la, de l', des<span class="comm-zh"> · 语法要点</span></div>
-      <div class="card-body"><div class="gram-rule"><div class="gram-rule-head">Règle</div><div class="gram-rule-body">Les <strong>articles partitifs</strong> — désigner une quantité indéfinie</div></div><table class="gram-table gram-fc"><thead><tr><th>Genre / Nombre</th><th>Article</th><th>Exemple</th></tr></thead><tbody><tr><td>Masculin singulier</td><td>du (= de + le)</td><td>Je mange <em>du</em> pain.</td></tr><tr><td>Féminin singulier</td><td>de la</td><td>Elle boit <em>de la</em> limonade.</td></tr><tr><td>Devant voyelle / h muet</td><td>de l'</td><td>Il prend <em>de l’</em>eau.</td></tr><tr><td class="gram-pf">Pluriel</td><td class="gram-pf">des</td><td class="gram-pf">Nous avons <em>des</em> fruits.</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn" onclick="hideGram()">🙈 Masquer</button><button class="gram-sc-btn" onclick="revealGram()">👁 Révéler</button></div><div class="gram-ex">• Avec une négation : Je mange du pain → Je ne mange <em>pas de</em> pain.<br/>• Avec une quantité : un kilo <em>de</em> farine · une bouteille <em>d’</em>eau.</div><div class="gram-qcm" id="gram-qcm-box" data-idx="0"><div class="gram-qcm-prog"></div><div class="gram-qcm-q"></div><div class="gram-qcm-opts"></div><span class="gram-qcm-fb"></span><button class="gram-qcm-next" onclick="_gramQcmNext()">Suivant →</button></div><script>var _gramQcmData=[{"q": "Je voudrais ___ lait.", "opts": ["le", "un", "du"], "ans": "du"}, {"q": "Elle mange ___ pain.", "opts": ["du", "de la", "de l'"], "ans": "du"}, {"q": "Il boit ___ eau.", "opts": ["du", "de la", "de l'"], "ans": "de l'"}, {"q": "Vous prenez ___ sucre ?", "opts": ["du", "de la", "des"], "ans": "du"}, {"q": "Je mange ___ soupe.", "opts": ["du", "de la", "des"], "ans": "de la"}];</script></div>
+      <div class="card-body"><div class="gram-rule"><div class="gram-rule-head">Règle</div><div class="gram-rule-body">Les <strong>articles partitifs</strong> — désigner une quantité indéfinie</div></div><table class="gram-table gram-fc"><thead><tr><th>Genre / Nombre</th><th>Article</th><th>Exemple</th></tr></thead><tbody><tr><td>Masculin singulier</td><td>du (= de + le)</td><td>Je mange <em>du</em> pain.</td></tr><tr><td>Féminin singulier</td><td>de la</td><td>Elle boit <em>de la</em> limonade.</td></tr><tr><td>Devant voyelle / h muet</td><td>de l'</td><td>Il prend <em>de l’</em>eau.</td></tr><tr><td class="gram-pf">Pluriel</td><td class="gram-pf">des</td><td class="gram-pf">Nous avons <em>des</em> fruits.</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn" onclick="hideGram()">🙈 Masquer</button><button class="gram-sc-btn" onclick="revealGram()">👁 Révéler</button></div><div class="gram-ex">• Avec une négation : Je mange du pain → Je ne mange <em>pas de</em> pain.<br/>• Avec une quantité : un kilo <em>de</em> farine · une bouteille <em>d’</em>eau.</div><div class="gram-qcm" id="gram-qcm-box" data-idx="0"><div class="gram-qcm-label">🎯 Pratique — Articles partitifs</div><div class="gram-qcm-prog"></div><div class="gram-qcm-q"></div><div class="gram-qcm-opts"></div><span class="gram-qcm-fb"></span><button class="gram-qcm-next" onclick="_gramQcmNext()">Suivant →</button></div><script>var _gramQcmData=[{"q": "Je voudrais ___ lait.", "opts": ["le", "un", "du"], "ans": "du"}, {"q": "Elle mange ___ pain.", "opts": ["du", "de la", "de l'"], "ans": "du"}, {"q": "Il boit ___ eau.", "opts": ["du", "de la", "de l'"], "ans": "de l'"}, {"q": "Vous prenez ___ sucre ?", "opts": ["du", "de la", "des"], "ans": "du"}, {"q": "Je mange ___ soupe.", "opts": ["du", "de la", "des"], "ans": "de la"}];</script></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
