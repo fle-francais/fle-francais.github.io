@@ -373,23 +373,21 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 
 <!-- NAV TABS -->
 <nav class="slide-nav" id="slide-nav">
-  <button class="slide-tab active" data-fr="🔤 Alphabet" data-zh="🔤 字母表" onclick="goSlide(0)">🔤 Alphabet</button>
-  <button class="slide-tab" data-fr="🔢 Chiffres" data-zh="🔢 数字" onclick="goSlide(1)">🔢 Chiffres</button>
-  <button class="slide-tab" data-fr="📅 Jours" data-zh="📅 星期" onclick="goSlide(2)">📅 Jours</button>
-  <button class="slide-tab" data-fr="🗓️ Mois" data-zh="🗓️ 月份" onclick="goSlide(3)">🗓️ Mois</button>
-  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(4)">✏️ Exercices</button>
-  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(5)">✍️ À toi !</button>
+  <button class="slide-tab active" data-fr="🔤 Alphabet &amp; Chiffres" data-zh="🔤 字母 &amp; 数字" onclick="goSlide(0)">🔤 Alphabet &amp; Chiffres</button>
+  <button class="slide-tab" data-fr="📅 Jours &amp; Mois" data-zh="📅 星期 &amp; 月份" onclick="goSlide(1)">📅 Jours &amp; Mois</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(2)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(3)">✍️ À toi !</button>
 </nav>
 
 <!-- SLIDES VIEWPORT -->
 <div class="slides-viewport" id="slides-vp">
 
-<!-- SLIDE 0 : Alphabet -->
+<!-- SLIDE 0 : Alphabet & Chiffres -->
 <div class="slide" id="slide-0">
-  <div class="slide-body" style="display:flex;flex-direction:column">
-    <div class="card" style="flex:1;display:flex;flex-direction:column">
+  <div class="slide-body" style="display:flex;flex-direction:column;gap:10px">
+    <div class="card" style="flex-shrink:0">
       <div class="card-head" style="background:#e8f8f5;color:#16a085">🔤 L'alphabet français<span class="comm-zh"> · 法语字母表</span></div>
-      <div class="card-body u0-card-wrap">
+      <div class="card-body">
         <p class="u0-inst" data-fr="Cliquez sur une lettre pour entendre son nom." data-zh="点击字母听它的名称。">Cliquez sur une lettre pour entendre son nom.</p>
         <div class="alpha-detail" id="alpha-detail">
           <div class="alpha-detail-letter" id="alpha-dl"></div>
@@ -399,35 +397,25 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
         <div class="alpha-grid" id="alpha-grid"></div>
       </div>
     </div>
-  </div>
-  <div class="slide-footer">
-    <button class="btn-ns" data-fr="🔢 Chiffres →" data-zh="🔢 数字 →" onclick="goSlide(1)">🔢 Chiffres →</button>
-  </div>
-</div>
-
-<!-- SLIDE 1 : Chiffres -->
-<div class="slide" id="slide-1">
-  <div class="slide-body" style="display:flex;flex-direction:column">
-    <div class="card" style="flex:1;display:flex;flex-direction:column">
+    <div class="card" style="flex-shrink:0">
       <div class="card-head" style="background:var(--blue-l);color:var(--blue)">🔢 Les chiffres de 1 à 31<span class="comm-zh"> · 1至31的数字</span></div>
-      <div class="card-body u0-card-wrap">
+      <div class="card-body">
         <p class="u0-inst" data-fr="Cliquez sur un nombre pour l'entendre." data-zh="点击数字来听它的发音。">Cliquez sur un nombre pour l'entendre.</p>
         <div class="chiffres-grid" id="chiffres-grid"></div>
       </div>
     </div>
   </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Alphabet" data-zh="← 字母表" onclick="goSlide(0)">← Alphabet</button>
-    <button class="btn-ns" data-fr="📅 Jours →" data-zh="📅 星期 →" onclick="goSlide(2)">📅 Jours →</button>
+  <div class="slide-footer">
+    <button class="btn-ns" data-fr="📅 Jours &amp; Mois →" data-zh="📅 星期 &amp; 月份 →" onclick="goSlide(1)">📅 Jours &amp; Mois →</button>
   </div>
 </div>
 
-<!-- SLIDE 2 : Jours -->
-<div class="slide" id="slide-2">
-  <div class="slide-body" style="display:flex;flex-direction:column">
-    <div class="card" style="flex:1;display:flex;flex-direction:column">
+<!-- SLIDE 1 : Jours & Mois -->
+<div class="slide" id="slide-1">
+  <div class="slide-body" style="display:flex;flex-direction:column;gap:10px">
+    <div class="card" style="flex-shrink:0">
       <div class="card-head" style="background:var(--purp-l);color:var(--purp)">📅 Les jours de la semaine<span class="comm-zh"> · 一周的各天</span></div>
-      <div class="card-body u0-card-wrap">
+      <div class="card-body">
         <p class="u0-inst" data-fr="Cliquez sur un jour pour voir la traduction et l'entendre." data-zh="点击星期查看翻译并收听发音。">Cliquez sur un jour pour voir la traduction et l'entendre.</p>
         <div class="jours-grid" id="jours-grid"></div>
         <div style="font-size:.8rem;color:var(--muted);margin-top:8px">
@@ -436,32 +424,22 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
         </div>
       </div>
     </div>
-  </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Chiffres" data-zh="← 数字" onclick="goSlide(1)">← Chiffres</button>
-    <button class="btn-ns" data-fr="🗓️ Mois →" data-zh="🗓️ 月份 →" onclick="goSlide(3)">🗓️ Mois →</button>
-  </div>
-</div>
-
-<!-- SLIDE 3 : Mois -->
-<div class="slide" id="slide-3">
-  <div class="slide-body" style="display:flex;flex-direction:column">
-    <div class="card" style="flex:1;display:flex;flex-direction:column">
+    <div class="card" style="flex-shrink:0">
       <div class="card-head" style="background:var(--orange-l);color:var(--orange)">🗓️ Les mois de l'année<span class="comm-zh"> · 一年的各月</span></div>
-      <div class="card-body u0-card-wrap">
+      <div class="card-body">
         <p class="u0-inst" data-fr="Cliquez sur un mois pour voir la saison et la traduction." data-zh="点击月份查看季节和翻译。">Cliquez sur un mois pour voir la saison et la traduction.</p>
         <div class="mois-grid" id="mois-grid"></div>
       </div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Jours" data-zh="← 星期" onclick="goSlide(2)">← Jours</button>
-    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(4)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Alphabet &amp; Chiffres" data-zh="← 字母 &amp; 数字" onclick="goSlide(0)">← Alphabet &amp; Chiffres</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(2)">✏️ Exercices →</button>
   </div>
 </div>
 
-<!-- SLIDE 4 : Exercices -->
-<div class="slide" id="slide-4">
+<!-- SLIDE 2 : Exercices -->
+<div class="slide" id="slide-2">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-ex">✏️ Exercices<span class="comm-zh"> · 练习</span></div>
@@ -515,13 +493,13 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Mois" data-zh="← 月份" onclick="goSlide(3)">← Mois</button>
-    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了 →" onclick="goSlide(5)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Jours &amp; Mois" data-zh="← 星期 &amp; 月份" onclick="goSlide(1)">← Jours &amp; Mois</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了 →" onclick="goSlide(3)">✍️ À toi ! →</button>
   </div>
 </div>
 
-<!-- SLIDE 5 : À toi! -->
-<div class="slide" id="slide-5">
+<!-- SLIDE 3 : À toi! -->
+<div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
@@ -544,7 +522,7 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:flex-start">
-    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(4)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(2)">← Exercices</button>
   </div>
 </div>
 
@@ -641,9 +619,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModa
   function playLine(idx){if(idx>=rows.length){rows.forEach(function(r){r.classList.remove('dl-playing');});setState('play');playing=false;paused=false;ca=null;return;}playing=true;paused=false;setState('pause');rows.forEach(function(r,i){r.classList.remove('dl-playing');r.querySelectorAll('.dl-word').forEach(function(w){w.classList.remove('dl-lit');});if(i<idx)r.classList.add('dl-played');else r.classList.remove('dl-played');});rows[idx].classList.add('dl-playing');rows[idx].scrollIntoView({behavior:'smooth',block:'nearest'});var audio=pool[idx];audio.currentTime=0;ca=audio;var words=Array.from(rows[idx].querySelectorAll('.dl-word'));if(rafId){cancelAnimationFrame(rafId);rafId=null;}function tick(){if(!audio.paused&&!audio.ended&&audio.duration){var t=audio.currentTime,p=Math.max(0,Math.min(1,(t/audio.duration-0.06)/0.88+0.03)),lit=0;var tc=words.map(function(w,wi){var cum=0;for(var j=0;j<=wi;j++)cum+=Math.max(words[j].textContent.trim().length,1);return cum;});var tot=tc[tc.length-1]||1;for(var ti=0;ti<tc.length;ti++){if(p>=tc[ti]/tot)lit=ti+1;}words.forEach(function(w,wi){w.classList.toggle('dl-lit',wi<lit);});}if(!audio.ended)rafId=requestAnimationFrame(tick);}rafId=requestAnimationFrame(tick);audio.onended=function(){cancelAnimationFrame(rafId);rafId=null;playLine(idx+1);};audio.onerror=function(){cancelAnimationFrame(rafId);rafId=null;playLine(idx+1);};audio.play().catch(function(e){console.warn('audio:',e);});}
 })();
 
-var TAB_FOR_SLIDE=[0,1,2,3,4,5];
+var TAB_FOR_SLIDE=[0,1,2,3];
 var _CUR=0;
-var _N=6;
+var _N=4;
 function goSlide(n){
   if(n<0||n>=_N)return;
   document.querySelectorAll('.slide').forEach(function(s,i){s.style.transform='translateX('+(i-n)*100+'%)'});
