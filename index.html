@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-  <script>if(new URLSearchParams(location.search).get('level')){document.write('<style>#home{display:none!important}</style>');}</script>
+  <script>(function(){var lp=new URLSearchParams(location.search).get('level');if(lp){document.write('<style>#home{display:none!important}.level-page#level-'+lp+'{display:block!important}.tab-content.active{display:block!important}</style>');}})()</script>
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
   <link rel="icon" href="icons/icon-192.png" type="image/png">
