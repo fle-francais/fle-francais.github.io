@@ -7,13 +7,16 @@
 <title>Leçon 3B — Une journée ordinaire | FrançaisPlus A1</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#1c2e5a;--purp-l:#e6ecf6;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
+:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#8e44ad;--purp-l:#f5eef8;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
 body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);font-size:14px;height:100vh;overflow:hidden;display:flex;flex-direction:column}
 a{color:var(--blue);text-decoration:none}
 /* HEADER */
-.page-header{background:linear-gradient(135deg,#0d1b32,#2a4a8a);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.page-header{background:linear-gradient(135deg,var(--purp),#c0392b);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
 .ph-back{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
 .ph-back:hover{background:rgba(255,255,255,.2)}
+.ph-lvl{padding:4px 8px;border-radius:14px;border:2px solid rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.1);font-size:.72rem;font-weight:700;cursor:pointer;appearance:none;-webkit-appearance:none;outline:none}
+.ph-lvl:hover{background:rgba(255,255,255,.22)}
+.ph-lvl option{color:#222;background:#fff}
 .ph-title{font-size:.88rem;font-weight:800;flex:1}
 .ph-sub{font-size:.68rem;opacity:.8}
 .ph-next,.ph-prev{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
@@ -44,7 +47,7 @@ a{color:var(--blue);text-decoration:none}
 /* SLIDE FOOTER */
 .slide-footer{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:8px 0 0;margin-top:auto;flex-shrink:0}
 .btn-ns{padding:7px 16px;border:none;border-radius:20px;background:var(--purp);color:#fff;font-weight:700;font-size:.78rem;cursor:pointer;transition:background .15s,transform .1s;display:inline-flex;align-items:center;gap:5px}
-.btn-ns:hover{background:#2a4a8a}
+.btn-ns:hover{background:#7d3c98}
 .btn-ns:active{transform:scale(.97)}
 /* SCROLLABLE BODY */
 .slide-body{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column;justify-content:flex-start;padding-top:4px}
@@ -72,7 +75,7 @@ a{color:var(--blue);text-decoration:none}
 .dl-speaker{font-weight:800;font-size:.68rem;color:var(--purp);text-transform:uppercase;letter-spacing:.4px;padding-top:1px;line-height:1.4;overflow-wrap:break-word;word-break:break-word}
 .dl-line{font-size:.84rem;line-height:1.4;color:var(--text)}
 .dl-word{display:inline;border-radius:2px;padding:0 1px;transition:background .3s,color .3s}
-.dl-word.dl-lit{background:#c8d8f0;color:#1c2e5a}
+.dl-word.dl-lit{background:#d7bff5;color:#6c3483}
 .dl-wave{display:none;align-items:center;gap:2px;height:10px;margin-left:4px;vertical-align:middle}
 .dl-row.dl-playing .dl-wave{display:inline-flex}
 .dl-wave span{width:2px;border-radius:2px;background:var(--purp);display:inline-block;animation:dlwv .7s ease-in-out infinite}
@@ -87,7 +90,7 @@ a{color:var(--blue);text-decoration:none}
 .dialogue.dl-zh-on .dl-zh-line{display:block}
 /* Bouton lecture dialogue (injecté par JS) */
 .dl-play-btn{display:inline-flex;align-items:center;gap:7px;background:var(--purp);color:#fff;border:none;border-radius:18px;padding:7px 16px;font-size:.8rem;font-weight:700;cursor:pointer;margin-bottom:9px;transition:background .15s}
-.dl-play-btn:hover{background:#2a4a8a}
+.dl-play-btn:hover{background:#7d3c98}
 /* Bouton 中 propre au dialogue (injecté par JS) */
 .dl-zh-btn{border:2px solid var(--purp);color:var(--purp);background:none;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:700;cursor:pointer;flex-shrink:0;transition:all .15s}
 .dl-zh-btn:hover,.dl-zh-btn.zactive{background:var(--purp);color:#fff}
@@ -161,7 +164,7 @@ body.lang-zh .prod-zh{display:block}
 .fb.ko{color:#e74c3c}
 .verify-bar{display:flex;gap:7px;margin-top:10px;align-items:center;flex-wrap:wrap}
 .btn-verify{padding:5px 16px;border-radius:18px;border:none;background:var(--purp);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap;transition:background .15s}
-.btn-verify:hover{background:#2a4a8a}
+.btn-verify:hover{background:#7d3c98}
 .btn-restart{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap}
 .btn-restart:hover{background:#7f8c8d}
 .check-btn-global{padding:5px 16px;border-radius:18px;border:none;background:var(--orange);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
@@ -281,11 +284,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 }
 /* ── PRONONCIATION SLIDE ── */
 .prono-item{background:#fff;border:1px solid #e8e0f5;border-radius:8px;padding:10px 12px;margin-bottom:8px}
-.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#2a4a8a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#7d3c98;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
 .prono-phrase{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:7px}
 .prono-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
 .prono-btn{padding:5px 12px;border:none;border-radius:20px;cursor:pointer;font-size:.82rem;font-weight:600;transition:background .15s}
-.prono-btn-listen{background:#f0e6ff;color:#2a4a8a}
+.prono-btn-listen{background:#f0e6ff;color:#7d3c98}
 .prono-btn-listen:hover{background:#e0ccff}
 .prono-btn-mic{background:#d8f5ef;color:#16a085}
 .prono-btn-mic:hover{background:#b0e8d8}
@@ -302,37 +305,22 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .prono-heard{font-size:.78rem;color:var(--muted);font-style:italic}
 .prono-no-support{background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#856404;margin-bottom:8px}
 /* ── SUB-NAV (phonétique 1/2 · 2/2) ── */
-.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#2a4a8a}
+.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#7d3c98}
 .phon-sub-header span{opacity:.7;font-weight:400}
 
-
-.slide-inner{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column}
-.slide-header{background:var(--purp);color:#fff;font-weight:700;font-size:.82rem;padding:5px 13px;border-radius:7px;margin-bottom:6px;letter-spacing:.3px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
-.slide-part{font-weight:400;opacity:.8;font-size:.78rem}
-.slide-badge{font-size:.72rem;opacity:.75;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
-.qcm-block{overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:6px;min-height:0}
-.qcm-items{display:flex;flex-direction:column;gap:7px}
-.qcm-item{background:#fff;border-radius:8px;padding:8px 10px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
-.qcm-actions{display:flex;align-items:center;gap:10px;margin-top:8px;padding-top:6px;border-top:1px solid #eee;flex-shrink:0}
-.ex-blocks{display:flex;flex-direction:column;gap:8px;flex:1;min-height:0;overflow-y:auto}
-.ex-block{background:#fff;border-radius:10px;padding:9px 12px;box-shadow:0 1px 5px rgba(0,0,0,.06)}
-.ex-title{font-weight:700;font-size:.84rem;color:var(--purp);margin-bottom:2px;display:flex;justify-content:space-between;align-items:baseline}
-.ex-badge{font-size:.7rem;font-weight:600;color:var(--muted);opacity:.8}
-.ex-inst{margin:2px 0 6px;font-size:.8rem;color:var(--muted);font-style:italic}
-.btn-reset{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
-.head-ex{background:#fff!important;color:var(--purp)!important}
-.head-compr{background:#fff!important;color:var(--purp)!important}
-.head-prod{background:#fff!important;color:var(--purp)!important}
-.ex-cat-badge{color:var(--muted)!important;font-weight:600}
-.ex5-actions{margin-top:8px}
-.prod-box{background:var(--purp-l)!important;border-left:4px solid var(--purp)!important}
-.prod-input{border:2px solid var(--purp)!important}
-#slide-7 .slide-body,#slide-8 .slide-body{justify-content:flex-start;gap:8px;overflow-y:auto}
 </style>
 </head>
 <body>
 <header class="page-header">
-  <a class="ph-back" href="../index.html">🏠</a>
+  <a class="ph-back" href="../index.html?level=A1" title="Retour aux leçons A1">🏠</a>
+  <select class="ph-lvl" title="Changer de niveau" onchange="location.href='../index.html?level='+this.value">
+    <option value="A1" selected>A1</option>
+    <option value="A2">A2</option>
+    <option value="B1">B1</option>
+    <option value="B2">B2</option>
+    <option value="C1">C1</option>
+    <option value="C2">C2</option>
+  </select>
   <div style="flex:1"><div class="ph-title">Une journée ordinaire</div><div class="ph-sub">Leçon 3B · A1</div></div>
   <div class="ph-lang">
     <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')" title="Français"><img src="../icons/flag-fr.svg" alt="FR"/></button>
@@ -344,11 +332,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <nav class="slide-nav" id="slide-nav">
   <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
   <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(3)">🗣️ Communiquer</button>
-  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(4)">🎵 Phonétique</button>
-  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
-  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(7)">✏️ Exercices</button>
-  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(10)">✍️ À toi !</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(5)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(6)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(8)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -382,93 +370,34 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
-  <!-- SLIDE 1: Comprendre 1/2 -->
-  <div class="slide" id="slide-1">
-    <div class="slide-inner">
-      <div class="slide-header">Comprendre <span class="slide-part">1/2</span></div>
-      <div class="qcm-block">
-        <div class="qcm-items">
-        <div class="qcm-item">
-          <div class="qcm-q">1. À quelle heure Hana se lève-t-elle ? <span class="comm-zh">Hana几点起床？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) À 6h</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) À 7h</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) À 8h</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">2. À quelle heure prend-elle le métro ? <span class="comm-zh">她几点坐地铁？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) À 7h45</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) À 9h</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) À 8h15</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">3. Combien de temps dure son trajet ? <span class="comm-zh">她的通勤时间多长？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) 20 minutes</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) 45 minutes</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) 35 minutes</button>
-          </div>
-        </div>
-        </div>
-        <div class="qcm-actions">
-          <button class="btn-verify" onclick="verifyQCM('qcm-score-3B-1')">Vérifier ✔</button>
-          <button class="btn-reset" onclick="resetQCM('qcm-score-3B-1')">↺ Recommencer</button>
-          <span class="qcm-score" id="qcm-score-3B-1"></span>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer" style="justify-content:space-between">
-      <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
-      <button class="btn-ns" onclick="goSlide(2)">Comprendre 2/2 →</button>
+<div class="slide" id="slide-1">
+  <div class="slide-body">
+    <div class="card">
+      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
+      <div class="card-body"><div class="compr-item">
+<div class="compr-q">À quelle heure Hana prend-elle le métro ?</div>
+<button class="btn-reveal" onclick="revealAnswer('ca-3B-0')">Voir</button>
+<div class="compr-a" id="ca-3B-0">À 8h15.</div>
+</div>
+<div class="compr-item">
+<div class="compr-q">Combien de temps dure son trajet ?</div>
+<button class="btn-reveal" onclick="revealAnswer('ca-3B-1')">Voir</button>
+<div class="compr-a" id="ca-3B-1">35 minutes.</div>
+</div>
+<div class="compr-item">
+<div class="compr-q">Que fait-elle le week-end de différent ?</div>
+<button class="btn-reveal" onclick="revealAnswer('ca-3B-2')">Voir</button>
+<div class="compr-a" id="ca-3B-2">Elle se lève tard et flâne dans Paris.</div>
+</div></div>
     </div>
   </div>
-  <!-- SLIDE 2: Comprendre 2/2 -->
-  <div class="slide" id="slide-2">
-    <div class="slide-inner">
-      <div class="slide-header">Comprendre <span class="slide-part">2/2</span></div>
-      <div class="qcm-block">
-        <div class="qcm-items">
-        <div class="qcm-item">
-          <div class="qcm-q">4. De quelle heure à quelle heure travaille-t-elle ? <span class="comm-zh">她几点到几点工作？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) De 8h à 17h</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) De 9h à 18h</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) De 9h à 17h</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">5. Que fait-elle le soir pour se relaxer ? <span class="comm-zh">她晚上怎么放松？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Elle fait du sport</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Elle lit et regarde une série</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Elle sort avec des amis</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">6. À quelle heure se couche-t-elle ? <span class="comm-zh">她几点睡觉？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) À 22h</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) À 23h</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) À minuit</button>
-          </div>
-        </div>
-        </div>
-        <div class="qcm-actions">
-          <button class="btn-verify" onclick="verifyQCM('qcm-score-3B-2')">Vérifier ✔</button>
-          <button class="btn-reset" onclick="resetQCM('qcm-score-3B-2')">↺ Recommencer</button>
-          <span class="qcm-score" id="qcm-score-3B-2"></span>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer" style="justify-content:space-between">
-      <button class="btn-ns" onclick="goSlide(1)">← Comprendre 1/2</button>
-      <button class="btn-ns" onclick="goSlide(3)">Communiquer →</button>
-    </div>
+  <div class="slide-footer" style="justify-content:space-between">
+    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
+    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
   </div>
-<div class="slide" id="slide-3">
+</div>
+<!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
+<div class="slide" id="slide-2">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
@@ -480,19 +409,19 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(2)">← Comprendre</button>
-    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(4)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE 1/2 — SCHÉMA ══ -->
-<div class="slide" id="slide-4">
+<div class="slide" id="slide-3">
   <div class="slide-body" style="display:flex;flex-direction:column">
     <div class="card" style="flex:1;display:flex;flex-direction:column">
       <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span>
         <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">1 / 2</span>
       </div>
       <div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:8px">
-<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/><text x="340" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c3e50">[s] vs [z]</text><line x1="220" y1="32" x2="220" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><line x1="460" y1="32" x2="460" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><rect x="8" y="32" width="208" height="215" rx="8" fill="#f0e6ff" stroke="#2a4a8a" stroke-width="0.8" opacity=".85"/><circle cx="112" cy="95" r="44" fill="#2a4a8a" opacity=".09"><animate attributeName="r" values="44;60;44" dur="2.4s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.4s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="112" cy="95" r="40" fill="#2a4a8a" opacity=".9"/><text x="112" y="103" text-anchor="middle" font-size="23" font-weight="700" fill="#fff" font-family="monospace">[s]</text><text x="112" y="148" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a4a8a">sourd</text><rect x="22" y="156" width="180" height="20" rx="5" fill="#2a4a8a" opacity=".12"/><text x="112" y="170" text-anchor="middle" font-size="10" fill="#2a4a8a" font-weight="600">s, ss, c, ç</text><text x="112" y="196" text-anchor="middle" font-size="10" fill="#666">sans vibration vocale</text><text x="112" y="220" text-anchor="middle" font-size="9.5" fill="#777" font-style="italic">soupe · classe · poisson</text><text x="340" y="48" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">GRAPHIE → SON</text><rect x="228" y="52" width="224" height="18" rx="5" fill="#2a4a8a" opacity=".10"/><text x="234" y="65" font-size="10" fill="#2a4a8a" font-weight="600" font-family="monospace">s, ss, c, ç</text><text x="448" y="65" font-size="11" fill="#2a4a8a" font-weight="700" font-family="monospace" text-anchor="end">[s]</text><line x1="232" y1="132" x2="448" y2="132" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="3,3"/><text x="340" y="144" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">≠</text><rect x="228" y="148" width="224" height="18" rx="5" fill="#16a085" opacity=".10"/><text x="234" y="161" font-size="10" fill="#16a085" font-weight="600" font-family="monospace">s (entre V), z</text><text x="448" y="161" font-size="11" fill="#16a085" font-weight="700" font-family="monospace" text-anchor="end">[z]</text><rect x="464" y="32" width="208" height="215" rx="8" fill="#d8f5ef" stroke="#16a085" stroke-width="0.8" opacity=".85"/><circle cx="568" cy="95" r="44" fill="#16a085" opacity=".09"><animate attributeName="r" values="44;60;44" dur="2.4s" begin="1.2s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.4s" begin="1.2s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="568" cy="95" r="40" fill="#16a085" opacity=".9"/><text x="568" y="103" text-anchor="middle" font-size="23" font-weight="700" fill="#fff" font-family="monospace">[z]</text><text x="568" y="148" text-anchor="middle" font-size="12.5" font-weight="700" fill="#16a085">sonore</text><rect x="478" y="156" width="180" height="20" rx="5" fill="#16a085" opacity=".12"/><text x="568" y="170" text-anchor="middle" font-size="10" fill="#16a085" font-weight="600">s (entre V), z</text><text x="568" y="196" text-anchor="middle" font-size="10" fill="#666">avec vibration vocale</text><text x="568" y="220" text-anchor="middle" font-size="9.5" fill="#777" font-style="italic">maison · zéro · liaison</text></svg>
+<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/><text x="340" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c3e50">[s] vs [z]</text><line x1="220" y1="32" x2="220" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><line x1="460" y1="32" x2="460" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><rect x="8" y="32" width="208" height="215" rx="8" fill="#f0e6ff" stroke="#7d3c98" stroke-width="0.8" opacity=".85"/><circle cx="112" cy="95" r="44" fill="#7d3c98" opacity=".09"><animate attributeName="r" values="44;60;44" dur="2.4s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.4s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="112" cy="95" r="40" fill="#7d3c98" opacity=".9"/><text x="112" y="103" text-anchor="middle" font-size="23" font-weight="700" fill="#fff" font-family="monospace">[s]</text><text x="112" y="148" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7d3c98">sourd</text><rect x="22" y="156" width="180" height="20" rx="5" fill="#7d3c98" opacity=".12"/><text x="112" y="170" text-anchor="middle" font-size="10" fill="#7d3c98" font-weight="600">s, ss, c, ç</text><text x="112" y="196" text-anchor="middle" font-size="10" fill="#666">sans vibration vocale</text><text x="112" y="220" text-anchor="middle" font-size="9.5" fill="#777" font-style="italic">soupe · classe · poisson</text><text x="340" y="48" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">GRAPHIE → SON</text><rect x="228" y="52" width="224" height="18" rx="5" fill="#7d3c98" opacity=".10"/><text x="234" y="65" font-size="10" fill="#7d3c98" font-weight="600" font-family="monospace">s, ss, c, ç</text><text x="448" y="65" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[s]</text><line x1="232" y1="132" x2="448" y2="132" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="3,3"/><text x="340" y="144" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">≠</text><rect x="228" y="148" width="224" height="18" rx="5" fill="#16a085" opacity=".10"/><text x="234" y="161" font-size="10" fill="#16a085" font-weight="600" font-family="monospace">s (entre V), z</text><text x="448" y="161" font-size="11" fill="#16a085" font-weight="700" font-family="monospace" text-anchor="end">[z]</text><rect x="464" y="32" width="208" height="215" rx="8" fill="#d8f5ef" stroke="#16a085" stroke-width="0.8" opacity=".85"/><circle cx="568" cy="95" r="44" fill="#16a085" opacity=".09"><animate attributeName="r" values="44;60;44" dur="2.4s" begin="1.2s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.4s" begin="1.2s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="568" cy="95" r="40" fill="#16a085" opacity=".9"/><text x="568" y="103" text-anchor="middle" font-size="23" font-weight="700" fill="#fff" font-family="monospace">[z]</text><text x="568" y="148" text-anchor="middle" font-size="12.5" font-weight="700" fill="#16a085">sonore</text><rect x="478" y="156" width="180" height="20" rx="5" fill="#16a085" opacity=".12"/><text x="568" y="170" text-anchor="middle" font-size="10" fill="#16a085" font-weight="600">s (entre V), z</text><text x="568" y="196" text-anchor="middle" font-size="10" fill="#666">avec vibration vocale</text><text x="568" y="220" text-anchor="middle" font-size="9.5" fill="#777" font-style="italic">maison · zéro · liaison</text></svg>
         <details style="margin-top:8px;font-size:.85rem;color:var(--muted)">
           <summary style="cursor:pointer;color:var(--purp);font-weight:600">📌 Note</summary>
           <div style="margin-top:4px;line-height:1.5"><div class="phon-body">§ Phonétique — Le son [s] vs [z]
@@ -506,12 +435,12 @@ Exercice Distinguez : poison / poisson — désert / dessert — cousin / coussi
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(3)">← Communiquer</button>
-    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(5)">🎤 Prononciation →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
+    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(4)">🎤 Prononciation →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : PHONÉTIQUE 2/2 — PRONONCIATION ══ -->
-<div class="slide" id="slide-5">
+<div class="slide" id="slide-4">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-phon">🎤 Prononciation<span class="comm-zh"> · 发音练习</span>
@@ -531,26 +460,30 @@ Exercice Distinguez : poison / poisson — désert / dessert — cousin / coussi
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(4)">← Schéma</button>
-    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(6)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(3)">← Schéma</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(5)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
-<div class="slide" id="slide-6">
+<div class="slide" id="slide-5">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-gram">📖 Les verbes pronominaux au présent<span class="comm-zh"> · 语法要点</span></div>
-      <div class="card-body"><div class="gram-rule"><div class="gram-rule-body">Les <strong>verbes pronominaux</strong> au présent</div></div><table class="gram-table gram-fc"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td class="gram-pf">je <strong>me</strong> lève</td><td>nous <strong>nous</strong> levons</td></tr><tr><td>tu <strong>te</strong> lèves</td><td>vous <strong>vous</strong> levez</td></tr><tr><td>il/elle <strong>se</strong> lève</td><td class="gram-pf">ils/elles <strong>se</strong> lèvent</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn" onclick="hideGram()">🙈 Masquer</button><button class="gram-sc-btn" onclick="revealGram()">👁 Révéler</button></div><div class="gram-ex">• se lever, se coucher, se laver, s’habiller, se réveiller, se préparer<br/>• Négatif : Je <em>ne me</em> lève <em>pas</em> tôt le week-end.</div><hr class="gram-sep"><div class="gram-rule"><div class="gram-rule-body">Les <strong>verbes -IR du groupe 2</strong> (partir, sortir, dormir…)</div></div><table class="gram-table gram-fc"><thead><tr><th>partir — Singulier</th><th>partir — Pluriel</th></tr></thead><tbody><tr><td class="gram-pf">je pars</td><td>nous partons</td></tr><tr><td>tu pars</td><td>vous partez</td></tr><tr><td>il/elle part</td><td class="gram-pf">ils/elles partent</td></tr></tbody></table><div class="gram-ex">• <em>partir</em>, <em>sortir</em>, <em>dormir</em>, <em>servir</em>, <em>mentir</em>, <em>sentir</em><br/>• Je <em>dors</em> 8 heures. / Nous <em>partons</em> à 7h. / Elle <em>sort</em> le soir.</div><div class="gram-qcm" id="gram-qcm-box" data-idx="0"><div class="gram-qcm-label">🎯 Pratique — Verbes pronominaux</div><div class="gram-qcm-prog"></div><div class="gram-qcm-q"></div><div class="gram-qcm-opts"></div><span class="gram-qcm-fb"></span><button class="gram-qcm-next" onclick="_gramQcmNext()">Suivant →</button></div><script>var _gramQcmData=[{"q": "Elle ___ à 7 heures.", "opts": ["lève", "me lève", "se lève"], "ans": "se lève"}, {"q": "Je ___ à 8 heures.", "opts": ["réveille", "me réveille", "se réveille"], "ans": "me réveille"}, {"q": "Vous ___ le soir ?", "opts": ["couchez", "vous couchez", "se couche"], "ans": "vous couchez"}, {"q": "Ils ___ avant le déjeuner.", "opts": ["lavent", "se lavent", "me lave"], "ans": "se lavent"}, {"q": "Tu ___ vite le matin.", "opts": ["habilles", "t'habilles", "s'habille"], "ans": "t'habilles"}];</script></div>
+      <div class="card-body"><div class="gram-rule"><div class="gram-rule-body">Les <strong>verbes pronominaux</strong> au présent</div></div><table class="gram-table gram-fc"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td class="gram-pf">je <strong>me</strong> lève</td><td>nous <strong>nous</strong> levons</td></tr><tr><td>tu <strong>te</strong> lèves</td><td>vous <strong>vous</strong> levez</td></tr><tr><td>il/elle <strong>se</strong> lève</td><td class="gram-pf">ils/elles <strong>se</strong> lèvent</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn" onclick="hideGram()">🙈 Masquer</button><button class="gram-sc-btn" onclick="revealGram()">👁 Révéler</button></div><div class="gram-ex">• se lever, se coucher, se laver, s’habiller, se réveiller, se préparer<br/>• Négatif : Je <em>ne me</em> lève <em>pas</em> tôt le week-end.</div><hr class="gram-sep"><div class="gram-rule"><div class="gram-rule-body">Les <strong>verbes -IR du groupe 2</strong> (partir, sortir, dormir…)</div></div><table class="gram-table gram-fc"><thead><tr><th>partir — Singulier</th><th>partir — Pluriel</th></tr></thead><tbody><tr><td class="gram-pf">je pars</td><td>nous partons</td></tr><tr><td>tu pars</td><td>vous partez</td></tr><tr><td>il/elle part</td><td class="gram-pf">ils/elles partent</td></tr></tbody></table><div class="gram-ex">• <em>partir</em>, <em>sortir</em>, <em>dormir</em>, <em>servir</em>, <em>mentir</em>, <em>sentir</em><br/>• Je <em>dors</em> 8 heures. / Nous <em>partons</em> à 7h. / Elle <em>sort</em> le soir.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(5)">← Phonétique</button>
-    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(7)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(4)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(6)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
-<div class="slide" id="slide-7">
-  <div class="slide-header">Exercices <span class="slide-part">1/3</span></div>
+<div class="slide" id="slide-6">
+  <div class="sub-nav">
+    <button class="sub-nav-btn" disabled>←</button>
+    <span class="sub-nav-count">1 / 2</span>
+    <button class="sub-nav-btn" onclick="goSlide(7)">→</button>
+  </div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Conjuguez SE LEVER <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
 <div class="blank-row">1. <span>Je </span><input autocomplete="off" class="blank-input" id="bl-3B-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex1-0').click()" type="text"/><button class="check-btn" data-ans="me lève" id="chk-bl-3B-ex1-0" onclick="checkBlankData(this,'bl-3B-ex1-0','fb-bl-3B-ex1-0')">✓</button><span class="fb" id="fb-bl-3B-ex1-0"></span><span> à 7h.</span></div>
@@ -561,13 +494,17 @@ Exercice Distinguez : poison / poisson — désert / dessert — cousin / coussi
     <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Votre routine matinale <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Décrivez votre routine du matin (6 actions dans l'ordre) : D'abord, je… / Ensuite, je… / Puis, je… / Après, je… / Enfin, je…<span class="comm-zh"> · 按顺序描述您的早晨例行程序（6个动作）</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
-    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(8)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(5)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(7)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
-<div class="slide" id="slide-8">
-  <div class="slide-header">Exercices <span class="slide-part">2/3</span></div>
+<div class="slide" id="slide-7">
+  <div class="sub-nav">
+    <button class="sub-nav-btn" onclick="goSlide(6)">←</button>
+    <span class="sub-nav-count">2 / 2</span>
+    <button class="sub-nav-btn" disabled>→</button>
+  </div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Forme négative <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Mettez à la forme négative :<span class="comm-zh"> · 改写成否定形式</span></div>
 <div class="trans-row" data-ans="Je ne me douche pas le soir.">
@@ -609,113 +546,12 @@ Exercice Distinguez : poison / poisson — désert / dessert — cousin / coussi
     <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Ordre logique de la matinée <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Remettez dans l'ordre : a. prendre le métro b. se lever c. se doucher d. prendre le petit-déjeuner e. s'habiller f. arriver au bureau Ordre : ___ → ___ → ___ → ___ → ___ → ___<span class="comm-zh"> · 排列顺序：a. 乘地铁 b. 起床 c. 淋浴 d. 吃早饭</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(7)">← Préc.</button>
-    <button class="btn-ns" data-fr="Suite →" data-zh="Suite →" onclick="goSlide(9)">Suite →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(6)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(8)">✍️ À toi ! →</button>
   </div>
 </div>
 <!-- ══ SLIDE 8 : À TOI ! ══ -->
-  <!-- SLIDE 9: Exercices 3/3 -->
-  <div class="slide" id="slide-9">
-    <div class="slide-inner">
-      <div class="slide-header">Exercices <span class="slide-part">3/3</span></div>
-      <div class="ex-blocks">
-        <div class="ex-block">
-          <div class="ex-title"><span>Ex. 5 — Routine du matin ou du soir ? <span class="comm-zh">将每个活动归入正确的栏目。</span></span><span class="ex-badge">📖 Vocabulaire</span></div>
-          <p class="ex-inst">Classez chaque activité dans la bonne colonne.</p>
-          <div id="ex5-pool" class="ex5-pool">
-        <span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">se lever</span>
-        <span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">se coucher</span>
-        <span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">se doucher</span>
-        <span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">préparer le dîner</span>
-        <span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">prendre un café</span>
-        <span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">regarder une série</span>
-        <span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">prendre le métro</span>
-        <span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">se relaxer</span>
-          </div>
-          <div class="ex5-zones">
-            <div class="ex5-zone" id="zone-matin" onclick="ex5Drop(this)">
-              <div class="ex5-zone-label">🌅 Matin</div>
-              <div class="ex5-zone-items" id="zone-matin-items"></div>
-            </div>
-            <div class="ex5-zone" id="zone-soir" onclick="ex5Drop(this)">
-              <div class="ex5-zone-label">🌙 Soir</div>
-              <div class="ex5-zone-items" id="zone-soir-items"></div>
-            </div>
-          </div>
-          <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
-            <button class="btn-verify" onclick="checkEx5()">Vérifier ✔</button>
-            <button class="btn-reset" onclick="resetEx5()">↺ Recommencer</button>
-            <span class="ex5-score" id="ex5-score-3B"></span>
-          </div>
-        </div>
-        <div class="ex-block">
-          <div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确的代词动词。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
-          <p class="ex-inst">Choisissez le bon verbe pronominal.</p>
-          <div class="listen-list">
-          <div class="listen-item" data-ans="me lève">
-            <div class="listen-sentence">Je <span class="listen-blank">___</span> à 7h tous les jours.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Je me lève à 7h tous les jours.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="me couche" onclick="selectEx6(this)">me couche</button>
-              <button class="choice-btn" data-val="me douche" onclick="selectEx6(this)">me douche</button>
-              <button class="choice-btn" data-val="me lève" onclick="selectEx6(this)">me lève</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="m'habille">
-            <div class="listen-sentence">Je <span class="listen-blank">___</span> rapidement le matin.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Je m\'habille rapidement le matin.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="m'habille" onclick="selectEx6(this)">m'habille</button>
-              <button class="choice-btn" data-val="me repose" onclick="selectEx6(this)">me repose</button>
-              <button class="choice-btn" data-val="me lève" onclick="selectEx6(this)">me lève</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="me relaxe">
-            <div class="listen-sentence">Je <span class="listen-blank">___</span> un peu le soir.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Je me relaxe un peu le soir.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="me lève" onclick="selectEx6(this)">me lève</button>
-              <button class="choice-btn" data-val="me douche" onclick="selectEx6(this)">me douche</button>
-              <button class="choice-btn" data-val="me relaxe" onclick="selectEx6(this)">me relaxe</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="me couche">
-            <div class="listen-sentence">Je <span class="listen-blank">___</span> vers 23h.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Je me couche vers 23h.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="m'habille" onclick="selectEx6(this)">m'habille</button>
-              <button class="choice-btn" data-val="me lève" onclick="selectEx6(this)">me lève</button>
-              <button class="choice-btn" data-val="me couche" onclick="selectEx6(this)">me couche</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="me lève">
-            <div class="listen-sentence">Le week-end, je <span class="listen-blank">___</span> tard.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Le week-end, je me lève tard.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="me douche" onclick="selectEx6(this)">me douche</button>
-              <button class="choice-btn" data-val="me couche" onclick="selectEx6(this)">me couche</button>
-              <button class="choice-btn" data-val="me lève" onclick="selectEx6(this)">me lève</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          </div>
-          <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
-            <button class="btn-verify" onclick="verifyAllEx6()">Vérifier ✔</button>
-            <button class="btn-reset" onclick="resetAllEx6()">↺ Recommencer</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer" style="justify-content:space-between">
-      <button class="btn-ns" onclick="goSlide(8)">← Exercices 2/3</button>
-      <button class="btn-ns" onclick="goSlide(10)">✍️ À toi ! →</button>
-    </div>
-  </div>
-<div class="slide" id="slide-10">
+<div class="slide" id="slide-8">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
@@ -729,7 +565,7 @@ Leçon 3B · Une journée ordinaire · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(9)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(7)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='3C_slides.html'">3C →</button>
   </div>
 </div>
@@ -769,12 +605,10 @@ Leçon 3B · Une journée ordinaire · A1</div>
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var LESSON='3B';
-var TAB_FOR_SLIDE=[0,1,1,2,3,3,4,5,5,5,6];
+var TAB_FOR_SLIDE=[0, 1, 2, 3, 3, 4, 5, 5, 6];
 
 var currentSlide=0;
-
-    function playEx6TTS(btn,text){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.85;u.onend=function(){btn.innerHTML='🔊';};u.onerror=function(){btn.innerHTML='🔊';};window.speechSynthesis.speak(u);}
-    function goSlide(n){
+function goSlide(n){
   if(n===currentSlide)return;
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;
   slides[currentSlide].classList.remove('s-active');

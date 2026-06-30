@@ -7,13 +7,16 @@
 <title>Leçon 9B — Quel temps fait-il ? | FrançaisPlus A1</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#1c2e5a;--purp-l:#e6ecf6;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
+:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#8e44ad;--purp-l:#f5eef8;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
 body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);font-size:14px;height:100vh;overflow:hidden;display:flex;flex-direction:column}
 a{color:var(--blue);text-decoration:none}
 /* HEADER */
-.page-header{background:linear-gradient(135deg,#0d1b32,#2a4a8a);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.page-header{background:linear-gradient(135deg,var(--purp),#c0392b);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
 .ph-back{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
 .ph-back:hover{background:rgba(255,255,255,.2)}
+.ph-lvl{padding:4px 8px;border-radius:14px;border:2px solid rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.1);font-size:.72rem;font-weight:700;cursor:pointer;appearance:none;-webkit-appearance:none;outline:none}
+.ph-lvl:hover{background:rgba(255,255,255,.22)}
+.ph-lvl option{color:#222;background:#fff}
 .ph-title{font-size:.88rem;font-weight:800;flex:1}
 .ph-sub{font-size:.68rem;opacity:.8}
 .ph-next,.ph-prev{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
@@ -44,7 +47,7 @@ a{color:var(--blue);text-decoration:none}
 /* SLIDE FOOTER */
 .slide-footer{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:8px 0 0;margin-top:auto;flex-shrink:0}
 .btn-ns{padding:7px 16px;border:none;border-radius:20px;background:var(--purp);color:#fff;font-weight:700;font-size:.78rem;cursor:pointer;transition:background .15s,transform .1s;display:inline-flex;align-items:center;gap:5px}
-.btn-ns:hover{background:#2a4a8a}
+.btn-ns:hover{background:#7d3c98}
 .btn-ns:active{transform:scale(.97)}
 /* SCROLLABLE BODY */
 .slide-body{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column;justify-content:flex-start;padding-top:4px}
@@ -72,7 +75,7 @@ a{color:var(--blue);text-decoration:none}
 .dl-speaker{font-weight:800;font-size:.68rem;color:var(--purp);text-transform:uppercase;letter-spacing:.4px;padding-top:1px;line-height:1.4;overflow-wrap:break-word;word-break:break-word}
 .dl-line{font-size:.84rem;line-height:1.4;color:var(--text)}
 .dl-word{display:inline;border-radius:2px;padding:0 1px;transition:background .3s,color .3s}
-.dl-word.dl-lit{background:#c8d8f0;color:#1c2e5a}
+.dl-word.dl-lit{background:#d7bff5;color:#6c3483}
 .dl-wave{display:none;align-items:center;gap:2px;height:10px;margin-left:4px;vertical-align:middle}
 .dl-row.dl-playing .dl-wave{display:inline-flex}
 .dl-wave span{width:2px;border-radius:2px;background:var(--purp);display:inline-block;animation:dlwv .7s ease-in-out infinite}
@@ -87,7 +90,7 @@ a{color:var(--blue);text-decoration:none}
 .dialogue.dl-zh-on .dl-zh-line{display:block}
 /* Bouton lecture dialogue (injecté par JS) */
 .dl-play-btn{display:inline-flex;align-items:center;gap:7px;background:var(--purp);color:#fff;border:none;border-radius:18px;padding:7px 16px;font-size:.8rem;font-weight:700;cursor:pointer;margin-bottom:9px;transition:background .15s}
-.dl-play-btn:hover{background:#2a4a8a}
+.dl-play-btn:hover{background:#7d3c98}
 /* Bouton 中 propre au dialogue (injecté par JS) */
 .dl-zh-btn{border:2px solid var(--purp);color:var(--purp);background:none;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:700;cursor:pointer;flex-shrink:0;transition:all .15s}
 .dl-zh-btn:hover,.dl-zh-btn.zactive{background:var(--purp);color:#fff}
@@ -161,7 +164,7 @@ body.lang-zh .prod-zh{display:block}
 .fb.ko{color:#e74c3c}
 .verify-bar{display:flex;gap:7px;margin-top:10px;align-items:center;flex-wrap:wrap}
 .btn-verify{padding:5px 16px;border-radius:18px;border:none;background:var(--purp);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap;transition:background .15s}
-.btn-verify:hover{background:#2a4a8a}
+.btn-verify:hover{background:#7d3c98}
 .btn-restart{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap}
 .btn-restart:hover{background:#7f8c8d}
 .check-btn-global{padding:5px 16px;border-radius:18px;border:none;background:var(--orange);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
@@ -281,11 +284,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 }
 /* ── PRONONCIATION SLIDE ── */
 .prono-item{background:#fff;border:1px solid #e8e0f5;border-radius:8px;padding:10px 12px;margin-bottom:8px}
-.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#2a4a8a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#7d3c98;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
 .prono-phrase{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:7px}
 .prono-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
 .prono-btn{padding:5px 12px;border:none;border-radius:20px;cursor:pointer;font-size:.82rem;font-weight:600;transition:background .15s}
-.prono-btn-listen{background:#f0e6ff;color:#2a4a8a}
+.prono-btn-listen{background:#f0e6ff;color:#7d3c98}
 .prono-btn-listen:hover{background:#e0ccff}
 .prono-btn-mic{background:#d8f5ef;color:#16a085}
 .prono-btn-mic:hover{background:#b0e8d8}
@@ -302,37 +305,22 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .prono-heard{font-size:.78rem;color:var(--muted);font-style:italic}
 .prono-no-support{background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#856404;margin-bottom:8px}
 /* ── SUB-NAV (phonétique 1/2 · 2/2) ── */
-.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#2a4a8a}
+.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#7d3c98}
 .phon-sub-header span{opacity:.7;font-weight:400}
 
-
-.slide-inner{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column}
-.slide-header{background:var(--purp);color:#fff;font-weight:700;font-size:.82rem;padding:5px 13px;border-radius:7px;margin-bottom:6px;letter-spacing:.3px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
-.slide-part{font-weight:400;opacity:.8;font-size:.78rem}
-.slide-badge{font-size:.72rem;opacity:.75;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
-.qcm-block{overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:6px;min-height:0}
-.qcm-items{display:flex;flex-direction:column;gap:7px}
-.qcm-item{background:#fff;border-radius:8px;padding:8px 10px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
-.qcm-actions{display:flex;align-items:center;gap:10px;margin-top:8px;padding-top:6px;border-top:1px solid #eee;flex-shrink:0}
-.ex-blocks{display:flex;flex-direction:column;gap:8px;flex:1;min-height:0;overflow-y:auto}
-.ex-block{background:#fff;border-radius:10px;padding:9px 12px;box-shadow:0 1px 5px rgba(0,0,0,.06)}
-.ex-title{font-weight:700;font-size:.84rem;color:var(--purp);margin-bottom:2px;display:flex;justify-content:space-between;align-items:baseline}
-.ex-badge{font-size:.7rem;font-weight:600;color:var(--muted);opacity:.8}
-.ex-inst{margin:2px 0 6px;font-size:.8rem;color:var(--muted);font-style:italic}
-.btn-reset{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
-.head-ex{background:#fff!important;color:var(--purp)!important}
-.head-compr{background:#fff!important;color:var(--purp)!important}
-.head-prod{background:#fff!important;color:var(--purp)!important}
-.ex-cat-badge{color:var(--muted)!important;font-weight:600}
-.ex5-actions{margin-top:8px}
-.prod-box{background:var(--purp-l)!important;border-left:4px solid var(--purp)!important}
-.prod-input{border:2px solid var(--purp)!important}
-#slide-7 .slide-body,#slide-8 .slide-body{justify-content:flex-start;gap:8px;overflow-y:auto}
 </style>
 </head>
 <body>
 <header class="page-header">
-  <a class="ph-back" href="../index.html">🏠</a>
+  <a class="ph-back" href="../index.html?level=A1" title="Retour aux leçons A1">🏠</a>
+  <select class="ph-lvl" title="Changer de niveau" onchange="location.href='../index.html?level='+this.value">
+    <option value="A1" selected>A1</option>
+    <option value="A2">A2</option>
+    <option value="B1">B1</option>
+    <option value="B2">B2</option>
+    <option value="C1">C1</option>
+    <option value="C2">C2</option>
+  </select>
   <div style="flex:1"><div class="ph-title">Quel temps fait-il ?</div><div class="ph-sub">Leçon 9B · A1</div></div>
   <div class="ph-lang">
     <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')" title="Français"><img src="../icons/flag-fr.svg" alt="FR"/></button>
@@ -344,11 +332,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <nav class="slide-nav" id="slide-nav">
   <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
   <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(3)">🗣️ Communiquer</button>
-  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(4)">🎵 Phonétique</button>
-  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
-  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(7)">✏️ Exercices</button>
-  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(10)">✍️ À toi !</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(5)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(6)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(8)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -382,93 +370,29 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
-  <!-- SLIDE 1: Comprendre 1/2 -->
-  <div class="slide" id="slide-1">
-    <div class="slide-inner">
-      <div class="slide-header">Comprendre <span class="slide-part">1/2</span></div>
-      <div class="qcm-block">
-        <div class="qcm-items">
-        <div class="qcm-item">
-          <div class="qcm-q">1. Quel temps fait-il sur la côte atlantique au début ? <span class="comm-zh">一开始大西洋沿岸天气怎么样？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Il fait beau</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Il a plu</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Il neige</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">2. Quelle température fait-il à Bordeaux ? <span class="comm-zh">波尔多气温是多少？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) 18 degrés</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) 22 degrés</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) 28 degrés</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">3. Qu'est-ce qu'il y a sur les plages ? <span class="comm-zh">海滩上有什么？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Du soleil</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Du vent</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) De la pluie</button>
-          </div>
-        </div>
-        </div>
-        <div class="qcm-actions">
-          <button class="btn-verify" onclick="verifyQCM('qcm-score-9B-1')">Vérifier ✔</button>
-          <button class="btn-reset" onclick="resetQCM('qcm-score-9B-1')">↺ Recommencer</button>
-          <span class="qcm-score" id="qcm-score-9B-1"></span>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer" style="justify-content:space-between">
-      <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
-      <button class="btn-ns" onclick="goSlide(2)">Comprendre 2/2 →</button>
+<div class="slide" id="slide-1">
+  <div class="slide-body">
+    <div class="card">
+      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
+      <div class="card-body"><div class="compr-item">
+<div class="compr-q">Quel temps fait-il sur la côte atlantique au</div>
+<button class="btn-reveal" onclick="revealAnswer('ca-9B-0')">Voir</button>
+<div class="compr-a" id="ca-9B-0">Il vient de pleuvoir, mais ça va s'améliorer.</div>
+</div>
+<div class="compr-item">
+<div class="compr-q">Pourquoi Anna et Paul prennent-ils des</div>
+<button class="btn-reveal" onclick="revealAnswer('ca-9B-1')">Voir</button>
+<div class="compr-a" id="ca-9B-1">Parce qu'en Bretagne, il pleut souvent</div>
+</div></div>
     </div>
   </div>
-  <!-- SLIDE 2: Comprendre 2/2 -->
-  <div class="slide" id="slide-2">
-    <div class="slide-inner">
-      <div class="slide-header">Comprendre <span class="slide-part">2/2</span></div>
-      <div class="qcm-block">
-        <div class="qcm-items">
-        <div class="qcm-item">
-          <div class="qcm-q">4. Quel temps va-t-il faire dans le sud ? <span class="comm-zh">今天下午南部天气怎么样？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Il va pleuvoir</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Il va faire beau et chaud</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Il va faire froid</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">5. Pourquoi prennent-ils des imperméables ? <span class="comm-zh">他们为什么带雨衣？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Il fait toujours froid</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Il peut pleuvoir</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Il y a du vent</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">6. Qu'est-ce qu'il va faire ce soir ? <span class="comm-zh">今晚天气怎么样？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Il va faire chaud</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Il va pleuvoir</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Il va faire frais</button>
-          </div>
-        </div>
-        </div>
-        <div class="qcm-actions">
-          <button class="btn-verify" onclick="verifyQCM('qcm-score-9B-2')">Vérifier ✔</button>
-          <button class="btn-reset" onclick="resetQCM('qcm-score-9B-2')">↺ Recommencer</button>
-          <span class="qcm-score" id="qcm-score-9B-2"></span>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer" style="justify-content:space-between">
-      <button class="btn-ns" onclick="goSlide(1)">← Comprendre 1/2</button>
-      <button class="btn-ns" onclick="goSlide(3)">Communiquer →</button>
-    </div>
+  <div class="slide-footer" style="justify-content:space-between">
+    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
+    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
   </div>
-<div class="slide" id="slide-3">
+</div>
+<!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
+<div class="slide" id="slide-2">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
@@ -480,12 +404,12 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(2)">← Comprendre</button>
-    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(4)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE 1/2 — SCHÉMA ══ -->
-<div class="slide" id="slide-4">
+<div class="slide" id="slide-3">
   <div class="slide-body" style="display:flex;flex-direction:column">
     <div class="card" style="flex:1;display:flex;flex-direction:column">
       <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span>
@@ -507,12 +431,12 @@ visiter Rome, Florence et Venise.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(3)">← Communiquer</button>
-    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(5)">🎤 Prononciation →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
+    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(4)">🎤 Prononciation →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : PHONÉTIQUE 2/2 — PRONONCIATION ══ -->
-<div class="slide" id="slide-5">
+<div class="slide" id="slide-4">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-phon">🎤 Prononciation<span class="comm-zh"> · 发音练习</span>
@@ -532,26 +456,30 @@ visiter Rome, Florence et Venise.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(4)">← Schéma</button>
-    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(6)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(3)">← Schéma</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(5)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
-<div class="slide" id="slide-6">
+<div class="slide" id="slide-5">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-gram">📖 Le passé récent — venir de + infinitif<span class="comm-zh"> · 语法要点</span></div>
-      <div class="card-body"><div class="gram-rule"><div class="gram-rule-body">Le <strong>passé récent</strong> — venir de + infinitif</div></div><table class="gram-table gram-fc"><thead><tr><th>Personne</th><th>Exemple</th></tr></thead><tbody><tr><td class="gram-pf">je</td><td>Je <em>viens de rentrer</em> de vacances.</td></tr><tr><td>tu</td><td>Tu <em>viens de manger</em> ?</td></tr><tr><td>il / elle</td><td>Elle <em>vient de partir</em>.</td></tr><tr><td>nous</td><td class="gram-pf">Nous <em>venons d’arriver</em>.</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn" onclick="hideGram()">🙈 Masquer</button><button class="gram-sc-btn" onclick="revealGram()">👁 Révéler</button></div><div class="gram-ex">• Exprime une action terminée juste avant le moment présent.<br/>• Je <em>viens de</em> terminer. (= J’ai fini il y a un instant.)</div><hr class="gram-sep"><div class="gram-rule"><div class="gram-rule-body">L’<strong>imparfait impersonnel</strong> — décrire une situation passée</div></div><table class="gram-table gram-fc"><thead><tr><th>Expression</th><th>Sens</th><th>Exemple</th></tr></thead><tbody><tr><td class="gram-pf">c’était + adj.</td><td>description passée</td><td><em>C’était</em> magnifique.</td></tr><tr><td>il y avait + nom</td><td>existence passée</td><td><em>Il y avait</em> beaucoup de monde.</td></tr><tr><td>il faisait + météo</td><td>météo passée</td><td class="gram-pf"><em>Il faisait</em> beau / froid / chaud.</td></tr></tbody></table><div class="gram-ex">• C’<em>était</em> une belle journée. / Il <em>y avait</em> beaucoup de touristes.<br/>• Il <em>faisait</em> très chaud. / La plage <em>était</em> magnifique.</div><div class="gram-qcm" id="gram-qcm-box" data-idx="0"><div class="gram-qcm-label">🎯 Pratique — Le passé récent (venir de)</div><div class="gram-qcm-prog"></div><div class="gram-qcm-q"></div><div class="gram-qcm-opts"></div><span class="gram-qcm-fb"></span><button class="gram-qcm-next" onclick="_gramQcmNext()">Suivant →</button></div><script>var _gramQcmData=[{"q": "Nous ___ finir ce film.", "opts": ["allons", "venons de", "voulons"], "ans": "venons de"}, {"q": "Je ___ arriver.", "opts": ["vais", "viens d'", "venais"], "ans": "viens d'"}, {"q": "Elle ___ appeler sa mère.", "opts": ["vient de", "viens de", "vont"], "ans": "vient de"}, {"q": "Tu ___ manger ?", "opts": ["viens de", "viens d'", "venez de"], "ans": "viens de"}, {"q": "Ils ___ partir.", "opts": ["viennent de", "viens de", "allons"], "ans": "viennent de"}];</script></div>
+      <div class="card-body"><div class="gram-rule"><div class="gram-rule-body">Le <strong>passé récent</strong> — venir de + infinitif</div></div><table class="gram-table gram-fc"><thead><tr><th>Personne</th><th>Exemple</th></tr></thead><tbody><tr><td class="gram-pf">je</td><td>Je <em>viens de rentrer</em> de vacances.</td></tr><tr><td>tu</td><td>Tu <em>viens de manger</em> ?</td></tr><tr><td>il / elle</td><td>Elle <em>vient de partir</em>.</td></tr><tr><td>nous</td><td class="gram-pf">Nous <em>venons d’arriver</em>.</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn" onclick="hideGram()">🙈 Masquer</button><button class="gram-sc-btn" onclick="revealGram()">👁 Révéler</button></div><div class="gram-ex">• Exprime une action terminée juste avant le moment présent.<br/>• Je <em>viens de</em> terminer. (= J’ai fini il y a un instant.)</div><hr class="gram-sep"><div class="gram-rule"><div class="gram-rule-body">L’<strong>imparfait impersonnel</strong> — décrire une situation passée</div></div><table class="gram-table gram-fc"><thead><tr><th>Expression</th><th>Sens</th><th>Exemple</th></tr></thead><tbody><tr><td class="gram-pf">c’était + adj.</td><td>description passée</td><td><em>C’était</em> magnifique.</td></tr><tr><td>il y avait + nom</td><td>existence passée</td><td><em>Il y avait</em> beaucoup de monde.</td></tr><tr><td>il faisait + météo</td><td>météo passée</td><td class="gram-pf"><em>Il faisait</em> beau / froid / chaud.</td></tr></tbody></table><div class="gram-ex">• C’<em>était</em> une belle journée. / Il <em>y avait</em> beaucoup de touristes.<br/>• Il <em>faisait</em> très chaud. / La plage <em>était</em> magnifique.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(5)">← Phonétique</button>
-    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(7)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(4)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(6)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
-<div class="slide" id="slide-7">
-  <div class="slide-header">Exercices <span class="slide-part">1/3</span></div>
+<div class="slide" id="slide-6">
+  <div class="sub-nav">
+    <button class="sub-nav-btn" disabled>←</button>
+    <span class="sub-nav-count">1 / 2</span>
+    <button class="sub-nav-btn" onclick="goSlide(7)">→</button>
+  </div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Passé récent ou futur proche ? <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez selon l'indication :<span class="comm-zh"> · 按照提示改写</span></div>
 <div class="blank-row">1. <span>Il pleut depuis 5 minutes. → Il </span><input autocomplete="off" class="blank-input" id="bl-9B-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex1-0').click()" type="text"/><button class="check-btn" data-ans="Il vient de pleuvoir." id="chk-bl-9B-ex1-0" onclick="checkBlankData(this,'bl-9B-ex1-0','fb-bl-9B-ex1-0')">✓</button><span class="fb" id="fb-bl-9B-ex1-0"></span><span> (passé récent)</span></div>
@@ -573,13 +501,17 @@ visiter Rome, Florence et Venise.</div></div>
 </div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
-    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(8)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(5)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(7)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
-<div class="slide" id="slide-8">
-  <div class="slide-header">Exercices <span class="slide-part">2/3</span></div>
+<div class="slide" id="slide-7">
+  <div class="sub-nav">
+    <button class="sub-nav-btn" onclick="goSlide(6)">←</button>
+    <span class="sub-nav-count">2 / 2</span>
+    <button class="sub-nav-btn" disabled>→</button>
+  </div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Formes négative et interrogative <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Transformez les phrases :<span class="comm-zh"> · 改写句子</span></div>
 <div class="blank-row">1. <span>Il vient de pleuvoir. → Forme négative : </span><input autocomplete="off" class="blank-input" id="bl-9B-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex3-0').click()" type="text"/><button class="check-btn" data-ans="Il ne vient pas de pleuvoir." id="chk-bl-9B-ex3-0" onclick="checkBlankData(this,'bl-9B-ex3-0','fb-bl-9B-ex3-0')">✓</button><span class="fb" id="fb-bl-9B-ex3-0"></span><span></span></div>
@@ -594,113 +526,12 @@ visiter Rome, Florence et Venise.</div></div>
 <div class="blank-row">5. <span>J'adore marcher sous </span><input autocomplete="off" class="blank-input" id="bl-9B-ex4-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9B-ex4-4').click()" type="text"/><button class="check-btn" data-ans="la pluie" id="chk-bl-9B-ex4-4" onclick="checkBlankData(this,'bl-9B-ex4-4','fb-bl-9B-ex4-4')">✓</button><span class="fb" id="fb-bl-9B-ex4-4"></span><span>, c'est romantique !</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(7)">← Préc.</button>
-    <button class="btn-ns" data-fr="Suite →" data-zh="Suite →" onclick="goSlide(9)">Suite →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(6)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(8)">✍️ À toi ! →</button>
   </div>
 </div>
 <!-- ══ SLIDE 8 : À TOI ! ══ -->
-  <!-- SLIDE 9: Exercices 3/3 -->
-  <div class="slide" id="slide-9">
-    <div class="slide-inner">
-      <div class="slide-header">Exercices <span class="slide-part">3/3</span></div>
-      <div class="ex-blocks">
-        <div class="ex-block">
-          <div class="ex-title"><span>Ex. 5 — Beau temps ou mauvais temps ? <span class="comm-zh">将每个天气表达归入正确的栏目。</span></span><span class="ex-badge">📖 Vocabulaire</span></div>
-          <p class="ex-inst">Classez chaque expression météo dans la bonne colonne.</p>
-          <div id="ex5-pool" class="ex5-pool">
-        <span class="drag-chip" data-cat="beau" onclick="ex5Click(this)">le soleil</span>
-        <span class="drag-chip" data-cat="mauvais" onclick="ex5Click(this)">la pluie</span>
-        <span class="drag-chip" data-cat="beau" onclick="ex5Click(this)">chaud</span>
-        <span class="drag-chip" data-cat="mauvais" onclick="ex5Click(this)">les nuages</span>
-        <span class="drag-chip" data-cat="beau" onclick="ex5Click(this)">beau</span>
-        <span class="drag-chip" data-cat="mauvais" onclick="ex5Click(this)">le vent</span>
-        <span class="drag-chip" data-cat="beau" onclick="ex5Click(this)">28 degrés</span>
-        <span class="drag-chip" data-cat="mauvais" onclick="ex5Click(this)">frais</span>
-          </div>
-          <div class="ex5-zones">
-            <div class="ex5-zone" id="zone-beau" onclick="ex5Drop(this)">
-              <div class="ex5-zone-label">☀️ Beau temps</div>
-              <div class="ex5-zone-items" id="zone-beau-items"></div>
-            </div>
-            <div class="ex5-zone" id="zone-mauvais" onclick="ex5Drop(this)">
-              <div class="ex5-zone-label">🌧️ Mauvais temps</div>
-              <div class="ex5-zone-items" id="zone-mauvais-items"></div>
-            </div>
-          </div>
-          <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
-            <button class="btn-verify" onclick="checkEx5()">Vérifier ✔</button>
-            <button class="btn-reset" onclick="resetEx5()">↺ Recommencer</button>
-            <span class="ex5-score" id="ex5-score-9B"></span>
-          </div>
-        </div>
-        <div class="ex-block">
-          <div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确的天气表达。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
-          <p class="ex-inst">Choisissez la bonne expression météorologique.</p>
-          <div class="listen-list">
-          <div class="listen-item" data-ans="Il">
-            <div class="listen-sentence"><span class="listen-blank">___</span> pleut sur la côte atlantique.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Il pleut sur la côte atlantique.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="On" onclick="selectEx6(this)">On</button>
-              <button class="choice-btn" data-val="Il" onclick="selectEx6(this)">Il</button>
-              <button class="choice-btn" data-val="Elle" onclick="selectEx6(this)">Elle</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="22">
-            <div class="listen-sentence">Il fait <span class="listen-blank">___</span> degrés à Bordeaux.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Il fait 22 degrés à Bordeaux.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="28" onclick="selectEx6(this)">28</button>
-              <button class="choice-btn" data-val="15" onclick="selectEx6(this)">15</button>
-              <button class="choice-btn" data-val="22" onclick="selectEx6(this)">22</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="beau">
-            <div class="listen-sentence">Il va faire <span class="listen-blank">___</span> dans le sud.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Il va faire beau dans le sud.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="mauvais" onclick="selectEx6(this)">mauvais</button>
-              <button class="choice-btn" data-val="beau" onclick="selectEx6(this)">beau</button>
-              <button class="choice-btn" data-val="frais" onclick="selectEx6(this)">frais</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="chaud">
-            <div class="listen-sentence">Il va faire <span class="listen-blank">___</span>, environ 28 degrés.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Il va faire chaud, environ 28 degrés.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="frais" onclick="selectEx6(this)">frais</button>
-              <button class="choice-btn" data-val="chaud" onclick="selectEx6(this)">chaud</button>
-              <button class="choice-btn" data-val="froid" onclick="selectEx6(this)">froid</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="frais">
-            <div class="listen-sentence">Ce soir, il va faire <span class="listen-blank">___</span>.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Ce soir, il va faire frais.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="beau" onclick="selectEx6(this)">beau</button>
-              <button class="choice-btn" data-val="frais" onclick="selectEx6(this)">frais</button>
-              <button class="choice-btn" data-val="chaud" onclick="selectEx6(this)">chaud</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          </div>
-          <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
-            <button class="btn-verify" onclick="verifyAllEx6()">Vérifier ✔</button>
-            <button class="btn-reset" onclick="resetAllEx6()">↺ Recommencer</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer" style="justify-content:space-between">
-      <button class="btn-ns" onclick="goSlide(8)">← Exercices 2/3</button>
-      <button class="btn-ns" onclick="goSlide(10)">✍️ À toi ! →</button>
-    </div>
-  </div>
-<div class="slide" id="slide-10">
+<div class="slide" id="slide-8">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
@@ -714,7 +545,7 @@ Leçon 9B · Quel temps fait-il ? · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(9)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(7)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='9C_slides.html'">9C →</button>
   </div>
 </div>
@@ -754,12 +585,10 @@ Leçon 9B · Quel temps fait-il ? · A1</div>
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var LESSON='9B';
-var TAB_FOR_SLIDE=[0,1,1,2,3,3,4,5,5,5,6];
+var TAB_FOR_SLIDE=[0, 1, 2, 3, 3, 4, 5, 5, 6];
 
 var currentSlide=0;
-
-    function playEx6TTS(btn,text){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.85;u.onend=function(){btn.innerHTML='🔊';};u.onerror=function(){btn.innerHTML='🔊';};window.speechSynthesis.speak(u);}
-    function goSlide(n){
+function goSlide(n){
   if(n===currentSlide)return;
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;
   slides[currentSlide].classList.remove('s-active');

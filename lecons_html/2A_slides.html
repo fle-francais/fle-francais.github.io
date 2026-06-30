@@ -7,13 +7,16 @@
 <title>Leçon 2A — Ma famille | FrançaisPlus A1</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#1c2e5a;--purp-l:#e6ecf6;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
+:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#8e44ad;--purp-l:#f5eef8;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
 body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);font-size:14px;height:100vh;overflow:hidden;display:flex;flex-direction:column}
 a{color:var(--blue);text-decoration:none}
 /* HEADER */
-.page-header{background:linear-gradient(135deg,#0d1b32,#2a4a8a);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.page-header{background:linear-gradient(135deg,var(--purp),#c0392b);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
 .ph-back{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
 .ph-back:hover{background:rgba(255,255,255,.2)}
+.ph-lvl{padding:4px 8px;border-radius:14px;border:2px solid rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.1);font-size:.72rem;font-weight:700;cursor:pointer;appearance:none;-webkit-appearance:none;outline:none}
+.ph-lvl:hover{background:rgba(255,255,255,.22)}
+.ph-lvl option{color:#222;background:#fff}
 .ph-title{font-size:.88rem;font-weight:800;flex:1}
 .ph-sub{font-size:.68rem;opacity:.8}
 .ph-next,.ph-prev{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
@@ -44,7 +47,7 @@ a{color:var(--blue);text-decoration:none}
 /* SLIDE FOOTER */
 .slide-footer{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:8px 0 0;margin-top:auto;flex-shrink:0}
 .btn-ns{padding:7px 16px;border:none;border-radius:20px;background:var(--purp);color:#fff;font-weight:700;font-size:.78rem;cursor:pointer;transition:background .15s,transform .1s;display:inline-flex;align-items:center;gap:5px}
-.btn-ns:hover{background:#2a4a8a}
+.btn-ns:hover{background:#7d3c98}
 .btn-ns:active{transform:scale(.97)}
 /* SCROLLABLE BODY */
 .slide-body{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column;justify-content:flex-start;padding-top:4px}
@@ -72,7 +75,7 @@ a{color:var(--blue);text-decoration:none}
 .dl-speaker{font-weight:800;font-size:.68rem;color:var(--purp);text-transform:uppercase;letter-spacing:.4px;padding-top:1px;line-height:1.4;overflow-wrap:break-word;word-break:break-word}
 .dl-line{font-size:.84rem;line-height:1.4;color:var(--text)}
 .dl-word{display:inline;border-radius:2px;padding:0 1px;transition:background .3s,color .3s}
-.dl-word.dl-lit{background:#c8d8f0;color:#1c2e5a}
+.dl-word.dl-lit{background:#d7bff5;color:#6c3483}
 .dl-wave{display:none;align-items:center;gap:2px;height:10px;margin-left:4px;vertical-align:middle}
 .dl-row.dl-playing .dl-wave{display:inline-flex}
 .dl-wave span{width:2px;border-radius:2px;background:var(--purp);display:inline-block;animation:dlwv .7s ease-in-out infinite}
@@ -87,7 +90,7 @@ a{color:var(--blue);text-decoration:none}
 .dialogue.dl-zh-on .dl-zh-line{display:block}
 /* Bouton lecture dialogue (injecté par JS) */
 .dl-play-btn{display:inline-flex;align-items:center;gap:7px;background:var(--purp);color:#fff;border:none;border-radius:18px;padding:7px 16px;font-size:.8rem;font-weight:700;cursor:pointer;margin-bottom:9px;transition:background .15s}
-.dl-play-btn:hover{background:#2a4a8a}
+.dl-play-btn:hover{background:#7d3c98}
 /* Bouton 中 propre au dialogue (injecté par JS) */
 .dl-zh-btn{border:2px solid var(--purp);color:var(--purp);background:none;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:700;cursor:pointer;flex-shrink:0;transition:all .15s}
 .dl-zh-btn:hover,.dl-zh-btn.zactive{background:var(--purp);color:#fff}
@@ -161,7 +164,7 @@ body.lang-zh .prod-zh{display:block}
 .fb.ko{color:#e74c3c}
 .verify-bar{display:flex;gap:7px;margin-top:10px;align-items:center;flex-wrap:wrap}
 .btn-verify{padding:5px 16px;border-radius:18px;border:none;background:var(--purp);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap;transition:background .15s}
-.btn-verify:hover{background:#2a4a8a}
+.btn-verify:hover{background:#7d3c98}
 .btn-restart{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap}
 .btn-restart:hover{background:#7f8c8d}
 .check-btn-global{padding:5px 16px;border-radius:18px;border:none;background:var(--orange);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
@@ -281,11 +284,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 }
 /* ── PRONONCIATION SLIDE ── */
 .prono-item{background:#fff;border:1px solid #e8e0f5;border-radius:8px;padding:10px 12px;margin-bottom:8px}
-.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#2a4a8a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#7d3c98;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
 .prono-phrase{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:7px}
 .prono-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
 .prono-btn{padding:5px 12px;border:none;border-radius:20px;cursor:pointer;font-size:.82rem;font-weight:600;transition:background .15s}
-.prono-btn-listen{background:#f0e6ff;color:#2a4a8a}
+.prono-btn-listen{background:#f0e6ff;color:#7d3c98}
 .prono-btn-listen:hover{background:#e0ccff}
 .prono-btn-mic{background:#d8f5ef;color:#16a085}
 .prono-btn-mic:hover{background:#b0e8d8}
@@ -302,37 +305,22 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .prono-heard{font-size:.78rem;color:var(--muted);font-style:italic}
 .prono-no-support{background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#856404;margin-bottom:8px}
 /* ── SUB-NAV (phonétique 1/2 · 2/2) ── */
-.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#2a4a8a}
+.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#7d3c98}
 .phon-sub-header span{opacity:.7;font-weight:400}
 
-
-.slide-inner{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column}
-.slide-header{background:var(--purp);color:#fff;font-weight:700;font-size:.82rem;padding:5px 13px;border-radius:7px;margin-bottom:6px;letter-spacing:.3px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
-.slide-part{font-weight:400;opacity:.8;font-size:.78rem}
-.slide-badge{font-size:.72rem;opacity:.75;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
-.qcm-block{overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:6px;min-height:0}
-.qcm-items{display:flex;flex-direction:column;gap:7px}
-.qcm-item{background:#fff;border-radius:8px;padding:8px 10px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
-.qcm-actions{display:flex;align-items:center;gap:10px;margin-top:8px;padding-top:6px;border-top:1px solid #eee;flex-shrink:0}
-.ex-blocks{display:flex;flex-direction:column;gap:8px;flex:1;min-height:0;overflow-y:auto}
-.ex-block{background:#fff;border-radius:10px;padding:9px 12px;box-shadow:0 1px 5px rgba(0,0,0,.06)}
-.ex-title{font-weight:700;font-size:.84rem;color:var(--purp);margin-bottom:2px;display:flex;justify-content:space-between;align-items:baseline}
-.ex-badge{font-size:.7rem;font-weight:600;color:var(--muted);opacity:.8}
-.ex-inst{margin:2px 0 6px;font-size:.8rem;color:var(--muted);font-style:italic}
-.btn-reset{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
-.head-ex{background:#fff!important;color:var(--purp)!important}
-.head-compr{background:#fff!important;color:var(--purp)!important}
-.head-prod{background:#fff!important;color:var(--purp)!important}
-.ex-cat-badge{color:var(--muted)!important;font-weight:600}
-.ex5-actions{margin-top:8px}
-.prod-box{background:var(--purp-l)!important;border-left:4px solid var(--purp)!important}
-.prod-input{border:2px solid var(--purp)!important}
-#slide-7 .slide-body,#slide-8 .slide-body{justify-content:flex-start;gap:8px;overflow-y:auto}
 </style>
 </head>
 <body>
 <header class="page-header">
-  <a class="ph-back" href="../index.html">🏠</a>
+  <a class="ph-back" href="../index.html?level=A1" title="Retour aux leçons A1">🏠</a>
+  <select class="ph-lvl" title="Changer de niveau" onchange="location.href='../index.html?level='+this.value">
+    <option value="A1" selected>A1</option>
+    <option value="A2">A2</option>
+    <option value="B1">B1</option>
+    <option value="B2">B2</option>
+    <option value="C1">C1</option>
+    <option value="C2">C2</option>
+  </select>
   <div style="flex:1"><div class="ph-title">Ma famille</div><div class="ph-sub">Leçon 2A · A1</div></div>
   <div class="ph-lang">
     <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')" title="Français"><img src="../icons/flag-fr.svg" alt="FR"/></button>
@@ -344,11 +332,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <nav class="slide-nav" id="slide-nav">
   <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
   <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(3)">🗣️ Communiquer</button>
-  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(4)">🎵 Phonétique</button>
-  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
-  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(7)">✏️ Exercices</button>
-  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(10)">✍️ À toi !</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(5)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(6)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(8)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -382,93 +370,29 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
-  <!-- SLIDE 1: Comprendre 1/2 -->
-  <div class="slide" id="slide-1">
-    <div class="slide-inner">
-      <div class="slide-header">Comprendre <span class="slide-part">1/2</span></div>
-      <div class="qcm-block">
-        <div class="qcm-items">
-        <div class="qcm-item">
-          <div class="qcm-q">1. Qui est Jacques dans la famille de Lucie ? <span class="comm-zh">Jacques是Lucie家里的谁？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Son frère</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Son grand-père</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Son père</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">2. Comment s'appelle la mère de Lucie ? <span class="comm-zh">Lucie的妈妈叫什么名字？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Emma</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Sylvie</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Marie</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">3. Quel âge a le frère de Lucie ? <span class="comm-zh">Lucie的哥哥多少岁？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) 19 ans</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) 30 ans</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) 24 ans</button>
-          </div>
-        </div>
-        </div>
-        <div class="qcm-actions">
-          <button class="btn-verify" onclick="verifyQCM('qcm-score-2A-1')">Vérifier ✔</button>
-          <button class="btn-reset" onclick="resetQCM('qcm-score-2A-1')">↺ Recommencer</button>
-          <span class="qcm-score" id="qcm-score-2A-1"></span>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer" style="justify-content:space-between">
-      <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
-      <button class="btn-ns" onclick="goSlide(2)">Comprendre 2/2 →</button>
+<div class="slide" id="slide-1">
+  <div class="slide-body">
+    <div class="card">
+      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
+      <div class="card-body"><div class="compr-item">
+<div class="compr-q">Combien de frères et sœurs a Lucie ?</div>
+<button class="btn-reveal" onclick="revealAnswer('ca-2A-0')">Voir</button>
+<div class="compr-a" id="ca-2A-0">Un frère (Antoine) et une sœur (Emma).</div>
+</div>
+<div class="compr-item">
+<div class="compr-q">Pourquoi l'ami de Lucie est-il triste ?</div>
+<button class="btn-reveal" onclick="revealAnswer('ca-2A-1')">Voir</button>
+<div class="compr-a" id="ca-2A-1">Sa famille est au Japon et elle lui manque.</div>
+</div></div>
     </div>
   </div>
-  <!-- SLIDE 2: Comprendre 2/2 -->
-  <div class="slide" id="slide-2">
-    <div class="slide-inner">
-      <div class="slide-header">Comprendre <span class="slide-part">2/2</span></div>
-      <div class="qcm-block">
-        <div class="qcm-items">
-        <div class="qcm-item">
-          <div class="qcm-q">4. Quel âge a la sœur Emma ? <span class="comm-zh">Emma妹妹多少岁？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'a')">A) 19 ans</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'a')">B) 22 ans</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'a')">C) 16 ans</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">5. Quand la famille se retrouve-t-elle ? <span class="comm-zh">全家什么时候聚在一起？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Le samedi</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Tous les dimanches</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Le vendredi soir</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">6. D'où vient l'interlocutrice de Lucie ? <span class="comm-zh">和Lucie对话的人来自哪里？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) De Chine</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Des États-Unis</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Du Japon</button>
-          </div>
-        </div>
-        </div>
-        <div class="qcm-actions">
-          <button class="btn-verify" onclick="verifyQCM('qcm-score-2A-2')">Vérifier ✔</button>
-          <button class="btn-reset" onclick="resetQCM('qcm-score-2A-2')">↺ Recommencer</button>
-          <span class="qcm-score" id="qcm-score-2A-2"></span>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer" style="justify-content:space-between">
-      <button class="btn-ns" onclick="goSlide(1)">← Comprendre 1/2</button>
-      <button class="btn-ns" onclick="goSlide(3)">Communiquer →</button>
-    </div>
+  <div class="slide-footer" style="justify-content:space-between">
+    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
+    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
   </div>
-<div class="slide" id="slide-3">
+</div>
+<!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
+<div class="slide" id="slide-2">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
@@ -480,19 +404,19 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(2)">← Comprendre</button>
-    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(4)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE 1/2 — SCHÉMA ══ -->
-<div class="slide" id="slide-4">
+<div class="slide" id="slide-3">
   <div class="slide-body" style="display:flex;flex-direction:column">
     <div class="card" style="flex:1;display:flex;flex-direction:column">
       <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span>
         <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">1 / 2</span>
       </div>
       <div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:8px">
-<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/><text x="340" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c3e50">Le son [j] — semi-voyelle</text><line x1="222" y1="32" x2="222" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><line x1="492" y1="32" x2="492" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><rect x="8" y="32" width="208" height="215" rx="8" fill="#2a4a8a" opacity=".09" stroke="#2a4a8a" stroke-width="0.8"/><circle cx="112" cy="115" r="52" fill="#2a4a8a" opacity=".09"><animate attributeName="r" values="52;70;52" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="112" cy="115" r="48" fill="#2a4a8a" opacity=".88"/><text x="112" y="125" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" font-family="monospace">[j]</text><text x="112" y="190" text-anchor="middle" font-size="10.5" fill="#2a4a8a" font-weight="600">Semi-voyelle rapide entre deux sons.</text><text x="112" y="207" text-anchor="middle" font-size="10.5" fill="#2a4a8a" font-weight="600">Graphèmes : -ill-, -ille, -il, vieux.</text><text x="357" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">GRAPHIE → SON</text><rect x="246" y="52" width="230" height="21" rx="5" fill="#2a4a8a" opacity=".10"/><text x="253" y="67" font-size="10.5" fill="#2a4a8a" font-weight="600" font-family="monospace">-ill-</text><text x="472" y="67" font-size="11" fill="#2a4a8a" font-weight="700" font-family="monospace" text-anchor="end">[j]</text><rect x="246" y="78" width="230" height="21" rx="5" fill="#2a4a8a" opacity=".10"/><text x="253" y="93" font-size="10.5" fill="#2a4a8a" font-weight="600" font-family="monospace">-ille</text><text x="472" y="93" font-size="11" fill="#2a4a8a" font-weight="700" font-family="monospace" text-anchor="end">[j]</text><rect x="246" y="104" width="230" height="21" rx="5" fill="#2a4a8a" opacity=".10"/><text x="253" y="119" font-size="10.5" fill="#2a4a8a" font-weight="600" font-family="monospace">-il</text><text x="472" y="119" font-size="11" fill="#2a4a8a" font-weight="700" font-family="monospace" text-anchor="end">[j]</text><rect x="496" y="32" width="177" height="215" rx="8" fill="#2a4a8a" opacity=".06" stroke="#2a4a8a" stroke-width="0.5"/><text x="584" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">EXEMPLES</text><text x="546" y="66" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">famille</text><text x="546" y="94" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">fille</text><text x="546" y="122" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">travail</text><text x="546" y="150" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">vieux</text></svg>
+<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/><text x="340" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c3e50">Le son [j] — semi-voyelle</text><line x1="222" y1="32" x2="222" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><line x1="492" y1="32" x2="492" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><rect x="8" y="32" width="208" height="215" rx="8" fill="#7d3c98" opacity=".09" stroke="#7d3c98" stroke-width="0.8"/><circle cx="112" cy="115" r="52" fill="#7d3c98" opacity=".09"><animate attributeName="r" values="52;70;52" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="112" cy="115" r="48" fill="#7d3c98" opacity=".88"/><text x="112" y="125" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" font-family="monospace">[j]</text><text x="112" y="190" text-anchor="middle" font-size="10.5" fill="#7d3c98" font-weight="600">Semi-voyelle rapide entre deux sons.</text><text x="112" y="207" text-anchor="middle" font-size="10.5" fill="#7d3c98" font-weight="600">Graphèmes : -ill-, -ille, -il, vieux.</text><text x="357" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">GRAPHIE → SON</text><rect x="246" y="52" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="67" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">-ill-</text><text x="472" y="67" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[j]</text><rect x="246" y="78" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="93" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">-ille</text><text x="472" y="93" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[j]</text><rect x="246" y="104" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="119" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">-il</text><text x="472" y="119" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[j]</text><rect x="496" y="32" width="177" height="215" rx="8" fill="#7d3c98" opacity=".06" stroke="#7d3c98" stroke-width="0.5"/><text x="584" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">EXEMPLES</text><text x="546" y="66" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">famille</text><text x="546" y="94" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">fille</text><text x="546" y="122" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">travail</text><text x="546" y="150" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">vieux</text></svg>
         <details style="margin-top:8px;font-size:.85rem;color:var(--muted)">
           <summary style="cursor:pointer;color:var(--purp);font-weight:600">📌 Note</summary>
           <div style="margin-top:4px;line-height:1.5"><div class="phon-body">§ Phonétique — Le son [j] — semi-voyelle
@@ -505,12 +429,12 @@ Exercice Répétez : famille — fille — maille — veille — oreille — gen
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(3)">← Communiquer</button>
-    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(5)">🎤 Prononciation →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
+    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(4)">🎤 Prononciation →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : PHONÉTIQUE 2/2 — PRONONCIATION ══ -->
-<div class="slide" id="slide-5">
+<div class="slide" id="slide-4">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-phon">🎤 Prononciation<span class="comm-zh"> · 发音练习</span>
@@ -530,26 +454,30 @@ Exercice Répétez : famille — fille — maille — veille — oreille — gen
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(4)">← Schéma</button>
-    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(6)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(3)">← Schéma</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(5)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
-<div class="slide" id="slide-6">
+<div class="slide" id="slide-5">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-gram">📖 Les adjectifs possessifs<span class="comm-zh"> · 语法要点</span></div>
-      <div class="card-body"><div class="gram-rule"><div class="gram-rule-body">Les <strong>adjectifs possessifs</strong> s’accordent avec le nom qu’ils déterminent.</div></div><table class="gram-table gram-fc"><thead><tr><th>Possesseur</th><th>Masc. sing.</th><th>Fém. sing.</th><th>Pluriel</th></tr></thead><tbody><tr><td class="gram-pf">je</td><td>mon</td><td>ma (mon devant voyelle)</td><td>mes</td></tr><tr><td>tu</td><td>ton</td><td>ta (ton devant voyelle)</td><td>tes</td></tr><tr><td>il / elle</td><td>son</td><td>sa (son devant voyelle)</td><td>ses</td></tr><tr><td>nous</td><td>notre</td><td>notre</td><td>nos</td></tr><tr><td>vous</td><td>votre</td><td>votre</td><td>vos</td></tr><tr><td>ils / elles</td><td>leur</td><td>leur</td><td class="gram-pf">leurs</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn" onclick="hideGram()">🙈 Masquer</button><button class="gram-sc-btn" onclick="revealGram()">👁 Révéler</button></div><div class="gram-ex">• <em>Mon</em> père, <em>ma</em> mère, <em>mes</em> parents.<br/>• <em>Son</em> frère, <em>sa</em> sœur, <em>ses</em> enfants.<br/>• Attention : <em>mon</em> amie (fém. devant voyelle).</div><div class="gram-qcm" id="gram-qcm-box" data-idx="0"><div class="gram-qcm-label">🎯 Pratique — Adjectifs possessifs</div><div class="gram-qcm-prog"></div><div class="gram-qcm-q"></div><div class="gram-qcm-opts"></div><span class="gram-qcm-fb"></span><button class="gram-qcm-next" onclick="_gramQcmNext()">Suivant →</button></div><script>var _gramQcmData=[{"q": "C'est ___ livre.", "opts": ["ma", "mon", "mes"], "ans": "mon"}, {"q": "J'aime ___ musique.", "opts": ["le", "la", "les"], "ans": "la"}, {"q": "Il cherche ___ clés.", "opts": ["son", "sa", "ses"], "ans": "ses"}, {"q": "Tu as ___ stylo ?", "opts": ["un", "une", "des"], "ans": "un"}, {"q": "C'est ___ appartement de Lucie.", "opts": ["le", "la", "l'"], "ans": "l'"}];</script></div>
+      <div class="card-body"><div class="gram-rule"><div class="gram-rule-body">Les <strong>adjectifs possessifs</strong> s’accordent avec le nom qu’ils déterminent.</div></div><table class="gram-table gram-fc"><thead><tr><th>Possesseur</th><th>Masc. sing.</th><th>Fém. sing.</th><th>Pluriel</th></tr></thead><tbody><tr><td class="gram-pf">je</td><td>mon</td><td>ma (mon devant voyelle)</td><td>mes</td></tr><tr><td>tu</td><td>ton</td><td>ta (ton devant voyelle)</td><td>tes</td></tr><tr><td>il / elle</td><td>son</td><td>sa (son devant voyelle)</td><td>ses</td></tr><tr><td>nous</td><td>notre</td><td>notre</td><td>nos</td></tr><tr><td>vous</td><td>votre</td><td>votre</td><td>vos</td></tr><tr><td>ils / elles</td><td>leur</td><td>leur</td><td class="gram-pf">leurs</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn" onclick="hideGram()">🙈 Masquer</button><button class="gram-sc-btn" onclick="revealGram()">👁 Révéler</button></div><div class="gram-ex">• <em>Mon</em> père, <em>ma</em> mère, <em>mes</em> parents.<br/>• <em>Son</em> frère, <em>sa</em> sœur, <em>ses</em> enfants.<br/>• Attention : <em>mon</em> amie (fém. devant voyelle).</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(5)">← Phonétique</button>
-    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(7)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(4)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(6)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
-<div class="slide" id="slide-7">
-  <div class="slide-header">Exercices <span class="slide-part">1/3</span></div>
+<div class="slide" id="slide-6">
+  <div class="sub-nav">
+    <button class="sub-nav-btn" disabled>←</button>
+    <span class="sub-nav-count">1 / 2</span>
+    <button class="sub-nav-btn" onclick="goSlide(7)">→</button>
+  </div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Choisissez le bon possessif <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
 <div class="blank-row">1. <span>(moi) C'est </span><input autocomplete="off" class="blank-input" id="bl-2A-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2A-ex1-0').click()" type="text"/><button class="check-btn" data-ans="ma" id="chk-bl-2A-ex1-0" onclick="checkBlankData(this,'bl-2A-ex1-0','fb-bl-2A-ex1-0')">✓</button><span class="fb" id="fb-bl-2A-ex1-0"></span><span> mère.</span></div>
@@ -560,13 +488,17 @@ Exercice Répétez : famille — fille — maille — veille — oreille — gen
     <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Décrivez votre famille <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Présentez votre famille en 5 phrases : Dans ma famille, il y a… Mon / Ma ___ s'appelle ___ et il / elle a ___ ans. Nous habitons à…<span class="comm-zh"> · 用5句话介绍您的家庭</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
-    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(8)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(5)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(7)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
-<div class="slide" id="slide-8">
-  <div class="slide-header">Exercices <span class="slide-part">2/3</span></div>
+<div class="slide" id="slide-7">
+  <div class="sub-nav">
+    <button class="sub-nav-btn" onclick="goSlide(6)">←</button>
+    <span class="sub-nav-count">2 / 2</span>
+    <button class="sub-nav-btn" disabled>→</button>
+  </div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Complétez le texte <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Complétez avec mon, ma, mes, son, sa, ses : Voici ___ famille. ___ père s'appelle Pierre, ___ mère s'appelle Anne. J'ai deux frères : ___ frères s'appellent Lucas et Tom. ___ parents habitent à Lyon. ___ maison est grande.<span class="comm-zh"> · 用mon, ma, mes, son, sa, ses填空</span></div></div></div>
     <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Vocabulaire : l'arbre généalogique <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Complétez avec le bon mot de famille :<span class="comm-zh"> · 用正确的家庭成员词填空</span></div>
@@ -576,113 +508,12 @@ Exercice Répétez : famille — fille — maille — veille — oreille — gen
 <div class="blank-row">4. <span>Les enfants de mes enfants sont mes </span><input autocomplete="off" class="blank-input" id="bl-2A-ex4-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-2A-ex4-3').click()" type="text"/><button class="check-btn" data-ans="petits-enfants" id="chk-bl-2A-ex4-3" onclick="checkBlankData(this,'bl-2A-ex4-3','fb-bl-2A-ex4-3')">✓</button><span class="fb" id="fb-bl-2A-ex4-3"></span><span>.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(7)">← Préc.</button>
-    <button class="btn-ns" data-fr="Suite →" data-zh="Suite →" onclick="goSlide(9)">Suite →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(6)">← Préc.</button>
+    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(8)">✍️ À toi ! →</button>
   </div>
 </div>
 <!-- ══ SLIDE 8 : À TOI ! ══ -->
-  <!-- SLIDE 9: Exercices 3/3 -->
-  <div class="slide" id="slide-9">
-    <div class="slide-inner">
-      <div class="slide-header">Exercices <span class="slide-part">3/3</span></div>
-      <div class="ex-blocks">
-        <div class="ex-block">
-          <div class="ex-title"><span>Ex. 5 — Féminin ou masculin ? <span class="comm-zh">按性别分类家庭成员。</span></span><span class="ex-badge">📖 Vocabulaire</span></div>
-          <p class="ex-inst">Classez les membres de la famille.</p>
-          <div id="ex5-pool" class="ex5-pool">
-        <span class="drag-chip" data-cat="femme" onclick="ex5Click(this)">la mère</span>
-        <span class="drag-chip" data-cat="homme" onclick="ex5Click(this)">le père</span>
-        <span class="drag-chip" data-cat="femme" onclick="ex5Click(this)">la sœur</span>
-        <span class="drag-chip" data-cat="homme" onclick="ex5Click(this)">le frère</span>
-        <span class="drag-chip" data-cat="femme" onclick="ex5Click(this)">la grand-mère</span>
-        <span class="drag-chip" data-cat="homme" onclick="ex5Click(this)">le grand-père</span>
-        <span class="drag-chip" data-cat="femme" onclick="ex5Click(this)">la tante</span>
-        <span class="drag-chip" data-cat="homme" onclick="ex5Click(this)">l'oncle</span>
-          </div>
-          <div class="ex5-zones">
-            <div class="ex5-zone" id="zone-femme" onclick="ex5Drop(this)">
-              <div class="ex5-zone-label">👩 Féminin</div>
-              <div class="ex5-zone-items" id="zone-femme-items"></div>
-            </div>
-            <div class="ex5-zone" id="zone-homme" onclick="ex5Drop(this)">
-              <div class="ex5-zone-label">👨 Masculin</div>
-              <div class="ex5-zone-items" id="zone-homme-items"></div>
-            </div>
-          </div>
-          <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
-            <button class="btn-verify" onclick="checkEx5()">Vérifier ✔</button>
-            <button class="btn-reset" onclick="resetEx5()">↺ Recommencer</button>
-            <span class="ex5-score" id="ex5-score-2A"></span>
-          </div>
-        </div>
-        <div class="ex-block">
-          <div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确的物主形容词。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
-          <p class="ex-inst">Choisissez le bon adjectif possessif.</p>
-          <div class="listen-list">
-          <div class="listen-item" data-ans="mon">
-            <div class="listen-sentence">C'est <span class="listen-blank">___</span> père, Jacques.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'C\'est mon père, Jacques.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="ma" onclick="selectEx6(this)">ma</button>
-              <button class="choice-btn" data-val="mes" onclick="selectEx6(this)">mes</button>
-              <button class="choice-btn" data-val="mon" onclick="selectEx6(this)">mon</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="ma">
-            <div class="listen-sentence">C'est <span class="listen-blank">___</span> mère, Sylvie.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'C\'est ma mère, Sylvie.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="ma" onclick="selectEx6(this)">ma</button>
-              <button class="choice-btn" data-val="mon" onclick="selectEx6(this)">mon</button>
-              <button class="choice-btn" data-val="mes" onclick="selectEx6(this)">mes</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="Mon">
-            <div class="listen-sentence"><span class="listen-blank">___</span> frère s'appelle Antoine.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Mon frère s\'appelle Antoine.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="Mon" onclick="selectEx6(this)">Mon</button>
-              <button class="choice-btn" data-val="Mes" onclick="selectEx6(this)">Mes</button>
-              <button class="choice-btn" data-val="Ma" onclick="selectEx6(this)">Ma</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="Ma">
-            <div class="listen-sentence"><span class="listen-blank">___</span> sœur a 19 ans.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Ma sœur a 19 ans.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="Mon" onclick="selectEx6(this)">Mon</button>
-              <button class="choice-btn" data-val="Mes" onclick="selectEx6(this)">Mes</button>
-              <button class="choice-btn" data-val="Ma" onclick="selectEx6(this)">Ma</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="mes">
-            <div class="listen-sentence">On se retrouve chez <span class="listen-blank">___</span> parents.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'On se retrouve chez mes parents.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="ma" onclick="selectEx6(this)">ma</button>
-              <button class="choice-btn" data-val="mes" onclick="selectEx6(this)">mes</button>
-              <button class="choice-btn" data-val="mon" onclick="selectEx6(this)">mon</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          </div>
-          <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
-            <button class="btn-verify" onclick="verifyAllEx6()">Vérifier ✔</button>
-            <button class="btn-reset" onclick="resetAllEx6()">↺ Recommencer</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer" style="justify-content:space-between">
-      <button class="btn-ns" onclick="goSlide(8)">← Exercices 2/3</button>
-      <button class="btn-ns" onclick="goSlide(10)">✍️ À toi ! →</button>
-    </div>
-  </div>
-<div class="slide" id="slide-10">
+<div class="slide" id="slide-8">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
@@ -696,7 +527,7 @@ Leçon 2A · Ma famille · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(9)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(7)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='2B_slides.html'">2B →</button>
   </div>
 </div>
@@ -736,12 +567,10 @@ Leçon 2A · Ma famille · A1</div>
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var LESSON='2A';
-var TAB_FOR_SLIDE=[0,1,1,2,3,3,4,5,5,5,6];
+var TAB_FOR_SLIDE=[0, 1, 2, 3, 3, 4, 5, 5, 6];
 
 var currentSlide=0;
-
-    function playEx6TTS(btn,text){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.85;u.onend=function(){btn.innerHTML='🔊';};u.onerror=function(){btn.innerHTML='🔊';};window.speechSynthesis.speak(u);}
-    function goSlide(n){
+function goSlide(n){
   if(n===currentSlide)return;
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;
   slides[currentSlide].classList.remove('s-active');
