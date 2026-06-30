@@ -124,6 +124,24 @@ body.lang-zh .prod-zh{display:block}
 .gram-table th{background:var(--green-l);font-weight:700;color:var(--green)}
 .gram-table td:first-child{font-weight:700;color:var(--text)}
 .gram-ex{font-size:.8rem;color:var(--muted);line-height:1.5;padding:6px 10px;border-left:3px solid #d5f5e3;margin-top:5px}
+/* GRAMMAIRE INTERACTIVE */
+.gram-table.gram-sc tbody td{cursor:pointer;position:relative;transition:color .15s,background .15s;user-select:none}
+.gram-table.gram-sc tbody td:not(.gram-v){color:transparent!important;background:#e8f5ee}
+.gram-table.gram-sc tbody td:not(.gram-v)::after{content:'?';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#27ae60;font-weight:700;font-size:.85rem;pointer-events:none}
+.gram-table.gram-sc tbody td.gram-v{color:var(--green)!important;background:#d5f5e3;font-weight:700}
+.gram-sc-bar{display:flex;gap:6px;margin:4px 0 2px;justify-content:flex-end}
+.gram-sc-btn{font-size:.7rem;padding:3px 10px;border-radius:12px;border:1px solid var(--green);background:transparent;color:var(--green);cursor:pointer}
+.gram-sc-btn:active{background:var(--green-l)}
+.gram-qcm{margin-top:9px;border-top:2px dashed #d5f5e3;padding-top:8px}
+.gram-qcm-q{font-size:.81rem;font-weight:700;margin-bottom:7px;color:var(--text)}
+.gram-qcm-opts{display:flex;gap:7px;flex-wrap:wrap}
+.gram-qcm-btn{font-size:.78rem;padding:5px 14px;border-radius:16px;border:2px solid var(--green);background:transparent;cursor:pointer;color:var(--text);transition:all .15s}
+.gram-qcm-btn:hover:not([disabled]){background:var(--green-l)}
+.gram-qcm-btn.gq-ok{background:#d5f5e3;border-color:var(--green);color:var(--green);font-weight:700}
+.gram-qcm-btn.gq-ko{background:#fde8e8;border-color:#e74c3c;color:#e74c3c}
+.gram-qcm-btn.gq-correct{border-color:var(--green);background:#d5f5e3;font-weight:700}
+.gram-qcm-fb{font-size:.75rem;margin-top:6px;font-weight:700;display:block}
+.gram-qcm-fb.ok{color:var(--green)}.gram-qcm-fb.ko{color:#e74c3c}
 /* EXERCICES */
 .ex-inst{font-size:.8rem;color:var(--muted);margin-bottom:9px;font-style:italic}
 .blank-row{display:flex;align-items:center;gap:5px;margin-bottom:7px;flex-wrap:wrap;font-size:.84rem}
@@ -514,7 +532,7 @@ Exercice Répétez : montagne — champagne — magnifique — agneau — signer
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-gram">📖 Exprimer les goûts — adorer, aimer, préférer, détester<span class="comm-zh"> · 语法要点</span></div>
-      <div class="card-body"><div class="gram-rule">§§ <strong>Exprimer les goûts</strong> — verbes + infinitif ou nom</div><table class="gram-table"><thead><tr><th>Verbe</th><th>Niveau</th><th>Exemple</th></tr></thead><tbody><tr><td>adorer (+++)</td><td>très positif</td><td>J’<em>adore</em> les films d’action.</td></tr><tr><td>aimer (++)</td><td>positif</td><td>Elle <em>aime</em> la musique classique.</td></tr><tr><td>aimer bien (+)</td><td>plutôt positif</td><td>J’<em>aime bien</em> lire le soir.</td></tr><tr><td>ne pas aimer (-)</td><td>négatif</td><td>Il <em>n’aime pas</em> le rap.</td></tr><tr><td>détester (--)</td><td>très négatif</td><td>Je <em>déteste</em> attendre.</td></tr></tbody></table><div class="gram-ex">• J’<em>adore</em> les comédies. / Je <em>préfère</em> les documentaires.<br/>• Avec un inf. : J’aime <em>lire</em>. / Elle déteste <em>faire la cuisine</em>.</div></div>
+      <div class="card-body"><div class="gram-rule">§§ <strong>Exprimer les goûts</strong> — verbes + infinitif ou nom</div><table class="gram-table gram-sc"><thead><tr><th>Verbe</th><th>Niveau</th><th>Exemple</th></tr></thead><tbody><tr><td>adorer (+++)</td><td>très positif</td><td>J’<em>adore</em> les films d’action.</td></tr><tr><td>aimer (++)</td><td>positif</td><td>Elle <em>aime</em> la musique classique.</td></tr><tr><td>aimer bien (+)</td><td>plutôt positif</td><td>J’<em>aime bien</em> lire le soir.</td></tr><tr><td>ne pas aimer (-)</td><td>négatif</td><td>Il <em>n’aime pas</em> le rap.</td></tr><tr><td>détester (--)</td><td>très négatif</td><td>Je <em>déteste</em> attendre.</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn" onclick="hideGram()">🙈 Masquer</button><button class="gram-sc-btn" onclick="revealGram()">👁 Révéler</button></div><div class="gram-ex">• J’<em>adore</em> les comédies. / Je <em>préfère</em> les documentaires.<br/>• Avec un inf. : J’aime <em>lire</em>. / Elle déteste <em>faire la cuisine</em>.</div><div class="gram-qcm"><div class="gram-qcm-q">🧩 J'___ voyager en train.</div><div class="gram-qcm-opts"><button class="gram-qcm-btn" data-val="adore à" onclick="checkGramQcm(this,'adore')">adore à</button><button class="gram-qcm-btn" data-val="adore" onclick="checkGramQcm(this,'adore')">adore</button><button class="gram-qcm-btn" data-val="aimer" onclick="checkGramQcm(this,'adore')">aimer</button></div><span class="gram-qcm-fb"></span></div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
@@ -736,6 +754,10 @@ function revealAnswer(id){var el=document.getElementById(id);if(!el)return;el.cl
 function checkBlankData(btn,inputId,fbId){var inp=document.getElementById(inputId),fb=document.getElementById(fbId);if(!inp)return false;var val=inp.value.trim().toLowerCase(),ok=(btn.dataset.ans||'').toLowerCase().split(' / ').some(function(a){return val===a.trim().replace(/['']/g,"'");});inp.style.borderBottomColor=ok?'var(--green)':'#e74c3c';inp.style.color=ok?'var(--green)':'#e74c3c';if(fb){fb.textContent=ok?'✅':'❌ → '+btn.dataset.ans;fb.className='fb '+(ok?'ok':'ko');}return ok;}
 function verifyBlanks(scoreId,inputIds,btnIds){var ok=0;btnIds.forEach(function(bid,i){var btn=document.getElementById(bid);if(btn)checkBlankData(btn,inputIds[i],'fb-'+inputIds[i]);});inputIds.forEach(function(id){var inp=document.getElementById(id);if(inp&&inp.style.color.indexOf('green')>-1)ok++;});var s=document.getElementById('score-'+scoreId);if(s){s.textContent=ok+'/'+inputIds.length;s.style.color=ok===inputIds.length?'var(--green)':ok>=inputIds.length/2?'var(--orange)':'#e74c3c';}}
 function resetBlanks(inputIds,fbIds){inputIds.forEach(function(id){var i=document.getElementById(id);if(i){i.value='';i.style.borderBottomColor='var(--blue)';i.style.color='var(--text)';}});fbIds.forEach(function(id){var f=document.getElementById(id);if(f){f.textContent='';f.className='fb';}});}
+function revealGram(){document.querySelectorAll('.gram-table.gram-sc tbody td').forEach(function(td){td.classList.add('gram-v');});}
+function hideGram(){document.querySelectorAll('.gram-table.gram-sc tbody td').forEach(function(td){td.classList.remove('gram-v');});}
+function checkGramQcm(btn,ans){var c=btn.closest('.gram-qcm');if(!c||c.dataset.done)return;c.dataset.done='1';var fb=c.querySelector('.gram-qcm-fb');c.querySelectorAll('.gram-qcm-btn').forEach(function(b){b.disabled=true;if(b.dataset.val===ans)b.classList.add('gq-correct');});if(btn.dataset.val===ans){btn.classList.add('gq-ok');if(fb){fb.textContent='✅ Bravo !';fb.className='gram-qcm-fb ok';}}else{btn.classList.add('gq-ko');if(fb){fb.textContent='❌ La bonne réponse est en vert.';fb.className='gram-qcm-fb ko';}}}
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.gram-table.gram-sc tbody td').forEach(function(td){td.addEventListener('click',function(){td.classList.toggle('gram-v');});});});
 function normalizeAns(s){return s.toLowerCase().trim().replace(/[.!?]+$/,'').replace(/['']/g,"'").replace(/\s+/g,' ');}
 function verifyCard(btn){var cb=btn.closest('.card-body');if(!cb)return;cb.querySelectorAll('.check-btn').forEach(function(b){b.click();});cb.querySelectorAll('.trans-row').forEach(function(row){var inp=row.querySelector('.trans-input'),ans=(row.dataset.ans||'').trim(),fb=row.querySelector('.trans-fb'),ansEl=row.querySelector('.trans-ans');if(ansEl)ansEl.classList.add('show');if(inp&&ans&&fb){var ok=normalizeAns(inp.value)===normalizeAns(ans);fb.textContent=ok?'✅':'❌';fb.className='trans-fb '+(ok?'ok':'ko');}});}
 function resetCard(btn){var cb=btn.closest('.card-body');if(!cb)return;cb.querySelectorAll('.blank-input,.trans-input').forEach(function(i){i.value='';i.style.borderBottomColor='var(--blue)';i.style.color='var(--text)';});cb.querySelectorAll('.fb,.trans-fb').forEach(function(f){f.textContent='';f.className=f.className.replace(/\s*(ok|ko)/g,'');});cb.querySelectorAll('.trans-ans').forEach(function(a){a.classList.remove('show');});cb.querySelectorAll('.trans-fb').forEach(function(f){f.textContent='';f.className='trans-fb';});cb.querySelectorAll('.match-answer,.assoc-answer,.assoc-letter-input').forEach(function(el){if(el.tagName==='INPUT'){el.value='';}else{el.textContent='';}el.className=el.className.replace(/\s*(ma-ok|ma-ko)/g,'');});cb.querySelectorAll('.check-btn').forEach(function(b){b.disabled=false;});}
