@@ -2621,13 +2621,26 @@ function showTestResult() {
 
 // Auto-detect language on load — après parsing complet du DOM
 document.addEventListener('DOMContentLoaded', function() {
-  const saved = localStorage.getItem('fle_lang');
-  const browserLang = (navigator.language || 'fr').slice(0,2).toLowerCase();
-  const detected = ['fr','zh'].includes(browserLang) ? browserLang : 'fr';
-  setLang(saved || detected);
-  history.replaceState({page:'home'}, '');
+  // Lire le paramètre level AVANT tout replaceState (compatibilité Safari)
   var lvlParam = new URLSearchParams(window.location.search).get('level');
+  try {
+    const saved = localStorage.getItem('fle_lang');
+    const browserLang = (navigator.language || 'fr').slice(0,2).toLowerCase();
+    const detected = ['fr','zh'].includes(browserLang) ? browserLang : 'fr';
+    setLang(saved || detected);
+  } catch(e) {}
+  history.replaceState({page:'home'}, '', window.location.pathname + window.location.search);
   if (lvlParam) showLevel(lvlParam);
+});
+
+// Filet de sécurité : si DOMContentLoaded n'a pas ouvert le niveau, on le fait au load
+window.addEventListener('load', function() {
+  var lvlParam = new URLSearchParams(window.location.search).get('level');
+  if (!lvlParam) return;
+  var el = document.getElementById('level-' + lvlParam);
+  if (el && (el.style.display === 'none' || el.style.display === '')) {
+    showLevel(lvlParam);
+  }
 });
 
 // ── EXERCICES A1 : nouvelles signatures ──
