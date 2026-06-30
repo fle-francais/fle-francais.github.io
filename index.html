@@ -369,9 +369,6 @@
 #gate-badge{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);
   color:#fff;border-radius:30px;padding:8px 20px;font-size:.85rem;margin-bottom:40px;display:inline-block}
 #gate-access{margin-top:auto;padding-top:30px;border-top:1px solid rgba(255,255,255,.15);width:100%;max-width:320px}
-#gate-access summary{color:rgba(255,255,255,.45);font-size:.78rem;cursor:pointer;
-  list-style:none;letter-spacing:.05em;user-select:none}
-#gate-access summary:hover{color:rgba(255,255,255,.7)}
 #gate-inner{margin-top:12px;display:flex;gap:8px}
 #gate-pwd{flex:1;padding:10px 14px;border:1px solid rgba(255,255,255,.3);border-radius:8px;
   background:rgba(255,255,255,.12);color:#fff;font-size:.9rem;outline:none}
@@ -428,15 +425,13 @@
   <p>Une plateforme d'apprentissage du français conçue pour les apprenants sinophones.<br>
   Leçons interactives, dialogues audio, exercices et bien plus encore.</p>
 
-  <details id="gate-access">
-    <summary>Accès bêta-testeurs</summary>
+  <div id="gate-access">
     <div id="gate-inner">
-      <input id="gate-pwd" type="password" placeholder="Code d'accès"
-             onkeydown="if(event.key==='Enter')checkGate()"/>
-      <button id="gate-btn" onclick="checkGate()">Entrer</button>
+      <input id="gate-pwd" type="password" placeholder="Code d'accès"/>
+      <button id="gate-btn">Entrer</button>
     </div>
     <div id="gate-err"></div>
-  </details>
+  </div>
 </div>
 <script>
 (function(){
@@ -445,19 +440,23 @@
     return;
   }
   document.body.style.overflow='hidden';
-})();
-function checkGate(){
-  var v=document.getElementById('gate-pwd').value;
-  if(v==='FLE2026'){
-    localStorage.setItem('fle_auth','1');
-    document.getElementById('gate-overlay').style.display='none';
-    document.body.style.overflow='';
-  }else{
-    document.getElementById('gate-err').textContent='Code incorrect.';
-    document.getElementById('gate-pwd').value='';
-    document.getElementById('gate-pwd').focus();
+  function checkGate(){
+    var v=document.getElementById('gate-pwd').value.trim();
+    if(v==='FLE2026'){
+      localStorage.setItem('fle_auth','1');
+      document.getElementById('gate-overlay').style.display='none';
+      document.body.style.overflow='';
+    }else{
+      document.getElementById('gate-err').textContent='Code incorrect.';
+      document.getElementById('gate-pwd').value='';
+      document.getElementById('gate-pwd').focus();
+    }
   }
-}
+  document.getElementById('gate-btn').addEventListener('click', checkGate);
+  document.getElementById('gate-pwd').addEventListener('keydown', function(e){
+    if(e.key==='Enter') checkGate();
+  });
+})();
 </script>
 
 
