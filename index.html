@@ -435,7 +435,13 @@
 </div>
 <script>
 (function(){
-  if(localStorage.getItem('fle_auth')==='1'){
+  // Vérif localStorage (avec try/catch pour Safari bloqué)
+  var stored=false;
+  try{stored=localStorage.getItem('fle_auth')==='1';}catch(e){}
+  // Vérif URL param ?auth=FLE2026
+  var urlAuth=new URLSearchParams(location.search).get('auth')==='FLE2026';
+  if(stored||urlAuth){
+    try{localStorage.setItem('fle_auth','1');}catch(e){}
     document.getElementById('gate-overlay').style.display='none';
     return;
   }
@@ -443,7 +449,9 @@
   function checkGate(){
     var v=document.getElementById('gate-pwd').value.trim();
     if(v==='FLE2026'){
-      localStorage.setItem('fle_auth','1');
+      try{localStorage.setItem('fle_auth','1');}catch(e){}
+      // Ajoute ?auth=FLE2026 à l'URL pour le bookmark
+      history.replaceState(null,'',location.pathname+'?auth=FLE2026');
       document.getElementById('gate-overlay').style.display='none';
       document.body.style.overflow='';
     }else{
@@ -452,9 +460,9 @@
       document.getElementById('gate-pwd').focus();
     }
   }
-  document.getElementById('gate-btn').addEventListener('click', checkGate);
-  document.getElementById('gate-pwd').addEventListener('keydown', function(e){
-    if(e.key==='Enter') checkGate();
+  document.getElementById('gate-btn').addEventListener('click',checkGate);
+  document.getElementById('gate-pwd').addEventListener('keydown',function(e){
+    if(e.key==='Enter')checkGate();
   });
 })();
 </script>
