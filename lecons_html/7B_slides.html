@@ -7,11 +7,11 @@
 <title>Leçon 7B — C'est combien ? | FrançaisPlus A1</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#8e44ad;--purp-l:#f5eef8;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
+:root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#1c2e5a;--purp-l:#e6ecf6;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
 body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--text);font-size:14px;height:100vh;overflow:hidden;display:flex;flex-direction:column}
 a{color:var(--blue);text-decoration:none}
 /* HEADER */
-.page-header{background:linear-gradient(135deg,var(--purp),#c0392b);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.page-header{background:linear-gradient(135deg,#0d1b32,#2a4a8a);color:#fff;padding:8px 14px;display:flex;align-items:center;gap:9px;flex-shrink:0}
 .ph-back{padding:4px 10px;border-radius:14px;border:2px solid rgba(255,255,255,.5);color:#fff;background:none;font-size:.72rem;font-weight:700;cursor:pointer;text-decoration:none}
 .ph-back:hover{background:rgba(255,255,255,.2)}
 .ph-lvl{padding:4px 8px;border-radius:14px;border:2px solid rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.1);font-size:.72rem;font-weight:700;cursor:pointer;appearance:none;-webkit-appearance:none;outline:none}
@@ -47,7 +47,7 @@ a{color:var(--blue);text-decoration:none}
 /* SLIDE FOOTER */
 .slide-footer{display:flex;justify-content:flex-end;align-items:center;gap:8px;padding:8px 0 0;margin-top:auto;flex-shrink:0}
 .btn-ns{padding:7px 16px;border:none;border-radius:20px;background:var(--purp);color:#fff;font-weight:700;font-size:.78rem;cursor:pointer;transition:background .15s,transform .1s;display:inline-flex;align-items:center;gap:5px}
-.btn-ns:hover{background:#7d3c98}
+.btn-ns:hover{background:#2a4a8a}
 .btn-ns:active{transform:scale(.97)}
 /* SCROLLABLE BODY */
 .slide-body{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column;justify-content:flex-start;padding-top:4px}
@@ -75,7 +75,7 @@ a{color:var(--blue);text-decoration:none}
 .dl-speaker{font-weight:800;font-size:.68rem;color:var(--purp);text-transform:uppercase;letter-spacing:.4px;padding-top:1px;line-height:1.4;overflow-wrap:break-word;word-break:break-word}
 .dl-line{font-size:.84rem;line-height:1.4;color:var(--text)}
 .dl-word{display:inline;border-radius:2px;padding:0 1px;transition:background .3s,color .3s}
-.dl-word.dl-lit{background:#d7bff5;color:#6c3483}
+.dl-word.dl-lit{background:#c8d8f0;color:#1c2e5a}
 .dl-wave{display:none;align-items:center;gap:2px;height:10px;margin-left:4px;vertical-align:middle}
 .dl-row.dl-playing .dl-wave{display:inline-flex}
 .dl-wave span{width:2px;border-radius:2px;background:var(--purp);display:inline-block;animation:dlwv .7s ease-in-out infinite}
@@ -90,7 +90,7 @@ a{color:var(--blue);text-decoration:none}
 .dialogue.dl-zh-on .dl-zh-line{display:block}
 /* Bouton lecture dialogue (injecté par JS) */
 .dl-play-btn{display:inline-flex;align-items:center;gap:7px;background:var(--purp);color:#fff;border:none;border-radius:18px;padding:7px 16px;font-size:.8rem;font-weight:700;cursor:pointer;margin-bottom:9px;transition:background .15s}
-.dl-play-btn:hover{background:#7d3c98}
+.dl-play-btn:hover{background:#2a4a8a}
 /* Bouton 中 propre au dialogue (injecté par JS) */
 .dl-zh-btn{border:2px solid var(--purp);color:var(--purp);background:none;border-radius:50%;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:700;cursor:pointer;flex-shrink:0;transition:all .15s}
 .dl-zh-btn:hover,.dl-zh-btn.zactive{background:var(--purp);color:#fff}
@@ -164,7 +164,7 @@ body.lang-zh .prod-zh{display:block}
 .fb.ko{color:#e74c3c}
 .verify-bar{display:flex;gap:7px;margin-top:10px;align-items:center;flex-wrap:wrap}
 .btn-verify{padding:5px 16px;border-radius:18px;border:none;background:var(--purp);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap;transition:background .15s}
-.btn-verify:hover{background:#7d3c98}
+.btn-verify:hover{background:#2a4a8a}
 .btn-restart{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem;white-space:nowrap}
 .btn-restart:hover{background:#7f8c8d}
 .check-btn-global{padding:5px 16px;border-radius:18px;border:none;background:var(--orange);color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
@@ -284,11 +284,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 }
 /* ── PRONONCIATION SLIDE ── */
 .prono-item{background:#fff;border:1px solid #e8e0f5;border-radius:8px;padding:10px 12px;margin-bottom:8px}
-.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#7d3c98;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.prono-speaker-tag{font-size:.72rem;font-weight:700;color:#2a4a8a;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
 .prono-phrase{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:7px}
 .prono-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
 .prono-btn{padding:5px 12px;border:none;border-radius:20px;cursor:pointer;font-size:.82rem;font-weight:600;transition:background .15s}
-.prono-btn-listen{background:#f0e6ff;color:#7d3c98}
+.prono-btn-listen{background:#f0e6ff;color:#2a4a8a}
 .prono-btn-listen:hover{background:#e0ccff}
 .prono-btn-mic{background:#d8f5ef;color:#16a085}
 .prono-btn-mic:hover{background:#b0e8d8}
@@ -305,9 +305,32 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .prono-heard{font-size:.78rem;color:var(--muted);font-style:italic}
 .prono-no-support{background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:8px 12px;font-size:.82rem;color:#856404;margin-bottom:8px}
 /* ── SUB-NAV (phonétique 1/2 · 2/2) ── */
-.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#7d3c98}
+.phon-sub-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px;background:rgba(125,60,152,.08);border-radius:8px;margin-bottom:8px;font-size:.8rem;font-weight:600;color:#2a4a8a}
 .phon-sub-header span{opacity:.7;font-weight:400}
 
+
+.slide-inner{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;display:flex;flex-direction:column}
+.slide-header{background:var(--purp);color:#fff;font-weight:700;font-size:.82rem;padding:5px 13px;border-radius:7px;margin-bottom:6px;letter-spacing:.3px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.slide-part{font-weight:400;opacity:.8;font-size:.78rem}
+.slide-badge{font-size:.72rem;opacity:.75;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.qcm-block{overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:6px;min-height:0}
+.qcm-items{display:flex;flex-direction:column;gap:7px}
+.qcm-item{background:#fff;border-radius:8px;padding:8px 10px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.qcm-actions{display:flex;align-items:center;gap:10px;margin-top:8px;padding-top:6px;border-top:1px solid #eee;flex-shrink:0}
+.ex-blocks{display:flex;flex-direction:column;gap:8px;flex:1;min-height:0;overflow-y:auto}
+.ex-block{background:#fff;border-radius:10px;padding:9px 12px;box-shadow:0 1px 5px rgba(0,0,0,.06)}
+.ex-title{font-weight:700;font-size:.84rem;color:var(--purp);margin-bottom:2px;display:flex;justify-content:space-between;align-items:baseline}
+.ex-badge{font-size:.7rem;font-weight:600;color:var(--muted);opacity:.8}
+.ex-inst{margin:2px 0 6px;font-size:.8rem;color:var(--muted);font-style:italic}
+.btn-reset{padding:5px 13px;border-radius:18px;border:none;background:#95a5a6;color:#fff;cursor:pointer;font-weight:700;font-size:.78rem}
+.head-ex{background:#fff!important;color:var(--purp)!important}
+.head-compr{background:#fff!important;color:var(--purp)!important}
+.head-prod{background:#fff!important;color:var(--purp)!important}
+.ex-cat-badge{color:var(--muted)!important;font-weight:600}
+.ex5-actions{margin-top:8px}
+.prod-box{background:var(--purp-l)!important;border-left:4px solid var(--purp)!important}
+.prod-input{border:2px solid var(--purp)!important}
+#slide-7 .slide-body,#slide-8 .slide-body{justify-content:flex-start;gap:8px;overflow-y:auto}
 </style>
 </head>
 <body>
@@ -332,11 +355,11 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <nav class="slide-nav" id="slide-nav">
   <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
   <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
-  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
-  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(5)">📖 Grammaire</button>
-  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(6)">✏️ Exercices</button>
-  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(8)">✍️ À toi !</button>
+  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(3)">🗣️ Communiquer</button>
+  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(4)">🎵 Phonétique</button>
+  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
+  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(7)">✏️ Exercices</button>
+  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(10)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -371,29 +394,93 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
   </div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
-<div class="slide" id="slide-1">
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-compr">🔍 Compréhension<span class="comm-zh"> · 理解练习</span></div>
-      <div class="card-body"><div class="compr-item">
-<div class="compr-q">Combien coûte le miroir au départ ?</div>
-<button class="btn-reveal" onclick="revealAnswer('ca-7B-0')">Voir</button>
-<div class="compr-a" id="ca-7B-0">25 euros.</div>
-</div>
-<div class="compr-item">
-<div class="compr-q">Combien paye le visiteur en tout ?</div>
-<button class="btn-reveal" onclick="revealAnswer('ca-7B-1')">Voir</button>
-<div class="compr-a" id="ca-7B-1">40 euros.</div>
-</div></div>
+  <!-- SLIDE 1: Comprendre 1/2 -->
+  <div class="slide" id="slide-1">
+    <div class="slide-inner">
+      <div class="slide-header">Comprendre <span class="slide-part">1/2</span></div>
+      <div class="qcm-block">
+        <div class="qcm-items">
+        <div class="qcm-item">
+          <div class="qcm-q">1. Combien coûte la lampe ? <span class="comm-zh">台灯多少钱？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Dix euros</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Quinze euros</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Vingt euros</button>
+          </div>
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">2. Quel est le prix initial du miroir ? <span class="comm-zh">镜子的初始价格是多少？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Vingt euros</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Trente euros</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Vingt-cinq euros</button>
+          </div>
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">3. Le miroir est-il trop cher pour l'acheteur ? <span class="comm-zh">买家觉得镜子太贵吗？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Non, il est content</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Oui</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Il ne dit rien</button>
+          </div>
+        </div>
+        </div>
+        <div class="qcm-actions">
+          <button class="btn-verify" onclick="verifyQCM('qcm-score-7B-1')">Vérifier ✔</button>
+          <button class="btn-reset" onclick="resetQCM('qcm-score-7B-1')">↺ Recommencer</button>
+          <span class="qcm-score" id="qcm-score-7B-1"></span>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer" style="justify-content:space-between">
+      <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
+      <button class="btn-ns" onclick="goSlide(2)">Comprendre 2/2 →</button>
     </div>
   </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Dialogue" data-zh="← 对话" onclick="goSlide(0)">← Dialogue</button>
-    <button class="btn-ns" data-fr="🗣️ Communiquer →" data-zh="🗣️ 表达 →" onclick="goSlide(2)">🗣️ Communiquer →</button>
+  <!-- SLIDE 2: Comprendre 2/2 -->
+  <div class="slide" id="slide-2">
+    <div class="slide-inner">
+      <div class="slide-header">Comprendre <span class="slide-part">2/2</span></div>
+      <div class="qcm-block">
+        <div class="qcm-items">
+        <div class="qcm-item">
+          <div class="qcm-q">4. Quel est le prix final du miroir ? <span class="comm-zh">镜子的最终价格是多少？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Quinze euros</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Vingt euros</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Vingt-cinq euros</button>
+          </div>
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">5. Combien coûtent les trois livres ? <span class="comm-zh">三本书多少钱？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Trois euros</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Cinq euros</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Dix euros</button>
+          </div>
+        </div>
+        <div class="qcm-item">
+          <div class="qcm-q">6. Quel est le total des achats ? <span class="comm-zh">总共多少钱？</span></div>
+          <div class="qcm-opts">
+              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Trente euros</button>
+              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Cinquante euros</button>
+              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Quarante euros</button>
+          </div>
+        </div>
+        </div>
+        <div class="qcm-actions">
+          <button class="btn-verify" onclick="verifyQCM('qcm-score-7B-2')">Vérifier ✔</button>
+          <button class="btn-reset" onclick="resetQCM('qcm-score-7B-2')">↺ Recommencer</button>
+          <span class="qcm-score" id="qcm-score-7B-2"></span>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer" style="justify-content:space-between">
+      <button class="btn-ns" onclick="goSlide(1)">← Comprendre 1/2</button>
+      <button class="btn-ns" onclick="goSlide(3)">Communiquer →</button>
+    </div>
   </div>
-</div>
-<!-- ══ SLIDE 2 : COMMUNIQUER + VOCAB ══ -->
-<div class="slide" id="slide-2">
+<div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
@@ -405,19 +492,19 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
-    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
+    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(2)">← Comprendre</button>
+    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(4)">🎵 Phonétique →</button>
   </div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE 1/2 — SCHÉMA ══ -->
-<div class="slide" id="slide-3">
+<div class="slide" id="slide-4">
   <div class="slide-body" style="display:flex;flex-direction:column">
     <div class="card" style="flex:1;display:flex;flex-direction:column">
       <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span>
         <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">1 / 2</span>
       </div>
       <div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:8px">
-<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/><text x="340" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c3e50">Liaisons avec les nombres</text><line x1="222" y1="32" x2="222" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><line x1="492" y1="32" x2="492" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><rect x="8" y="32" width="208" height="215" rx="8" fill="#7d3c98" opacity=".09" stroke="#7d3c98" stroke-width="0.8"/><circle cx="112" cy="115" r="52" fill="#7d3c98" opacity=".09"><animate attributeName="r" values="52;70;52" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="112" cy="115" r="48" fill="#7d3c98" opacity=".88"/><text x="112" y="125" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" font-family="monospace">⌒N</text><text x="112" y="190" text-anchor="middle" font-size="10.5" fill="#7d3c98" font-weight="600">Liaison obligatoire avec les nombres</text><text x="112" y="207" text-anchor="middle" font-size="10.5" fill="#7d3c98" font-weight="600">devant voyelle : [z].</text><text x="357" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">GRAPHIE → SON</text><rect x="246" y="52" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="67" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">deux_ans</text><text x="472" y="67" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[dø·z·ɑ̃]</text><rect x="246" y="78" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="93" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">trois_élèves</text><text x="472" y="93" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[tʁwa·z·e]</text><rect x="246" y="104" width="230" height="21" rx="5" fill="#7d3c98" opacity=".10"/><text x="253" y="119" font-size="10.5" fill="#7d3c98" font-weight="600" font-family="monospace">six_enfants</text><text x="472" y="119" font-size="11" fill="#7d3c98" font-weight="700" font-family="monospace" text-anchor="end">[si·z·ɑ̃]</text><rect x="496" y="32" width="177" height="215" rx="8" fill="#7d3c98" opacity=".06" stroke="#7d3c98" stroke-width="0.5"/><text x="584" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">EXEMPLES</text><text x="546" y="66" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">deux_euros</text><text x="546" y="94" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">vingt_et_un</text><text x="546" y="122" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">trois_amis</text><text x="546" y="150" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">six_enfants</text></svg>
+<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/><text x="340" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c3e50">Liaisons avec les nombres</text><line x1="222" y1="32" x2="222" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><line x1="492" y1="32" x2="492" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><rect x="8" y="32" width="208" height="215" rx="8" fill="#2a4a8a" opacity=".09" stroke="#2a4a8a" stroke-width="0.8"/><circle cx="112" cy="115" r="52" fill="#2a4a8a" opacity=".09"><animate attributeName="r" values="52;70;52" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.8s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="112" cy="115" r="48" fill="#2a4a8a" opacity=".88"/><text x="112" y="125" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" font-family="monospace">⌒N</text><text x="112" y="190" text-anchor="middle" font-size="10.5" fill="#2a4a8a" font-weight="600">Liaison obligatoire avec les nombres</text><text x="112" y="207" text-anchor="middle" font-size="10.5" fill="#2a4a8a" font-weight="600">devant voyelle : [z].</text><text x="357" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">GRAPHIE → SON</text><rect x="246" y="52" width="230" height="21" rx="5" fill="#2a4a8a" opacity=".10"/><text x="253" y="67" font-size="10.5" fill="#2a4a8a" font-weight="600" font-family="monospace">deux_ans</text><text x="472" y="67" font-size="11" fill="#2a4a8a" font-weight="700" font-family="monospace" text-anchor="end">[dø·z·ɑ̃]</text><rect x="246" y="78" width="230" height="21" rx="5" fill="#2a4a8a" opacity=".10"/><text x="253" y="93" font-size="10.5" fill="#2a4a8a" font-weight="600" font-family="monospace">trois_élèves</text><text x="472" y="93" font-size="11" fill="#2a4a8a" font-weight="700" font-family="monospace" text-anchor="end">[tʁwa·z·e]</text><rect x="246" y="104" width="230" height="21" rx="5" fill="#2a4a8a" opacity=".10"/><text x="253" y="119" font-size="10.5" fill="#2a4a8a" font-weight="600" font-family="monospace">six_enfants</text><text x="472" y="119" font-size="11" fill="#2a4a8a" font-weight="700" font-family="monospace" text-anchor="end">[si·z·ɑ̃]</text><rect x="496" y="32" width="177" height="215" rx="8" fill="#2a4a8a" opacity=".06" stroke="#2a4a8a" stroke-width="0.5"/><text x="584" y="47" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">EXEMPLES</text><text x="546" y="66" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">deux_euros</text><text x="546" y="94" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">vingt_et_un</text><text x="546" y="122" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">trois_amis</text><text x="546" y="150" text-anchor="middle" font-size="11" fill="#444" font-family="monospace">six_enfants</text></svg>
         <details style="margin-top:8px;font-size:.85rem;color:var(--muted)">
           <summary style="cursor:pointer;color:var(--purp);font-weight:600">📌 Note</summary>
           <div style="margin-top:4px;line-height:1.5"><div class="phon-body">§ Phonétique — Les nombres — liaisons et enchaînements
@@ -432,12 +519,12 @@ enfants.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
-    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(4)">🎤 Prononciation →</button>
+    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(3)">← Communiquer</button>
+    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(5)">🎤 Prononciation →</button>
   </div>
 </div>
 <!-- ══ SLIDE 4 : PHONÉTIQUE 2/2 — PRONONCIATION ══ -->
-<div class="slide" id="slide-4">
+<div class="slide" id="slide-5">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-phon">🎤 Prononciation<span class="comm-zh"> · 发音练习</span>
@@ -457,30 +544,26 @@ enfants.</div></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(3)">← Schéma</button>
-    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(5)">📖 Grammaire →</button>
+    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(4)">← Schéma</button>
+    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(6)">📖 Grammaire →</button>
   </div>
 </div>
 <!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
-<div class="slide" id="slide-5">
+<div class="slide" id="slide-6">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-gram">📖 Les nombres de 100 à 1 000 000<span class="comm-zh"> · 语法要点</span></div>
-      <div class="card-body"><div class="gram-rule"><div class="gram-rule-body"><strong>Les grands nombres</strong> — 100 à 1 000 000</div></div><div class="gram-ex">• 100 = cent · 200 = deux cents · 201 = deux cent un (sans -s)<br/>• 1 000 = mille · 2 000 = deux mille · 10 000 = dix mille<br/>• 1 000 000 = un million · 1 000 000 000 = un milliard</div><hr class="gram-sep"><div class="gram-rule"><div class="gram-rule-body">Le <strong>passé composé avec ÊTRE</strong></div></div><table class="gram-table gram-fc"><thead><tr><th>Structure</th><th>Exemples</th></tr></thead><tbody><tr><td class="gram-pf">ÊTRE (prés.) + participe passé accordé</td><td>Je <em>suis allé(e)</em> au marché.</td></tr><tr><td>Verbes DR MRS P VANDERTRAMP</td><td>aller, venir, partir, arriver, entrer, sortir…</td></tr><tr><td>Accord du participe</td><td class="gram-pf">Elle est parti<em>e</em>. / Ils sont allé<em>s</em>.</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn" onclick="hideGram()">🙈 Masquer</button><button class="gram-sc-btn" onclick="revealGram()">👁 Révéler</button></div><div class="gram-ex">• Je <em>suis arrivé(e)</em> à 8h. / Elles <em>sont parties</em> en vacances.<br/>• Aussi : tous les verbes pronominaux → Il <em>s’est levé</em> tôt.</div></div>
+      <div class="card-body"><div class="gram-rule"><div class="gram-rule-body"><strong>Les grands nombres</strong> — 100 à 1 000 000</div></div><div class="gram-ex">• 100 = cent · 200 = deux cents · 201 = deux cent un (sans -s)<br/>• 1 000 = mille · 2 000 = deux mille · 10 000 = dix mille<br/>• 1 000 000 = un million · 1 000 000 000 = un milliard</div><hr class="gram-sep"><div class="gram-rule"><div class="gram-rule-body">Le <strong>passé composé avec ÊTRE</strong></div></div><table class="gram-table gram-fc"><thead><tr><th>Structure</th><th>Exemples</th></tr></thead><tbody><tr><td class="gram-pf">ÊTRE (prés.) + participe passé accordé</td><td>Je <em>suis allé(e)</em> au marché.</td></tr><tr><td>Verbes DR MRS P VANDERTRAMP</td><td>aller, venir, partir, arriver, entrer, sortir…</td></tr><tr><td>Accord du participe</td><td class="gram-pf">Elle est parti<em>e</em>. / Ils sont allé<em>s</em>.</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn" onclick="hideGram()">🙈 Masquer</button><button class="gram-sc-btn" onclick="revealGram()">👁 Révéler</button></div><div class="gram-ex">• Je <em>suis arrivé(e)</em> à 8h. / Elles <em>sont parties</em> en vacances.<br/>• Aussi : tous les verbes pronominaux → Il <em>s’est levé</em> tôt.</div><div class="gram-qcm" id="gram-qcm-box" data-idx="0"><div class="gram-qcm-label">🎯 Pratique — Les grands nombres</div><div class="gram-qcm-prog"></div><div class="gram-qcm-q"></div><div class="gram-qcm-opts"></div><span class="gram-qcm-fb"></span><button class="gram-qcm-next" onclick="_gramQcmNext()">Suivant →</button></div><script>var _gramQcmData=[{"q": "Il y a ___ personnes ici (200).", "opts": ["deux cent", "deux-cent", "deux cents"], "ans": "deux cents"}, {"q": "Elle a ___ ans (80).", "opts": ["quatre-vingts", "quatres-vingts", "quatre vingts"], "ans": "quatre-vingts"}, {"q": "Ce livre coûte ___ euros (21).", "opts": ["vingt-et-un", "vingt et un", "vingt un"], "ans": "vingt et un"}, {"q": "Nous sommes ___ étudiants (71).", "opts": ["soixante-et-onze", "soixante et onze", "septante et un"], "ans": "soixante et onze"}, {"q": "J'ai ___ euros (90).", "opts": ["quatre-vingt-dix", "quatre vingt dix", "nonante"], "ans": "quatre-vingt-dix"}];</script></div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(4)">← Phonétique</button>
-    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(6)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(5)">← Phonétique</button>
+    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(7)">✏️ Exercices →</button>
   </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
-<div class="slide" id="slide-6">
-  <div class="sub-nav">
-    <button class="sub-nav-btn" disabled>←</button>
-    <span class="sub-nav-count">1 / 2</span>
-    <button class="sub-nav-btn" onclick="goSlide(7)">→</button>
-  </div>
+<div class="slide" id="slide-7">
+  <div class="slide-header">Exercices <span class="slide-part">1/3</span></div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Écrivez les nombres en lettres <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
 <div class="trans-row" data-ans="quatre-vingt-cinq">
@@ -531,17 +614,13 @@ enfants.</div></div>
     <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Négociation au vide-grenier <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">À deux, simulez une négociation : Objet 1 : une vieille montre — prix affiché : 45€ Objet 2 : un sac en cuir — prix affiché : 60€ Négociez une réduction avec les formules apprises.<span class="comm-zh"> · 两人一组，模拟谈判</span></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(5)">← Grammaire</button>
-    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(7)">Suite →</button>
+    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(8)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
-<div class="slide" id="slide-7">
-  <div class="sub-nav">
-    <button class="sub-nav-btn" onclick="goSlide(6)">←</button>
-    <span class="sub-nav-count">2 / 2</span>
-    <button class="sub-nav-btn" disabled>→</button>
-  </div>
+<div class="slide" id="slide-8">
+  <div class="slide-header">Exercices <span class="slide-part">2/3</span></div>
   <div class="slide-body">
     <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Questions et réponses sur les prix <span class="ex-cat-badge badge-comm">💬 Communication</span></div><div class="card-body"><div class="ex-inst">Posez la question correspondante :<span class="comm-zh"> · 写出相应的问题</span></div>
 <div class="blank-row">1. <span></span><input autocomplete="off" class="blank-input" id="bl-7B-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-7B-ex3-0').click()" type="text"/><button class="check-btn" data-ans="C'est combien, ce miroir ?" id="chk-bl-7B-ex3-0" onclick="checkBlankData(this,'bl-7B-ex3-0','fb-bl-7B-ex3-0')">✓</button><span class="fb" id="fb-bl-7B-ex3-0"></span><span> ? — Ce miroir coûte vingt-cinq euros.</span></div>
@@ -567,12 +646,113 @@ enfants.</div></div>
 </div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(6)">← Préc.</button>
-    <button class="btn-ns" data-fr="✍️ À toi ! →" data-zh="✍️ 轮到你了！ →" onclick="goSlide(8)">✍️ À toi ! →</button>
+    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(7)">← Préc.</button>
+    <button class="btn-ns" data-fr="Suite →" data-zh="Suite →" onclick="goSlide(9)">Suite →</button>
   </div>
 </div>
 <!-- ══ SLIDE 8 : À TOI ! ══ -->
-<div class="slide" id="slide-8">
+  <!-- SLIDE 9: Exercices 3/3 -->
+  <div class="slide" id="slide-9">
+    <div class="slide-inner">
+      <div class="slide-header">Exercices <span class="slide-part">3/3</span></div>
+      <div class="ex-blocks">
+        <div class="ex-block">
+          <div class="ex-title"><span>Ex. 5 — Objet de déco ou livre/culture ? <span class="comm-zh">将每件物品归入正确的栏目。</span></span><span class="ex-badge">📖 Vocabulaire</span></div>
+          <p class="ex-inst">Classez chaque objet dans la bonne colonne.</p>
+          <div id="ex5-pool" class="ex5-pool">
+        <span class="drag-chip" data-cat="deco" onclick="ex5Click(this)">une lampe</span>
+        <span class="drag-chip" data-cat="culture" onclick="ex5Click(this)">des livres</span>
+        <span class="drag-chip" data-cat="deco" onclick="ex5Click(this)">un miroir</span>
+        <span class="drag-chip" data-cat="culture" onclick="ex5Click(this)">un magazine</span>
+        <span class="drag-chip" data-cat="deco" onclick="ex5Click(this)">un tableau</span>
+        <span class="drag-chip" data-cat="culture" onclick="ex5Click(this)">une affiche</span>
+        <span class="drag-chip" data-cat="deco" onclick="ex5Click(this)">un vase</span>
+        <span class="drag-chip" data-cat="culture" onclick="ex5Click(this)">un disque</span>
+          </div>
+          <div class="ex5-zones">
+            <div class="ex5-zone" id="zone-deco" onclick="ex5Drop(this)">
+              <div class="ex5-zone-label">🏮 Déco / Mobilier</div>
+              <div class="ex5-zone-items" id="zone-deco-items"></div>
+            </div>
+            <div class="ex5-zone" id="zone-culture" onclick="ex5Drop(this)">
+              <div class="ex5-zone-label">📚 Livre / Culture</div>
+              <div class="ex5-zone-items" id="zone-culture-items"></div>
+            </div>
+          </div>
+          <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
+            <button class="btn-verify" onclick="checkEx5()">Vérifier ✔</button>
+            <button class="btn-reset" onclick="resetEx5()">↺ Recommencer</button>
+            <span class="ex5-score" id="ex5-score-7B"></span>
+          </div>
+        </div>
+        <div class="ex-block">
+          <div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确的价格。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
+          <p class="ex-inst">Choisissez le bon prix.</p>
+          <div class="listen-list">
+          <div class="listen-item" data-ans="quinze">
+            <div class="listen-sentence">La lampe coûte <span class="listen-blank">___</span> euros.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'La lampe coûte quinze euros.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="vingt" onclick="selectEx6(this)">vingt</button>
+              <button class="choice-btn" data-val="quinze" onclick="selectEx6(this)">quinze</button>
+              <button class="choice-btn" data-val="dix" onclick="selectEx6(this)">dix</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="vingt-cinq">
+            <div class="listen-sentence">Le miroir coûte <span class="listen-blank">___</span> euros.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Le miroir coûte vingt-cinq euros.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="vingt-cinq" onclick="selectEx6(this)">vingt-cinq</button>
+              <button class="choice-btn" data-val="trente" onclick="selectEx6(this)">trente</button>
+              <button class="choice-btn" data-val="quinze" onclick="selectEx6(this)">quinze</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="vingt">
+            <div class="listen-sentence">Je peux faire <span class="listen-blank">___</span> euros pour le miroir.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Je peux faire vingt euros pour le miroir.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="trente" onclick="selectEx6(this)">trente</button>
+              <button class="choice-btn" data-val="quinze" onclick="selectEx6(this)">quinze</button>
+              <button class="choice-btn" data-val="vingt" onclick="selectEx6(this)">vingt</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="cinq">
+            <div class="listen-sentence">Les trois livres coûtent <span class="listen-blank">___</span> euros.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Les trois livres coûtent cinq euros.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="quinze" onclick="selectEx6(this)">quinze</button>
+              <button class="choice-btn" data-val="cinq" onclick="selectEx6(this)">cinq</button>
+              <button class="choice-btn" data-val="dix" onclick="selectEx6(this)">dix</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          <div class="listen-item" data-ans="quarante">
+            <div class="listen-sentence">Ça fait <span class="listen-blank">___</span> euros en tout.</div>
+            <button class="listen-btn" onclick="playEx6TTS(this,'Ça fait quarante euros en tout.')" title="Écouter">🔊</button>
+            <div class="listen-choices">
+              <button class="choice-btn" data-val="trente" onclick="selectEx6(this)">trente</button>
+              <button class="choice-btn" data-val="quarante" onclick="selectEx6(this)">quarante</button>
+              <button class="choice-btn" data-val="cinquante" onclick="selectEx6(this)">cinquante</button>
+            </div>
+            <div class="listen-fb"></div>
+          </div>
+          </div>
+          <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
+            <button class="btn-verify" onclick="verifyAllEx6()">Vérifier ✔</button>
+            <button class="btn-reset" onclick="resetAllEx6()">↺ Recommencer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer" style="justify-content:space-between">
+      <button class="btn-ns" onclick="goSlide(8)">← Exercices 2/3</button>
+      <button class="btn-ns" onclick="goSlide(10)">✍️ À toi ! →</button>
+    </div>
+  </div>
+<div class="slide" id="slide-10">
   <div class="slide-body">
     <div class="card">
       <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
@@ -586,7 +766,7 @@ Leçon 7B · C'est combien ? · A1</div>
     </div>
   </div>
   <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(7)">← Exercices</button>
+    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(9)">← Exercices</button>
     <button class="btn-ns" style="background:var(--green)" onclick="location.href='7C_slides.html'">7C →</button>
   </div>
 </div>
@@ -626,10 +806,12 @@ Leçon 7B · C'est combien ? · A1</div>
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var LESSON='7B';
-var TAB_FOR_SLIDE=[0, 1, 2, 3, 3, 4, 5, 5, 6];
+var TAB_FOR_SLIDE=[0,1,1,2,3,3,4,5,5,5,6];
 
 var currentSlide=0;
-function goSlide(n){
+
+    function playEx6TTS(btn,text){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.85;u.onend=function(){btn.innerHTML='🔊';};u.onerror=function(){btn.innerHTML='🔊';};window.speechSynthesis.speak(u);}
+    function goSlide(n){
   if(n===currentSlide)return;
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;
   slides[currentSlide].classList.remove('s-active');
