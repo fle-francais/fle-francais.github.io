@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<script>if(sessionStorage.getItem('fle_auth')!=='1'){location.replace('../index.html');}</script>
+<script>(function(){var ok=false;try{ok=localStorage.getItem('fle_auth')==='1';}catch(e){}if(!ok){var u=new URLSearchParams(location.search).get('auth');if(u==='FLE2026'){try{localStorage.setItem('fle_auth','1');}catch(e){}ok=true;}}if(!ok)location.replace('../index.html');})();</script>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Leçon 5A — Qu'est-ce que tu manges ? | FrançaisPlus A1</title>
@@ -172,6 +172,7 @@ body.lang-zh .prod-zh{display:block}
 .choice-btn:hover:not(:disabled){background:var(--blue-l)}
 .choice-btn.choice-correct{background:var(--green);border-color:var(--green);color:#fff}
 .choice-btn.choice-wrong{background:#e74c3c;border-color:#e74c3c;color:#fff}
+.choice-btn.choice-selected{background:var(--purp);border-color:var(--purp);color:#fff}
 .listen-fb{margin-top:5px;font-size:.78rem;font-weight:600;min-height:12px}
 /* COMM */
 .comm-list{display:grid;gap:5px}
@@ -632,9 +633,9 @@ Exercice Distinguez : dessous / dessus — pour / pur — roue / rue — doux / 
             <div class="listen-sentence">Je mange <span class="listen-blank">___</span> riz avec des légumes.</div>
             <button class="listen-btn" onclick="playEx6TTS(this,'Je mange du riz avec des légumes.')" title="Écouter">🔊</button>
             <div class="listen-choices">
-              <button class="choice-btn" data-val="du" onclick="checkEx6(this)">du</button>
-              <button class="choice-btn" data-val="de la" onclick="checkEx6(this)">de la</button>
-              <button class="choice-btn" data-val="des" onclick="checkEx6(this)">des</button>
+              <button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
+              <button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
+              <button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
             </div>
             <div class="listen-fb"></div>
           </div>
@@ -642,9 +643,9 @@ Exercice Distinguez : dessous / dessus — pour / pur — roue / rue — doux / 
             <div class="listen-sentence">Je bois <span class="listen-blank">___</span> jus d'orange.</div>
             <button class="listen-btn" onclick="playEx6TTS(this,'Je bois du jus d\'orange.')" title="Écouter">🔊</button>
             <div class="listen-choices">
-              <button class="choice-btn" data-val="du" onclick="checkEx6(this)">du</button>
-              <button class="choice-btn" data-val="de la" onclick="checkEx6(this)">de la</button>
-              <button class="choice-btn" data-val="des" onclick="checkEx6(this)">des</button>
+              <button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
+              <button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
+              <button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
             </div>
             <div class="listen-fb"></div>
           </div>
@@ -652,9 +653,9 @@ Exercice Distinguez : dessous / dessus — pour / pur — roue / rue — doux / 
             <div class="listen-sentence">Je mange <span class="listen-blank">___</span> soupe à l'école.</div>
             <button class="listen-btn" onclick="playEx6TTS(this,'Je mange de la soupe à l\'école.')" title="Écouter">🔊</button>
             <div class="listen-choices">
-              <button class="choice-btn" data-val="de la" onclick="checkEx6(this)">de la</button>
-              <button class="choice-btn" data-val="du" onclick="checkEx6(this)">du</button>
-              <button class="choice-btn" data-val="des" onclick="checkEx6(this)">des</button>
+              <button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
+              <button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
+              <button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
             </div>
             <div class="listen-fb"></div>
           </div>
@@ -662,9 +663,9 @@ Exercice Distinguez : dessous / dessus — pour / pur — roue / rue — doux / 
             <div class="listen-sentence">Ma mère cuisine <span class="listen-blank">___</span> plats chinois.</div>
             <button class="listen-btn" onclick="playEx6TTS(this,'Ma mère cuisine des plats chinois.')" title="Écouter">🔊</button>
             <div class="listen-choices">
-              <button class="choice-btn" data-val="des" onclick="checkEx6(this)">des</button>
-              <button class="choice-btn" data-val="du" onclick="checkEx6(this)">du</button>
-              <button class="choice-btn" data-val="de la" onclick="checkEx6(this)">de la</button>
+              <button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
+              <button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
+              <button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
             </div>
             <div class="listen-fb"></div>
           </div>
@@ -672,9 +673,9 @@ Exercice Distinguez : dessous / dessus — pour / pur — roue / rue — doux / 
             <div class="listen-sentence">On mange <span class="listen-blank">___</span> viande ou du poisson.</div>
             <button class="listen-btn" onclick="playEx6TTS(this,'On mange de la viande ou du poisson.')" title="Écouter">🔊</button>
             <div class="listen-choices">
-              <button class="choice-btn" data-val="de la" onclick="checkEx6(this)">de la</button>
-              <button class="choice-btn" data-val="du" onclick="checkEx6(this)">du</button>
-              <button class="choice-btn" data-val="des" onclick="checkEx6(this)">des</button>
+              <button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
+              <button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
+              <button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
             </div>
             <div class="listen-fb"></div>
           </div>
@@ -785,9 +786,9 @@ function ex5Drop(zone){if(!ex5Selected)return;var items=zone.querySelector('.ex5
 function checkEx5(){var allChips=document.querySelectorAll('#ex5-pool .drag-chip, .ex5-zone-items .drag-chip'),correct=0,wrong=0,missing=0;allChips.forEach(function(chip){var zone=chip.closest('.ex5-zone');if(!zone){missing++;return;}if(zone.id==='zone-'+chip.dataset.cat){chip.classList.add('chip-ok');correct++;}else{chip.classList.add('chip-ko');wrong++;}});var fb=document.getElementById('ex5-fb');if(!fb)return;if(missing>0){fb.innerHTML='⚠️ Classez toutes les expressions d\'abord.';fb.style.color='var(--orange)';}else if(wrong===0){fb.innerHTML='✅ Parfait !';fb.style.color='var(--green)';}else{fb.innerHTML='❌ '+wrong+' mal classée(s).';fb.style.color='#e74c3c';}}
 function resetEx5(){var pool=document.getElementById('ex5-pool');if(!pool)return;document.querySelectorAll('.drag-chip').forEach(function(chip){chip.classList.remove('chip-ok','chip-ko','chip-sel');pool.appendChild(chip);});document.querySelectorAll('.ex5-zone').forEach(function(z){z.classList.remove('zone-active');});ex5Selected=null;var fb=document.getElementById('ex5-fb');if(fb)fb.innerHTML='';}
 function playEx6Audio(btn,src){btn.innerHTML='🔊 …';var audio=new Audio(src);audio.onended=function(){btn.innerHTML='🔊';};audio.play().catch(function(){btn.innerHTML='🔊';});}
-function verifyAllEx6(){document.querySelectorAll('.listen-item').forEach(function(item){if(item.dataset.done)return;item.dataset.done='1';var ans=item.dataset.ans,fb=item.querySelector('.listen-fb');item.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;if(b.dataset.val===ans)b.classList.add('choice-correct');});if(fb){fb.textContent='→ '+ans;fb.style.color='#e74c3c';}});}
-function resetAllEx6(){document.querySelectorAll('.listen-item').forEach(function(item){delete item.dataset.done;item.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=false;b.classList.remove('choice-correct','choice-wrong');});var fb=item.querySelector('.listen-fb');if(fb){fb.textContent='';fb.style.color='';}});}
-function checkEx6(btn){var item=btn.closest('.listen-item');if(!item||item.dataset.done)return;item.dataset.done='1';var ans=item.dataset.ans,val=btn.dataset.val,fb=item.querySelector('.listen-fb');item.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;});if(val===ans){btn.classList.add('choice-correct');if(fb){fb.textContent='✅';fb.style.color='var(--green)';}}else{btn.classList.add('choice-wrong');item.querySelectorAll('.choice-btn').forEach(function(b){if(b.dataset.val===ans)b.classList.add('choice-correct');});if(fb){fb.textContent='❌ → '+ans;fb.style.color='#e74c3c';}}}
+function selectEx6(btn){var item=btn.closest('.listen-item');if(!item||item.dataset.done)return;item.querySelectorAll('.choice-btn').forEach(function(b){b.classList.remove('choice-selected');});btn.classList.add('choice-selected');}
+function verifyAllEx6(){document.querySelectorAll('.listen-item').forEach(function(item){if(item.dataset.done)return;item.dataset.done='1';var ans=item.dataset.ans,fb=item.querySelector('.listen-fb'),sel=item.querySelector('.choice-btn.choice-selected');item.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;if(b.dataset.val===ans)b.classList.add('choice-correct');});if(sel&&sel.dataset.val===ans){if(fb){fb.textContent='✅';fb.style.color='var(--green)';}}else if(sel){sel.classList.add('choice-wrong');if(fb){fb.textContent='❌ → '+ans;fb.style.color='#e74c3c';}}else{if(fb){fb.textContent='→ '+ans;fb.style.color='#e74c3c';}}});}
+function resetAllEx6(){document.querySelectorAll('.listen-item').forEach(function(item){delete item.dataset.done;item.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=false;b.classList.remove('choice-correct','choice-wrong','choice-selected');});var fb=item.querySelector('.listen-fb');if(fb){fb.textContent='';fb.style.color='';}});}
 async function checkLT(btn){var ta=btn.previousElementSibling,res=btn.nextElementSibling,txt=(ta.value||'').trim();var zh=document.body.classList.contains('lang-zh');if(!txt){res.innerHTML='<p class="lt-info">'+(zh?'✏️ 请先写下您的答案。':'✏️ Écris d\'abord ta réponse.')+'</p>';return;}btn.disabled=true;btn.textContent='…';res.innerHTML='<p class="lt-info">'+(zh?'批改中…':'Correction en cours…')+'</p>';try{var r=await fetch('https://api.languagetool.org/v2/check',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'text='+encodeURIComponent(txt)+'&language=fr'});var d=await r.json();if(!d.matches||!d.matches.length){res.innerHTML='<p class="lt-ok">'+(zh?'✅ 没有错误 — 太棒了！':'✅ Aucune erreur — bravo !')+'</p>';}else{var n=d.matches.length,html='<p class="lt-count">'+n+(zh?' 处需要修改：':' point'+(n>1?'s':'')+' à corriger :')+'</p><ul class="lt-list">';for(var m of d.matches){var orig=txt.slice(m.offset,m.offset+m.length),sugs=(m.replacements||[]).slice(0,3).map(function(x){return'<span class="lt-sug">'+x.value+'</span>';}).join(', ');html+='<li><span class="lt-err">« '+orig+' »</span> — '+m.message+(sugs?' → '+sugs:'')+' </li>';}html+='</ul>';res.innerHTML=html;}}catch(e){res.innerHTML='<p class="lt-warn">'+(zh?'⚠️ 无法连接到批改服务器。':'⚠️ Impossible de joindre le correcteur.')+'</p>';}btn.disabled=false;btn.textContent=zh?'批改 ✓':'Corriger ✓';}
 var _pronoRec=false;
 function pronoListen(btn){var text=btn.getAttribute('data-text');if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';setTimeout(function(){var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.88;u.onend=function(){btn.innerHTML='🔊 Réécouter';};u.onerror=function(){btn.innerHTML='🔊 Écouter';};window.speechSynthesis.speak(u);},80);}
