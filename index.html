@@ -465,6 +465,11 @@
     if(e.key==='Enter')checkGate();
   });
 })();
+// Si localStorage indisponible (Safari cookies bloqués), injecter ?auth= dans les liens de leçon
+document.addEventListener('DOMContentLoaded',function(){
+  var lsOk=false;try{lsOk=localStorage.getItem('fle_auth')==='1';}catch(e){}
+  if(!lsOk){document.querySelectorAll('a[href*="lecons_html/"]').forEach(function(a){a.href=a.href.split('?')[0]+'?auth=FLE2026';});}
+});
 </script>
 
 
