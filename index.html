@@ -435,13 +435,15 @@
 </div>
 <script>
 (function(){
-  // Vérif localStorage (avec try/catch pour Safari bloqué)
+  // Vérif localStorage + sessionStorage (avec try/catch pour Safari bloqué)
   var stored=false;
   try{stored=localStorage.getItem('fle_auth')==='1';}catch(e){}
+  if(!stored){try{stored=sessionStorage.getItem('fle_auth')==='1';}catch(e){}}
   // Vérif URL param ?auth=FLE2026
   var urlAuth=new URLSearchParams(location.search).get('auth')==='FLE2026';
   if(stored||urlAuth){
     try{localStorage.setItem('fle_auth','1');}catch(e){}
+    try{sessionStorage.setItem('fle_auth','1');}catch(e){}
     document.getElementById('gate-overlay').style.display='none';
     return;
   }
@@ -450,6 +452,7 @@
     var v=document.getElementById('gate-pwd').value.trim();
     if(v==='FLE2026'){
       try{localStorage.setItem('fle_auth','1');}catch(e){}
+      try{sessionStorage.setItem('fle_auth','1');}catch(e){}
       // Ajoute ?auth=FLE2026 à l'URL pour le bookmark
       history.replaceState(null,'',location.pathname+'?auth=FLE2026');
       document.getElementById('gate-overlay').style.display='none';
