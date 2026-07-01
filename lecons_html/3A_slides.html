@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
 <script>(function(){var ok=false;try{ok=localStorage.getItem('fle_auth')==='1';}catch(e){}if(!ok){try{ok=sessionStorage.getItem('fle_auth')==='1';}catch(e){}}if(!ok){var u=new URLSearchParams(location.search).get('auth');if(u==='FLE2026'){try{localStorage.setItem('fle_auth','1');}catch(e){}try{sessionStorage.setItem('fle_auth','1');}catch(e){}ok=true;}}if(!ok)location.replace('../index.html');})();</script>
@@ -330,49 +331,49 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 .ex5-actions{margin-top:8px}
 .prod-box{background:var(--purp-l)!important;border-left:4px solid var(--purp)!important}
 .prod-input{border:2px solid var(--purp)!important}
-#slide-7 .slide-body,#slide-8 .slide-body{justify-content:flex-start;gap:8px;overflow-y:auto}
+#slide-7 .slide-body{justify-content:flex-start;gap:8px;overflow-y:auto}
 </style>
 </head>
 <body>
 <header class="page-header">
-  <a class="ph-back" href="../index.html?auth=FLE2026" title="Retour à l'accueil">🏠</a>
-  <a class="ph-back" href="../index.html?auth=FLE2026&level=A1" title="Leçons A1">A1</a>
-  <select class="ph-lvl" title="Changer de niveau" onchange="location.href='../index.html?level='+this.value">
-    <option value="A1" selected>A1</option>
-    <option value="A2">A2</option>
-    <option value="B1">B1</option>
-    <option value="B2">B2</option>
-    <option value="C1">C1</option>
-    <option value="C2">C2</option>
-  </select>
-  <div style="flex:1"><div class="ph-title">Quelle heure est-il ?</div><div class="ph-sub">Leçon 3A · A1</div></div>
-  <div class="ph-lang">
-    <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')" title="Français"><img src="../icons/flag-fr.svg" alt="FR"/></button>
-    <button class="ph-lang-btn" id="btn-lang-zh" onclick="setLang('zh')" title="中文"><img src="../icons/flag-zh.svg" alt="中"/></button>
-  </div>
-  <a class="ph-prev" href="2C_slides.html">← 2C</a>
-  <a class="ph-next" href="3B_slides.html">3B →</a>
+<a class="ph-back" href="../index.html?auth=FLE2026" title="Retour à l'accueil">🏠</a>
+<a class="ph-back" href="../index.html?auth=FLE2026&amp;level=A1" title="Leçons A1">A1</a>
+<select class="ph-lvl" onchange="location.href='../index.html?level='+this.value" title="Changer de niveau">
+<option selected="" value="A1">A1</option>
+<option value="A2">A2</option>
+<option value="B1">B1</option>
+<option value="B2">B2</option>
+<option value="C1">C1</option>
+<option value="C2">C2</option>
+</select>
+<div style="flex:1"><div class="ph-title">Quelle heure est-il ?</div><div class="ph-sub">Leçon 3A · A1</div></div>
+<div class="ph-lang">
+<button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')" title="Français"><img alt="FR" src="../icons/flag-fr.svg"/></button>
+<button class="ph-lang-btn" id="btn-lang-zh" onclick="setLang('zh')" title="中文"><img alt="中" src="../icons/flag-zh.svg"/></button>
+</div>
+<a class="ph-prev" href="2C_slides.html">← 2C</a>
+<a class="ph-next" href="3B_slides.html">3B →</a>
 </header>
 <nav class="slide-nav" id="slide-nav">
-  <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
-  <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
-  <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(3)">🗣️ Communiquer</button>
-  <button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(4)">🎵 Phonétique</button>
-  <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
-  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(7)">✏️ Exercices</button>
-  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(10)">✍️ À toi !</button>
+<button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
+<button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
+<button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
+<button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
+<button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(5)">📖 Grammaire</button>
+<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(6)">✏️ Exercices</button>
+<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(8)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
 <div class="slide s-active" id="slide-0">
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-dialogue">💬 Dialogue<span class="comm-zh"> · 对话</span></div>
-      <div class="card-body dl-layout">
-        <div class="dl-img-col">
-          <img alt="Illustration leçon 3A" loading="lazy" src="../images/dialogue/dialogue_3A.jpg"/>
-        </div>
-        <div class="dl-content-col">
+<div class="slide-body">
+<div class="card">
+<div class="card-head head-dialogue">💬 Dialogue<span class="comm-zh"> · 对话</span></div>
+<div class="card-body dl-layout">
+<div class="dl-img-col">
+<img alt="Illustration leçon 3A" loading="lazy" src="../images/dialogue/dialogue_3A.jpg"/>
+</div>
+<div class="dl-content-col">
 <!-- dialogue-image-patched -->
 <div class="dialogue"><div class="dl-row" data-idx="0"><div class="dl-speaker">LEA</div><div class="dl-line"><span class="dl-word">On</span><span class="dl-word">peut</span><span class="dl-word">se</span><span class="dl-word">voir</span><span class="dl-word">demain</span><span class="dl-word">pour</span><span class="dl-word">le</span><span class="dl-word">projet</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">我们明天可以为项目见面吗？</div></div>
 <div class="dl-row" data-idx="1"><div class="dl-speaker">MAX</div><div class="dl-line"><span class="dl-word">Oui</span><span class="dl-word">!</span><span class="dl-word">Tu</span><span class="dl-word">es</span><span class="dl-word">libre</span><span class="dl-word">à</span><span class="dl-word">quelle</span><span class="dl-word">heure</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">可以！你几点有空？</div></div>
@@ -385,208 +386,175 @@ textarea.prod-input{width:100%;margin-top:9px;min-height:80px;border:2px solid #
 <div class="dl-row" data-idx="8"><div class="dl-speaker">LEA</div><div class="dl-line"><span class="dl-word">Bien</span><span class="dl-word">sûr</span><span class="dl-word">!</span><span class="dl-word">À</span><span class="dl-word">demain.</span><span class="dl-word">Ah,</span><span class="dl-word">le</span><span class="dl-word">café</span><span class="dl-word">ferme</span><span class="dl-word">à</span><span class="dl-word">quelle</span><span class="dl-word">heure</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">当然！明天见。哦，咖啡馆几点关门？</div></div>
 <div class="dl-row" data-idx="9"><div class="dl-speaker">MAX</div><div class="dl-line"><span class="dl-word">Il</span><span class="dl-word">ferme</span><span class="dl-word">à</span><span class="dl-word">20h.</span><span class="dl-word">On</span><span class="dl-word">a</span><span class="dl-word">le</span><span class="dl-word">temps.</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">晚上八点关门。我们有时间。</div></div>
 </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="slide-footer">
-    <button class="btn-ns" data-fr="🔍 Comprendre →" data-zh="🔍 理解 →" onclick="goSlide(1)">🔍 Comprendre →</button>
-  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer">
+<button class="btn-ns" data-fr="🔍 Comprendre →" data-zh="🔍 理解 →" onclick="goSlide(1)">🔍 Comprendre →</button>
+</div>
 </div>
 <!-- ══ SLIDE 1 : COMPRENDRE ══ -->
-  <!-- SLIDE 1: Comprendre 1/2 -->
-  <div class="slide" id="slide-1">
-    <div class="slide-inner">
-      <div class="slide-header">Comprendre <span class="slide-part">1/2</span></div>
-      <div class="qcm-block">
-        <div class="qcm-items">
-        <div class="qcm-item">
-          <div class="qcm-q">1. À quelle heure Léa a-t-elle sa réunion ? <span class="comm-zh">Léa的会议几点开始？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) À 13h</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) À 15h</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) À 14h</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">2. À quelle heure la réunion finit-elle normalement ? <span class="comm-zh">会议通常几点结束？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) À 15h</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) À 16h</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) À 17h</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">3. Le matin, Léa peut-elle se retrouver ? <span class="comm-zh">早上Léa可以见面吗？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Oui, elle est libre</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Non, elle travaille</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Oui, après 10h</button>
-          </div>
-        </div>
-        </div>
-        <div class="qcm-actions">
-          <button class="btn-verify" onclick="verifyQCM('qcm-score-3A-1')">Vérifier ✔</button>
-          <button class="btn-reset" onclick="resetQCM('qcm-score-3A-1')">↺ Recommencer</button>
-          <span class="qcm-score" id="qcm-score-3A-1"></span>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer" style="justify-content:space-between">
-      <button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
-      <button class="btn-ns" onclick="goSlide(2)">Comprendre 2/2 →</button>
-    </div>
-  </div>
-  <!-- SLIDE 2: Comprendre 2/2 -->
-  <div class="slide" id="slide-2">
-    <div class="slide-inner">
-      <div class="slide-header">Comprendre <span class="slide-part">2/2</span></div>
-      <div class="qcm-block">
-        <div class="qcm-items">
-        <div class="qcm-item">
-          <div class="qcm-q">4. À quelle heure peuvent-ils se retrouver ? <span class="comm-zh">他们可以几点见面？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) À 16h30</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) À 17h30</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) À 18h</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">5. Où veulent-ils se retrouver ? <span class="comm-zh">他们想在哪里见面？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Au restaurant</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Au café du coin</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) À la bibliothèque</button>
-          </div>
-        </div>
-        <div class="qcm-item">
-          <div class="qcm-q">6. À quelle heure ferme le café ? <span class="comm-zh">咖啡馆几点关门？</span></div>
-          <div class="qcm-opts">
-              <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) À 19h</button>
-              <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) À 21h</button>
-              <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) À 20h</button>
-          </div>
-        </div>
-        </div>
-        <div class="qcm-actions">
-          <button class="btn-verify" onclick="verifyQCM('qcm-score-3A-2')">Vérifier ✔</button>
-          <button class="btn-reset" onclick="resetQCM('qcm-score-3A-2')">↺ Recommencer</button>
-          <span class="qcm-score" id="qcm-score-3A-2"></span>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer" style="justify-content:space-between">
-      <button class="btn-ns" onclick="goSlide(1)">← Comprendre 1/2</button>
-      <button class="btn-ns" onclick="goSlide(3)">Communiquer →</button>
-    </div>
-  </div>
+<!-- SLIDE 1: Comprendre 1/2 -->
+<div class="slide" id="slide-1">
+<div class="slide-inner">
+<div class="slide-header">Comprendre </div>
+<div class="qcm-block">
+<div class="qcm-items">
+<div class="qcm-item">
+<div class="qcm-q">1. À quelle heure Léa a-t-elle sa réunion ? <span class="comm-zh">Léa的会议几点开始？</span></div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) À 13h</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) À 15h</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) À 14h</button>
+</div>
+</div>
+<div class="qcm-item">
+<div class="qcm-q">2. À quelle heure la réunion finit-elle normalement ? <span class="comm-zh">会议通常几点结束？</span></div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) À 15h</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) À 16h</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) À 17h</button>
+</div>
+</div>
+<div class="qcm-item">
+<div class="qcm-q">3. Le matin, Léa peut-elle se retrouver ? <span class="comm-zh">早上Léa可以见面吗？</span></div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Oui, elle est libre</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Non, elle travaille</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Oui, après 10h</button>
+</div>
+</div>
+<div class="qcm-item">
+<div class="qcm-q">4. À quelle heure peuvent-ils se retrouver ? <span class="comm-zh">他们可以几点见面？</span></div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) À 16h30</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) À 17h30</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) À 18h</button>
+</div>
+</div><div class="qcm-item">
+<div class="qcm-q">5. Où veulent-ils se retrouver ? <span class="comm-zh">他们想在哪里见面？</span></div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Au restaurant</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Au café du coin</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) À la bibliothèque</button>
+</div>
+</div><div class="qcm-item">
+<div class="qcm-q">6. À quelle heure ferme le café ? <span class="comm-zh">咖啡馆几点关门？</span></div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) À 19h</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) À 21h</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) À 20h</button>
+</div>
+</div></div>
+<div class="qcm-actions">
+<button class="btn-verify" onclick="verifyQCM('qcm-score-3A-1')">Vérifier ✔</button>
+<button class="btn-reset" onclick="resetQCM('qcm-score-3A-1')">↺ Recommencer</button>
+<span class="qcm-score" id="qcm-score-3A-1"></span>
+</div>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" onclick="goSlide(0)">← Dialogue</button>
+
+<button class="btn-ns" onclick="goSlide(2)">Communiquer →</button></div>
+</div>
+<!-- SLIDE 2: Comprendre 2/2 -->
+
 <div class="slide" id="slide-3">
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
-      <div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_3A_0.mp3')" title="Cliquer pour écouter">Quelle heure est-il ? / Il est quelle heure ?</div><div class="comm-zh">现在几点了？</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_3A_1.mp3')" title="Cliquer pour écouter">Il est… heures (et demie / et quart / moins le quart).</div><div class="comm-zh">现在……点（半／一刻／差一刻）。</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_3A_2.mp3')" title="Cliquer pour écouter">Le rendez-vous est à… heures.</div><div class="comm-zh">约会在……点。</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_3A_3.mp3')" title="Cliquer pour écouter">Je suis libre le… à… heures.</div><div class="comm-zh">我……（日期）……点有空。</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_3A_4.mp3')" title="Cliquer pour écouter">On se retrouve où / quand ?</div><div class="comm-zh">我们在哪里／什么时候见？</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_3A_5.mp3')" title="Cliquer pour écouter">C’est tôt / tard. / C’est parfait.</div><div class="comm-zh">太早了／太晚了。／完美！</div></div></div></div>
-    </div>
-    <div class="card">
-      <div class="card-head head-vocab">📚 Vocabulaire clé<span class="comm-zh"> · 核心词汇</span></div>
-      <div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_0.mp3')" title="Écouter">heure</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">小时；时刻</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_1.mp3')" title="Écouter">matin</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">早上</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_2.mp3')" title="Écouter">après-midi</div><div class="vocab-gram">n.m./f.</div><div class="vocab-zh">下午</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_3.mp3')" title="Écouter">soir</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">晚上</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_4.mp3')" title="Écouter">nuit</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">夜晚</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_5.mp3')" title="Écouter">midi</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">中午</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_6.mp3')" title="Écouter">minuit</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">午夜</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_7.mp3')" title="Écouter">tôt</div><div class="vocab-gram">adv.</div><div class="vocab-zh">早</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_8.mp3')" title="Écouter">tard</div><div class="vocab-gram">adv.</div><div class="vocab-zh">晚</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_9.mp3')" title="Écouter">rendez-vous</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">约会；预约</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_10.mp3')" title="Écouter">soixante-dix</div><div class="vocab-gram">num.</div><div class="vocab-zh">七十</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_11.mp3')" title="Écouter">quatre-vingts</div><div class="vocab-gram">num.</div><div class="vocab-zh">八十</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_12.mp3')" title="Écouter">quatre-vingt-dix</div><div class="vocab-gram">num.</div><div class="vocab-zh">九十</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_13.mp3')" title="Écouter">cent</div><div class="vocab-gram">num.</div><div class="vocab-zh">一百</div></div></div></div>
-    </div>
-  </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(2)">← Comprendre</button>
-    <button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(4)">🎵 Phonétique →</button>
-  </div>
+<div class="slide-body">
+<div class="card">
+<div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
+<div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_3A_0.mp3')" title="Cliquer pour écouter">Quelle heure est-il ? / Il est quelle heure ?</div><div class="comm-zh">现在几点了？</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_3A_1.mp3')" title="Cliquer pour écouter">Il est… heures (et demie / et quart / moins le quart).</div><div class="comm-zh">现在……点（半／一刻／差一刻）。</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_3A_2.mp3')" title="Cliquer pour écouter">Le rendez-vous est à… heures.</div><div class="comm-zh">约会在……点。</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_3A_3.mp3')" title="Cliquer pour écouter">Je suis libre le… à… heures.</div><div class="comm-zh">我……（日期）……点有空。</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_3A_4.mp3')" title="Cliquer pour écouter">On se retrouve où / quand ?</div><div class="comm-zh">我们在哪里／什么时候见？</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_3A_5.mp3')" title="Cliquer pour écouter">C’est tôt / tard. / C’est parfait.</div><div class="comm-zh">太早了／太晚了。／完美！</div></div></div></div>
+</div>
+<div class="card">
+<div class="card-head head-vocab">📚 Vocabulaire clé<span class="comm-zh"> · 核心词汇</span></div>
+<div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_0.mp3')" title="Écouter">heure</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">小时；时刻</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_1.mp3')" title="Écouter">matin</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">早上</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_2.mp3')" title="Écouter">après-midi</div><div class="vocab-gram">n.m./f.</div><div class="vocab-zh">下午</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_3.mp3')" title="Écouter">soir</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">晚上</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_4.mp3')" title="Écouter">nuit</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">夜晚</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_5.mp3')" title="Écouter">midi</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">中午</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_6.mp3')" title="Écouter">minuit</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">午夜</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_7.mp3')" title="Écouter">tôt</div><div class="vocab-gram">adv.</div><div class="vocab-zh">早</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_8.mp3')" title="Écouter">tard</div><div class="vocab-gram">adv.</div><div class="vocab-zh">晚</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_9.mp3')" title="Écouter">rendez-vous</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">约会；预约</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_10.mp3')" title="Écouter">soixante-dix</div><div class="vocab-gram">num.</div><div class="vocab-zh">七十</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_11.mp3')" title="Écouter">quatre-vingts</div><div class="vocab-gram">num.</div><div class="vocab-zh">八十</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_12.mp3')" title="Écouter">quatre-vingt-dix</div><div class="vocab-gram">num.</div><div class="vocab-zh">九十</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_3A_13.mp3')" title="Écouter">cent</div><div class="vocab-gram">num.</div><div class="vocab-zh">一百</div></div></div></div>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
+<button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
+</div>
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE 1/2 — SCHÉMA ══ -->
 <div class="slide" id="slide-4">
-  <div class="slide-body" style="display:flex;flex-direction:column">
-    <div class="card" style="flex:1;display:flex;flex-direction:column">
-      <div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span>
-        <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">1 / 2</span>
-      </div>
-      <div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:8px">
-<svg viewBox="0 0 680 255" xmlns="http://www.w3.org/2000/svg" style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif"><rect width="680" height="255" rx="12" fill="#f8f4ff" stroke="#c5aee8" stroke-width="1.5"/><text x="340" y="24" text-anchor="middle" font-size="13.5" font-weight="700" fill="#2c3e50">[œ̃] vs [ɛ̃]</text><line x1="220" y1="32" x2="220" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><line x1="460" y1="32" x2="460" y2="246" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="4,3"/><rect x="8" y="32" width="208" height="215" rx="8" fill="#dce8f5" stroke="#2a4a8a" stroke-width="0.8" opacity=".85"/><circle cx="112" cy="95" r="44" fill="#2a4a8a" opacity=".09"><animate attributeName="r" values="44;60;44" dur="2.4s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.4s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="112" cy="95" r="40" fill="#2a4a8a" opacity=".9"/><text x="112" y="103" text-anchor="middle" font-size="23" font-weight="700" fill="#fff" font-family="monospace">[œ̃]</text><text x="112" y="148" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2a4a8a">un / um</text><rect x="22" y="156" width="180" height="20" rx="5" fill="#2a4a8a" opacity=".12"/><text x="112" y="170" text-anchor="middle" font-size="10" fill="#2a4a8a" font-weight="600">un, um</text><text x="112" y="196" text-anchor="middle" font-size="10" fill="#666">lèvres arrondies · nasale</text><text x="112" y="220" text-anchor="middle" font-size="9.5" fill="#777" font-style="italic">un · lundi · humble</text><text x="340" y="48" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">GRAPHIE → SON</text><rect x="228" y="52" width="224" height="18" rx="5" fill="#2a4a8a" opacity=".10"/><text x="234" y="65" font-size="10" fill="#2a4a8a" font-weight="600" font-family="monospace">un, um</text><text x="448" y="65" font-size="11" fill="#2a4a8a" font-weight="700" font-family="monospace" text-anchor="end">[œ̃]</text><line x1="232" y1="132" x2="448" y2="132" stroke="#d4b8ec" stroke-width="1" stroke-dasharray="3,3"/><text x="340" y="144" text-anchor="middle" font-size="11" fill="#7f8c8d" font-weight="600">≠</text><rect x="228" y="148" width="224" height="18" rx="5" fill="#16a085" opacity=".10"/><text x="234" y="161" font-size="10" fill="#16a085" font-weight="600" font-family="monospace">in, ain, ein, im</text><text x="448" y="161" font-size="11" fill="#16a085" font-weight="700" font-family="monospace" text-anchor="end">[ɛ̃]</text><rect x="464" y="32" width="208" height="215" rx="8" fill="#d8f5ef" stroke="#16a085" stroke-width="0.8" opacity=".85"/><circle cx="568" cy="95" r="44" fill="#16a085" opacity=".09"><animate attributeName="r" values="44;60;44" dur="2.4s" begin="1.2s" repeatCount="indefinite" calcMode="ease-in-out"/><animate attributeName="opacity" values=".09;0;.09" dur="2.4s" begin="1.2s" repeatCount="indefinite" calcMode="ease-in-out"/></circle><circle cx="568" cy="95" r="40" fill="#16a085" opacity=".9"/><text x="568" y="103" text-anchor="middle" font-size="23" font-weight="700" fill="#fff" font-family="monospace">[ɛ̃]</text><text x="568" y="148" text-anchor="middle" font-size="12.5" font-weight="700" fill="#16a085">in / ain</text><rect x="478" y="156" width="180" height="20" rx="5" fill="#16a085" opacity=".12"/><text x="568" y="170" text-anchor="middle" font-size="10" fill="#16a085" font-weight="600">in, ain, ein, im</text><text x="568" y="196" text-anchor="middle" font-size="10" fill="#666">lèvres étirées · nasale</text><text x="568" y="220" text-anchor="middle" font-size="9.5" fill="#777" font-style="italic">vin · matin · fin</text></svg>
-        <details style="margin-top:8px;font-size:.85rem;color:var(--muted)">
-          <summary style="cursor:pointer;color:var(--purp);font-weight:600">📌 Note</summary>
-          <div style="margin-top:4px;line-height:1.5"><div class="phon-body">§ Phonétique — Le son [œ̃] et [ɛ̃]
+<div class="slide-body" style="display:flex;flex-direction:column">
+<div class="card" style="flex:1;display:flex;flex-direction:column">
+<div class="card-head head-phon">🎵 Phonétique<span class="comm-zh"> · 语音</span>
+<span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">1 / 2</span>
+</div>
+<div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:8px">
+<svg style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif" viewbox="0 0 680 255" xmlns="http://www.w3.org/2000/svg"><rect fill="#f8f4ff" height="255" rx="12" stroke="#c5aee8" stroke-width="1.5" width="680"></rect><text fill="#2c3e50" font-size="13.5" font-weight="700" text-anchor="middle" x="340" y="24">[œ̃] vs [ɛ̃]</text><line stroke="#d4b8ec" stroke-dasharray="4,3" stroke-width="1" x1="220" x2="220" y1="32" y2="246"></line><line stroke="#d4b8ec" stroke-dasharray="4,3" stroke-width="1" x1="460" x2="460" y1="32" y2="246"></line><rect fill="#dce8f5" height="215" opacity=".85" rx="8" stroke="#2a4a8a" stroke-width="0.8" width="208" x="8" y="32"></rect><circle cx="112" cy="95" fill="#2a4a8a" opacity=".09" r="44"><animate attributename="r" calcmode="ease-in-out" dur="2.4s" repeatcount="indefinite" values="44;60;44"></animate><animate attributename="opacity" calcmode="ease-in-out" dur="2.4s" repeatcount="indefinite" values=".09;0;.09"></animate></circle><circle cx="112" cy="95" fill="#2a4a8a" opacity=".9" r="40"></circle><text fill="#fff" font-family="monospace" font-size="23" font-weight="700" text-anchor="middle" x="112" y="103">[œ̃]</text><text fill="#2a4a8a" font-size="12.5" font-weight="700" text-anchor="middle" x="112" y="148">un / um</text><rect fill="#2a4a8a" height="20" opacity=".12" rx="5" width="180" x="22" y="156"></rect><text fill="#2a4a8a" font-size="10" font-weight="600" text-anchor="middle" x="112" y="170">un, um</text><text fill="#666" font-size="10" text-anchor="middle" x="112" y="196">lèvres arrondies · nasale</text><text fill="#777" font-size="9.5" font-style="italic" text-anchor="middle" x="112" y="220">un · lundi · humble</text><text fill="#7f8c8d" font-size="11" font-weight="600" text-anchor="middle" x="340" y="48">GRAPHIE → SON</text><rect fill="#2a4a8a" height="18" opacity=".10" rx="5" width="224" x="228" y="52"></rect><text fill="#2a4a8a" font-family="monospace" font-size="10" font-weight="600" x="234" y="65">un, um</text><text fill="#2a4a8a" font-family="monospace" font-size="11" font-weight="700" text-anchor="end" x="448" y="65">[œ̃]</text><line stroke="#d4b8ec" stroke-dasharray="3,3" stroke-width="1" x1="232" x2="448" y1="132" y2="132"></line><text fill="#7f8c8d" font-size="11" font-weight="600" text-anchor="middle" x="340" y="144">≠</text><rect fill="#16a085" height="18" opacity=".10" rx="5" width="224" x="228" y="148"></rect><text fill="#16a085" font-family="monospace" font-size="10" font-weight="600" x="234" y="161">in, ain, ein, im</text><text fill="#16a085" font-family="monospace" font-size="11" font-weight="700" text-anchor="end" x="448" y="161">[ɛ̃]</text><rect fill="#d8f5ef" height="215" opacity=".85" rx="8" stroke="#16a085" stroke-width="0.8" width="208" x="464" y="32"></rect><circle cx="568" cy="95" fill="#16a085" opacity=".09" r="44"><animate attributename="r" begin="1.2s" calcmode="ease-in-out" dur="2.4s" repeatcount="indefinite" values="44;60;44"></animate><animate attributename="opacity" begin="1.2s" calcmode="ease-in-out" dur="2.4s" repeatcount="indefinite" values=".09;0;.09"></animate></circle><circle cx="568" cy="95" fill="#16a085" opacity=".9" r="40"></circle><text fill="#fff" font-family="monospace" font-size="23" font-weight="700" text-anchor="middle" x="568" y="103">[ɛ̃]</text><text fill="#16a085" font-size="12.5" font-weight="700" text-anchor="middle" x="568" y="148">in / ain</text><rect fill="#16a085" height="20" opacity=".12" rx="5" width="180" x="478" y="156"></rect><text fill="#16a085" font-size="10" font-weight="600" text-anchor="middle" x="568" y="170">in, ain, ein, im</text><text fill="#666" font-size="10" text-anchor="middle" x="568" y="196">lèvres étirées · nasale</text><text fill="#777" font-size="9.5" font-style="italic" text-anchor="middle" x="568" y="220">vin · matin · fin</text></svg>
+<details style="margin-top:8px;font-size:.85rem;color:var(--muted)">
+<summary style="cursor:pointer;color:var(--purp);font-weight:600">📌 Note</summary>
+<div style="margin-top:4px;line-height:1.5"><div class="phon-body">§ Phonétique — Le son [œ̃] et [ɛ̃]
 Règle [œ̃] : un, humble, lundi. [ɛ̃] : vin, matin, fin. Dans beaucoup de régions, ces deux
 sons se confondent aujourd'hui.
 Exemples un [œ̃] — matin [ɛ̃] — lundi [œ̃] — fin [ɛ̃]
 Exercice Répétez : un — vin — brun — matin — lundi — fin — bien — demain.</div></div>
-        </details>
-
-      </div>
-    </div>
-  </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(3)">← Communiquer</button>
-    <button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(5)">🎤 Prononciation →</button>
-  </div>
+</details>
+</div>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
+<button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(4)">🎤 Prononciation →</button>
+</div>
 </div>
 <!-- ══ SLIDE 4 : PHONÉTIQUE 2/2 — PRONONCIATION ══ -->
 <div class="slide" id="slide-5">
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-phon">🎤 Prononciation<span class="comm-zh"> · 发音练习</span>
-        <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">2 / 2</span>
-      </div>
-      <div class="card-body">
-<p class="ex-inst">Écoutez, puis cliquez sur 🎤 et répétez.</p><div class="prono-no-support" id="prono-no-support" style="display:none">⚠️ Votre navigateur ne supporte pas la reconnaissance vocale.</div><div class="prono-item"><div class="prono-speaker-tag">LEA</div><div class="prono-phrase">On peut se voir demain pour le projet ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="On peut se voir demain pour le projet ?" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="On peut se voir demain pour le projet ?" data-idx="0" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(0)">↺</button></div><div class="prono-score" id="prono-score-0"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-0" style="width:0%"></div></div><div id="prono-pct-0" class="prono-score-text"></div><div id="prono-heard-0" class="prono-heard"></div></div></div>
-<div class="prono-item"><div class="prono-speaker-tag">MAX</div><div class="prono-phrase">Oui ! Tu es libre à quelle heure ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Oui ! Tu es libre à quelle heure ?" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Oui ! Tu es libre à quelle heure ?" data-idx="1" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(1)">↺</button></div><div class="prono-score" id="prono-score-1"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-1" style="width:0%"></div></div><div id="prono-pct-1" class="prono-score-text"></div><div id="prono-heard-1" class="prono-heard"></div></div></div>
-<div class="prono-item"><div class="prono-speaker-tag">LEA</div><div class="prono-phrase">Le matin, je travaille. L'après-midi, j'ai une réunion à 14h.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Le matin, je travaille. L'après-midi, j'ai une réunion à 14h." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Le matin, je travaille. L'après-midi, j'ai une réunion à 14h." data-idx="2" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(2)">↺</button></div><div class="prono-score" id="prono-score-2"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-2" style="width:0%"></div></div><div id="prono-pct-2" class="prono-score-text"></div><div id="prono-heard-2" class="prono-heard"></div></div></div>
-<div class="prono-item"><div class="prono-speaker-tag">MAX</div><div class="prono-phrase">Elle finit à quelle heure, ta réunion ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Elle finit à quelle heure, ta réunion ?" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Elle finit à quelle heure, ta réunion ?" data-idx="3" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(3)">↺</button></div><div class="prono-score" id="prono-score-3"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-3" style="width:0%"></div></div><div id="prono-pct-3" class="prono-score-text"></div><div id="prono-heard-3" class="prono-heard"></div></div></div>
-<div class="prono-item"><div class="prono-speaker-tag">LEA</div><div class="prono-phrase">Normalement à 16h, mais parfois plus tard.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Normalement à 16h, mais parfois plus tard." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-text="Normalement à 16h, mais parfois plus tard." data-idx="4" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" style="background:#f0f4ff;color:#666;min-width:36px" onclick="pronoReset(4)">↺</button></div><div class="prono-score" id="prono-score-4"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-4" style="width:0%"></div></div><div id="prono-pct-4" class="prono-score-text"></div><div id="prono-heard-4" class="prono-heard"></div></div></div>
-
-        <div class="verify-bar" style="margin-top:12px">
-          <button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetAllProno()">Recommencer ↺</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(4)">← Schéma</button>
-    <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(6)">📖 Grammaire →</button>
-  </div>
+<div class="slide-body">
+<div class="card">
+<div class="card-head head-phon">🎤 Prononciation<span class="comm-zh"> · 发音练习</span>
+<span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">2 / 2</span>
+</div>
+<div class="card-body">
+<p class="ex-inst">Écoutez, puis cliquez sur 🎤 et répétez.</p><div class="prono-no-support" id="prono-no-support" style="display:none">⚠️ Votre navigateur ne supporte pas la reconnaissance vocale.</div><div class="prono-item"><div class="prono-speaker-tag">LEA</div><div class="prono-phrase">On peut se voir demain pour le projet ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="On peut se voir demain pour le projet ?" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="0" data-text="On peut se voir demain pour le projet ?" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(0)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-0"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-0" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-0"></div><div class="prono-heard" id="prono-heard-0"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">MAX</div><div class="prono-phrase">Oui ! Tu es libre à quelle heure ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Oui ! Tu es libre à quelle heure ?" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="1" data-text="Oui ! Tu es libre à quelle heure ?" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(1)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-1"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-1" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-1"></div><div class="prono-heard" id="prono-heard-1"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">LEA</div><div class="prono-phrase">Le matin, je travaille. L'après-midi, j'ai une réunion à 14h.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Le matin, je travaille. L'après-midi, j'ai une réunion à 14h." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="2" data-text="Le matin, je travaille. L'après-midi, j'ai une réunion à 14h." onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(2)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-2"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-2" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-2"></div><div class="prono-heard" id="prono-heard-2"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">MAX</div><div class="prono-phrase">Elle finit à quelle heure, ta réunion ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Elle finit à quelle heure, ta réunion ?" onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="3" data-text="Elle finit à quelle heure, ta réunion ?" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(3)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-3"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-3" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-3"></div><div class="prono-heard" id="prono-heard-3"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">LEA</div><div class="prono-phrase">Normalement à 16h, mais parfois plus tard.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" data-text="Normalement à 16h, mais parfois plus tard." onclick="pronoListen(this)">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="4" data-text="Normalement à 16h, mais parfois plus tard." onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(4)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-4"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-4" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-4"></div><div class="prono-heard" id="prono-heard-4"></div></div></div>
+<div class="verify-bar" style="margin-top:12px">
+<button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetAllProno()">Recommencer ↺</button>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(3)">← Schéma</button>
+<button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(5)">📖 Grammaire →</button>
+</div>
 </div>
 <!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
 <div class="slide" id="slide-6">
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-gram">📖 Dire l'heure — forme officielle et courante<span class="comm-zh"> · 语法要点</span></div>
-      <div class="card-body"><div class="gram-rule"><div class="gram-rule-body"><strong>Dire l’heure</strong></div></div><table class="gram-table gram-fc"><thead><tr><th>Expression</th><th>Exemple</th></tr></thead><tbody><tr><td class="gram-pf">Quelle heure est-il ?</td><td>Il est… heure(s).</td></tr><tr><td>heure pile / et demie</td><td>8h00 · 8h30</td></tr><tr><td>et quart / moins le quart</td><td>8h15 · 7h45</td></tr><tr><td>du matin / de l’après-midi / du soir</td><td class="gram-pf">8h matin · 15h AP · 20h soir</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn" onclick="hideGram()">🙈 Masquer</button><button class="gram-sc-btn" onclick="revealGram()">👁 Révéler</button></div><div class="gram-ex">• Il est <em>huit heures et demie</em>. / Il est <em>midi</em>. / Il est <em>minuit</em>.<br/>• À quelle heure…? → À <em>neuf heures</em>.</div><hr class="gram-sep"><div class="gram-rule"><div class="gram-rule-body"><strong>Les nombres de 70 à 100</strong></div></div><div class="gram-ex">• 70 = soixante-dix · 71 = soixante et onze · 72 = soixante-douze…<br/>• 80 = quatre-vingts · 81 = quatre-vingt-un · 90 = quatre-vingt-dix<br/>• 100 = cent</div><div class="gram-qcm" id="gram-qcm-box" data-idx="0"><div class="gram-qcm-label">🎯 Pratique — L'heure</div><div class="gram-qcm-prog"></div><div class="gram-qcm-q"></div><div class="gram-qcm-opts"></div><span class="gram-qcm-fb"></span><button class="gram-qcm-next" onclick="_gramQcmNext()">Suivant →</button></div><script>var _gramQcmData=[{"q": "Il est ___ heures du matin.", "opts": ["sept", "septième", "de sept"], "ans": "sept"}, {"q": "Le cours commence à ___ heures.", "opts": ["neuf", "neuve", "neuvième"], "ans": "neuf"}, {"q": "À ___ heures du soir.", "opts": ["huit", "huitième", "huitièmes"], "ans": "huit"}, {"q": "Il est midi ___ quart.", "opts": ["moins", "et", "de"], "ans": "et"}, {"q": "Il est ___ heures et demie.", "opts": ["deux", "deuxième", "deuxièmes"], "ans": "deux"}];</script></div>
-    </div>
-  </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(5)">← Phonétique</button>
-    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(7)">✏️ Exercices →</button>
-  </div>
+<div class="slide-body">
+<div class="card">
+<div class="card-head head-gram">📖 Dire l'heure — forme officielle et courante<span class="comm-zh"> · 语法要点</span></div>
+<div class="card-body"><div class="gram-rule"><div class="gram-rule-body"><strong>Dire l’heure</strong></div></div><table class="gram-table gram-fc"><thead><tr><th>Expression</th><th>Exemple</th></tr></thead><tbody><tr><td class="gram-pf">Quelle heure est-il ?</td><td>Il est… heure(s).</td></tr><tr><td>heure pile / et demie</td><td>8h00 · 8h30</td></tr><tr><td>et quart / moins le quart</td><td>8h15 · 7h45</td></tr><tr><td>du matin / de l’après-midi / du soir</td><td class="gram-pf">8h matin · 15h AP · 20h soir</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn" onclick="hideGram()">🙈 Masquer</button><button class="gram-sc-btn" onclick="revealGram()">👁 Révéler</button></div><div class="gram-ex">• Il est <em>huit heures et demie</em>. / Il est <em>midi</em>. / Il est <em>minuit</em>.<br/>• À quelle heure…? → À <em>neuf heures</em>.</div><hr class="gram-sep"/><div class="gram-rule"><div class="gram-rule-body"><strong>Les nombres de 70 à 100</strong></div></div><div class="gram-ex">• 70 = soixante-dix · 71 = soixante et onze · 72 = soixante-douze…<br/>• 80 = quatre-vingts · 81 = quatre-vingt-un · 90 = quatre-vingt-dix<br/>• 100 = cent</div><div class="gram-qcm" data-idx="0" id="gram-qcm-box"><div class="gram-qcm-label">🎯 Pratique — L'heure</div><div class="gram-qcm-prog"></div><div class="gram-qcm-q"></div><div class="gram-qcm-opts"></div><span class="gram-qcm-fb"></span><button class="gram-qcm-next" onclick="_gramQcmNext()">Suivant →</button></div><script>var _gramQcmData=[{"q": "Il est ___ heures du matin.", "opts": ["sept", "septième", "de sept"], "ans": "sept"}, {"q": "Le cours commence à ___ heures.", "opts": ["neuf", "neuve", "neuvième"], "ans": "neuf"}, {"q": "À ___ heures du soir.", "opts": ["huit", "huitième", "huitièmes"], "ans": "huit"}, {"q": "Il est midi ___ quart.", "opts": ["moins", "et", "de"], "ans": "et"}, {"q": "Il est ___ heures et demie.", "opts": ["deux", "deuxième", "deuxièmes"], "ans": "deux"}];</script></div>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(4)">← Phonétique</button>
+<button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(6)">✏️ Exercices →</button>
+</div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
 <div class="slide" id="slide-7">
-  <div class="slide-header">Exercices <span class="slide-part">1/3</span></div>
-  <div class="slide-body">
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Écrivez l'heure en lettres <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
+<div class="slide-header">Exercices <span class="slide-part">1/2</span></div>
+<div class="slide-body">
+<div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Écrivez l'heure en lettres <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
 <div class="blank-row">1. <span>8h00 → Il est </span><input autocomplete="off" class="blank-input" id="bl-3A-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-0').click()" type="text"/><button class="check-btn" data-ans="huit heures" id="chk-bl-3A-ex1-0" onclick="checkBlankData(this,'bl-3A-ex1-0','fb-bl-3A-ex1-0')">✓</button><span class="fb" id="fb-bl-3A-ex1-0"></span><span>.</span></div>
 <div class="blank-row">2. <span>12h30 → Il est </span><input autocomplete="off" class="blank-input" id="bl-3A-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-1').click()" type="text"/><button class="check-btn" data-ans="midi et demi" id="chk-bl-3A-ex1-1" onclick="checkBlankData(this,'bl-3A-ex1-1','fb-bl-3A-ex1-1')">✓</button><span class="fb" id="fb-bl-3A-ex1-1"></span><span>.</span></div>
 <div class="blank-row">3. <span>15h45 → Il est </span><input autocomplete="off" class="blank-input" id="bl-3A-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-2').click()" type="text"/><button class="check-btn" data-ans="quatre heures moins le quart" id="chk-bl-3A-ex1-2" onclick="checkBlankData(this,'bl-3A-ex1-2','fb-bl-3A-ex1-2')">✓</button><span class="fb" id="fb-bl-3A-ex1-2"></span><span> (forme courante).</span></div>
 <div class="blank-row">4. <span>7h15 → Il est </span><input autocomplete="off" class="blank-input" id="bl-3A-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-3').click()" type="text"/><button class="check-btn" data-ans="sept heures et quart" id="chk-bl-3A-ex1-3" onclick="checkBlankData(this,'bl-3A-ex1-3','fb-bl-3A-ex1-3')">✓</button><span class="fb" id="fb-bl-3A-ex1-3"></span><span>.</span></div>
 <div class="blank-row">5. <span>23h00 → Il est </span><input autocomplete="off" class="blank-input" id="bl-3A-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-4').click()" type="text"/><button class="check-btn" data-ans="onze heures du soir" id="chk-bl-3A-ex1-4" onclick="checkBlankData(this,'bl-3A-ex1-4','fb-bl-3A-ex1-4')">✓</button><span class="fb" id="fb-bl-3A-ex1-4"></span><span>.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Votre emploi du temps <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Décrivez votre journée typique : Je me lève à… / Je commence à travailler / étudier à… À midi, je… / L'après-midi, je… Le soir, je… / Je me couche à…<span class="comm-zh"> · 描述您的典型一天</span></div></div></div>
-  </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
-    <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(8)">Suite →</button>
-  </div>
-</div>
-<!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
-<div class="slide" id="slide-8">
-  <div class="slide-header">Exercices <span class="slide-part">2/3</span></div>
-  <div class="slide-body">
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Posez la question <span class="ex-cat-badge badge-comm">💬 Communication</span></div><div class="card-body"><div class="ex-inst">Posez la question correspondant à la réponse :<span class="comm-zh"> · 根据答案写出问题</span></div>
+<div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Votre emploi du temps <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Décrivez votre journée typique : Je me lève à… / Je commence à travailler / étudier à… À midi, je… / L'après-midi, je… Le soir, je… / Je me couche à…<span class="comm-zh"> · 描述您的典型一天</span></div></div></div>
+<div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Posez la question <span class="ex-cat-badge badge-comm">💬 Communication</span></div><div class="card-body"><div class="ex-inst">Posez la question correspondant à la réponse :<span class="comm-zh"> · 根据答案写出问题</span></div>
 <div class="blank-row">1. <span></span><input autocomplete="off" class="blank-input" id="bl-3A-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex3-0').click()" type="text"/><button class="check-btn" data-ans="Quelle heure est-il ?" id="chk-bl-3A-ex3-0" onclick="checkBlankData(this,'bl-3A-ex3-0','fb-bl-3A-ex3-0')">✓</button><span class="fb" id="fb-bl-3A-ex3-0"></span><span> ? → Il est 10h30.</span></div>
 <div class="blank-row">2. <span></span><input autocomplete="off" class="blank-input" id="bl-3A-ex3-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex3-1').click()" type="text"/><button class="check-btn" data-ans="À quelle heure commence le cours ?" id="chk-bl-3A-ex3-1" onclick="checkBlankData(this,'bl-3A-ex3-1','fb-bl-3A-ex3-1')">✓</button><span class="fb" id="fb-bl-3A-ex3-1"></span><span> ? → Le cours commence à 9h.</span></div>
 <div class="blank-row">3. <span></span><input autocomplete="off" class="blank-input" id="bl-3A-ex3-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex3-2').click()" type="text"/><button class="check-btn" data-ans="À quelle heure ferme le magasin ?" id="chk-bl-3A-ex3-2" onclick="checkBlankData(this,'bl-3A-ex3-2','fb-bl-3A-ex3-2')">✓</button><span class="fb" id="fb-bl-3A-ex3-2"></span><span> ? → Le magasin ferme à 20h.</span></div>
-<div class="blank-row">4. <span></span><input autocomplete="off" class="blank-input" id="bl-3A-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex3-3').click()" type="text"/><button class="check-btn" data-ans="Tu es libre à quelle heure ?" id="chk-bl-3A-ex3-3" onclick="checkBlankData(this,'bl-3A-ex3-3','fb-bl-3A-ex3-3')">✓</button><span class="fb" id="fb-bl-3A-ex3-3"></span><span> ? → Je suis libre à 15h.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
-    <div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Les moments de la journée <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Associez l'activité au bon moment :<span class="comm-zh"> · 将活动与正确的时间段配对</span></div>
+<div class="blank-row">4. <span></span><input autocomplete="off" class="blank-input" id="bl-3A-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex3-3').click()" type="text"/><button class="check-btn" data-ans="Tu es libre à quelle heure ?" id="chk-bl-3A-ex3-3" onclick="checkBlankData(this,'bl-3A-ex3-3','fb-bl-3A-ex3-3')">✓</button><span class="fb" id="fb-bl-3A-ex3-3"></span><span> ? → Je suis libre à 15h.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div><div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Les moments de la journée <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Associez l'activité au bon moment :<span class="comm-zh"> · 将活动与正确的时间段配对</span></div>
 <div class="assoc-ref"><span class="assoc-ref-item"><strong>a.</strong> le soir</span>  |  <span class="assoc-ref-item"><strong>b.</strong> le matin</span>  |  <span class="assoc-ref-item"><strong>c.</strong> la nuit</span>  |  <span class="assoc-ref-item"><strong>d.</strong> à midi</span></div>
 <div class="assoc-row">
 <div class="assoc-left"><span class="assoc-word">1. le petit-déjeuner</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-3A-ex4-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="b" onclick="checkBlankData(this,'ma-3A-ex4-0','fb-ma-3A-ex4-0')">✓</button><span class="fb" id="fb-ma-3A-ex4-0"></span></div>
@@ -602,170 +570,170 @@ Exercice Répétez : un — vin — brun — matin — lundi — fin — bien �
 </div>
 <div class="assoc-row">
 <div class="assoc-left"><span class="assoc-word">5. prendre un café e. le matin ou l'après-midi</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-3A-ex4-4" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-3A-ex4-4','fb-ma-3A-ex4-4')">✓</button><span class="fb" id="fb-ma-3A-ex4-4"></span></div>
-</div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
-  </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Préc." data-zh="← 上一页" onclick="goSlide(7)">← Préc.</button>
-    <button class="btn-ns" data-fr="Suite →" data-zh="Suite →" onclick="goSlide(9)">Suite →</button>
-  </div>
+</div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div></div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(5)">← Grammaire</button>
+<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(7)">Suite →</button>
 </div>
+</div>
+<!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
+
 <!-- ══ SLIDE 8 : À TOI ! ══ -->
-  <!-- SLIDE 9: Exercices 3/3 -->
-  <div class="slide" id="slide-9">
-    <div class="slide-inner">
-      <div class="slide-header">Exercices <span class="slide-part">3/3</span></div>
-      <div class="ex-blocks">
-        <div class="ex-block">
-          <div class="ex-title"><span>Ex. 5 — Matin ou soir ? <span class="comm-zh">将每个时间归入正确的栏目。</span></span><span class="ex-badge">📖 Vocabulaire</span></div>
-          <p class="ex-inst">Classez chaque heure dans la bonne colonne.</p>
-          <div id="ex5-pool" class="ex5-pool">
-        <span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">7h</span>
-        <span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">23h</span>
-        <span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">8h30</span>
-        <span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">19h</span>
-        <span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">9h</span>
-        <span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">20h</span>
-        <span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">midi</span>
-        <span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">17h30</span>
-          </div>
-          <div class="ex5-zones">
-            <div class="ex5-zone" id="zone-matin" onclick="ex5Drop(this)">
-              <div class="ex5-zone-label">🌅 Matin</div>
-              <div class="ex5-zone-items" id="zone-matin-items"></div>
-            </div>
-            <div class="ex5-zone" id="zone-soir" onclick="ex5Drop(this)">
-              <div class="ex5-zone-label">🌙 Soir</div>
-              <div class="ex5-zone-items" id="zone-soir-items"></div>
-            </div>
-          </div>
-          <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
-            <button class="btn-verify" onclick="checkEx5()">Vérifier ✔</button>
-            <button class="btn-reset" onclick="resetEx5()">↺ Recommencer</button>
-            <span class="ex5-score" id="ex5-score-3A"></span>
-          </div>
-        </div>
-        <div class="ex-block">
-          <div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确答案。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
-          <p class="ex-inst">Choisissez la bonne réponse.</p>
-          <div class="listen-list">
-          <div class="listen-item" data-ans="14">
-            <div class="listen-sentence">La réunion commence à <span class="listen-blank">___</span> heures.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'La réunion commence à 14 heures.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="17" onclick="selectEx6(this)">17</button>
-              <button class="choice-btn" data-val="16" onclick="selectEx6(this)">16</button>
-              <button class="choice-btn" data-val="14" onclick="selectEx6(this)">14</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="normalement">
-            <div class="listen-sentence">La réunion finit <span class="listen-blank">___</span> à 16h.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'La réunion finit normalement à 16h.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="normalement" onclick="selectEx6(this)">normalement</button>
-              <button class="choice-btn" data-val="toujours" onclick="selectEx6(this)">toujours</button>
-              <button class="choice-btn" data-val="jamais" onclick="selectEx6(this)">jamais</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="17">
-            <div class="listen-sentence">On se retrouve à <span class="listen-blank">___</span> heures trente.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'On se retrouve à 17 heures trente.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="18" onclick="selectEx6(this)">18</button>
-              <button class="choice-btn" data-val="17" onclick="selectEx6(this)">17</button>
-              <button class="choice-btn" data-val="16" onclick="selectEx6(this)">16</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="ferme">
-            <div class="listen-sentence">Le café <span class="listen-blank">___</span> à 20h.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Le café ferme à 20h.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="ferme" onclick="selectEx6(this)">ferme</button>
-              <button class="choice-btn" data-val="commence" onclick="selectEx6(this)">commence</button>
-              <button class="choice-btn" data-val="ouvre" onclick="selectEx6(this)">ouvre</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          <div class="listen-item" data-ans="message">
-            <div class="listen-sentence">Je t'envoie un <span class="listen-blank">___</span> si je suis en retard.</div>
-            <button class="listen-btn" onclick="playEx6TTS(this,'Je t\'envoie un message si je suis en retard.')" title="Écouter">🔊</button>
-            <div class="listen-choices">
-              <button class="choice-btn" data-val="email" onclick="selectEx6(this)">email</button>
-              <button class="choice-btn" data-val="message" onclick="selectEx6(this)">message</button>
-              <button class="choice-btn" data-val="appel" onclick="selectEx6(this)">appel</button>
-            </div>
-            <div class="listen-fb"></div>
-          </div>
-          </div>
-          <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
-            <button class="btn-verify" onclick="verifyAllEx6()">Vérifier ✔</button>
-            <button class="btn-reset" onclick="resetAllEx6()">↺ Recommencer</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="slide-footer" style="justify-content:space-between">
-      <button class="btn-ns" onclick="goSlide(8)">← Exercices 2/3</button>
-      <button class="btn-ns" onclick="goSlide(10)">✍️ À toi ! →</button>
-    </div>
-  </div>
+<!-- SLIDE 9: Exercices 3/3 -->
+<div class="slide" id="slide-9">
+<div class="slide-inner">
+<div class="slide-header">Exercices <span class="slide-part">2/2</span></div>
+<div class="ex-blocks">
+<div class="ex-block">
+<div class="ex-title"><span>Ex. 5 — Matin ou soir ? <span class="comm-zh">将每个时间归入正确的栏目。</span></span><span class="ex-badge">📖 Vocabulaire</span></div>
+<p class="ex-inst">Classez chaque heure dans la bonne colonne.</p>
+<div class="ex5-pool" id="ex5-pool">
+<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">7h</span>
+<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">23h</span>
+<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">8h30</span>
+<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">19h</span>
+<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">9h</span>
+<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">20h</span>
+<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">midi</span>
+<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">17h30</span>
+</div>
+<div class="ex5-zones">
+<div class="ex5-zone" id="zone-matin" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">🌅 Matin</div>
+<div class="ex5-zone-items" id="zone-matin-items"></div>
+</div>
+<div class="ex5-zone" id="zone-soir" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">🌙 Soir</div>
+<div class="ex5-zone-items" id="zone-soir-items"></div>
+</div>
+</div>
+<div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
+<button class="btn-verify" onclick="checkEx5()">Vérifier ✔</button>
+<button class="btn-reset" onclick="resetEx5()">↺ Recommencer</button>
+<span class="ex5-score" id="ex5-score-3A"></span>
+</div>
+</div>
+<div class="ex-block">
+<div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确答案。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
+<p class="ex-inst">Choisissez la bonne réponse.</p>
+<div class="listen-list">
+<div class="listen-item" data-ans="14">
+<div class="listen-sentence">La réunion commence à <span class="listen-blank">___</span> heures.</div>
+<button class="listen-btn" onclick="playEx6TTS(this,'La réunion commence à 14 heures.')" title="Écouter">🔊</button>
+<div class="listen-choices">
+<button class="choice-btn" data-val="17" onclick="selectEx6(this)">17</button>
+<button class="choice-btn" data-val="16" onclick="selectEx6(this)">16</button>
+<button class="choice-btn" data-val="14" onclick="selectEx6(this)">14</button>
+</div>
+<div class="listen-fb"></div>
+</div>
+<div class="listen-item" data-ans="normalement">
+<div class="listen-sentence">La réunion finit <span class="listen-blank">___</span> à 16h.</div>
+<button class="listen-btn" onclick="playEx6TTS(this,'La réunion finit normalement à 16h.')" title="Écouter">🔊</button>
+<div class="listen-choices">
+<button class="choice-btn" data-val="normalement" onclick="selectEx6(this)">normalement</button>
+<button class="choice-btn" data-val="toujours" onclick="selectEx6(this)">toujours</button>
+<button class="choice-btn" data-val="jamais" onclick="selectEx6(this)">jamais</button>
+</div>
+<div class="listen-fb"></div>
+</div>
+<div class="listen-item" data-ans="17">
+<div class="listen-sentence">On se retrouve à <span class="listen-blank">___</span> heures trente.</div>
+<button class="listen-btn" onclick="playEx6TTS(this,'On se retrouve à 17 heures trente.')" title="Écouter">🔊</button>
+<div class="listen-choices">
+<button class="choice-btn" data-val="18" onclick="selectEx6(this)">18</button>
+<button class="choice-btn" data-val="17" onclick="selectEx6(this)">17</button>
+<button class="choice-btn" data-val="16" onclick="selectEx6(this)">16</button>
+</div>
+<div class="listen-fb"></div>
+</div>
+<div class="listen-item" data-ans="ferme">
+<div class="listen-sentence">Le café <span class="listen-blank">___</span> à 20h.</div>
+<button class="listen-btn" onclick="playEx6TTS(this,'Le café ferme à 20h.')" title="Écouter">🔊</button>
+<div class="listen-choices">
+<button class="choice-btn" data-val="ferme" onclick="selectEx6(this)">ferme</button>
+<button class="choice-btn" data-val="commence" onclick="selectEx6(this)">commence</button>
+<button class="choice-btn" data-val="ouvre" onclick="selectEx6(this)">ouvre</button>
+</div>
+<div class="listen-fb"></div>
+</div>
+<div class="listen-item" data-ans="message">
+<div class="listen-sentence">Je t'envoie un <span class="listen-blank">___</span> si je suis en retard.</div>
+<button class="listen-btn" onclick="playEx6TTS(this,'Je t\'envoie un message si je suis en retard.')" title="Écouter">🔊</button>
+<div class="listen-choices">
+<button class="choice-btn" data-val="email" onclick="selectEx6(this)">email</button>
+<button class="choice-btn" data-val="message" onclick="selectEx6(this)">message</button>
+<button class="choice-btn" data-val="appel" onclick="selectEx6(this)">appel</button>
+</div>
+<div class="listen-fb"></div>
+</div>
+</div>
+<div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
+<button class="btn-verify" onclick="verifyAllEx6()">Vérifier ✔</button>
+<button class="btn-reset" onclick="resetAllEx6()">↺ Recommencer</button>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" onclick="goSlide(6)">← Exercices 1/2</button>
+<button class="btn-ns" onclick="goSlide(8)">✍️ À toi ! →</button>
+</div>
+</div>
 <div class="slide" id="slide-10">
-  <div class="slide-body">
-    <div class="card">
-      <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
-      <div class="card-body"><div class="prod-box">✍️ À toi ! Écrivez votre emploi du temps pour une journée de semaine typique (8 activités
+<div class="slide-body">
+<div class="card">
+<div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
+<div class="card-body"><div class="prod-box">✍️ À toi ! Écrivez votre emploi du temps pour une journée de semaine typique (8 activités
 avec les heures).
 <span class="prod-zh">写下您典型工作日的日程安排（8项活动，注明时间）。</span>
 Leçon 3A · Quelle heure est-il ? · A1</div>
 <textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea>
 <button class="lt-btn" onclick="checkLT(this)">Corriger ✓</button>
 <div class="lt-result"></div></div>
-    </div>
-  </div>
-  <div class="slide-footer" style="justify-content:space-between">
-    <button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(9)">← Exercices</button>
-    <button class="btn-ns" style="background:var(--green)" onclick="location.href='3B_slides.html'">3B →</button>
-  </div>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(7)">← Exercices</button>
+<button class="btn-ns" onclick="location.href='3B_slides.html'" style="background:var(--green)">3B →</button>
+</div>
 </div>
 </div><!-- /slides-viewport -->
-
 <!-- MODALS + FLOAT BTNS -->
 <div class="float-btns">
-  <button class="float-btn btn-bug" onclick="openModal('modal-bug')" title="Signaler un problème">🐛</button>
-  <button class="float-btn btn-ask" onclick="openModal('modal-ask')" title="Poser une question">💬</button>
+<button class="float-btn btn-bug" onclick="openModal('modal-bug')" title="Signaler un problème">🐛</button>
+<button class="float-btn btn-ask" onclick="openModal('modal-ask')" title="Poser une question">💬</button>
 </div>
-<div class="fle-modal" id="modal-bug" role="dialog" aria-modal="true" aria-labelledby="bug-title">
-  <div class="fle-modal-box">
-    <button class="modal-close" aria-label="Fermer" onclick="closeModal('modal-bug')">✕</button>
-    <h2 id="bug-title" data-fr="🐛 Signaler un problème" data-zh="🐛 反馈问题">🐛 Signaler un problème</h2><p class="modal-sub" data-fr="Aidez-nous à améliorer cette leçon." data-zh="帮助我们改进本课内容。">Aidez-nous à améliorer cette leçon.</p>
-    <form id="form-bug" onsubmit="submitForm(event,'form-bug','modal-bug')">
-      <input name="lecon" type="hidden" value="3A — Quelle heure est-il ?"/><input name="_subject" type="hidden" value="[Bug] Leçon 3A"/>
-      <div class="form-group"><label data-fr="Section" data-zh="章节">Section</label><select name="exercice" required=""><option data-fr="— Choisissez —" data-zh="— 请选择 —" value="">— Choisissez —</option><option data-fr="Dialogue" data-zh="对话">Dialogue</option><option data-fr="Comprendre" data-zh="理解">Comprendre</option><option data-fr="Communiquer" data-zh="表达">Communiquer</option><option data-fr="Vocabulaire" data-zh="词汇">Vocabulaire</option><option data-fr="Phonétique" data-zh="语音">Phonétique</option><option data-fr="Grammaire" data-zh="语法">Grammaire</option><option data-fr="Exercice" data-zh="练习">Exercice</option><option data-fr="À toi !" data-zh="轮到你了">À toi !</option><option data-fr="Autre" data-zh="其他">Autre</option></select></div>
-      <div class="form-group"><label data-fr="Description" data-zh="描述">Description</label><textarea data-placeholder-fr="Décrivez le problème…" data-placeholder-zh="请描述问题…" name="description" placeholder="Décrivez le problème…" required="" rows="3"></textarea></div>
-      <div class="form-group"><label><span data-fr="Prénom" data-zh="姓名">Prénom</span> <span class="opt" data-fr="(facultatif)" data-zh="（选填）">(facultatif)</span></label><input name="prenom" type="text"/></div>
-      <button class="btn-send" type="submit">Envoyer</button><p class="form-success" id="success-bug" data-fr="✅ Merci !" data-zh="✅ 谢谢！">✅ Merci !</p>
-    </form>
-  </div>
+<div aria-labelledby="bug-title" aria-modal="true" class="fle-modal" id="modal-bug" role="dialog">
+<div class="fle-modal-box">
+<button aria-label="Fermer" class="modal-close" onclick="closeModal('modal-bug')">✕</button>
+<h2 data-fr="🐛 Signaler un problème" data-zh="🐛 反馈问题" id="bug-title">🐛 Signaler un problème</h2><p class="modal-sub" data-fr="Aidez-nous à améliorer cette leçon." data-zh="帮助我们改进本课内容。">Aidez-nous à améliorer cette leçon.</p>
+<form id="form-bug" onsubmit="submitForm(event,'form-bug','modal-bug')">
+<input name="lecon" type="hidden" value="3A — Quelle heure est-il ?"/><input name="_subject" type="hidden" value="[Bug] Leçon 3A"/>
+<div class="form-group"><label data-fr="Section" data-zh="章节">Section</label><select name="exercice" required=""><option data-fr="— Choisissez —" data-zh="— 请选择 —" value="">— Choisissez —</option><option data-fr="Dialogue" data-zh="对话">Dialogue</option><option data-fr="Comprendre" data-zh="理解">Comprendre</option><option data-fr="Communiquer" data-zh="表达">Communiquer</option><option data-fr="Vocabulaire" data-zh="词汇">Vocabulaire</option><option data-fr="Phonétique" data-zh="语音">Phonétique</option><option data-fr="Grammaire" data-zh="语法">Grammaire</option><option data-fr="Exercice" data-zh="练习">Exercice</option><option data-fr="À toi !" data-zh="轮到你了">À toi !</option><option data-fr="Autre" data-zh="其他">Autre</option></select></div>
+<div class="form-group"><label data-fr="Description" data-zh="描述">Description</label><textarea data-placeholder-fr="Décrivez le problème…" data-placeholder-zh="请描述问题…" name="description" placeholder="Décrivez le problème…" required="" rows="3"></textarea></div>
+<div class="form-group"><label><span data-fr="Prénom" data-zh="姓名">Prénom</span> <span class="opt" data-fr="(facultatif)" data-zh="（选填）">(facultatif)</span></label><input name="prenom" type="text"/></div>
+<button class="btn-send" type="submit">Envoyer</button><p class="form-success" data-fr="✅ Merci !" data-zh="✅ 谢谢！" id="success-bug">✅ Merci !</p>
+</form>
 </div>
-<div class="fle-modal" id="modal-ask" role="dialog" aria-modal="true" aria-labelledby="ask-title">
-  <div class="fle-modal-box">
-    <button class="modal-close" aria-label="Fermer" onclick="closeModal('modal-ask')">✕</button>
-    <h2 id="ask-title" data-fr="💬 Poser une question" data-zh="💬 提问">💬 Poser une question</h2><p class="modal-sub" data-fr="Votre question sera transmise au professeur." data-zh="您的问题将转交给老师。">Votre question sera transmise au professeur.</p>
-    <form id="form-ask" onsubmit="submitForm(event,'form-ask','modal-ask')">
-      <input name="lecon" type="hidden" value="3A — Quelle heure est-il ?"/><input name="_subject" type="hidden" value="[Question] Leçon 3A"/>
-      <div class="form-group"><label data-fr="Sujet" data-zh="主题">Sujet</label><select name="sujet" required=""><option data-fr="— Choisissez —" data-zh="— 请选择 —" value="">— Choisissez —</option><option data-fr="📖 Grammaire" data-zh="📖 语法" value="Grammaire">📖 Grammaire</option><option data-fr="📝 Vocabulaire" data-zh="📝 词汇" value="Vocabulaire">📝 Vocabulaire</option><option data-fr="✏️ Exercice" data-zh="✏️ 练习" value="Exercice">✏️ Exercice</option><option data-fr="🎵 Prononciation" data-zh="🎵 发音" value="Prononciation">🎵 Prononciation</option></select></div>
-      <div class="form-group"><label data-fr="Votre question" data-zh="您的问题">Votre question</label><textarea data-placeholder-fr="Posez votre question…" data-placeholder-zh="请输入您的问题…" name="question" placeholder="Posez votre question…" required="" rows="3"></textarea></div>
-      <div class="form-group"><label><span data-fr="Prénom" data-zh="姓名">Prénom</span> <span class="opt" data-fr="(facultatif)" data-zh="（选填）">(facultatif)</span></label><input name="prenom" type="text"/></div>
-      <button class="btn-send" type="submit">Envoyer</button><p class="form-success" id="success-ask" data-fr="✅ Merci !" data-zh="✅ 谢谢！">✅ Merci !</p>
-    </form>
-  </div>
+</div>
+<div aria-labelledby="ask-title" aria-modal="true" class="fle-modal" id="modal-ask" role="dialog">
+<div class="fle-modal-box">
+<button aria-label="Fermer" class="modal-close" onclick="closeModal('modal-ask')">✕</button>
+<h2 data-fr="💬 Poser une question" data-zh="💬 提问" id="ask-title">💬 Poser une question</h2><p class="modal-sub" data-fr="Votre question sera transmise au professeur." data-zh="您的问题将转交给老师。">Votre question sera transmise au professeur.</p>
+<form id="form-ask" onsubmit="submitForm(event,'form-ask','modal-ask')">
+<input name="lecon" type="hidden" value="3A — Quelle heure est-il ?"/><input name="_subject" type="hidden" value="[Question] Leçon 3A"/>
+<div class="form-group"><label data-fr="Sujet" data-zh="主题">Sujet</label><select name="sujet" required=""><option data-fr="— Choisissez —" data-zh="— 请选择 —" value="">— Choisissez —</option><option data-fr="📖 Grammaire" data-zh="📖 语法" value="Grammaire">📖 Grammaire</option><option data-fr="📝 Vocabulaire" data-zh="📝 词汇" value="Vocabulaire">📝 Vocabulaire</option><option data-fr="✏️ Exercice" data-zh="✏️ 练习" value="Exercice">✏️ Exercice</option><option data-fr="🎵 Prononciation" data-zh="🎵 发音" value="Prononciation">🎵 Prononciation</option></select></div>
+<div class="form-group"><label data-fr="Votre question" data-zh="您的问题">Votre question</label><textarea data-placeholder-fr="Posez votre question…" data-placeholder-zh="请输入您的问题…" name="question" placeholder="Posez votre question…" required="" rows="3"></textarea></div>
+<div class="form-group"><label><span data-fr="Prénom" data-zh="姓名">Prénom</span> <span class="opt" data-fr="(facultatif)" data-zh="（选填）">(facultatif)</span></label><input name="prenom" type="text"/></div>
+<button class="btn-send" type="submit">Envoyer</button><p class="form-success" data-fr="✅ Merci !" data-zh="✅ 谢谢！" id="success-ask">✅ Merci !</p>
+</form>
+</div>
 </div>
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var LESSON='3A';
-var TAB_FOR_SLIDE=[0,1,1,2,3,3,4,5,5,5,6];
+var TAB_FOR_SLIDE=[0,1,2,3,3,4,5,5,6];
 
 var currentSlide=0;
 
