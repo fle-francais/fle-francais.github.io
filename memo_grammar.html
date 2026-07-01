@@ -88,30 +88,31 @@ function showUnit(u) {
   var content = (window.MEMO_DATA && MEMO_DATA.grammar && MEMO_DATA.grammar[String(u)]) || '';
   var main = document.getElementById('main-content');
   if (!content) { main.innerHTML='<p style="color:var(--muted);text-align:center;padding:40px">Contenu indisponible.</p>'; return; }
-  // Injecter dans un div temporaire pour extraire les rule-box
-  var tmp = document.createElement('div');
-  tmp.innerHTML = content;
-  // Transformer chaque rule-box en accordéon cliquable
-  var boxes = tmp.querySelectorAll('.rule-box');
+  // Injecter le contenu brut dans le DOM
+  main.innerHTML = content;
+  // Transformer chaque rule-box en accordéon cliquable (directement dans le DOM)
+  var boxes = main.querySelectorAll('.rule-box');
   boxes.forEach(function(box, i){
     var titleEl = box.querySelector('.rule-subtitle');
-    var title = titleEl ? titleEl.textContent : 'Règle ' + (i+1);
-    if (titleEl) titleEl.remove();
-    var id = 'gram-body-' + u + '-' + i;
+    var title = titleEl ? titleEl.textContent.trim() : 'Règle ' + (i+1);
     var header = document.createElement('div');
     header.className = 'gram-rule-header';
     header.innerHTML = '<span class="gram-rule-title">' + title + '</span><span class="gram-rule-arrow">▽</span>';
     var body = document.createElement('div');
     body.className = 'gram-rule-body';
-    body.id = id;
+    body.id = 'gram-body-' + u + '-' + i;
     body.innerHTML = box.innerHTML;
+    // Supprimer le sous-titre dupliqué dans le body
+    var dupTitle = body.querySelector('.rule-subtitle');
+    if (dupTitle) dupTitle.remove();
     header.addEventListener('click', function(){
       body.classList.toggle('open');
       header.querySelector('.gram-rule-arrow').style.transform = body.classList.contains('open') ? 'rotate(180deg)' : '';
     });
-    box.replaceWith(header, body);
+    box.parentNode.insertBefore(header, box);
+    box.parentNode.insertBefore(body, box);
+    box.remove();
   });
-  main.innerHTML = tmp.innerHTML;
 }
 
 // Construire le sélecteur d'unité
