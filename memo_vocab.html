@@ -25,8 +25,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
 /* Styles vocab repris d'index.html */
 .section-title{font-size:.9rem;font-weight:800;color:var(--purp);margin:18px 0 8px;padding-bottom:5px;border-bottom:2px solid var(--purp-l)}
 .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:12px}
-.vocab-card{background:#fff;border:1px solid #dde3ee;border-radius:var(--r);padding:10px 12px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;cursor:pointer;transition:border-color .15s}
-.vocab-card:hover{border-color:var(--purp)}
+.vocab-card{background:#fff;border:1px solid #dde3ee;border-radius:var(--r);padding:10px 12px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;user-select:none}
+.vocab-card:hover{border-color:var(--purp);background:var(--purp-l)}
+.vocab-card.playing{border-color:var(--purp);background:var(--purp-l)}
+.vocab-sound{font-size:.9rem;opacity:.5;margin-top:2px;transition:opacity .15s}
+.vocab-card:hover .vocab-sound,.vocab-card.playing .vocab-sound{opacity:1}
 .vocab-emoji{font-size:1.4rem}
 .vocab-word{font-size:.8rem;font-weight:700;color:var(--text)}
 .vocab-trans{font-size:.75rem;color:var(--muted)}
@@ -71,6 +74,19 @@ var UNIT_NAMES = {
   7:'Les achats', 8:'À la maison', 9:'Voyages et découvertes'
 };
 
+var _aud = null;
+
+function playMemoAudio(u, i, card) {
+  if (_aud) { _aud.pause(); _aud = null; }
+  document.querySelectorAll('.vocab-card.playing').forEach(function(c){ c.classList.remove('playing'); });
+  var src = 'audio/memo_u' + u + '_' + i + '.mp3';
+  _aud = new Audio(src);
+  _aud.onerror = function(){ _aud = null; card.classList.remove('playing'); };
+  _aud.onended = function(){ card.classList.remove('playing'); _aud = null; };
+  card.classList.add('playing');
+  _aud.play();
+}
+
 function showUnit(u) {
   unitNum = u;
   document.getElementById('ph-title').textContent = 'Vocabulaire — Unité ' + u;
@@ -82,6 +98,15 @@ function showUnit(u) {
   var main = document.getElementById('main-content');
   if (!content) { main.innerHTML='<p style="color:var(--muted);text-align:center;padding:40px">Contenu indisponible.</p>'; return; }
   main.innerHTML = content;
+  // Ajouter icône son + handler audio sur chaque carte
+  var cards = main.querySelectorAll('.vocab-card');
+  cards.forEach(function(card, i){
+    var sound = document.createElement('span');
+    sound.className = 'vocab-sound';
+    sound.textContent = '🔊';
+    card.appendChild(sound);
+    (function(idx){ card.addEventListener('click', function(){ playMemoAudio(u, idx, card); }); })(i);
+  });
 }
 
 var sel = document.getElementById('unit-selector');
