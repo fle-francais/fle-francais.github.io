@@ -198,6 +198,12 @@
   .lecon-sub { font-size:.75rem; color:var(--muted); margin-top:3px; }
   .lecon-card-body { padding:10px 16px; flex:1; font-size:.8rem; color:var(--muted); line-height:1.45; }
   .lecon-card-foot { padding:10px 16px; border-top:1px solid #f0f0f0; }
+  /* ── PROGRESSION PAR LEÇON ── */
+  .lc-prog-strip { height:3px; background:#e8e8e8; margin-top:8px; border-radius:2px; overflow:hidden; }
+  .lc-prog-fill  { height:100%; width:0%; background:var(--l-color); transition:width .5s ease; }
+  .lc-stars      { font-size:.9rem; letter-spacing:1px; margin-bottom:5px; display:block; }
+  .lc-done       { box-shadow:0 0 0 2px #27ae60, 0 2px 10px rgba(39,174,96,.15); }
+  .lc-done .lecon-card-head { border-bottom-color:#27ae60; }
   .btn-lecon-dl { display:block; text-align:center; padding:8px; background:var(--l-light); color:var(--l-color); border-radius:20px; font-weight:700; font-size:.82rem; text-decoration:none; transition:all .2s; }
   .btn-lecon-dl:hover { background:var(--l-color); color:#fff; }
   .tab.active { color:var(--b-color); border-bottom-color:var(--b-color); }
@@ -1598,6 +1604,7 @@ function showLevel(lvl) {
     if (b.textContent === lvl) b.classList.add('active');
   });
   updateScoreDisplay(lvl);
+  updateLessonCards();
 }
 
 // ── TABS ──
@@ -1623,6 +1630,9 @@ function switchTab(level, tab) {
   container.querySelectorAll('.tab-content').forEach(function(tc) {
     tc.classList.toggle('active', tc.id === 'tab-' + level + '-' + tab);
   });
+
+  // Rafraîchir progression si on revient sur l'onglet Leçons
+  if (tab === 'lecons') updateLessonCards();
 
   // Synchroniser l'unité dans le nouvel onglet
   if (activeNum !== null) {
@@ -2082,6 +2092,67 @@ function answerTest(idx) {
 
 // ── INIT ──
 updateAllProgress();
+
+// ── PROGRESSION PAR LEÇON (fle_prog) ──────────────────────────────────────
+function updateLessonCards() {
+  var prog = JSON.parse(localStorage.getItem('fle_prog') || '{}');
+  document.querySelectorAll('.lecon-card').forEach(function(card) {
+    var codeEl = card.querySelector('.lecon-code');
+    if (!codeEl || codeEl.classList.contains('bilan-code')) return;
+    var lesson = codeEl.textContent.trim();
+    var data = prog[lesson];
+
+    // Barre de progression sous le header
+    var strip = card.querySelector('.lc-prog-strip');
+    if (!strip) {
+      strip = document.createElement('div');
+      strip.className = 'lc-prog-strip';
+      strip.innerHTML = '<div class="lc-prog-fill"></div>';
+      card.querySelector('.lecon-card-head').appendChild(strip);
+    }
+    var fill = strip.querySelector('.lc-prog-fill');
+
+    // Étoiles dans le pied
+    var starsEl = card.querySelector('.lc-stars');
+    if (!starsEl) {
+      starsEl = document.createElement('span');
+      starsEl.className = 'lc-stars';
+      var foot = card.querySelector('.lecon-card-foot');
+      foot.insertBefore(starsEl, foot.firstChild);
+    }
+
+    if (!data || !data.v) {
+      fill.style.width = '0%';
+      starsEl.textContent = '';
+      card.classList.remove('lc-done');
+      return;
+    }
+
+    // Calcul stars selon meilleur score QCM
+    var pct = (data.sc !== undefined && data.tot) ? Math.round(data.sc / data.tot * 100) : 0;
+    var stars = pct >= 90 ? 3 : pct >= 60 ? 2 : pct >= 30 ? 1 : 0;
+
+    // Largeur barre : ouvert=25%, QCM fait=65%, complété=100%
+    var barW = data.done ? 100 : (data.sc !== undefined ? 65 : 25);
+    fill.style.width = barW + '%';
+    fill.style.background = data.done ? '#27ae60' : 'var(--l-color)';
+
+    // Affichage étoiles
+    if (stars > 0 || data.sc !== undefined) {
+      starsEl.textContent = '★'.repeat(stars) + '☆'.repeat(3 - stars);
+      starsEl.style.color = stars > 0 ? '#f59e0b' : '#ccc';
+    } else {
+      starsEl.textContent = '';
+    }
+
+    // Bordure verte si complété
+    if (data.done) {
+      card.classList.add('lc-done');
+    } else {
+      card.classList.remove('lc-done');
+    }
+  });
+}
 
 // ═══════════════════════════════════════════
 // I18N — Internationalisation FR / EN / ZH / ES
