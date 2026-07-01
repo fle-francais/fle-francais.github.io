@@ -209,13 +209,16 @@
   .btn-lecon-dl:hover { background:var(--l-color); color:#fff; }
   .btn-match { display:flex; align-items:center; justify-content:center; padding:8px 12px; background:var(--l-light); color:var(--l-color); border-radius:20px; font-size:.82rem; text-decoration:none; transition:all .2s; white-space:nowrap; font-weight:700; flex-shrink:0; }
   .btn-match:hover { background:var(--l-color); color:#fff; }
-  /* ── SOUS-ONGLETS PAR UNITÉ (Mémo / Défis) ── */
+  /* ── BOUTONS TOGGLE PAR UNITÉ (Mémo / Défis) ── */
   .unit-sub { margin: 0 0 22px; }
-  .unit-sub-tabs { display: flex; gap: 2px; }
-  .unit-sub-tab { padding: 7px 22px; font-size: .78rem; font-weight: 700; border-radius: 10px 10px 0 0; border: 1.5px solid #c8d8f0; border-bottom: none; background: #f0f3f8; color: var(--muted); cursor: pointer; transition: all .15s; user-select: none; }
-  .unit-sub-tab.active { background: var(--l-light); color: var(--l-color); border-color: var(--l-color); }
-  .unit-sub-panel { border: 1.5px solid var(--l-color); border-radius: 0 10px 10px 10px; padding: 16px; background: var(--l-light); display: none; }
-  .unit-sub-panel.active { display: block; }
+  .unit-sub-btns { display: flex; gap: 8px; }
+  .unit-toggle-btn { display: flex; align-items: center; gap: 7px; padding: 7px 18px; font-size: .8rem; font-weight: 700; border-radius: 20px; border: 1.5px solid var(--l-color); background: var(--l-light); color: var(--l-color); cursor: pointer; transition: all .15s; user-select: none; }
+  .unit-toggle-btn:hover { background: var(--l-color); color: #fff; }
+  .unit-toggle-btn.open { background: var(--l-color); color: #fff; }
+  .toggle-arrow { font-size: .6rem; display: inline-block; transition: transform .2s; }
+  .unit-toggle-btn.open .toggle-arrow { transform: rotate(180deg); }
+  .unit-sub-panel { display: none; border: 1.5px solid var(--l-color); border-radius: 10px; padding: 16px; background: var(--l-light); margin-top: 8px; }
+  .unit-sub-panel.open { display: block; }
   .memo-section { margin-bottom: 16px; }
   .memo-section-title { font-size: .7rem; font-weight: 900; text-transform: uppercase; letter-spacing: .07em; color: var(--l-color); margin-bottom: 10px; padding-bottom: 5px; border-bottom: 2px solid var(--l-color); opacity: .75; }
   .defi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
@@ -2252,22 +2255,26 @@ function initUnitSubTabs() {
     var sub = document.createElement('div');
     sub.className = 'unit-sub';
     sub.innerHTML =
-      '<div class="unit-sub-tabs">'
-      + '<div class="unit-sub-tab active" onclick="switchUnitTab(this,\'memo-' + u + '\')">📋 Mémo</div>'
-      + '<div class="unit-sub-tab" onclick="switchUnitTab(this,\'defis-' + u + '\')">💪 Défis</div>'
+      '<div class="unit-sub-btns">'
+      + '<button class="unit-toggle-btn" onclick="toggleUnitPanel(this,\'memo-' + u + '\')">📋 Mémo <span class="toggle-arrow">▼</span></button>'
+      + '<button class="unit-toggle-btn" onclick="toggleUnitPanel(this,\'defis-' + u + '\')">💪 Défis <span class="toggle-arrow">▼</span></button>'
       + '</div>'
-      + '<div class="unit-sub-panel active" id="memo-' + u + '">' + memoHtml + '</div>'
+      + '<div class="unit-sub-panel" id="memo-' + u + '">' + memoHtml + '</div>'
       + '<div class="unit-sub-panel" id="defis-' + u + '">' + defiHtml + '</div>';
     grid.parentNode.insertBefore(sub, grid.nextSibling);
   });
 }
 
-function switchUnitTab(tabEl, panelId) {
-  var sub = tabEl.closest('.unit-sub');
-  sub.querySelectorAll('.unit-sub-tab').forEach(function(t) { t.classList.remove('active'); });
-  sub.querySelectorAll('.unit-sub-panel').forEach(function(p) { p.classList.remove('active'); });
-  tabEl.classList.add('active');
-  document.getElementById(panelId).classList.add('active');
+function toggleUnitPanel(btn, panelId) {
+  var panel = document.getElementById(panelId);
+  var isOpen = panel.classList.contains('open');
+  if (isOpen) {
+    panel.classList.remove('open');
+    btn.classList.remove('open');
+  } else {
+    panel.classList.add('open');
+    btn.classList.add('open');
+  }
 }
 
 // ═══════════════════════════════════════════
