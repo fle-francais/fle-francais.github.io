@@ -98,13 +98,9 @@ function showUnit(u) {
   var main = document.getElementById('main-content');
   if (!content) { main.innerHTML='<p style="color:var(--muted);text-align:center;padding:40px">Contenu indisponible.</p>'; return; }
   main.innerHTML = content;
-  // Ajouter icône son + handler audio sur chaque carte
+  // Ajouter handler audio sur chaque carte (sans icône visible)
   var cards = main.querySelectorAll('.vocab-card');
   cards.forEach(function(card, i){
-    var sound = document.createElement('span');
-    sound.className = 'vocab-sound';
-    sound.textContent = '🔊';
-    card.appendChild(sound);
     (function(idx){ card.addEventListener('click', function(){ playMemoAudio(u, idx, card); }); })(i);
   });
 }
