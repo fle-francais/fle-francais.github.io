@@ -850,31 +850,38 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModa
   function playLine(idx){if(idx>=rows.length){rows.forEach(function(r){r.classList.remove('dl-playing');});setState('play');playing=false;paused=false;ca=null;return;}playing=true;paused=false;setState('pause');rows.forEach(function(r,i){r.classList.remove('dl-playing');r.querySelectorAll('.dl-word').forEach(function(w){w.classList.remove('dl-lit');});if(i<idx)r.classList.add('dl-played');else r.classList.remove('dl-played');});rows[idx].classList.add('dl-playing');rows[idx].scrollIntoView({behavior:'smooth',block:'nearest'});var audio=pool[idx];audio.currentTime=0;ca=audio;var words=Array.from(rows[idx].querySelectorAll('.dl-word'));if(rafId){cancelAnimationFrame(rafId);rafId=null;}function tick(){if(!audio.paused&&!audio.ended&&audio.duration){var t=audio.currentTime,p=Math.max(0,Math.min(1,(t/audio.duration-0.06)/0.88+0.03)),lit=0;var tc=words.map(function(w,wi){var cum=0;for(var j=0;j<=wi;j++)cum+=Math.max(words[j].textContent.trim().length,1);return cum;});var tot=tc[tc.length-1]||1;for(var ti=0;ti<tc.length;ti++){if(p>=tc[ti]/tot)lit=ti+1;}words.forEach(function(w,wi){w.classList.toggle('dl-lit',wi<lit);});}if(!audio.ended)rafId=requestAnimationFrame(tick);}rafId=requestAnimationFrame(tick);audio.onended=function(){cancelAnimationFrame(rafId);rafId=null;playLine(idx+1);};audio.onerror=function(){cancelAnimationFrame(rafId);rafId=null;playLine(idx+1);};audio.play().catch(function(e){console.warn('audio:',e);});}
 })();
 </script>
+
 <!-- fle-prog-start -->
 <script>
 (function(){
   var L='3C';
   try{
-    var p=JSON.parse(localStorage.getItem('fle_prog')||'{}');
-    if(!p[L])p[L]={};p[L].v=1;
-    localStorage.setItem('fle_prog',JSON.stringify(p));
-    var _g=window.goSlide;
-    window.goSlide=function(n){
-      if(n===8){var q=JSON.parse(localStorage.getItem('fle_prog')||'{}');if(!q[L])q[L]={};q[L].done=1;localStorage.setItem('fle_prog',JSON.stringify(q));}
-      return _g(n);
-    };
-    var _v=window.verifyQCM;
+    function _pg(){return JSON.parse(localStorage.getItem('fle_prog')||'{}');}
+    function _mk(k,v){var q=_pg();if(!q[L])q[L]={};q[L][k]=v;localStorage.setItem('fle_prog',JSON.stringify(q));}
+    // m1 : QCM Comprendre
+    var _vQ=window.verifyQCM;
     window.verifyQCM=function(id){
-      _v(id);
+      _vQ(id);
       var s=document.getElementById(id);
       if(s&&s.textContent){var m=s.textContent.match(/(\d+)\/(\d+)/);if(m){
-        var q=JSON.parse(localStorage.getItem('fle_prog')||'{}');
-        if(!q[L])q[L]={};
+        var q=_pg();if(!q[L])q[L]={};
         var sc=+m[1],tot=+m[2];
         if(q[L].sc===undefined||sc>q[L].sc){q[L].sc=sc;q[L].tot=tot;}
+        q[L].m1=1;
         localStorage.setItem('fle_prog',JSON.stringify(q));
       }}
     };
+    // m2 : Phonétique
+    var _vP=window.verifyPhon;
+    window.verifyPhon=function(){_vP();_mk('m2',1);};
+    // m3 : Exercices 1/2 (verifyCard)
+    var _vC=window.verifyCard;
+    window.verifyCard=function(btn){_vC(btn);_mk('m3',1);};
+    // m4 : Exercices 2/2 (drag-drop ou écoute)
+    var _cE5=window.checkEx5;
+    window.checkEx5=function(){_cE5();_mk('m4',1);};
+    var _vE6=window.verifyAllEx6;
+    window.verifyAllEx6=function(){_vE6();_mk('m4',1);};
   }catch(e){}
 })();
 </script>

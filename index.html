@@ -2121,31 +2121,31 @@ function updateLessonCards() {
       foot.insertBefore(pctEl, foot.firstChild);
     }
 
-    if (!data || !data.v) {
+    if (!data) {
       fill.style.width = '0%';
       pctEl.textContent = '';
       card.classList.remove('lc-done');
       return;
     }
 
-    // Calcul pourcentage QCM
-    var pct = (data.sc !== undefined && data.tot) ? Math.round(data.sc / data.tot * 100) : 0;
+    // Progression réelle : 4 jalons × 25 %
+    var milestones = (data.m1 ? 1 : 0) + (data.m2 ? 1 : 0)
+                   + (data.m3 ? 1 : 0) + (data.m4 ? 1 : 0);
+    var pct = milestones * 25;
 
-    // Largeur barre : ouvert=25%, QCM fait=65%, complété=100%
-    var barW = data.done ? 100 : (data.sc !== undefined ? 65 : 25);
-    fill.style.width = barW + '%';
-    fill.style.background = data.done ? '#27ae60' : 'var(--l-color)';
+    fill.style.width = pct + '%';
+    fill.style.background = pct === 100 ? '#27ae60' : 'var(--l-color)';
 
-    // Affichage pourcentage
-    if (data.sc !== undefined) {
+    // Affichage pourcentage (toujours visible dès qu'un exercice est fait)
+    if (milestones > 0) {
       pctEl.textContent = pct + '%';
-      pctEl.style.color = pct >= 90 ? '#27ae60' : pct >= 60 ? 'var(--orange)' : '#e74c3c';
+      pctEl.style.color = pct === 100 ? '#27ae60' : pct >= 50 ? 'var(--orange)' : '#e74c3c';
     } else {
       pctEl.textContent = '';
     }
 
-    // Bordure verte si complété
-    if (data.done) {
+    // Bordure verte si 100 %
+    if (pct === 100) {
       card.classList.add('lc-done');
     } else {
       card.classList.remove('lc-done');
