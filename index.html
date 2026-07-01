@@ -2132,6 +2132,13 @@ function updateLessonCards() {
         btnM.title = 'Jeu de matching vocabulaire';
         btnM.textContent = '🎯';
         wrap.appendChild(btnM);
+        var gapHref = 'gap_fill.html?lesson=' + lesson + (ok ? '' : '&auth=FLE2026');
+        var btnG = document.createElement('a');
+        btnG.className = 'btn-match';
+        btnG.href = gapHref;
+        btnG.title = 'Exercice à trous';
+        btnG.textContent = '✏️';
+        wrap.appendChild(btnG);
       }
     }
 
