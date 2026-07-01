@@ -209,6 +209,21 @@
   .btn-lecon-dl:hover { background:var(--l-color); color:#fff; }
   .btn-match { display:flex; align-items:center; justify-content:center; padding:8px 12px; background:var(--l-light); color:var(--l-color); border-radius:20px; font-size:.82rem; text-decoration:none; transition:all .2s; white-space:nowrap; font-weight:700; flex-shrink:0; }
   .btn-match:hover { background:var(--l-color); color:#fff; }
+  /* ── SOUS-ONGLETS PAR UNITÉ (Mémo / Défis) ── */
+  .unit-sub { margin: 0 0 22px; }
+  .unit-sub-tabs { display: flex; gap: 2px; }
+  .unit-sub-tab { padding: 7px 22px; font-size: .78rem; font-weight: 700; border-radius: 10px 10px 0 0; border: 1.5px solid #c8d8f0; border-bottom: none; background: #f0f3f8; color: var(--muted); cursor: pointer; transition: all .15s; user-select: none; }
+  .unit-sub-tab.active { background: var(--l-light); color: var(--l-color); border-color: var(--l-color); }
+  .unit-sub-panel { border: 1.5px solid var(--l-color); border-radius: 0 10px 10px 10px; padding: 16px; background: var(--l-light); display: none; }
+  .unit-sub-panel.active { display: block; }
+  .memo-section { margin-bottom: 16px; }
+  .memo-section-title { font-size: .7rem; font-weight: 900; text-transform: uppercase; letter-spacing: .07em; color: var(--l-color); margin-bottom: 10px; padding-bottom: 5px; border-bottom: 2px solid var(--l-color); opacity: .75; }
+  .defi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .defi-card { background: #fff; border: 1.5px solid #c8d8f0; border-radius: 10px; padding: 14px 10px; text-align: center; }
+  .defi-code { font-size: .72rem; font-weight: 900; color: #fff; background: var(--l-color); border-radius: 6px; padding: 2px 9px; display: inline-block; margin-bottom: 10px; }
+  .defi-btns { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+  .defi-btn { display: inline-block; padding: 6px 12px; border-radius: 14px; font-size: .75rem; font-weight: 700; text-decoration: none; background: var(--l-light); color: var(--l-color); border: 1.5px solid var(--l-color); transition: all .15s; }
+  .defi-btn:hover { background: var(--l-color); color: #fff; }
   .tab.active { color:var(--b-color); border-bottom-color:var(--b-color); }
   .tab-lecons.active { color:var(--l-color) !important; border-bottom-color:var(--l-color) !important; }
   /* ── UNIT SELECTOR ── */
@@ -1608,6 +1623,7 @@ function showLevel(lvl) {
   });
   updateScoreDisplay(lvl);
   updateLessonCards();
+  initUnitSubTabs();
 }
 
 // ── TABS ──
@@ -1635,7 +1651,7 @@ function switchTab(level, tab) {
   });
 
   // Rafraîchir progression si on revient sur l'onglet Leçons
-  if (tab === 'lecons') updateLessonCards();
+  if (tab === 'lecons') { updateLessonCards(); initUnitSubTabs(); }
 
   // Synchroniser l'unité dans le nouvel onglet
   if (activeNum !== null) {
@@ -2187,6 +2203,71 @@ function updateLessonCards() {
       card.classList.remove('lc-done');
     }
   });
+}
+
+// ── SOUS-ONGLETS PAR UNITÉ (Mémo / Défis) ──────────────────────────────────
+function initUnitSubTabs() {
+  if (document.querySelector('.unit-sub')) return; // déjà injecté
+  var ok = false; try { ok = localStorage.getItem('fle_auth') === '1'; } catch(e) {}
+  var auth = ok ? '' : '&auth=FLE2026';
+  var LESSONS = {1:['1A','1B','1C'],2:['2A','2B','2C'],3:['3A','3B','3C'],
+    4:['4A','4B','4C'],5:['5A','5B','5C'],6:['6A','6B','6C'],
+    7:['7A','7B','7C'],8:['8A','8B','8C'],9:['9A','9B','9C']};
+
+  document.querySelectorAll('#tab-A1-lecons .lecons-unit-title').forEach(function(title) {
+    var m = title.textContent.match(/Unité\s+(\d+)/);
+    if (!m) return;
+    var u = parseInt(m[1]);
+    if (!LESSONS[u]) return;
+    var grid = title.nextElementSibling;
+    if (!grid || !grid.classList.contains('lecons-grid')) return;
+
+    // ── Contenu Mémo : grammaire + vocab ──
+    var memoHtml = '';
+    var gramBlock = document.getElementById('unit-A1-grammar-' + u);
+    var vocabBlock = document.getElementById('unit-A1-vocab-' + u);
+    if (gramBlock) {
+      var gc = gramBlock.cloneNode(true);
+      var gl = gc.querySelector('.unit-label'); if (gl) gl.remove();
+      memoHtml += '<div class="memo-section"><div class="memo-section-title">✏️ Grammaire</div>' + gc.innerHTML + '</div>';
+    }
+    if (vocabBlock) {
+      var vc = vocabBlock.cloneNode(true);
+      var vl = vc.querySelector('.unit-label'); if (vl) vl.remove();
+      memoHtml += '<div class="memo-section"><div class="memo-section-title">📚 Vocabulaire</div>' + vc.innerHTML + '</div>';
+    }
+
+    // ── Contenu Défis : jeux par leçon ──
+    var defiHtml = '<div class="defi-grid">';
+    LESSONS[u].forEach(function(code) {
+      defiHtml += '<div class="defi-card">'
+        + '<div class="defi-code">' + code + '</div>'
+        + '<div class="defi-btns">'
+        + '<a class="defi-btn" href="vocab_match.html?lesson=' + code + auth + '">🎯 Mémoriser</a>'
+        + '<a class="defi-btn" href="gap_fill.html?lesson=' + code + auth + '">✏️ Compléter</a>'
+        + '</div></div>';
+    });
+    defiHtml += '</div>';
+
+    var sub = document.createElement('div');
+    sub.className = 'unit-sub';
+    sub.innerHTML =
+      '<div class="unit-sub-tabs">'
+      + '<div class="unit-sub-tab active" onclick="switchUnitTab(this,\'memo-' + u + '\')">📋 Mémo</div>'
+      + '<div class="unit-sub-tab" onclick="switchUnitTab(this,\'defis-' + u + '\')">💪 Défis</div>'
+      + '</div>'
+      + '<div class="unit-sub-panel active" id="memo-' + u + '">' + memoHtml + '</div>'
+      + '<div class="unit-sub-panel" id="defis-' + u + '">' + defiHtml + '</div>';
+    grid.parentNode.insertBefore(sub, grid.nextSibling);
+  });
+}
+
+function switchUnitTab(tabEl, panelId) {
+  var sub = tabEl.closest('.unit-sub');
+  sub.querySelectorAll('.unit-sub-tab').forEach(function(t) { t.classList.remove('active'); });
+  sub.querySelectorAll('.unit-sub-panel').forEach(function(p) { p.classList.remove('active'); });
+  tabEl.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
 }
 
 // ═══════════════════════════════════════════
