@@ -663,7 +663,7 @@ document.addEventListener('DOMContentLoaded',function(){
       <div class="tab tab-lecons active" onclick="switchTab('A1','lecons')">📖 Leçons</div>
       <div class="tab" onclick="switchTab('A1','grammar')">✏️ Grammaire</div>
       <div class="tab" onclick="switchTab('A1','vocab')">📚 Vocabulaire</div>
-      <div class="tab" onclick="switchTab('A1','exercises')">🎯 Exercices</div>
+      <div class="tab" onclick="switchTab('A1','exercises')" style="display:none">🎯 Exercices</div>
       <div class="tab" onclick="switchTab('A1','programme')">📋 Programme</div>
     </div>
 
@@ -2134,32 +2134,7 @@ function updateLessonCards() {
     }
     var fill = strip.querySelector('.lc-prog-fill');
 
-    // Bouton matching (une seule fois)
     var foot = card.querySelector('.lecon-card-foot');
-    if (!foot.querySelector('.btn-match')) {
-      var btnDl = foot.querySelector('.btn-lecon-dl');
-      if (btnDl) {
-        var wrap = document.createElement('div');
-        wrap.className = 'lecon-card-foot-btns';
-        foot.insertBefore(wrap, btnDl);
-        wrap.appendChild(btnDl);
-        var ok = false; try { ok = localStorage.getItem('fle_auth') === '1'; } catch(e) {}
-        var matchHref = 'vocab_match.html?lesson=' + lesson + (ok ? '' : '&auth=FLE2026');
-        var btnM = document.createElement('a');
-        btnM.className = 'btn-match';
-        btnM.href = matchHref;
-        btnM.title = 'Jeu de matching vocabulaire';
-        btnM.textContent = '🎯';
-        wrap.appendChild(btnM);
-        var gapHref = 'gap_fill.html?lesson=' + lesson + (ok ? '' : '&auth=FLE2026');
-        var btnG = document.createElement('a');
-        btnG.className = 'btn-match';
-        btnG.href = gapHref;
-        btnG.title = 'Exercice à trous';
-        btnG.textContent = '✏️';
-        wrap.appendChild(btnG);
-      }
-    }
 
     // Pourcentage dans le pied
     var pctEl = card.querySelector('.lc-pct');
@@ -2232,6 +2207,7 @@ function initUnitSubTabs() {
       + '<div class="defi-btns">'
       + '<a class="defi-btn" href="memo_grammar.html?unit=' + u + auth + '">✏️ Grammaire</a>'
       + '<a class="defi-btn" href="memo_vocab.html?unit=' + u + auth + '">📚 Vocabulaire</a>'
+      + '<a class="defi-btn" href="#" onclick="goExercices(' + u + ');return false;">📝 Exercices</a>'
       + '</div></div></div>';
 
     // ── Contenu Défis : jeux par leçon ──
@@ -2257,6 +2233,13 @@ function initUnitSubTabs() {
       + '<div class="unit-sub-panel" id="defis-' + u + '">' + defiHtml + '</div>';
     grid.parentNode.insertBefore(sub, grid.nextSibling);
   });
+}
+
+function goExercices(u) {
+  switchTab('A1', 'exercises');
+  var btn = document.querySelector('#tab-A1-exercises .unit-nav-btn[onclick*=",' + u + ')"]');
+  if (btn) showUnit(btn, 'A1-exercises', u);
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 function toggleUnitPanel(btn, panelId) {
