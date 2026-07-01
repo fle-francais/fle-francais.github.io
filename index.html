@@ -2225,20 +2225,14 @@ function initUnitSubTabs() {
     var grid = title.nextElementSibling;
     if (!grid || !grid.classList.contains('lecons-grid')) return;
 
-    // ── Contenu Mémo : grammaire + vocab ──
-    var memoHtml = '';
-    var gramBlock = document.getElementById('unit-A1-grammar-' + u);
-    var vocabBlock = document.getElementById('unit-A1-vocab-' + u);
-    if (gramBlock) {
-      var gc = gramBlock.cloneNode(true);
-      var gl = gc.querySelector('.unit-label'); if (gl) gl.remove();
-      memoHtml += '<div class="memo-section"><div class="memo-section-title">✏️ Grammaire</div>' + gc.innerHTML + '</div>';
-    }
-    if (vocabBlock) {
-      var vc = vocabBlock.cloneNode(true);
-      var vl = vc.querySelector('.unit-label'); if (vl) vl.remove();
-      memoHtml += '<div class="memo-section"><div class="memo-section-title">📚 Vocabulaire</div>' + vc.innerHTML + '</div>';
-    }
+    // ── Contenu Mémo : liens vers pages dédiées ──
+    var memoHtml = '<div class="defi-grid">'
+      + '<div class="defi-card">'
+      + '<div class="defi-code" style="background:#2a4a8a">U' + u + '</div>'
+      + '<div class="defi-btns">'
+      + '<a class="defi-btn" href="memo_grammar.html?unit=' + u + auth + '">✏️ Grammaire</a>'
+      + '<a class="defi-btn" href="memo_vocab.html?unit=' + u + auth + '">📚 Vocabulaire</a>'
+      + '</div></div></div>';
 
     // ── Contenu Défis : jeux par leçon ──
     var defiHtml = '<div class="defi-grid">';
