@@ -130,9 +130,11 @@ body.lang-zh .prod-zh{display:block}
 .gram-table td:first-child{font-weight:700;color:#92400e}
 .gram-ex{font-size:.8rem;color:var(--muted);line-height:1.55;padding:6px 11px;border-left:3px solid #fbbf24;margin-bottom:7px}
 .gram-sep{border:none;border-top:2px dashed #fde68a;margin:10px 0}
-.gram-row{display:flex;gap:8px;align-items:flex-start;margin-top:14px}
-.gram-col{flex:1;min-width:0}
-.gram-col .gram-rule{min-height:4em}
+.gram-row{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto auto auto;gap:8px;margin-top:14px}
+.gram-col{display:grid;grid-template-rows:subgrid;grid-row:span 5;gap:0;min-width:0}
+.gram-col+.gram-col{border-left:2px solid #fde68a;padding-left:8px}
+.gram-col:nth-child(2) .gram-table th{background:#0d9488}
+.gram-col:nth-child(2) .gram-observe{background:#f0fdfa;border-color:#99f6e4}
 /* GRAMMAIRE INTERACTIVE (flashcards ambrées) */
 .gram-table.gram-fc tbody td:not(.gram-pf){background:#fef9ee;padding:3px 4px}
 .gram-table.gram-fc tbody td.gram-pf{background:#fef3c7;color:#78350f;font-weight:700;cursor:default}
