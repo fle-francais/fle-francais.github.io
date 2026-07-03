@@ -430,7 +430,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 .vc-score-txt{font-size:1.15rem;font-weight:700;color:#1c2e5a}
 .vc-restart{font-size:.88rem;padding:8px 22px;background:#e6ecf6;color:#1c2e5a;border:none;border-radius:50px;cursor:pointer;font-weight:600}
 .vc-restart:hover{background:#d0ddef}
-/* --- Associer FR↔ZH (slide-match) --- */
+/* --- Associer FR<>ZH (slide-match) --- */
 .match-body{display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 12px;height:100%;box-sizing:border-box}
 .match-top{display:flex;justify-content:space-between;align-items:center;width:100%}
 .match-title{font-weight:700;color:var(--purp);font-size:.88rem}
@@ -475,9 +475,9 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
 <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
 <button class="slide-tab" data-fr="🎤 Prononciation" data-zh="🎤 发音" onclick="goSlide(5)">🎤 Prononciation</button>
-<button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(5)">📖 Grammaire</button>
-<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(5)">✏️ Exercices</button>
-<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(5)">✍️ À toi !</button>
+<button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
+<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(7)">✏️ Exercices</button>
+<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(9)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -590,7 +590,8 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
-<button class="btn-ns" data-fr="🎧 Écoute →" data-zh="🎧 练习 →" onclick="goSlide(3)">🎧 Écoute →</button>
+<button class="btn-ns" 
+</div>
 </div>
 
 <!-- ══ SLIDE 3 : ÉCOUTE ET CHOISIS ══ -->
@@ -638,7 +639,6 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 </div>
 
-</div>
 <!-- ══ SLIDE 4 : PHONÉTIQUE 2/2 — PRONONCIATION ══ -->
 <div class="slide" id="slide-5">
 <div class="slide-body">
@@ -660,7 +660,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Associer" data-zh="← 配对" onclick="goSlide(4)">← Associer</button>
-<button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(5)">📖 Grammaire →</button>
+<button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(6)">📖 Grammaire →</button>
 </div>
 </div>
 <!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
@@ -673,7 +673,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Prononciation" data-zh="← 发音" onclick="goSlide(5)">← Prononciation</button>
-<button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(5)">✏️ Exercices →</button>
+<button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(7)">✏️ Exercices →</button>
 </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
@@ -703,8 +703,8 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div class="blank-row">3. <span>Tu vas au Maroc pour les vacances. → Forme interrogative (est-ce que) : </span><input autocomplete="off" class="blank-input" id="bl-9A-ex3-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9A-ex3-2').click()" type="text"/><button class="check-btn" data-ans="Est-ce que tu vas au Maroc pour les vacances ?" id="chk-bl-9A-ex3-2" onclick="checkBlankData(this,'bl-9A-ex3-2','fb-bl-9A-ex3-2')">✓</button><span class="fb" id="fb-bl-9A-ex3-2"></span><span></span></div>
 <div class="blank-row">4. <span>Vous allez en France en train. → Forme interrogative (inversion) : </span><input autocomplete="off" class="blank-input" id="bl-9A-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9A-ex3-3').click()" type="text"/><button class="check-btn" data-ans="Allez-vous en France en train ?" id="chk-bl-9A-ex3-3" onclick="checkBlankData(this,'bl-9A-ex3-3','fb-bl-9A-ex3-3')">✓</button><span class="fb" id="fb-bl-9A-ex3-3"></span><span></span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div><div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Associez chaque pays à la bonne préposition (en / au / aux)<span class="comm-zh"> · 将每个国家与正确的介词配对（en / au / aux）</span> <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="blank-row">1. <span></span><input <input="" autocomplete="off" class="blank-input" id="bl-9A-ex4-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9A-ex4-1').click()" type="text"/><button class="check-btn" data-ans="au" id="chk-bl-9A-ex4-1" onclick="checkBlankData(this,'bl-9A-ex4-1','fb-bl-9A-ex4-1')">✓</button><span class="fb" id="fb-bl-9A-ex4-1"></span><span> Espagne 2. </span><input <input="" autocomplete="off" class="blank-input" id="bl-9A-ex4-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9A-ex4-2').click()" type="text"/><button class="check-btn" data-ans="aux" id="chk-bl-9A-ex4-2" onclick="checkBlankData(this,'bl-9A-ex4-2','fb-bl-9A-ex4-2')">✓</button><span class="fb" id="fb-bl-9A-ex4-2"></span><span> Canada 3. </span><input <input="" autocomplete="off" class="blank-input" id="bl-9A-ex4-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9A-ex4-3').click()" type="text"/><button class="check-btn" data-ans="en" id="chk-bl-9A-ex4-3" onclick="checkBlankData(this,'bl-9A-ex4-3','fb-bl-9A-ex4-3')">✓</button><span class="fb" id="fb-bl-9A-ex4-3"></span><span> Philippines 4. </span><input <input="" autocomplete="off" class="blank-input" id="bl-9A-ex4-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9A-ex4-4').click()" type="text"/><button class="check-btn" data-ans="au" id="chk-bl-9A-ex4-4" onclick="checkBlankData(this,'bl-9A-ex4-4','fb-bl-9A-ex4-4')">✓</button><span class="fb" id="fb-bl-9A-ex4-4"></span><span> Italie 5. </span><input autocomplete="off" class="blank-input" id="bl-9A-ex4-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-9A-ex4-0').click()" type="text"/><button class="check-btn" data-ans="en" id="chk-bl-9A-ex4-0" onclick="checkBlankData(this,'bl-9A-ex4-0','fb-bl-9A-ex4-0')">✓</button><span class="fb" id="fb-bl-9A-ex4-0"></span><span> Japon</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div></div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(5)">← Grammaire</button>
-<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(5)">Suite →</button>
+<button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
+<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(8)">Suite →</button>
 </div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
@@ -807,8 +807,8 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" onclick="goSlide(5)">← Exercices 1/2</button>
-<button class="btn-ns" onclick="goSlide(5)">✍️ À toi ! →</button>
+<button class="btn-ns" onclick="goSlide(7)">← Exercices 1/2</button>
+<button class="btn-ns" onclick="goSlide(9)">✍️ À toi ! →</button>
 </div>
 </div>
 <div class="slide" id="slide-10">
@@ -824,7 +824,7 @@ budget (8–10 phrases avec le futur proche).
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(5)">← Exercices</button>
+<button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(8)">← Exercices</button>
 <button class="btn-ns" onclick="location.href='9B_slides.html'" style="background:var(--green)">9B →</button>
 </div>
 </div>
@@ -872,7 +872,7 @@ var currentSlide=0;
 function verifyPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('.gram-prat-item').forEach(function(item){var sel=item.querySelector('.gram-prat-btn.prat-sel');var ans=item.dataset.ans;item.querySelectorAll('.gram-prat-btn').forEach(function(b){b.disabled=true;});if(sel){sel.classList.add(sel.dataset.val===ans?'gram-ok':'gram-ko');}});var total=col.querySelectorAll('.gram-prat-item').length;var ok=col.querySelectorAll('.gram-prat-btn.gram-ok').length;col.querySelector('.gram-prat-score').textContent=ok+'/'+total;}
 function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('.gram-prat-btn').forEach(function(b){b.classList.remove('prat-sel','gram-ok','gram-ko');b.disabled=false;});col.querySelector('.gram-prat-score').textContent='';}
 
-// ════ Écoute et choisis ════
+// ==== Écoute et choisis ====
 var VC_DATA=[
   {fr:"voyage",audio:"../audio/vocab_9A_0.mp3"},
   {fr:"pays",audio:"../audio/vocab_9A_1.mp3"},
@@ -890,42 +890,35 @@ function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.f
 function vcInit(){vcQ=vcShuffle(VC_DATA.slice());vcIdx=0;vcScore=0;vcRender();}
 function vcRender(){
   var prog=document.getElementById('vc-prog');if(prog)prog.textContent='Mot '+(vcIdx+1)+' / '+vcQ.length;
-  var grid=document.getElementById('vc-grid');if(!grid)return;
-  grid.innerHTML='';
+  var grid=document.getElementById('vc-grid');if(!grid)return;grid.innerHTML='';
   var fb=document.getElementById('vc-fb');if(fb)fb.textContent='';
   var nxt=document.getElementById('vc-next');if(nxt)nxt.style.display='none';
   var end=document.getElementById('vc-end');if(end)end.style.display='none';
   var pool=VC_DATA.filter(function(x){return x.fr!==vcQ[vcIdx].fr;});
   var wrongs=vcShuffle(pool).slice(0,3).map(function(x){return x.fr;});
   var choices=vcShuffle([vcQ[vcIdx].fr].concat(wrongs));
-  choices.forEach(function(c){
-    var b=document.createElement('button');
-    b.className='vc-btn';b.textContent=c;
-    b.onclick=function(){vcAnswer(c===vcQ[vcIdx].fr,b,vcQ[vcIdx].fr);};
-    grid.appendChild(b);
-  });
+  choices.forEach(function(c){var b=document.createElement('button');b.className='vc-btn';b.textContent=c;b.onclick=function(){vcAnswer(c===vcQ[vcIdx].fr,b,vcQ[vcIdx].fr);};grid.appendChild(b);});
   vcAnswered=false;
 }
 function vcAnswer(correct,btn,correctFr){
   if(vcAnswered)return;vcAnswered=true;
   if(correct){btn.classList.add('vc-correct');vcScore++;var fb=document.getElementById('vc-fb');if(fb)fb.textContent='✅ Correct !';}
-  else{btn.classList.add('vc-wrong');var fb=document.getElementById('vc-fb');if(fb)fb.textContent='❌ C'est : '+correctFr;document.querySelectorAll('.vc-btn').forEach(function(b){if(b.textContent===correctFr)b.classList.add('vc-correct');});}
+  else{btn.classList.add('vc-wrong');var fb=document.getElementById('vc-fb');if(fb)fb.textContent='❌ C\'est : '+correctFr;document.querySelectorAll('.vc-btn').forEach(function(b){if(b.textContent===correctFr)b.classList.add('vc-correct');});}
   document.querySelectorAll('.vc-btn').forEach(function(b){b.disabled=true;});
-  var nxt=document.getElementById('vc-next');
-  if(nxt){nxt.style.display='inline-block';}
+  var nxt=document.getElementById('vc-next');if(nxt)nxt.style.display='inline-block';
 }
 function vcPlay(){if(vcAudio){vcAudio.pause();vcAudio.currentTime=0;}vcAudio=new Audio(vcQ[vcIdx].audio);vcAudio.play().catch(function(){});}
-function vcNext(){vcIdx++;if(vcIdx<vcQ.length){vcRender();}else{vcShowScore();}}
+function vcNext(){vcIdx++;if(vcIdx<vcQ.length)vcRender();else vcShowScore();}
 function vcShowScore(){
   var grid=document.getElementById('vc-grid');if(grid)grid.innerHTML='';
   var fb=document.getElementById('vc-fb');if(fb)fb.textContent='';
   var nxt=document.getElementById('vc-next');if(nxt)nxt.style.display='none';
   var end=document.getElementById('vc-end');if(end)end.style.display='flex';
-  var msg=vcScore===vcQ.length?'🏆 Parfait ! '+vcScore+'/'+vcQ.length:vcScore>=vcQ.length*.7?'🌟 Bien ! '+vcScore+'/'+vcQ.length:'👍 Continue ! '+vcScore+'/'+vcQ.length;
+  var msg=vcScore===vcQ.length?'🏆 Parfait ! '+vcScore+'/'+vcQ.length:vcScore>=Math.ceil(vcQ.length*.7)?'🌟 Bien ! '+vcScore+'/'+vcQ.length:'👍 Continue ! '+vcScore+'/'+vcQ.length;
   var st=document.getElementById('vc-score-txt');if(st)st.textContent=msg;
 }
 function vcRestart(){vcInit();}
-// ════ Associer FR↔ZH ════
+// ==== Associer FR<>ZH ====
 var MATCH_DATA=[
   {fr:"voyage",zh:"旅行"},
   {fr:"pays",zh:"国家"},
@@ -943,7 +936,7 @@ var MATCH_ROUND_SIZE=5;
 function matchShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
 function matchInit(){matchRound=0;matchSel=null;matchDone=0;matchErrors=0;var e=document.getElementById('match-end');if(e)e.style.display='none';var c=document.getElementById('match-cols');if(c)c.style.display='flex';var p=document.getElementById('match-prog');if(p)p.style.display='';var fb=document.getElementById('match-fb');if(fb)fb.textContent='';matchRenderRound();}
 function matchRenderRound(){
-  var start=matchRound*MATCH_ROUND_SIZE;var end=Math.min(start+MATCH_ROUND_SIZE,MATCH_DATA.length);var pairs=MATCH_DATA.slice(start,end);
+  var start=matchRound*MATCH_ROUND_SIZE;var end2=Math.min(start+MATCH_ROUND_SIZE,MATCH_DATA.length);var pairs=MATCH_DATA.slice(start,end2);
   var prog=document.getElementById('match-prog');if(prog)prog.textContent='Série '+(matchRound+1)+' / '+Math.ceil(MATCH_DATA.length/MATCH_ROUND_SIZE);
   var frArr=matchShuffle(pairs.map(function(p,i){return{fr:p.fr,idx:start+i};}));
   var zhArr=matchShuffle(pairs.map(function(p,i){return{zh:p.zh,idx:start+i};}));
@@ -957,21 +950,11 @@ function matchSelectFr(btn){if(btn.classList.contains('match-ok'))return;documen
 function matchSelectZh(btn){
   if(!matchSel)return;if(btn.classList.contains('match-ok'))return;
   var frIdx=parseInt(matchSel.dataset.idx);var zhIdx=parseInt(btn.dataset.idx);var fb=document.getElementById('match-fb');
-  if(frIdx===zhIdx){
-    matchSel.classList.remove('match-sel');matchSel.classList.add('match-ok');btn.classList.add('match-ok');
-    matchSel.disabled=true;btn.disabled=true;matchSel=null;matchDone++;
-    if(fb)fb.textContent='✅ Correct !';
-    var pairCount=Math.min(MATCH_ROUND_SIZE,MATCH_DATA.length-matchRound*MATCH_ROUND_SIZE);
-    if(matchDone===pairCount){setTimeout(function(){matchNextRound();},700);}
-  } else {
-    matchErrors++;matchSel.classList.add('match-err');btn.classList.add('match-err');
-    if(fb)fb.textContent='❌ Essaie encore !';
-    var frBtn=matchSel,zhBtn=btn;
-    setTimeout(function(){frBtn.classList.remove('match-err','match-sel');zhBtn.classList.remove('match-err');matchSel=null;if(fb)fb.textContent='';},800);
-  }
+  if(frIdx===zhIdx){matchSel.classList.remove('match-sel');matchSel.classList.add('match-ok');btn.classList.add('match-ok');matchSel.disabled=true;btn.disabled=true;matchSel=null;matchDone++;if(fb)fb.textContent='✅ Correct !';var pairCount=Math.min(MATCH_ROUND_SIZE,MATCH_DATA.length-matchRound*MATCH_ROUND_SIZE);if(matchDone===pairCount){setTimeout(function(){matchNextRound();},700);}}
+  else{matchErrors++;matchSel.classList.add('match-err');btn.classList.add('match-err');if(fb)fb.textContent='❌ Essaie encore !';var frBtn=matchSel,zhBtn=btn;setTimeout(function(){frBtn.classList.remove('match-err','match-sel');zhBtn.classList.remove('match-err');matchSel=null;if(fb)fb.textContent='';},800);}
 }
-function matchNextRound(){matchRound++;var totalRounds=Math.ceil(MATCH_DATA.length/MATCH_ROUND_SIZE);if(matchRound<totalRounds){matchDone=0;matchSel=null;var fb=document.getElementById('match-fb');if(fb)fb.textContent='';matchRenderRound();}else{matchShowEnd();}}
-function matchShowEnd(){var c=document.getElementById('match-cols');if(c)c.style.display='none';var p=document.getElementById('match-prog');if(p)p.style.display='none';var end=document.getElementById('match-end');if(end)end.style.display='flex';var msg=matchErrors===0?'🏆 Parfait ! Aucune erreur !':matchErrors<=3?'🌟 Très bien ! '+matchErrors+' erreur(s).':'👍 Continue à pratiquer ! '+matchErrors+' erreur(s).';var st=document.getElementById('match-score-txt');if(st)st.textContent=msg;}
+function matchNextRound(){matchRound++;if(matchRound<Math.ceil(MATCH_DATA.length/MATCH_ROUND_SIZE)){matchDone=0;matchSel=null;var fb=document.getElementById('match-fb');if(fb)fb.textContent='';matchRenderRound();}else{matchShowEnd();}}
+function matchShowEnd(){var c=document.getElementById('match-cols');if(c)c.style.display='none';var p=document.getElementById('match-prog');if(p)p.style.display='none';var end=document.getElementById('match-end');if(end)end.style.display='flex';var msg=matchErrors===0?'🏆 Parfait ! Aucune erreur !':matchErrors<=3?'🌟 Très bien ! '+matchErrors+' erreur(s).':'👍 Continue ! '+matchErrors+' erreur(s).';var st=document.getElementById('match-score-txt');if(st)st.textContent=msg;}
 function matchRestart(){matchInit();}
 document.addEventListener('DOMContentLoaded',function(){vcInit();matchInit();});
 

@@ -476,9 +476,9 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
 <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
 <button class="slide-tab" data-fr="🎤 Prononciation" data-zh="🎤 发音" onclick="goSlide(5)">🎤 Prononciation</button>
-<button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(5)">📖 Grammaire</button>
-<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(5)">✏️ Exercices</button>
-<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(5)">✍️ À toi !</button>
+<button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
+<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(7)">✏️ Exercices</button>
+<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(9)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -630,7 +630,6 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <button class="btn-ns" data-fr="🔗 Associer →" data-zh="🔗 配对 →" onclick="goSlide(4)">🔗 Associer →</button>
 </div>
 </div>
-
 <!-- ══ SLIDE 4 : ASSOCIER FR↔ZH ══ -->
 <div class="slide" id="slide-match">
 <div class="slide-body match-body">
@@ -675,7 +674,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Associer" data-zh="← 配对" onclick="goSlide(4)">← Associer</button>
-<button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(5)">📖 Grammaire →</button>
+<button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(6)">📖 Grammaire →</button>
 </div>
 </div>
 <!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
@@ -688,7 +687,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Prononciation" data-zh="← 发音" onclick="goSlide(5)">← Prononciation</button>
-<button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(5)">✏️ Exercices →</button>
+<button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(7)">✏️ Exercices →</button>
 </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
@@ -719,8 +718,8 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div class="assoc-left"><span class="assoc-word">4. étudiant(e)</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-1A-ex4-3" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="d" onclick="checkBlankData(this,'ma-1A-ex4-3','fb-ma-1A-ex4-3')">✓</button><span class="fb" id="fb-ma-1A-ex4-3"></span></div>
 </div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div></div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(5)">← Grammaire</button>
-<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(5)">Suite →</button>
+<button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
+<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(8)">Suite →</button>
 </div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
@@ -823,8 +822,8 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" onclick="goSlide(5)">← Exercices 1/2</button>
-<button class="btn-ns" onclick="goSlide(5)">✍️ À toi ! →</button>
+<button class="btn-ns" onclick="goSlide(7)">← Exercices 1/2</button>
+<button class="btn-ns" onclick="goSlide(9)">✍️ À toi ! →</button>
 </div>
 </div>
 <div class="slide" id="slide-10">
@@ -839,7 +838,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(5)">← Exercices</button>
+<button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(8)">← Exercices</button>
 <button class="btn-ns" onclick="location.href='1B_slides.html'" style="background:var(--green)">1B →</button>
 </div>
 </div>
@@ -1017,12 +1016,12 @@ var MATCH_DATA=[
   {fr:"bonjour",zh:"你好"},
   {fr:"bonsoir",zh:"晚上好"},
   {fr:"enchanté(e)",zh:"幸会"},
-  {fr:"s’appeler",zh:"叫（名字）"},
+  {fr:"s'appeler",zh:"叫（名字）"},
   {fr:"être",zh:"是"},
   {fr:"étudiant(e)",zh:"学生"},
   {fr:"bibliothèque",zh:"图书馆"},
   {fr:"université",zh:"大学"},
-  {fr:"s’inscrire",zh:"注册；报名"},
+  {fr:"s'inscrire",zh:"注册；报名"},
   {fr:"bienvenue",zh:"欢迎"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
@@ -1105,7 +1104,7 @@ function matchShowEnd(){
   var c=document.getElementById('match-cols');if(c)c.style.display='none';
   var p=document.getElementById('match-prog');if(p)p.style.display='none';
   var end=document.getElementById('match-end');if(end)end.style.display='flex';
-  var msg=matchErrors===0?'🏆 Parfait ! Aucune erreur !':matchErrors<=3?'🌟 Très bien ! '+matchErrors+' erreur(s).':'👍 Continue à pratiquer ! '+matchErrors+' erreur(s).';
+  var msg=matchErrors===0?'🏆 Parfait ! Aucune erreur !':matchErrors<=3?'🌟 Très bien ! '+matchErrors+' erreur(s).':'👍 Continue à pratiquer ! '+matchErrors+' erreur(s).';
   var st=document.getElementById('match-score-txt');if(st)st.textContent=msg;
 }
 function matchRestart(){matchInit();}
