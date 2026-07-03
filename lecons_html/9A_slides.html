@@ -963,6 +963,11 @@ function goSlide(n){
   if(window._pA){window._pA.pause();window._pA.currentTime=0;window._pA=null;}
   if(window._stopDlg)window._stopDlg();
   var slides=document.querySelectorAll('.slide'),tabs=document.querySelectorAll('.slide-tab'),dir=n>currentSlide?1:-1;
+  slides[n].style.transition='none';
+  slides[n].classList.remove('s-prev','s-next','s-active');
+  slides[n].classList.add(dir>0?'s-next':'s-prev');
+  slides[n].offsetHeight;
+  slides[n].style.transition='';
   slides[currentSlide].classList.remove('s-active');
   slides[currentSlide].classList.add(dir>0?'s-prev':'s-next');
   slides[n].classList.remove('s-prev','s-next');
@@ -970,9 +975,10 @@ function goSlide(n){
   var sb=slides[n].querySelector('.slide-body');if(sb)sb.scrollTop=0;
   tabs.forEach(function(t,i){t.classList.toggle('active',i===TAB_FOR_SLIDE[n]);});
   currentSlide=n;
+  try{localStorage.setItem('fle_pos_'+location.pathname,n);}catch(e){}
 }
 function setLang(lang){document.body.classList.toggle('lang-zh',lang==='zh');localStorage.setItem('fle_lang',lang);var bf=document.getElementById('btn-lang-fr'),bz=document.getElementById('btn-lang-zh');if(bf)bf.classList.toggle('active',lang==='fr');if(bz)bz.classList.toggle('active',lang==='zh');var zh=lang==='zh';document.querySelectorAll('[data-zh]').forEach(function(el){el.textContent=zh?el.dataset.zh:(el.dataset.fr||el.textContent);});document.querySelectorAll('[data-placeholder-zh]').forEach(function(el){el.placeholder=zh?el.dataset.placeholderZh:(el.dataset.placeholderFr||el.placeholder);});document.querySelectorAll('.lt-btn').forEach(function(el){if(!el.disabled)el.textContent=zh?'批改 ✓':'Corriger ✓';});document.querySelectorAll('.btn-send').forEach(function(el){el.textContent=zh?'发送':'Envoyer';});document.querySelectorAll('.btn-reveal').forEach(function(el){if(!el.dataset.zh)el.textContent=zh?'查看':'Voir';});document.querySelectorAll('.btn-verify').forEach(function(el){el.textContent=zh?'验证 ✓':'Vérifier ✓';});document.querySelectorAll('.btn-restart').forEach(function(el){el.textContent=zh?'重新开始 ↺':'Recommencer ↺';});document.querySelectorAll('.dl-play-btn[data-state]').forEach(function(el){var st=el.dataset.state;el.innerHTML=st==='play'?(zh?'▶︎  播放':'▶︎  Écouter'):st==='pause'?(zh?'❚❚  暂停':'❚❚  Pause'):(zh?'▶︎  继续':'▶︎  Reprendre');});}
-document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);});
+document.addEventListener('DOMContentLoaded',function(){var saved=localStorage.getItem('fle_lang');var detected=(navigator.language||'fr').startsWith('zh')?'zh':'fr';setLang(saved||detected);try{var pos=parseInt(localStorage.getItem('fle_pos_'+location.pathname)||'0');var sl=document.querySelectorAll('.slide');if(pos>0&&pos<sl.length){goSlide(pos);}}catch(e){}});
 function playAudio(src){if(window._pA){window._pA.pause();window._pA.currentTime=0;}var a=new Audio(src);window._pA=a;a.play().catch(function(){});}
 function showComprAnswer(btn,id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');btn.textContent=el.classList.contains('visible')?'Masquer ▲':'Voir la réponse ▼';}
 function revealAnswer(id){var el=document.getElementById(id);if(!el)return;el.classList.toggle('visible');}
