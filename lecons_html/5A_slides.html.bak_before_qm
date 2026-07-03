@@ -5,7 +5,7 @@
 <script>(function(){var ok=false;try{ok=localStorage.getItem('fle_auth')==='1';}catch(e){}if(!ok){try{ok=sessionStorage.getItem('fle_auth')==='1';}catch(e){}}if(!ok){var u=new URLSearchParams(location.search).get('auth');if(u==='FLE2026'){try{localStorage.setItem('fle_auth','1');}catch(e){}try{sessionStorage.setItem('fle_auth','1');}catch(e){}ok=true;}}if(!ok)location.replace('../index.html');})();</script>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Leçon 6C — On sort ce soir ? | FrançaisPlus A1</title>
+<title>Leçon 5A — Qu'est-ce que tu manges ? | FrançaisPlus A1</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--green:#27ae60;--green-l:#eafaf1;--blue:#2980b9;--blue-l:#ebf5fb;--purp:#1c2e5a;--purp-l:#e6ecf6;--orange:#e67e22;--orange-l:#fef9e7;--text:#2c3e50;--muted:#7f8c8d;--card:#fff;--bg:#f8f9fa;--r:10px;--sh:0 2px 10px rgba(0,0,0,.06)}
@@ -408,46 +408,6 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 .vocab-card{background:#e6ecf6!important;border:none!important;border-left:none!important;border-radius:16px!important;padding:5px 10px!important;display:inline-flex!important;align-items:center!important;gap:5px!important}
 .vocab-word{font-weight:600!important;font-size:.79rem!important;color:#1c2e5a!important}
 .vocab-gram{font-size:.67rem!important;color:#64748b!important;font-style:italic!important}
-
-/* ── Vocab Quiz — Écoute et choisis ── */
-.vc-body{display:flex!important;flex-direction:column;align-items:center;justify-content:flex-start;gap:12px;padding:14px 12px}
-.vc-top{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:460px}
-.vc-title{font-size:1.05rem;font-weight:700;color:#1c2e5a}
-.vc-prog{font-size:.82rem;color:#64748b;font-weight:600;background:#e6ecf6;padding:3px 10px;border-radius:20px}
-.vc-play{font-size:1.4rem;font-weight:700;padding:14px 36px;background:#1c2e5a;color:#fff;border:none;border-radius:50px;cursor:pointer;letter-spacing:.5px;box-shadow:0 4px 12px rgba(28,46,90,.25)}
-.vc-play:hover{background:#2a4a8a}
-.vc-play:active{transform:scale(.97)}
-.vc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:460px}
-.vc-btn{font-size:.97rem;font-weight:600;padding:13px 8px;border:2px solid #e2e8f0;border-radius:12px;background:#fff;cursor:pointer;color:#1e293b;transition:border-color .15s,background .15s;text-align:center;line-height:1.3}
-.vc-btn:hover:not(:disabled){border-color:#1c2e5a;background:#e6ecf6}
-.vc-btn.vc-correct{background:#d1fae5!important;border-color:#10b981!important;color:#065f46!important}
-.vc-btn.vc-wrong{background:#fee2e2!important;border-color:#ef4444!important;color:#7f1d1d!important}
-.vc-btn:disabled{cursor:default}
-.vc-fb{font-size:.88rem;font-weight:600;min-height:20px;text-align:center;color:#1e293b}
-.vc-next{font-size:.9rem;font-weight:700;padding:9px 26px;background:#d97706;color:#fff;border:none;border-radius:50px;cursor:pointer}
-.vc-next:hover{background:#b45309}
-.vc-end{text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
-.vc-score-txt{font-size:1.15rem;font-weight:700;color:#1c2e5a}
-.vc-restart{font-size:.88rem;padding:8px 22px;background:#e6ecf6;color:#1c2e5a;border:none;border-radius:50px;cursor:pointer;font-weight:600}
-.vc-restart:hover{background:#d0ddef}
-/* --- Associer FR↔ZH (slide-match) --- */
-.match-body{display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 12px;height:100%;box-sizing:border-box}
-.match-top{display:flex;justify-content:space-between;align-items:center;width:100%}
-.match-title{font-weight:700;color:var(--purp);font-size:.88rem}
-.match-prog{color:var(--muted);font-size:.76rem}
-.match-cols{display:flex;gap:10px;width:100%;flex:1;min-height:0}
-.match-col{display:flex;flex-direction:column;gap:7px;flex:1}
-.match-btn{width:100%;padding:10px 6px;border:2px solid #c8d8f0;border-radius:10px;background:#f0f5ff;color:#1c2e5a;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .15s;text-align:center;line-height:1.25}
-.match-btn:hover:not(:disabled){border-color:#1c2e5a;background:#e6ecf6}
-.match-btn.match-sel{border-color:#d97706;background:#fef3c7;color:#92400e}
-.match-btn.match-ok{border-color:#16a34a;background:#dcfce7;color:#166534;cursor:default}
-.match-btn.match-err{border-color:#dc2626;background:#fee2e2;color:#991b1b}
-.match-btn:disabled{opacity:.85;cursor:default}
-.match-fb{font-size:.85rem;font-weight:600;min-height:1.4em;text-align:center}
-.match-end-box{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:12px;width:100%}
-.match-score-txt{font-size:1rem;font-weight:700;color:var(--purp);text-align:center}
-.match-restart-btn{padding:10px 28px;border-radius:22px;border:none;background:var(--purp);color:#fff;font-size:.88rem;font-weight:700;cursor:pointer}
-
 </style>
 </head>
 <body>
@@ -462,22 +422,22 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <option value="C1">C1</option>
 <option value="C2">C2</option>
 </select>
-<div style="flex:1"><div class="ph-title">On sort ce soir ?</div><div class="ph-sub">Leçon 6C · A1</div></div>
+<div style="flex:1"><div class="ph-title">Qu'est-ce que tu manges ?</div><div class="ph-sub">Leçon 5A · A1</div></div>
 <div class="ph-lang">
 <button class="ph-lang-btn active" id="btn-lang-fr" onclick="setLang('fr')" title="Français"><img alt="FR" src="../icons/flag-fr.svg"/></button>
 <button class="ph-lang-btn" id="btn-lang-zh" onclick="setLang('zh')" title="中文"><img alt="中" src="../icons/flag-zh.svg"/></button>
 </div>
-<a class="ph-prev" href="6B_slides.html">← 6B</a>
-<a class="ph-next" href="7A_slides.html">7A →</a>
+<a class="ph-prev" href="4C_slides.html">← 4C</a>
+<a class="ph-next" href="5B_slides.html">5B →</a>
 </header>
 <nav class="slide-nav" id="slide-nav">
 <button class="slide-tab active" data-fr="💬 Dialogue" data-zh="对话" onclick="goSlide(0)">💬 Dialogue</button>
 <button class="slide-tab" data-fr="🔍 Comprendre" data-zh="🔍 理解" onclick="goSlide(1)">🔍 Comprendre</button>
 <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
-<button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(5)">🎵 Phonétique</button>
-<button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(7)">📖 Grammaire</button>
-<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(8)">✏️ Exercices</button>
-<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(10)">✍️ À toi !</button>
+<button class="slide-tab" data-fr="🎵 Phonétique" data-zh="🎵 语音" onclick="goSlide(3)">🎵 Phonétique</button>
+<button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(5)">📖 Grammaire</button>
+<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(6)">✏️ Exercices</button>
+<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(8)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -487,21 +447,22 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div class="card-head head-dialogue">💬 Dialogue<span class="comm-zh"> · 对话</span></div>
 <div class="card-body dl-layout">
 <div class="dl-img-col">
-<img alt="Illustration leçon 6C" loading="lazy" src="../images/dialogue/dialogue_6C.jpg"/>
+<img alt="Illustration leçon 5A" loading="lazy" src="../images/dialogue/dialogue_5A.jpg"/>
 </div>
 <div class="dl-content-col">
 <!-- dialogue-image-patched -->
-<div class="dialogue"><div class="dl-row" data-idx="0"><div class="dl-speaker">BAPTISTE</div><div class="dl-line"><span class="dl-word">Salut</span><span class="dl-word">Ines</span><span class="dl-word">!</span><span class="dl-word">Tu</span><span class="dl-word">fais</span><span class="dl-word">quoi</span><span class="dl-word">ce</span><span class="dl-word">soir</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">嗨，伊内斯！你今晚做什么？</div></div>
-<div class="dl-row" data-idx="1"><div class="dl-speaker">INES</div><div class="dl-line"><span class="dl-word">Pas</span><span class="dl-word">grand-chose.</span><span class="dl-word">Pourquoi</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">没什么特别的。为什么？</div></div>
-<div class="dl-row" data-idx="2"><div class="dl-speaker">BAPTISTE</div><div class="dl-line"><span class="dl-word">Je</span><span class="dl-word">vais</span><span class="dl-word">aller</span><span class="dl-word">au</span><span class="dl-word">concert</span><span class="dl-word">de</span><span class="dl-word">jazz</span><span class="dl-word">au</span><span class="dl-word">Trabendo.</span><span class="dl-word">Tu</span><span class="dl-word">viens</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">我要去特拉班多看爵士音乐会。你来吗？</div></div>
-<div class="dl-row" data-idx="3"><div class="dl-speaker">INES</div><div class="dl-line"><span class="dl-word">Avec</span><span class="dl-word">plaisir</span><span class="dl-word">!</span><span class="dl-word">C'est</span><span class="dl-word">à</span><span class="dl-word">quelle</span><span class="dl-word">heure</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">很乐意！几点开始？</div></div>
-<div class="dl-row" data-idx="4"><div class="dl-speaker">BAPTISTE</div><div class="dl-line"><span class="dl-word">Ça</span><span class="dl-word">commence</span><span class="dl-word">à</span><span class="dl-word">20h30.</span><span class="dl-word">On</span><span class="dl-word">va</span><span class="dl-word">dîner</span><span class="dl-word">avant</span><span class="dl-word">?</span><span class="dl-word">Je</span><span class="dl-word">connais</span><span class="dl-word">un</span><span class="dl-word">bon</span><span class="dl-word">resto.</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">晚上八点半开始。我们先去吃晚饭？我知道一家好餐厅。</div></div>
-<div class="dl-row" data-idx="5"><div class="dl-speaker">INES</div><div class="dl-line"><span class="dl-word">Bonne</span><span class="dl-word">idée</span><span class="dl-word">!</span><span class="dl-word">Et</span><span class="dl-word">les</span><span class="dl-word">autres</span><span class="dl-word">copains,</span><span class="dl-word">tu</span><span class="dl-word">les</span><span class="dl-word">invites</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">好主意！其他朋友，你邀请他们吗？</div></div>
-<div class="dl-row" data-idx="6"><div class="dl-speaker">BAPTISTE</div><div class="dl-line"><span class="dl-word">J'ai</span><span class="dl-word">déjà</span><span class="dl-word">appelé</span><span class="dl-word">Marc.</span><span class="dl-word">Il</span><span class="dl-word">va</span><span class="dl-word">venir</span><span class="dl-word">avec</span><span class="dl-word">sa</span><span class="dl-word">sœur.</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">我已经打电话给马克了。他会和他妹妹一起来。</div></div>
-<div class="dl-row" data-idx="7"><div class="dl-speaker">INES</div><div class="dl-line"><span class="dl-word">Super</span><span class="dl-word">!</span><span class="dl-word">Et</span><span class="dl-word">Zoé</span><span class="dl-word">et</span><span class="dl-word">Thomas</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">太好了！那佐伊和托马斯呢？</div></div>
-<div class="dl-row" data-idx="8"><div class="dl-speaker">BAPTISTE</div><div class="dl-line"><span class="dl-word">Zoé</span><span class="dl-word">ne</span><span class="dl-word">va</span><span class="dl-word">pas</span><span class="dl-word">pouvoir,</span><span class="dl-word">elle</span><span class="dl-word">travaille</span><span class="dl-word">ce</span><span class="dl-word">soir.</span><span class="dl-word">Thomas,</span><span class="dl-word">il</span><span class="dl-word">ne</span><span class="dl-word">répond</span><span class="dl-word">pas.</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">佐伊不能来，她今晚要工作。托马斯没有回电话。</div></div>
-<div class="dl-row" data-idx="9"><div class="dl-speaker">INES</div><div class="dl-line"><span class="dl-word">OK.</span><span class="dl-word">On</span><span class="dl-word">va</span><span class="dl-word">être</span><span class="dl-word">quatre</span><span class="dl-word">alors.</span><span class="dl-word">C'est</span><span class="dl-word">bien</span><span class="dl-word">quand</span><span class="dl-word">même</span><span class="dl-word">!</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">好的。那我们四个人。也挺好的！</div></div>
-<div class="dl-row" data-idx="10"><div class="dl-speaker">BAPTISTE</div><div class="dl-line"><span class="dl-word">Rendez-vous</span><span class="dl-word">à</span><span class="dl-word">19h</span><span class="dl-word">devant</span><span class="dl-word">le</span><span class="dl-word">restaurant</span><span class="dl-word">!</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">晚上七点在餐厅门口见！</div></div>
+<div class="dialogue"><div class="dl-row" data-idx="0"><div class="dl-speaker">PROF</div><div class="dl-line"><span class="dl-word">Qu'est-ce</span><span class="dl-word">que</span><span class="dl-word">vous</span><span class="dl-word">mangez</span><span class="dl-word">en</span><span class="dl-word">général</span><span class="dl-word">le</span><span class="dl-word">matin</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">您一般早上吃什么？</div></div>
+<div class="dl-row" data-idx="1"><div class="dl-speaker">LING</div><div class="dl-line"><span class="dl-word">Je</span><span class="dl-word">mange</span><span class="dl-word">du</span><span class="dl-word">riz</span><span class="dl-word">avec</span><span class="dl-word">des</span><span class="dl-word">légumes.</span><span class="dl-word">C'est</span><span class="dl-word">la</span><span class="dl-word">tradition</span><span class="dl-word">chez</span><span class="dl-word">moi.</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">我吃米饭配蔬菜。这是我们的传统。</div></div>
+<div class="dl-row" data-idx="2"><div class="dl-speaker">PROF</div><div class="dl-line"><span class="dl-word">Et</span><span class="dl-word">vous,</span><span class="dl-word">Thomas</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">您呢，托马斯？</div></div>
+<div class="dl-row" data-idx="3"><div class="dl-speaker">THOMAS</div><div class="dl-line"><span class="dl-word">Moi,</span><span class="dl-word">je</span><span class="dl-word">mange</span><span class="dl-word">des</span><span class="dl-word">céréales</span><span class="dl-word">et</span><span class="dl-word">je</span><span class="dl-word">bois</span><span class="dl-word">du</span><span class="dl-word">jus</span><span class="dl-word">d'orange.</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">我吃麦片，喝橙汁。</div></div>
+<div class="dl-row" data-idx="4"><div class="dl-speaker">PROF</div><div class="dl-line"><span class="dl-word">Vous</span><span class="dl-word">déjeunez</span><span class="dl-word">à</span><span class="dl-word">l'école</span><span class="dl-word">ou</span><span class="dl-word">à</span><span class="dl-word">la</span><span class="dl-word">maison</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">您在学校还是在家吃午饭？</div></div>
+<div class="dl-row" data-idx="5"><div class="dl-speaker">LING</div><div class="dl-line"><span class="dl-word">À</span><span class="dl-word">l'école.</span><span class="dl-word">Je</span><span class="dl-word">mange</span><span class="dl-word">de</span><span class="dl-word">la</span><span class="dl-word">soupe</span><span class="dl-word">et</span><span class="dl-word">du</span><span class="dl-word">poisson.</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">在学校。我吃汤和鱼。</div></div>
+<div class="dl-row" data-idx="6"><div class="dl-speaker">THOMAS</div><div class="dl-line"><span class="dl-word">Moi,</span><span class="dl-word">je</span><span class="dl-word">mange</span><span class="dl-word">un</span><span class="dl-word">sandwich.</span><span class="dl-word">Vite</span><span class="dl-word">fait</span><span class="dl-word">!</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">我吃三明治。快速解决！</div></div>
+<div class="dl-row" data-idx="7"><div class="dl-speaker">PROF</div><div class="dl-line"><span class="dl-word">Et</span><span class="dl-word">le</span><span class="dl-word">soir,</span><span class="dl-word">vous</span><span class="dl-word">mangez</span><span class="dl-word">en</span><span class="dl-word">famille</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">晚上您和家人一起吃饭吗？</div></div>
+<div class="dl-row" data-idx="8"><div class="dl-speaker">LING</div><div class="dl-line"><span class="dl-word">Oui,</span><span class="dl-word">toujours</span><span class="dl-word">!</span><span class="dl-word">Ma</span><span class="dl-word">mère</span><span class="dl-word">cuisine</span><span class="dl-word">des</span><span class="dl-word">plats</span><span class="dl-word">chinois</span><span class="dl-word">traditionnels.</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">是的，总是！我妈妈做传统的中国菜。</div></div>
+<div class="dl-row" data-idx="9"><div class="dl-speaker">THOMAS</div><div class="dl-line"><span class="dl-word">Moi</span><span class="dl-word">aussi,</span><span class="dl-word">presque</span><span class="dl-word">toujours.</span><span class="dl-word">On</span><span class="dl-word">mange</span><span class="dl-word">de</span><span class="dl-word">la</span><span class="dl-word">viande</span><span class="dl-word">ou</span><span class="dl-word">du</span><span class="dl-word">poisson.</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">我也是，几乎总是。我们吃肉或鱼。</div></div>
+<div class="dl-row" data-idx="10"><div class="dl-speaker">PROF</div><div class="dl-line"><span class="dl-word">Vous</span><span class="dl-word">mangez</span><span class="dl-word">des</span><span class="dl-word">fruits</span><span class="dl-word">et</span><span class="dl-word">des</span><span class="dl-word">légumes</span><span class="dl-word">tous</span><span class="dl-word">les</span><span class="dl-word">jours</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">您每天都吃水果和蔬菜吗？</div></div>
+<div class="dl-row" data-idx="11"><div class="dl-speaker">LING</div><div class="dl-line"><span class="dl-word">Oui,</span><span class="dl-word">beaucoup</span><span class="dl-word">!</span><span class="dl-word">Et</span><span class="dl-word">vous,</span><span class="dl-word">professeur,</span><span class="dl-word">vous</span><span class="dl-word">mangez</span><span class="dl-word">quoi</span><span class="dl-word">?</span><span aria-hidden="true" class="dl-wave"><span></span><span></span><span></span><span></span><span></span></span></div><div class="dl-zh-line">是的，很多！您呢，老师，您吃什么？</div></div>
 </div>
 </div>
 </div>
@@ -519,55 +480,55 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div class="qcm-block">
 <div class="qcm-items">
 <div class="qcm-item">
-<div class="qcm-q">1. Où va Baptiste ce soir ? <span class="comm-zh">Baptiste今晚要去哪里？</span></div>
+<div class="qcm-q">1. Que mange le premier étudiant le matin ? <span class="comm-zh">第一个学生早上吃什么？</span></div>
 <div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Au cinéma</button>
-<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Au concert de jazz au Trabendo</button>
-<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Au restaurant</button>
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Des céréales</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Du riz avec des légumes</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Du pain</button>
 </div>
 </div>
 <div class="qcm-item">
-<div class="qcm-q">2. À quelle heure commence le concert ? <span class="comm-zh">音乐会几点开始？</span></div>
+<div class="qcm-q">2. Que mange Thomas le matin ? <span class="comm-zh">Thomas早上吃什么？</span></div>
 <div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) À 19h</button>
-<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) À 21h</button>
-<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) À 20h30</button>
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Du riz</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Des céréales et du jus d'orange</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Du pain</button>
 </div>
 </div>
 <div class="qcm-item">
-<div class="qcm-q">3. Baptiste propose de faire quoi avant le concert ? <span class="comm-zh">Baptiste提议音乐会前做什么？</span></div>
+<div class="qcm-q">3. Où déjeune le premier étudiant ? <span class="comm-zh">第一个学生在哪里吃午饭？</span></div>
 <div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Prendre un verre</button>
-<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Dîner dans un resto</button>
-<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Aller au cinéma</button>
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) À la maison</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Au restaurant</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) À l'école</button>
 </div>
 </div>
 <div class="qcm-item">
-<div class="qcm-q">4. Avec qui Marc vient-il ? <span class="comm-zh">Marc和谁一起来？</span></div>
+<div class="qcm-q">4. Que mange Thomas à midi ? <span class="comm-zh">Thomas中午吃什么？</span></div>
 <div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Avec un ami</button>
-<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Avec sa femme</button>
-<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Avec sa sœur</button>
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) De la soupe</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Un sandwich</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Du riz</button>
 </div>
 </div><div class="qcm-item">
-<div class="qcm-q">5. Pourquoi Zoé ne peut-elle pas venir ? <span class="comm-zh">Zoé为什么不能来？</span></div>
+<div class="qcm-q">5. Que cuisine la mère du premier étudiant ? <span class="comm-zh">第一个学生的妈妈做什么菜？</span></div>
 <div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Elle est malade</button>
-<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Elle travaille ce soir</button>
-<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Elle n'aime pas le jazz</button>
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Des plats français</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Des plats italiens</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Des plats chinois</button>
 </div>
 </div><div class="qcm-item">
-<div class="qcm-q">6. Combien de personnes vont aller au concert ? <span class="comm-zh">有多少人去音乐会？</span></div>
+<div class="qcm-q">6. Est-ce que les étudiants mangent des légumes ? <span class="comm-zh">学生们吃蔬菜吗？</span></div>
 <div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Trois</button>
-<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Quatre</button>
-<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Cinq</button>
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Non, jamais</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Oui, beaucoup</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Rarement</button>
 </div>
 </div></div>
 <div class="qcm-actions">
-<button class="btn-verify" onclick="verifyQCM('qcm-score-6C-1')">Vérifier ✔</button>
-<button class="btn-reset" onclick="resetQCM('qcm-score-6C-1')">↺ Recommencer</button>
-<span class="qcm-score" id="qcm-score-6C-1"></span>
+<button class="btn-verify" onclick="verifyQCM('qcm-score-5A-1')">Vérifier ✔</button>
+<button class="btn-reset" onclick="resetQCM('qcm-score-5A-1')">↺ Recommencer</button>
+<span class="qcm-score" id="qcm-score-5A-1"></span>
 </div>
 </div>
 </div>
@@ -582,63 +543,17 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-comm">🗣️ Pour communiquer<span class="comm-zh"> · 表达用语</span></div>
-<div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_6C_0.mp3')" title="Cliquer pour écouter">Tu es libre ce soir / samedi ? / Qu'est-ce que tu fais ce week-end ?</div><div class="comm-zh">你今晚／周六有空吗？／你周末要做什么？</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_6C_1.mp3')" title="Cliquer pour écouter">Je vais… / On va…</div><div class="comm-zh">我打算……／我们打算……</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_6C_2.mp3')" title="Cliquer pour écouter">Tu veux / Vous voulez venir avec nous ?</div><div class="comm-zh">你想／您想和我们一起来吗？</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_6C_3.mp3')" title="Cliquer pour écouter">Oui, avec plaisir ! / Désolé(e), je ne peux pas.</div><div class="comm-zh">好的，很乐意！／对不起，我不行。</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_6C_4.mp3')" title="Cliquer pour écouter">On se retrouve à… heures devant…</div><div class="comm-zh">我们在……点在……前面集合。</div></div></div></div>
+<div class="card-body"><div class="comm-list"><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_5A_0.mp3')" title="Cliquer pour écouter">Je voudrais… / Je prends…</div><div class="comm-zh">我想要……／我要……</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_5A_1.mp3')" title="Cliquer pour écouter">Vous avez… ? / Il reste du / de la / des… ?</div><div class="comm-zh">您有……吗？／还有……吗？</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_5A_2.mp3')" title="Cliquer pour écouter">C'est combien ? / Ça fait… euros.</div><div class="comm-zh">多少钱？／共……欧元。</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_5A_3.mp3')" title="Cliquer pour écouter">Je mange souvent / rarement… / Je ne mange pas de…</div><div class="comm-zh">我经常／很少吃……／我不吃……</div></div><div class="comm-item"><div class="comm-fr comm-speak" onclick="playAudio('../audio/comm_5A_4.mp3')" title="Cliquer pour écouter">Je fais les courses au marché / au supermarché.</div><div class="comm-zh">我去市场／超市买菜。</div></div></div></div>
 </div>
 <div class="card">
 <div class="card-head head-vocab">📚 Vocabulaire clé<span class="comm-zh"> · 核心词汇</span></div>
-<div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_0.mp3')" title="Écouter">bientôt</div><div class="vocab-gram">adv.</div><div class="vocab-zh">不久；马上</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_1.mp3')" title="Écouter">demain</div><div class="vocab-gram">adv.</div><div class="vocab-zh">明天</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_2.mp3')" title="Écouter">ce soir</div><div class="vocab-gram">loc.</div><div class="vocab-zh">今晚</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_3.mp3')" title="Écouter">la semaine prochaine</div><div class="vocab-gram">loc.</div><div class="vocab-zh">下周</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_4.mp3')" title="Écouter">le week-end prochain</div><div class="vocab-gram">loc.</div><div class="vocab-zh">下个周末</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_5.mp3')" title="Écouter">projet</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">计划；项目</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_6.mp3')" title="Écouter">proposer</div><div class="vocab-gram">v.</div><div class="vocab-zh">提议；建议</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_7.mp3')" title="Écouter">accepter</div><div class="vocab-gram">v.</div><div class="vocab-zh">接受</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_8.mp3')" title="Écouter">refuser</div><div class="vocab-gram">v.</div><div class="vocab-zh">拒绝</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_9.mp3')" title="Écouter">inviter</div><div class="vocab-gram">v.</div><div class="vocab-zh">邀请</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_10.mp3')" title="Écouter">fête</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">聚会；节日</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_11.mp3')" title="Écouter">pique-nique</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">野餐</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_12.mp3')" title="Écouter">balade</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">散步；郊游</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_6C_13.mp3')" title="Écouter">avec plaisir</div><div class="vocab-gram">loc.</div><div class="vocab-zh">很乐意</div></div></div></div>
+<div class="card-body"><div class="vocab-grid"><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_0.mp3')" title="Écouter">pain</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">面包</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_1.mp3')" title="Écouter">lait</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">牛奶</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_2.mp3')" title="Écouter">beurre</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">黄油</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_3.mp3')" title="Écouter">fromage</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">奶酪</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_4.mp3')" title="Écouter">viande</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">肉</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_5.mp3')" title="Écouter">poisson</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">鱼</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_6.mp3')" title="Écouter">légumes</div><div class="vocab-gram">n.m.pl.</div><div class="vocab-zh">蔬菜</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_7.mp3')" title="Écouter">fruits</div><div class="vocab-gram">n.m.pl.</div><div class="vocab-zh">水果</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_8.mp3')" title="Écouter">eau</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">水</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_9.mp3')" title="Écouter">jus d'orange</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">橙汁</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_10.mp3')" title="Écouter">boulangerie</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">面包店</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_11.mp3')" title="Écouter">marché</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">市场</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_12.mp3')" title="Écouter">épicerie</div><div class="vocab-gram">n.f.</div><div class="vocab-zh">杂货店</div></div><div class="vocab-card"><div class="vocab-word" onclick="playAudio('../audio/vocab_5A_13.mp3')" title="Écouter">supermarché</div><div class="vocab-gram">n.m.</div><div class="vocab-zh">超市</div></div></div></div>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Comprendre" data-zh="← 理解" onclick="goSlide(1)">← Comprendre</button>
-<button class="btn-ns" data-fr="🎧 Écoute →" data-zh="🎧 练习 →" onclick="goSlide(3)">🎧 Écoute →</button>
+<button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(3)">🎵 Phonétique →</button>
 </div>
-
-<!-- ══ SLIDE 3 : ÉCOUTE ET CHOISIS ══ -->
-<div class="slide" id="slide-vc">
-<div class="slide-body vc-body">
-<div class="vc-top">
-  <span class="vc-title">🎧 Écoute et choisis</span>
-  <span class="vc-prog" id="vc-prog">Mot 1 / 10</span>
-</div>
-<button class="vc-play" id="vc-play-btn" onclick="vcPlay()">▶ Écouter</button>
-<div class="vc-grid" id="vc-grid"></div>
-<div class="vc-fb" id="vc-fb"></div>
-<button class="vc-next" id="vc-next" onclick="vcNext()" style="display:none">Suivant →</button>
-<div class="vc-end" id="vc-end" style="display:none">
-  <div class="vc-score-txt" id="vc-score-txt"></div>
-  <button class="vc-restart" onclick="vcRestart()">↺ Recommencer</button>
-</div>
-</div>
-<div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
-<button class="btn-ns" data-fr="🔗 Associer →" data-zh="🔗 配对 →" onclick="goSlide(4)">🔗 Associer →</button>
-</div>
-</div>
-
-<!-- ══ SLIDE 4 : ASSOCIER FR↔ZH ══ -->
-<div class="slide" id="slide-match">
-<div class="slide-body match-body">
-  <div class="match-top">
-    <span class="match-title">🔗 Associe les mots</span>
-    <span class="match-prog" id="match-prog">Série 1 / 2</span>
-  </div>
-  <div class="match-cols" id="match-cols">
-    <div class="match-col" id="match-fr"></div>
-    <div class="match-col" id="match-zh"></div>
-  </div>
-  <div class="match-fb" id="match-fb"></div>
-  <div class="match-end-box" id="match-end" style="display:none">
-    <div class="match-score-txt" id="match-score-txt"></div>
-    <button class="match-restart-btn" onclick="matchRestart()">↺ Recommencer</button>
-  </div>
-</div>
-<div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Écoute" data-zh="← 练习" onclick="goSlide(3)">← Écoute</button>
-<button class="btn-ns" data-fr="🎵 Phonétique →" data-zh="🎵 语音 →" onclick="goSlide(5)">🎵 Phonétique →</button>
-</div>
-</div>
-
 </div>
 <!-- ══ SLIDE 3 : PHONÉTIQUE 1/2 — SCHÉMA ══ -->
 <div class="slide" id="slide-4">
@@ -648,22 +563,21 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">1 / 2</span>
 </div>
 <div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:8px">
-<svg style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif" viewbox="0 0 680 255" xmlns="http://www.w3.org/2000/svg"><rect fill="#f8f4ff" height="255" rx="12" stroke="#c5aee8" stroke-width="1.5" width="680"></rect><text fill="#2c3e50" font-size="13.5" font-weight="700" text-anchor="middle" x="340" y="24">Consonnes finales muettes</text><line stroke="#d4b8ec" stroke-dasharray="4,3" stroke-width="1" x1="222" x2="222" y1="32" y2="246"></line><line stroke="#d4b8ec" stroke-dasharray="4,3" stroke-width="1" x1="492" x2="492" y1="32" y2="246"></line><rect fill="#1c2e5a" height="215" opacity=".09" rx="8" stroke="#1c2e5a" stroke-width="0.8" width="208" x="8" y="32"></rect><circle cx="112" cy="115" fill="#1c2e5a" opacity=".09" r="52"><animate attributename="r" calcmode="ease-in-out" dur="2.8s" repeatcount="indefinite" values="52;70;52"></animate><animate attributename="opacity" calcmode="ease-in-out" dur="2.8s" repeatcount="indefinite" values=".09;0;.09"></animate></circle><circle cx="112" cy="115" fill="#1c2e5a" opacity=".88" r="48"></circle><text fill="#fff" font-family="monospace" font-size="22" font-weight="700" text-anchor="middle" x="112" y="125">-∅</text><text fill="#1c2e5a" font-size="10.5" font-weight="600" text-anchor="middle" x="112" y="190">La plupart des consonnes finales ne se prononcent pas.</text><text fill="#1c2e5a" font-size="10.5" font-weight="600" text-anchor="middle" x="112" y="207">Exceptions : r, l, f, c (RaLFaCe).</text><text fill="#7f8c8d" font-size="11" font-weight="600" text-anchor="middle" x="357" y="47">GRAPHIE → SON</text><rect fill="#1c2e5a" height="21" opacity=".10" rx="5" width="230" x="246" y="52"></rect><text fill="#1c2e5a" font-family="monospace" font-size="10.5" font-weight="600" x="253" y="67">-t, -s, -x, -z, -d</text><text fill="#1c2e5a" font-family="monospace" font-size="11" font-weight="700" text-anchor="end" x="472" y="67">→ ∅</text><rect fill="#1c2e5a" height="21" opacity=".10" rx="5" width="230" x="246" y="78"></rect><text fill="#1c2e5a" font-family="monospace" font-size="10.5" font-weight="600" x="253" y="93">-r, -l, -f, -c</text><text fill="#1c2e5a" font-family="monospace" font-size="11" font-weight="700" text-anchor="end" x="472" y="93">→ prononcé</text><rect fill="#1c2e5a" height="215" opacity=".06" rx="8" stroke="#1c2e5a" stroke-width="0.5" width="177" x="496" y="32"></rect><text fill="#7f8c8d" font-size="11" font-weight="600" text-anchor="middle" x="584" y="47">EXEMPLES</text><text fill="#444" font-family="monospace" font-size="11" text-anchor="middle" x="546" y="66">vous [vu]</text><text fill="#444" font-family="monospace" font-size="11" text-anchor="middle" x="546" y="94">grand [ɡʁɑ̃]</text><text fill="#444" font-family="monospace" font-size="11" text-anchor="middle" x="546" y="122">concert [sɛʁ]</text><text fill="#444" font-family="monospace" font-size="11" text-anchor="middle" x="546" y="150">beaucoup [boku]</text></svg>
+<svg style="width:100%;flex:1;min-height:0;display:block;border-radius:10px;font-family:sans-serif" viewbox="0 0 680 255" xmlns="http://www.w3.org/2000/svg"><rect fill="#f8f4ff" height="255" rx="12" stroke="#c5aee8" stroke-width="1.5" width="680"></rect><text fill="#2c3e50" font-size="13.5" font-weight="700" text-anchor="middle" x="340" y="24">[u] vs [y]</text><line stroke="#d4b8ec" stroke-dasharray="4,3" stroke-width="1" x1="220" x2="220" y1="32" y2="246"></line><line stroke="#d4b8ec" stroke-dasharray="4,3" stroke-width="1" x1="460" x2="460" y1="32" y2="246"></line><rect fill="#dce8f5" height="215" opacity=".85" rx="8" stroke="#2a4a8a" stroke-width="0.8" width="208" x="8" y="32"></rect><circle cx="112" cy="95" fill="#2a4a8a" opacity=".09" r="44"><animate attributename="r" calcmode="ease-in-out" dur="2.4s" repeatcount="indefinite" values="44;60;44"></animate><animate attributename="opacity" calcmode="ease-in-out" dur="2.4s" repeatcount="indefinite" values=".09;0;.09"></animate></circle><circle cx="112" cy="95" fill="#2a4a8a" opacity=".9" r="40"></circle><text fill="#fff" font-family="monospace" font-size="23" font-weight="700" text-anchor="middle" x="112" y="103">[u]</text><text fill="#2a4a8a" font-size="12.5" font-weight="700" text-anchor="middle" x="112" y="148">ou</text><rect fill="#2a4a8a" height="20" opacity=".12" rx="5" width="180" x="22" y="156"></rect><text fill="#2a4a8a" font-size="10" font-weight="600" text-anchor="middle" x="112" y="170">ou, oû, où</text><text fill="#666" font-size="10" text-anchor="middle" x="112" y="196">bouche arrondie · langue arrière</text><text fill="#777" font-size="9.5" font-style="italic" text-anchor="middle" x="112" y="220">soupe · bouche · nous</text><text fill="#7f8c8d" font-size="11" font-weight="600" text-anchor="middle" x="340" y="48">GRAPHIE → SON</text><rect fill="#2a4a8a" height="18" opacity=".10" rx="5" width="224" x="228" y="52"></rect><text fill="#2a4a8a" font-family="monospace" font-size="10" font-weight="600" x="234" y="65">ou, oû, où</text><text fill="#2a4a8a" font-family="monospace" font-size="11" font-weight="700" text-anchor="end" x="448" y="65">[u]</text><line stroke="#d4b8ec" stroke-dasharray="3,3" stroke-width="1" x1="232" x2="448" y1="132" y2="132"></line><text fill="#7f8c8d" font-size="11" font-weight="600" text-anchor="middle" x="340" y="144">≠</text><rect fill="#16a085" height="18" opacity=".10" rx="5" width="224" x="228" y="148"></rect><text fill="#16a085" font-family="monospace" font-size="10" font-weight="600" x="234" y="161">u, û</text><text fill="#16a085" font-family="monospace" font-size="11" font-weight="700" text-anchor="end" x="448" y="161">[y]</text><rect fill="#d8f5ef" height="215" opacity=".85" rx="8" stroke="#16a085" stroke-width="0.8" width="208" x="464" y="32"></rect><circle cx="568" cy="95" fill="#16a085" opacity=".09" r="44"><animate attributename="r" begin="1.2s" calcmode="ease-in-out" dur="2.4s" repeatcount="indefinite" values="44;60;44"></animate><animate attributename="opacity" begin="1.2s" calcmode="ease-in-out" dur="2.4s" repeatcount="indefinite" values=".09;0;.09"></animate></circle><circle cx="568" cy="95" fill="#16a085" opacity=".9" r="40"></circle><text fill="#fff" font-family="monospace" font-size="23" font-weight="700" text-anchor="middle" x="568" y="103">[y]</text><text fill="#16a085" font-size="12.5" font-weight="700" text-anchor="middle" x="568" y="148">u</text><rect fill="#16a085" height="20" opacity=".12" rx="5" width="180" x="478" y="156"></rect><text fill="#16a085" font-size="10" font-weight="600" text-anchor="middle" x="568" y="170">u, û</text><text fill="#666" font-size="10" text-anchor="middle" x="568" y="196">bouche arrondie · langue avant</text><text fill="#777" font-size="9.5" font-style="italic" text-anchor="middle" x="568" y="220">jus · sur · tu</text></svg>
 <details style="margin-top:8px;font-size:.85rem;color:var(--muted)">
 <summary style="cursor:pointer;color:var(--purp);font-weight:600">📌 Note</summary>
-<div style="margin-top:4px;line-height:1.5"><div class="phon-body">§ Phonétique — Les consonnes finales muettes
-Règle En français, la plupart des consonnes finales ne se prononcent pas : p, t, s, x, z, d
-sont muets en fin de mot.
-Exemples concert [ɛʁ] — vous [vu] — grand [ɡʁɑ̃] — beaucoup [boku]
-Exercice Entourez les consonnes finales muettes : grand — concert — vous — beaucoup —
-rendez-vous — soir.</div></div>
+<div style="margin-top:4px;line-height:1.5"><div class="phon-body">§ Phonétique — Les voyelles [u] et [y]
+Règle [u] : bouche arrondie, langue en arrière (ou). [y] : bouche arrondie, langue en avant
+(u). Absent en anglais.
+Exemples soupe [u] — jus [y] — bouche [u] — sur [y]
+Exercice Distinguez : dessous / dessus — pour / pur — roue / rue — doux / du.</div></div>
 </details>
 </div>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Associer" data-zh="← 配对" onclick="goSlide(4)">← Associer</button>
-<button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(6)">🎤 Prononciation →</button>
+<button class="btn-ns" data-fr="← Communiquer" data-zh="← 表达" onclick="goSlide(2)">← Communiquer</button>
+<button class="btn-ns" data-fr="🎤 Prononciation →" data-zh="🎤 发音练习 →" onclick="goSlide(4)">🎤 Prononciation →</button>
 </div>
 </div>
 <!-- ══ SLIDE 4 : PHONÉTIQUE 2/2 — PRONONCIATION ══ -->
@@ -674,11 +588,11 @@ rendez-vous — soir.</div></div>
 <span style="margin-left:auto;font-size:.75rem;font-weight:400;opacity:.7">2 / 2</span>
 </div>
 <div class="card-body">
-<div class="prono-no-support" id="prono-no-support" style="display:none">⚠️ Votre navigateur ne supporte pas la reconnaissance vocale.</div><div class="prono-item"><div class="prono-speaker-tag">BAPTISTE</div><div class="prono-phrase">Salut Ines ! Tu fais quoi ce soir ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" onclick="playAudio('../audio/dialogue_6C_0.mp3')">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="0" data-text="Salut Ines ! Tu fais quoi ce soir ?" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(0)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-0"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-0" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-0"></div><div class="prono-heard" id="prono-heard-0"></div></div></div>
-<div class="prono-item"><div class="prono-speaker-tag">INES</div><div class="prono-phrase">Pas grand-chose. Pourquoi ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" onclick="playAudio('../audio/dialogue_6C_1.mp3')">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="1" data-text="Pas grand-chose. Pourquoi ?" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(1)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-1"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-1" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-1"></div><div class="prono-heard" id="prono-heard-1"></div></div></div>
-<div class="prono-item"><div class="prono-speaker-tag">BAPTISTE</div><div class="prono-phrase">Je vais aller au concert de jazz au Trabendo. Tu viens ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" onclick="playAudio('../audio/dialogue_6C_2.mp3')">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="2" data-text="Je vais aller au concert de jazz au Trabendo. Tu viens ?" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(2)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-2"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-2" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-2"></div><div class="prono-heard" id="prono-heard-2"></div></div></div>
-<div class="prono-item"><div class="prono-speaker-tag">INES</div><div class="prono-phrase">Avec plaisir ! C'est à quelle heure ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" onclick="playAudio('../audio/dialogue_6C_3.mp3')">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="3" data-text="Avec plaisir ! C'est à quelle heure ?" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(3)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-3"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-3" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-3"></div><div class="prono-heard" id="prono-heard-3"></div></div></div>
-<div class="prono-item"><div class="prono-speaker-tag">BAPTISTE</div><div class="prono-phrase">Ça commence à vingt heures trente. On va dîner avant ? Je connais un bon resto.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" onclick="playAudio('../audio/dialogue_6C_4.mp3')">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="4" data-text="Ça commence à vingt heures trente. On va dîner avant ? Je connais un bon resto." onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(4)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-4"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-4" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-4"></div><div class="prono-heard" id="prono-heard-4"></div></div></div>
+<div class="prono-no-support" id="prono-no-support" style="display:none">⚠️ Votre navigateur ne supporte pas la reconnaissance vocale.</div><div class="prono-item"><div class="prono-speaker-tag">PROF</div><div class="prono-phrase">Qu'est-ce que vous mangez en général le matin ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" onclick="playAudio('../audio/dialogue_5A_0.mp3')">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="0" data-text="Qu'est-ce que vous mangez en général le matin ?" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(0)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-0"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-0" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-0"></div><div class="prono-heard" id="prono-heard-0"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">LING</div><div class="prono-phrase">Je mange du riz avec des légumes. C'est la tradition chez moi.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" onclick="playAudio('../audio/dialogue_5A_1.mp3')">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="1" data-text="Je mange du riz avec des légumes. C'est la tradition chez moi." onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(1)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-1"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-1" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-1"></div><div class="prono-heard" id="prono-heard-1"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">PROF</div><div class="prono-phrase">Et vous, Thomas ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" onclick="playAudio('../audio/dialogue_5A_2.mp3')">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="2" data-text="Et vous, Thomas ?" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(2)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-2"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-2" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-2"></div><div class="prono-heard" id="prono-heard-2"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">THOMAS</div><div class="prono-phrase">Moi, je mange des céréales et je bois du jus d'orange.</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" onclick="playAudio('../audio/dialogue_5A_3.mp3')">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="3" data-text="Moi, je mange des céréales et je bois du jus d'orange." onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(3)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-3"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-3" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-3"></div><div class="prono-heard" id="prono-heard-3"></div></div></div>
+<div class="prono-item"><div class="prono-speaker-tag">PROF</div><div class="prono-phrase">Vous déjeunez à l'école ou à la maison ?</div><div class="prono-btns"><button class="prono-btn prono-btn-listen" onclick="playAudio('../audio/dialogue_5A_4.mp3')">🔊 Écouter</button><button class="prono-btn prono-btn-mic" data-idx="4" data-text="Vous déjeunez à l'école ou à la maison ?" onclick="pronoRecord(this)">🎤 Répéter</button><button class="prono-btn" onclick="pronoReset(4)" style="background:#f0f4ff;color:#666;min-width:36px">↺</button></div><div class="prono-score" id="prono-score-4"><div class="prono-score-bar"><div class="prono-score-fill" id="prono-fill-4" style="width:0%"></div></div><div class="prono-score-text" id="prono-pct-4"></div><div class="prono-heard" id="prono-heard-4"></div></div></div>
 <div class="verify-bar" style="margin-top:12px">
 <button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetAllProno()">Recommencer ↺</button>
 </div>
@@ -686,46 +600,73 @@ rendez-vous — soir.</div></div>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(5)">← Schéma</button>
-<button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(7)">📖 Grammaire →</button>
+<button class="btn-ns" data-fr="← Schéma" data-zh="← 图表" onclick="goSlide(3)">← Schéma</button>
+<button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(5)">📖 Grammaire →</button>
 </div>
 </div>
 <!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
 <div class="slide" id="slide-6">
 <div class="slide-body">
 <div class="card">
-<div class="card-head head-gram">📖 Le futur proche — aller + infinitif<span class="comm-zh"> · 语法要点</span></div>
-<div class="card-body"><div class="gram-rule"><div class="gram-rule-body">Le <strong>futur proche</strong> — aller + infinitif<span class="comm-zh"> · 近将来时——aller + 不定式</span></div></div><div class="gram-observe"><div class="gram-observe-label">👀 Observe et complète le tableau<span class="comm-zh"> · 观察并填写表格</span></div>• Forme négative : Je <em>ne vais pas</em> sortir ce soir.<br/>• Avec une expression de temps : <em>ce soir, demain, la semaine prochaine, bientôt</em>.</div><table class="gram-table gram-fc"><thead><tr><th>Personne</th><th>Exemple</th></tr></thead><tbody><tr><td class="gram-pf">je</td><td><input class="gram-input" data-ans="" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="" placeholder="?"></td><td><input class="gram-input" data-ans="" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="" placeholder="?"></td><td><input class="gram-input" data-ans="" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="" placeholder="?"></td><td><input class="gram-input" data-ans="" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="" placeholder="?"></td><td><input class="gram-input" data-ans="" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="" placeholder="?"></td><td class="gram-pf">Ils <em>vont faire</em> une fête.</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyGram(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="hideGram(this)">↺ Effacer</button><button class="gram-sc-btn" onclick="revealGram(this)">👁 Révéler</button></div><div class="gram-prat-section"><div class="gram-prat-label">🎯 Pratique</div><div class="gram-prat-row"><div class="gram-prat"><div class="gram-prat-subtitle">Le futur proche</div><div class="gram-prat-item" data-ans="allons"><div class="gram-prat-q">Nous ___ partir en vacances.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="allons" onclick="selectPrat(this)">allons</button><button class="gram-prat-btn" data-val="aller" onclick="selectPrat(this)">aller</button><button class="gram-prat-btn" data-val="allés" onclick="selectPrat(this)">allés</button></div></div><div class="gram-prat-item" data-ans="vais"><div class="gram-prat-q">Je ___ visiter Rome.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="vais" onclick="selectPrat(this)">vais</button><button class="gram-prat-btn" data-val="va" onclick="selectPrat(this)">va</button><button class="gram-prat-btn" data-val="aller" onclick="selectPrat(this)">aller</button></div></div><div class="gram-prat-item" data-ans="vas"><div class="gram-prat-q">Tu ___ voyager seul ?</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="va" onclick="selectPrat(this)">va</button><button class="gram-prat-btn" data-val="vas" onclick="selectPrat(this)">vas</button><button class="gram-prat-btn" data-val="vais" onclick="selectPrat(this)">vais</button></div></div><div class="gram-prat-item" data-ans="va"><div class="gram-prat-q">Elle ___ rendre visite à ses parents.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="va" onclick="selectPrat(this)">va</button><button class="gram-prat-btn" data-val="vais" onclick="selectPrat(this)">vais</button><button class="gram-prat-btn" data-val="allons" onclick="selectPrat(this)">allons</button></div></div><div class="gram-prat-item" data-ans="vont"><div class="gram-prat-q">Ils ___ passer les fêtes ensemble.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="vont" onclick="selectPrat(this)">vont</button><button class="gram-prat-btn" data-val="va" onclick="selectPrat(this)">va</button><button class="gram-prat-btn" data-val="allons" onclick="selectPrat(this)">allons</button></div></div><div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div></div></div></div></div>
+<div class="card-head head-gram">📖 Les articles partitifs — du, de la, de l', des<span class="comm-zh"> · 语法要点</span></div>
+<div class="card-body"><div class="gram-rule"><div class="gram-rule-body">Les <strong>articles partitifs</strong> — désigner une quantité indéfinie<span class="comm-zh"> · 部分冠词——表示不确定数量</span></div></div><div class="gram-observe"><div class="gram-observe-label">👀 Observe et complète le tableau<span class="comm-zh"> · 观察并填写表格</span></div>• Avec une négation : Je mange du pain → Je ne mange <em>pas de</em> pain.<br/>• Avec une quantité : un kilo <em>de</em> farine · une bouteille <em>d'</em>eau.</div><table class="gram-table gram-fc"><thead><tr><th>Genre / Nombre</th><th>Article</th><th>Exemple</th></tr></thead><tbody><tr><td class="gram-pf">Masculin singulier</td><td><input class="gram-input" data-ans="" placeholder="?"></td><td><input class="gram-input" data-ans="" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="" placeholder="?"></td><td><input class="gram-input" data-ans="" placeholder="?"></td><td><input class="gram-input" data-ans="" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="" placeholder="?"></td><td><input class="gram-input" data-ans="" placeholder="?"></td><td><input class="gram-input" data-ans="" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="" placeholder="?"></td><td><input class="gram-input" data-ans="" placeholder="?"></td><td class="gram-pf">Nous avons <em>des</em> fruits.</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyGram(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="hideGram(this)">↺ Effacer</button><button class="gram-sc-btn" onclick="revealGram(this)">👁 Révéler</button></div><div class="gram-prat-section"><div class="gram-prat-label">🎯 Pratique</div><div class="gram-prat-row"><div class="gram-prat"><div class="gram-prat-subtitle">Articles partitifs</div><div class="gram-prat-item" data-ans="du"><div class="gram-prat-q">Je voudrais ___ lait.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="le" onclick="selectPrat(this)">le</button><button class="gram-prat-btn" data-val="un" onclick="selectPrat(this)">un</button><button class="gram-prat-btn" data-val="du" onclick="selectPrat(this)">du</button></div></div><div class="gram-prat-item" data-ans="du"><div class="gram-prat-q">Elle mange ___ pain.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="du" onclick="selectPrat(this)">du</button><button class="gram-prat-btn" data-val="de la" onclick="selectPrat(this)">de la</button><button class="gram-prat-btn" data-val="de l'" onclick="selectPrat(this)">de l'</button></div></div><div class="gram-prat-item" data-ans="de l&#39;"><div class="gram-prat-q">Il boit ___ eau.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="du" onclick="selectPrat(this)">du</button><button class="gram-prat-btn" data-val="de la" onclick="selectPrat(this)">de la</button><button class="gram-prat-btn" data-val="de l'" onclick="selectPrat(this)">de l'</button></div></div><div class="gram-prat-item" data-ans="du"><div class="gram-prat-q">Vous prenez ___ sucre ?</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="du" onclick="selectPrat(this)">du</button><button class="gram-prat-btn" data-val="de la" onclick="selectPrat(this)">de la</button><button class="gram-prat-btn" data-val="des" onclick="selectPrat(this)">des</button></div></div><div class="gram-prat-item" data-ans="de la"><div class="gram-prat-q">Je mange ___ soupe.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="du" onclick="selectPrat(this)">du</button><button class="gram-prat-btn" data-val="de la" onclick="selectPrat(this)">de la</button><button class="gram-prat-btn" data-val="des" onclick="selectPrat(this)">des</button></div></div><div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div></div></div></div></div>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(6)">← Phonétique</button>
-<button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(8)">✏️ Exercices →</button>
+<button class="btn-ns" data-fr="← Phonétique" data-zh="← 语音" onclick="goSlide(4)">← Phonétique</button>
+<button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(6)">✏️ Exercices →</button>
 </div>
 </div>
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
 <div class="slide" id="slide-7">
 <div class="slide-header">Exercices <span class="slide-part">1/2</span></div>
 <div class="slide-body">
-<div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Conjuguez au futur proche<span class="comm-zh"> · 用近将来时变位</span> <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
-<div class="blank-row">1. <span>Ce soir, je </span><input autocomplete="off" class="blank-input" id="bl-6C-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex1-0').click()" type="text"/><button class="check-btn" data-ans="vais regarder" id="chk-bl-6C-ex1-0" onclick="checkBlankData(this,'bl-6C-ex1-0','fb-bl-6C-ex1-0')">✓</button><span class="fb" id="fb-bl-6C-ex1-0"></span><span> (regarder) un film.</span></div>
-<div class="blank-row">2. <span>Demain, elle </span><input autocomplete="off" class="blank-input" id="bl-6C-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex1-1').click()" type="text"/><button class="check-btn" data-ans="va partir" id="chk-bl-6C-ex1-1" onclick="checkBlankData(this,'bl-6C-ex1-1','fb-bl-6C-ex1-1')">✓</button><span class="fb" id="fb-bl-6C-ex1-1"></span><span> (partir) à Lyon.</span></div>
-<div class="blank-row">3. <span>Nous </span><input autocomplete="off" class="blank-input" id="bl-6C-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex1-2').click()" type="text"/><button class="check-btn" data-ans="allons faire" id="chk-bl-6C-ex1-2" onclick="checkBlankData(this,'bl-6C-ex1-2','fb-bl-6C-ex1-2')">✓</button><span class="fb" id="fb-bl-6C-ex1-2"></span><span> (faire) la fête samedi.</span></div>
-<div class="blank-row">4. <span>Vous </span><input autocomplete="off" class="blank-input" id="bl-6C-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex1-3').click()" type="text"/><button class="check-btn" data-ans="allez venir" id="chk-bl-6C-ex1-3" onclick="checkBlankData(this,'bl-6C-ex1-3','fb-bl-6C-ex1-3')">✓</button><span class="fb" id="fb-bl-6C-ex1-3"></span><span> (venir) avec nous ?</span></div>
-<div class="blank-row">5. <span>Ils ne </span><input autocomplete="off" class="blank-input" id="bl-6C-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex1-4').click()" type="text"/><button class="check-btn" data-ans="vont pouvoir" id="chk-bl-6C-ex1-4" onclick="checkBlankData(this,'bl-6C-ex1-4','fb-bl-6C-ex1-4')">✓</button><span class="fb" id="fb-bl-6C-ex1-4"></span><span> pas (pouvoir) venir.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
-<div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Vos projets pour ce week-end<span class="comm-zh"> · 您这个周末的计划</span> <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Écrivez 5 phrases sur vos projets avec le futur proche : Samedi matin, je vais… L'après-midi, je vais… Samedi soir, nous allons… Dimanche, je vais… / Je ne vais pas…<span class="comm-zh"> · 用近将来时写5句关于您计划的句子</span></div></div></div>
-<div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Transformez les phrases<span class="comm-zh"> · 改写句子</span> <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="blank-row">1. <span>Il va venir ce soir. → Forme négative : </span><input autocomplete="off" class="blank-input" id="bl-6C-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex3-0').click()" type="text"/><button class="check-btn" data-ans="Il ne va pas venir ce soir." id="chk-bl-6C-ex3-0" onclick="checkBlankData(this,'bl-6C-ex3-0','fb-bl-6C-ex3-0')">✓</button><span class="fb" id="fb-bl-6C-ex3-0"></span><span></span></div>
-<div class="blank-row">2. <span>Nous allons dîner avant. → Forme négative : </span><input autocomplete="off" class="blank-input" id="bl-6C-ex3-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex3-1').click()" type="text"/><button class="check-btn" data-ans="Nous n'allons pas dîner avant." id="chk-bl-6C-ex3-1" onclick="checkBlankData(this,'bl-6C-ex3-1','fb-bl-6C-ex3-1')">✓</button><span class="fb" id="fb-bl-6C-ex3-1"></span><span></span></div>
-<div class="blank-row">3. <span>Tu vas sortir ce week-end. → Forme interrogative (est-ce que) : </span><input autocomplete="off" class="blank-input" id="bl-6C-ex3-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex3-2').click()" type="text"/><button class="check-btn" data-ans="Est-ce que tu vas sortir ce week-end ?" id="chk-bl-6C-ex3-2" onclick="checkBlankData(this,'bl-6C-ex3-2','fb-bl-6C-ex3-2')">✓</button><span class="fb" id="fb-bl-6C-ex3-2"></span><span></span></div>
-<div class="blank-row">4. <span>Vous allez inviter vos amis. → Forme interrogative (inversion) : </span><input autocomplete="off" class="blank-input" id="bl-6C-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex3-3').click()" type="text"/><button class="check-btn" data-ans="Allez-vous inviter vos amis ?" id="chk-bl-6C-ex3-3" onclick="checkBlankData(this,'bl-6C-ex3-3','fb-bl-6C-ex3-3')">✓</button><span class="fb" id="fb-bl-6C-ex3-3"></span><span></span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div><div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Vocabulaire : sortir et planifier<span class="comm-zh"> · 词汇：外出与计划</span> <span class="ex-cat-badge badge-lex">📚 Lexique</span></div><div class="card-body"><div class="ex-inst">Choisissez le mot correct pour compléter chaque phrase : rendez-vous / concert / dîner / inviter / bientôt<span class="comm-zh"> · 选择正确的词完成每个句子</span></div>
-<div class="blank-row">1. <span>On va </span><input autocomplete="off" class="blank-input" id="bl-6C-ex4-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex4-0').click()" type="text"/><button class="check-btn" data-ans="dîner" id="chk-bl-6C-ex4-0" onclick="checkBlankData(this,'bl-6C-ex4-0','fb-bl-6C-ex4-0')">✓</button><span class="fb" id="fb-bl-6C-ex4-0"></span><span> au restaurant avant le spectacle.</span></div>
-<div class="blank-row">2. <span>J'ai un </span><input autocomplete="off" class="blank-input" id="bl-6C-ex4-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex4-1').click()" type="text"/><button class="check-btn" data-ans="rendez-vous" id="chk-bl-6C-ex4-1" onclick="checkBlankData(this,'bl-6C-ex4-1','fb-bl-6C-ex4-1')">✓</button><span class="fb" id="fb-bl-6C-ex4-1"></span><span> à 20h devant le cinéma.</span></div>
-<div class="blank-row">3. <span>Tu veux </span><input autocomplete="off" class="blank-input" id="bl-6C-ex4-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex4-2').click()" type="text"/><button class="check-btn" data-ans="inviter" id="chk-bl-6C-ex4-2" onclick="checkBlankData(this,'bl-6C-ex4-2','fb-bl-6C-ex4-2')">✓</button><span class="fb" id="fb-bl-6C-ex4-2"></span><span> tes amis à la fête ?</span></div>
-<div class="blank-row">4. <span>Le </span><input autocomplete="off" class="blank-input" id="bl-6C-ex4-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex4-3').click()" type="text"/><button class="check-btn" data-ans="concert" id="chk-bl-6C-ex4-3" onclick="checkBlankData(this,'bl-6C-ex4-3','fb-bl-6C-ex4-3')">✓</button><span class="fb" id="fb-bl-6C-ex4-3"></span><span> commence à 21h.</span></div>
-<div class="blank-row">5. <span>À </span><input autocomplete="off" class="blank-input" id="bl-6C-ex4-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6C-ex4-4').click()" type="text"/><button class="check-btn" data-ans="bientôt" id="chk-bl-6C-ex4-4" onclick="checkBlankData(this,'bl-6C-ex4-4','fb-bl-6C-ex4-4')">✓</button><span class="fb" id="fb-bl-6C-ex4-4"></span><span> ! On se retrouve ce soir !</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div></div>
+<div class="card"><div class="card-head head-ex">✏️ Exercice 1 — Du, de la, de l' ou des ?<span class="comm-zh"> · Du、de la、de l' 还是 des？</span> <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
+<div class="blank-row">1. <span>Je bois </span><input autocomplete="off" class="blank-input" id="bl-5A-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex1-0').click()" type="text"/><button class="check-btn" data-ans="du" id="chk-bl-5A-ex1-0" onclick="checkBlankData(this,'bl-5A-ex1-0','fb-bl-5A-ex1-0')">✓</button><span class="fb" id="fb-bl-5A-ex1-0"></span><span> café le matin.</span></div>
+<div class="blank-row">2. <span>Elle mange </span><input autocomplete="off" class="blank-input" id="bl-5A-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex1-1').click()" type="text"/><button class="check-btn" data-ans="de la" id="chk-bl-5A-ex1-1" onclick="checkBlankData(this,'bl-5A-ex1-1','fb-bl-5A-ex1-1')">✓</button><span class="fb" id="fb-bl-5A-ex1-1"></span><span> soupe à midi.</span></div>
+<div class="blank-row">3. <span>Nous préparons </span><input autocomplete="off" class="blank-input" id="bl-5A-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex1-2').click()" type="text"/><button class="check-btn" data-ans="des" id="chk-bl-5A-ex1-2" onclick="checkBlankData(this,'bl-5A-ex1-2','fb-bl-5A-ex1-2')">✓</button><span class="fb" id="fb-bl-5A-ex1-2"></span><span> légumes pour le dîner.</span></div>
+<div class="blank-row">4. <span>Tu veux </span><input <input="" autocomplete="off" class="blank-input" id="bl-5A-ex1-3a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex1-3a').click()" type="text"/><button class="check-btn" data-ans="de l'" id="chk-bl-5A-ex1-3a" onclick="checkBlankData(this,'bl-5A-ex1-3a','fb-bl-5A-ex1-3a')">✓</button><span class="fb" id="fb-bl-5A-ex1-3a"></span><span> eau ou </span><input <input="" autocomplete="off" class="blank-input" id="bl-5A-ex1-3b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex1-3b').click()" type="text"/><button class="check-btn" data-ans="du" id="chk-bl-5A-ex1-3b" onclick="checkBlankData(this,'bl-5A-ex1-3b','fb-bl-5A-ex1-3b')">✓</button><span class="fb" id="fb-bl-5A-ex1-3b"></span><span> jus ?</span></div>
+<div class="blank-row">5. <span>Il mange </span><input <input="" autocomplete="off" class="blank-input" id="bl-5A-ex1-4a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex1-4a').click()" type="text"/><button class="check-btn" data-ans="du" id="chk-bl-5A-ex1-4a" onclick="checkBlankData(this,'bl-5A-ex1-4a','fb-bl-5A-ex1-4a')">✓</button><span class="fb" id="fb-bl-5A-ex1-4a"></span><span> riz avec </span><input <input="" autocomplete="off" class="blank-input" id="bl-5A-ex1-4b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex1-4b').click()" type="text"/><button class="check-btn" data-ans="du" id="chk-bl-5A-ex1-4b" onclick="checkBlankData(this,'bl-5A-ex1-4b','fb-bl-5A-ex1-4b')">✓</button><span class="fb" id="fb-bl-5A-ex1-4b"></span><span> poisson.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
+<div class="card"><div class="card-head head-ex">✏️ Exercice 2 — Répondez<span class="comm-zh"> · 回答</span> <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="assoc-row">
+<div class="assoc-left"><span class="assoc-word">1. Qu'est-ce que vous mangez au petit-déjeuner ?</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-5A-ex2-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-5A-ex2-0','fb-ma-5A-ex2-0')">✓</button><span class="fb" id="fb-ma-5A-ex2-0"></span></div>
+</div>
+<div class="assoc-row">
+<div class="assoc-left"><span class="assoc-word">2. Vous mangez de la viande ou vous êtes végétarien(ne) ?</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-5A-ex2-1" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-5A-ex2-1','fb-ma-5A-ex2-1')">✓</button><span class="fb" id="fb-ma-5A-ex2-1"></span></div>
+</div>
+<div class="assoc-row">
+<div class="assoc-left"><span class="assoc-word">3. Quel est votre plat préféré ?</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-5A-ex2-2" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-5A-ex2-2','fb-ma-5A-ex2-2')">✓</button><span class="fb" id="fb-ma-5A-ex2-2"></span></div>
+</div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
+<div class="card"><div class="card-head head-ex">✏️ Exercice 3 — Transformez à la forme négative<span class="comm-zh"> · 改写成否定形式</span> <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="trans-row" data-ans="Je ne mange pas de sucre.">
+<div class="trans-src">1. Je mange du sucre. →</div>
+<input autocomplete="off" class="trans-input" id="ts-5A-ex3-0" placeholder="Écrivez la phrase transformée…" type="text"/>
+<div class="trans-btns">
+<button class="check-btn" onclick="showTransform(this)">Voir</button>
+<span class="trans-fb"></span>
+<span class="trans-ans">Je ne mange pas de sucre.</span>
+</div>
+</div>
+<div class="trans-row" data-ans="Elle ne boit pas de bière.">
+<div class="trans-src">2. Elle boit de la bière. →</div>
+<input autocomplete="off" class="trans-input" id="ts-5A-ex3-1" placeholder="Écrivez la phrase transformée…" type="text"/>
+<div class="trans-btns">
+<button class="check-btn" onclick="showTransform(this)">Voir</button>
+<span class="trans-fb"></span>
+<span class="trans-ans">Elle ne boit pas de bière.</span>
+</div>
+</div>
+<div class="trans-row" data-ans="Nous ne mangeons pas de céréales.">
+<div class="trans-src">3. Nous mangeons des céréales. →</div>
+<input autocomplete="off" class="trans-input" id="ts-5A-ex3-2" placeholder="Écrivez la phrase transformée…" type="text"/>
+<div class="trans-btns">
+<button class="check-btn" onclick="showTransform(this)">Voir</button>
+<span class="trans-fb"></span>
+<span class="trans-ans">Nous ne mangeons pas de céréales.</span>
+</div>
+</div>
+<div class="blank-row">4. <span>Tu bois du café ? → Non, je </span><input autocomplete="off" class="blank-input" id="bl-5A-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5A-ex3-3').click()" type="text"/><button class="check-btn" data-ans="ne bois pas de café." id="chk-bl-5A-ex3-3" onclick="checkBlankData(this,'bl-5A-ex3-3','fb-bl-5A-ex3-3')">✓</button><span class="fb" id="fb-bl-5A-ex3-3"></span><span>.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div><div class="card"><div class="card-head head-ex">✏️ Exercice 4 — Classer les aliments<span class="comm-zh"> · 将食物分类</span> <span class="ex-cat-badge badge-gram">📝 Grammaire</span></div><div class="card-body"><div class="ex-inst">Classez dans la bonne catégorie : poulet — pomme — carotte — saumon — fromage — fraise — bœuf — épinard Viandes : ___ | Poissons : ___ | Légumes : ___ | Fruits : ___<span class="comm-zh"> · 按正确类别分类：鸡肉 — 苹果 — 胡萝卜 — 鲑鱼 — 奶酪…</span></div></div></div></div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(7)">← Grammaire</button>
-<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(9)">Suite →</button>
+<button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(5)">← Grammaire</button>
+<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(7)">Suite →</button>
 </div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
@@ -737,85 +678,85 @@ rendez-vous — soir.</div></div>
 <div class="slide-header">Exercices <span class="slide-part">2/2</span></div>
 <div class="ex-blocks">
 <div class="ex-block">
-<div class="ex-title"><span>Ex. 5 — Sortir ou rester à la maison ? <span class="comm-zh">将每个活动归入正确的栏目。</span></span><span class="ex-badge">📖 Vocabulaire</span></div>
-<p class="ex-inst">Classez chaque activité dans la bonne colonne.</p>
+<div class="ex-title"><span>Ex. 5 — Boisson ou aliment solide ? <span class="comm-zh">将每种食物归入正确的栏目。</span></span><span class="ex-badge">📖 Vocabulaire</span></div>
+<p class="ex-inst">Classez chaque aliment dans la bonne colonne.</p>
 <div class="ex5-pool" id="ex5-pool">
-<span class="drag-chip" data-cat="sortir" onclick="ex5Click(this)">aller au concert</span>
-<span class="drag-chip" data-cat="rester" onclick="ex5Click(this)">regarder une série</span>
-<span class="drag-chip" data-cat="sortir" onclick="ex5Click(this)">dîner au restaurant</span>
-<span class="drag-chip" data-cat="rester" onclick="ex5Click(this)">lire</span>
-<span class="drag-chip" data-cat="sortir" onclick="ex5Click(this)">voir des amis</span>
-<span class="drag-chip" data-cat="rester" onclick="ex5Click(this)">cuisiner</span>
-<span class="drag-chip" data-cat="sortir" onclick="ex5Click(this)">aller au cinéma</span>
-<span class="drag-chip" data-cat="rester" onclick="ex5Click(this)">jouer aux jeux vidéo</span>
+<span class="drag-chip" data-cat="boisson" onclick="ex5Click(this)">le jus d'orange</span>
+<span class="drag-chip" data-cat="solide" onclick="ex5Click(this)">le riz</span>
+<span class="drag-chip" data-cat="boisson" onclick="ex5Click(this)">l'eau</span>
+<span class="drag-chip" data-cat="solide" onclick="ex5Click(this)">la soupe</span>
+<span class="drag-chip" data-cat="boisson" onclick="ex5Click(this)">le café</span>
+<span class="drag-chip" data-cat="solide" onclick="ex5Click(this)">le sandwich</span>
+<span class="drag-chip" data-cat="boisson" onclick="ex5Click(this)">le lait</span>
+<span class="drag-chip" data-cat="solide" onclick="ex5Click(this)">les légumes</span>
 </div>
 <div class="ex5-zones">
-<div class="ex5-zone" id="zone-sortir" onclick="ex5Drop(this)">
-<div class="ex5-zone-label">🎉 Sortir</div>
-<div class="ex5-zone-items" id="zone-sortir-items"></div>
+<div class="ex5-zone" id="zone-boisson" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">🥤 Boisson</div>
+<div class="ex5-zone-items" id="zone-boisson-items"></div>
 </div>
-<div class="ex5-zone" id="zone-rester" onclick="ex5Drop(this)">
-<div class="ex5-zone-label">🏠 Rester à la maison</div>
-<div class="ex5-zone-items" id="zone-rester-items"></div>
+<div class="ex5-zone" id="zone-solide" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">🍽️ Aliment solide</div>
+<div class="ex5-zone-items" id="zone-solide-items"></div>
 </div>
 </div>
 <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
 <button class="btn-verify" onclick="checkEx5()">Vérifier ✔</button>
 <button class="btn-reset" onclick="resetEx5()">↺ Recommencer</button>
-<span class="ex5-score" id="ex5-score-6C"></span>
+<span class="ex5-score" id="ex5-score-5A"></span>
 </div>
 </div>
 <div class="ex-block">
-<div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确的近将来时形式。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
-<p class="ex-inst">Choisissez la bonne forme du futur proche.</p>
+<div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确的部分冠词。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
+<p class="ex-inst">Choisissez le bon article partitif.</p>
 <div class="listen-list">
-<div class="listen-item" data-ans="vais">
-<div class="listen-sentence">Je <span class="listen-blank">___</span> aller au concert.</div>
-<button class="listen-btn" onclick="playAudio('../audio/ex6_6C_0.mp3')" title="Écouter">🔊</button>
+<div class="listen-item" data-ans="du">
+<div class="listen-sentence">Je mange <span class="listen-blank">___</span> riz avec des légumes.</div>
+<button class="listen-btn" onclick="playAudio('../audio/ex6_5A_0.mp3')" title="Écouter">🔊</button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="vas" onclick="selectEx6(this)">vas</button>
-<button class="choice-btn" data-val="vais" onclick="selectEx6(this)">vais</button>
-<button class="choice-btn" data-val="va" onclick="selectEx6(this)">va</button>
+<button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
+<button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
+<button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="va">
-<div class="listen-sentence">Il <span class="listen-blank">___</span> venir avec sa sœur.</div>
-<button class="listen-btn" onclick="playAudio('../audio/ex6_6C_1.mp3')" title="Écouter">🔊</button>
+<div class="listen-item" data-ans="du">
+<div class="listen-sentence">Je bois <span class="listen-blank">___</span> jus d'orange.</div>
+<button class="listen-btn" onclick="playAudio('../audio/ex6_5A_3.mp3')" title="Écouter">🔊</button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="va" onclick="selectEx6(this)">va</button>
-<button class="choice-btn" data-val="vais" onclick="selectEx6(this)">vais</button>
-<button class="choice-btn" data-val="allons" onclick="selectEx6(this)">allons</button>
+<button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
+<button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
+<button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="va">
-<div class="listen-sentence">Zoé ne <span class="listen-blank">___</span> pas pouvoir venir.</div>
-<button class="listen-btn" onclick="playAudio('../audio/ex6_6C_2.mp3')" title="Écouter">🔊</button>
+<div class="listen-item" data-ans="de la">
+<div class="listen-sentence">Je mange <span class="listen-blank">___</span> soupe à l'école.</div>
+<button class="listen-btn" onclick="playAudio('../audio/ex6_5A_4.mp3')" title="Écouter">🔊</button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="allons" onclick="selectEx6(this)">allons</button>
-<button class="choice-btn" data-val="va" onclick="selectEx6(this)">va</button>
-<button class="choice-btn" data-val="vais" onclick="selectEx6(this)">vais</button>
+<button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
+<button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
+<button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="allons">
-<div class="listen-sentence">Nous <span class="listen-blank">___</span> être quatre au concert.</div>
-<button class="listen-btn" onclick="playAudio('../audio/ex6_6C_3.mp3')" title="Écouter">🔊</button>
+<div class="listen-item" data-ans="des">
+<div class="listen-sentence">Ma mère cuisine <span class="listen-blank">___</span> plats chinois.</div>
+<button class="listen-btn" onclick="playAudio('../audio/ex6_5A_1.mp3')" title="Écouter">🔊</button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="va" onclick="selectEx6(this)">va</button>
-<button class="choice-btn" data-val="allons" onclick="selectEx6(this)">allons</button>
-<button class="choice-btn" data-val="vais" onclick="selectEx6(this)">vais</button>
+<button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
+<button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
+<button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="va">
-<div class="listen-sentence">On <span class="listen-blank">___</span> dîner avant le concert.</div>
-<button class="listen-btn" onclick="playAudio('../audio/ex6_6C_4.mp3')" title="Écouter">🔊</button>
+<div class="listen-item" data-ans="de la">
+<div class="listen-sentence">On mange <span class="listen-blank">___</span> viande ou du poisson.</div>
+<button class="listen-btn" onclick="playAudio('../audio/ex6_5A_2.mp3')" title="Écouter">🔊</button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="vais" onclick="selectEx6(this)">vais</button>
-<button class="choice-btn" data-val="va" onclick="selectEx6(this)">va</button>
-<button class="choice-btn" data-val="allons" onclick="selectEx6(this)">allons</button>
+<button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
+<button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
+<button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
 </div>
 <div class="listen-fb"></div>
 </div>
@@ -828,25 +769,25 @@ rendez-vous — soir.</div></div>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" onclick="goSlide(8)">← Exercices 1/2</button>
-<button class="btn-ns" onclick="goSlide(10)">✍️ À toi ! →</button>
+<button class="btn-ns" onclick="goSlide(6)">← Exercices 1/2</button>
+<button class="btn-ns" onclick="goSlide(8)">✍️ À toi ! →</button>
 </div>
 </div>
 <div class="slide" id="slide-10">
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
-<div class="card-body"><div class="prod-box">✍️ À toi ! Proposez à un(e) ami(e) une sortie pour le week-end. Écrivez les messages (8
-répliques) : proposition, réponse, détails pratiques.
-<span class="prod-zh">邀请一位朋友周末出去。写一段消息对话（8个回合）：提议、回复、实际细节。</span></div>
+<div class="card-body"><div class="prod-box">✍️ À toi ! Décrivez vos habitudes alimentaires en 8 phrases (3 repas + aliments préférés
++ aliments que vous n'aimez pas).
+<span class="prod-zh">用8句话描述您的饮食习惯（三餐+最喜欢的食物+不喜欢的食物）。</span></div>
 <textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea>
 <button class="lt-btn" onclick="checkLT(this)">Corriger ✓</button>
 <div class="lt-result"></div></div>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(9)">← Exercices</button>
-<button class="btn-ns" onclick="location.href='7A_slides.html'" style="background:var(--green)">7A →</button>
+<button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(7)">← Exercices</button>
+<button class="btn-ns" onclick="location.href='5B_slides.html'" style="background:var(--green)">5B →</button>
 </div>
 </div>
 </div><!-- /slides-viewport -->
@@ -860,7 +801,7 @@ répliques) : proposition, réponse, détails pratiques.
 <button aria-label="Fermer" class="modal-close" onclick="closeModal('modal-bug')">✕</button>
 <h2 data-fr="🐛 Signaler un problème" data-zh="🐛 反馈问题" id="bug-title">🐛 Signaler un problème</h2><p class="modal-sub" data-fr="Aidez-nous à améliorer cette leçon." data-zh="帮助我们改进本课内容。">Aidez-nous à améliorer cette leçon.</p>
 <form id="form-bug" onsubmit="submitForm(event,'form-bug','modal-bug')">
-<input name="lecon" type="hidden" value="6C — On sort ce soir ?"/><input name="_subject" type="hidden" value="[Bug] Leçon 6C"/>
+<input name="lecon" type="hidden" value="5A — Qu'est-ce que tu manges ?"/><input name="_subject" type="hidden" value="[Bug] Leçon 5A"/>
 <div class="form-group"><label data-fr="Section" data-zh="章节">Section</label><select name="exercice" required=""><option data-fr="— Choisissez —" data-zh="— 请选择 —" value="">— Choisissez —</option><option data-fr="Dialogue" data-zh="对话">Dialogue</option><option data-fr="Comprendre" data-zh="理解">Comprendre</option><option data-fr="Communiquer" data-zh="表达">Communiquer</option><option data-fr="Vocabulaire" data-zh="词汇">Vocabulaire</option><option data-fr="Phonétique" data-zh="语音">Phonétique</option><option data-fr="Grammaire" data-zh="语法">Grammaire</option><option data-fr="Exercice" data-zh="练习">Exercice</option><option data-fr="À toi !" data-zh="轮到你了">À toi !</option><option data-fr="Autre" data-zh="其他">Autre</option></select></div>
 <div class="form-group"><label data-fr="Description" data-zh="描述">Description</label><textarea data-placeholder-fr="Décrivez le problème…" data-placeholder-zh="请描述问题…" name="description" placeholder="Décrivez le problème…" required="" rows="3"></textarea></div>
 <div class="form-group"><label><span data-fr="Prénom" data-zh="姓名">Prénom</span> <span class="opt" data-fr="(facultatif)" data-zh="（选填）">(facultatif)</span></label><input name="prenom" type="text"/></div>
@@ -873,7 +814,7 @@ répliques) : proposition, réponse, détails pratiques.
 <button aria-label="Fermer" class="modal-close" onclick="closeModal('modal-ask')">✕</button>
 <h2 data-fr="💬 Poser une question" data-zh="💬 提问" id="ask-title">💬 Poser une question</h2><p class="modal-sub" data-fr="Votre question sera transmise au professeur." data-zh="您的问题将转交给老师。">Votre question sera transmise au professeur.</p>
 <form id="form-ask" onsubmit="submitForm(event,'form-ask','modal-ask')">
-<input name="lecon" type="hidden" value="6C — On sort ce soir ?"/><input name="_subject" type="hidden" value="[Question] Leçon 6C"/>
+<input name="lecon" type="hidden" value="5A — Qu'est-ce que tu manges ?"/><input name="_subject" type="hidden" value="[Question] Leçon 5A"/>
 <div class="form-group"><label data-fr="Sujet" data-zh="主题">Sujet</label><select name="sujet" required=""><option data-fr="— Choisissez —" data-zh="— 请选择 —" value="">— Choisissez —</option><option data-fr="📖 Grammaire" data-zh="📖 语法" value="Grammaire">📖 Grammaire</option><option data-fr="📝 Vocabulaire" data-zh="📝 词汇" value="Vocabulaire">📝 Vocabulaire</option><option data-fr="✏️ Exercice" data-zh="✏️ 练习" value="Exercice">✏️ Exercice</option><option data-fr="🎵 Prononciation" data-zh="🎵 发音" value="Prononciation">🎵 Prononciation</option></select></div>
 <div class="form-group"><label data-fr="Votre question" data-zh="您的问题">Votre question</label><textarea data-placeholder-fr="Posez votre question…" data-placeholder-zh="请输入您的问题…" name="question" placeholder="Posez votre question…" required="" rows="3"></textarea></div>
 <div class="form-group"><label><span data-fr="Prénom" data-zh="姓名">Prénom</span> <span class="opt" data-fr="(facultatif)" data-zh="（选填）">(facultatif)</span></label><input name="prenom" type="text"/></div>
@@ -883,8 +824,8 @@ répliques) : proposition, réponse, détails pratiques.
 </div>
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
-var LESSON='6C';
-var TAB_FOR_SLIDE=[0,1,2,2,2,3,3,4,5,5,6];
+var LESSON='5A';
+var TAB_FOR_SLIDE=[0,1,2,3,3,4,5,5,6];
 
 var currentSlide=0;
 
@@ -892,110 +833,6 @@ var currentSlide=0;
     function selectPrat(btn){var c=btn.closest('.gram-prat-item').querySelectorAll('.gram-prat-btn');c.forEach(function(b){b.classList.remove('prat-sel');});btn.classList.add('prat-sel');}
 function verifyPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('.gram-prat-item').forEach(function(item){var sel=item.querySelector('.gram-prat-btn.prat-sel');var ans=item.dataset.ans;item.querySelectorAll('.gram-prat-btn').forEach(function(b){b.disabled=true;});if(sel){sel.classList.add(sel.dataset.val===ans?'gram-ok':'gram-ko');}});var total=col.querySelectorAll('.gram-prat-item').length;var ok=col.querySelectorAll('.gram-prat-btn.gram-ok').length;col.querySelector('.gram-prat-score').textContent=ok+'/'+total;}
 function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('.gram-prat-btn').forEach(function(b){b.classList.remove('prat-sel','gram-ok','gram-ko');b.disabled=false;});col.querySelector('.gram-prat-score').textContent='';}
-
-// ════ Écoute et choisis ════
-var VC_DATA=[
-  {fr:"bientôt",audio:"../audio/vocab_6C_0.mp3"},
-  {fr:"demain",audio:"../audio/vocab_6C_1.mp3"},
-  {fr:"ce soir",audio:"../audio/vocab_6C_2.mp3"},
-  {fr:"la semaine prochaine",audio:"../audio/vocab_6C_3.mp3"},
-  {fr:"le week-end prochain",audio:"../audio/vocab_6C_4.mp3"},
-  {fr:"projet",audio:"../audio/vocab_6C_5.mp3"},
-  {fr:"proposer",audio:"../audio/vocab_6C_6.mp3"},
-  {fr:"accepter",audio:"../audio/vocab_6C_7.mp3"},
-  {fr:"refuser",audio:"../audio/vocab_6C_8.mp3"},
-  {fr:"inviter",audio:"../audio/vocab_6C_9.mp3"},
-];
-var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
-function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
-function vcInit(){vcQ=vcShuffle(VC_DATA.slice());vcIdx=0;vcScore=0;vcRender();}
-function vcRender(){
-  var prog=document.getElementById('vc-prog');if(prog)prog.textContent='Mot '+(vcIdx+1)+' / '+vcQ.length;
-  var grid=document.getElementById('vc-grid');if(!grid)return;
-  grid.innerHTML='';
-  var fb=document.getElementById('vc-fb');if(fb)fb.textContent='';
-  var nxt=document.getElementById('vc-next');if(nxt)nxt.style.display='none';
-  var end=document.getElementById('vc-end');if(end)end.style.display='none';
-  var pool=VC_DATA.filter(function(x){return x.fr!==vcQ[vcIdx].fr;});
-  var wrongs=vcShuffle(pool).slice(0,3).map(function(x){return x.fr;});
-  var choices=vcShuffle([vcQ[vcIdx].fr].concat(wrongs));
-  choices.forEach(function(c){
-    var b=document.createElement('button');
-    b.className='vc-btn';b.textContent=c;
-    b.onclick=function(){vcAnswer(c===vcQ[vcIdx].fr,b,vcQ[vcIdx].fr);};
-    grid.appendChild(b);
-  });
-  vcAnswered=false;
-}
-function vcAnswer(correct,btn,correctFr){
-  if(vcAnswered)return;vcAnswered=true;
-  if(correct){btn.classList.add('vc-correct');vcScore++;var fb=document.getElementById('vc-fb');if(fb)fb.textContent='✅ Correct !';}
-  else{btn.classList.add('vc-wrong');var fb=document.getElementById('vc-fb');if(fb)fb.textContent='❌ C'est : '+correctFr;document.querySelectorAll('.vc-btn').forEach(function(b){if(b.textContent===correctFr)b.classList.add('vc-correct');});}
-  document.querySelectorAll('.vc-btn').forEach(function(b){b.disabled=true;});
-  var nxt=document.getElementById('vc-next');
-  if(nxt){nxt.style.display='inline-block';}
-}
-function vcPlay(){if(vcAudio){vcAudio.pause();vcAudio.currentTime=0;}vcAudio=new Audio(vcQ[vcIdx].audio);vcAudio.play().catch(function(){});}
-function vcNext(){vcIdx++;if(vcIdx<vcQ.length){vcRender();}else{vcShowScore();}}
-function vcShowScore(){
-  var grid=document.getElementById('vc-grid');if(grid)grid.innerHTML='';
-  var fb=document.getElementById('vc-fb');if(fb)fb.textContent='';
-  var nxt=document.getElementById('vc-next');if(nxt)nxt.style.display='none';
-  var end=document.getElementById('vc-end');if(end)end.style.display='flex';
-  var msg=vcScore===vcQ.length?'🏆 Parfait ! '+vcScore+'/'+vcQ.length:vcScore>=vcQ.length*.7?'🌟 Bien ! '+vcScore+'/'+vcQ.length:'👍 Continue ! '+vcScore+'/'+vcQ.length;
-  var st=document.getElementById('vc-score-txt');if(st)st.textContent=msg;
-}
-function vcRestart(){vcInit();}
-// ════ Associer FR↔ZH ════
-var MATCH_DATA=[
-  {fr:"bientôt",zh:"不久；马上"},
-  {fr:"demain",zh:"明天"},
-  {fr:"ce soir",zh:"今晚"},
-  {fr:"la semaine prochaine",zh:"下周"},
-  {fr:"le week-end prochain",zh:"下个周末"},
-  {fr:"projet",zh:"计划；项目"},
-  {fr:"proposer",zh:"提议；建议"},
-  {fr:"accepter",zh:"接受"},
-  {fr:"refuser",zh:"拒绝"},
-  {fr:"inviter",zh:"邀请"},
-];
-var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
-var MATCH_ROUND_SIZE=5;
-function matchShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
-function matchInit(){matchRound=0;matchSel=null;matchDone=0;matchErrors=0;var e=document.getElementById('match-end');if(e)e.style.display='none';var c=document.getElementById('match-cols');if(c)c.style.display='flex';var p=document.getElementById('match-prog');if(p)p.style.display='';var fb=document.getElementById('match-fb');if(fb)fb.textContent='';matchRenderRound();}
-function matchRenderRound(){
-  var start=matchRound*MATCH_ROUND_SIZE;var end=Math.min(start+MATCH_ROUND_SIZE,MATCH_DATA.length);var pairs=MATCH_DATA.slice(start,end);
-  var prog=document.getElementById('match-prog');if(prog)prog.textContent='Série '+(matchRound+1)+' / '+Math.ceil(MATCH_DATA.length/MATCH_ROUND_SIZE);
-  var frArr=matchShuffle(pairs.map(function(p,i){return{fr:p.fr,idx:start+i};}));
-  var zhArr=matchShuffle(pairs.map(function(p,i){return{zh:p.zh,idx:start+i};}));
-  var frCol=document.getElementById('match-fr');var zhCol=document.getElementById('match-zh');
-  if(!frCol||!zhCol)return;frCol.innerHTML='';zhCol.innerHTML='';
-  frArr.forEach(function(p){var b=document.createElement('button');b.className='match-btn match-fr-btn';b.textContent=p.fr;b.dataset.idx=p.idx;b.onclick=function(){matchSelectFr(b);};frCol.appendChild(b);});
-  zhArr.forEach(function(p){var b=document.createElement('button');b.className='match-btn match-zh-btn';b.textContent=p.zh;b.dataset.idx=p.idx;b.onclick=function(){matchSelectZh(b);};zhCol.appendChild(b);});
-  matchSel=null;matchDone=0;
-}
-function matchSelectFr(btn){if(btn.classList.contains('match-ok'))return;document.querySelectorAll('.match-fr-btn').forEach(function(b){b.classList.remove('match-sel');});btn.classList.add('match-sel');matchSel=btn;var fb=document.getElementById('match-fb');if(fb)fb.textContent='';}
-function matchSelectZh(btn){
-  if(!matchSel)return;if(btn.classList.contains('match-ok'))return;
-  var frIdx=parseInt(matchSel.dataset.idx);var zhIdx=parseInt(btn.dataset.idx);var fb=document.getElementById('match-fb');
-  if(frIdx===zhIdx){
-    matchSel.classList.remove('match-sel');matchSel.classList.add('match-ok');btn.classList.add('match-ok');
-    matchSel.disabled=true;btn.disabled=true;matchSel=null;matchDone++;
-    if(fb)fb.textContent='✅ Correct !';
-    var pairCount=Math.min(MATCH_ROUND_SIZE,MATCH_DATA.length-matchRound*MATCH_ROUND_SIZE);
-    if(matchDone===pairCount){setTimeout(function(){matchNextRound();},700);}
-  } else {
-    matchErrors++;matchSel.classList.add('match-err');btn.classList.add('match-err');
-    if(fb)fb.textContent='❌ Essaie encore !';
-    var frBtn=matchSel,zhBtn=btn;
-    setTimeout(function(){frBtn.classList.remove('match-err','match-sel');zhBtn.classList.remove('match-err');matchSel=null;if(fb)fb.textContent='';},800);
-  }
-}
-function matchNextRound(){matchRound++;var totalRounds=Math.ceil(MATCH_DATA.length/MATCH_ROUND_SIZE);if(matchRound<totalRounds){matchDone=0;matchSel=null;var fb=document.getElementById('match-fb');if(fb)fb.textContent='';matchRenderRound();}else{matchShowEnd();}}
-function matchShowEnd(){var c=document.getElementById('match-cols');if(c)c.style.display='none';var p=document.getElementById('match-prog');if(p)p.style.display='none';var end=document.getElementById('match-end');if(end)end.style.display='flex';var msg=matchErrors===0?'🏆 Parfait ! Aucune erreur !':matchErrors<=3?'🌟 Très bien ! '+matchErrors+' erreur(s).':'👍 Continue à pratiquer ! '+matchErrors+' erreur(s).';var st=document.getElementById('match-score-txt');if(st)st.textContent=msg;}
-function matchRestart(){matchInit();}
-document.addEventListener('DOMContentLoaded',function(){vcInit();matchInit();});
-
 function goSlide(n){
   if(n===currentSlide)return;
   if(window._pA){window._pA.pause();window._pA.currentTime=0;window._pA=null;}
@@ -1088,7 +925,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModa
 <!-- fle-prog-start -->
 <script>
 (function(){
-  var L='6C';
+  var L='5A';
   try{
     function _pg(){return JSON.parse(localStorage.getItem('fle_prog')||'{}');}
     function _mk(k,v){var q=_pg();if(!q[L])q[L]={};q[L][k]=v;localStorage.setItem('fle_prog',JSON.stringify(q));}
