@@ -3,78 +3,6 @@
 <html lang="fr">
 <head>
 <script>(function(){var ok=false;try{ok=localStorage.getItem('fle_auth')==='1';}catch(e){}if(!ok){try{ok=sessionStorage.getItem('fle_auth')==='1';}catch(e){}}if(!ok){var u=new URLSearchParams(location.search).get('auth');if(u==='FLE2026'){try{localStorage.setItem('fle_auth','1');}catch(e){}try{sessionStorage.setItem('fle_auth','1');}catch(e){}ok=true;}}if(!ok)location.replace('../index.html');})();
-// ── Vocab Quiz 1A ──
-var VC_DATA=[
-  {fr:"bonjour",       audio:"../audio/vocab_1A_0.mp3"},
-  {fr:"bonsoir",       audio:"../audio/vocab_1A_1.mp3"},
-  {fr:"enchanté(e)",   audio:"../audio/vocab_1A_2.mp3"},
-  {fr:"s\u2019appeler", audio:"../audio/vocab_1A_3.mp3"},
-  {fr:"\u00eatre",      audio:"../audio/vocab_1A_4.mp3"},
-  {fr:"\u00e9tudiant(e)",audio:"../audio/vocab_1A_5.mp3"},
-  {fr:"biblioth\u00e8que",audio:"../audio/vocab_1A_6.mp3"},
-  {fr:"universit\u00e9", audio:"../audio/vocab_1A_7.mp3"},
-  {fr:"s\u2019inscrire", audio:"../audio/vocab_1A_8.mp3"},
-  {fr:"bienvenue",     audio:"../audio/vocab_1A_9.mp3"},
-];
-var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
-function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
-function vcInit(){
-  vcQ=vcShuffle(VC_DATA);vcIdx=0;vcScore=0;
-  document.getElementById('vc-end').style.display='none';
-  document.getElementById('vc-play-btn').style.display='';
-  document.getElementById('vc-grid').style.display='';
-  vcRender();
-}
-function vcRender(){
-  vcAnswered=false;
-  var item=vcQ[vcIdx];
-  document.getElementById('vc-prog').textContent='Mot '+(vcIdx+1)+' / '+vcQ.length;
-  document.getElementById('vc-fb').textContent='';
-  document.getElementById('vc-next').style.display='none';
-  // Distracteurs
-  var others=vcQ.filter(function(x){return x!==item;});
-  var choices=vcShuffle([item].concat(vcShuffle(others).slice(0,3)));
-  var grid=document.getElementById('vc-grid');
-  grid.innerHTML='';
-  choices.forEach(function(c){
-    var btn=document.createElement('button');
-    btn.className='vc-btn';
-    btn.textContent=c.fr;
-    btn.onclick=function(){vcAnswer(c===item,btn,item.fr);};
-    grid.appendChild(btn);
-  });
-}
-function vcPlay(){
-  if(vcAudio){vcAudio.pause();}
-  vcAudio=new Audio(vcQ[vcIdx].audio);
-  vcAudio.play();
-}
-function vcAnswer(correct,btn,correctFr){
-  if(vcAnswered)return;
-  vcAnswered=true;
-  document.querySelectorAll('#vc-grid .vc-btn').forEach(function(b){
-    b.disabled=true;
-    if(b.textContent===correctFr)b.classList.add('vc-correct');
-  });
-  if(correct){vcScore++;btn.classList.add('vc-correct');document.getElementById('vc-fb').innerHTML='<span style="color:#065f46">✓ Correct !</span>';}
-  else{btn.classList.add('vc-wrong');document.getElementById('vc-fb').innerHTML='<span style="color:#7f1d1d">✗ Non — c\'est <strong>'+correctFr+'</strong></span>';}
-  if(vcIdx>=vcQ.length-1){setTimeout(vcShowScore,900);}
-  else{document.getElementById('vc-next').style.display='';}
-}
-function vcNext(){vcIdx++;vcRender();}
-function vcShowScore(){
-  var t=vcQ.length,s=vcScore,e=s===t?'🎉':s>=Math.round(t*.7)?'👍':'💪';
-  document.getElementById('vc-score-txt').textContent='Score : '+s+' / '+t+' '+e;
-  document.getElementById('vc-play-btn').style.display='none';
-  document.getElementById('vc-grid').innerHTML='';
-  document.getElementById('vc-fb').textContent='';
-  document.getElementById('vc-next').style.display='none';
-  document.getElementById('vc-end').style.display='';
-}
-function vcRestart(){vcInit();}
-// Init au chargement
-vcInit();
-
 </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
@@ -1243,6 +1171,81 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModa
     window.verifyAllEx6=function(){_vE6();_mk('m4',1);};
   }catch(e){}
 })();
+
+document.addEventListener('DOMContentLoaded', function(){
+// ── Vocab Quiz 1A ──
+var VC_DATA=[
+  {fr:"bonjour",       audio:"../audio/vocab_1A_0.mp3"},
+  {fr:"bonsoir",       audio:"../audio/vocab_1A_1.mp3"},
+  {fr:"enchanté(e)",   audio:"../audio/vocab_1A_2.mp3"},
+  {fr:"s\u2019appeler", audio:"../audio/vocab_1A_3.mp3"},
+  {fr:"\u00eatre",      audio:"../audio/vocab_1A_4.mp3"},
+  {fr:"\u00e9tudiant(e)",audio:"../audio/vocab_1A_5.mp3"},
+  {fr:"biblioth\u00e8que",audio:"../audio/vocab_1A_6.mp3"},
+  {fr:"universit\u00e9", audio:"../audio/vocab_1A_7.mp3"},
+  {fr:"s\u2019inscrire", audio:"../audio/vocab_1A_8.mp3"},
+  {fr:"bienvenue",     audio:"../audio/vocab_1A_9.mp3"},
+];
+var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
+function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
+function vcInit(){
+  vcQ=vcShuffle(VC_DATA);vcIdx=0;vcScore=0;
+  document.getElementById('vc-end').style.display='none';
+  document.getElementById('vc-play-btn').style.display='';
+  document.getElementById('vc-grid').style.display='';
+  vcRender();
+}
+function vcRender(){
+  vcAnswered=false;
+  var item=vcQ[vcIdx];
+  document.getElementById('vc-prog').textContent='Mot '+(vcIdx+1)+' / '+vcQ.length;
+  document.getElementById('vc-fb').textContent='';
+  document.getElementById('vc-next').style.display='none';
+  // Distracteurs
+  var others=vcQ.filter(function(x){return x!==item;});
+  var choices=vcShuffle([item].concat(vcShuffle(others).slice(0,3)));
+  var grid=document.getElementById('vc-grid');
+  grid.innerHTML='';
+  choices.forEach(function(c){
+    var btn=document.createElement('button');
+    btn.className='vc-btn';
+    btn.textContent=c.fr;
+    btn.onclick=function(){vcAnswer(c===item,btn,item.fr);};
+    grid.appendChild(btn);
+  });
+}
+function vcPlay(){
+  if(vcAudio){vcAudio.pause();}
+  vcAudio=new Audio(vcQ[vcIdx].audio);
+  vcAudio.play();
+}
+function vcAnswer(correct,btn,correctFr){
+  if(vcAnswered)return;
+  vcAnswered=true;
+  document.querySelectorAll('#vc-grid .vc-btn').forEach(function(b){
+    b.disabled=true;
+    if(b.textContent===correctFr)b.classList.add('vc-correct');
+  });
+  if(correct){vcScore++;btn.classList.add('vc-correct');document.getElementById('vc-fb').innerHTML='<span style="color:#065f46">✓ Correct !</span>';}
+  else{btn.classList.add('vc-wrong');document.getElementById('vc-fb').innerHTML='<span style="color:#7f1d1d">✗ Non — c\'est <strong>'+correctFr+'</strong></span>';}
+  if(vcIdx>=vcQ.length-1){setTimeout(vcShowScore,900);}
+  else{document.getElementById('vc-next').style.display='';}
+}
+function vcNext(){vcIdx++;vcRender();}
+function vcShowScore(){
+  var t=vcQ.length,s=vcScore,e=s===t?'🎉':s>=Math.round(t*.7)?'👍':'💪';
+  document.getElementById('vc-score-txt').textContent='Score : '+s+' / '+t+' '+e;
+  document.getElementById('vc-play-btn').style.display='none';
+  document.getElementById('vc-grid').innerHTML='';
+  document.getElementById('vc-fb').textContent='';
+  document.getElementById('vc-next').style.display='none';
+  document.getElementById('vc-end').style.display='';
+}
+function vcRestart(){vcInit();}
+// Init au chargement
+vcInit();
+});
+
 </script>
 <!-- fle-prog-end -->
 </body>
