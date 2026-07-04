@@ -711,7 +711,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
-<button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(8)">✏️ Exercices →</button>
+<button class="btn-ns" id="prat-exit" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(8)" disabled style="opacity:.35">✏️ Exercices →</button>
 </div>
 </div>
 <script>
@@ -730,7 +730,7 @@ function render(){
   document.getElementById('prat-success').style.display='none';
   document.getElementById('prat-score').textContent='';
   var nb=document.getElementById('prat-next');
-  nb.disabled=true;nb.textContent=cur===ACTS.length-1?'✏️ Exercices →':'Suivant →';
+  nb.disabled=true;nb.textContent='Suivant →';
   if(a.type==='flash')renderFlash(a);
   else renderWO(a);
 }
@@ -797,8 +797,8 @@ function renderWO(a){
   }
   renderS();
 }
-window.pratReset=function(){render();};
-window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}else{goSlide(8);}};
+window.pratReset=function(){var ex=document.getElementById('prat-exit');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur=0;render();};
+window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}else{var ex=document.getElementById('prat-exit');if(ex){ex.disabled=false;ex.style.opacity='1';}document.getElementById('prat-next').disabled=true;}};
 render();
 })();
 </script>
