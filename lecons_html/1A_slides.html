@@ -728,7 +728,7 @@ var ACTS=[
   {id:'fm3',title:'⚡ Associer — pronoms FR ↔ ÊTRE',type:'flash',
    colL:'Pronom',colR:'Être',
    pairs:[{k:'je',l:'je',r:'suis'},{k:'tu',l:'tu',r:'es'},{k:'il',l:'il / elle',r:'est'},{k:'nous',l:'nous',r:'sommes'},{k:'vous',l:'vous',r:'êtes'},{k:'ils',l:'ils / elles',r:'sont'}]},
-  {id:'wo1',title:'🔀 Remettre dans l'ordre — négation',type:'wordorder',
+  {id:'wo1',title:"🔀 Remettre dans l'ordre — négation",type:'wordorder',
    sentences:[
      {words:['Je','ne','suis','pas','français.'],zh:'我不是法国人。'},
      {words:['Il',"n'est",'pas','étudiant.'],zh:'他不是学生。'}
@@ -782,7 +782,7 @@ function renderWO(a){
   var b=document.getElementById('prat-body');var si=0;var placed=[];
   function renderS(){
     var s=a.sentences[si];placed=[];
-    b.innerHTML='<p style="font-size:13px;color:var(--muted);margin-bottom:10px;text-align:center">'+s.zh+' — Remets les mots dans l'ordre.</p><div id="wo-z" style="min-height:50px;border:1.5px dashed var(--border-strong,#999);border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;width:100%;background:var(--bg-l,#f8f9fa)"></div><div id="wo-b" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%"></div><div id="wo-fb" style="font-size:13px;text-align:center;padding:8px;border-radius:8px;width:100%"></div><div style="display:flex;gap:8px;justify-content:center"><button class="btn-ns" onclick="woChk()">✓ Vérifier</button><button class="btn-ns" onclick="woCl()">↺ Effacer</button></div>';
+    b.innerHTML='<p style="font-size:13px;color:var(--muted);margin-bottom:10px;text-align:center">'+s.zh+' — Remets les mots dans l\'ordre.</p><div id="wo-z" style="min-height:50px;border:1.5px dashed var(--border-strong,#999);border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;width:100%;background:var(--bg-l,#f8f9fa)"></div><div id="wo-b" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%"></div><div id="wo-fb" style="font-size:13px;text-align:center;padding:8px;border-radius:8px;width:100%"></div><div style="display:flex;gap:8px;justify-content:center"><button class="btn-ns" onclick="woChk()">✓ Vérifier</button><button class="btn-ns" onclick="woCl()">↺ Effacer</button></div>';
     shuf([...s.words]).forEach(function(w){
       var el=document.createElement('div');
       el.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
