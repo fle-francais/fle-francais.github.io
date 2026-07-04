@@ -476,8 +476,8 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
 <button class="slide-tab" data-fr="🎤 Prononciation" data-zh="🎤 发音" onclick="goSlide(5)">🎤 Prononciation</button>
 <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
-<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(8)">✏️ Exercices</button>
-<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(10)">✍️ À toi !</button>
+<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(10)">✏️ Exercices</button>
+<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(12)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -663,12 +663,20 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(6)">📖 Grammaire →</button>
 </div>
 </div>
-<!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
-<div class="slide" id="slide-6">
+<!-- ══ SLIDE GR1 : GRAMMAIRE RÈGLE 1/2 ══ -->
+<div class="slide" id="slide-gr1">
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-gram">📖 Dire l'heure — forme officielle et courante<span class="comm-zh"> · 语法要点</span></div>
-<div class="card-body"><div class="gram-rule"><div class="gram-rule-body"><strong>Dire l'heure</strong><span class="comm-zh"> · 表达时间</span></div></div><div class="gram-observe"><div class="gram-observe-label">👀 Observe et complète le tableau<span class="comm-zh"> · 观察并填写表格</span></div>• Il est <em>huit heures et demie</em>. / Il est <em>midi</em>. / Il est <em>minuit</em>.<br/>• À quelle heure…? → À <em>neuf heures</em>.</div><table class="gram-table gram-fc"><thead><tr><th>Expression</th><th>Exemple</th></tr></thead><tbody><tr><td class="gram-pf">Quelle heure est-il ?</td><td><input class="gram-input" data-ans="Il est… heure(s)." placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="heure pile / et demie" placeholder="?"></td><td><input class="gram-input" data-ans="8h00 · 8h30" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="et quart / moins le quart" placeholder="?"></td><td><input class="gram-input" data-ans="8h15 · 7h45" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="du matin / de l’après-midi / du soir" placeholder="?"></td><td class="gram-pf">8h matin · 15h AP · 20h soir</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyGram(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="hideGram(this)">↺ Effacer</button><button class="gram-sc-btn" onclick="revealGram(this)">👁 Révéler</button></div><hr class="gram-sep"/><div class="gram-rule"><div class="gram-rule-body"><strong>Les nombres de 70 à 100</strong><span class="comm-zh"> · 数字 70 到 100</span></div></div><div class="gram-ex">• 70 = soixante-dix · 71 = soixante et onze · 72 = soixante-douze…<br/>• 80 = quatre-vingts · 81 = quatre-vingt-un · 90 = quatre-vingt-dix<br/>• 100 = cent</div><div class="gram-prat-section"><div class="gram-prat-label">🎯 Pratique</div><div class="gram-prat-row"><div class="gram-prat"><div class="gram-prat-subtitle">L'heure</div><div class="gram-prat-item" data-ans="sept"><div class="gram-prat-q">Il est ___ heures du matin.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="sept" onclick="selectPrat(this)">sept</button><button class="gram-prat-btn" data-val="septième" onclick="selectPrat(this)">septième</button><button class="gram-prat-btn" data-val="de sept" onclick="selectPrat(this)">de sept</button></div></div><div class="gram-prat-item" data-ans="neuf"><div class="gram-prat-q">Le cours commence à ___ heures.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="neuf" onclick="selectPrat(this)">neuf</button><button class="gram-prat-btn" data-val="neuve" onclick="selectPrat(this)">neuve</button><button class="gram-prat-btn" data-val="neuvième" onclick="selectPrat(this)">neuvième</button></div></div><div class="gram-prat-item" data-ans="huit"><div class="gram-prat-q">À ___ heures du soir.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="huit" onclick="selectPrat(this)">huit</button><button class="gram-prat-btn" data-val="huitième" onclick="selectPrat(this)">huitième</button><button class="gram-prat-btn" data-val="huitièmes" onclick="selectPrat(this)">huitièmes</button></div></div><div class="gram-prat-item" data-ans="et"><div class="gram-prat-q">Il est midi ___ quart.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="moins" onclick="selectPrat(this)">moins</button><button class="gram-prat-btn" data-val="et" onclick="selectPrat(this)">et</button><button class="gram-prat-btn" data-val="de" onclick="selectPrat(this)">de</button></div></div><div class="gram-prat-item" data-ans="deux"><div class="gram-prat-q">Il est ___ heures et demie.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="deux" onclick="selectPrat(this)">deux</button><button class="gram-prat-btn" data-val="deuxième" onclick="selectPrat(this)">deuxième</button><button class="gram-prat-btn" data-val="deuxièmes" onclick="selectPrat(this)">deuxièmes</button></div></div><div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div></div><div class="gram-prat"><div class="gram-prat-subtitle">Nombres 70–100</div><div class="gram-prat-item" data-ans="soixante-douze"><div class="gram-prat-q">72 = ___</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="soixante-douze" onclick="selectPrat(this)">soixante-douze</button><button class="gram-prat-btn" data-val="septante-deux" onclick="selectPrat(this)">septante-deux</button><button class="gram-prat-btn" data-val="quatre-vingt-deux" onclick="selectPrat(this)">quatre-vingt-deux</button></div></div><div class="gram-prat-item" data-ans="quatre-vingts"><div class="gram-prat-q">80 = ___</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="quatre-vingt" onclick="selectPrat(this)">quatre-vingt</button><button class="gram-prat-btn" data-val="quatre-vingts" onclick="selectPrat(this)">quatre-vingts</button><button class="gram-prat-btn" data-val="quatre-vingt-dix" onclick="selectPrat(this)">quatre-vingt-dix</button></div></div><div class="gram-prat-item" data-ans="quatre-vingt-un"><div class="gram-prat-q">81 = ___</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="quatre-vingt-un" onclick="selectPrat(this)">quatre-vingt-un</button><button class="gram-prat-btn" data-val="quatre-vingt-onze" onclick="selectPrat(this)">quatre-vingt-onze</button><button class="gram-prat-btn" data-val="soixante-et-onze" onclick="selectPrat(this)">soixante-et-onze</button></div></div><div class="gram-prat-item" data-ans="quatre-vingt-dix"><div class="gram-prat-q">90 = ___</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="quatre-vingt-dix" onclick="selectPrat(this)">quatre-vingt-dix</button><button class="gram-prat-btn" data-val="quatre-vingt" onclick="selectPrat(this)">quatre-vingt</button><button class="gram-prat-btn" data-val="soixante-dix" onclick="selectPrat(this)">soixante-dix</button></div></div><div class="gram-prat-item" data-ans="cent"><div class="gram-prat-q">100 = ___</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="cent" onclick="selectPrat(this)">cent</button><button class="gram-prat-btn" data-val="cents" onclick="selectPrat(this)">cents</button><button class="gram-prat-btn" data-val="cent-un" onclick="selectPrat(this)">cent-un</button></div></div><div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div></div></div></div></div>
+<div class="card-body"><div class="gram-rule"><div class="gram-rule-body"><strong>Dire l'heure</strong><span class="comm-zh"> · 表达时间</span></div></div><div class="gram-observe"><div class="gram-observe-label">👀 Observe et complète le tableau<span class="comm-zh"> · 观察并填写表格</span></div>• Il est <em>huit heures et demie</em>. / Il est <em>midi</em>. / Il est <em>minuit</em>.<br/>• À quelle heure…? → À <em>neuf heures</em>.</div><table class="gram-table gram-fc"><thead><tr><th>Expression</th><th>Exemple</th></tr></thead><tbody><tr><td class="gram-pf">Quelle heure est-il ?</td><td><input class="gram-input" data-ans="Il est… heure(s)." placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="heure pile / et demie" placeholder="?"></td><td><input class="gram-input" data-ans="8h00 · 8h30" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="et quart / moins le quart" placeholder="?"></td><td><input class="gram-input" data-ans="8h15 · 7h45" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="du matin / de l’après-midi / du soir" placeholder="?"></td><td class="gram-pf">8h matin · 15h AP · 20h soir</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyGram(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="hideGram(this)">↺ Effacer</button><button class="gram-sc-btn" onclick="revealGram(this)">👁 Révéler</button></div>
+<div class="gram-prat-section">
+<div class="gram-prat-label">🎯 Pratique</div>
+<div class="gram-prat-row">
+<div class="gram-prat"><div class="gram-prat-subtitle">L'heure</div><div class="gram-prat-item" data-ans="sept"><div class="gram-prat-q">Il est ___ heures du matin.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="sept" onclick="selectPrat(this)">sept</button><button class="gram-prat-btn" data-val="septième" onclick="selectPrat(this)">septième</button><button class="gram-prat-btn" data-val="de sept" onclick="selectPrat(this)">de sept</button></div></div><div class="gram-prat-item" data-ans="neuf"><div class="gram-prat-q">Le cours commence à ___ heures.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="neuf" onclick="selectPrat(this)">neuf</button><button class="gram-prat-btn" data-val="neuve" onclick="selectPrat(this)">neuve</button><button class="gram-prat-btn" data-val="neuvième" onclick="selectPrat(this)">neuvième</button></div></div><div class="gram-prat-item" data-ans="huit"><div class="gram-prat-q">À ___ heures du soir.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="huit" onclick="selectPrat(this)">huit</button><button class="gram-prat-btn" data-val="huitième" onclick="selectPrat(this)">huitième</button><button class="gram-prat-btn" data-val="huitièmes" onclick="selectPrat(this)">huitièmes</button></div></div><div class="gram-prat-item" data-ans="et"><div class="gram-prat-q">Il est midi ___ quart.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="moins" onclick="selectPrat(this)">moins</button><button class="gram-prat-btn" data-val="et" onclick="selectPrat(this)">et</button><button class="gram-prat-btn" data-val="de" onclick="selectPrat(this)">de</button></div></div><div class="gram-prat-item" data-ans="deux"><div class="gram-prat-q">Il est ___ heures et demie.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="deux" onclick="selectPrat(this)">deux</button><button class="gram-prat-btn" data-val="deuxième" onclick="selectPrat(this)">deuxième</button><button class="gram-prat-btn" data-val="deuxièmes" onclick="selectPrat(this)">deuxièmes</button></div></div><div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div></div>
+<div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
@@ -694,7 +702,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
-<button class="btn-ns" id="prat-exit" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(8)" disabled style="opacity:.35">✏️ Exercices →</button>
+<button class="btn-ns" id="prat-exit" data-fr="Suivant →" data-zh="继续 →" onclick="goSlide(8)" disabled style="opacity:.35">Suivant →</button>
 </div>
 </div>
 <script>
@@ -785,6 +793,100 @@ window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}else{var ex=doc
 render();
 })();
 </script>
+<!-- ══ SLIDE GR2 : GRAMMAIRE RÈGLE 2/2 ══ -->
+<div class="slide" id="slide-gr2">
+<div class="slide-body">
+<div class="card">
+<div class="card-head head-gram">📖 Nombres 70–100<span class="comm-zh"> · 语法要点</span></div>
+<div class="card-body"><div class="gram-rule"><div class="gram-rule-body"><strong>Les nombres de 70 à 100</strong><span class="comm-zh"> · 数字 70 到 100</span></div></div><div class="gram-ex">• 70 = soixante-dix · 71 = soixante et onze · 72 = soixante-douze…<br/>• 80 = quatre-vingts · 81 = quatre-vingt-un · 90 = quatre-vingt-dix<br/>• 100 = cent</div>
+<div class="gram-prat-section">
+<div class="gram-prat-label">🎯 Pratique</div>
+<div class="gram-prat-row">
+<div class="gram-prat"><div class="gram-prat-subtitle">Nombres 70–100</div><div class="gram-prat-item" data-ans="soixante-douze"><div class="gram-prat-q">72 = ___</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="soixante-douze" onclick="selectPrat(this)">soixante-douze</button><button class="gram-prat-btn" data-val="septante-deux" onclick="selectPrat(this)">septante-deux</button><button class="gram-prat-btn" data-val="quatre-vingt-deux" onclick="selectPrat(this)">quatre-vingt-deux</button></div></div><div class="gram-prat-item" data-ans="quatre-vingts"><div class="gram-prat-q">80 = ___</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="quatre-vingt" onclick="selectPrat(this)">quatre-vingt</button><button class="gram-prat-btn" data-val="quatre-vingts" onclick="selectPrat(this)">quatre-vingts</button><button class="gram-prat-btn" data-val="quatre-vingt-dix" onclick="selectPrat(this)">quatre-vingt-dix</button></div></div><div class="gram-prat-item" data-ans="quatre-vingt-un"><div class="gram-prat-q">81 = ___</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="quatre-vingt-un" onclick="selectPrat(this)">quatre-vingt-un</button><button class="gram-prat-btn" data-val="quatre-vingt-onze" onclick="selectPrat(this)">quatre-vingt-onze</button><button class="gram-prat-btn" data-val="soixante-et-onze" onclick="selectPrat(this)">soixante-et-onze</button></div></div><div class="gram-prat-item" data-ans="quatre-vingt-dix"><div class="gram-prat-q">90 = ___</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="quatre-vingt-dix" onclick="selectPrat(this)">quatre-vingt-dix</button><button class="gram-prat-btn" data-val="quatre-vingt" onclick="selectPrat(this)">quatre-vingt</button><button class="gram-prat-btn" data-val="soixante-dix" onclick="selectPrat(this)">soixante-dix</button></div></div><div class="gram-prat-item" data-ans="cent"><div class="gram-prat-q">100 = ___</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="cent" onclick="selectPrat(this)">cent</button><button class="gram-prat-btn" data-val="cents" onclick="selectPrat(this)">cents</button><button class="gram-prat-btn" data-val="cent-un" onclick="selectPrat(this)">cent-un</button></div></div><div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div></div>
+<div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Pratique 1" data-zh="← 练习 1" onclick="goSlide(7)">← Pratique 1</button>
+<button class="btn-ns" data-fr="⚡ Pratique →" data-zh="⚡ 练习 →" onclick="goSlide(9)">⚡ Pratique →</button>
+</div>
+</div>
+<!-- ══ SLIDE PM2 : PRATIQUE RÈGLE 2 ══ -->
+<div class="slide" id="slide-pm2">
+<div class="slide-header">📖 Grammaire <span class="slide-part">— Pratique 2/2</span></div>
+<div class="slide-body" style="justify-content:flex-start;padding:16px;gap:0;overflow-y:auto">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;width:100%">
+<div id="prat-title-r2" style="font-size:13px;font-weight:500;color:var(--purp)"></div>
+<div id="prat-counter-r2" style="font-size:12px;color:var(--muted);background:var(--purp-l);padding:3px 10px;border-radius:99px"></div>
+</div>
+<div id="prat-body-r2" style="width:100%;display:flex;flex-direction:column;align-items:center;min-height:300px"></div>
+<div id="prat-success-r2" style="display:none;margin-top:8px;padding:9px 14px;border-radius:8px;background:#EAF3DE;border:1px solid #0ca30c;color:#3B6D11;font-size:13px;font-weight:500;text-align:center;width:100%"></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;width:100%">
+<button class="btn-ns" id="prat-reset-r2" onclick="pratResetR2()">↺ Recommencer</button>
+<span id="prat-score-r2" style="font-size:13px;color:var(--muted)"></span>
+<button class="btn-ns" id="prat-next-r2" onclick="pratNextR2()" disabled>Suivant →</button>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Règle 2" data-zh="← 语法 2" onclick="goSlide(8)">← Règle 2</button>
+<button class="btn-ns" id="prat-exit-r2" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(10)" disabled style="opacity:.35">✏️ Exercices →</button>
+</div>
+</div>
+<script>
+(function(){
+var ACTS2=[{id:'wo2',title:"🔀 Remettre dans l'ordre — Nombres 70–100",type:'wordorder',sentences:[{words:['Mon','père','a','soixante-quinze','ans','.'],zh:'我父亲七十五岁。'},{words:['Vous','avez','quatre-vingts','livres','?'],zh:'你们有八十本书吗？'}]}];
+var cur2=0;
+function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function render2(){
+  var a=ACTS2[cur2];
+  document.getElementById('prat-title-r2').textContent=a.title;
+  document.getElementById('prat-counter-r2').textContent='Activité '+(cur2+1)+' / '+ACTS2.length;
+  document.getElementById('prat-success-r2').style.display='none';
+  document.getElementById('prat-score-r2').textContent='';
+  var nb=document.getElementById('prat-next-r2');
+  nb.disabled=true;nb.textContent='Suivant →';
+  renderWO2(a);
+}
+function renderWO2(a){
+  var b=document.getElementById('prat-body-r2');var si=0;var placed=[];
+  function renderS(){
+    var s=a.sentences[si];placed=[];
+    b.innerHTML='<p style="font-size:13px;color:var(--muted);margin-bottom:10px;text-align:center">'+s.zh+'</p><div id="wo-z-r2" style="min-height:50px;border:1.5px dashed var(--border-strong,#999);border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;width:100%;background:var(--bg-l,#f8f9fa)"></div><div id="wo-b-r2" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%"></div><div id="wo-fb-r2" style="font-size:13px;text-align:center;padding:8px;border-radius:8px;width:100%"></div><div style="display:flex;gap:8px;justify-content:center"><button class="btn-ns" onclick="woChkR2()">✓ Vérifier</button><button class="btn-ns" onclick="woClR2()">↺ Effacer</button></div>';
+    shuf([...s.words]).forEach(function(w){
+      var el=document.createElement('div');
+      el.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
+      el.textContent=w;
+      el.onclick=function(){
+        if(el.dataset.used)return;el.dataset.used='1';el.style.opacity='.35';el.style.cursor='default';
+        var p=document.createElement('div');
+        p.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--purp);background:var(--purp-l);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
+        p.textContent=w;placed.push({word:w,src:el});
+        p.onclick=function(){p.remove();delete el.dataset.used;el.style.opacity='';el.style.cursor='pointer';placed=placed.filter(function(x){return x.src!==el;});};
+        document.getElementById('wo-z-r2').appendChild(p);
+      };
+      document.getElementById('wo-b-r2').appendChild(el);
+    });
+    window.woChkR2=function(){
+      var correct=s.words;var pw=placed.map(function(x){return x.word;});
+      var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
+      var fb=document.getElementById('wo-fb-r2');
+      if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r2').style.display='block';document.getElementById('prat-next-r2').disabled=false;},700);}
+        else{setTimeout(function(){renderS();},900);}
+      }else{fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
+    };
+    window.woClR2=function(){document.getElementById('wo-z-r2').innerHTML='';placed=[];document.querySelectorAll('#wo-b-r2 div').forEach(function(el){delete el.dataset.used;el.style.opacity='';el.style.cursor='pointer';});document.getElementById('wo-fb-r2').textContent='';document.getElementById('wo-fb-r2').style.background='';};
+  }
+  renderS();
+}
+window.pratResetR2=function(){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur2=0;render2();};
+window.pratNextR2=function(){if(cur2<ACTS2.length-1){cur2++;render2();}else{var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}document.getElementById('prat-next-r2').disabled=true;}};
+render2();
+})();
+</script>
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
 <div class="slide" id="slide-7">
 <div class="slide-header">Exercices <span class="slide-part">1/2</span></div>
@@ -816,8 +918,8 @@ render();
 <div class="assoc-left"><span class="assoc-word">5. prendre un café e. 早上 ou l'après-midi</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-3A-ex4-4" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-3A-ex4-4','fb-ma-3A-ex4-4')">✓</button><span class="fb" id="fb-ma-3A-ex4-4"></span></div>
 </div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div></div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(7)">← Grammaire</button>
-<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(9)">Suite →</button>
+<button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(9)">← Pratique 2</button>
+<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(11)">Suite →</button>
 </div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
@@ -920,8 +1022,8 @@ render();
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" onclick="goSlide(8)">← Exercices 1/2</button>
-<button class="btn-ns" onclick="goSlide(10)">✍️ À toi ! →</button>
+<button class="btn-ns" onclick="goSlide(10)">← Exercices 1/2</button>
+<button class="btn-ns" onclick="goSlide(12)">✍️ À toi ! →</button>
 </div>
 </div>
 <div class="slide" id="slide-10">
@@ -976,7 +1078,7 @@ avec les heures).
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var LESSON='3A';
-var TAB_FOR_SLIDE=[0,1,2,2,2,3,4,4,5,5,6];
+var TAB_FOR_SLIDE=[0,1,2,2,2,3,4,4,4,4,5,5,6];
 
 var currentSlide=0;
 

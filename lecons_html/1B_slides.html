@@ -493,8 +493,8 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
 <button class="slide-tab" data-fr="🎤 Prononciation" data-zh="🎤 发音" onclick="goSlide(5)">🎤 Prononciation</button>
 <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
-<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(8)">✏️ Exercices</button>
-<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(10)">✍️ À toi !</button>
+<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(12)">✏️ Exercices</button>
+<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(14)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -680,12 +680,20 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <button class="btn-ns" data-fr="📖 Grammaire →" data-zh="📖 语法 →" onclick="goSlide(6)">📖 Grammaire →</button>
 </div>
 </div>
-<!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
-<div class="slide" id="slide-6">
+<!-- ══ SLIDE GR1 : GRAMMAIRE RÈGLE 1/3 ══ -->
+<div class="slide" id="slide-gr1">
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-gram">📖 Le verbe AVOIR au présent<span class="comm-zh"> · 语法要点</span></div>
-<div class="card-body"><div class="gram-rule"><div class="gram-rule-body">Le verbe <strong>AVOIR</strong> est irrégulier. Il exprime la possession et entre dans de nombreuses expressions.<span class="comm-zh"> · 动词AVOIR不规则，表达"拥有"，也用于许多固定表达。</span></div></div><div class="gram-observe"><div class="gram-observe-label">👀 Observe et complète le tableau<span class="comm-zh"> · 观察并填写表格</span></div>• J'ai un cours le mardi. / Tu as un bon niveau !</div><table class="gram-table gram-fc"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td class="gram-pf">j'ai</td><td><input class="gram-input" data-ans="nous avons" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="tu as" placeholder="?"></td><td><input class="gram-input" data-ans="vous avez" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="il / elle a" placeholder="?"></td><td class="gram-pf">ils / elles ont</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyGram(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="hideGram(this)">↺ Effacer</button><button class="gram-sc-btn" onclick="revealGram(this)">👁 Révéler</button></div><div class="gram-row"><div class="gram-col gram-c2"><div class="gram-rule"><div class="gram-rule-body">Les <strong>articles définis</strong> (<em>le, la, l', les</em>) désignent quelque chose de <strong>spécifique</strong> ou de déjà connu des deux interlocuteurs.<span class="comm-zh"> 定冠词（le, la, l', les）指已知或特定的事物。</span></div></div><div class="gram-observe"><div class="gram-observe-label">👀 Observe et complète le tableau<span class="comm-zh"> · 观察并填写表格</span></div>• <em>le</em> cours · <em>la</em> langue · <em>l'</em>application · <em>les</em> étudiants</div><table class="gram-table gram-fc"><thead><tr><th></th><th>Masculin</th><th>Féminin</th></tr></thead><tbody><tr><td class="gram-pf">Singulier</td><td class="gram-pf">le</td><td><input class="gram-input" data-ans="la" placeholder="?"></td></tr><tr><td class="gram-pf">Pluriel</td><td><input class="gram-input" data-ans="les" placeholder="?"></td><td class="gram-pf">les</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyGram(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="hideGram(this)">↺ Effacer</button><button class="gram-sc-btn" onclick="revealGram(this)">👁 Révéler</button></div><div class="gram-note"><strong>ℹ️ Élision<span class="comm-zh"> 省音</span></strong> — devant une voyelle ou h muet → le / la = l'<span class="comm-zh"> · 元音或哑音h前，le/la缩写为l'</span></div></div><div class="gram-col gram-c3"><div class="gram-rule"><div class="gram-rule-body">Les <strong>articles indéfinis</strong> (<em>un, une, des</em>) introduisent quelque chose de <strong>nouveau</strong> ou de non précisé.<span class="comm-zh"> 不定冠词（un, une, des）引入新的或不特定的事物。</span></div></div><div class="gram-observe"><div class="gram-observe-label">👀 Observe et complète le tableau<span class="comm-zh"> · 观察并填写表格</span></div>• J'ai <em>un</em> dictionnaire. · Elle a <em>une</em> appli. · Nous avons <em>des</em> cours.</div><table class="gram-table gram-fc"><thead><tr><th></th><th>Masculin</th><th>Féminin</th></tr></thead><tbody><tr><td class="gram-pf">Singulier</td><td class="gram-pf">un</td><td><input class="gram-input" data-ans="une" placeholder="?"></td></tr><tr><td class="gram-pf">Pluriel</td><td><input class="gram-input" data-ans="des" placeholder="?"></td><td class="gram-pf">des</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyGram(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="hideGram(this)">↺ Effacer</button><button class="gram-sc-btn" onclick="revealGram(this)">👁 Révéler</button></div></div></div><div class="gram-prat-section"><div class="gram-prat-label">🎯 Pratique</div><div class="gram-prat-row"><div class="gram-prat"><div class="gram-prat-subtitle">Avoir</div><div class="gram-prat-item" data-ans="ai"><div class="gram-prat-q">J'___ un cours le mardi.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="a" onclick="selectPrat(this)">a</button><button class="gram-prat-btn" data-val="ai" onclick="selectPrat(this)">ai</button><button class="gram-prat-btn" data-val="avez" onclick="selectPrat(this)">avez</button></div></div><div class="gram-prat-item" data-ans="as"><div class="gram-prat-q">Tu ___ un dictionnaire ?</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="a" onclick="selectPrat(this)">a</button><button class="gram-prat-btn" data-val="as" onclick="selectPrat(this)">as</button><button class="gram-prat-btn" data-val="avez" onclick="selectPrat(this)">avez</button></div></div><div class="gram-prat-item" data-ans="a"><div class="gram-prat-q">Elle ___ deux frères.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="ai" onclick="selectPrat(this)">ai</button><button class="gram-prat-btn" data-val="as" onclick="selectPrat(this)">as</button><button class="gram-prat-btn" data-val="a" onclick="selectPrat(this)">a</button></div></div><div class="gram-prat-item" data-ans="avez"><div class="gram-prat-q">Vous ___ la classe à 9h ?</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="avez" onclick="selectPrat(this)">avez</button><button class="gram-prat-btn" data-val="ont" onclick="selectPrat(this)">ont</button><button class="gram-prat-btn" data-val="avons" onclick="selectPrat(this)">avons</button></div></div><div class="gram-prat-item" data-ans="ont"><div class="gram-prat-q">Ils ___ un bon professeur.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="ont" onclick="selectPrat(this)">ont</button><button class="gram-prat-btn" data-val="avez" onclick="selectPrat(this)">avez</button><button class="gram-prat-btn" data-val="avons" onclick="selectPrat(this)">avons</button></div></div><div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div></div><div class="gram-prat"><div class="gram-prat-subtitle">Articles définis</div><div class="gram-prat-item" data-ans="le"><div class="gram-prat-q">___ cours commence à 9h.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="le" onclick="selectPrat(this)">le</button><button class="gram-prat-btn" data-val="la" onclick="selectPrat(this)">la</button><button class="gram-prat-btn" data-val="les" onclick="selectPrat(this)">les</button></div></div><div class="gram-prat-item" data-ans="les"><div class="gram-prat-q">Tu aimes ___ langues étrangères ?</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="le" onclick="selectPrat(this)">le</button><button class="gram-prat-btn" data-val="la" onclick="selectPrat(this)">la</button><button class="gram-prat-btn" data-val="les" onclick="selectPrat(this)">les</button></div></div><div class="gram-prat-item" data-ans="l'"><div class="gram-prat-q">___ application est pratique.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="le" onclick="selectPrat(this)">le</button><button class="gram-prat-btn" data-val="l'" onclick="selectPrat(this)">l'</button><button class="gram-prat-btn" data-val="la" onclick="selectPrat(this)">la</button></div></div><div class="gram-prat-item" data-ans="le"><div class="gram-prat-q">Comment s'appelle ___ professeur ?</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="le" onclick="selectPrat(this)">le</button><button class="gram-prat-btn" data-val="la" onclick="selectPrat(this)">la</button><button class="gram-prat-btn" data-val="les" onclick="selectPrat(this)">les</button></div></div><div class="gram-prat-item" data-ans="les"><div class="gram-prat-q">___ étudiants sont sympas.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="les" onclick="selectPrat(this)">les</button><button class="gram-prat-btn" data-val="le" onclick="selectPrat(this)">le</button><button class="gram-prat-btn" data-val="la" onclick="selectPrat(this)">la</button></div></div><div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div></div><div class="gram-prat"><div class="gram-prat-subtitle">Articles indéfinis</div><div class="gram-prat-item" data-ans="un"><div class="gram-prat-q">J'ai ___ cours le lundi.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="un" onclick="selectPrat(this)">un</button><button class="gram-prat-btn" data-val="une" onclick="selectPrat(this)">une</button><button class="gram-prat-btn" data-val="des" onclick="selectPrat(this)">des</button></div></div><div class="gram-prat-item" data-ans="une"><div class="gram-prat-q">Elle a ___ application sympa.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="un" onclick="selectPrat(this)">un</button><button class="gram-prat-btn" data-val="une" onclick="selectPrat(this)">une</button><button class="gram-prat-btn" data-val="des" onclick="selectPrat(this)">des</button></div></div><div class="gram-prat-item" data-ans="des"><div class="gram-prat-q">Nous avons ___ collègues sympa.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="un" onclick="selectPrat(this)">un</button><button class="gram-prat-btn" data-val="une" onclick="selectPrat(this)">une</button><button class="gram-prat-btn" data-val="des" onclick="selectPrat(this)">des</button></div></div><div class="gram-prat-item" data-ans="un"><div class="gram-prat-q">Il cherche ___ dictionnaire.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="un" onclick="selectPrat(this)">un</button><button class="gram-prat-btn" data-val="une" onclick="selectPrat(this)">une</button><button class="gram-prat-btn" data-val="des" onclick="selectPrat(this)">des</button></div></div><div class="gram-prat-item" data-ans="une"><div class="gram-prat-q">Tu as ___ idée ?</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="un" onclick="selectPrat(this)">un</button><button class="gram-prat-btn" data-val="une" onclick="selectPrat(this)">une</button><button class="gram-prat-btn" data-val="des" onclick="selectPrat(this)">des</button></div></div><div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div></div></div></div></div>
+<div class="card-body"><div class="gram-rule"><div class="gram-rule-body">Le verbe <strong>AVOIR</strong> est irrégulier. Il exprime la possession et entre dans de nombreuses expressions.<span class="comm-zh"> · 动词AVOIR不规则，表达"拥有"，也用于许多固定表达。</span></div></div><div class="gram-observe"><div class="gram-observe-label">👀 Observe et complète le tableau<span class="comm-zh"> · 观察并填写表格</span></div>• J'ai un cours le mardi. / Tu as un bon niveau !</div><table class="gram-table gram-fc"><thead><tr><th>Singulier</th><th>Pluriel</th></tr></thead><tbody><tr><td class="gram-pf">j'ai</td><td><input class="gram-input" data-ans="nous avons" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="tu as" placeholder="?"></td><td><input class="gram-input" data-ans="vous avez" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="il / elle a" placeholder="?"></td><td class="gram-pf">ils / elles ont</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyGram(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="hideGram(this)">↺ Effacer</button><button class="gram-sc-btn" onclick="revealGram(this)">👁 Révéler</button></div>
+<div class="gram-prat-section">
+<div class="gram-prat-label">🎯 Pratique</div>
+<div class="gram-prat-row">
+<div class="gram-prat"><div class="gram-prat-subtitle">Avoir</div><div class="gram-prat-item" data-ans="ai"><div class="gram-prat-q">J'___ un cours le mardi.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="a" onclick="selectPrat(this)">a</button><button class="gram-prat-btn" data-val="ai" onclick="selectPrat(this)">ai</button><button class="gram-prat-btn" data-val="avez" onclick="selectPrat(this)">avez</button></div></div><div class="gram-prat-item" data-ans="as"><div class="gram-prat-q">Tu ___ un dictionnaire ?</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="a" onclick="selectPrat(this)">a</button><button class="gram-prat-btn" data-val="as" onclick="selectPrat(this)">as</button><button class="gram-prat-btn" data-val="avez" onclick="selectPrat(this)">avez</button></div></div><div class="gram-prat-item" data-ans="a"><div class="gram-prat-q">Elle ___ deux frères.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="ai" onclick="selectPrat(this)">ai</button><button class="gram-prat-btn" data-val="as" onclick="selectPrat(this)">as</button><button class="gram-prat-btn" data-val="a" onclick="selectPrat(this)">a</button></div></div><div class="gram-prat-item" data-ans="avez"><div class="gram-prat-q">Vous ___ la classe à 9h ?</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="avez" onclick="selectPrat(this)">avez</button><button class="gram-prat-btn" data-val="ont" onclick="selectPrat(this)">ont</button><button class="gram-prat-btn" data-val="avons" onclick="selectPrat(this)">avons</button></div></div><div class="gram-prat-item" data-ans="ont"><div class="gram-prat-q">Ils ___ un bon professeur.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="ont" onclick="selectPrat(this)">ont</button><button class="gram-prat-btn" data-val="avez" onclick="selectPrat(this)">avez</button><button class="gram-prat-btn" data-val="avons" onclick="selectPrat(this)">avons</button></div></div><div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div></div>
+<div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
@@ -711,7 +719,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
-<button class="btn-ns" id="prat-exit" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(8)" disabled style="opacity:.35">✏️ Exercices →</button>
+<button class="btn-ns" id="prat-exit" data-fr="Suivant →" data-zh="继续 →" onclick="goSlide(8)" disabled style="opacity:.35">Suivant →</button>
 </div>
 </div>
 <script>
@@ -802,6 +810,194 @@ window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}else{var ex=doc
 render();
 })();
 </script>
+<!-- ══ SLIDE GR2 : GRAMMAIRE RÈGLE 2/3 ══ -->
+<div class="slide" id="slide-gr2">
+<div class="slide-body">
+<div class="card">
+<div class="card-head head-gram">📖 Articles définis<span class="comm-zh"> · 语法要点</span></div>
+<div class="card-body"><div class="gram-rule"><div class="gram-rule-body">Les <strong>articles définis</strong> (<em>le, la, l', les</em>) désignent quelque chose de <strong>spécifique</strong> ou de déjà connu des deux interlocuteurs.<span class="comm-zh"> 定冠词（le, la, l', les）指已知或特定的事物。</span></div></div><div class="gram-observe"><div class="gram-observe-label">👀 Observe et complète le tableau<span class="comm-zh"> · 观察并填写表格</span></div>• <em>le</em> cours · <em>la</em> langue · <em>l'</em>application · <em>les</em> étudiants</div><table class="gram-table gram-fc"><thead><tr><th></th><th>Masculin</th><th>Féminin</th></tr></thead><tbody><tr><td class="gram-pf">Singulier</td><td class="gram-pf">le</td><td><input class="gram-input" data-ans="la" placeholder="?"></td></tr><tr><td class="gram-pf">Pluriel</td><td><input class="gram-input" data-ans="les" placeholder="?"></td><td class="gram-pf">les</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyGram(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="hideGram(this)">↺ Effacer</button><button class="gram-sc-btn" onclick="revealGram(this)">👁 Révéler</button></div><div class="gram-note"><strong>ℹ️ Élision<span class="comm-zh"> 省音</span></strong> — devant une voyelle ou h muet → le / la = l'<span class="comm-zh"> · 元音或哑音h前，le/la缩写为l'</span></div>
+<div class="gram-prat-section">
+<div class="gram-prat-label">🎯 Pratique</div>
+<div class="gram-prat-row">
+<div class="gram-prat"><div class="gram-prat-subtitle">Articles définis</div><div class="gram-prat-item" data-ans="le"><div class="gram-prat-q">___ cours commence à 9h.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="le" onclick="selectPrat(this)">le</button><button class="gram-prat-btn" data-val="la" onclick="selectPrat(this)">la</button><button class="gram-prat-btn" data-val="les" onclick="selectPrat(this)">les</button></div></div><div class="gram-prat-item" data-ans="les"><div class="gram-prat-q">Tu aimes ___ langues étrangères ?</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="le" onclick="selectPrat(this)">le</button><button class="gram-prat-btn" data-val="la" onclick="selectPrat(this)">la</button><button class="gram-prat-btn" data-val="les" onclick="selectPrat(this)">les</button></div></div><div class="gram-prat-item" data-ans="l'"><div class="gram-prat-q">___ application est pratique.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="le" onclick="selectPrat(this)">le</button><button class="gram-prat-btn" data-val="l'" onclick="selectPrat(this)">l'</button><button class="gram-prat-btn" data-val="la" onclick="selectPrat(this)">la</button></div></div><div class="gram-prat-item" data-ans="le"><div class="gram-prat-q">Comment s'appelle ___ professeur ?</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="le" onclick="selectPrat(this)">le</button><button class="gram-prat-btn" data-val="la" onclick="selectPrat(this)">la</button><button class="gram-prat-btn" data-val="les" onclick="selectPrat(this)">les</button></div></div><div class="gram-prat-item" data-ans="les"><div class="gram-prat-q">___ étudiants sont sympas.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="les" onclick="selectPrat(this)">les</button><button class="gram-prat-btn" data-val="le" onclick="selectPrat(this)">le</button><button class="gram-prat-btn" data-val="la" onclick="selectPrat(this)">la</button></div></div><div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div></div>
+<div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Pratique 1" data-zh="← 练习 1" onclick="goSlide(7)">← Pratique 1</button>
+<button class="btn-ns" data-fr="⚡ Pratique →" data-zh="⚡ 练习 →" onclick="goSlide(9)">⚡ Pratique →</button>
+</div>
+</div>
+<!-- ══ SLIDE PM2 : PRATIQUE RÈGLE 2 ══ -->
+<div class="slide" id="slide-pm2">
+<div class="slide-header">📖 Grammaire <span class="slide-part">— Pratique 2/3</span></div>
+<div class="slide-body" style="justify-content:flex-start;padding:16px;gap:0;overflow-y:auto">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;width:100%">
+<div id="prat-title-r2" style="font-size:13px;font-weight:500;color:var(--purp)"></div>
+<div id="prat-counter-r2" style="font-size:12px;color:var(--muted);background:var(--purp-l);padding:3px 10px;border-radius:99px"></div>
+</div>
+<div id="prat-body-r2" style="width:100%;display:flex;flex-direction:column;align-items:center;min-height:300px"></div>
+<div id="prat-success-r2" style="display:none;margin-top:8px;padding:9px 14px;border-radius:8px;background:#EAF3DE;border:1px solid #0ca30c;color:#3B6D11;font-size:13px;font-weight:500;text-align:center;width:100%"></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;width:100%">
+<button class="btn-ns" id="prat-reset-r2" onclick="pratResetR2()">↺ Recommencer</button>
+<span id="prat-score-r2" style="font-size:13px;color:var(--muted)"></span>
+<button class="btn-ns" id="prat-next-r2" onclick="pratNextR2()" disabled>Suivant →</button>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Règle 2" data-zh="← 语法 2" onclick="goSlide(8)">← Règle 2</button>
+<button class="btn-ns" id="prat-exit-r2" data-fr="Suivant →" data-zh="继续 →" onclick="goSlide(11)" disabled style="opacity:.35">Suivant →</button>
+</div>
+</div>
+<script>
+(function(){
+var ACTS2=[{id:'wo2',title:"🔀 Remettre dans l'ordre — Articles définis",type:'wordorder',sentences:[{words:['Tu','aimes','le','chocolat','chaud','?'],zh:'你喜欢热巧克力吗？'},{words:['Nous','aimons','le','cinéma','français','.'],zh:'我们喜欢法国电影。'}]}];
+var cur2=0;
+function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function render2(){
+  var a=ACTS2[cur2];
+  document.getElementById('prat-title-r2').textContent=a.title;
+  document.getElementById('prat-counter-r2').textContent='Activité '+(cur2+1)+' / '+ACTS2.length;
+  document.getElementById('prat-success-r2').style.display='none';
+  document.getElementById('prat-score-r2').textContent='';
+  var nb=document.getElementById('prat-next-r2');
+  nb.disabled=true;nb.textContent='Suivant →';
+  renderWO2(a);
+}
+function renderWO2(a){
+  var b=document.getElementById('prat-body-r2');var si=0;var placed=[];
+  function renderS(){
+    var s=a.sentences[si];placed=[];
+    b.innerHTML='<p style="font-size:13px;color:var(--muted);margin-bottom:10px;text-align:center">'+s.zh+'</p><div id="wo-z-r2" style="min-height:50px;border:1.5px dashed var(--border-strong,#999);border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;width:100%;background:var(--bg-l,#f8f9fa)"></div><div id="wo-b-r2" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%"></div><div id="wo-fb-r2" style="font-size:13px;text-align:center;padding:8px;border-radius:8px;width:100%"></div><div style="display:flex;gap:8px;justify-content:center"><button class="btn-ns" onclick="woChkR2()">✓ Vérifier</button><button class="btn-ns" onclick="woClR2()">↺ Effacer</button></div>';
+    shuf([...s.words]).forEach(function(w){
+      var el=document.createElement('div');
+      el.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
+      el.textContent=w;
+      el.onclick=function(){
+        if(el.dataset.used)return;el.dataset.used='1';el.style.opacity='.35';el.style.cursor='default';
+        var p=document.createElement('div');
+        p.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--purp);background:var(--purp-l);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
+        p.textContent=w;placed.push({word:w,src:el});
+        p.onclick=function(){p.remove();delete el.dataset.used;el.style.opacity='';el.style.cursor='pointer';placed=placed.filter(function(x){return x.src!==el;});};
+        document.getElementById('wo-z-r2').appendChild(p);
+      };
+      document.getElementById('wo-b-r2').appendChild(el);
+    });
+    window.woChkR2=function(){
+      var correct=s.words;var pw=placed.map(function(x){return x.word;});
+      var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
+      var fb=document.getElementById('wo-fb-r2');
+      if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r2').style.display='block';document.getElementById('prat-next-r2').disabled=false;},700);}
+        else{setTimeout(function(){renderS();},900);}
+      }else{fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
+    };
+    window.woClR2=function(){document.getElementById('wo-z-r2').innerHTML='';placed=[];document.querySelectorAll('#wo-b-r2 div').forEach(function(el){delete el.dataset.used;el.style.opacity='';el.style.cursor='pointer';});document.getElementById('wo-fb-r2').textContent='';document.getElementById('wo-fb-r2').style.background='';};
+  }
+  renderS();
+}
+window.pratResetR2=function(){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur2=0;render2();};
+window.pratNextR2=function(){if(cur2<ACTS2.length-1){cur2++;render2();}else{var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}document.getElementById('prat-next-r2').disabled=true;}};
+render2();
+})();
+</script>
+<!-- ══ SLIDE GR3 : GRAMMAIRE RÈGLE 3/3 ══ -->
+<div class="slide" id="slide-gr3">
+<div class="slide-body">
+<div class="card">
+<div class="card-head head-gram">📖 Articles indéfinis<span class="comm-zh"> · 语法要点</span></div>
+<div class="card-body"><div class="gram-rule"><div class="gram-rule-body">Les <strong>articles indéfinis</strong> (<em>un, une, des</em>) introduisent quelque chose de <strong>nouveau</strong> ou de non précisé.<span class="comm-zh"> 不定冠词（un, une, des）引入新的或不特定的事物。</span></div></div><div class="gram-observe"><div class="gram-observe-label">👀 Observe et complète le tableau<span class="comm-zh"> · 观察并填写表格</span></div>• J'ai <em>un</em> dictionnaire. · Elle a <em>une</em> appli. · Nous avons <em>des</em> cours.</div><table class="gram-table gram-fc"><thead><tr><th></th><th>Masculin</th><th>Féminin</th></tr></thead><tbody><tr><td class="gram-pf">Singulier</td><td class="gram-pf">un</td><td><input class="gram-input" data-ans="une" placeholder="?"></td></tr><tr><td class="gram-pf">Pluriel</td><td><input class="gram-input" data-ans="des" placeholder="?"></td><td class="gram-pf">des</td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyGram(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="hideGram(this)">↺ Effacer</button><button class="gram-sc-btn" onclick="revealGram(this)">👁 Révéler</button></div>
+<div class="gram-prat-section">
+<div class="gram-prat-label">🎯 Pratique</div>
+<div class="gram-prat-row">
+<div class="gram-prat"><div class="gram-prat-subtitle">Articles indéfinis</div><div class="gram-prat-item" data-ans="un"><div class="gram-prat-q">J'ai ___ cours le lundi.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="un" onclick="selectPrat(this)">un</button><button class="gram-prat-btn" data-val="une" onclick="selectPrat(this)">une</button><button class="gram-prat-btn" data-val="des" onclick="selectPrat(this)">des</button></div></div><div class="gram-prat-item" data-ans="une"><div class="gram-prat-q">Elle a ___ application sympa.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="un" onclick="selectPrat(this)">un</button><button class="gram-prat-btn" data-val="une" onclick="selectPrat(this)">une</button><button class="gram-prat-btn" data-val="des" onclick="selectPrat(this)">des</button></div></div><div class="gram-prat-item" data-ans="des"><div class="gram-prat-q">Nous avons ___ collègues sympa.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="un" onclick="selectPrat(this)">un</button><button class="gram-prat-btn" data-val="une" onclick="selectPrat(this)">une</button><button class="gram-prat-btn" data-val="des" onclick="selectPrat(this)">des</button></div></div><div class="gram-prat-item" data-ans="un"><div class="gram-prat-q">Il cherche ___ dictionnaire.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="un" onclick="selectPrat(this)">un</button><button class="gram-prat-btn" data-val="une" onclick="selectPrat(this)">une</button><button class="gram-prat-btn" data-val="des" onclick="selectPrat(this)">des</button></div></div><div class="gram-prat-item" data-ans="une"><div class="gram-prat-q">Tu as ___ idée ?</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="un" onclick="selectPrat(this)">un</button><button class="gram-prat-btn" data-val="une" onclick="selectPrat(this)">une</button><button class="gram-prat-btn" data-val="des" onclick="selectPrat(this)">des</button></div></div><div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div></div>
+<div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Pratique 2" data-zh="← 练习 2" onclick="goSlide(9)">← Pratique 2</button>
+<button class="btn-ns" data-fr="⚡ Pratique →" data-zh="⚡ 练习 →" onclick="goSlide(11)">⚡ Pratique →</button>
+</div>
+</div>
+<!-- ══ SLIDE PM3 : PRATIQUE RÈGLE 3 ══ -->
+<div class="slide" id="slide-pm3">
+<div class="slide-header">📖 Grammaire <span class="slide-part">— Pratique 3/3</span></div>
+<div class="slide-body" style="justify-content:flex-start;padding:16px;gap:0;overflow-y:auto">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;width:100%">
+<div id="prat-title-r3" style="font-size:13px;font-weight:500;color:var(--purp)"></div>
+<div id="prat-counter-r3" style="font-size:12px;color:var(--muted);background:var(--purp-l);padding:3px 10px;border-radius:99px"></div>
+</div>
+<div id="prat-body-r3" style="width:100%;display:flex;flex-direction:column;align-items:center;min-height:300px"></div>
+<div id="prat-success-r3" style="display:none;margin-top:8px;padding:9px 14px;border-radius:8px;background:#EAF3DE;border:1px solid #0ca30c;color:#3B6D11;font-size:13px;font-weight:500;text-align:center;width:100%"></div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;width:100%">
+<button class="btn-ns" id="prat-reset-r3" onclick="pratResetR3()">↺ Recommencer</button>
+<span id="prat-score-r3" style="font-size:13px;color:var(--muted)"></span>
+<button class="btn-ns" id="prat-next-r3" onclick="pratNextR3()" disabled>Suivant →</button>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Règle 3" data-zh="← 语法 3" onclick="goSlide(10)">← Règle 3</button>
+<button class="btn-ns" id="prat-exit-r3" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(12)" disabled style="opacity:.35">✏️ Exercices →</button>
+</div>
+</div>
+<script>
+(function(){
+var ACTS3=[{id:'wo3',title:"🔀 Remettre dans l'ordre — Articles indéfinis",type:'wordorder',sentences:[{words:['Tu','as','un','frère','ou','une','sœur','?'],zh:'你有兄弟还是姐妹？'},{words:['Elle','a','des','amis','français','.'],zh:'她有法国朋友。'}]}];
+var cur3=0;
+function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function render3(){
+  var a=ACTS3[cur3];
+  document.getElementById('prat-title-r3').textContent=a.title;
+  document.getElementById('prat-counter-r3').textContent='Activité '+(cur3+1)+' / '+ACTS3.length;
+  document.getElementById('prat-success-r3').style.display='none';
+  document.getElementById('prat-score-r3').textContent='';
+  var nb=document.getElementById('prat-next-r3');
+  nb.disabled=true;nb.textContent='Suivant →';
+  renderWO3(a);
+}
+function renderWO3(a){
+  var b=document.getElementById('prat-body-r3');var si=0;var placed=[];
+  function renderS(){
+    var s=a.sentences[si];placed=[];
+    b.innerHTML='<p style="font-size:13px;color:var(--muted);margin-bottom:10px;text-align:center">'+s.zh+'</p><div id="wo-z-r3" style="min-height:50px;border:1.5px dashed var(--border-strong,#999);border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;width:100%;background:var(--bg-l,#f8f9fa)"></div><div id="wo-b-r3" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%"></div><div id="wo-fb-r3" style="font-size:13px;text-align:center;padding:8px;border-radius:8px;width:100%"></div><div style="display:flex;gap:8px;justify-content:center"><button class="btn-ns" onclick="woChkR3()">✓ Vérifier</button><button class="btn-ns" onclick="woClR3()">↺ Effacer</button></div>';
+    shuf([...s.words]).forEach(function(w){
+      var el=document.createElement('div');
+      el.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
+      el.textContent=w;
+      el.onclick=function(){
+        if(el.dataset.used)return;el.dataset.used='1';el.style.opacity='.35';el.style.cursor='default';
+        var p=document.createElement('div');
+        p.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--purp);background:var(--purp-l);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
+        p.textContent=w;placed.push({word:w,src:el});
+        p.onclick=function(){p.remove();delete el.dataset.used;el.style.opacity='';el.style.cursor='pointer';placed=placed.filter(function(x){return x.src!==el;});};
+        document.getElementById('wo-z-r3').appendChild(p);
+      };
+      document.getElementById('wo-b-r3').appendChild(el);
+    });
+    window.woChkR3=function(){
+      var correct=s.words;var pw=placed.map(function(x){return x.word;});
+      var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
+      var fb=document.getElementById('wo-fb-r3');
+      if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r3').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r3').style.display='block';document.getElementById('prat-next-r3').disabled=false;},700);}
+        else{setTimeout(function(){renderS();},900);}
+      }else{fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
+    };
+    window.woClR3=function(){document.getElementById('wo-z-r3').innerHTML='';placed=[];document.querySelectorAll('#wo-b-r3 div').forEach(function(el){delete el.dataset.used;el.style.opacity='';el.style.cursor='pointer';});document.getElementById('wo-fb-r3').textContent='';document.getElementById('wo-fb-r3').style.background='';};
+  }
+  renderS();
+}
+window.pratResetR3=function(){var ex=document.getElementById('prat-exit-r3');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur3=0;render3();};
+window.pratNextR3=function(){if(cur3<ACTS3.length-1){cur3++;render3();}else{var ex=document.getElementById('prat-exit-r3');if(ex){ex.disabled=false;ex.style.opacity='1';}document.getElementById('prat-next-r3').disabled=true;}};
+render3();
+})();
+</script>
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
 <div class="slide" id="slide-7">
 <div class="slide-header">Exercices <span class="slide-part">1/2</span></div>
@@ -861,8 +1057,8 @@ render();
 <div class="blank-row">3. <span>Ils ont </span><input autocomplete="off" class="blank-input" id="bl-1B-ex4-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex4-2').click()" type="text"/><button class="check-btn" data-ans="des" id="chk-bl-1B-ex4-2" onclick="checkBlankData(this,'bl-1B-ex4-2','fb-bl-1B-ex4-2')">✓</button><span class="fb" id="fb-bl-1B-ex4-2"></span><span> amis dans plusieurs pays.</span></div>
 <div class="blank-row">4. <span>Elle a </span><input autocomplete="off" class="blank-input" id="bl-1B-ex4-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1B-ex4-3').click()" type="text"/><button class="check-btn" data-ans="une" id="chk-bl-1B-ex4-3" onclick="checkBlankData(this,'bl-1B-ex4-3','fb-bl-1B-ex4-3')">✓</button><span class="fb" id="fb-bl-1B-ex4-3"></span><span> application de traduction.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div></div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(7)">← Grammaire</button>
-<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(9)">Suite →</button>
+<button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(11)">← Grammaire</button>
+<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(13)">Suite →</button>
 </div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
@@ -965,8 +1161,8 @@ render();
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" onclick="goSlide(8)">← Exercices 1/2</button>
-<button class="btn-ns" onclick="goSlide(10)">✍️ À toi ! →</button>
+<button class="btn-ns" onclick="goSlide(12)">← Exercices 1/2</button>
+<button class="btn-ns" onclick="goSlide(14)">✍️ À toi ! →</button>
 </div>
 </div>
 <div class="slide" id="slide-10">
@@ -1020,7 +1216,7 @@ render();
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var LESSON='1B';
-var TAB_FOR_SLIDE=[0,1,2,2,2,3,4,4,5,5,6];
+var TAB_FOR_SLIDE=[0,1,2,2,2,3,4,4,4,4,4,4,5,5,6];
 
 var currentSlide=0;
 
