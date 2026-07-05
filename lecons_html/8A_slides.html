@@ -694,7 +694,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 <div id="prat-body" style="width:100%;display:flex;flex-direction:column;align-items:center;min-height:300px"></div>
 <div id="prat-success" style="display:none;margin-top:8px;padding:9px 14px;border-radius:8px;background:#EAF3DE;border:1px solid #0ca30c;color:#3B6D11;font-size:13px;font-weight:500;text-align:center;width:100%"></div>
-<div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;width:100%">
+<div style="display:none">
 <button class="btn-ns" id="prat-reset" onclick="pratReset()">↺ Recommencer</button>
 <span id="prat-score" style="font-size:13px;color:var(--muted)"></span>
 <button class="btn-ns" id="prat-next" onclick="pratNext()" disabled>Suivant →</button>
@@ -702,7 +702,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
-<button class="btn-ns" id="prat-exit" data-fr="Suivant →" data-zh="继续 →" onclick="goSlide(8)" disabled style="opacity:.35">Suivant →</button>
+<button class="btn-ns" id="prat-exit" data-fr="Suivant →" data-zh="继续 →" onclick="goSlide(8)">Suivant →</button>
 </div>
 </div>
 <script>
@@ -734,7 +734,7 @@ function renderFlash(a){
     if(selL.dataset.k===selR.dataset.k){
       css(selL,'ok');css(selR,'ok');selL.onclick=null;selR.onclick=null;matched++;
       document.getElementById('prat-score').textContent='Trouvé : '+matched+' / '+a.pairs.length;
-      if(matched===a.pairs.length){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';document.getElementById('prat-next').disabled=false;}
+      if(matched===a.pairs.length){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';setTimeout(pratNext,1200);}
     } else {
       css(selL,'err');css(selR,'err');
       var sl=selL,sr=selR;setTimeout(function(){if(sl.style.cursor!=='default')css(sl,'');if(sr.style.cursor!=='default')css(sr,'');},600);
@@ -780,7 +780,7 @@ function renderWO(a){
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb');
       if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
-        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';document.getElementById('prat-next').disabled=false;},700);}
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';setTimeout(pratNext,1200);},700);}
         else{setTimeout(function(){renderS();},900);}
       } else {fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
     };
@@ -824,7 +824,7 @@ render();
 </div>
 <div id="prat-body-r2" style="width:100%;display:flex;flex-direction:column;align-items:center;min-height:300px"></div>
 <div id="prat-success-r2" style="display:none;margin-top:8px;padding:9px 14px;border-radius:8px;background:#EAF3DE;border:1px solid #0ca30c;color:#3B6D11;font-size:13px;font-weight:500;text-align:center;width:100%"></div>
-<div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;width:100%">
+<div style="display:none">
 <button class="btn-ns" id="prat-reset-r2" onclick="pratResetR2()">↺ Recommencer</button>
 <span id="prat-score-r2" style="font-size:13px;color:var(--muted)"></span>
 <button class="btn-ns" id="prat-next-r2" onclick="pratNextR2()" disabled>Suivant →</button>
@@ -832,7 +832,7 @@ render();
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Règle 2" data-zh="← 语法 2" onclick="goSlide(8)">← Règle 2</button>
-<button class="btn-ns" id="prat-exit-r2" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(10)" disabled style="opacity:.35">✏️ Exercices →</button>
+<button class="btn-ns" id="prat-exit-r2" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(10)">✏️ Exercices →</button>
 </div>
 </div>
 <script>
@@ -874,7 +874,7 @@ function renderWO2(a){
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb-r2');
       if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
-        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r2').style.display='block';document.getElementById('prat-next-r2').disabled=false;},700);}
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r2').style.display='block';setTimeout(pratNextR2,1200);},700);}
         else{setTimeout(function(){renderS();},900);}
       }else{fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
     };
