@@ -713,8 +713,6 @@ function render(){
   document.getElementById('prat-counter').textContent='Activité '+(cur+1)+' / '+ACTS.length;
   document.getElementById('prat-success').style.display='none';
   document.getElementById('prat-score').textContent='';
-  var nb=document.getElementById('prat-next');
-  nb.disabled=true;nb.textContent='Suivant →';
   if(a.type==='flash')renderFlash(a);
   else renderWO(a);
 }
@@ -782,7 +780,7 @@ function renderWO(a){
   renderS();
 }
 window.pratReset=function(){var ex=document.getElementById('prat-exit');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur=0;render();};
-window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}else{var ex=document.getElementById('prat-exit');if(ex){ex.disabled=false;ex.style.opacity='1';}document.getElementById('prat-next').disabled=true;}};
+window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}else{var ex=document.getElementById('prat-exit');if(ex){ex.disabled=false;ex.style.opacity='1';}}};
 render();
 })();
 </script>

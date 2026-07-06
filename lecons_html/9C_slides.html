@@ -722,8 +722,6 @@ function render(){
   document.getElementById('prat-counter').textContent='Activité '+(cur+1)+' / '+ACTS.length;
   document.getElementById('prat-success').style.display='none';
   document.getElementById('prat-score').textContent='';
-  var nb=document.getElementById('prat-next');
-  nb.disabled=true;nb.textContent='Suivant →';
   if(a.type==='flash')renderFlash(a);
   else renderWO(a);
 }
@@ -791,7 +789,7 @@ function renderWO(a){
   renderS();
 }
 window.pratReset=function(){var ex=document.getElementById('prat-exit');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur=0;render();};
-window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}else{var ex=document.getElementById('prat-exit');if(ex){ex.disabled=false;ex.style.opacity='1';}document.getElementById('prat-next').disabled=true;}};
+window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}else{var ex=document.getElementById('prat-exit');if(ex){ex.disabled=false;ex.style.opacity='1';}}};
 render();
 })();
 </script>
@@ -848,8 +846,6 @@ function render2(){
   document.getElementById('prat-counter-r2').textContent='Activité '+(cur2+1)+' / '+ACTS2.length;
   document.getElementById('prat-success-r2').style.display='none';
   document.getElementById('prat-score-r2').textContent='';
-  var nb=document.getElementById('prat-next-r2');
-  nb.disabled=true;nb.textContent='Suivant →';
   renderWO2(a);
 }
 function renderWO2(a){
@@ -885,7 +881,7 @@ function renderWO2(a){
   renderS();
 }
 window.pratResetR2=function(){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur2=0;render2();};
-window.pratNextR2=function(){if(cur2<ACTS2.length-1){cur2++;render2();}else{var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}document.getElementById('prat-next-r2').disabled=true;}};
+window.pratNextR2=function(){if(cur2<ACTS2.length-1){cur2++;render2();}else{var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}};
 render2();
 })();
 </script>
