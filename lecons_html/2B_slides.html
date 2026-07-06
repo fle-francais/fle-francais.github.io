@@ -698,7 +698,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div style="display:flex;justify-content:flex-end;margin-top:12px;width:100%">
 <button class="btn-ns" id="prat-reset" style="display:none" onclick="pratReset()">↺ Recommencer</button>
 <span id="prat-score" style="display:none"></span>
-<button class="btn-ns" id="prat-next" onclick="pratNext()">Suivant →</button>
+<button class="btn-ns" id="prat-next" onclick="pratNext()" style="display:none">Suivant →</button>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
@@ -721,6 +721,7 @@ function render(){
   document.getElementById('prat-counter').textContent='Activité '+(cur+1)+' / '+ACTS.length;
   document.getElementById('prat-success').style.display='none';
   document.getElementById('prat-score').textContent='';
+  document.getElementById('prat-next').style.display='none';
   if(a.type==='flash')renderFlash(a);
   else renderWO(a);
 }
@@ -733,7 +734,7 @@ function renderFlash(a){
     if(selL.dataset.k===selR.dataset.k){
       css(selL,'ok');css(selR,'ok');selL.onclick=null;selR.onclick=null;matched++;
       document.getElementById('prat-score').textContent='Trouvé : '+matched+' / '+a.pairs.length;
-      if(matched===a.pairs.length){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';setTimeout(pratNext,1200);}
+      if(matched===a.pairs.length){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';if(cur<ACTS.length-1){document.getElementById('prat-next').style.display='';}}
     } else {
       css(selL,'err');css(selR,'err');
       var sl=selL,sr=selR;setTimeout(function(){if(sl.style.cursor!=='default')css(sl,'');if(sr.style.cursor!=='default')css(sr,'');},600);
@@ -779,7 +780,7 @@ function renderWO(a){
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb');
       if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
-        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';setTimeout(pratNext,1200);},700);}
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';if(cur<ACTS.length-1){document.getElementById('prat-next').style.display='';}},700);}
         else{setTimeout(function(){renderS();},900);}
       } else {fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
     };
@@ -826,7 +827,7 @@ render();
 <div style="display:flex;justify-content:flex-end;margin-top:12px;width:100%">
 <button class="btn-ns" style="display:none" id="prat-reset-r2" onclick="pratResetR2()">↺ Recommencer</button>
 <span id="prat-score-r2" style="display:none"></span>
-<button class="btn-ns" id="prat-next-r2" onclick="pratNextR2()">Suivant →</button>
+<button class="btn-ns" id="prat-next-r2" onclick="pratNextR2()" style="display:none">Suivant →</button>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
@@ -871,7 +872,7 @@ function renderWO2(a){
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb-r2');
       if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
-        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r2').style.display='block';setTimeout(pratNextR2,1200);},700);}
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r2').style.display='block';if(cur2<ACTS2.length-1){document.getElementById('prat-next-r2').style.display='';}},700);}
         else{setTimeout(function(){renderS();},900);}
       }else{fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
     };
