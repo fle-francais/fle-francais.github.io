@@ -1146,15 +1146,15 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAllModa
 // --- Associer FR<>ZH (match) ---
 var MATCH_DATA=[
   {fr:"bonjour",zh:"你好"},
-  {fr:"bonsoir",zh:"晚上好"},
-  {fr:"enchanté(e)",zh:"幸会"},
   {fr:"s'appeler",zh:"叫（名字）"},
   {fr:"être",zh:"是"},
-  {fr:"étudiant(e)",zh:"学生"},
-  {fr:"bibliothèque",zh:"图书馆"},
-  {fr:"université",zh:"大学"},
-  {fr:"s'inscrire",zh:"注册；报名"},
-  {fr:"bienvenue",zh:"欢迎"},
+  {fr:"habiter",zh:"住"},
+  {fr:"travailler",zh:"工作"},
+  {fr:"ingénieur(e)",zh:"工程师"},
+  {fr:"nationalité",zh:"国籍"},
+  {fr:"cours",zh:"课程"},
+  {fr:"nerveux / nerveuse",zh:"紧张的"},
+  {fr:"enchanté(e)",zh:"幸会"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;
@@ -1243,16 +1243,16 @@ function matchRestart(){matchInit();}
 document.addEventListener('DOMContentLoaded',function(){matchInit();});
 
 var VC_DATA=[
-  {fr:"bonjour",       audio:"../audio/vocab_1A_0.mp3"},
-  {fr:"bonsoir",       audio:"../audio/vocab_1A_1.mp3"},
-  {fr:"enchanté(e)",   audio:"../audio/vocab_1A_2.mp3"},
-  {fr:"s\u2019appeler", audio:"../audio/vocab_1A_3.mp3"},
-  {fr:"\u00eatre",      audio:"../audio/vocab_1A_4.mp3"},
-  {fr:"\u00e9tudiant(e)",audio:"../audio/vocab_1A_5.mp3"},
-  {fr:"biblioth\u00e8que",audio:"../audio/vocab_1A_6.mp3"},
-  {fr:"universit\u00e9", audio:"../audio/vocab_1A_7.mp3"},
-  {fr:"s\u2019inscrire", audio:"../audio/vocab_1A_8.mp3"},
-  {fr:"bienvenue",     audio:"../audio/vocab_1A_9.mp3"},
+  {fr:"bonjour", audio:"../audio/vocab_1A_0.mp3"},
+  {fr:"s’appeler", audio:"../audio/vocab_1A_1.mp3"},
+  {fr:"être", audio:"../audio/vocab_1A_2.mp3"},
+  {fr:"habiter", audio:"../audio/vocab_1A_3.mp3"},
+  {fr:"travailler", audio:"../audio/vocab_1A_4.mp3"},
+  {fr:"ingénieur(e)", audio:"../audio/vocab_1A_5.mp3"},
+  {fr:"nationalité", audio:"../audio/vocab_1A_6.mp3"},
+  {fr:"cours", audio:"../audio/vocab_1A_7.mp3"},
+  {fr:"nerveux / nerveuse", audio:"../audio/vocab_1A_8.mp3"},
+  {fr:"enchanté(e)", audio:"../audio/vocab_1A_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
