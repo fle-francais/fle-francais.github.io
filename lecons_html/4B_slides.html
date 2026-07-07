@@ -1088,16 +1088,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"gauche",audio:"../audio/vocab_4B_0.mp3"},
-  {fr:"droite",audio:"../audio/vocab_4B_1.mp3"},
-  {fr:"tout droit",audio:"../audio/vocab_4B_2.mp3"},
-  {fr:"carrefour",audio:"../audio/vocab_4B_3.mp3"},
-  {fr:"feux (tricolores)",audio:"../audio/vocab_4B_4.mp3"},
-  {fr:"pont",audio:"../audio/vocab_4B_5.mp3"},
-  {fr:"rond-point",audio:"../audio/vocab_4B_6.mp3"},
-  {fr:"traverser",audio:"../audio/vocab_4B_7.mp3"},
-  {fr:"tourner",audio:"../audio/vocab_4B_8.mp3"},
-  {fr:"continuer",audio:"../audio/vocab_4B_9.mp3"},
+  {fr:"excuser", audio:"../audio/vocab_4B_0.mp3"},
+  {fr:"ligne", audio:"../audio/vocab_4B_1.mp3"},
+  {fr:"direction", audio:"../audio/vocab_4B_2.mp3"},
+  {fr:"station", audio:"../audio/vocab_4B_3.mp3"},
+  {fr:"descendre", audio:"../audio/vocab_4B_4.mp3"},
+  {fr:"ticket", audio:"../audio/vocab_4B_5.mp3"},
+  {fr:"machine", audio:"../audio/vocab_4B_6.mp3"},
+  {fr:"coûter", audio:"../audio/vocab_4B_7.mp3"},
+  {fr:"environ", audio:"../audio/vocab_4B_8.mp3"},
+  {fr:"minute", audio:"../audio/vocab_4B_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1134,16 +1134,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"gauche",zh:"左边"},
-  {fr:"droite",zh:"右边"},
-  {fr:"tout droit",zh:"直走"},
-  {fr:"carrefour",zh:"十字路口"},
-  {fr:"feux (tricolores)",zh:"红绿灯"},
-  {fr:"pont",zh:"桥"},
-  {fr:"rond-point",zh:"环形交叉路口"},
-  {fr:"traverser",zh:"穿越；过马路"},
-  {fr:"tourner",zh:"转弯"},
-  {fr:"continuer",zh:"继续"},
+  {fr:"excuser",zh:"原谅"},
+  {fr:"ligne",zh:"线路"},
+  {fr:"direction",zh:"方向"},
+  {fr:"station",zh:"车站"},
+  {fr:"descendre",zh:"下车"},
+  {fr:"ticket",zh:"票"},
+  {fr:"machine",zh:"机器"},
+  {fr:"coûter",zh:"花费"},
+  {fr:"environ",zh:"大约"},
+  {fr:"minute",zh:"分钟"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

@@ -1101,16 +1101,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"voyage",audio:"../audio/vocab_9A_0.mp3"},
-  {fr:"pays",audio:"../audio/vocab_9A_1.mp3"},
-  {fr:"continent",audio:"../audio/vocab_9A_2.mp3"},
-  {fr:"Europe",audio:"../audio/vocab_9A_3.mp3"},
-  {fr:"Asie",audio:"../audio/vocab_9A_4.mp3"},
-  {fr:"Afrique",audio:"../audio/vocab_9A_5.mp3"},
-  {fr:"Amérique",audio:"../audio/vocab_9A_6.mp3"},
-  {fr:"billet",audio:"../audio/vocab_9A_7.mp3"},
-  {fr:"réservation",audio:"../audio/vocab_9A_8.mp3"},
-  {fr:"hébergement",audio:"../audio/vocab_9A_9.mp3"},
+  {fr:"hôtel", audio:"../audio/vocab_9A_0.mp3"},
+  {fr:"chambre", audio:"../audio/vocab_9A_1.mp3"},
+  {fr:"nuit", audio:"../audio/vocab_9A_2.mp3"},
+  {fr:"vue", audio:"../audio/vocab_9A_3.mp3"},
+  {fr:"port", audio:"../audio/vocab_9A_4.mp3"},
+  {fr:"euros", audio:"../audio/vocab_9A_5.mp3"},
+  {fr:"petit-déjeuner", audio:"../audio/vocab_9A_6.mp3"},
+  {fr:"personne", audio:"../audio/vocab_9A_7.mp3"},
+  {fr:"carte de crédit", audio:"../audio/vocab_9A_8.mp3"},
+  {fr:"réserver", audio:"../audio/vocab_9A_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1147,16 +1147,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"voyage",zh:"旅行"},
-  {fr:"pays",zh:"国家"},
-  {fr:"continent",zh:"大洲"},
-  {fr:"Europe",zh:"欧洲"},
-  {fr:"Asie",zh:"亚洲"},
-  {fr:"Afrique",zh:"非洲"},
-  {fr:"Amérique",zh:"美洲"},
-  {fr:"billet",zh:"票；车票"},
-  {fr:"réservation",zh:"预订"},
-  {fr:"hébergement",zh:"住宿"},
+  {fr:"hôtel",zh:"酒店"},
+  {fr:"chambre",zh:"房间"},
+  {fr:"nuit",zh:"夜晚"},
+  {fr:"vue",zh:"景色"},
+  {fr:"port",zh:"港口"},
+  {fr:"euros",zh:"欧元"},
+  {fr:"petit-déjeuner",zh:"早餐"},
+  {fr:"personne",zh:"人"},
+  {fr:"carte de crédit",zh:"信用卡"},
+  {fr:"réserver",zh:"预订"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

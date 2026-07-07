@@ -989,16 +989,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"famille",audio:"../audio/vocab_2A_0.mp3"},
-  {fr:"père",audio:"../audio/vocab_2A_1.mp3"},
-  {fr:"mère",audio:"../audio/vocab_2A_2.mp3"},
-  {fr:"frère",audio:"../audio/vocab_2A_3.mp3"},
-  {fr:"sœur",audio:"../audio/vocab_2A_4.mp3"},
-  {fr:"fils",audio:"../audio/vocab_2A_5.mp3"},
-  {fr:"fille",audio:"../audio/vocab_2A_6.mp3"},
-  {fr:"enfant",audio:"../audio/vocab_2A_7.mp3"},
-  {fr:"grand-père",audio:"../audio/vocab_2A_8.mp3"},
-  {fr:"grand-mère",audio:"../audio/vocab_2A_9.mp3"},
+  {fr:"voisin", audio:"../audio/vocab_2A_0.mp3"},
+  {fr:"femme", audio:"../audio/vocab_2A_1.mp3"},
+  {fr:"enfant", audio:"../audio/vocab_2A_2.mp3"},
+  {fr:"mari", audio:"../audio/vocab_2A_3.mp3"},
+  {fr:"fille", audio:"../audio/vocab_2A_4.mp3"},
+  {fr:"fils", audio:"../audio/vocab_2A_5.mp3"},
+  {fr:"chinois", audio:"../audio/vocab_2A_6.mp3"},
+  {fr:"français", audio:"../audio/vocab_2A_7.mp3"},
+  {fr:"habiter", audio:"../audio/vocab_2A_8.mp3"},
+  {fr:"jouer", audio:"../audio/vocab_2A_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1035,16 +1035,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"famille",zh:"家庭"},
-  {fr:"père",zh:"父亲"},
-  {fr:"mère",zh:"母亲"},
-  {fr:"frère",zh:"兄弟"},
-  {fr:"sœur",zh:"姐妹"},
-  {fr:"fils",zh:"儿子"},
-  {fr:"fille",zh:"女儿"},
+  {fr:"voisin",zh:"邻居"},
+  {fr:"femme",zh:"妻子"},
   {fr:"enfant",zh:"孩子"},
-  {fr:"grand-père",zh:"祖父／外祖父"},
-  {fr:"grand-mère",zh:"祖母／外祖母"},
+  {fr:"mari",zh:"丈夫"},
+  {fr:"fille",zh:"女儿"},
+  {fr:"fils",zh:"儿子"},
+  {fr:"chinois",zh:"中国的"},
+  {fr:"français",zh:"法国的"},
+  {fr:"habiter",zh:"居住"},
+  {fr:"jouer",zh:"玩"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

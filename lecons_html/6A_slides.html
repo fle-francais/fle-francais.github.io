@@ -1099,16 +1099,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"sport",audio:"../audio/vocab_6A_0.mp3"},
-  {fr:"natation",audio:"../audio/vocab_6A_1.mp3"},
-  {fr:"gym / gymnastique",audio:"../audio/vocab_6A_2.mp3"},
-  {fr:"yoga",audio:"../audio/vocab_6A_3.mp3"},
-  {fr:"vélo",audio:"../audio/vocab_6A_4.mp3"},
-  {fr:"foot(ball)",audio:"../audio/vocab_6A_5.mp3"},
-  {fr:"tennis",audio:"../audio/vocab_6A_6.mp3"},
-  {fr:"guitare",audio:"../audio/vocab_6A_7.mp3"},
-  {fr:"piano",audio:"../audio/vocab_6A_8.mp3"},
-  {fr:"dessin",audio:"../audio/vocab_6A_9.mp3"},
+  {fr:"fatigué", audio:"../audio/vocab_6A_0.mp3"},
+  {fr:"matin", audio:"../audio/vocab_6A_1.mp3"},
+  {fr:"métro", audio:"../audio/vocab_6A_2.mp3"},
+  {fr:"sandwich", audio:"../audio/vocab_6A_3.mp3"},
+  {fr:"soir", audio:"../audio/vocab_6A_4.mp3"},
+  {fr:"préparer", audio:"../audio/vocab_6A_5.mp3"},
+  {fr:"lire", audio:"../audio/vocab_6A_6.mp3"},
+  {fr:"série", audio:"../audio/vocab_6A_7.mp3"},
+  {fr:"apprendre", audio:"../audio/vocab_6A_8.mp3"},
+  {fr:"glamour", audio:"../audio/vocab_6A_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1145,16 +1145,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"sport",zh:"运动"},
-  {fr:"natation",zh:"游泳"},
-  {fr:"gym / gymnastique",zh:"健身；体操"},
-  {fr:"yoga",zh:"瑜伽"},
-  {fr:"vélo",zh:"自行车"},
-  {fr:"foot(ball)",zh:"足球"},
-  {fr:"tennis",zh:"网球"},
-  {fr:"guitare",zh:"吉他"},
-  {fr:"piano",zh:"钢琴"},
-  {fr:"dessin",zh:"绘画；素描"},
+  {fr:"fatigué",zh:"累"},
+  {fr:"matin",zh:"早晨"},
+  {fr:"métro",zh:"地铁"},
+  {fr:"sandwich",zh:"三明治"},
+  {fr:"soir",zh:"晚上"},
+  {fr:"préparer",zh:"准备"},
+  {fr:"lire",zh:"读"},
+  {fr:"série",zh:"剧集"},
+  {fr:"apprendre",zh:"学习"},
+  {fr:"glamour",zh:"有魅力的"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

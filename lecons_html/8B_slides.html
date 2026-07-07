@@ -1096,16 +1096,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"devoir",audio:"../audio/vocab_8B_0.mp3"},
-  {fr:"pouvoir",audio:"../audio/vocab_8B_1.mp3"},
-  {fr:"vouloir",audio:"../audio/vocab_8B_2.mp3"},
-  {fr:"réparer",audio:"../audio/vocab_8B_3.mp3"},
-  {fr:"aider",audio:"../audio/vocab_8B_4.mp3"},
-  {fr:"prêter",audio:"../audio/vocab_8B_5.mp3"},
-  {fr:"remercier",audio:"../audio/vocab_8B_6.mp3"},
-  {fr:"règle",audio:"../audio/vocab_8B_7.mp3"},
-  {fr:"voisin(e)",audio:"../audio/vocab_8B_8.mp3"},
-  {fr:"propriétaire",audio:"../audio/vocab_8B_9.mp3"},
+  {fr:"sport", audio:"../audio/vocab_8B_0.mp3"},
+  {fr:"courir", audio:"../audio/vocab_8B_1.mp3"},
+  {fr:"yoga", audio:"../audio/vocab_8B_2.mp3"},
+  {fr:"dos", audio:"../audio/vocab_8B_3.mp3"},
+  {fr:"mesurer", audio:"../audio/vocab_8B_4.mp3"},
+  {fr:"partenaire", audio:"../audio/vocab_8B_5.mp3"},
+  {fr:"tennis", audio:"../audio/vocab_8B_6.mp3"},
+  {fr:"attention", audio:"../audio/vocab_8B_7.mp3"},
+  {fr:"badminton", audio:"../audio/vocab_8B_8.mp3"},
+  {fr:"difficile", audio:"../audio/vocab_8B_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1142,16 +1142,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"devoir",zh:"必须；应该"},
-  {fr:"pouvoir",zh:"能够；可以"},
-  {fr:"vouloir",zh:"想要"},
-  {fr:"réparer",zh:"修理"},
-  {fr:"aider",zh:"帮助"},
-  {fr:"prêter",zh:"借出；借给"},
-  {fr:"remercier",zh:"感谢"},
-  {fr:"règle",zh:"规则"},
-  {fr:"voisin(e)",zh:"邻居"},
-  {fr:"propriétaire",zh:"房东；业主"},
+  {fr:"sport",zh:"运动"},
+  {fr:"courir",zh:"跑步"},
+  {fr:"yoga",zh:"瑜伽"},
+  {fr:"dos",zh:"背"},
+  {fr:"mesurer",zh:"测量"},
+  {fr:"partenaire",zh:"伙伴"},
+  {fr:"tennis",zh:"网球"},
+  {fr:"attention",zh:"注意"},
+  {fr:"badminton",zh:"羽毛球"},
+  {fr:"difficile",zh:"困难的"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

@@ -1036,16 +1036,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"louer",audio:"../audio/vocab_8C_0.mp3"},
-  {fr:"loyer",audio:"../audio/vocab_8C_1.mp3"},
-  {fr:"annonce",audio:"../audio/vocab_8C_2.mp3"},
-  {fr:"studio",audio:"../audio/vocab_8C_3.mp3"},
-  {fr:"chambre meublée",audio:"../audio/vocab_8C_4.mp3"},
-  {fr:"colocation",audio:"../audio/vocab_8C_5.mp3"},
-  {fr:"charges",audio:"../audio/vocab_8C_6.mp3"},
-  {fr:"caution",audio:"../audio/vocab_8C_7.mp3"},
-  {fr:"contrat de location",audio:"../audio/vocab_8C_8.mp3"},
-  {fr:"quartier calme",audio:"../audio/vocab_8C_9.mp3"},
+  {fr:"forme", audio:"../audio/vocab_8C_0.mp3"},
+  {fr:"lourd", audio:"../audio/vocab_8C_1.mp3"},
+  {fr:"dormir", audio:"../audio/vocab_8C_2.mp3"},
+  {fr:"écran", audio:"../audio/vocab_8C_3.mp3"},
+  {fr:"temps", audio:"../audio/vocab_8C_4.mp3"},
+  {fr:"légume", audio:"../audio/vocab_8C_5.mp3"},
+  {fr:"petit-déjeuner", audio:"../audio/vocab_8C_6.mp3"},
+  {fr:"important", audio:"../audio/vocab_8C_7.mp3"},
+  {fr:"effort", audio:"../audio/vocab_8C_8.mp3"},
+  {fr:"indispensable", audio:"../audio/vocab_8C_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1082,16 +1082,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"louer",zh:"租（房）"},
-  {fr:"loyer",zh:"租金"},
-  {fr:"annonce",zh:"广告；公告"},
-  {fr:"studio",zh:"单间公寓"},
-  {fr:"chambre meublée",zh:"带家具的房间"},
-  {fr:"colocation",zh:"合租"},
-  {fr:"charges",zh:"（额外）费用"},
-  {fr:"caution",zh:"押金"},
-  {fr:"contrat de location",zh:"租赁合同"},
-  {fr:"quartier calme",zh:"安静的街区"},
+  {fr:"forme",zh:"状态"},
+  {fr:"lourd",zh:"沉重的"},
+  {fr:"dormir",zh:"睡觉"},
+  {fr:"écran",zh:"屏幕"},
+  {fr:"temps",zh:"时间"},
+  {fr:"légume",zh:"蔬菜"},
+  {fr:"petit-déjeuner",zh:"早餐"},
+  {fr:"important",zh:"重要的"},
+  {fr:"effort",zh:"努力"},
+  {fr:"indispensable",zh:"必不可少的"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

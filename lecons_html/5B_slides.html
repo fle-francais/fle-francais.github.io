@@ -991,16 +991,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"menu",audio:"../audio/vocab_5B_0.mp3"},
-  {fr:"carte",audio:"../audio/vocab_5B_1.mp3"},
-  {fr:"entrée",audio:"../audio/vocab_5B_2.mp3"},
-  {fr:"plat principal",audio:"../audio/vocab_5B_3.mp3"},
-  {fr:"dessert",audio:"../audio/vocab_5B_4.mp3"},
-  {fr:"addition",audio:"../audio/vocab_5B_5.mp3"},
-  {fr:"pourboire",audio:"../audio/vocab_5B_6.mp3"},
-  {fr:"réserver",audio:"../audio/vocab_5B_7.mp3"},
-  {fr:"commander",audio:"../audio/vocab_5B_8.mp3"},
-  {fr:"serveur / serveuse",audio:"../audio/vocab_5B_9.mp3"},
+  {fr:"temps", audio:"../audio/vocab_5B_0.mp3"},
+  {fr:"horrible", audio:"../audio/vocab_5B_1.mp3"},
+  {fr:"froid", audio:"../audio/vocab_5B_2.mp3"},
+  {fr:"pleuvoir", audio:"../audio/vocab_5B_3.mp3"},
+  {fr:"automne", audio:"../audio/vocab_5B_4.mp3"},
+  {fr:"gris", audio:"../audio/vocab_5B_5.mp3"},
+  {fr:"frais", audio:"../audio/vocab_5B_6.mp3"},
+  {fr:"été", audio:"../audio/vocab_5B_7.mp3"},
+  {fr:"neige", audio:"../audio/vocab_5B_8.mp3"},
+  {fr:"incroyable", audio:"../audio/vocab_5B_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1037,16 +1037,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"menu",zh:"套餐；菜单"},
-  {fr:"carte",zh:"菜单（点菜）"},
-  {fr:"entrée",zh:"开胃菜"},
-  {fr:"plat principal",zh:"主菜"},
-  {fr:"dessert",zh:"甜点"},
-  {fr:"addition",zh:"账单"},
-  {fr:"pourboire",zh:"小费"},
-  {fr:"réserver",zh:"预订"},
-  {fr:"commander",zh:"点餐"},
-  {fr:"serveur / serveuse",zh:"服务员"},
+  {fr:"temps",zh:"天气"},
+  {fr:"horrible",zh:"糟糕的"},
+  {fr:"froid",zh:"冷的"},
+  {fr:"pleuvoir",zh:"下雨"},
+  {fr:"automne",zh:"秋天"},
+  {fr:"gris",zh:"阴沉的"},
+  {fr:"frais",zh:"凉爽的"},
+  {fr:"été",zh:"夏天"},
+  {fr:"neige",zh:"雪"},
+  {fr:"incroyable",zh:"难以置信的"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

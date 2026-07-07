@@ -1090,16 +1090,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"grand(e)",audio:"../audio/vocab_2B_0.mp3"},
-  {fr:"petit(e)",audio:"../audio/vocab_2B_1.mp3"},
-  {fr:"cheveux",audio:"../audio/vocab_2B_2.mp3"},
-  {fr:"yeux",audio:"../audio/vocab_2B_3.mp3"},
-  {fr:"blond(e)",audio:"../audio/vocab_2B_4.mp3"},
-  {fr:"brun(e)",audio:"../audio/vocab_2B_5.mp3"},
-  {fr:"roux / rousse",audio:"../audio/vocab_2B_6.mp3"},
-  {fr:"mince",audio:"../audio/vocab_2B_7.mp3"},
-  {fr:"fort(e)",audio:"../audio/vocab_2B_8.mp3"},
-  {fr:"jeune",audio:"../audio/vocab_2B_9.mp3"},
+  {fr:"famille", audio:"../audio/vocab_2B_0.mp3"},
+  {fr:"père", audio:"../audio/vocab_2B_1.mp3"},
+  {fr:"mère", audio:"../audio/vocab_2B_2.mp3"},
+  {fr:"frère", audio:"../audio/vocab_2B_3.mp3"},
+  {fr:"soeur", audio:"../audio/vocab_2B_4.mp3"},
+  {fr:"médecin", audio:"../audio/vocab_2B_5.mp3"},
+  {fr:"professeur", audio:"../audio/vocab_2B_6.mp3"},
+  {fr:"habiter", audio:"../audio/vocab_2B_7.mp3"},
+  {fr:"manquer", audio:"../audio/vocab_2B_8.mp3"},
+  {fr:"important", audio:"../audio/vocab_2B_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1136,16 +1136,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"grand(e)",zh:"高的；大的"},
-  {fr:"petit(e)",zh:"矮的；小的"},
-  {fr:"cheveux",zh:"头发"},
-  {fr:"yeux",zh:"眼睛"},
-  {fr:"blond(e)",zh:"金发的"},
-  {fr:"brun(e)",zh:"棕发的"},
-  {fr:"roux / rousse",zh:"红发的"},
-  {fr:"mince",zh:"苗条的"},
-  {fr:"fort(e)",zh:"强壮的；胖的"},
-  {fr:"jeune",zh:"年轻的"},
+  {fr:"famille",zh:"家庭"},
+  {fr:"père",zh:"父亲"},
+  {fr:"mère",zh:"母亲"},
+  {fr:"frère",zh:"兄弟"},
+  {fr:"soeur",zh:"姐妹"},
+  {fr:"médecin",zh:"医生"},
+  {fr:"professeur",zh:"老师"},
+  {fr:"habiter",zh:"居住"},
+  {fr:"manquer",zh:"想念"},
+  {fr:"important",zh:"重要的"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

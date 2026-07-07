@@ -994,16 +994,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"bientôt",audio:"../audio/vocab_6C_0.mp3"},
-  {fr:"demain",audio:"../audio/vocab_6C_1.mp3"},
-  {fr:"ce soir",audio:"../audio/vocab_6C_2.mp3"},
-  {fr:"la semaine prochaine",audio:"../audio/vocab_6C_3.mp3"},
-  {fr:"le week-end prochain",audio:"../audio/vocab_6C_4.mp3"},
-  {fr:"projet",audio:"../audio/vocab_6C_5.mp3"},
-  {fr:"proposer",audio:"../audio/vocab_6C_6.mp3"},
-  {fr:"accepter",audio:"../audio/vocab_6C_7.mp3"},
-  {fr:"refuser",audio:"../audio/vocab_6C_8.mp3"},
-  {fr:"inviter",audio:"../audio/vocab_6C_9.mp3"},
+  {fr:"gare", audio:"../audio/vocab_6C_0.mp3"},
+  {fr:"frère", audio:"../audio/vocab_6C_1.mp3"},
+  {fr:"barbe", audio:"../audio/vocab_6C_2.mp3"},
+  {fr:"quarantaine", audio:"../audio/vocab_6C_3.mp3"},
+  {fr:"manteau", audio:"../audio/vocab_6C_4.mp3"},
+  {fr:"sac à dos", audio:"../audio/vocab_6C_5.mp3"},
+  {fr:"lunettes", audio:"../audio/vocab_6C_6.mp3"},
+  {fr:"téléphone", audio:"../audio/vocab_6C_7.mp3"},
+  {fr:"main", audio:"../audio/vocab_6C_8.mp3"},
+  {fr:"voir", audio:"../audio/vocab_6C_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1040,16 +1040,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"bientôt",zh:"不久；马上"},
-  {fr:"demain",zh:"明天"},
-  {fr:"ce soir",zh:"今晚"},
-  {fr:"la semaine prochaine",zh:"下周"},
-  {fr:"le week-end prochain",zh:"下个周末"},
-  {fr:"projet",zh:"计划；项目"},
-  {fr:"proposer",zh:"提议；建议"},
-  {fr:"accepter",zh:"接受"},
-  {fr:"refuser",zh:"拒绝"},
-  {fr:"inviter",zh:"邀请"},
+  {fr:"gare",zh:"火车站"},
+  {fr:"frère",zh:"兄弟"},
+  {fr:"barbe",zh:"胡子"},
+  {fr:"quarantaine",zh:"四十多岁"},
+  {fr:"manteau",zh:"大衣"},
+  {fr:"sac à dos",zh:"背包"},
+  {fr:"lunettes",zh:"眼镜"},
+  {fr:"téléphone",zh:"电话"},
+  {fr:"main",zh:"手"},
+  {fr:"voir",zh:"看见"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

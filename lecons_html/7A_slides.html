@@ -1094,16 +1094,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"vêtement",audio:"../audio/vocab_7A_0.mp3"},
-  {fr:"pantalon",audio:"../audio/vocab_7A_1.mp3"},
-  {fr:"robe",audio:"../audio/vocab_7A_2.mp3"},
-  {fr:"chemise",audio:"../audio/vocab_7A_3.mp3"},
-  {fr:"veste",audio:"../audio/vocab_7A_4.mp3"},
-  {fr:"chaussures",audio:"../audio/vocab_7A_5.mp3"},
-  {fr:"taille",audio:"../audio/vocab_7A_6.mp3"},
-  {fr:"couleur",audio:"../audio/vocab_7A_7.mp3"},
-  {fr:"rouge",audio:"../audio/vocab_7A_8.mp3"},
-  {fr:"bleu(e)",audio:"../audio/vocab_7A_9.mp3"},
+  {fr:"appartement", audio:"../audio/vocab_7A_0.mp3"},
+  {fr:"louer", audio:"../audio/vocab_7A_1.mp3"},
+  {fr:"deux-pièces", audio:"../audio/vocab_7A_2.mp3"},
+  {fr:"métro", audio:"../audio/vocab_7A_3.mp3"},
+  {fr:"budget", audio:"../audio/vocab_7A_4.mp3"},
+  {fr:"charges", audio:"../audio/vocab_7A_5.mp3"},
+  {fr:"balcon", audio:"../audio/vocab_7A_6.mp3"},
+  {fr:"lumineux", audio:"../audio/vocab_7A_7.mp3"},
+  {fr:"disponible", audio:"../audio/vocab_7A_8.mp3"},
+  {fr:"visiter", audio:"../audio/vocab_7A_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1140,16 +1140,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"vêtement",zh:"服装"},
-  {fr:"pantalon",zh:"裤子"},
-  {fr:"robe",zh:"裙子；连衣裙"},
-  {fr:"chemise",zh:"衬衫"},
-  {fr:"veste",zh:"外套；夹克"},
-  {fr:"chaussures",zh:"鞋子"},
-  {fr:"taille",zh:"尺码；身材"},
-  {fr:"couleur",zh:"颜色"},
-  {fr:"rouge",zh:"红色的"},
-  {fr:"bleu(e)",zh:"蓝色的"},
+  {fr:"appartement",zh:"公寓"},
+  {fr:"louer",zh:"租"},
+  {fr:"deux-pièces",zh:"两居室"},
+  {fr:"métro",zh:"地铁"},
+  {fr:"budget",zh:"预算"},
+  {fr:"charges",zh:"费用"},
+  {fr:"balcon",zh:"阳台"},
+  {fr:"lumineux",zh:"明亮的"},
+  {fr:"disponible",zh:"可用的"},
+  {fr:"visiter",zh:"参观"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

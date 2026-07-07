@@ -1104,16 +1104,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"vacances",audio:"../audio/vocab_9B_0.mp3"},
-  {fr:"plage",audio:"../audio/vocab_9B_1.mp3"},
-  {fr:"montagne",audio:"../audio/vocab_9B_2.mp3"},
-  {fr:"campagne",audio:"../audio/vocab_9B_3.mp3"},
-  {fr:"souvenir",audio:"../audio/vocab_9B_4.mp3"},
-  {fr:"météo",audio:"../audio/vocab_9B_5.mp3"},
-  {fr:"soleil",audio:"../audio/vocab_9B_6.mp3"},
-  {fr:"pluie",audio:"../audio/vocab_9B_7.mp3"},
-  {fr:"neige",audio:"../audio/vocab_9B_8.mp3"},
-  {fr:"vent",audio:"../audio/vocab_9B_9.mp3"},
+  {fr:"pays", audio:"../audio/vocab_9B_0.mp3"},
+  {fr:"énorme", audio:"../audio/vocab_9B_1.mp3"},
+  {fr:"ville", audio:"../audio/vocab_9B_2.mp3"},
+  {fr:"plage", audio:"../audio/vocab_9B_3.mp3"},
+  {fr:"montagne", audio:"../audio/vocab_9B_4.mp3"},
+  {fr:"forêt", audio:"../audio/vocab_9B_5.mp3"},
+  {fr:"coeur", audio:"../audio/vocab_9B_6.mp3"},
+  {fr:"unique", audio:"../audio/vocab_9B_7.mp3"},
+  {fr:"climat", audio:"../audio/vocab_9B_8.mp3"},
+  {fr:"vacances", audio:"../audio/vocab_9B_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1150,16 +1150,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"vacances",zh:"假期"},
+  {fr:"pays",zh:"国家"},
+  {fr:"énorme",zh:"巨大的"},
+  {fr:"ville",zh:"城市"},
   {fr:"plage",zh:"海滩"},
   {fr:"montagne",zh:"山"},
-  {fr:"campagne",zh:"乡村"},
-  {fr:"souvenir",zh:"纪念品；回忆"},
-  {fr:"météo",zh:"天气预报"},
-  {fr:"soleil",zh:"太阳；晴天"},
-  {fr:"pluie",zh:"雨"},
-  {fr:"neige",zh:"雪"},
-  {fr:"vent",zh:"风"},
+  {fr:"forêt",zh:"森林"},
+  {fr:"coeur",zh:"中心"},
+  {fr:"unique",zh:"独特的"},
+  {fr:"climat",zh:"气候"},
+  {fr:"vacances",zh:"假期"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

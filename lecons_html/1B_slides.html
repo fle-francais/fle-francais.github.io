@@ -1238,16 +1238,16 @@ var currentSlide=0;
     function selectPrat(btn){var opts=btn.closest('.gram-prat-item').querySelectorAll('.gram-prat-btn');opts.forEach(function(b){b.classList.remove('prat-sel');});btn.classList.add('prat-sel');}function verifyPrat(btn){var prat=btn.closest('.gram-prat');var items=prat.querySelectorAll('.gram-prat-item');var ok=0;items.forEach(function(item){var ans=item.dataset.ans;var sel=item.querySelector('.gram-prat-btn.prat-sel');item.querySelectorAll('.gram-prat-btn').forEach(function(b){b.classList.remove('gram-ok','gram-ko');});if(sel){sel.classList.add(sel.dataset.val===ans?'gram-ok':'gram-ko');if(sel.dataset.val===ans)ok++;}});var sc=prat.querySelector('.gram-prat-score');if(sc)sc.textContent=ok+'/'+items.length;}function resetPrat(btn){var prat=btn.closest('.gram-prat');prat.querySelectorAll('.gram-prat-btn').forEach(function(b){b.classList.remove('prat-sel','gram-ok','gram-ko');});var sc=prat.querySelector('.gram-prat-score');if(sc)sc.textContent='';}
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"parler",audio:"../audio/vocab_1B_0.mp3"},
-  {fr:"langue",audio:"../audio/vocab_1B_1.mp3"},
-  {fr:"apprendre",audio:"../audio/vocab_1B_2.mp3"},
-  {fr:"depuis",audio:"../audio/vocab_1B_3.mp3"},
-  {fr:"avoir",audio:"../audio/vocab_1B_4.mp3"},
-  {fr:"cours",audio:"../audio/vocab_1B_5.mp3"},
-  {fr:"profession / métier",audio:"../audio/vocab_1B_6.mp3"},
-  {fr:"étudiant(e)",audio:"../audio/vocab_1B_7.mp3"},
-  {fr:"professeur",audio:"../audio/vocab_1B_8.mp3"},
-  {fr:"ingénieur(e)",audio:"../audio/vocab_1B_9.mp3"},
+  {fr:"bonjour", audio:"../audio/vocab_1B_0.mp3"},
+  {fr:"inscrire", audio:"../audio/vocab_1B_1.mp3"},
+  {fr:"cours", audio:"../audio/vocab_1B_2.mp3"},
+  {fr:"nom", audio:"../audio/vocab_1B_3.mp3"},
+  {fr:"âge", audio:"../audio/vocab_1B_4.mp3"},
+  {fr:"nationalité", audio:"../audio/vocab_1B_5.mp3"},
+  {fr:"rue", audio:"../audio/vocab_1B_6.mp3"},
+  {fr:"langue", audio:"../audio/vocab_1B_7.mp3"},
+  {fr:"monsieur", audio:"../audio/vocab_1B_8.mp3"},
+  {fr:"habiter", audio:"../audio/vocab_1B_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1284,16 +1284,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"parler",zh:"说（语言）"},
-  {fr:"langue",zh:"语言"},
-  {fr:"apprendre",zh:"学习"},
-  {fr:"depuis",zh:"自从；已经……时间"},
-  {fr:"avoir",zh:"有；拥有"},
+  {fr:"bonjour",zh:"你好"},
+  {fr:"inscrire",zh:"报名"},
   {fr:"cours",zh:"课程"},
-  {fr:"profession / métier",zh:"职业"},
-  {fr:"étudiant(e)",zh:"学生"},
-  {fr:"professeur",zh:"老师"},
-  {fr:"ingénieur(e)",zh:"工程师"},
+  {fr:"nom",zh:"名字"},
+  {fr:"âge",zh:"年龄"},
+  {fr:"nationalité",zh:"国籍"},
+  {fr:"rue",zh:"街道"},
+  {fr:"langue",zh:"语言"},
+  {fr:"monsieur",zh:"先生"},
+  {fr:"habiter",zh:"居住"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

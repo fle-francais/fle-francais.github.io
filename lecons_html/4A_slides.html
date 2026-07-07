@@ -1098,16 +1098,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"mairie",audio:"../audio/vocab_4A_0.mp3"},
-  {fr:"hôpital",audio:"../audio/vocab_4A_1.mp3"},
-  {fr:"pharmacie",audio:"../audio/vocab_4A_2.mp3"},
-  {fr:"boulangerie",audio:"../audio/vocab_4A_3.mp3"},
-  {fr:"supermarché",audio:"../audio/vocab_4A_4.mp3"},
-  {fr:"librairie",audio:"../audio/vocab_4A_5.mp3"},
-  {fr:"banque",audio:"../audio/vocab_4A_6.mp3"},
-  {fr:"poste",audio:"../audio/vocab_4A_7.mp3"},
-  {fr:"parc",audio:"../audio/vocab_4A_8.mp3"},
-  {fr:"musée",audio:"../audio/vocab_4A_9.mp3"},
+  {fr:"quartier", audio:"../audio/vocab_4A_0.mp3"},
+  {fr:"vieux", audio:"../audio/vocab_4A_1.mp3"},
+  {fr:"boulangerie", audio:"../audio/vocab_4A_2.mp3"},
+  {fr:"pharmacie", audio:"../audio/vocab_4A_3.mp3"},
+  {fr:"marché", audio:"../audio/vocab_4A_4.mp3"},
+  {fr:"métro", audio:"../audio/vocab_4A_5.mp3"},
+  {fr:"ligne", audio:"../audio/vocab_4A_6.mp3"},
+  {fr:"bus", audio:"../audio/vocab_4A_7.mp3"},
+  {fr:"calme", audio:"../audio/vocab_4A_8.mp3"},
+  {fr:"centre", audio:"../audio/vocab_4A_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1144,16 +1144,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"mairie",zh:"市政厅"},
-  {fr:"hôpital",zh:"医院"},
-  {fr:"pharmacie",zh:"药店"},
+  {fr:"quartier",zh:"区"},
+  {fr:"vieux",zh:"旧的"},
   {fr:"boulangerie",zh:"面包店"},
-  {fr:"supermarché",zh:"超市"},
-  {fr:"librairie",zh:"书店"},
-  {fr:"banque",zh:"银行"},
-  {fr:"poste",zh:"邮局"},
-  {fr:"parc",zh:"公园"},
-  {fr:"musée",zh:"博物馆"},
+  {fr:"pharmacie",zh:"药店"},
+  {fr:"marché",zh:"市场"},
+  {fr:"métro",zh:"地铁"},
+  {fr:"ligne",zh:"线路"},
+  {fr:"bus",zh:"公交车"},
+  {fr:"calme",zh:"安静的"},
+  {fr:"centre",zh:"中心"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

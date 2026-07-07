@@ -1036,16 +1036,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"toujours",audio:"../audio/vocab_3C_0.mp3"},
-  {fr:"souvent",audio:"../audio/vocab_3C_1.mp3"},
-  {fr:"parfois",audio:"../audio/vocab_3C_2.mp3"},
-  {fr:"rarement",audio:"../audio/vocab_3C_3.mp3"},
-  {fr:"jamais",audio:"../audio/vocab_3C_4.mp3"},
-  {fr:"lire",audio:"../audio/vocab_3C_5.mp3"},
-  {fr:"nager / faire de la natation",audio:"../audio/vocab_3C_6.mp3"},
-  {fr:"faire du sport",audio:"../audio/vocab_3C_7.mp3"},
-  {fr:"jouer au foot / tennis",audio:"../audio/vocab_3C_8.mp3"},
-  {fr:"faire de la musique",audio:"../audio/vocab_3C_9.mp3"},
+  {fr:"serveur", audio:"../audio/vocab_3C_0.mp3"},
+  {fr:"tripe", audio:"../audio/vocab_3C_1.mp3"},
+  {fr:"quiche", audio:"../audio/vocab_3C_2.mp3"},
+  {fr:"salade", audio:"../audio/vocab_3C_3.mp3"},
+  {fr:"steak", audio:"../audio/vocab_3C_4.mp3"},
+  {fr:"frites", audio:"../audio/vocab_3C_5.mp3"},
+  {fr:"dessert", audio:"../audio/vocab_3C_6.mp3"},
+  {fr:"carte", audio:"../audio/vocab_3C_7.mp3"},
+  {fr:"savoureux", audio:"../audio/vocab_3C_8.mp3"},
+  {fr:"eau", audio:"../audio/vocab_3C_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1082,16 +1082,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"toujours",zh:"总是"},
-  {fr:"souvent",zh:"经常"},
-  {fr:"parfois",zh:"有时"},
-  {fr:"rarement",zh:"很少"},
-  {fr:"jamais",zh:"从不"},
-  {fr:"lire",zh:"阅读"},
-  {fr:"nager / faire de la natation",zh:"游泳"},
-  {fr:"faire du sport",zh:"做运动"},
-  {fr:"jouer au foot / tennis",zh:"踢足球／打网球"},
-  {fr:"faire de la musique",zh:"演奏音乐"},
+  {fr:"serveur",zh:"服务员"},
+  {fr:"tripe",zh:"内脏"},
+  {fr:"quiche",zh:"乳蛋饼"},
+  {fr:"salade",zh:"沙拉"},
+  {fr:"steak",zh:"牛排"},
+  {fr:"frites",zh:"薯条"},
+  {fr:"dessert",zh:"甜点"},
+  {fr:"carte",zh:"菜单"},
+  {fr:"savoureux",zh:"美味的"},
+  {fr:"eau",zh:"水"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

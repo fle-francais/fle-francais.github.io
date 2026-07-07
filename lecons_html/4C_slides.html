@@ -1099,16 +1099,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"métro",audio:"../audio/vocab_4C_0.mp3"},
-  {fr:"bus",audio:"../audio/vocab_4C_1.mp3"},
-  {fr:"train",audio:"../audio/vocab_4C_2.mp3"},
-  {fr:"vélo",audio:"../audio/vocab_4C_3.mp3"},
-  {fr:"voiture",audio:"../audio/vocab_4C_4.mp3"},
-  {fr:"taxi",audio:"../audio/vocab_4C_5.mp3"},
-  {fr:"à pied",audio:"../audio/vocab_4C_6.mp3"},
-  {fr:"arrêt",audio:"../audio/vocab_4C_7.mp3"},
-  {fr:"gare",audio:"../audio/vocab_4C_8.mp3"},
-  {fr:"aéroport",audio:"../audio/vocab_4C_9.mp3"},
+  {fr:"cathédrale", audio:"../audio/vocab_4C_0.mp3"},
+  {fr:"place", audio:"../audio/vocab_4C_1.mp3"},
+  {fr:"rue", audio:"../audio/vocab_4C_2.mp3"},
+  {fr:"traverser", audio:"../audio/vocab_4C_3.mp3"},
+  {fr:"loin", audio:"../audio/vocab_4C_4.mp3"},
+  {fr:"pied", audio:"../audio/vocab_4C_5.mp3"},
+  {fr:"arrêt", audio:"../audio/vocab_4C_6.mp3"},
+  {fr:"bus", audio:"../audio/vocab_4C_7.mp3"},
+  {fr:"panneau", audio:"../audio/vocab_4C_8.mp3"},
+  {fr:"bouchon", audio:"../audio/vocab_4C_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1145,16 +1145,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"métro",zh:"地铁"},
-  {fr:"bus",zh:"公共汽车"},
-  {fr:"train",zh:"火车"},
-  {fr:"vélo",zh:"自行车"},
-  {fr:"voiture",zh:"汽车"},
-  {fr:"taxi",zh:"出租车"},
-  {fr:"à pied",zh:"步行"},
-  {fr:"arrêt",zh:"（公交）站"},
-  {fr:"gare",zh:"火车站"},
-  {fr:"aéroport",zh:"机场"},
+  {fr:"cathédrale",zh:"大教堂"},
+  {fr:"place",zh:"广场"},
+  {fr:"rue",zh:"街道"},
+  {fr:"traverser",zh:"穿过"},
+  {fr:"loin",zh:"远"},
+  {fr:"pied",zh:"步行"},
+  {fr:"arrêt",zh:"车站"},
+  {fr:"bus",zh:"公交车"},
+  {fr:"panneau",zh:"标志"},
+  {fr:"bouchon",zh:"小餐馆"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

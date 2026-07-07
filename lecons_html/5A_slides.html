@@ -1030,16 +1030,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"pain",audio:"../audio/vocab_5A_0.mp3"},
-  {fr:"lait",audio:"../audio/vocab_5A_1.mp3"},
-  {fr:"beurre",audio:"../audio/vocab_5A_2.mp3"},
-  {fr:"fromage",audio:"../audio/vocab_5A_3.mp3"},
-  {fr:"viande",audio:"../audio/vocab_5A_4.mp3"},
-  {fr:"poisson",audio:"../audio/vocab_5A_5.mp3"},
-  {fr:"légumes",audio:"../audio/vocab_5A_6.mp3"},
-  {fr:"fruits",audio:"../audio/vocab_5A_7.mp3"},
-  {fr:"eau",audio:"../audio/vocab_5A_8.mp3"},
-  {fr:"jus d'orange",audio:"../audio/vocab_5A_9.mp3"},
+  {fr:"vendeur", audio:"../audio/vocab_5A_0.mp3"},
+  {fr:"manteau", audio:"../audio/vocab_5A_1.mp3"},
+  {fr:"taille", audio:"../audio/vocab_5A_2.mp3"},
+  {fr:"modèle", audio:"../audio/vocab_5A_3.mp3"},
+  {fr:"chaud", audio:"../audio/vocab_5A_4.mp3"},
+  {fr:"promotion", audio:"../audio/vocab_5A_5.mp3"},
+  {fr:"affaire", audio:"../audio/vocab_5A_6.mp3"},
+  {fr:"cabine", audio:"../audio/vocab_5A_7.mp3"},
+  {fr:"large", audio:"../audio/vocab_5A_8.mp3"},
+  {fr:"épaule", audio:"../audio/vocab_5A_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1076,16 +1076,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"pain",zh:"面包"},
-  {fr:"lait",zh:"牛奶"},
-  {fr:"beurre",zh:"黄油"},
-  {fr:"fromage",zh:"奶酪"},
-  {fr:"viande",zh:"肉"},
-  {fr:"poisson",zh:"鱼"},
-  {fr:"légumes",zh:"蔬菜"},
-  {fr:"fruits",zh:"水果"},
-  {fr:"eau",zh:"水"},
-  {fr:"jus d'orange",zh:"橙汁"},
+  {fr:"vendeur",zh:"售货员"},
+  {fr:"manteau",zh:"大衣"},
+  {fr:"taille",zh:"尺码"},
+  {fr:"modèle",zh:"款式"},
+  {fr:"chaud",zh:"暖和"},
+  {fr:"promotion",zh:"促销"},
+  {fr:"affaire",zh:"交易"},
+  {fr:"cabine",zh:"试衣间"},
+  {fr:"large",zh:"宽"},
+  {fr:"épaule",zh:"肩膀"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

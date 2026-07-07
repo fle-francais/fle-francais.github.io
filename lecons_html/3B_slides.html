@@ -1114,16 +1114,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"se lever",audio:"../audio/vocab_3B_0.mp3"},
-  {fr:"se coucher",audio:"../audio/vocab_3B_1.mp3"},
-  {fr:"se laver",audio:"../audio/vocab_3B_2.mp3"},
-  {fr:"s'habiller",audio:"../audio/vocab_3B_3.mp3"},
-  {fr:"se réveiller",audio:"../audio/vocab_3B_4.mp3"},
-  {fr:"partir",audio:"../audio/vocab_3B_5.mp3"},
-  {fr:"sortir",audio:"../audio/vocab_3B_6.mp3"},
-  {fr:"dormir",audio:"../audio/vocab_3B_7.mp3"},
-  {fr:"déjeuner",audio:"../audio/vocab_3B_8.mp3"},
-  {fr:"dîner",audio:"../audio/vocab_3B_9.mp3"},
+  {fr:"baguette", audio:"../audio/vocab_3B_0.mp3"},
+  {fr:"croissant", audio:"../audio/vocab_3B_1.mp3"},
+  {fr:"tarte", audio:"../audio/vocab_3B_2.mp3"},
+  {fr:"chocolat", audio:"../audio/vocab_3B_3.mp3"},
+  {fr:"maison", audio:"../audio/vocab_3B_4.mp3"},
+  {fr:"excellent", audio:"../audio/vocab_3B_5.mp3"},
+  {fr:"frais", audio:"../audio/vocab_3B_6.mp3"},
+  {fr:"four", audio:"../audio/vocab_3B_7.mp3"},
+  {fr:"part", audio:"../audio/vocab_3B_8.mp3"},
+  {fr:"cher", audio:"../audio/vocab_3B_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1160,16 +1160,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"se lever",zh:"起床"},
-  {fr:"se coucher",zh:"睡觉"},
-  {fr:"se laver",zh:"洗漱"},
-  {fr:"s'habiller",zh:"穿衣服"},
-  {fr:"se réveiller",zh:"醒来"},
-  {fr:"partir",zh:"出发；离开"},
-  {fr:"sortir",zh:"出去"},
-  {fr:"dormir",zh:"睡觉"},
-  {fr:"déjeuner",zh:"吃午饭；午饭"},
-  {fr:"dîner",zh:"吃晚饭；晚饭"},
+  {fr:"baguette",zh:"法棍"},
+  {fr:"croissant",zh:"羊角面包"},
+  {fr:"tarte",zh:"馅饼"},
+  {fr:"chocolat",zh:"巧克力"},
+  {fr:"maison",zh:"自制的"},
+  {fr:"excellent",zh:"极好的"},
+  {fr:"frais",zh:"新鲜的"},
+  {fr:"four",zh:"烤箱"},
+  {fr:"part",zh:"份"},
+  {fr:"cher",zh:"贵的"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

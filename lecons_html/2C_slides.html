@@ -1089,16 +1089,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"aimer",audio:"../audio/vocab_2C_0.mp3"},
-  {fr:"adorer",audio:"../audio/vocab_2C_1.mp3"},
-  {fr:"détester",audio:"../audio/vocab_2C_2.mp3"},
-  {fr:"choisir",audio:"../audio/vocab_2C_3.mp3"},
-  {fr:"finir",audio:"../audio/vocab_2C_4.mp3"},
-  {fr:"réussir",audio:"../audio/vocab_2C_5.mp3"},
-  {fr:"loisir",audio:"../audio/vocab_2C_6.mp3"},
-  {fr:"sport",audio:"../audio/vocab_2C_7.mp3"},
-  {fr:"musique",audio:"../audio/vocab_2C_8.mp3"},
-  {fr:"cinéma",audio:"../audio/vocab_2C_9.mp3"},
+  {fr:"cuisine", audio:"../audio/vocab_2C_0.mp3"},
+  {fr:"quenelle", audio:"../audio/vocab_2C_1.mp3"},
+  {fr:"gratin", audio:"../audio/vocab_2C_2.mp3"},
+  {fr:"sport", audio:"../audio/vocab_2C_3.mp3"},
+  {fr:"football", audio:"../audio/vocab_2C_4.mp3"},
+  {fr:"jogging", audio:"../audio/vocab_2C_5.mp3"},
+  {fr:"natation", audio:"../audio/vocab_2C_6.mp3"},
+  {fr:"randonnée", audio:"../audio/vocab_2C_7.mp3"},
+  {fr:"musique", audio:"../audio/vocab_2C_8.mp3"},
+  {fr:"jazz", audio:"../audio/vocab_2C_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1135,16 +1135,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"aimer",zh:"喜欢"},
-  {fr:"adorer",zh:"非常喜欢"},
-  {fr:"détester",zh:"讨厌"},
-  {fr:"choisir",zh:"选择"},
-  {fr:"finir",zh:"结束；完成"},
-  {fr:"réussir",zh:"成功；通过"},
-  {fr:"loisir",zh:"休闲；爱好"},
+  {fr:"cuisine",zh:"菜"},
+  {fr:"quenelle",zh:"肉丸"},
+  {fr:"gratin",zh:"焗烤"},
   {fr:"sport",zh:"运动"},
+  {fr:"football",zh:"足球"},
+  {fr:"jogging",zh:"慢跑"},
+  {fr:"natation",zh:"游泳"},
+  {fr:"randonnée",zh:"徒步旅行"},
   {fr:"musique",zh:"音乐"},
-  {fr:"cinéma",zh:"电影院；电影"},
+  {fr:"jazz",zh:"爵士乐"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

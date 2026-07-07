@@ -1102,16 +1102,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"salon",audio:"../audio/vocab_8A_0.mp3"},
-  {fr:"cuisine",audio:"../audio/vocab_8A_1.mp3"},
-  {fr:"chambre",audio:"../audio/vocab_8A_2.mp3"},
-  {fr:"salle de bains",audio:"../audio/vocab_8A_3.mp3"},
-  {fr:"toilettes",audio:"../audio/vocab_8A_4.mp3"},
-  {fr:"balcon",audio:"../audio/vocab_8A_5.mp3"},
-  {fr:"entrée",audio:"../audio/vocab_8A_6.mp3"},
-  {fr:"étage",audio:"../audio/vocab_8A_7.mp3"},
-  {fr:"ascenseur",audio:"../audio/vocab_8A_8.mp3"},
-  {fr:"meuble",audio:"../audio/vocab_8A_9.mp3"},
+  {fr:"docteur", audio:"../audio/vocab_8A_0.mp3"},
+  {fr:"gorge", audio:"../audio/vocab_8A_1.mp3"},
+  {fr:"fièvre", audio:"../audio/vocab_8A_2.mp3"},
+  {fr:"fatigué", audio:"../audio/vocab_8A_3.mp3"},
+  {fr:"température", audio:"../audio/vocab_8A_4.mp3"},
+  {fr:"angine", audio:"../audio/vocab_8A_5.mp3"},
+  {fr:"antibiotique", audio:"../audio/vocab_8A_6.mp3"},
+  {fr:"allergique", audio:"../audio/vocab_8A_7.mp3"},
+  {fr:"repos", audio:"../audio/vocab_8A_8.mp3"},
+  {fr:"eau", audio:"../audio/vocab_8A_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1148,16 +1148,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"salon",zh:"客厅"},
-  {fr:"cuisine",zh:"厨房"},
-  {fr:"chambre",zh:"卧室"},
-  {fr:"salle de bains",zh:"浴室"},
-  {fr:"toilettes",zh:"厕所"},
-  {fr:"balcon",zh:"阳台"},
-  {fr:"entrée",zh:"门厅；入口"},
-  {fr:"étage",zh:"楼层"},
-  {fr:"ascenseur",zh:"电梯"},
-  {fr:"meuble",zh:"家具"},
+  {fr:"docteur",zh:"医生"},
+  {fr:"gorge",zh:"喉咙"},
+  {fr:"fièvre",zh:"发烧"},
+  {fr:"fatigué",zh:"疲惫"},
+  {fr:"température",zh:"温度"},
+  {fr:"angine",zh:"咽喉炎"},
+  {fr:"antibiotique",zh:"抗生素"},
+  {fr:"allergique",zh:"过敏的"},
+  {fr:"repos",zh:"休息"},
+  {fr:"eau",zh:"水"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

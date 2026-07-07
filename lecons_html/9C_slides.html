@@ -1093,16 +1093,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"compétence",audio:"../audio/vocab_9C_0.mp3"},
-  {fr:"talent",audio:"../audio/vocab_9C_1.mp3"},
-  {fr:"savoir",audio:"../audio/vocab_9C_2.mp3"},
-  {fr:"connaître",audio:"../audio/vocab_9C_3.mp3"},
-  {fr:"qualité",audio:"../audio/vocab_9C_4.mp3"},
-  {fr:"défaut",audio:"../audio/vocab_9C_5.mp3"},
-  {fr:"curieux / curieuse",audio:"../audio/vocab_9C_6.mp3"},
-  {fr:"créatif / créative",audio:"../audio/vocab_9C_7.mp3"},
-  {fr:"organisé(e)",audio:"../audio/vocab_9C_8.mp3"},
-  {fr:"patient(e)",audio:"../audio/vocab_9C_9.mp3"},
+  {fr:"magnifique", audio:"../audio/vocab_9C_0.mp3"},
+  {fr:"palais", audio:"../audio/vocab_9C_1.mp3"},
+  {fr:"canal", audio:"../audio/vocab_9C_2.mp3"},
+  {fr:"tourisme", audio:"../audio/vocab_9C_3.mp3"},
+  {fr:"historique", audio:"../audio/vocab_9C_4.mp3"},
+  {fr:"Ermitage", audio:"../audio/vocab_9C_5.mp3"},
+  {fr:"Perspective Nevski", audio:"../audio/vocab_9C_6.mp3"},
+  {fr:"palais d’Hiver", audio:"../audio/vocab_9C_7.mp3"},
+  {fr:"jaloux", audio:"../audio/vocab_9C_8.mp3"},
+  {fr:"bortsch", audio:"../audio/vocab_9C_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1139,16 +1139,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"compétence",zh:"能力；技能"},
-  {fr:"talent",zh:"才能"},
-  {fr:"savoir",zh:"知道；会"},
-  {fr:"connaître",zh:"认识；了解"},
-  {fr:"qualité",zh:"品质；优点"},
-  {fr:"défaut",zh:"缺点"},
-  {fr:"curieux / curieuse",zh:"好奇的"},
-  {fr:"créatif / créative",zh:"有创意的"},
-  {fr:"organisé(e)",zh:"有条理的"},
-  {fr:"patient(e)",zh:"耐心的"},
+  {fr:"magnifique",zh:"壮丽的"},
+  {fr:"palais",zh:"宫殿"},
+  {fr:"canal",zh:"运河"},
+  {fr:"tourisme",zh:"旅游"},
+  {fr:"historique",zh:"历史的"},
+  {fr:"Ermitage",zh:"艾尔米塔什博物馆"},
+  {fr:"Perspective Nevski",zh:"涅夫斯基大街"},
+  {fr:"palais d'Hiver",zh:"冬宫"},
+  {fr:"jaloux",zh:"嫉妒的"},
+  {fr:"bortsch",zh:"红菜汤"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

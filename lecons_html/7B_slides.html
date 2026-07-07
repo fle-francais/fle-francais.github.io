@@ -1145,16 +1145,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"cent",audio:"../audio/vocab_7B_0.mp3"},
-  {fr:"mille",audio:"../audio/vocab_7B_1.mp3"},
-  {fr:"million",audio:"../audio/vocab_7B_2.mp3"},
-  {fr:"prix",audio:"../audio/vocab_7B_3.mp3"},
-  {fr:"réduction",audio:"../audio/vocab_7B_4.mp3"},
-  {fr:"soldes",audio:"../audio/vocab_7B_5.mp3"},
-  {fr:"gratuit(e)",audio:"../audio/vocab_7B_6.mp3"},
-  {fr:"cher / chère",audio:"../audio/vocab_7B_7.mp3"},
-  {fr:"bon marché",audio:"../audio/vocab_7B_8.mp3"},
-  {fr:"négocier",audio:"../audio/vocab_7B_9.mp3"},
+  {fr:"immeuble", audio:"../audio/vocab_7B_0.mp3"},
+  {fr:"règle", audio:"../audio/vocab_7B_1.mp3"},
+  {fr:"poubelle", audio:"../audio/vocab_7B_2.mp3"},
+  {fr:"bruit", audio:"../audio/vocab_7B_3.mp3"},
+  {fr:"musique", audio:"../audio/vocab_7B_4.mp3"},
+  {fr:"animaux", audio:"../audio/vocab_7B_5.mp3"},
+  {fr:"syndic", audio:"../audio/vocab_7B_6.mp3"},
+  {fr:"chat", audio:"../audio/vocab_7B_7.mp3"},
+  {fr:"parking", audio:"../audio/vocab_7B_8.mp3"},
+  {fr:"problème", audio:"../audio/vocab_7B_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1191,16 +1191,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"cent",zh:"一百"},
-  {fr:"mille",zh:"一千"},
-  {fr:"million",zh:"一百万"},
-  {fr:"prix",zh:"价格"},
-  {fr:"réduction",zh:"折扣；降价"},
-  {fr:"soldes",zh:"大减价"},
-  {fr:"gratuit(e)",zh:"免费的"},
-  {fr:"cher / chère",zh:"贵的"},
-  {fr:"bon marché",zh:"便宜的"},
-  {fr:"négocier",zh:"谈价；协商"},
+  {fr:"immeuble",zh:"大楼"},
+  {fr:"règle",zh:"规则"},
+  {fr:"poubelle",zh:"垃圾桶"},
+  {fr:"bruit",zh:"噪音"},
+  {fr:"musique",zh:"音乐"},
+  {fr:"animaux",zh:"动物"},
+  {fr:"syndic",zh:"物业管理"},
+  {fr:"chat",zh:"猫"},
+  {fr:"parking",zh:"停车场"},
+  {fr:"problème",zh:"问题"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

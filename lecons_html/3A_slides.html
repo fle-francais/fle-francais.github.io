@@ -1097,16 +1097,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"heure",audio:"../audio/vocab_3A_0.mp3"},
-  {fr:"matin",audio:"../audio/vocab_3A_1.mp3"},
-  {fr:"après-midi",audio:"../audio/vocab_3A_2.mp3"},
-  {fr:"soir",audio:"../audio/vocab_3A_3.mp3"},
-  {fr:"nuit",audio:"../audio/vocab_3A_4.mp3"},
-  {fr:"midi",audio:"../audio/vocab_3A_5.mp3"},
-  {fr:"minuit",audio:"../audio/vocab_3A_6.mp3"},
-  {fr:"tôt",audio:"../audio/vocab_3A_7.mp3"},
-  {fr:"tard",audio:"../audio/vocab_3A_8.mp3"},
-  {fr:"rendez-vous",audio:"../audio/vocab_3A_9.mp3"},
+  {fr:"bonjour", audio:"../audio/vocab_3A_0.mp3"},
+  {fr:"monsieur", audio:"../audio/vocab_3A_1.mp3"},
+  {fr:"tomate", audio:"../audio/vocab_3A_2.mp3"},
+  {fr:"kilo", audio:"../audio/vocab_3A_3.mp3"},
+  {fr:"courgette", audio:"../audio/vocab_3A_4.mp3"},
+  {fr:"frais", audio:"../audio/vocab_3A_5.mp3"},
+  {fr:"euro", audio:"../audio/vocab_3A_6.mp3"},
+  {fr:"cher", audio:"../audio/vocab_3A_7.mp3"},
+  {fr:"pomme", audio:"../audio/vocab_3A_8.mp3"},
+  {fr:"journée", audio:"../audio/vocab_3A_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1143,16 +1143,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"heure",zh:"小时；时刻"},
-  {fr:"matin",zh:"早上"},
-  {fr:"après-midi",zh:"下午"},
-  {fr:"soir",zh:"晚上"},
-  {fr:"nuit",zh:"夜晚"},
-  {fr:"midi",zh:"中午"},
-  {fr:"minuit",zh:"午夜"},
-  {fr:"tôt",zh:"早"},
-  {fr:"tard",zh:"晚"},
-  {fr:"rendez-vous",zh:"约会；预约"},
+  {fr:"bonjour",zh:"你好"},
+  {fr:"monsieur",zh:"先生"},
+  {fr:"tomate",zh:"西红柿"},
+  {fr:"kilo",zh:"公斤"},
+  {fr:"courgette",zh:"西葫芦"},
+  {fr:"frais",zh:"新鲜的"},
+  {fr:"euro",zh:"欧元"},
+  {fr:"cher",zh:"贵的"},
+  {fr:"pomme",zh:"苹果"},
+  {fr:"journée",zh:"一天"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

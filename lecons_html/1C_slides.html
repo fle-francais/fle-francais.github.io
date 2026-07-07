@@ -1187,16 +1187,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"nationalité",audio:"../audio/vocab_1C_0.mp3"},
-  {fr:"pays",audio:"../audio/vocab_1C_1.mp3"},
-  {fr:"origine",audio:"../audio/vocab_1C_2.mp3"},
-  {fr:"français(e)",audio:"../audio/vocab_1C_3.mp3"},
-  {fr:"chinois(e)",audio:"../audio/vocab_1C_4.mp3"},
-  {fr:"japonais(e)",audio:"../audio/vocab_1C_5.mp3"},
-  {fr:"espagnol(e)",audio:"../audio/vocab_1C_6.mp3"},
-  {fr:"américain(e)",audio:"../audio/vocab_1C_7.mp3"},
-  {fr:"un",audio:"../audio/vocab_1C_8.mp3"},
-  {fr:"dix",audio:"../audio/vocab_1C_9.mp3"},
+  {fr:"cinéma", audio:"../audio/vocab_1C_0.mp3"},
+  {fr:"musique", audio:"../audio/vocab_1C_1.mp3"},
+  {fr:"sport", audio:"../audio/vocab_1C_2.mp3"},
+  {fr:"football", audio:"../audio/vocab_1C_3.mp3"},
+  {fr:"vélo", audio:"../audio/vocab_1C_4.mp3"},
+  {fr:"peinture", audio:"../audio/vocab_1C_5.mp3"},
+  {fr:"cuisine", audio:"../audio/vocab_1C_6.mp3"},
+  {fr:"numéro", audio:"../audio/vocab_1C_7.mp3"},
+  {fr:"parfait", audio:"../audio/vocab_1C_8.mp3"},
+  {fr:"prochain", audio:"../audio/vocab_1C_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1233,16 +1233,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"nationalité",zh:"国籍"},
-  {fr:"pays",zh:"国家"},
-  {fr:"origine",zh:"出身；来源"},
-  {fr:"français(e)",zh:"法国人；法语的"},
-  {fr:"chinois(e)",zh:"中国人；中文的"},
-  {fr:"japonais(e)",zh:"日本人"},
-  {fr:"espagnol(e)",zh:"西班牙人"},
-  {fr:"américain(e)",zh:"美国人"},
-  {fr:"un",zh:"一"},
-  {fr:"dix",zh:"十"},
+  {fr:"cinéma",zh:"电影"},
+  {fr:"musique",zh:"音乐"},
+  {fr:"sport",zh:"运动"},
+  {fr:"football",zh:"足球"},
+  {fr:"vélo",zh:"自行车"},
+  {fr:"peinture",zh:"绘画"},
+  {fr:"cuisine",zh:"烹饪"},
+  {fr:"numéro",zh:"号码"},
+  {fr:"parfait",zh:"完美的"},
+  {fr:"prochain",zh:"下一个"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;

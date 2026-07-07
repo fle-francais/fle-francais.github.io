@@ -1098,16 +1098,16 @@ function resetPrat(btn){var col=btn.closest('.gram-prat');col.querySelectorAll('
 
 // ==== Écoute et choisis ====
 var VC_DATA=[
-  {fr:"objet",audio:"../audio/vocab_7C_0.mp3"},
-  {fr:"modèle",audio:"../audio/vocab_7C_1.mp3"},
-  {fr:"qualité",audio:"../audio/vocab_7C_2.mp3"},
-  {fr:"léger / légère",audio:"../audio/vocab_7C_3.mp3"},
-  {fr:"lourd(e)",audio:"../audio/vocab_7C_4.mp3"},
-  {fr:"solide",audio:"../audio/vocab_7C_5.mp3"},
-  {fr:"pratique",audio:"../audio/vocab_7C_6.mp3"},
-  {fr:"élégant(e)",audio:"../audio/vocab_7C_7.mp3"},
-  {fr:"moderne",audio:"../audio/vocab_7C_8.mp3"},
-  {fr:"classique",audio:"../audio/vocab_7C_9.mp3"},
+  {fr:"appartement", audio:"../audio/vocab_7C_0.mp3"},
+  {fr:"propriétaire", audio:"../audio/vocab_7C_1.mp3"},
+  {fr:"évier", audio:"../audio/vocab_7C_2.mp3"},
+  {fr:"bassine", audio:"../audio/vocab_7C_3.mp3"},
+  {fr:"plombier", audio:"../audio/vocab_7C_4.mp3"},
+  {fr:"matin", audio:"../audio/vocab_7C_5.mp3"},
+  {fr:"journee", audio:"../audio/vocab_7C_6.mp3"},
+  {fr:"désolé", audio:"../audio/vocab_7C_7.mp3"},
+  {fr:"appeler", audio:"../audio/vocab_7C_8.mp3"},
+  {fr:"passer", audio:"../audio/vocab_7C_9.mp3"},
 ];
 var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
@@ -1144,16 +1144,16 @@ function vcShowScore(){
 function vcRestart(){vcInit();}
 // ==== Associer FR<>ZH ====
 var MATCH_DATA=[
-  {fr:"objet",zh:"物品；对象"},
-  {fr:"modèle",zh:"款式；型号"},
-  {fr:"qualité",zh:"质量；品质"},
-  {fr:"léger / légère",zh:"轻的"},
-  {fr:"lourd(e)",zh:"重的"},
-  {fr:"solide",zh:"结实的；耐用的"},
-  {fr:"pratique",zh:"实用的"},
-  {fr:"élégant(e)",zh:"优雅的"},
-  {fr:"moderne",zh:"现代的"},
-  {fr:"classique",zh:"经典的"},
+  {fr:"appartement",zh:"公寓"},
+  {fr:"propriétaire",zh:"房东"},
+  {fr:"évier",zh:"水槽"},
+  {fr:"bassine",zh:"盆"},
+  {fr:"plombier",zh:"水管工"},
+  {fr:"matin",zh:"早上"},
+  {fr:"journee",zh:"一天"},
+  {fr:"désolé",zh:"抱歉"},
+  {fr:"appeler",zh:"打电话"},
+  {fr:"passer",zh:"经过"},
 ];
 var matchRound=0,matchSel=null,matchDone=0,matchErrors=0;
 var MATCH_ROUND_SIZE=5;
