@@ -519,15 +519,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div class="qcm-block">
 <div class="qcm-items">
 <div class="qcm-item">
-<div class="qcm-q">1. Quel est le nom de l'hôtel ? <span class="comm-zh">1. 酒店的名字是什么？</span></div>
-<div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'a')">A) Hôtel Le Vieux-Port</button>
-<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'a')">B) Hôtel de Paris</button>
-<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'a')">C) Hôtel du Centre</button>
-</div>
-</div>
-<div class="qcm-item">
-<div class="qcm-q">2. Combien de nuits Anna veut-elle réserver ? <span class="comm-zh">2. 安娜想预订几晚？</span></div>
+<div class="qcm-q">1. Pour combien de nuits Anna réserve-t-elle ? <span class="comm-zh">安娜预订了几晚？</span></div>
 <div class="qcm-opts">
 <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Une nuit</button>
 <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Deux nuits</button>
@@ -535,35 +527,43 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 </div>
 <div class="qcm-item">
-<div class="qcm-q">3. Quelle type de chambre Anna veut-elle ? <span class="comm-zh">3. 安娜想要什么类型的房间？</span></div>
+<div class="qcm-q">2. C'est le premier séjour d'Anna à Marseille ? <span class="comm-zh">这是安娜第一次来马赛吗？</span></div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Oui, c'est la première fois</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Non, elle est déjà venue</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Elle ne sait pas</button>
+</div>
+</div>
+<div class="qcm-item">
+<div class="qcm-q">3. Avec qui Anna est-elle venue l'année dernière ? <span class="comm-zh">安娜去年和谁来的？</span></div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Avec sa famille</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Avec des amis</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Avec des collègues</button>
+</div>
+</div>
+<div class="qcm-item">
+<div class="qcm-q">4. Combien de jours Anna est-elle restée la dernière fois ? <span class="comm-zh">安娜上次待了几天？</span></div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Trois jours</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Quatre jours</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Cinq jours</button>
+</div>
+</div>
+<div class="qcm-item">
+<div class="qcm-q">5. À quelle heure Anna va-t-elle arriver ? <span class="comm-zh">安娜将在几点到达？</span></div>
+<div class="qcm-opts">
+<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Vers dix-huit heures</button>
+<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Vers dix-neuf heures</button>
+<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Vers vingt heures</button>
+</div>
+</div>
+<div class="qcm-item">
+<div class="qcm-q">6. Quel type de chambre réserve Anna ? <span class="comm-zh">安娜预订了什么类型的房间？</span></div>
 <div class="qcm-opts">
 <button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Chambre double</button>
 <button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Chambre simple</button>
 <button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Suite</button>
-</div>
-</div>
-<div class="qcm-item">
-<div class="qcm-q">4. Combien coûte la chambre par nuit ? <span class="comm-zh">4. 房间每晚多少钱？</span></div>
-<div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) 100 euros</button>
-<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) 110 euros</button>
-<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) 120 euros</button>
-</div>
-</div>
-<div class="qcm-item">
-<div class="qcm-q">5. Le petit-déjeuner est-il inclus ? <span class="comm-zh">5. 早餐包含在内吗？</span></div>
-<div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Oui</button>
-<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Non</button>
-<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Seulement pour une personne</button>
-</div>
-</div>
-<div class="qcm-item">
-<div class="qcm-q">6. Quelles cartes de crédit l'hôtel accepte-t-il ? <span class="comm-zh">6. 酒店接受哪些信用卡？</span></div>
-<div class="qcm-opts">
-<button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) Uniquement Visa</button>
-<button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) Uniquement MasterCard</button>
-<button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) Toutes les cartes</button>
 </div>
 </div>
 </div>
