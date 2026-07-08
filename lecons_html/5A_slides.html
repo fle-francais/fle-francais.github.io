@@ -704,7 +704,8 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 <div id="prat-body" style="width:100%;display:flex;flex-direction:column;align-items:center;min-height:300px"></div>
 <div id="prat-success" style="display:none;margin-top:8px;padding:9px 14px;border-radius:8px;background:#EAF3DE;border:1px solid #0ca30c;color:#3B6D11;font-size:13px;font-weight:500;text-align:center;width:100%"></div>
-<div style="display:flex;justify-content:flex-end;margin-top:12px;width:100%">
+<div style="display:flex;justify-content:space-between;margin-top:12px;width:100%">
+<button class="btn-ns" id="prat-prev" onclick="pratPrev()" style="display:none">← Précédent</button>
 <button class="btn-ns" id="prat-reset" style="display:none" onclick="pratReset()">↺ Recommencer</button>
 <span id="prat-score" style="display:none"></span>
 <button class="btn-ns" id="prat-next" onclick="pratNext()" style="display:none">Suivant →</button>
@@ -731,6 +732,7 @@ function render(){
   document.getElementById('prat-success').style.display='none';
   document.getElementById('prat-score').textContent='';
   document.getElementById('prat-next').style.display='none';
+  document.getElementById('prat-prev').style.display=cur>0?'':'none';
   if(a.type==='flash')renderFlash(a);
   else renderWO(a);
 }
@@ -799,6 +801,7 @@ function renderWO(a){
 }
 window.pratReset=function(){var ex=document.getElementById('prat-exit');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur=0;render();};
 window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}else{var ex=document.getElementById('prat-exit');if(ex){ex.disabled=false;ex.style.opacity='1';}}};
+window.pratPrev=function(){if(cur>0){cur--;render();}};
 render();
 })();
 </script>
