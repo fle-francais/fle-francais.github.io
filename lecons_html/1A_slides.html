@@ -947,12 +947,19 @@ function renderWO2(a){
   function renderS(){
     var s=a.sentences[si];placed=[];
     var allW=shuf([...s.words,...(s.distractors||[])]);
+    var isLast=(si===a.sentences.length-1);
     b.innerHTML=(a.instruction?'<div style="font-size:12px;color:#b45309;background:#fffbeb;border:1px solid #fcd34d;border-radius:6px;padding:6px 10px;margin-bottom:8px;width:100%;text-align:center">'+a.instruction+'</div>':'')
+      +'<p style="font-size:11px;color:var(--muted);text-align:right;margin-bottom:2px">Phrase '+(si+1)+' / '+a.sentences.length+'</p>'
       +'<p style="font-size:13px;color:var(--muted);margin-bottom:10px;text-align:center">'+s.zh+'</p>'
       +'<div id="wo-z-r2" style="min-height:50px;border:1.5px dashed #999;border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;width:100%;background:var(--bg-l,#f8f9fa)"></div>'
       +'<div id="wo-b-r2" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%"></div>'
       +'<div id="wo-fb-r2" style="font-size:13px;text-align:center;padding:8px;border-radius:8px;width:100%"></div>'
-      +'<div style="display:flex;gap:8px;align-items:center;justify-content:center">'+(cur2>0?'<button class="btn-round-nav" onclick="pratPrevR2()" title="Activité précédente">&#8592;</button>':'<span style="width:38px"></span>')+'<button class="btn-ns" onclick="woChkR2()">✓ Vérifier</button><button class="btn-ns" onclick="woClR2()">↺ Effacer</button><button class="btn-round-nav" id="wo-suiv-r2" onclick="pratNextR2()" style="display:none" title="Activité suivante">&#8594;</button></div>';
+      +'<div style="display:flex;gap:8px;align-items:center;justify-content:center">'
+      +(si>0?'<button class="btn-round-nav" id="wo-prev-r2" onclick="woPrevR2()" title="Phrase précédente">&#8592;</button>':'<span style="width:38px"></span>')
+      +'<button class="btn-ns" onclick="woChkR2()">✓ Vérifier</button>'
+      +'<button class="btn-ns" onclick="woClR2()">↺ Effacer</button>'
+      +'<button class="btn-round-nav" id="wo-suiv-r2" style="display:none" title="'+(isLast?'Activité suivante':'Phrase suivante')+'">&#8594;</button>'
+      +'</div>';
     allW.forEach(function(w){
       var el=document.createElement('div');
       el.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
@@ -967,22 +974,26 @@ function renderWO2(a){
       };
       document.getElementById('wo-b-r2').appendChild(el);
     });
+    // Wire up → button after DOM exists
+    var suivBtn=document.getElementById('wo-suiv-r2');
+    if(suivBtn){
+      suivBtn.onclick=isLast?function(){
+        // Last sentence done → complete activity
+        document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';
+        document.getElementById('prat-success-r2').style.display='block';
+        if(cur2===ACTS2.length-1){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}
+        else{pratNextR2();}
+      }:function(){
+        si++;renderS();
+      };
+    }
     window.woChkR2=function(){
       var correct=s.words;var pw=placed.map(function(x){return x.word;});
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb-r2');
-      if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
-        si++;if(si>=a.sentences.length){
-          // Show inline → button instead of outer prat-next
-          var ns=document.getElementById('wo-suiv-r2');if(ns)ns.style.display='';
-          // Show Parfait banner
-          setTimeout(function(){
-            document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';
-            document.getElementById('prat-success-r2').style.display='block';
-            // If last activity, unlock exit
-            if(cur2===ACTS2.length-1){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}
-          },500);
-        }else{setTimeout(function(){renderS();},900);}
+      if(ok){
+        fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
+        var ns=document.getElementById('wo-suiv-r2');if(ns)ns.style.display='';
       }else{
         fb.style.background='#FCEBEB';fb.style.color='#A32D2D';
         var usedD=s.distractors&&s.distractors.some(function(d){return pw.indexOf(d)!==-1;});
@@ -994,6 +1005,7 @@ function renderWO2(a){
       document.querySelectorAll('#wo-b-r2 div').forEach(function(el){delete el.dataset.used;el.style.opacity='';el.style.cursor='pointer';});
       document.getElementById('wo-fb-r2').textContent='';document.getElementById('wo-fb-r2').style.background='';
     };
+    window.woPrevR2=function(){if(si>0){si--;renderS();}};
   }
   renderS();
 }
