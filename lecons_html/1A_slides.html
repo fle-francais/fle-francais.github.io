@@ -455,7 +455,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 .match-score-txt{font-size:1rem;font-weight:700;color:var(--purp);text-align:center}
 .match-restart-btn{padding:10px 28px;border-radius:22px;border:none;background:var(--purp);color:#fff;font-size:.88rem;font-weight:700;cursor:pointer}
 
-</style>
+.btn-round-nav{width:38px;height:38px;border-radius:50%;border:2px solid var(--purp);background:transparent;color:var(--purp);font-size:17px;font-weight:700;cursor:pointer;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;transition:all .15s;padding:0}.btn-round-nav:hover{background:var(--purp-l);border-color:var(--purp)}.btn-round-nav:disabled{opacity:.3;cursor:default}</style>
 </head>
 <body>
 <header class="page-header">
@@ -703,7 +703,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div style="display:flex;justify-content:flex-end;margin-top:12px;width:100%">
 <button class="btn-ns" id="prat-reset" style="display:none" onclick="pratReset()">↺ Recommencer</button>
 <span id="prat-score" style="display:none"></span>
-<button class="btn-ns" id="prat-next" onclick="pratNext()" style="display:none">Suivant →</button>
+<button class="btn-ns" id="prat-next" onclick="pratNext()" style="display:none;margin-left:auto">Suivant →</button>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
@@ -840,9 +840,9 @@ render();
 </div>
 <div id="prat-body-r2" style="width:100%;display:flex;flex-direction:column;align-items:center;min-height:300px"></div>
 <div id="prat-success-r2" style="display:none;margin-top:8px;padding:9px 14px;border-radius:8px;background:#EAF3DE;border:1px solid #0ca30c;color:#3B6D11;font-size:13px;font-weight:500;text-align:center;width:100%"></div>
-<div style="display:flex;justify-content:space-between;margin-top:12px;width:100%">
+<div style="display:flex;margin-top:12px;width:100%">
 <button class="btn-ns" id="prat-prev-r2" onclick="pratPrevR2()" style="display:none">← Précédent</button>
-<button class="btn-ns" id="prat-next-r2" onclick="pratNextR2()" style="display:none">Suivant →</button>
+<button class="btn-ns" id="prat-next-r2" onclick="pratNextR2()" style="display:none;margin-left:auto">Suivant →</button>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
@@ -925,10 +925,10 @@ function renderFlash2(a){
           [sel,el].forEach(function(c){c.style.borderColor='#0ca30c';c.style.background='#EAF3DE';c.style.color='#3B6D11';c.style.cursor='default';c.dataset.matched='1';});
           matched++;if(matched===a.pairs.length)onDone2();
         }else{
-          [sel,el].forEach(function(c){c.style.borderColor='#dc2626';c.style.background='#FCEBEB';});
-          setTimeout(function(){[sel,el].forEach(function(c){if(!c.dataset.matched){c.style.borderColor='var(--border)';c.style.background='var(--card-bg,#fff)';}});},600);
+          var toReset=[sel,el];sel=null;
+          toReset.forEach(function(c){c.style.borderColor='#dc2626';c.style.background='#FCEBEB';});
+          setTimeout(function(){toReset.forEach(function(c){if(c&&!c.dataset.matched){c.style.borderColor='var(--border)';c.style.background='var(--card-bg,#fff)';}});},600);
         }
-        sel=null;
       }else{
         sel.style.borderColor='var(--border)';sel.style.background='var(--card-bg,#fff)';
         sel=el;el.style.borderColor='var(--purp)';el.style.background='var(--purp-l)';
@@ -951,7 +951,7 @@ function renderWO2(a){
       +'<div id="wo-z-r2" style="min-height:50px;border:1.5px dashed #999;border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;width:100%;background:var(--bg-l,#f8f9fa)"></div>'
       +'<div id="wo-b-r2" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%"></div>'
       +'<div id="wo-fb-r2" style="font-size:13px;text-align:center;padding:8px;border-radius:8px;width:100%"></div>'
-      +'<div style="display:flex;gap:8px;justify-content:center"><button class="btn-ns" onclick="woChkR2()">✓ Vérifier</button><button class="btn-ns" onclick="woClR2()">↺ Effacer</button></div>';
+      +(cur2>0?'<button class="btn-round-nav" onclick="pratPrevR2()" title="Activité précédente">&#8592;</button>':'<span style="width:38px"></span>')+'<div style="display:flex;gap:8px;align-items:center;justify-content:center"><button class="btn-ns" onclick="woChkR2()">✓ Vérifier</button><button class="btn-ns" onclick="woClR2()">↺ Effacer</button><button class="btn-round-nav" id="wo-suiv-r2" onclick="pratNextR2()" style="display:none" title="Activité suivante">&#8594;</button></div>';
     allW.forEach(function(w){
       var el=document.createElement('div');
       el.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
@@ -971,7 +971,17 @@ function renderWO2(a){
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb-r2');
       if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
-        si++;if(si>=a.sentences.length){onDone2();}else{setTimeout(function(){renderS();},900);}
+        si++;if(si>=a.sentences.length){
+          // Show inline → button instead of outer prat-next
+          var ns=document.getElementById('wo-suiv-r2');if(ns)ns.style.display='';
+          // Show Parfait banner
+          setTimeout(function(){
+            document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';
+            document.getElementById('prat-success-r2').style.display='block';
+            // If last activity, unlock exit
+            if(cur2===ACTS2.length-1){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}
+          },500);
+        }else{setTimeout(function(){renderS();},900);}
       }else{
         fb.style.background='#FCEBEB';fb.style.color='#A32D2D';
         var usedD=s.distractors&&s.distractors.some(function(d){return pw.indexOf(d)!==-1;});
@@ -1061,7 +1071,13 @@ function renderClassify2(a){
     fb.style.cssText='font-size:13px;text-align:center;padding:6px;border-radius:8px;width:100%;margin-bottom:6px';
     b.appendChild(fb);
     /* Boutons */
-    var bar=document.createElement('div');bar.style.cssText='display:flex;gap:8px;justify-content:center';
+    var bar=document.createElement('div');bar.style.cssText='display:flex;gap:8px;align-items:center;justify-content:center';
+    /* ← round prev */
+    var pbtn=document.createElement('button');pbtn.className='btn-round-nav';
+    pbtn.innerHTML='&#8592;';pbtn.title='Activité précédente';
+    pbtn.style.display=cur2>0?'':'none';
+    pbtn.onclick=function(){pratPrevR2();};
+    bar.appendChild(pbtn);
     var vb=document.createElement('button');vb.className='btn-ns';vb.textContent='✓ Vérifier';
     vb.onclick=function(){
       var il=shuffled.filter(function(w){return placement[w]==='il';});
