@@ -922,7 +922,8 @@ function renderFlash2(a){
         var lc=sel.dataset.side==='L'?sel.dataset.k:el.dataset.k;
         var rc=sel.dataset.side==='R'?sel.dataset.k:el.dataset.k;
         if(lc===rc){
-          [sel,el].forEach(function(c){c.style.borderColor='#0ca30c';c.style.background='#EAF3DE';c.style.color='#3B6D11';c.style.cursor='default';c.dataset.matched='1';});
+          var toMatch=[sel,el];sel=null;
+          toMatch.forEach(function(c){c.style.borderColor='#0ca30c';c.style.background='#EAF3DE';c.style.color='#3B6D11';c.style.cursor='default';c.dataset.matched='1';});
           matched++;if(matched===a.pairs.length)onDone2();
         }else{
           var toReset=[sel,el];sel=null;
@@ -951,7 +952,7 @@ function renderWO2(a){
       +'<div id="wo-z-r2" style="min-height:50px;border:1.5px dashed #999;border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;width:100%;background:var(--bg-l,#f8f9fa)"></div>'
       +'<div id="wo-b-r2" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%"></div>'
       +'<div id="wo-fb-r2" style="font-size:13px;text-align:center;padding:8px;border-radius:8px;width:100%"></div>'
-      +(cur2>0?'<button class="btn-round-nav" onclick="pratPrevR2()" title="Activité précédente">&#8592;</button>':'<span style="width:38px"></span>')+'<div style="display:flex;gap:8px;align-items:center;justify-content:center"><button class="btn-ns" onclick="woChkR2()">✓ Vérifier</button><button class="btn-ns" onclick="woClR2()">↺ Effacer</button><button class="btn-round-nav" id="wo-suiv-r2" onclick="pratNextR2()" style="display:none" title="Activité suivante">&#8594;</button></div>';
+      +'<div style="display:flex;gap:8px;align-items:center;justify-content:center">'+(cur2>0?'<button class="btn-round-nav" onclick="pratPrevR2()" title="Activité précédente">&#8592;</button>':'<span style="width:38px"></span>')+'<button class="btn-ns" onclick="woChkR2()">✓ Vérifier</button><button class="btn-ns" onclick="woClR2()">↺ Effacer</button><button class="btn-round-nav" id="wo-suiv-r2" onclick="pratNextR2()" style="display:none" title="Activité suivante">&#8594;</button></div>';
     allW.forEach(function(w){
       var el=document.createElement('div');
       el.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
