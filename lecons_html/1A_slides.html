@@ -841,8 +841,6 @@ render();
 <div id="prat-body-r2" style="width:100%;display:flex;flex-direction:column;align-items:center;min-height:300px"></div>
 <div id="prat-success-r2" style="display:none;margin-top:8px;padding:9px 14px;border-radius:8px;background:#EAF3DE;border:1px solid #0ca30c;color:#3B6D11;font-size:13px;font-weight:500;text-align:center;width:100%"></div>
 <div style="display:flex;justify-content:flex-end;margin-top:12px;width:100%">
-<button class="btn-ns" style="display:none" id="prat-reset-r2" onclick="pratResetR2()">↺ Recommencer</button>
-<span id="prat-score-r2" style="display:none"></span>
 <button class="btn-ns" id="prat-next-r2" onclick="pratNextR2()" style="display:none">Suivant →</button>
 </div>
 </div>
@@ -853,23 +851,106 @@ render();
 </div>
 <script>
 (function(){
-var ACTS2=[{id:'wo2',title:"🔀 Remettre dans l'ordre — Nationalité",type:'wordorder',sentences:[{words:['Anna','est','italienne',',','de','Turin','.'],zh:'安娜是意大利人，来自都灵。'},{words:['Pedro','est','brésilien',',','de','Sao','Paulo','.'],zh:'佩德罗是巴西人，来自圣保罗。'},{words:['Elle','est','française','.'],zh:'她是法国人。'}]}];
+var ACTS2=[
+  {id:'flash1',title:'⚡ Associer — Français → 中文',type:'flash',
+   colL:'Français',colR:'中文',
+   pairs:[
+     {k:'1',l:'Il est brésilien.',r:'他是巴西人。'},
+     {k:'2',l:'Elle est italienne.',r:'她是意大利人。'},
+     {k:'3',l:'Elle est française.',r:'她是法国人。'},
+     {k:'4',l:'Il est espagnol.',r:'他是西班牙人。'},
+     {k:'5',l:'Il est japonais.',r:'他是日本人。'},
+     {k:'6',l:'Elle est chinoise.',r:'她是中国人。'}
+   ]},
+  {id:'wo1',title:'🔀 Construis la phrase — choisis le bon accord !',type:'wordorder',
+   instruction:'⚠️ Il y a plus de mots que nécessaire — choisis la bonne forme !',
+   sentences:[
+     {words:['Anna','est','italienne','.'],distractors:['italien'],zh:'她是意大利人。'},
+     {words:['Pedro','est','brésilien','.'],distractors:['brésilienne'],zh:'他是巴西人。'},
+     {words:['Elle','est','française','.'],distractors:['français'],zh:'她是法国人。'},
+     {words:['Il','est','japonais','.'],distractors:['japonaise'],zh:'他是日本人。'}
+   ]},
+  {id:'cls1',title:'🗂️ Classe dans la bonne colonne',type:'classify',
+   words:['français','française','brésilien','brésilienne','italien','italienne','espagnol','espagnole','japonais','japonaise','chinois','chinoise'],
+   answers:{il:['français','brésilien','italien','espagnol','japonais','chinois'],elle:['française','brésilienne','italienne','espagnole','japonaise','chinoise']}}
+];
 var cur2=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
 function render2(){
   var a=ACTS2[cur2];
   document.getElementById('prat-title-r2').textContent=a.title;
   document.getElementById('prat-counter-r2').textContent='Activité '+(cur2+1)+' / '+ACTS2.length;
   document.getElementById('prat-success-r2').style.display='none';
-  document.getElementById('prat-score-r2').textContent='';
-  renderWO2(a);
+  document.getElementById('prat-next-r2').style.display='none';
+  if(a.type==='flash')renderFlash2(a);
+  else if(a.type==='wordorder')renderWO2(a);
+  else if(a.type==='classify')renderClassify2(a);
 }
+
+function onDone2(){
+  setTimeout(function(){
+    document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';
+    document.getElementById('prat-success-r2').style.display='block';
+    if(cur2<ACTS2.length-1){document.getElementById('prat-next-r2').style.display='';}
+    else{var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}
+  },500);
+}
+
+/* ── FLASH ── */
+function renderFlash2(a){
+  var b=document.getElementById('prat-body-r2');
+  var matched=0,sel=null;
+  var pm={};a.pairs.forEach(function(p){pm[p.k]=p;});
+  var lk=shuf(a.pairs.map(function(p){return p.k;}));
+  var rk=shuf(a.pairs.map(function(p){return p.k;}));
+  b.innerHTML='<div style="display:flex;gap:12px;width:100%">'
+    +'<div style="flex:1"><div style="text-align:center;font-weight:700;color:var(--purp);font-size:12px;margin-bottom:8px">'+a.colL+'</div><div id="fl2-l" style="display:flex;flex-direction:column;gap:6px"></div></div>'
+    +'<div style="flex:1"><div style="text-align:center;font-weight:700;color:var(--purp);font-size:12px;margin-bottom:8px">'+a.colR+'</div><div id="fl2-r" style="display:flex;flex-direction:column;gap:6px"></div></div>'
+    +'</div>';
+  function mkCard(txt,k,side){
+    var el=document.createElement('div');
+    el.style.cssText='padding:7px 10px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;font-size:13px;text-align:center;color:var(--purp);transition:all .15s';
+    el.textContent=txt;el.dataset.k=k;el.dataset.side=side;
+    el.onclick=function(){
+      if(el.dataset.matched)return;
+      if(!sel){sel=el;el.style.borderColor='var(--purp)';el.style.background='var(--purp-l)';}
+      else if(sel===el){sel=null;el.style.borderColor='var(--border)';el.style.background='var(--card-bg,#fff)';}
+      else if(sel.dataset.side!==el.dataset.side){
+        var lc=sel.dataset.side==='L'?sel.dataset.k:el.dataset.k;
+        var rc=sel.dataset.side==='R'?sel.dataset.k:el.dataset.k;
+        if(lc===rc){
+          [sel,el].forEach(function(c){c.style.borderColor='#0ca30c';c.style.background='#EAF3DE';c.style.color='#3B6D11';c.style.cursor='default';c.dataset.matched='1';});
+          matched++;if(matched===a.pairs.length)onDone2();
+        }else{
+          [sel,el].forEach(function(c){c.style.borderColor='#dc2626';c.style.background='#FCEBEB';});
+          setTimeout(function(){[sel,el].forEach(function(c){if(!c.dataset.matched){c.style.borderColor='var(--border)';c.style.background='var(--card-bg,#fff)';}});},600);
+        }
+        sel=null;
+      }else{
+        sel.style.borderColor='var(--border)';sel.style.background='var(--card-bg,#fff)';
+        sel=el;el.style.borderColor='var(--purp)';el.style.background='var(--purp-l)';
+      }
+    };return el;
+  }
+  var lc=document.getElementById('fl2-l'),rc=document.getElementById('fl2-r');
+  lk.forEach(function(k){lc.appendChild(mkCard(pm[k].l,k,'L'));});
+  rk.forEach(function(k){rc.appendChild(mkCard(pm[k].r,k,'R'));});
+}
+
+/* ── WORDORDER + DISTRACTORS ── */
 function renderWO2(a){
   var b=document.getElementById('prat-body-r2');var si=0;var placed=[];
   function renderS(){
     var s=a.sentences[si];placed=[];
-    b.innerHTML='<p style="font-size:13px;color:var(--muted);margin-bottom:10px;text-align:center">'+s.zh+'</p><div id="wo-z-r2" style="min-height:50px;border:1.5px dashed var(--border-strong,#999);border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;width:100%;background:var(--bg-l,#f8f9fa)"></div><div id="wo-b-r2" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%"></div><div id="wo-fb-r2" style="font-size:13px;text-align:center;padding:8px;border-radius:8px;width:100%"></div><div style="display:flex;gap:8px;justify-content:center"><button class="btn-ns" onclick="woChkR2()">✓ Vérifier</button><button class="btn-ns" onclick="woClR2()">↺ Effacer</button></div>';
-    shuf([...s.words]).forEach(function(w){
+    var allW=shuf([...s.words,...(s.distractors||[])]);
+    b.innerHTML=(a.instruction?'<div style="font-size:12px;color:#b45309;background:#fffbeb;border:1px solid #fcd34d;border-radius:6px;padding:6px 10px;margin-bottom:8px;width:100%;text-align:center">'+a.instruction+'</div>':'')
+      +'<p style="font-size:13px;color:var(--muted);margin-bottom:10px;text-align:center">'+s.zh+'</p>'
+      +'<div id="wo-z-r2" style="min-height:50px;border:1.5px dashed #999;border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;width:100%;background:var(--bg-l,#f8f9fa)"></div>'
+      +'<div id="wo-b-r2" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%"></div>'
+      +'<div id="wo-fb-r2" style="font-size:13px;text-align:center;padding:8px;border-radius:8px;width:100%"></div>'
+      +'<div style="display:flex;gap:8px;justify-content:center"><button class="btn-ns" onclick="woChkR2()">✓ Vérifier</button><button class="btn-ns" onclick="woClR2()">↺ Effacer</button></div>';
+    allW.forEach(function(w){
       var el=document.createElement('div');
       el.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
       el.textContent=w;
@@ -887,17 +968,89 @@ function renderWO2(a){
       var correct=s.words;var pw=placed.map(function(x){return x.word;});
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb-r2');
-      if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='Correct !';
-        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r2').style.display='block';if(cur2<ACTS2.length-1){document.getElementById('prat-next-r2').style.display='';}else{var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}},700);}
-        else{setTimeout(function(){renderS();},900);}
-      }else{fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='Pas tout a fait... Reessaie.';}
+      if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
+        si++;if(si>=a.sentences.length){onDone2();}else{setTimeout(function(){renderS();},900);}
+      }else{
+        fb.style.background='#FCEBEB';fb.style.color='#A32D2D';
+        var usedD=s.distractors&&s.distractors.some(function(d){return pw.indexOf(d)!==-1;});
+        fb.textContent=usedD?'❌ Mauvais accord ! Vérifie le genre (M/F).':'❌ Pas tout à fait… Réessaie.';
+      }
     };
-    window.woClR2=function(){document.getElementById('wo-z-r2').innerHTML='';placed=[];document.querySelectorAll('#wo-b-r2 div').forEach(function(el){delete el.dataset.used;el.style.opacity='';el.style.cursor='pointer';});document.getElementById('wo-fb-r2').textContent='';document.getElementById('wo-fb-r2').style.background='';};
+    window.woClR2=function(){
+      document.getElementById('wo-z-r2').innerHTML='';placed=[];
+      document.querySelectorAll('#wo-b-r2 div').forEach(function(el){delete el.dataset.used;el.style.opacity='';el.style.cursor='pointer';});
+      document.getElementById('wo-fb-r2').textContent='';document.getElementById('wo-fb-r2').style.background='';
+    };
   }
   renderS();
 }
-window.pratResetR2=function(){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur2=0;render2();};
+
+/* ── CLASSIFY ── */
+function renderClassify2(a){
+  var b=document.getElementById('prat-body-r2');
+  var states={};var shuffled=shuf([...a.words]);
+  shuffled.forEach(function(w){states[w]='bank';});
+  function cycle(w){
+    states[w]=states[w]==='bank'?'il':states[w]==='il'?'elle':'bank';
+    drawUI();
+  }
+  function drawUI(){
+    b.innerHTML='';
+    var inst=document.createElement('div');
+    inst.style.cssText='font-size:12px;color:#1c2e5a;background:#e6ecf6;border-radius:6px;padding:6px 10px;margin-bottom:10px;width:100%;text-align:center';
+    inst.innerHTML='1 clic → 👨 <strong>Il</strong> &nbsp;·&nbsp; 2 clics → 👩 <strong>Elle</strong> &nbsp;·&nbsp; 3 clics → banque';
+    b.appendChild(inst);
+    var cols=document.createElement('div');
+    cols.style.cssText='display:flex;gap:8px;width:100%;margin-bottom:10px';
+    [{col:'il',label:'👨 Il est ___',bg:'#dbeafe',border:'#3b82f6'},{col:'elle',label:'👩 Elle est ___',bg:'#fce7f3',border:'#ec4899'}].forEach(function(cfg){
+      var words=shuffled.filter(function(w){return states[w]===cfg.col;});
+      var div=document.createElement('div');
+      div.style.cssText='flex:1;border:1.5px dashed '+cfg.border+';border-radius:8px;padding:8px;background:'+cfg.bg+';min-height:80px';
+      var hd=document.createElement('div');
+      hd.style.cssText='font-weight:700;font-size:12px;color:'+cfg.border+';text-align:center;margin-bottom:6px';
+      hd.textContent=cfg.label;div.appendChild(hd);
+      words.forEach(function(w){
+        var ch=document.createElement('div');
+        ch.style.cssText='padding:5px 9px;border-radius:6px;border:1.5px solid '+cfg.border+';background:#fff;cursor:pointer;font-size:13px;font-weight:500;color:'+cfg.border+';margin-bottom:4px;text-align:center';
+        ch.textContent=w;ch.onclick=function(){cycle(w);};div.appendChild(ch);
+      });
+      cols.appendChild(div);
+    });
+    b.appendChild(cols);
+    var bank=document.createElement('div');
+    bank.style.cssText='display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%';
+    shuffled.filter(function(w){return states[w]==='bank';}).forEach(function(w){
+      var ch=document.createElement('div');
+      ch.style.cssText='padding:7px 12px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;font-size:13px;font-weight:500;color:var(--purp)';
+      ch.textContent=w;ch.onclick=function(){cycle(w);};bank.appendChild(ch);
+    });
+    b.appendChild(bank);
+    var fb=document.createElement('div');fb.id='cls-fb-r2';
+    fb.style.cssText='font-size:13px;text-align:center;padding:6px;border-radius:8px;width:100%;margin-bottom:6px';
+    b.appendChild(fb);
+    var bar=document.createElement('div');bar.style.cssText='display:flex;gap:8px;justify-content:center';
+    var vb=document.createElement('button');vb.className='btn-ns';vb.textContent='✓ Vérifier';
+    vb.onclick=function(){
+      var il=shuffled.filter(function(w){return states[w]==='il';});
+      var elle=shuffled.filter(function(w){return states[w]==='elle';});
+      var fbEl=document.getElementById('cls-fb-r2');
+      if(il.length+elle.length<a.words.length){
+        fbEl.style.background='#fffbeb';fbEl.style.color='#b45309';fbEl.textContent='⚠️ Place tous les mots avant de vérifier !';return;
+      }
+      var ilOk=il.length===a.answers.il.length&&il.every(function(w){return a.answers.il.indexOf(w)!==-1;});
+      var elleOk=elle.length===a.answers.elle.length&&elle.every(function(w){return a.answers.elle.indexOf(w)!==-1;});
+      if(ilOk&&elleOk){fbEl.style.background='#EAF3DE';fbEl.style.color='#3B6D11';fbEl.textContent='✅ Parfait ! Tous les accords sont corrects.';onDone2();}
+      else{fbEl.style.background='#FCEBEB';fbEl.style.color='#A32D2D';fbEl.textContent='❌ Certains accords sont incorrects — vérifie M / F.';}
+    };
+    var rb=document.createElement('button');rb.className='btn-ns';rb.textContent='↺ Recommencer';
+    rb.onclick=function(){shuffled.forEach(function(w){states[w]='bank';});drawUI();};
+    bar.appendChild(vb);bar.appendChild(rb);b.appendChild(bar);
+  }
+  drawUI();
+}
+
 window.pratNextR2=function(){if(cur2<ACTS2.length-1){cur2++;render2();}else{var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}};
+window.pratResetR2=function(){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur2=0;render2();};
 render2();
 })();
 </script>
