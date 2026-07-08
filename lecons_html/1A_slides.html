@@ -482,8 +482,8 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
 <button class="slide-tab" data-fr="🎤 Prononciation" data-zh="🎤 发音" onclick="goSlide(5)">🎤 Prononciation</button>
 <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
-<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(8)">✏️ Exercices</button>
-<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(10)">✍️ À toi !</button>
+<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(10)">✏️ Exercices</button>
+<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(12)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -708,7 +708,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(6)">← Grammaire</button>
-<button class="btn-ns" id="prat-exit" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(8)">✏️ Exercices →</button>
+<button class="btn-ns" id="prat-exit" data-fr="Grammaire 2 →" data-zh="语法 2 →" onclick="goSlide(8)">Grammaire 2 →</button>
 </div>
 </div>
 <script>
@@ -807,6 +807,101 @@ render();
 })();
 </script>
 
+
+<!-- ══ SLIDE GR2 : GRAMMAIRE 2 — Adjectifs de nationalité ══ -->
+<div class="slide" id="slide-gr2">
+<div class="slide-header">📖 Grammaire <span class="slide-part">— Règle 2</span></div>
+<div class="slide-body" style="overflow-y:auto">
+<div class="card">
+<div class="card-head head-gram">📖 Les adjectifs de nationalité<span class="comm-zh"> · 语法要点</span></div>
+<div class="card-body"><div class="gram-rule"><div class="gram-rule-body">Les <strong>adjectifs de nationalité</strong> s'accordent en genre (masculin / féminin).<span class="comm-zh"> · 国籍形容词根据性别变化（阳性 / 阴性）。</span></div></div><div class="gram-observe"><div class="gram-observe-label">👀 Observe et complète le tableau<span class="comm-zh"> · 观察并填写表格</span></div>• Je suis <em>brésilien</em>. / Je suis <em>italienne</em>.</div><table class="gram-table gram-fc"><thead><tr><th>Masculin</th><th>Féminin</th></tr></thead><tbody><tr><td class="gram-pf">français</td><td><input class="gram-input" data-ans="française" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="brésilien" placeholder="?"></td><td class="gram-pf">brésilienne</td></tr><tr><td><input class="gram-input" data-ans="italien" placeholder="?"></td><td><input class="gram-input" data-ans="italienne" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="espagnol" placeholder="?"></td><td><input class="gram-input" data-ans="espagnole" placeholder="?"></td></tr><tr><td><input class="gram-input" data-ans="japonais" placeholder="?"></td><td><input class="gram-input" data-ans="japonaise" placeholder="?"></td></tr></tbody></table><div class="gram-sc-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyGram(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="hideGram(this)">↺ Effacer</button><button class="gram-sc-btn" onclick="revealGram(this)">👁 Révéler</button></div>
+<div class="gram-prat-section">
+<div class="gram-prat-label">🎯 Pratique</div>
+<div class="gram-prat-row">
+<div class="gram-prat"><div class="gram-prat-subtitle">Accord M / F</div><div class="gram-prat-item" data-ans="italienne"><div class="gram-prat-q">Anna est ___.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="italien" onclick="selectPrat(this)">italien</button><button class="gram-prat-btn" data-val="italienne" onclick="selectPrat(this)">italienne</button><button class="gram-prat-btn" data-val="italiennes" onclick="selectPrat(this)">italiennes</button></div></div><div class="gram-prat-item" data-ans="brésilien"><div class="gram-prat-q">Pedro est ___.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="brésilienne" onclick="selectPrat(this)">brésilienne</button><button class="gram-prat-btn" data-val="brésilien" onclick="selectPrat(this)">brésilien</button><button class="gram-prat-btn" data-val="brésiliens" onclick="selectPrat(this)">brésiliens</button></div></div><div class="gram-prat-item" data-ans="française"><div class="gram-prat-q">Anna travaille dans une entreprise ___.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="français" onclick="selectPrat(this)">français</button><button class="gram-prat-btn" data-val="française" onclick="selectPrat(this)">française</button><button class="gram-prat-btn" data-val="françaises" onclick="selectPrat(this)">françaises</button></div></div><div class="gram-prat-item" data-ans="espagnole"><div class="gram-prat-q">Maria est ___.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="espagnol" onclick="selectPrat(this)">espagnol</button><button class="gram-prat-btn" data-val="espagnole" onclick="selectPrat(this)">espagnole</button><button class="gram-prat-btn" data-val="espagnoles" onclick="selectPrat(this)">espagnoles</button></div></div><div class="gram-prat-item" data-ans="japonais"><div class="gram-prat-q">Kenji est ___.</div><div class="gram-prat-opts"><button class="gram-prat-btn" data-val="japonaise" onclick="selectPrat(this)">japonaise</button><button class="gram-prat-btn" data-val="japonais" onclick="selectPrat(this)">japonais</button><button class="gram-prat-btn" data-val="japonaises" onclick="selectPrat(this)">japonaises</button></div></div><div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div></div>
+<div class="gram-prat-bar"><button class="gram-sc-btn gram-sc-verify" onclick="verifyPrat(this)">✓ Vérifier</button><button class="gram-sc-btn" onclick="resetPrat(this)">↺ Recommencer</button><span class="gram-prat-score"></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Pratique 1" data-zh="← 练习 1" onclick="goSlide(7)">← Pratique 1</button>
+<button class="btn-ns" data-fr="⚡ Pratique →" data-zh="⚡ 练习 →" onclick="goSlide(9)">⚡ Pratique →</button>
+</div>
+</div>
+<!-- ══ SLIDE PM2 : PRATIQUE 2 — Nationalité ══ -->
+<div class="slide" id="slide-pm2">
+<div class="slide-header">📖 Grammaire <span class="slide-part">— Pratique 2</span></div>
+<div class="slide-body" style="justify-content:flex-start;padding:16px;gap:0;overflow-y:auto">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;width:100%">
+<div id="prat-title-r2" style="font-size:13px;font-weight:500;color:var(--purp)"></div>
+<div id="prat-counter-r2" style="font-size:12px;color:var(--muted);background:var(--purp-l);padding:3px 10px;border-radius:99px"></div>
+</div>
+<div id="prat-body-r2" style="width:100%;display:flex;flex-direction:column;align-items:center;min-height:300px"></div>
+<div id="prat-success-r2" style="display:none;margin-top:8px;padding:9px 14px;border-radius:8px;background:#EAF3DE;border:1px solid #0ca30c;color:#3B6D11;font-size:13px;font-weight:500;text-align:center;width:100%"></div>
+<div style="display:flex;justify-content:flex-end;margin-top:12px;width:100%">
+<button class="btn-ns" style="display:none" id="prat-reset-r2" onclick="pratResetR2()">↺ Recommencer</button>
+<span id="prat-score-r2" style="display:none"></span>
+<button class="btn-ns" id="prat-next-r2" onclick="pratNextR2()" style="display:none">Suivant →</button>
+</div>
+</div>
+<div class="slide-footer" style="justify-content:space-between">
+<button class="btn-ns" data-fr="← Règle 2" data-zh="← 语法 2" onclick="goSlide(8)">← Règle 2</button>
+<button class="btn-ns" id="prat-exit-r2" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(10)" disabled style="opacity:.35">✏️ Exercices →</button>
+</div>
+</div>
+<script>
+(function(){
+var ACTS2=[{id:'wo2',title:"🔀 Remettre dans l'ordre — Nationalité",type:'wordorder',sentences:[{words:['Anna','est','italienne',',','de','Turin','.'],zh:'安娜是意大利人，来自都灵。'},{words:['Pedro','est','brésilien',',','de','Sao','Paulo','.'],zh:'佩德罗是巴西人，来自圣保罗。'},{words:['Elle','est','française','.'],zh:'她是法国人。'}]}];
+var cur2=0;
+function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function render2(){
+  var a=ACTS2[cur2];
+  document.getElementById('prat-title-r2').textContent=a.title;
+  document.getElementById('prat-counter-r2').textContent='Activité '+(cur2+1)+' / '+ACTS2.length;
+  document.getElementById('prat-success-r2').style.display='none';
+  document.getElementById('prat-score-r2').textContent='';
+  renderWO2(a);
+}
+function renderWO2(a){
+  var b=document.getElementById('prat-body-r2');var si=0;var placed=[];
+  function renderS(){
+    var s=a.sentences[si];placed=[];
+    b.innerHTML='<p style="font-size:13px;color:var(--muted);margin-bottom:10px;text-align:center">'+s.zh+'</p><div id="wo-z-r2" style="min-height:50px;border:1.5px dashed var(--border-strong,#999);border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;width:100%;background:var(--bg-l,#f8f9fa)"></div><div id="wo-b-r2" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%"></div><div id="wo-fb-r2" style="font-size:13px;text-align:center;padding:8px;border-radius:8px;width:100%"></div><div style="display:flex;gap:8px;justify-content:center"><button class="btn-ns" onclick="woChkR2()">✓ Vérifier</button><button class="btn-ns" onclick="woClR2()">↺ Effacer</button></div>';
+    shuf([...s.words]).forEach(function(w){
+      var el=document.createElement('div');
+      el.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
+      el.textContent=w;
+      el.onclick=function(){
+        if(el.dataset.used)return;el.dataset.used='1';el.style.opacity='.35';el.style.cursor='default';
+        var p=document.createElement('div');
+        p.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--purp);background:var(--purp-l);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
+        p.textContent=w;placed.push({word:w,src:el});
+        p.onclick=function(){p.remove();delete el.dataset.used;el.style.opacity='';el.style.cursor='pointer';placed=placed.filter(function(x){return x.src!==el;});};
+        document.getElementById('wo-z-r2').appendChild(p);
+      };
+      document.getElementById('wo-b-r2').appendChild(el);
+    });
+    window.woChkR2=function(){
+      var correct=s.words;var pw=placed.map(function(x){return x.word;});
+      var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
+      var fb=document.getElementById('wo-fb-r2');
+      if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='Correct !';
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r2').style.display='block';if(cur2<ACTS2.length-1){document.getElementById('prat-next-r2').style.display='';}else{var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}},700);}
+        else{setTimeout(function(){renderS();},900);}
+      }else{fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='Pas tout a fait... Reessaie.';}
+    };
+    window.woClR2=function(){document.getElementById('wo-z-r2').innerHTML='';placed=[];document.querySelectorAll('#wo-b-r2 div').forEach(function(el){delete el.dataset.used;el.style.opacity='';el.style.cursor='pointer';});document.getElementById('wo-fb-r2').textContent='';document.getElementById('wo-fb-r2').style.background='';};
+  }
+  renderS();
+}
+window.pratResetR2=function(){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur2=0;render2();};
+window.pratNextR2=function(){if(cur2<ACTS2.length-1){cur2++;render2();}else{var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}};
+render2();
+})();
+</script>
+
 <!-- ══ SLIDE 6 : EXERCICES 1/2 ══ -->
 <div class="slide" id="slide-7">
 <div class="slide-header">Exercices <span class="slide-part">1/2</span></div>
@@ -835,8 +930,8 @@ render();
 <div class="assoc-left"><span class="assoc-word">4. étudiant(e)</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-1A-ex4-3" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="d" onclick="checkBlankData(this,'ma-1A-ex4-3','fb-ma-1A-ex4-3')">✓</button><span class="fb" id="fb-ma-1A-ex4-3"></span></div>
 </div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div></div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Pratique" data-zh="← 练习" onclick="goSlide(7)">← Pratique</button>
-<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(9)">Suite →</button>
+<button class="btn-ns" data-fr="← Pratique" data-zh="← 练习" onclick="goSlide(9)">← Pratique</button>
+<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(11)">Suite →</button>
 </div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
@@ -939,8 +1034,8 @@ render();
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" onclick="goSlide(8)">← Exercices 1/2</button>
-<button class="btn-ns" onclick="goSlide(10)">✍️ À toi ! →</button>
+<button class="btn-ns" onclick="goSlide(10)">← Exercices 1/2</button>
+<button class="btn-ns" onclick="goSlide(12)">✍️ À toi ! →</button>
 </div>
 </div>
 <div class="slide" id="slide-10">
@@ -955,7 +1050,7 @@ render();
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(8)">← Exercices</button>
+<button class="btn-ns" data-fr="← Exercices" data-zh="← 练习" onclick="goSlide(10)">← Exercices</button>
 <button class="btn-ns" onclick="location.href='1B_slides.html'" style="background:var(--green)">1B →</button>
 </div>
 </div>
@@ -994,7 +1089,7 @@ render();
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var LESSON='1A';
-var TAB_FOR_SLIDE=[0,1,2,2,2,3,4,4,5,5,6];
+var TAB_FOR_SLIDE=[0,1,2,2,2,3,4,4,4,4,5,5,6];
 
 var currentSlide=0;
 
