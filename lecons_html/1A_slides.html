@@ -654,7 +654,10 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
     <div class="match-col" id="match-zh"></div>
   </div>
   <div class="match-fb" id="match-fb"></div>
-  <button class="vc-next" id="match-next" onclick="matchGoNext()" style="display:none">Suivant →</button>
+  <div style="display:flex;gap:10px;align-items:center;justify-content:center">
+<button class="btn-ns" id="match-prev" onclick="matchGoPrev()" style="display:none">← Série préc.</button>
+<button class="vc-next" id="match-next" onclick="matchGoNext()" style="display:none">Suivant →</button>
+</div>
   <div class="match-end-box" id="match-end" style="display:none">
     <div class="match-score-txt" id="match-score-txt"></div>
     <button class="match-restart-btn" onclick="matchRestart()">↺ Recommencer</button>
@@ -707,6 +710,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div style="display:flex;justify-content:flex-end;margin-top:12px;width:100%">
 <button class="btn-ns" id="prat-reset" style="display:none" onclick="pratReset()">↺ Recommencer</button>
 <span id="prat-score" style="display:none"></span>
+<button class="btn-ns" id="prat-prev" onclick="pratPrev()" style="display:none">← Précédent</button>
 <button class="btn-ns" id="prat-next" onclick="pratNext()" style="display:none;margin-left:auto">Suivant →</button>
 </div>
 </div>
@@ -738,7 +742,8 @@ function render(){
   document.getElementById('prat-counter').textContent='Activité '+(cur+1)+' / '+ACTS.length;
   document.getElementById('prat-success').style.display='none';
   document.getElementById('prat-score').textContent='';
-  document.getElementById('prat-next').style.display='none';
+  document.getElementById('prat-next').style.display=maxCur>cur?'':'none';
+  document.getElementById('prat-prev').style.display=cur>0?'':'none';
   if(a.type==='flash')renderFlash(a);
   else renderWO(a);
 }
@@ -821,6 +826,7 @@ function renderWO(a){
   renderS();
 }
 window.pratReset=function(){var ex=document.getElementById('prat-exit');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur=0;render();};
+window.pratPrev=function(){if(cur>0){cur--;render();}};
 window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}};
 render();
 })();
@@ -1514,6 +1520,7 @@ function matchRenderRound(){
   });
   matchSel=null;
   matchDone=0;
+  var mp=document.getElementById('match-prev');if(mp)mp.style.display=matchRound>0?'inline-flex':'none';
 }
 function matchSelectFr(btn){
   if(btn.classList.contains('match-ok'))return;
@@ -1548,6 +1555,7 @@ function matchSelectZh(btn){
   }
 }
 function matchGoNext(){var mn=document.getElementById('match-next');if(mn)mn.style.display='none';matchNextRound();}
+function matchGoPrev(){if(matchRound>0){matchRound--;matchDone=0;matchSel=null;var mn=document.getElementById('match-next');if(mn)mn.style.display='none';var fb=document.getElementById('match-fb');if(fb)fb.textContent='';matchRenderRound();}}
 function matchNextRound(){
   matchRound++;
   var totalRounds=Math.ceil(MATCH_DATA.length/MATCH_ROUND_SIZE);
