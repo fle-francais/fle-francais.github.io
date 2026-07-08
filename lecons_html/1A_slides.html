@@ -988,51 +988,82 @@ function renderWO2(a){
 /* ── CLASSIFY ── */
 function renderClassify2(a){
   var b=document.getElementById('prat-body-r2');
-  var states={};var shuffled=shuf([...a.words]);
-  shuffled.forEach(function(w){states[w]='bank';});
-  function cycle(w){
-    states[w]=states[w]==='bank'?'il':states[w]==='il'?'elle':'bank';
-    drawUI();
-  }
+  var placement={};
+  var shuffled=shuf([...a.words]);
+  shuffled.forEach(function(w){placement[w]=null;});
+
   function drawUI(){
     b.innerHTML='';
+    /* Consigne */
     var inst=document.createElement('div');
-    inst.style.cssText='font-size:12px;color:#1c2e5a;background:#e6ecf6;border-radius:6px;padding:6px 10px;margin-bottom:10px;width:100%;text-align:center';
-    inst.innerHTML='1 clic → 👨 <strong>Il</strong> &nbsp;·&nbsp; 2 clics → 👩 <strong>Elle</strong> &nbsp;·&nbsp; 3 clics → banque';
+    inst.style.cssText='font-size:12px;color:#1c2e5a;background:#e6ecf6;border:1px solid #b0c4de;border-radius:6px;padding:7px 12px;margin-bottom:10px;width:100%;text-align:center';
+    inst.innerHTML='Classe chaque adjectif dans la bonne colonne en cliquant sur <strong>👨 Il</strong> ou <strong>👩 Elle</strong>';
     b.appendChild(inst);
+
+    /* Colonnes */
     var cols=document.createElement('div');
-    cols.style.cssText='display:flex;gap:8px;width:100%;margin-bottom:10px';
-    [{col:'il',label:'👨 Il est ___',bg:'#dbeafe',border:'#3b82f6'},{col:'elle',label:'👩 Elle est ___',bg:'#fce7f3',border:'#ec4899'}].forEach(function(cfg){
-      var words=shuffled.filter(function(w){return states[w]===cfg.col;});
+    cols.style.cssText='display:flex;gap:10px;width:100%;margin-bottom:12px';
+    [{col:'il',label:'👨 Il est ___',bg:'#dbeafe',border:'#3b82f6'},
+     {col:'elle',label:'👩 Elle est ___',bg:'#fce7f3',border:'#ec4899'}
+    ].forEach(function(cfg){
       var div=document.createElement('div');
-      div.style.cssText='flex:1;border:1.5px dashed '+cfg.border+';border-radius:8px;padding:8px;background:'+cfg.bg+';min-height:80px';
+      div.style.cssText='flex:1;border:2px solid '+cfg.border+';border-radius:10px;padding:8px;background:'+cfg.bg+';min-height:80px';
       var hd=document.createElement('div');
-      hd.style.cssText='font-weight:700;font-size:12px;color:'+cfg.border+';text-align:center;margin-bottom:6px';
+      hd.style.cssText='font-weight:700;font-size:13px;color:'+cfg.border+';text-align:center;margin-bottom:8px';
       hd.textContent=cfg.label;div.appendChild(hd);
-      words.forEach(function(w){
+      var placed=shuffled.filter(function(w){return placement[w]===cfg.col;});
+      placed.forEach(function(w){
         var ch=document.createElement('div');
-        ch.style.cssText='padding:5px 9px;border-radius:6px;border:1.5px solid '+cfg.border+';background:#fff;cursor:pointer;font-size:13px;font-weight:500;color:'+cfg.border+';margin-bottom:4px;text-align:center';
-        ch.textContent=w;ch.onclick=function(){cycle(w);};div.appendChild(ch);
+        ch.style.cssText='display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:6px;border:1.5px solid '+cfg.border+';background:#fff;margin:2px;font-size:13px;font-weight:500;color:'+cfg.border;
+        ch.innerHTML=w+' <span style="cursor:pointer;opacity:.6;font-size:11px" title="Retirer">✕</span>';
+        ch.querySelector('span').onclick=function(){placement[w]=null;drawUI();};
+        div.appendChild(ch);
       });
       cols.appendChild(div);
     });
     b.appendChild(cols);
-    var bank=document.createElement('div');
-    bank.style.cssText='display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%';
-    shuffled.filter(function(w){return states[w]==='bank';}).forEach(function(w){
-      var ch=document.createElement('div');
-      ch.style.cssText='padding:7px 12px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;font-size:13px;font-weight:500;color:var(--purp)';
-      ch.textContent=w;ch.onclick=function(){cycle(w);};bank.appendChild(ch);
-    });
-    b.appendChild(bank);
+
+    /* Banque de mots avec boutons Il / Elle */
+    var remaining=shuffled.filter(function(w){return placement[w]===null;});
+    if(remaining.length>0){
+      var bankLabel=document.createElement('div');
+      bankLabel.style.cssText='font-size:11px;color:var(--muted);text-align:center;margin-bottom:6px;width:100%';
+      bankLabel.textContent='▼ Mots à classer';
+      b.appendChild(bankLabel);
+      var bank=document.createElement('div');
+      bank.style.cssText='display:flex;flex-direction:column;gap:6px;width:100%;margin-bottom:10px';
+      remaining.forEach(function(w){
+        var row=document.createElement('div');
+        row.style.cssText='display:flex;align-items:center;gap:8px;background:var(--card-bg,#fff);border:1.5px solid var(--border);border-radius:8px;padding:6px 10px';
+        var label=document.createElement('span');
+        label.style.cssText='flex:1;font-size:14px;font-weight:600;color:var(--purp)';
+        label.textContent=w;
+        var btnIl=document.createElement('button');
+        btnIl.className='btn-ns';
+        btnIl.style.cssText='font-size:12px;padding:4px 10px;background:#dbeafe;color:#1d4ed8;border:1.5px solid #3b82f6';
+        btnIl.textContent='👨 Il';
+        btnIl.onclick=function(){placement[w]='il';drawUI();};
+        var btnElle=document.createElement('button');
+        btnElle.className='btn-ns';
+        btnElle.style.cssText='font-size:12px;padding:4px 10px;background:#fce7f3;color:#be185d;border:1.5px solid #ec4899';
+        btnElle.textContent='👩 Elle';
+        btnElle.onclick=function(){placement[w]='elle';drawUI();};
+        row.appendChild(label);row.appendChild(btnIl);row.appendChild(btnElle);
+        bank.appendChild(row);
+      });
+      b.appendChild(bank);
+    }
+
+    /* Feedback */
     var fb=document.createElement('div');fb.id='cls-fb-r2';
     fb.style.cssText='font-size:13px;text-align:center;padding:6px;border-radius:8px;width:100%;margin-bottom:6px';
     b.appendChild(fb);
+    /* Boutons */
     var bar=document.createElement('div');bar.style.cssText='display:flex;gap:8px;justify-content:center';
     var vb=document.createElement('button');vb.className='btn-ns';vb.textContent='✓ Vérifier';
     vb.onclick=function(){
-      var il=shuffled.filter(function(w){return states[w]==='il';});
-      var elle=shuffled.filter(function(w){return states[w]==='elle';});
+      var il=shuffled.filter(function(w){return placement[w]==='il';});
+      var elle=shuffled.filter(function(w){return placement[w]==='elle';});
       var fbEl=document.getElementById('cls-fb-r2');
       if(il.length+elle.length<a.words.length){
         fbEl.style.background='#fffbeb';fbEl.style.color='#b45309';fbEl.textContent='⚠️ Place tous les mots avant de vérifier !';return;
@@ -1043,7 +1074,7 @@ function renderClassify2(a){
       else{fbEl.style.background='#FCEBEB';fbEl.style.color='#A32D2D';fbEl.textContent='❌ Certains accords sont incorrects — vérifie M / F.';}
     };
     var rb=document.createElement('button');rb.className='btn-ns';rb.textContent='↺ Recommencer';
-    rb.onclick=function(){shuffled.forEach(function(w){states[w]='bank';});drawUI();};
+    rb.onclick=function(){shuffled.forEach(function(w){placement[w]=null;});drawUI();};
     bar.appendChild(vb);bar.appendChild(rb);b.appendChild(bar);
   }
   drawUI();
