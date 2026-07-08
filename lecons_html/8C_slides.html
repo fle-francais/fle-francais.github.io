@@ -733,10 +733,10 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div id="prat-body-r2" style="width:100%;display:flex;flex-direction:column;align-items:center;min-height:300px"></div>
 <div id="prat-success-r2" style="display:none;margin-top:8px;padding:9px 14px;border-radius:8px;background:#EAF3DE;border:1px solid #0ca30c;color:#3B6D11;font-size:13px;font-weight:500;text-align:center;width:100%"></div>
 <div style="display:flex;justify-content:space-between;margin-top:12px;width:100%">
-<button class="btn-ns" id="prat-prev-r2" onclick="pratPrevR2()" style="display:none">← Précédent</button>
+<button class="btn-round-nav" id="prat-prev-r2" onclick="pratPrevR2()" style="display:none">&#8592;</button>
 <button class="btn-ns" style="display:none" id="prat-reset-r2" onclick="pratResetR2()">↺ Recommencer</button>
 <span id="prat-score-r2" style="display:none"></span>
-<button class="btn-ns" id="prat-next-r2" onclick="pratNextR2()" style="display:none;margin-left:auto">Suivant →</button>
+<button class="btn-round-nav" id="prat-next-r2" onclick="pratNextR2()" style="display:none;margin-left:auto">&#8594;</button>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
@@ -824,8 +824,8 @@ render();
 <div style="display:flex;justify-content:flex-end;margin-top:12px;width:100%">
 <button class="btn-ns" id="prat-reset" style="display:none" onclick="pratReset()">↺ Recommencer</button>
 <span id="prat-score" style="display:none"></span>
-<button class="btn-ns" id="prat-prev" onclick="pratPrev()" style="display:none">← Précédent</button>
-<button class="btn-ns" id="prat-next" onclick="pratNext()" style="display:none;margin-left:auto">Suivant →</button>
+<button class="btn-round-nav" id="prat-prev" onclick="pratPrev()" style="display:none">&#8592;</button>
+<button class="btn-round-nav" id="prat-next" onclick="pratNext()" style="display:none;margin-left:auto">&#8594;</button>
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
@@ -857,7 +857,7 @@ function renderFlash(a){
   var b=document.getElementById('prat-body');
   b.innerHTML='<div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;width:100%"><div><div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:center;margin-bottom:4px">'+a.colL+'</div><div id="fl-l" style="display:flex;flex-direction:column;gap:7px"></div></div><div><div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:center;margin-bottom:4px">'+a.colR+'</div><div id="fl-r" style="display:flex;flex-direction:column;gap:7px"></div></div></div>';
   var matched=0,selL=null,selR=null;
-  function css(c,t){c.style.borderColor=t==='ok'?'#0ca30c':t==='err'?'#e24b4a':t==='sel'?'var(--purp)':'var(--border)';c.style.background=t==='ok'?'#EAF3DE':t==='err'?'#FCEBEB':t==='sel'?'var(--purp-l)':'';c.style.color=t==='ok'?'#3B6D11':t==='err'?'#A32D2D':'var(--purp)';c.style.cursor=t==='ok'?'default':'pointer';}
+  function css(c,t){c.style.borderColor=t==='ok'?'#0ca30c':t==='err'?'#e24b4a':t==='sel'?'var(--purp)':'var(--border)';c.style.background=t==='ok'?'#EAF3DE':t==='err'?'#FCEBEB':t==='sel'?'var(--purp-l)':'var(--card-bg,#fff)';c.style.color=t==='ok'?'#3B6D11':t==='err'?'#A32D2D':'var(--purp)';c.style.cursor=t==='ok'?'default':'pointer';}
   function chk(){
     if(selL.dataset.k===selR.dataset.k){
       css(selL,'ok');css(selR,'ok');selL.onclick=null;selR.onclick=null;matched++;
