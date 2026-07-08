@@ -720,7 +720,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <script>
 (function(){
 var ACTS2=[{id:'wo2',title:"🔀 Remettre dans l'ordre — PC avec ÊTRE",type:'wordorder',sentences:[{words:['Elle','est','allée','à','Paris','la','semaine','dernière','.'],zh:'她上周去了巴黎。'},{words:['Ils','sont','arrivés','hier','soir','.'],zh:'他们昨晚到达了。'}]}];
-var cur2=0;
+var cur2=0;var maxCurR2=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 function render2(){
   var a=ACTS2[cur2];
@@ -728,7 +728,7 @@ function render2(){
   document.getElementById('prat-counter-r2').textContent='Activité '+(cur2+1)+' / '+ACTS2.length;
   document.getElementById('prat-success-r2').style.display='none';
   document.getElementById('prat-score-r2').textContent='';
-  document.getElementById('prat-next-r2').style.display='none';
+  document.getElementById('prat-next-r2').style.display=maxCurR2>cur2?'':'none';
   document.getElementById('prat-prev-r2').style.display=cur2>0?'':'none';
   renderWO2(a);
 }
@@ -756,7 +756,7 @@ function renderWO2(a){
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb');
       if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
-        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';if(cur<ACTS.length-1){document.getElementById('prat-next').style.display='';}},700);}
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';},700);}
         else{setTimeout(function(){renderS();},900);}
       } else {fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
     };
@@ -765,7 +765,7 @@ function renderWO2(a){
   renderS();
 }
 window.pratReset=function(){var ex=document.getElementById('prat-exit');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur=0;render();};
-window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}else{var ex=document.getElementById('prat-exit');if(ex){ex.disabled=false;ex.style.opacity='1';}}};
+window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}};
 window.pratPrev=function(){if(cur>0){cur--;render();}};
 render();
 })();
@@ -850,7 +850,7 @@ function renderWO2(a){
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb-r2');
       if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
-        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r2').style.display='block';if(cur2<ACTS2.length-1){document.getElementById('prat-next-r2').style.display='';}},700);}
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r2').style.display='block';},700);}
         else{setTimeout(function(){renderS();},900);}
       }else{fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
     };
@@ -859,7 +859,7 @@ function renderWO2(a){
   renderS();
 }
 window.pratResetR2=function(){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur2=0;render2();};
-window.pratNextR2=function(){if(cur2<ACTS2.length-1){cur2++;render2();}else{var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}};
+window.pratNextR2=function(){if(cur2<ACTS2.length-1){cur2++;render2();}};
 window.pratPrevR2=function(){if(cur2>0){cur2--;render2();}};
 render2();
 })();

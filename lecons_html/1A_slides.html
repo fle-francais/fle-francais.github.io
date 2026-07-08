@@ -726,7 +726,7 @@ var ACTS=[
      {words:['Il',"n'",'est','pas','étudiant.'],zh:'他不是学生。'}
    ]}
 ];
-var cur=0;
+var cur=0;var maxCur=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 function render(){
   var a=ACTS[cur];
@@ -747,7 +747,7 @@ function renderFlash(a){
     if(selL.dataset.k===selR.dataset.k){
       css(selL,'ok');css(selR,'ok');selL.onclick=null;selR.onclick=null;matched++;
       document.getElementById('prat-score').textContent='Trouvé : '+matched+' / '+a.pairs.length;
-      if(matched===a.pairs.length){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';if(cur<ACTS.length-1){document.getElementById('prat-next').style.display='';}}
+      if(matched===a.pairs.length){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';}
     } else {
       css(selL,'err');css(selR,'err');
       var sl=selL,sr=selR;setTimeout(function(){if(!sl.onclick===null)css(sl,'');if(!sr.onclick===null)css(sr,'');css(sl,'');css(sr,'');},600);
@@ -793,7 +793,7 @@ function renderWO(a){
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb');
       if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
-        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';if(cur<ACTS.length-1){document.getElementById('prat-next').style.display='';}},700);}
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';},700);}
         else{setTimeout(function(){renderS();},900);}
       } else {fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
     };
@@ -802,7 +802,7 @@ function renderWO(a){
   renderS();
 }
 window.pratReset=function(){var ex=document.getElementById('prat-exit');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur=0;render();};
-window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}else{var ex=document.getElementById('prat-exit');if(ex){ex.disabled=false;ex.style.opacity='1';}}};
+window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}};
 render();
 })();
 </script>
@@ -847,7 +847,7 @@ render();
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Règle 2" data-zh="← 语法 2" onclick="goSlide(8)">← Règle 2</button>
-<button class="btn-ns" id="prat-exit-r2" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(10)" disabled style="opacity:.35">✏️ Exercices →</button>
+<button class="btn-ns" id="prat-exit-r2" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(10)" style="">✏️ Exercices →</button>
 </div>
 </div>
 <script>
@@ -875,7 +875,7 @@ var ACTS2=[
    words:['français','française','brésilien','brésilienne','italien','italienne','espagnol','espagnole','japonais','japonaise','chinois','chinoise'],
    answers:{il:['français','brésilien','italien','espagnol','japonais','chinois'],elle:['française','brésilienne','italienne','espagnole','japonaise','chinoise']}}
 ];
-var cur2=0;
+var cur2=0;var maxCurR2=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 
 function render2(){
@@ -883,7 +883,7 @@ function render2(){
   document.getElementById('prat-title-r2').textContent=a.title;
   document.getElementById('prat-counter-r2').textContent='Activité '+(cur2+1)+' / '+ACTS2.length;
   document.getElementById('prat-success-r2').style.display='none';
-  document.getElementById('prat-next-r2').style.display='none';
+  document.getElementById('prat-next-r2').style.display=maxCurR2>cur2?'':'none';
   document.getElementById('prat-prev-r2').style.display=cur2>0?'':'none';
   if(a.type==='flash')renderFlash2(a);
   else if(a.type==='wordorder')renderWO2(a);
@@ -894,8 +894,10 @@ function onDone2(){
   setTimeout(function(){
     document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';
     document.getElementById('prat-success-r2').style.display='block';
+    if(cur2>=maxCurR2)maxCurR2=cur2+1;
     if(cur2<ACTS2.length-1){document.getElementById('prat-next-r2').style.display='';}
-    else{var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}
+    
+    
   },500);
 }
 
@@ -943,7 +945,7 @@ function renderFlash2(a){
 
 /* ── WORDORDER + DISTRACTORS ── */
 function renderWO2(a){
-  var b=document.getElementById('prat-body-r2');var si=0;var placed=[];
+  var b=document.getElementById('prat-body-r2');var si=0;var maxSi=0;var placed=[];
   function renderS(){
     var s=a.sentences[si];placed=[];
     var allW=shuf([...s.words,...(s.distractors||[])]);
@@ -958,7 +960,7 @@ function renderWO2(a){
       +(si>0?'<button class="btn-round-nav" id="wo-prev-r2" onclick="woPrevR2()" title="Phrase précédente">&#8592;</button>':'<span style="width:38px"></span>')
       +'<button class="btn-ns" onclick="woChkR2()">✓ Vérifier</button>'
       +'<button class="btn-ns" onclick="woClR2()">↺ Effacer</button>'
-      +'<button class="btn-round-nav" id="wo-suiv-r2" style="display:none" title="'+(isLast?'Activité suivante':'Phrase suivante')+'">&#8594;</button>'
+      +'<button class="btn-round-nav" id="wo-suiv-r2" style="display:'+(maxSi>si?'inline-flex':'none')+'" title="'+(isLast?'Activité suivante':'Phrase suivante')+'">&#8594;</button>'
       +'</div>';
     allW.forEach(function(w){
       var el=document.createElement('div');
@@ -981,7 +983,7 @@ function renderWO2(a){
         // Last sentence done → complete activity
         document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';
         document.getElementById('prat-success-r2').style.display='block';
-        if(cur2===ACTS2.length-1){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}
+        if(cur2===ACTS2.length-1){}
         else{pratNextR2();}
       }:function(){
         si++;renderS();
@@ -993,6 +995,7 @@ function renderWO2(a){
       var fb=document.getElementById('wo-fb-r2');
       if(ok){
         fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
+        if(si>=maxSi)maxSi=si+1;
         var ns=document.getElementById('wo-suiv-r2');if(ns)ns.style.display='';
       }else{
         fb.style.background='#FCEBEB';fb.style.color='#A32D2D';
@@ -1111,7 +1114,7 @@ function renderClassify2(a){
   drawUI();
 }
 
-window.pratNextR2=function(){if(cur2<ACTS2.length-1){cur2++;render2();}else{var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}};
+window.pratNextR2=function(){if(cur2<ACTS2.length-1){cur2++;render2();}};
 window.pratPrevR2=function(){if(cur2>0){cur2--;render2();}};
 window.pratResetR2=function(){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur2=0;render2();};
 render2();

@@ -740,7 +740,7 @@ var ACTS=[
   {id:'fm2',title:'⚡ Associer — Pronom ↔ Avoir',type:'flash',colL:'Pronom',colR:'Avoir',pairs:[{k:'je',l:'je',r:'ai'},{k:'tu',l:'tu',r:'as'},{k:'il',l:'il / elle',r:'a'},{k:'nous',l:'nous',r:'avons'},{k:'vous',l:'vous',r:'avez'},{k:'ils',l:'ils / elles',r:'ont'}]},
   {id:'wo1',title:"🔀 Remettre dans l'ordre",type:'wordorder',sentences:[{words:['Tu','as','un','chat','?'],zh:'你有一只猫吗？'},{words:['Nous','avons','des','amis','français','.'],zh:'我们有法国朋友。'}]}
 ];
-var cur=0;
+var cur=0;var maxCur=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 function render(){
   var a=ACTS[cur];
@@ -748,7 +748,7 @@ function render(){
   document.getElementById('prat-counter').textContent='Activité '+(cur+1)+' / '+ACTS.length;
   document.getElementById('prat-success').style.display='none';
   document.getElementById('prat-score').textContent='';
-  document.getElementById('prat-next').style.display='none';
+  document.getElementById('prat-next').style.display=maxCur>cur?'':'none';
   document.getElementById('prat-prev').style.display=cur>0?'':'none';
   if(a.type==='flash')renderFlash(a);
   else renderWO(a);
@@ -762,7 +762,7 @@ function renderFlash(a){
     if(selL.dataset.k===selR.dataset.k){
       css(selL,'ok');css(selR,'ok');selL.onclick=null;selR.onclick=null;matched++;
       document.getElementById('prat-score').textContent='Trouvé : '+matched+' / '+a.pairs.length;
-      if(matched===a.pairs.length){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';if(cur<ACTS.length-1){document.getElementById('prat-next').style.display='';}}
+      if(matched===a.pairs.length){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';}
     } else {
       css(selL,'err');css(selR,'err');
       var sl=selL,sr=selR;setTimeout(function(){if(sl.style.cursor!=='default')css(sl,'');if(sr.style.cursor!=='default')css(sr,'');},600);
@@ -808,7 +808,7 @@ function renderWO(a){
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb');
       if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
-        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';if(cur<ACTS.length-1){document.getElementById('prat-next').style.display='';}},700);}
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';},700);}
         else{setTimeout(function(){renderS();},900);}
       } else {fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
     };
@@ -817,7 +817,7 @@ function renderWO(a){
   renderS();
 }
 window.pratReset=function(){var ex=document.getElementById('prat-exit');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur=0;render();};
-window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}else{var ex=document.getElementById('prat-exit');if(ex){ex.disabled=false;ex.style.opacity='1';}}};
+window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}};
 window.pratPrev=function(){if(cur>0){cur--;render();}};
 render();
 })();
@@ -868,7 +868,7 @@ render();
 <script>
 (function(){
 var ACTS2=[{id:'wo2',title:"🔀 Remettre dans l'ordre — Articles définis",type:'wordorder',sentences:[{words:['Tu','aimes','le','chocolat','chaud','?'],zh:'你喜欢热巧克力吗？'},{words:['Nous','aimons','le','cinéma','français','.'],zh:'我们喜欢法国电影。'}]}];
-var cur2=0;
+var cur2=0;var maxCurR2=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 function render2(){
   var a=ACTS2[cur2];
@@ -876,7 +876,7 @@ function render2(){
   document.getElementById('prat-counter-r2').textContent='Activité '+(cur2+1)+' / '+ACTS2.length;
   document.getElementById('prat-success-r2').style.display='none';
   document.getElementById('prat-score-r2').textContent='';
-  document.getElementById('prat-next-r2').style.display='none';
+  document.getElementById('prat-next-r2').style.display=maxCurR2>cur2?'':'none';
   document.getElementById('prat-prev-r2').style.display=cur2>0?'':'none';
   renderWO2(a);
 }
@@ -904,7 +904,7 @@ function renderWO2(a){
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb-r2');
       if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
-        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r2').style.display='block';if(cur2<ACTS2.length-1){document.getElementById('prat-next-r2').style.display='';}},700);}
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r2').style.display='block';},700);}
         else{setTimeout(function(){renderS();},900);}
       }else{fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
     };
@@ -913,7 +913,7 @@ function renderWO2(a){
   renderS();
 }
 window.pratResetR2=function(){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur2=0;render2();};
-window.pratNextR2=function(){if(cur2<ACTS2.length-1){cur2++;render2();}else{var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=false;ex.style.opacity='1';}}};
+window.pratNextR2=function(){if(cur2<ACTS2.length-1){cur2++;render2();}};
 window.pratPrevR2=function(){if(cur2>0){cur2--;render2();}};
 render2();
 })();
@@ -964,7 +964,7 @@ render2();
 <script>
 (function(){
 var ACTS3=[{id:'wo3',title:"🔀 Remettre dans l'ordre — Articles indéfinis",type:'wordorder',sentences:[{words:['Tu','as','un','frère','ou','une','sœur','?'],zh:'你有兄弟还是姐妹？'},{words:['Elle','a','des','amis','français','.'],zh:'她有法国朋友。'}]}];
-var cur3=0;
+var cur3=0;var maxCurR3=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 function render3(){
   var a=ACTS3[cur3];
@@ -972,7 +972,7 @@ function render3(){
   document.getElementById('prat-counter-r3').textContent='Activité '+(cur3+1)+' / '+ACTS3.length;
   document.getElementById('prat-success-r3').style.display='none';
   document.getElementById('prat-score-r3').textContent='';
-  document.getElementById('prat-next-r3').style.display='none';
+  document.getElementById('prat-next-r3').style.display=maxCurR3>cur3?'':'none';
   document.getElementById('prat-prev-r3').style.display=cur3>0?'':'none';
   renderWO3(a);
 }
@@ -1000,7 +1000,7 @@ function renderWO3(a){
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb-r3');
       if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
-        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r3').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r3').style.display='block';if(cur3<ACTS3.length-1){document.getElementById('prat-next-r3').style.display='';}},700);}
+        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success-r3').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r3').style.display='block';},700);}
         else{setTimeout(function(){renderS();},900);}
       }else{fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
     };
@@ -1009,7 +1009,7 @@ function renderWO3(a){
   renderS();
 }
 window.pratResetR3=function(){var ex=document.getElementById('prat-exit-r3');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur3=0;render3();};
-window.pratNextR3=function(){if(cur3<ACTS3.length-1){cur3++;render3();}else{var ex=document.getElementById('prat-exit-r3');if(ex){ex.disabled=false;ex.style.opacity='1';}}};
+window.pratNextR3=function(){if(cur3<ACTS3.length-1){cur3++;render3();}};
 window.pratPrevR3=function(){if(cur3>0){cur3--;render3();}};
 render3();
 })();
