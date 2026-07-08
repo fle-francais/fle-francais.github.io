@@ -424,7 +424,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 .vc-btn.vc-wrong{background:#fee2e2!important;border-color:#ef4444!important;color:#7f1d1d!important}
 .vc-btn:disabled{cursor:default}
 .vc-fb{font-size:.88rem;font-weight:600;min-height:20px;text-align:center;color:#1e293b}
-.vc-next{font-size:.9rem;font-weight:700;padding:9px 26px;background:#d97706;color:#fff;border:none;border-radius:50px;cursor:pointer}
+.vc-next{font-size:.9rem;font-weight:700;padding:9px 26px;background:#d97706;color:#fff;border:none;border-radius:50px;cursor:pointer}.btn-round-nav{width:38px;height:38px;border-radius:50%;border:2px solid var(--purp);background:transparent;color:var(--purp);font-size:17px;font-weight:700;cursor:pointer;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;transition:all .15s;padding:0}.btn-round-nav:hover{background:var(--purp-l)}.btn-round-nav:disabled{opacity:.3;cursor:default}
 .vc-next:hover{background:#b45309}
 .vc-end{text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
 .vc-score-txt{font-size:1.15rem;font-weight:700;color:#1c2e5a}
@@ -622,6 +622,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <button class="vc-play" id="vc-play-btn" onclick="vcPlay()">▶ Écouter</button>
 <div class="vc-grid" id="vc-grid"></div>
 <div class="vc-fb" id="vc-fb"></div>
+<button class="btn-round-nav" id="vc-prev" onclick="vcPrev()" style="display:none">&#8592;</button>
 <button class="vc-next" id="vc-next" onclick="vcNext()" style="display:none">Suivant →</button>
 <div class="vc-end" id="vc-end" style="display:none">
   <div class="vc-score-txt" id="vc-score-txt"></div>
@@ -646,6 +647,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
     <div class="match-col" id="match-zh"></div>
   </div>
   <div class="match-fb" id="match-fb"></div>
+  <button class="vc-next" id="match-next" onclick="matchGoNext()" style="display:none">Suivant →</button>
   <div class="match-end-box" id="match-end" style="display:none">
     <div class="match-score-txt" id="match-score-txt"></div>
     <button class="match-restart-btn" onclick="matchRestart()">↺ Recommencer</button>
@@ -736,7 +738,7 @@ function renderFlash(a){
     if(selL.dataset.k===selR.dataset.k){
       css(selL,'ok');css(selR,'ok');selL.onclick=null;selR.onclick=null;matched++;
       document.getElementById('prat-score').textContent='Trouvé : '+matched+' / '+a.pairs.length;
-      if(matched===a.pairs.length){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';}
+      if(matched===a.pairs.length){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';if(cur>=maxCur){maxCur=cur+1;}var n=document.getElementById('prat-next');if(n&&cur<ACTS.length-1)n.style.display='';}
     } else {
       css(selL,'err');css(selR,'err');
       var sl=selL,sr=selR;setTimeout(function(){if(sl.style.cursor!=='default')css(sl,'');if(sr.style.cursor!=='default')css(sr,'');},600);
@@ -759,10 +761,25 @@ function renderFlash(a){
   document.getElementById('prat-score').textContent='Trouvé : 0 / '+a.pairs.length;
 }
 function renderWO(a){
-  var b=document.getElementById('prat-body');var si=0;var placed=[];
+  var b=document.getElementById('prat-body');var si=0;var maxSi=0;var placed=[];
   function renderS(){
     var s=a.sentences[si];placed=[];
-    b.innerHTML='<p style="font-size:13px;color:var(--muted);margin-bottom:10px;text-align:center">'+s.zh+'</p><div id="wo-z" style="min-height:50px;border:1.5px dashed var(--border-strong,#999);border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;width:100%;background:var(--bg-l,#f8f9fa)"></div><div id="wo-b" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%"></div><div id="wo-fb" style="font-size:13px;text-align:center;padding:8px;border-radius:8px;width:100%"></div><div style="display:flex;gap:8px;justify-content:center"><button class="btn-ns" onclick="woChk()">✓ Vérifier</button><button class="btn-ns" onclick="woCl()">↺ Effacer</button></div>';
+    b.innerHTML='<p style="font-size:13px;color:var(--muted);margin-bottom:10px;text-align:center">'+s.zh+'</p><div id="wo-z" style="min-height:50px;border:1.5px dashed var(--border-strong,#999);border-radius:8px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;width:100%;background:var(--bg-l,#f8f9fa)"></div><div id="wo-b" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;width:100%"></div><div id="wo-fb" style="font-size:13px;text-align:center;padding:8px;border-radius:8px;width:100%"></div><div style="display:flex;gap:8px;align-items:center;justify-content:center"><button class="btn-round-nav" id="wo-prev" onclick="woPrev()" style="display:none">&#8592;</button><button class="btn-ns" onclick="woChk()">✓ Vérifier</button><button class="btn-ns" onclick="woCl()">↺ Effacer</button><button class="btn-round-nav" id="wo-suiv" onclick="woSuiv()" style="display:none">&#8594;</button></div>';
+    window.woPrev=function(){if(si>0){si--;renderS();}}
+    window.woSuiv=function(){
+      if(si<a.sentences.length-1){si++;renderS();}
+      else{
+        var suc=document.getElementById('prat-success');
+        if(suc){suc.textContent='Parfait ! 全对了 🎉';suc.style.display='block';}
+        if(cur>=maxCur){maxCur=cur+1;}
+        var n=document.getElementById('prat-next');
+        if(n&&cur<ACTS.length-1)n.style.display='';
+      }
+    }
+    (function(){
+      var p=document.getElementById('wo-prev');if(p)p.style.display=si>0?'inline-flex':'none';
+      var s2=document.getElementById('wo-suiv');if(s2)s2.style.display=maxSi>si?'inline-flex':'none';
+    })();
     shuf([...s.words]).forEach(function(w){
       var el=document.createElement('div');
       el.style.cssText='padding:7px 13px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;font-size:15px;font-weight:500;color:var(--purp)';
@@ -782,8 +799,8 @@ function renderWO(a){
       var ok=pw.length===correct.length&&pw.every(function(w,i){return w===correct[i];});
       var fb=document.getElementById('wo-fb');
       if(ok){fb.style.background='#EAF3DE';fb.style.color='#3B6D11';fb.textContent='✅ Correct !';
-        si++;if(si>=a.sentences.length){setTimeout(function(){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';},700);}
-        else{setTimeout(function(){renderS();},900);}
+        if(si>=maxSi)maxSi=si+1;
+        var suivBtn=document.getElementById('wo-suiv');if(suivBtn)suivBtn.style.display='inline-flex';
       } else {fb.style.background='#FCEBEB';fb.style.color='#A32D2D';fb.textContent='❌ Pas tout à fait… Réessaie.';}
     };
     window.woCl=function(){document.getElementById('wo-z').innerHTML='';placed=[];document.querySelectorAll('#wo-b div').forEach(function(el){delete el.dataset.used;el.style.opacity='';el.style.cursor='pointer';});document.getElementById('wo-fb').textContent='';document.getElementById('wo-fb').style.background='';};
@@ -994,14 +1011,15 @@ var VC_DATA=[
   {fr:"habiter", audio:"../audio/vocab_2A_8.mp3"},
   {fr:"jouer", audio:"../audio/vocab_2A_9.mp3"},
 ];
-var vcQ=[],vcIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
+var vcQ=[],vcIdx=0,vcMaxIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
 function vcInit(){vcQ=vcShuffle(VC_DATA.slice());vcIdx=0;vcScore=0;vcRender();}
 function vcRender(){
   var prog=document.getElementById('vc-prog');if(prog)prog.textContent='Mot '+(vcIdx+1)+' / '+vcQ.length;
   var grid=document.getElementById('vc-grid');if(!grid)return;grid.innerHTML='';
   var fb=document.getElementById('vc-fb');if(fb)fb.textContent='';
-  var nxt=document.getElementById('vc-next');if(nxt)nxt.style.display='none';
+  var nxt=document.getElementById('vc-next');if(nxt)nxt.style.display=vcMaxIdx>vcIdx?'inline-block':'none';
+  var prv=document.getElementById('vc-prev');if(prv)prv.style.display=vcIdx>0?'inline-flex':'none';
   var end=document.getElementById('vc-end');if(end)end.style.display='none';
   var pool=VC_DATA.filter(function(x){return x.fr!==vcQ[vcIdx].fr;});
   var wrongs=vcShuffle(pool).slice(0,3).map(function(x){return x.fr;});
@@ -1014,10 +1032,12 @@ function vcAnswer(correct,btn,correctFr){
   if(correct){btn.classList.add('vc-correct');vcScore++;var fb=document.getElementById('vc-fb');if(fb)fb.textContent='✅ Correct !';}
   else{btn.classList.add('vc-wrong');var fb=document.getElementById('vc-fb');if(fb)fb.textContent='❌ C\'est : '+correctFr;document.querySelectorAll('.vc-btn').forEach(function(b){if(b.textContent===correctFr)b.classList.add('vc-correct');});}
   document.querySelectorAll('.vc-btn').forEach(function(b){b.disabled=true;});
+  if(vcIdx>=vcMaxIdx)vcMaxIdx=vcIdx+1;
   var nxt=document.getElementById('vc-next');if(nxt)nxt.style.display='inline-block';
 }
 function vcPlay(){if(vcAudio){vcAudio.pause();vcAudio.currentTime=0;}vcAudio=new Audio(vcQ[vcIdx].audio);vcAudio.play().catch(function(){});}
 function vcNext(){vcIdx++;if(vcIdx<vcQ.length)vcRender();else vcShowScore();}
+function vcPrev(){if(vcIdx>0){vcIdx--;vcRender();}}
 function vcShowScore(){
   var grid=document.getElementById('vc-grid');if(grid)grid.innerHTML='';
   var fb=document.getElementById('vc-fb');if(fb)fb.textContent='';
@@ -1059,9 +1079,10 @@ function matchSelectFr(btn){if(btn.classList.contains('match-ok'))return;documen
 function matchSelectZh(btn){
   if(!matchSel)return;if(btn.classList.contains('match-ok'))return;
   var frIdx=parseInt(matchSel.dataset.idx);var zhIdx=parseInt(btn.dataset.idx);var fb=document.getElementById('match-fb');
-  if(frIdx===zhIdx){matchSel.classList.remove('match-sel');matchSel.classList.add('match-ok');btn.classList.add('match-ok');matchSel.disabled=true;btn.disabled=true;matchSel=null;matchDone++;if(fb)fb.textContent='✅ Correct !';var pairCount=Math.min(MATCH_ROUND_SIZE,MATCH_DATA.length-matchRound*MATCH_ROUND_SIZE);if(matchDone===pairCount){setTimeout(function(){matchNextRound();},700);}}
+  if(frIdx===zhIdx){matchSel.classList.remove('match-sel');matchSel.classList.add('match-ok');btn.classList.add('match-ok');matchSel.disabled=true;btn.disabled=true;matchSel=null;matchDone++;if(fb)fb.textContent='✅ Correct !';var pairCount=Math.min(MATCH_ROUND_SIZE,MATCH_DATA.length-matchRound*MATCH_ROUND_SIZE);if(matchDone===pairCount){var mn=document.getElementById('match-next');if(mn)mn.style.display='inline-block';}}
   else{matchErrors++;matchSel.classList.add('match-err');btn.classList.add('match-err');if(fb)fb.textContent='❌ Essaie encore !';var frBtn=matchSel,zhBtn=btn;setTimeout(function(){frBtn.classList.remove('match-err','match-sel');zhBtn.classList.remove('match-err');matchSel=null;if(fb)fb.textContent='';},800);}
 }
+function matchGoNext(){var mn=document.getElementById('match-next');if(mn)mn.style.display='none';matchNextRound();}
 function matchNextRound(){matchRound++;if(matchRound<Math.ceil(MATCH_DATA.length/MATCH_ROUND_SIZE)){matchDone=0;matchSel=null;var fb=document.getElementById('match-fb');if(fb)fb.textContent='';matchRenderRound();}else{matchShowEnd();}}
 function matchShowEnd(){var c=document.getElementById('match-cols');if(c)c.style.display='none';var p=document.getElementById('match-prog');if(p)p.style.display='none';var end=document.getElementById('match-end');if(end)end.style.display='flex';var msg=matchErrors===0?'🏆 Parfait ! Aucune erreur !':matchErrors<=3?'🌟 Très bien ! '+matchErrors+' erreur(s).':'👍 Continue ! '+matchErrors+' erreur(s).';var st=document.getElementById('match-score-txt');if(st)st.textContent=msg;}
 function matchRestart(){matchInit();}
