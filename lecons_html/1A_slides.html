@@ -1183,7 +1183,7 @@ var ACTS3=[
      {k:'4',l:'aux',r:'États-Unis'},
      {k:'5',l:'en',r:'Chine'},
      {k:'6',l:'au',r:'Brésil'},
-     {k:'7',l:'au ⚠️',r:'Mexique'}
+     {k:'7',l:'au',r:'Mexique'}
    ]},
   {id:'wo3a',title:"🔀 Remettre dans l'ordre",type:'wordorder',
    sentences:[
@@ -1376,11 +1376,11 @@ render3();
 </div>
 <div class="ex5-zones">
 <div class="ex5-zone" id="zone-formel" onclick="ex5Drop(this)">
-<div class="ex5-zone-label">🎩 Formel</div>
+<div class="ex5-zone-label">🎩 Formel<span class="comm-zh"> · 正式</span></div>
 <div class="ex5-zone-items" id="zone-formel-items"></div>
 </div>
 <div class="ex5-zone" id="zone-informel" onclick="ex5Drop(this)">
-<div class="ex5-zone-label">👋 Informel</div>
+<div class="ex5-zone-label">👋 Informel<span class="comm-zh"> · 非正式</span></div>
 <div class="ex5-zone-items" id="zone-informel-items"></div>
 </div>
 </div>
@@ -1454,14 +1454,14 @@ render3();
 </div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" onclick="goSlide(12)">← Exercices 1/2</button>
-<button class="btn-ns" onclick="goSlide(14)">✍️ À toi ! →</button>
+<button class="btn-ns" onclick="goSlide(14)">→</button>
 </div>
 </div>
 <div class="slide" id="slide-10">
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
-<div class="card-body"><div class="prod-box">✍️ À toi ! Présentez-vous : votre nom, prénom, nationalité et ville.
+<div class="card-body"><div class="prod-box">Présentez-vous : votre nom, prénom, nationalité et ville.
 <span class="prod-zh">介绍自己：你的姓名、国籍和所在城市。</span></div>
 <textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea>
 <button class="lt-btn" onclick="checkLT(this)">Corriger ✓</button>
@@ -1561,8 +1561,8 @@ function resetCard(btn){var cb=btn.closest('.card-body');if(!cb)return;cb.queryS
 function pronoToggleZh(btn){var item=btn.closest('.prono-item');var zh=item.querySelector('.prono-zh');if(!zh)return;var active=btn.classList.toggle('zactive');zh.style.display=active?'block':'none';}
 function resetAllProno(){document.querySelectorAll('.prono-item').forEach(function(item,i){pronoReset(i);});}
 function selectQCM(btn,correct){var item=btn.closest('.qcm-item');if(!item||item.dataset.done)return;item.dataset.correct=correct;item.querySelectorAll('.qcm-opt').forEach(function(o){o.classList.remove('qcm-selected');});btn.classList.add('qcm-selected');}
-function verifyQCM(scoreId){var container=document.getElementById(scoreId)?document.getElementById(scoreId).closest('.card-body'):document;var items=(container||document).querySelectorAll('.qcm-item'),ok=0,answered=0;items.forEach(function(item){var sel=item.querySelector('.qcm-opt.qcm-selected');if(!sel)return;answered++;item.dataset.done='1';var correct=item.dataset.correct;item.querySelectorAll('.qcm-opt').forEach(function(o){o.disabled=true;});if(sel.dataset.val===correct){sel.classList.add('qcm-correct');ok++;}else{sel.classList.add('qcm-wrong');item.querySelectorAll('.qcm-opt').forEach(function(o){if(o.dataset.val===correct)o.classList.add('qcm-correct');});}});if(!answered)return;var s=document.getElementById(scoreId);if(s){s.style.display='block';var msg=ok===items.length?'🎉 Parfait !':ok>=2?'👍 Bien !':'💪 Réessayez !';s.textContent=ok+'/'+items.length+' — '+msg;}}
-function resetQCM(scoreId){var container=document.getElementById(scoreId)?document.getElementById(scoreId).closest('.card-body'):document;(container||document).querySelectorAll('.qcm-item').forEach(function(item){delete item.dataset.done;delete item.dataset.correct;item.querySelectorAll('.qcm-opt').forEach(function(o){o.disabled=false;o.classList.remove('qcm-correct','qcm-wrong','qcm-selected');});});var s=document.getElementById(scoreId);if(s){s.style.display='none';s.textContent='';}}
+function verifyQCM(scoreId){var container=document.getElementById(scoreId)?document.getElementById(scoreId).closest('.card'):document;var items=(container||document).querySelectorAll('.qcm-item'),ok=0,answered=0;items.forEach(function(item){var sel=item.querySelector('.qcm-opt.qcm-selected');if(!sel)return;answered++;item.dataset.done='1';var correct=item.dataset.correct;item.querySelectorAll('.qcm-opt').forEach(function(o){o.disabled=true;});if(sel.dataset.val===correct){sel.classList.add('qcm-correct');ok++;}else{sel.classList.add('qcm-wrong');item.querySelectorAll('.qcm-opt').forEach(function(o){if(o.dataset.val===correct)o.classList.add('qcm-correct');});}});if(!answered)return;var s=document.getElementById(scoreId);if(s){s.style.display='block';var msg=ok===items.length?'🎉 Parfait !':ok>=2?'👍 Bien !':'💪 Réessayez !';s.textContent=ok+'/'+items.length+' — '+msg;}}
+function resetQCM(scoreId){var container=document.getElementById(scoreId)?document.getElementById(scoreId).closest('.card'):document;(container||document).querySelectorAll('.qcm-item').forEach(function(item){delete item.dataset.done;delete item.dataset.correct;item.querySelectorAll('.qcm-opt').forEach(function(o){o.disabled=false;o.classList.remove('qcm-correct','qcm-wrong','qcm-selected');});});var s=document.getElementById(scoreId);if(s){s.style.display='none';s.textContent='';}}
 function selectPhon(btn){var item=btn.closest('.phon-item-ex');if(!item||item.dataset.done)return;item.querySelectorAll('.phon-btn-ex').forEach(function(b){b.classList.remove('phon-selected');});btn.classList.add('phon-selected');}
 function verifyPhon(){var items=document.querySelectorAll('.phon-item-ex'),ok=0,answered=0;items.forEach(function(item){var sel=item.querySelector('.phon-btn-ex.phon-selected');if(!sel)return;answered++;item.dataset.done='1';var ans=item.dataset.ans,fb=item.querySelector('.phon-fb-ex');item.querySelectorAll('.phon-btn-ex').forEach(function(b){b.disabled=true;});if(sel.dataset.val===ans){sel.classList.add('phon-ok');if(fb){fb.textContent='✅';fb.style.color='var(--green)';}ok++;}else{sel.classList.add('phon-ko');item.querySelectorAll('.phon-btn-ex').forEach(function(b){if(b.dataset.val===ans)b.classList.add('phon-ok');});if(fb){fb.textContent='❌['+ans+']';fb.style.color='#e74c3c';}}});if(!answered)return;var sc=document.getElementById('phon-score');if(sc){sc.style.display='block';sc.textContent=ok+'/'+items.length+' — '+(ok===items.length?'🎉 Parfait !':'💪 Réessayez !');}}
 function resetPhon(){document.querySelectorAll('.phon-item-ex').forEach(function(item){delete item.dataset.done;item.querySelectorAll('.phon-btn-ex').forEach(function(b){b.disabled=false;b.classList.remove('phon-ok','phon-ko','phon-selected');});var fb=item.querySelector('.phon-fb-ex');if(fb)fb.textContent='';});var sc=document.getElementById('phon-score');if(sc){sc.style.display='none';sc.textContent='';}}
