@@ -786,7 +786,7 @@ function renderWO(a){
         var n=document.getElementById('prat-next');
         if(n&&cur<ACTS.length-1)n.style.display='';
       }
-    }
+    };
     (function(){
       var p=document.getElementById('wo-prev');if(p)p.style.display=si>0?'inline-flex':'none';
       var s2=document.getElementById('wo-suiv');if(s2)s2.style.display=maxSi>si?'inline-flex':'none';
@@ -1591,7 +1591,8 @@ function vcRender(){
   var item=vcQ[vcIdx];
   document.getElementById('vc-prog').textContent='Mot '+(vcIdx+1)+' / '+vcQ.length;
   document.getElementById('vc-fb').textContent='';
-  document.getElementById('vc-next').style.display='none';
+  var nxt=document.getElementById('vc-next');if(nxt)nxt.style.display=vcMaxIdx>vcIdx?'inline-block':'none';
+  var prv=document.getElementById('vc-prev');if(prv)prv.style.display=vcIdx>0?'inline-flex':'none';
   // Distracteurs
   var others=vcQ.filter(function(x){return x!==item;});
   var choices=vcShuffle([item].concat(vcShuffle(others).slice(0,3)));
@@ -1620,7 +1621,7 @@ function vcAnswer(correct,btn,correctFr){
   if(correct){vcScore++;btn.classList.add('vc-correct');document.getElementById('vc-fb').innerHTML='<span style="color:#065f46">✓ Correct !</span>';}
   else{btn.classList.add('vc-wrong');document.getElementById('vc-fb').innerHTML='<span style="color:#7f1d1d">✗ Non — c\'est <strong>'+correctFr+'</strong></span>';}
   if(vcIdx>=vcQ.length-1){setTimeout(vcShowScore,900);}
-  else{document.getElementById('vc-next').style.display='';}
+  else{if(vcIdx>=vcMaxIdx)vcMaxIdx=vcIdx+1;document.getElementById('vc-next').style.display='';}
 }
 function vcNext(){vcIdx++;vcRender();}
 function vcPrev(){if(vcIdx>0){vcIdx--;vcRender();}}
