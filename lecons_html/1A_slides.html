@@ -630,7 +630,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div class="vc-fb" id="vc-fb"></div>
 <div style="display:flex;gap:12px;align-items:center;justify-content:center;margin-top:6px">
 <button class="btn-round-nav" id="vc-prev" onclick="vcPrev()" style="display:none">&#8592;</button>
-<button class="vc-next" id="vc-next" onclick="vcNext()" style="display:none">Suivant →</button>
+<button class="btn-round-nav" id="vc-next" onclick="vcNext()" style="display:none">&#8594;</button>
 </div>
 <div class="vc-end" id="vc-end" style="display:none">
   <div class="vc-score-txt" id="vc-score-txt"></div>
@@ -656,7 +656,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
   <div class="match-fb" id="match-fb"></div>
   <div style="display:flex;gap:10px;align-items:center;justify-content:center">
 <button class="btn-ns" id="match-prev" onclick="matchGoPrev()" style="display:none">← Série préc.</button>
-<button class="vc-next" id="match-next" onclick="matchGoNext()" style="display:none">Suivant →</button>
+<button class="btn-round-nav" id="match-next" onclick="matchGoNext()" style="display:none">&#8594;</button>
 </div>
   <div class="match-end-box" id="match-end" style="display:none">
     <div class="match-score-txt" id="match-score-txt"></div>
@@ -1544,7 +1544,7 @@ function matchSelectZh(btn){
     matchDone++;
     if(fb)fb.textContent='✅ Correct !';
     var pairCount=Math.min(MATCH_ROUND_SIZE,MATCH_DATA.length-matchRound*MATCH_ROUND_SIZE);
-    if(matchDone===pairCount){var mn=document.getElementById('match-next');if(mn)mn.style.display='inline-block';}
+    if(matchDone===pairCount){var mn=document.getElementById('match-next');if(mn)mn.style.display='inline-flex';}
   } else {
     matchErrors++;
     matchSel.classList.add('match-err');
@@ -1601,7 +1601,7 @@ function vcRender(){
   var item=vcQ[vcIdx];
   document.getElementById('vc-prog').textContent='Mot '+(vcIdx+1)+' / '+vcQ.length;
   document.getElementById('vc-fb').textContent='';
-  var nxt=document.getElementById('vc-next');if(nxt)nxt.style.display=vcMaxIdx>vcIdx?'inline-block':'none';
+  var nxt=document.getElementById('vc-next');if(nxt)nxt.style.display=vcMaxIdx>vcIdx?'inline-flex':'none';
   var prv=document.getElementById('vc-prev');if(prv)prv.style.display=vcIdx>0?'inline-flex':'none';
   // Distracteurs
   var others=vcQ.filter(function(x){return x!==item;});
