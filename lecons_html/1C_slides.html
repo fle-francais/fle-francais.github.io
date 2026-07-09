@@ -719,31 +719,31 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <script>
 (function(){
 var ACTS=[
-  {id:'fl2b',title:'🎯 Articles définis — Pays → article',type:'flash',
-   colL:'Pays',colR:'Article',
+  {id:'fl2b',title:'🎯 Articles définis — article → pays',type:'flash',
+   colL:'Article',colR:'Pays',
    pairs:[
-     {k:1,l:'France',r:'la'},
-     {k:2,l:'Mali',r:'le'},
-     {k:3,l:'Italie',r:"l'"},
-     {k:4,l:'Pays-Bas',r:'les'},
-     {k:5,l:'Iran',r:"l'"},
-     {k:6,l:'États-Unis',r:'les'}
+     {k:1,l:'la',r:'France'},
+     {k:2,l:'le',r:'Mali'},
+     {k:3,l:"l'",r:'Italie'},
+     {k:4,l:'les',r:'Pays-Bas'},
+     {k:5,l:"l'",r:'Iran'},
+     {k:6,l:'les',r:'États-Unis'}
    ]},
-  {id:'fl2c',title:'🎯 Articles définis — Nom → article',type:'flash',
-   colL:'Nom',colR:'Article',
+  {id:'fl2c',title:'🎯 Articles définis — article → nom',type:'flash',
+   colL:'Article',colR:'Nom',
    pairs:[
-     {k:1,l:'cours (m.)',r:'le'},
-     {k:2,l:'langue (f.)',r:'la'},
-     {k:3,l:'application',r:"l'"},
-     {k:4,l:'étudiants (pl.)',r:'les'},
-     {k:5,l:'art (m.)',r:"l'"},
-     {k:6,l:'géographie (f.)',r:'la'}
+     {k:1,l:'le',r:'cours (m.)'},
+     {k:2,l:'la',r:'langue (f.)'},
+     {k:3,l:"l'",r:'application'},
+     {k:4,l:'les',r:'étudiants (pl.)'},
+     {k:5,l:"l'",r:'art (m.)'},
+     {k:6,l:'la',r:'géographie (f.)'}
    ]},
   {id:'wo2c',title:"🔀 Articles définis — Remettre dans l'ordre",type:'wordorder',
    sentences:[
-     {words:['le','cours','commence','à','9h'],zh:'课程9点开始'},
-     {words:["J'aime","la","géographie"],zh:'我喜欢地理'},
-     {words:['les','étudiants','parlent','français'],zh:'学生们说法语'}
+     {words:['Le','cours','commence','à','9h.'],zh:'课程9点开始。'},
+     {words:["J'aime","la","géographie."],zh:'我喜欢地理。'},
+     {words:['Les','étudiants','parlent','français.'],zh:'学生们说法语。'}
    ]}
 ];
 var cur=0;var maxCur=0;
@@ -849,7 +849,8 @@ render();
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-gram">📖 Nombres 1–69<span class="comm-zh"> · 语法要点</span></div>
-<div class="card-body"><div class="gram-rule"><div class="gram-rule-body"><strong>Les nombres de 1 à 69</strong><span class="comm-zh"> · 数字 1 到 69</span></div></div><div class="gram-ex">• 1–10 : un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix<br/>• 11–20 : onze, douze, treize, quatorze, quinze, seize, dix-sept, dix-huit, dix-neuf, vingt<br/>• 21–69 : vingt et un, vingt-deux… trente, quarante, cinquante, soixante, soixante-neuf</div>
+<div class="card-body"><div class="gram-observe"><div class="gram-observe-label">👀 Observe les nombres<span class="comm-zh"> · 观察数字</span></div>• J'ai <em>vingt-cinq</em> ans. · Il y a <em>cinquante</em> élèves dans cette école.</div>
+<div class="gram-rule"><div class="gram-rule-body"><strong>Les nombres de 1 à 69</strong><span class="comm-zh"> · 数字 1 到 69</span></div></div><div class="gram-ex">• 1–10 : un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix<br/>• 11–20 : onze, douze, treize, quatorze, quinze, seize, dix-sept, dix-huit, dix-neuf, vingt<br/>• 21–69 : vingt et un, vingt-deux… trente, quarante, cinquante, soixante, soixante-neuf</div>
 
 </div>
 </div>
@@ -884,7 +885,30 @@ render();
 <script>
 (function(){
 var ACTS2=[
-  {id:'wo3',title:"🔀 Remettre dans l'ordre — Nombres 1–69",type:'wordorder',sentences:[{words:["J'ai",'vingt-cinq','ans','.'],zh:'我二十五岁。'},{words:['Il','y','a','cinquante','élèves','dans','cette','école','.'],zh:'这所学校里有五十个学生。'}]}
+  {id:'fl_n1',title:'🎯 Nombres 1–30 — chiffre → mot',type:'flash',
+   colL:'Chiffre',colR:'Mot',
+   pairs:[
+     {k:1,l:'3',r:'trois'},
+     {k:2,l:'9',r:'neuf'},
+     {k:3,l:'15',r:'quinze'},
+     {k:4,l:'17',r:'dix-sept'},
+     {k:5,l:'21',r:'vingt et un'},
+     {k:6,l:'22',r:'vingt-deux'},
+     {k:7,l:'25',r:'vingt-cinq'},
+     {k:8,l:'30',r:'trente'}
+   ]},
+  {id:'fl_n2',title:'🎯 Nombres 31–69 — chiffre → mot',type:'flash',
+   colL:'Chiffre',colR:'Mot',
+   pairs:[
+     {k:1,l:'31',r:'trente et un'},
+     {k:2,l:'35',r:'trente-cinq'},
+     {k:3,l:'40',r:'quarante'},
+     {k:4,l:'44',r:'quarante-quatre'},
+     {k:5,l:'48',r:'quarante-huit'},
+     {k:6,l:'50',r:'cinquante'},
+     {k:7,l:'56',r:'cinquante-six'},
+     {k:8,l:'69',r:'soixante-neuf'}
+   ]}
 ];
 var cur2=0;var maxCurR2=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
@@ -988,7 +1012,8 @@ render2();
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-gram">📖 Nombres 70–100<span class="comm-zh"> · 语法要点</span></div>
-<div class="card-body"><div class="gram-rule"><div class="gram-rule-body"><strong>Les nombres de 70 à 100</strong><span class="comm-zh"> · 数字 70 到 100</span></div></div><div class="gram-ex">• 70 = soixante-dix (60+10), 71 = soixante et onze, 72 = soixante-douze…<br/>• 80 = quatre-vingts (4×20), 81 = quatre-vingt-un, 82 = quatre-vingt-deux…<br/>• 90 = quatre-vingt-dix, 91 = quatre-vingt-onze, 92 = quatre-vingt-douze…<br/>• 100 = cent</div>
+<div class="card-body"><div class="gram-observe"><div class="gram-observe-label">👀 Observe les nombres<span class="comm-zh"> · 观察数字</span></div>• 06 soixante-dix-huit, <em>quatre-vingt-quatorze</em>, <em>quatre-vingt-trois</em>, <em>soixante et onze</em>.</div>
+<div class="gram-rule"><div class="gram-rule-body"><strong>Les nombres de 70 à 100</strong><span class="comm-zh"> · 数字 70 到 100</span></div></div><div class="gram-ex">• 70 = soixante-dix (60+10), 71 = soixante et onze, 72 = soixante-douze…<br/>• 80 = quatre-vingts (4×20), 81 = quatre-vingt-un, 82 = quatre-vingt-deux…<br/>• 90 = quatre-vingt-dix, 91 = quatre-vingt-onze, 92 = quatre-vingt-douze…<br/>• 100 = cent</div>
 
 </div>
 </div>
@@ -1022,7 +1047,32 @@ render2();
 </div>
 <script>
 (function(){
-var ACTS3=[{id:'wo1',title:"🔀 Remettre dans l'ordre — Nombres 70–100",type:'wordorder',sentences:[{words:['Le','numéro','est','le','06','78','quatre-vingt-trois','.'],zh:'号码是06 78 83。'},{words:['Anna','a','soixante-et-onze','ans','.'],zh:'安娜七十一岁。'},{words:['Sacha','a','quatre-vingt-deux','ans','.'],zh:'萨沙八十二岁。'}]}];
+var ACTS3=[
+  {id:'fl_n3',title:'🎯 Nombres 70–89 — chiffre → mot',type:'flash',
+   colL:'Chiffre',colR:'Mot',
+   pairs:[
+     {k:1,l:'70',r:'soixante-dix'},
+     {k:2,l:'71',r:'soixante et onze'},
+     {k:3,l:'72',r:'soixante-douze'},
+     {k:4,l:'75',r:'soixante-quinze'},
+     {k:5,l:'79',r:'soixante-dix-neuf'},
+     {k:6,l:'80',r:'quatre-vingts'},
+     {k:7,l:'81',r:'quatre-vingt-un'},
+     {k:8,l:'82',r:'quatre-vingt-deux'}
+   ]},
+  {id:'fl_n4',title:'🎯 Nombres 90–101 — chiffre → mot',type:'flash',
+   colL:'Chiffre',colR:'Mot',
+   pairs:[
+     {k:1,l:'83',r:'quatre-vingt-trois'},
+     {k:2,l:'90',r:'quatre-vingt-dix'},
+     {k:3,l:'91',r:'quatre-vingt-onze'},
+     {k:4,l:'94',r:'quatre-vingt-quatorze'},
+     {k:5,l:'95',r:'quatre-vingt-quinze'},
+     {k:6,l:'99',r:'quatre-vingt-dix-neuf'},
+     {k:7,l:'100',r:'cent'},
+     {k:8,l:'101',r:'cent un'}
+   ]}
+];
 var cur3=0;var maxCurR3=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 function render3(){
@@ -1166,54 +1216,34 @@ render3();
 <div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确答案。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
 <p class="ex-inst">Choisissez la bonne réponse.</p>
 <div class="listen-list">
-<div class="listen-item" data-ans="est">
-<div class="listen-sentence">Le monsieur <span class="listen-blank">___</span> espagnol, de Madrid.</div>
-<button class="listen-btn" onclick="playEx6TTS(this,'Le monsieur est espagnol, de Madrid.')" title="Écouter">🔊</button>
-<div class="listen-choices">
-<button class="choice-btn" data-val="est" onclick="selectEx6(this)">est</button>
-<button class="choice-btn" data-val="a" onclick="selectEx6(this)">a</button>
-<button class="choice-btn" data-val="sont" onclick="selectEx6(this)">sont</button>
-</div>
+<div class="listen-item" data-ans="le">
+<div class="listen-sentence">J'adore <span class="listen-blank">___</span> cinéma.</div>
+<button class="listen-btn" onclick="playEx6TTS(this,'J\'adore le cinéma.')" title="Écouter">🔊</button>
+<div class="listen-choices"><button class="choice-btn" data-val="le" onclick="selectEx6(this)">le</button><button class="choice-btn" data-val="la" onclick="selectEx6(this)">la</button><button class="choice-btn" data-val="les" onclick="selectEx6(this)">les</button></div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="japonaise">
-<div class="listen-sentence">Elle est <span class="listen-blank">___</span>, de Tokyo.</div>
-<button class="listen-btn" onclick="playAudio('../audio/ex6_1C_0.mp3')" title="Écouter">🔊</button>
-<div class="listen-choices">
-<button class="choice-btn" data-val="espagnole" onclick="selectEx6(this)">espagnole</button>
-<button class="choice-btn" data-val="japonaise" onclick="selectEx6(this)">japonaise</button>
-<button class="choice-btn" data-val="japonais" onclick="selectEx6(this)">japonais</button>
-</div>
+<div class="listen-item" data-ans="la">
+<div class="listen-sentence">Il aime <span class="listen-blank">___</span> musique française.</div>
+<button class="listen-btn" onclick="playEx6TTS(this,'Il aime la musique française.')" title="Écouter">🔊</button>
+<div class="listen-choices"><button class="choice-btn" data-val="la" onclick="selectEx6(this)">la</button><button class="choice-btn" data-val="le" onclick="selectEx6(this)">le</button><button class="choice-btn" data-val="les" onclick="selectEx6(this)">les</button></div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="a">
-<div class="listen-sentence">La dame algérienne <span class="listen-blank">___</span> des amis en France.</div>
-<button class="listen-btn" onclick="playEx6TTS(this,'La dame algérienne a des amis en France.')" title="Écouter">🔊</button>
-<div class="listen-choices">
-<button class="choice-btn" data-val="a" onclick="selectEx6(this)">a</button>
-<button class="choice-btn" data-val="est" onclick="selectEx6(this)">est</button>
-<button class="choice-btn" data-val="ont" onclick="selectEx6(this)">ont</button>
-</div>
+<div class="listen-item" data-ans="les">
+<div class="listen-sentence">Ce sont <span class="listen-blank">___</span> amis de Pedro.</div>
+<button class="listen-btn" onclick="playEx6TTS(this,'Ce sont les amis de Pedro.')" title="Écouter">🔊</button>
+<div class="listen-choices"><button class="choice-btn" data-val="les" onclick="selectEx6(this)">les</button><button class="choice-btn" data-val="le" onclick="selectEx6(this)">le</button><button class="choice-btn" data-val="la" onclick="selectEx6(this)">la</button></div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="ont">
-<div class="listen-sentence">Les trois personnes <span class="listen-blank">___</span> des nationalités différentes.</div>
-<button class="listen-btn" onclick="playEx6TTS(this,'Les trois personnes ont des nationalités différentes.')" title="Écouter">🔊</button>
-<div class="listen-choices">
-<button class="choice-btn" data-val="ont" onclick="selectEx6(this)">ont</button>
-<button class="choice-btn" data-val="est" onclick="selectEx6(this)">est</button>
-<button class="choice-btn" data-val="a" onclick="selectEx6(this)">a</button>
-</div>
+<div class="listen-item" data-ans="trente">
+<div class="listen-sentence">Il y a <span class="listen-blank">___</span> élèves dans la classe.</div>
+<button class="listen-btn" onclick="playEx6TTS(this,'Il y a trente élèves dans la classe.')" title="Écouter">🔊</button>
+<div class="listen-choices"><button class="choice-btn" data-val="trente" onclick="selectEx6(this)">trente</button><button class="choice-btn" data-val="vingt" onclick="selectEx6(this)">vingt</button><button class="choice-btn" data-val="quarante" onclick="selectEx6(this)">quarante</button></div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="richesse">
-<div class="listen-sentence">Les langues, c'est une <span class="listen-blank">___</span>.</div>
-<button class="listen-btn" onclick="playAudio('../audio/ex6_1C_4.mp3')" title="Écouter">🔊</button>
-<div class="listen-choices">
-<button class="choice-btn" data-val="langue" onclick="selectEx6(this)">langue</button>
-<button class="choice-btn" data-val="richesse" onclick="selectEx6(this)">richesse</button>
-<button class="choice-btn" data-val="difficulté" onclick="selectEx6(this)">difficulté</button>
-</div>
+<div class="listen-item" data-ans="quatre-vingt-trois">
+<div class="listen-sentence">C'est le bus numéro <span class="listen-blank">___</span>.</div>
+<button class="listen-btn" onclick="playEx6TTS(this,'C\'est le bus numéro quatre-vingt-trois.')" title="Écouter">🔊</button>
+<div class="listen-choices"><button class="choice-btn" data-val="quatre-vingt-trois" onclick="selectEx6(this)">quatre-vingt-trois</button><button class="choice-btn" data-val="soixante-trois" onclick="selectEx6(this)">soixante-trois</button><button class="choice-btn" data-val="quatre-vingt-treize" onclick="selectEx6(this)">quatre-vingt-treize</button></div>
 <div class="listen-fb"></div>
 </div>
 </div>
