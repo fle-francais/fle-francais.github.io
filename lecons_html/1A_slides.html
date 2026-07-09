@@ -1147,7 +1147,7 @@ function renderClassify2(a){
       }
     };
     var rb=document.createElement('button');rb.className='btn-ns';rb.textContent='↺ Recommencer';
-    rb.onclick=function(){wrongOnes=[];shuffled.forEach(function(w){placement[w]=null;});drawUI();};
+    rb.onclick=function(){wrongOnes=[];shuffled.forEach(function(w){placement[w]=null;});document.getElementById('prat-success-r2').style.display='none';document.getElementById('prat-next-r2').style.display='none';drawUI();};
     bar.appendChild(vb);bar.appendChild(rb);b.appendChild(bar);
   }
   drawUI();
