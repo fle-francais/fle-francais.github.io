@@ -727,7 +727,7 @@ var ACTS=[
 var cur=0;var maxCur=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 function render(){
-  var a=ACTS[cur];
+  var a=ACTS[cur];try{localStorage.setItem('fle_a1_'+location.pathname,cur);}catch(e){}
   document.getElementById('prat-title').textContent=a.title;
   document.getElementById('prat-counter').textContent='Activité '+(cur+1)+' / '+ACTS.length;
   document.getElementById('prat-success').style.display='none';
@@ -818,6 +818,7 @@ function renderWO(a){
 window.pratReset=function(){var ex=document.getElementById('prat-exit');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur=0;render();};
 window.pratNext=function(){if(cur<ACTS.length-1){cur++;render();}};
 window.pratPrev=function(){if(cur>0){cur--;render();}};
+try{var _c1=parseInt(localStorage.getItem('fle_a1_'+location.pathname)||'0');if(_c1>0&&_c1<ACTS.length){cur=_c1;maxCur=_c1;}}catch(e){}
 render();
 })();
 </script>
@@ -864,7 +865,7 @@ var ACTS2=[{id:'wo2',title:"🔀 Remettre dans l'ordre — Imparfait",type:'word
 var cur2=0;var maxCurR2=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 function render2(){
-  var a=ACTS2[cur2];
+  var a=ACTS2[cur2];try{localStorage.setItem('fle_a2_'+location.pathname,cur2);}catch(e){}
   document.getElementById('prat-title-r2').textContent=a.title;
   document.getElementById('prat-counter-r2').textContent='Activité '+(cur2+1)+' / '+ACTS2.length;
   document.getElementById('prat-success-r2').style.display='none';
@@ -923,6 +924,7 @@ function renderWO2(a){
 window.pratResetR2=function(){var ex=document.getElementById('prat-exit-r2');if(ex){ex.disabled=true;ex.style.opacity='.35';}cur2=0;render2();};
 window.pratNextR2=function(){if(cur2<ACTS2.length-1){cur2++;render2();}};
 window.pratPrevR2=function(){if(cur2>0){cur2--;render2();}};
+try{var _c2=parseInt(localStorage.getItem('fle_a2_'+location.pathname)||'0');if(_c2>0&&_c2<ACTS2.length){cur2=_c2;maxCurR2=_c2;}}catch(e){}
 render2();
 })();
 </script>
