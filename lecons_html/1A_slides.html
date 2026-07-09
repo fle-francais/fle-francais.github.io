@@ -768,7 +768,7 @@ function renderFlash(a){
   var matched=0,selL=null,selR=null;
   function css(c,t){c.style.borderColor=t==='ok'?'#0ca30c':t==='err'?'#e24b4a':t==='sel'?'var(--purp)':'var(--border)';c.style.background=t==='ok'?'#EAF3DE':t==='err'?'#FCEBEB':t==='sel'?'var(--purp-l)':'var(--card-bg,#fff)';c.style.color=t==='ok'?'#3B6D11':t==='err'?'#A32D2D':'var(--purp)';c.style.cursor=t==='ok'?'default':'pointer';}
   function chk(){
-    if(selL.dataset.k===selR.dataset.k){
+    if(a.pairs.some(function(p){return p.l===selL.textContent.trim()&&p.r===selR.textContent.trim();})){
       css(selL,'ok');css(selR,'ok');selL.onclick=null;selR.onclick=null;matched++;
       document.getElementById('prat-score').textContent='Trouvé : '+matched+' / '+a.pairs.length;
       if(matched===a.pairs.length){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';if(cur>=maxCur){maxCur=cur+1;}var n=document.getElementById('prat-next');if(n&&cur<ACTS.length-1)n.style.display='';}
@@ -954,7 +954,7 @@ function renderFlash2(a){
       else if(sel.dataset.side!==el.dataset.side){
         var lc=sel.dataset.side==='L'?sel.dataset.k:el.dataset.k;
         var rc=sel.dataset.side==='R'?sel.dataset.k:el.dataset.k;
-        if(lc===rc){
+        if(a.pairs.some(function(p){return p.l===pm[lc].l&&p.r===pm[rc].r;})){
           var toMatch=[sel,el];sel=null;
           toMatch.forEach(function(c){c.style.borderColor='#0ca30c';c.style.background='#EAF3DE';c.style.color='#3B6D11';c.style.cursor='default';c.dataset.matched='1';});
           matched++;if(matched===a.pairs.length)onDone2();
@@ -1256,7 +1256,7 @@ function renderFlash3(a){
       else if(sel.dataset.side!==el.dataset.side){
         var lc=sel.dataset.side==='L'?sel.dataset.k:el.dataset.k;
         var rc=sel.dataset.side==='R'?sel.dataset.k:el.dataset.k;
-        if(lc===rc){
+        if(a.pairs.some(function(p){return p.l===pm[lc].l&&p.r===pm[rc].r;})){
           var toMatch=[sel,el];sel=null;
           toMatch.forEach(function(c){c.style.borderColor='#0ca30c';c.style.background='#EAF3DE';c.style.color='#3B6D11';c.style.cursor='default';c.dataset.matched='1';});
           matched++;if(matched===a.pairs.length)onDone3();
