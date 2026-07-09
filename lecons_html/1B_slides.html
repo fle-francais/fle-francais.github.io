@@ -760,7 +760,7 @@ function renderFlash(a){
   var matched=0,selL=null,selR=null;
   function css(c,t){c.style.borderColor=t==='ok'?'#0ca30c':t==='err'?'#e24b4a':t==='sel'?'var(--purp)':'var(--border)';c.style.background=t==='ok'?'#EAF3DE':t==='err'?'#FCEBEB':t==='sel'?'var(--purp-l)':'var(--card-bg,#fff)';c.style.color=t==='ok'?'#3B6D11':t==='err'?'#A32D2D':'var(--purp)';c.style.cursor=t==='ok'?'default':'pointer';}
   function chk(){
-    if(selL.dataset.k===selR.dataset.k){
+    if(a.pairs.some(function(p){return p.l===selL.textContent.trim()&&p.r===selR.textContent.trim();})){
       css(selL,'ok');css(selR,'ok');selL.onclick=null;selR.onclick=null;matched++;
       document.getElementById('prat-score').textContent='Trouvé : '+matched+' / '+a.pairs.length;
       if(matched===a.pairs.length){document.getElementById('prat-success').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success').style.display='block';if(cur>=maxCur){maxCur=cur+1;}var n=document.getElementById('prat-next');if(n&&cur<ACTS.length-1)n.style.display='';}
@@ -915,7 +915,7 @@ function renderFlash2(a){
   var sc=document.getElementById('prat-score-r2');if(sc){sc.style.display='inline';sc.textContent='Trouvé : 0 / '+a.pairs.length;}
   function css(c,t){c.style.borderColor=t==='ok'?'#0ca30c':t==='err'?'#e24b4a':t==='sel'?'var(--purp)':'var(--border)';c.style.background=t==='ok'?'#EAF3DE':t==='err'?'#FCEBEB':t==='sel'?'var(--purp-l)':'var(--card-bg,#fff)';c.style.color=t==='ok'?'#3B6D11':t==='err'?'#A32D2D':'var(--purp)';c.style.cursor=t==='ok'?'default':'pointer';}
   function chk(){
-    if(selL.dataset.k===selR.dataset.k){
+    if(a.pairs.some(function(p){return p.l===selL.textContent.trim()&&p.r===selR.textContent.trim();})){
       css(selL,'ok');css(selR,'ok');selL.onclick=null;selR.onclick=null;matched++;
       var sc=document.getElementById('prat-score-r2');if(sc)sc.textContent='Trouvé : '+matched+' / '+a.pairs.length;
       if(matched===a.pairs.length){document.getElementById('prat-success-r2').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r2').style.display='block';if(cur2>=maxCurR2){maxCurR2=cur2+1;}var n=document.getElementById('prat-next-r2');if(n&&cur2<ACTS2.length-1)n.style.display='';}
