@@ -906,8 +906,8 @@ var ACTS2=[
      {words:['Il','est','japonais','.'],distractors:['japonaise'],zh:'他是日本人。'}
    ]},
   {id:'cls1',title:'🗂️ Classe dans la bonne colonne',type:'classify',
-   words:['français','française','brésilien','brésilienne','italien','italienne','espagnol','espagnole','japonais','japonaise','chinois','chinoise'],
-   answers:{il:['français','brésilien','italien','espagnol','japonais','chinois'],elle:['française','brésilienne','italienne','espagnole','japonaise','chinoise']}}
+   words:['français','française','chinois','chinoise','italien','italienne','grec','grecque','turc','turque','espagnol','espagnole'],
+   answers:{il:['français','chinois','italien','grec','turc','espagnol'],elle:['française','chinoise','italienne','grecque','turque','espagnole']}}
 ];
 var cur2=0;var maxCurR2=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
@@ -1053,6 +1053,7 @@ function renderClassify2(a){
   var placement={};
   var shuffled=shuf([...a.words]);
   shuffled.forEach(function(w){placement[w]=null;});
+  var wrongOnes=[]; // mots mal placés (mis en rouge après Vérifier)
 
   function drawUI(){
     b.innerHTML='';
@@ -1075,10 +1076,14 @@ function renderClassify2(a){
       hd.textContent=cfg.label;div.appendChild(hd);
       var placed=shuffled.filter(function(w){return placement[w]===cfg.col;});
       placed.forEach(function(w){
+        var isWrong=wrongOnes.length>0&&wrongOnes.indexOf(w)!==-1;
+        var chipBorder=isWrong?'#ef4444':cfg.border;
+        var chipBg=isWrong?'#fee2e2':'#fff';
+        var chipColor=isWrong?'#b91c1c':cfg.border;
         var ch=document.createElement('div');
-        ch.style.cssText='display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:6px;border:1.5px solid '+cfg.border+';background:#fff;margin:2px;font-size:13px;font-weight:500;color:'+cfg.border;
-        ch.innerHTML=w+' <span style="cursor:pointer;opacity:.6;font-size:11px" title="Retirer">✕</span>';
-        ch.querySelector('span').onclick=function(){placement[w]=null;drawUI();};
+        ch.style.cssText='display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:6px;border:2px solid '+chipBorder+';background:'+chipBg+';margin:2px;font-size:13px;font-weight:500;color:'+chipColor;
+        ch.innerHTML=w+' <span style="cursor:pointer;opacity:.7;font-size:11px" title="Retirer">✕</span>';
+        ch.querySelector('span').onclick=function(){wrongOnes=[];placement[w]=null;drawUI();};
         div.appendChild(ch);
       });
       cols.appendChild(div);
@@ -1104,12 +1109,12 @@ function renderClassify2(a){
         btnIl.className='btn-ns';
         btnIl.style.cssText='font-size:12px;padding:4px 10px;background:#dbeafe;color:#1d4ed8;border:1.5px solid #3b82f6';
         btnIl.textContent='👨 Il';
-        btnIl.onclick=function(){placement[w]='il';drawUI();};
+        btnIl.onclick=function(){wrongOnes=[];placement[w]='il';drawUI();};
         var btnElle=document.createElement('button');
         btnElle.className='btn-ns';
         btnElle.style.cssText='font-size:12px;padding:4px 10px;background:#fce7f3;color:#be185d;border:1.5px solid #ec4899';
         btnElle.textContent='👩 Elle';
-        btnElle.onclick=function(){placement[w]='elle';drawUI();};
+        btnElle.onclick=function(){wrongOnes=[];placement[w]='elle';drawUI();};
         row.appendChild(label);row.appendChild(btnIl);row.appendChild(btnElle);
         bank.appendChild(row);
       });
@@ -1120,14 +1125,9 @@ function renderClassify2(a){
     var fb=document.createElement('div');fb.id='cls-fb-r2';
     fb.style.cssText='font-size:13px;text-align:center;padding:6px;border-radius:8px;width:100%;margin-bottom:6px';
     b.appendChild(fb);
-    /* Boutons */
-    var bar=document.createElement('div');bar.style.cssText='display:flex;gap:8px;align-items:center;justify-content:center';
-    /* ← round prev */
-    var pbtn=document.createElement('button');pbtn.className='btn-round-nav';
-    pbtn.innerHTML='&#8592;';pbtn.title='Activité précédente';
-    pbtn.style.display=cur2>0?'':'none';
-    pbtn.onclick=function(){pratPrevR2();};
-    bar.appendChild(pbtn);
+    /* Boutons — pas de pbtn ici, la navigation ← est gérée par prat-prev-r2 (HTML) */
+    var bar=document.createElement('div');
+    bar.style.cssText='display:flex;gap:8px;align-items:center;justify-content:center;width:100%';
     var vb=document.createElement('button');vb.className='btn-ns';vb.textContent='✓ Vérifier';
     vb.onclick=function(){
       var il=shuffled.filter(function(w){return placement[w]==='il';});
@@ -1138,11 +1138,22 @@ function renderClassify2(a){
       }
       var ilOk=il.length===a.answers.il.length&&il.every(function(w){return a.answers.il.indexOf(w)!==-1;});
       var elleOk=elle.length===a.answers.elle.length&&elle.every(function(w){return a.answers.elle.indexOf(w)!==-1;});
-      if(ilOk&&elleOk){fbEl.style.background='#EAF3DE';fbEl.style.color='#3B6D11';fbEl.textContent='✅ Parfait ! Tous les accords sont corrects.';onDone2();}
-      else{fbEl.style.background='#FCEBEB';fbEl.style.color='#A32D2D';fbEl.textContent='❌ Certains accords sont incorrects — vérifie M / F.';}
+      if(ilOk&&elleOk){
+        wrongOnes=[];
+        fbEl.style.background='#EAF3DE';fbEl.style.color='#3B6D11';fbEl.textContent='✅ Parfait ! Tous les accords sont corrects.';
+        onDone2();
+      } else {
+        wrongOnes=[];
+        il.forEach(function(w){if(a.answers.il.indexOf(w)===-1)wrongOnes.push(w);});
+        elle.forEach(function(w){if(a.answers.elle.indexOf(w)===-1)wrongOnes.push(w);});
+        drawUI();
+        var fb2=document.getElementById('cls-fb-r2');
+        fb2.style.background='#FCEBEB';fb2.style.color='#A32D2D';
+        fb2.textContent='❌ '+wrongOnes.length+' mot'+(wrongOnes.length>1?'s':'')+' mal placé'+(wrongOnes.length>1?'s':'')+' — en rouge ci-dessus.';
+      }
     };
     var rb=document.createElement('button');rb.className='btn-ns';rb.textContent='↺ Recommencer';
-    rb.onclick=function(){shuffled.forEach(function(w){placement[w]=null;});drawUI();};
+    rb.onclick=function(){wrongOnes=[];shuffled.forEach(function(w){placement[w]=null;});drawUI();};
     bar.appendChild(vb);bar.appendChild(rb);b.appendChild(bar);
   }
   drawUI();
@@ -1223,11 +1234,13 @@ function render3(){
 }
 
 function onDone3(){
+  var snap=cur3;
   setTimeout(function(){
+    if(snap>=maxCur3)maxCur3=snap+1;
+    if(cur3!==snap)return;
     document.getElementById('prat-success-r3').textContent='Parfait ! 全对了 🎉';
     document.getElementById('prat-success-r3').style.display='block';
-    if(cur3>=maxCur3)maxCur3=cur3+1;
-    if(cur3<ACTS3.length-1){document.getElementById('prat-next-r3').style.display='inline-flex';}
+    if(snap<ACTS3.length-1){document.getElementById('prat-next-r3').style.display='inline-flex';}
   },500);
 }
 
