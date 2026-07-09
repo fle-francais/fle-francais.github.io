@@ -1782,7 +1782,7 @@ var VC_DATA=[
   {fr:"nerveux / nerveuse", audio:"../audio/vocab_1A_8.mp3"},
   {fr:"enchanté(e)", audio:"../audio/vocab_1A_9.mp3"},
 ];
-var vcQ=[],vcIdx=0,vcMaxIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
+var vcQ=[],vcIdx=0,vcMaxIdx=0,vcScore=0,vcAnswered=false,vcAudio=null,vcDone=[];
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
 function vcInit(){
   vcQ=vcShuffle(VC_DATA);vcIdx=0;vcScore=0;

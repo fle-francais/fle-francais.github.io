@@ -1137,9 +1137,9 @@ var VC_DATA=[
   {fr:"pomme", audio:"../audio/vocab_3A_8.mp3"},
   {fr:"journée", audio:"../audio/vocab_3A_9.mp3"},
 ];
-var vcQ=[],vcIdx=0,vcMaxIdx=0,vcScore=0,vcAnswered=false,vcAudio=null;
+var vcQ=[],vcIdx=0,vcMaxIdx=0,vcScore=0,vcAnswered=false,vcAudio=null,vcDone=[];
 function vcShuffle(a){var b=a.slice();for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}return b;}
-function vcInit(){vcQ=vcShuffle(VC_DATA.slice());vcIdx=0;vcScore=0;vcRender();}
+function vcInit(){vcQ=vcShuffle(VC_DATA.slice());vcIdx=0;vcScore=0;vcMaxIdx=0;vcDone=[];vcRender();}
 function vcRender(){
   var prog=document.getElementById('vc-prog');if(prog)prog.textContent='Mot '+(vcIdx+1)+' / '+vcQ.length;
   var grid=document.getElementById('vc-grid');if(!grid)return;grid.innerHTML='';
@@ -1155,7 +1155,7 @@ function vcRender(){
 }
 function vcAnswer(correct,btn,correctFr){
   if(vcAnswered)return;vcAnswered=true;
-  if(correct){btn.classList.add('vc-correct');vcScore++;var fb=document.getElementById('vc-fb');if(fb)fb.textContent='✅ Correct !';}
+  if(correct){btn.classList.add('vc-correct');if(!vcDone[vcIdx]){vcScore++;vcDone[vcIdx]=true;}var fb=document.getElementById('vc-fb');if(fb)fb.textContent='✅ Correct !';}
   else{btn.classList.add('vc-wrong');var fb=document.getElementById('vc-fb');if(fb)fb.textContent='❌ C\'est : '+correctFr;document.querySelectorAll('.vc-btn').forEach(function(b){if(b.textContent===correctFr)b.classList.add('vc-correct');});}
   document.querySelectorAll('.vc-btn').forEach(function(b){b.disabled=true;});
   if(vcIdx>=vcMaxIdx)vcMaxIdx=vcIdx+1;
