@@ -476,8 +476,8 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <button class="slide-tab" data-fr="🗣️ Communiquer" data-zh="🗣️ 表达" onclick="goSlide(2)">🗣️ Communiquer</button>
 <button class="slide-tab" data-fr="🎤 Prononciation" data-zh="🎤 发音" onclick="goSlide(5)">🎤 Prononciation</button>
 <button class="slide-tab" data-fr="📖 Grammaire" data-zh="📖 语法" onclick="goSlide(6)">📖 Grammaire</button>
-<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(12)">✏️ Exercices</button>
-<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(14)">✍️ À toi !</button>
+<button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(11)">✏️ Exercices</button>
+<button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(13)">✍️ À toi !</button>
 </nav>
 <div class="slides-viewport" id="slides-vp">
 <!-- ══ SLIDE 0 : DIALOGUE ══ -->
@@ -848,12 +848,35 @@ render();
 </script>
 <!-- ══ SLIDE GR2 : GRAMMAIRE RÈGLE 2/3 ══ -->
 <div class="slide" id="slide-gr2">
-<div class="slide-body">
-<div class="card">
-<div class="card-head head-gram">📖 Nombres 1–69<span class="comm-zh"> · 语法要点</span></div>
-<div class="card-body"><div class="gram-observe"><div class="gram-observe-label">👀 Observe les nombres<span class="comm-zh"> · 观察数字</span></div>• J'ai <em>vingt-cinq</em> ans. · Il y a <em>cinquante</em> élèves dans cette école.</div>
-<div class="gram-rule"><div class="gram-rule-body"><strong>Les nombres de 1 à 69</strong><span class="comm-zh"> · 数字 1 到 69</span></div></div><div class="gram-ex">• 1–10 : un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix<br/>• 11–20 : onze, douze, treize, quatorze, quinze, seize, dix-sept, dix-huit, dix-neuf, vingt<br/>• 21–69 : vingt et un, vingt-deux… trente, quarante, cinquante, soixante, soixante-neuf</div>
-
+<div class="slide-body" style="justify-content:flex-start;padding:10px 12px 0;gap:0">
+<div class="card" style="flex:1;min-height:0;overflow-y:auto">
+<div class="card-head head-gram">📖 Les nombres de 1 à 100<span class="comm-zh"> · 语法要点</span></div>
+<div class="card-body" style="padding:10px 12px 14px">
+<div class="gram-observe"><div class="gram-observe-label">👀 Observe les nombres<span class="comm-zh"> · 观察数字</span></div>• J'ai <em>vingt-cinq</em> ans. · Il y a <em>cinquante</em> élèves dans cette école. · 06 <em>soixante-dix-huit</em>, <em>quatre-vingt-quatorze</em>, <em>soixante et onze</em>.</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-top:10px">
+<div style="border:1.5px solid var(--purp);border-radius:8px;overflow:hidden">
+<div style="background:var(--purp);color:#fff;font-size:10px;font-weight:700;padding:4px 8px;text-align:center;letter-spacing:.06em">1 À 20</div>
+<div style="padding:6px 10px;font-size:12px;line-height:1.85">1 · un<br>2 · deux<br>3 · trois<br>4 · quatre<br>5 · cinq<br>6 · six<br>7 · sept<br>8 · huit<br>9 · neuf<br>10 · dix<br>11 · onze<br>12 · douze<br>13 · treize<br>14 · quatorze<br>15 · quinze<br>16 · seize<br>17 · dix-sept<br>18 · dix-huit<br>19 · dix-neuf<br>20 · vingt</div>
+</div>
+<div style="border:1.5px solid var(--purp);border-radius:8px;overflow:hidden">
+<div style="background:var(--purp);color:#fff;font-size:10px;font-weight:700;padding:4px 8px;text-align:center;letter-spacing:.06em">21 À 30</div>
+<div style="padding:6px 10px;font-size:12px;line-height:1.85">21 · vingt et un<br>22 · vingt-deux<br>23 · vingt-trois<br>24 · vingt-quatre<br>25 · vingt-cinq<br>26 · vingt-six<br>27 · vingt-sept<br>28 · vingt-huit<br>29 · vingt-neuf<br>30 · trente</div>
+</div>
+<div style="border:1.5px solid var(--purp);border-radius:8px;overflow:hidden">
+<div style="background:var(--purp);color:#fff;font-size:10px;font-weight:700;padding:4px 8px;text-align:center;letter-spacing:.06em">31 À 69</div>
+<div style="padding:6px 10px;font-size:12px;line-height:1.85">31 · trente et un<br>32 · trente-deux<br>33 · trente-trois<br>39 · trente-neuf<br>40 · quarante<br>41 · quarante et un<br>42 · quarante-deux<br>49 · quarante-neuf<br>50 · cinquante<br>51 · cinquante et un<br>52 · cinquante-deux<br>60 · soixante<br>61 · soixante et un<br>62 · soixante-deux<br>69 · soixante-neuf</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px">
+<div style="border:1.5px solid #d97706;border-radius:8px;overflow:hidden">
+<div style="background:#d97706;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;text-align:center;letter-spacing:.06em">70 À 79 · (60 + 10…)</div>
+<div style="padding:6px 10px;font-size:12px;line-height:1.85">70 · soixante-dix<br>71 · soixante et onze<br>72 · soixante-douze<br>73 · soixante-treize<br>74 · soixante-quatorze<br>75 · soixante-quinze<br>76 · soixante-seize<br>77 · soixante-dix-sept<br>78 · soixante-dix-huit<br>79 · soixante-dix-neuf</div>
+</div>
+<div style="border:1.5px solid #d97706;border-radius:8px;overflow:hidden">
+<div style="background:#d97706;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;text-align:center;letter-spacing:.06em">80 À 100 · (4×20…)</div>
+<div style="padding:6px 10px;font-size:12px;line-height:1.85">80 · quatre-vingts<br>81 · quatre-vingt-un<br>82 · quatre-vingt-deux<br>83 · quatre-vingt-trois<br>84 · quatre-vingt-quatre<br>85 · quatre-vingt-cinq<br>86 · quatre-vingt-six<br>87 · quatre-vingt-sept<br>88 · quatre-vingt-huit<br>89 · quatre-vingt-neuf<br>90 · quatre-vingt-dix<br>91 · quatre-vingt-onze<br>92 · quatre-vingt-douze<br>99 · quatre-vingt-dix-neuf<br>100 · cent</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1009,22 +1032,6 @@ try{var _c2=parseInt(localStorage.getItem('fle_a2_'+location.pathname)||'0');if(
 render2();
 })();
 </script>
-<!-- ══ SLIDE GR3 : GRAMMAIRE RÈGLE 3/3 ══ -->
-<div class="slide" id="slide-gr3">
-<div class="slide-body">
-<div class="card">
-<div class="card-head head-gram">📖 Nombres 70–100<span class="comm-zh"> · 语法要点</span></div>
-<div class="card-body"><div class="gram-observe"><div class="gram-observe-label">👀 Observe les nombres<span class="comm-zh"> · 观察数字</span></div>• 06 soixante-dix-huit, <em>quatre-vingt-quatorze</em>, <em>quatre-vingt-trois</em>, <em>soixante et onze</em>.</div>
-<div class="gram-rule"><div class="gram-rule-body"><strong>Les nombres de 70 à 100</strong><span class="comm-zh"> · 数字 70 到 100</span></div></div><div class="gram-ex">• 70 = soixante-dix (60+10), 71 = soixante et onze, 72 = soixante-douze…<br/>• 80 = quatre-vingts (4×20), 81 = quatre-vingt-un, 82 = quatre-vingt-deux…<br/>• 90 = quatre-vingt-dix, 91 = quatre-vingt-onze, 92 = quatre-vingt-douze…<br/>• 100 = cent</div>
-
-</div>
-</div>
-</div>
-<div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Pratique 2" data-zh="← 练习 2" onclick="goSlide(9)">← Pratique 2</button>
-<button class="btn-ns" data-fr="⚡ Pratique →" data-zh="⚡ 练习 →" onclick="goSlide(11)">⚡ Pratique →</button>
-</div>
-</div>
 <!-- ══ SLIDE PM3 : PRATIQUE RÈGLE 3 ══ -->
 <div class="slide" id="slide-pm3">
 <div class="slide-header">📖 Grammaire <span class="slide-part">— Pratique 3/3</span></div>
@@ -1043,8 +1050,8 @@ render2();
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Règle 3" data-zh="← 语法 3" onclick="goSlide(10)">← Règle 3</button>
-<button class="btn-ns" id="prat-exit-r3" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(12)">✏️ Exercices →</button>
+<button class="btn-ns" data-fr="← Pratique 2" data-zh="← 练习 2" onclick="goSlide(9)">← Pratique 2</button>
+<button class="btn-ns" id="prat-exit-r3" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(11)">✏️ Exercices →</button>
 </div>
 </div>
 <script>
@@ -1077,15 +1084,46 @@ var ACTS3=[
 ];
 var cur3=0;var maxCurR3=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function renderFlash3(a){
+  var b=document.getElementById('prat-body-r3');
+  b.innerHTML='<div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;width:100%"><div><div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:center;margin-bottom:4px">'+a.colL+'</div><div id="fl-l-r3" style="display:flex;flex-direction:column;gap:7px"></div></div><div><div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:center;margin-bottom:4px">'+a.colR+'</div><div id="fl-r-r3" style="display:flex;flex-direction:column;gap:7px"></div></div></div>';
+  var matched=0,selL=null,selR=null;
+  var sc=document.getElementById('prat-score-r3');if(sc){sc.style.display='inline';sc.textContent='Trouvé : 0 / '+a.pairs.length;}
+  function css(c,t){c.style.borderColor=t==='ok'?'#0ca30c':t==='err'?'#e24b4a':t==='sel'?'var(--purp)':'var(--border)';c.style.background=t==='ok'?'#EAF3DE':t==='err'?'#FCEBEB':t==='sel'?'var(--purp-l)':'var(--card-bg,#fff)';c.style.color=t==='ok'?'#3B6D11':t==='err'?'#A32D2D':'var(--purp)';c.style.cursor=t==='ok'?'default':'pointer';}
+  function chk(){
+    if(a.pairs.some(function(p){return p.l===selL.textContent.trim()&&p.r===selR.textContent.trim();})){
+      css(selL,'ok');css(selR,'ok');selL.onclick=null;selR.onclick=null;matched++;
+      var sc=document.getElementById('prat-score-r3');if(sc)sc.textContent='Trouvé : '+matched+' / '+a.pairs.length;
+      if(matched===a.pairs.length){document.getElementById('prat-success-r3').textContent='Parfait ! 全对了 🎉';document.getElementById('prat-success-r3').style.display='block';if(cur3>=maxCurR3){maxCurR3=cur3+1;}var n=document.getElementById('prat-next-r3');if(n&&cur3<ACTS3.length-1)n.style.display='';}
+    }else{
+      css(selL,'err');css(selR,'err');
+      var sl=selL,sr=selR;setTimeout(function(){if(sl.style.cursor!=='default')css(sl,'');if(sr.style.cursor!=='default')css(sr,'');},600);
+    }
+    selL=null;selR=null;
+  }
+  function mkCard(p,side){
+    var c=document.createElement('div');
+    c.style.cssText='padding:10px 12px;border-radius:8px;border:1.5px solid var(--border);background:var(--card-bg,#fff);cursor:pointer;text-align:center;font-size:16px;font-weight:500;color:var(--purp);min-height:44px;display:flex;align-items:center;justify-content:center;';
+    c.dataset.k=p.k;c.textContent=side==='l'?p.l:p.r;
+    c.onclick=function(){
+      if(this.style.cursor==='default')return;
+      if(side==='l'){document.querySelectorAll('#fl-l-r3 div').forEach(function(x){if(x.style.cursor!=='default')css(x,'');});css(this,'sel');selL=this;if(selR)chk();}
+      else{document.querySelectorAll('#fl-r-r3 div').forEach(function(x){if(x.style.cursor!=='default')css(x,'');});css(this,'sel');selR=this;if(selL)chk();}
+    };
+    return c;
+  }
+  shuf(a.pairs).forEach(function(p){document.getElementById('fl-l-r3').appendChild(mkCard(p,'l'));});
+  shuf(a.pairs).forEach(function(p){document.getElementById('fl-r-r3').appendChild(mkCard(p,'r'));});
+}
 function render3(){
   var a=ACTS3[cur3];try{localStorage.setItem('fle_a3_'+location.pathname,cur3);}catch(e){}
   document.getElementById('prat-title-r3').textContent=a.title;
   document.getElementById('prat-counter-r3').textContent='Activité '+(cur3+1)+' / '+ACTS3.length;
   document.getElementById('prat-success-r3').style.display='none';
-  document.getElementById('prat-score-r3').textContent='';
+  var sc=document.getElementById('prat-score-r3');if(sc){sc.style.display='none';sc.textContent='';}
   document.getElementById('prat-next-r3').style.display=maxCurR3>cur3?'':'none';
   document.getElementById('prat-prev-r3').style.display=cur3>0?'':'none';
-  renderWO3(a);
+  if(a.type==='flash')renderFlash3(a);else renderWO3(a);
 }
 function renderWO3(a){
   var b=document.getElementById('prat-body-r3');var si=0;var maxSi=0;var placed=[];
@@ -1173,8 +1211,8 @@ render3();
 <div class="blank-row">5. <span>100 → </span><input autocomplete="off" class="blank-input" id="bl-1C-ex4-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-1C-ex4-4').click()" type="text"/><button class="check-btn" data-ans="cent" id="chk-bl-1C-ex4-4" onclick="checkBlankData(this,'bl-1C-ex4-4','fb-bl-1C-ex4-4')">✓</button><span class="fb" id="fb-bl-1C-ex4-4"></span></div>
 <div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier ✓</button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div></div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(11)">← Grammaire</button>
-<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(13)">Suite →</button>
+<button class="btn-ns" data-fr="← Pratique 3" data-zh="← 练习 3" onclick="goSlide(10)">← Pratique 3</button>
+<button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(12)">Suite →</button>
 </div>
 </div>
 <!-- ══ SLIDE 7 : EXERCICES 2/2 ══ -->
@@ -1257,8 +1295,8 @@ render3();
 </div>
 </div>
 <div class="slide-footer" style="justify-content:space-between">
-<button class="btn-ns" onclick="goSlide(12)">← Exercices 1/2</button>
-<button class="btn-ns" onclick="goSlide(14)">→</button>
+<button class="btn-ns" onclick="goSlide(11)">← Exercices 1/2</button>
+<button class="btn-ns" onclick="goSlide(13)">→</button>
 </div>
 </div>
 <div class="slide" id="slide-10">
@@ -1312,7 +1350,7 @@ render3();
 <div class="fle-modal-overlay" onclick="closeAllModals()"></div>
 <script>
 var LESSON='1C';
-var TAB_FOR_SLIDE=[0,1,2,2,2,3,4,4,4,4,4,4,5,5,6];
+var TAB_FOR_SLIDE=[0,1,2,2,2,3,4,4,4,4,4,5,5,6];
 
 var currentSlide=0;
 
