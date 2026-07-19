@@ -721,7 +721,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 (function(){
 var ACTS=[
   {id:'fm1',title:'⚡ Associer — Aliment ↔ Article partitif',type:'flash',colL:'Aliment',colR:'Article partitif',pairs:[{k:'p',l:'pain',r:'du pain'},{k:'v',l:'viande',r:'de la viande'},{k:'f',l:'fruits',r:'des fruits'},{k:'c',l:'café',r:'du café'},{k:'s',l:'salade',r:'de la salade'},{k:'j',l:'jus',r:'du jus'}]},
-  {id:'fm2',title:'⚡ Associer — 食物 ↔ Partitif + aliment',type:'flash',colL:'食物 ZH',colR:'Partitif + aliment',pairs:[{k:'p',l:'面包',r:'du pain'},{k:'v',l:'肉',r:'de la viande'},{k:'f',l:'水果',r:'des fruits'},{k:'c',l:'咖啡',r:'du café'},{k:'s',l:'沙拉',r:'de la salade'},{k:'j',l:'果汁',r:'du jus'}]},
+  
   {id:'wo1',title:"🔀 Remettre dans l'ordre",type:'wordorder',sentences:[{words:['Je','mange','du','pain','et','de','la','confiture','.'],zh:'我吃面包和果酱。'},{words:['Tu','veux','du','thé','ou','du','café','?'],zh:'你要茶还是咖啡？'}]}
 ];
 var cur=0;var maxCur=0;
@@ -932,32 +932,22 @@ render2();
 <div class="slide" id="slide-7">
 <div class="slide-header">Exercices <span class="slide-part">1/2</span></div>
 <div class="slide-body">
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 1 — Écrivez l'heure en lettres<span class="comm-zh"> · 用文字写出时间</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
-<div class="blank-row">1. <span>8h00 → Il est </span><input autocomplete="off" class="blank-input" id="bl-3A-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-0').click()" type="text"/><button class="check-btn" data-ans="huit heures" id="chk-bl-3A-ex1-0" onclick="checkBlankData(this,'bl-3A-ex1-0','fb-bl-3A-ex1-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex1-0"></span><span>.</span></div>
-<div class="blank-row">2. <span>12h30 → Il est </span><input autocomplete="off" class="blank-input" id="bl-3A-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-1').click()" type="text"/><button class="check-btn" data-ans="midi et demi" id="chk-bl-3A-ex1-1" onclick="checkBlankData(this,'bl-3A-ex1-1','fb-bl-3A-ex1-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex1-1"></span><span>.</span></div>
-<div class="blank-row">3. <span>15h45 → Il est </span><input autocomplete="off" class="blank-input" id="bl-3A-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-2').click()" type="text"/><button class="check-btn" data-ans="quatre heures moins le quart" id="chk-bl-3A-ex1-2" onclick="checkBlankData(this,'bl-3A-ex1-2','fb-bl-3A-ex1-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex1-2"></span><span> (forme courante).</span></div>
-<div class="blank-row">4. <span>7h15 → Il est </span><input autocomplete="off" class="blank-input" id="bl-3A-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-3').click()" type="text"/><button class="check-btn" data-ans="sept heures et quart" id="chk-bl-3A-ex1-3" onclick="checkBlankData(this,'bl-3A-ex1-3','fb-bl-3A-ex1-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex1-3"></span><span>.</span></div>
-<div class="blank-row">5. <span>23h00 → Il est </span><input autocomplete="off" class="blank-input" id="bl-3A-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-4').click()" type="text"/><button class="check-btn" data-ans="onze heures du soir" id="chk-bl-3A-ex1-4" onclick="checkBlankData(this,'bl-3A-ex1-4','fb-bl-3A-ex1-4')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex1-4"></span><span>.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
-<div class="card" style="display:flex;flex-direction:column"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 2 — L'heure : deux façons de dire<span class="comm-zh"> · 两种表达时间的方式</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body" style="flex:1;min-height:0;overflow-y:auto"><div class="ex-inst">Quelle heure est-il ? Choisissez la bonne réponse :<span class="comm-zh"> · 几点了？选择正确答案</span></div><div class="qcm-item"><div class="qcm-q">1. 15h45 → Comment dit-on aussi ? <span class="comm-zh">15h45 → 还可以怎么说？</span></div><div class="qcm-opts"><button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Trois heures et quart</button><button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Quatre heures moins le quart</button><button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Quatre heures et quart</button></div></div><div class="qcm-item"><div class="qcm-q">2. Le café ouvre à 7h00. En format 24h, c'est : <span class="comm-zh">咖啡馆7点开门。用24小时制表示是：</span></div><div class="qcm-opts"><button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) 17h00</button><button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) 07h00</button><button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) 19h00</button></div></div><div class="qcm-item"><div class="qcm-q">3. Le cours finit à 17h30. Comment dit-on aussi ? <span class="comm-zh">课程在17h30结束。还可以怎么说？</span></div><div class="qcm-opts"><button class="qcm-opt" data-val="a" onclick="selectQCM(this,'b')">A) Cinq heures et quart du soir</button><button class="qcm-opt" data-val="b" onclick="selectQCM(this,'b')">B) Cinq heures et demie de l'après-midi</button><button class="qcm-opt" data-val="c" onclick="selectQCM(this,'b')">C) Cinq heures moins le quart</button></div></div><div class="qcm-item"><div class="qcm-q">4. Il est minuit et demi. En format 24h, c'est : <span class="comm-zh">现在是午夜12点半。用24小时制表示是：</span></div><div class="qcm-opts"><button class="qcm-opt" data-val="a" onclick="selectQCM(this,'c')">A) 12h30</button><button class="qcm-opt" data-val="b" onclick="selectQCM(this,'c')">B) 24h30</button><button class="qcm-opt" data-val="c" onclick="selectQCM(this,'c')">C) 00h30</button></div></div></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyQCM('qcm-score-3A-ex2')">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetQCM('qcm-score-3A-ex2')">Recommencer ↺</button><span class="ex5-score" id="qcm-score-3A-ex2" style="display:none"></span></div></div>
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 3 — Posez la question correspondant à la réponse<span class="comm-zh"> · 根据答案提问</span> <span class="ex-cat-badge badge-comm"><i data-lucide="message-circle" aria-hidden="true"></i> Communication</span></div><div class="card-body"><div class="blank-row">1. <span></span><input autocomplete="off" class="blank-input" id="bl-3A-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex3-0').click()" type="text"/><button class="check-btn" data-ans="Quelle heure est-il ?" id="chk-bl-3A-ex3-0" onclick="checkBlankData(this,'bl-3A-ex3-0','fb-bl-3A-ex3-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex3-0"></span><span> ? → Il est 10h30.</span></div>
-<div class="blank-row">2. <span></span><input autocomplete="off" class="blank-input" id="bl-3A-ex3-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex3-1').click()" type="text"/><button class="check-btn" data-ans="À quelle heure commence le cours ?" id="chk-bl-3A-ex3-1" onclick="checkBlankData(this,'bl-3A-ex3-1','fb-bl-3A-ex3-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex3-1"></span><span> ? → Le cours commence à 9h.</span></div>
-<div class="blank-row">3. <span></span><input autocomplete="off" class="blank-input" id="bl-3A-ex3-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex3-2').click()" type="text"/><button class="check-btn" data-ans="À quelle heure ferme le magasin ?" id="chk-bl-3A-ex3-2" onclick="checkBlankData(this,'bl-3A-ex3-2','fb-bl-3A-ex3-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex3-2"></span><span> ? → Le magasin ferme à 20h.</span></div>
-<div class="blank-row">4. <span></span><input autocomplete="off" class="blank-input" id="bl-3A-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex3-3').click()" type="text"/><button class="check-btn" data-ans="Tu es libre à quelle heure ?" id="chk-bl-3A-ex3-3" onclick="checkBlankData(this,'bl-3A-ex3-3','fb-bl-3A-ex3-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex3-3"></span><span> ? → Je suis libre à 15h.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div><div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 4 — Associez l'activité au bon moment<span class="comm-zh"> · 将活动与正确的时段对应</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="assoc-ref"><span class="assoc-ref-item"><strong>a.</strong> 傍晚/晚上</span>  |  <span class="assoc-ref-item"><strong>b.</strong> 早上</span>  |  <span class="assoc-ref-item"><strong>c.</strong> 夜晚</span>  |  <span class="assoc-ref-item"><strong>d.</strong> 中午</span></div>
-<div class="assoc-row">
-<div class="assoc-left"><span class="assoc-word">1. le petit-déjeuner</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-3A-ex4-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="b" onclick="checkBlankData(this,'ma-3A-ex4-0','fb-ma-3A-ex4-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-ma-3A-ex4-0"></span></div>
+<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Complétez avec du, de la, de l' ou des<span class="comm-zh"> · 用 du、de la、de l' 或 des 填空</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body">
+<div class="blank-row">1. Je mange ___ pain.<input autocomplete="off" class="blank-input" id="bl-3A-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-0').click()" type="text"/><button class="check-btn" data-ans="du" id="chk-bl-3A-ex1-0" onclick="checkBlankData(this,'bl-3A-ex1-0','fb-bl-3A-ex1-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex1-0"></span></div>
+<div class="blank-row">2. Elle boit ___ eau.<input autocomplete="off" class="blank-input" id="bl-3A-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-1').click()" type="text"/><button class="check-btn" data-ans="de l'" id="chk-bl-3A-ex1-1" onclick="checkBlankData(this,'bl-3A-ex1-1','fb-bl-3A-ex1-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex1-1"></span></div>
+<div class="blank-row">3. Nous achetons ___ tomates.<input autocomplete="off" class="blank-input" id="bl-3A-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-2').click()" type="text"/><button class="check-btn" data-ans="des" id="chk-bl-3A-ex1-2" onclick="checkBlankData(this,'bl-3A-ex1-2','fb-bl-3A-ex1-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex1-2"></span></div>
+<div class="blank-row">4. Il veut ___ fromage.<input autocomplete="off" class="blank-input" id="bl-3A-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-3').click()" type="text"/><button class="check-btn" data-ans="du" id="chk-bl-3A-ex1-3" onclick="checkBlankData(this,'bl-3A-ex1-3','fb-bl-3A-ex1-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex1-3"></span></div>
+<div class="blank-row">5. Tu prends ___ soupe ?<input autocomplete="off" class="blank-input" id="bl-3A-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex1-4').click()" type="text"/><button class="check-btn" data-ans="de la" id="chk-bl-3A-ex1-4" onclick="checkBlankData(this,'bl-3A-ex1-4','fb-bl-3A-ex1-4')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex1-4"></span></div>
+<div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
+<div class="card" style="display:flex;flex-direction:column"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Production : au marché<span class="comm-zh"> · 写作：在市场</span> <span class="ex-cat-badge badge-comm"><i data-lucide="message-circle" aria-hidden="true"></i> Communication</span></div><div class="card-body" style="flex:1;min-height:0;overflow-y:auto"><div class="prod-box">Vous êtes au marché. Écrivez 5 phrases pour expliquer ce que vous achetez. Utilisez du, de la, de l', des.<span class="prod-zh">您在市场。写5句话说明您买了什么。使用 du、de la、de l'、des。</span></div><textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea><button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button><div class="lt-result"></div></div></div>
+<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Transformez à la forme négative<span class="comm-zh"> · 改写成否定句</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body">
+<div class="blank-row">1. Il mange du pain. →<input autocomplete="off" class="blank-input" id="bl-3A-ex3-0" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex3-0').click()" type="text"/><button class="check-btn" data-ans="Il ne mange pas de pain." id="chk-bl-3A-ex3-0" onclick="checkBlankData(this,'bl-3A-ex3-0','fb-bl-3A-ex3-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex3-0"></span></div>
+<div class="blank-row">2. Elle boit de l'eau. →<input autocomplete="off" class="blank-input" id="bl-3A-ex3-1" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex3-1').click()" type="text"/><button class="check-btn" data-ans="Elle ne boit pas d'eau." id="chk-bl-3A-ex3-1" onclick="checkBlankData(this,'bl-3A-ex3-1','fb-bl-3A-ex3-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex3-1"></span></div>
+<div class="blank-row">3. Nous achetons des légumes. →<input autocomplete="off" class="blank-input" id="bl-3A-ex3-2" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex3-2').click()" type="text"/><button class="check-btn" data-ans="Nous n'achetons pas de légumes." id="chk-bl-3A-ex3-2" onclick="checkBlankData(this,'bl-3A-ex3-2','fb-bl-3A-ex3-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex3-2"></span></div>
+<div class="blank-row">4. Tu veux de la soupe. →<input autocomplete="off" class="blank-input" id="bl-3A-ex3-3" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3A-ex3-3').click()" type="text"/><button class="check-btn" data-ans="Tu ne veux pas de soupe." id="chk-bl-3A-ex3-3" onclick="checkBlankData(this,'bl-3A-ex3-3','fb-bl-3A-ex3-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3A-ex3-3"></span></div>
+<div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
+<div class="card" style="display:flex;flex-direction:column"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Expression écrite : votre cuisine<span class="comm-zh"> · 写作：您的厨房</span> <span class="ex-cat-badge badge-comm"><i data-lucide="message-circle" aria-hidden="true"></i> Communication</span></div><div class="card-body" style="flex:1;min-height:0;overflow-y:auto"><div class="prod-box">Qu'est-ce qu'il y a dans votre réfrigérateur ? Écrivez 6 aliments avec l'article partitif qui convient (du / de la / de l' / des).<span class="prod-zh">您的冰箱里有什么？用合适的部分冠词写出6种食物（du / de la / de l' / des）。</span></div><textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea><button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button><div class="lt-result"></div></div></div>
 </div>
-<div class="assoc-row">
-<div class="assoc-left"><span class="assoc-word">2. le déjeuner</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-3A-ex4-1" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="d" onclick="checkBlankData(this,'ma-3A-ex4-1','fb-ma-3A-ex4-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-ma-3A-ex4-1"></span></div>
-</div>
-<div class="assoc-row">
-<div class="assoc-left"><span class="assoc-word">3. le dîner</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-3A-ex4-2" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="a" onclick="checkBlankData(this,'ma-3A-ex4-2','fb-ma-3A-ex4-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-ma-3A-ex4-2"></span></div>
-</div>
-<div class="assoc-row">
-<div class="assoc-left"><span class="assoc-word">4. dormir</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-3A-ex4-3" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="c" onclick="checkBlankData(this,'ma-3A-ex4-3','fb-ma-3A-ex4-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-ma-3A-ex4-3"></span></div>
-</div>
-<div class="assoc-row">
-<div class="assoc-left"><span class="assoc-word">5. prendre un café e. 早上 ou l'après-midi</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-3A-ex4-4" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-3A-ex4-4','fb-ma-3A-ex4-4')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-ma-3A-ex4-4"></span></div>
-</div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div></div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(9)">← Pratique 2</button>
 <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(11)">Suite →</button>
@@ -972,26 +962,26 @@ render2();
 <div class="slide-header">Exercices <span class="slide-part">2/2</span></div>
 <div class="ex-blocks">
 <div class="ex-block">
-<div class="ex-title"><span>Ex. 5 — Matin ou soir ? <span class="comm-zh">将每个时间归入正确的栏目。</span></span><span class="ex-badge"><i data-lucide="book-open" aria-hidden="true"></i> Vocabulaire</span></div>
-<p class="ex-inst">Classez chaque heure dans la bonne colonne.</p>
+<div class="ex-title"><span>Ex. 5 — Masculin (du) ou Féminin (de la) ? <span class="comm-zh">阳性（du）还是阴性（de la）？</span></span><span class="ex-badge"><i data-lucide="book-open" aria-hidden="true"></i> Grammaire</span></div>
+<p class="ex-inst">Classez les éléments dans la bonne colonne.</p>
 <div class="ex5-pool" id="ex5-pool">
-<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">7h</span>
-<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">23h</span>
-<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">8h30</span>
-<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">19h</span>
-<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">9h</span>
-<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">20h</span>
-<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">midi</span>
-<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">17h30</span>
+<span class="drag-chip" data-cat="masc" onclick="ex5Click(this)">pain</span>
+<span class="drag-chip" data-cat="fem" onclick="ex5Click(this)">salade</span>
+<span class="drag-chip" data-cat="masc" onclick="ex5Click(this)">café</span>
+<span class="drag-chip" data-cat="fem" onclick="ex5Click(this)">soupe</span>
+<span class="drag-chip" data-cat="masc" onclick="ex5Click(this)">riz</span>
+<span class="drag-chip" data-cat="fem" onclick="ex5Click(this)">confiture</span>
+<span class="drag-chip" data-cat="masc" onclick="ex5Click(this)">fromage</span>
+<span class="drag-chip" data-cat="fem" onclick="ex5Click(this)">farine</span>
 </div>
 <div class="ex5-zones">
-<div class="ex5-zone" id="zone-matin" onclick="ex5Drop(this)">
-<div class="ex5-zone-label">🌅 Matin</div>
-<div class="ex5-zone-items" id="zone-matin-items"></div>
+<div class="ex5-zone" id="zone-masc" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">du (masculin)</div>
+<div class="ex5-zone-items" id="zone-masc-items"></div>
 </div>
-<div class="ex5-zone" id="zone-soir" onclick="ex5Drop(this)">
-<div class="ex5-zone-label">🌙 Soir</div>
-<div class="ex5-zone-items" id="zone-soir-items"></div>
+<div class="ex5-zone" id="zone-fem" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">de la (féminin)</div>
+<div class="ex5-zone-items" id="zone-fem-items"></div>
 </div>
 </div>
 <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
@@ -1004,53 +994,53 @@ render2();
 <div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确答案。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
 <p class="ex-inst">Choisissez la bonne réponse.</p>
 <div class="listen-list">
-<div class="listen-item" data-ans="14">
-<div class="listen-sentence">La réunion commence à <span class="listen-blank">___</span> heures.</div>
+<div class="listen-item" data-ans="du">
+<div class="listen-sentence">Je mange <span class="listen-blank">___</span> pain le matin.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_3A_0.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="17" onclick="selectEx6(this)">17</button>
-<button class="choice-btn" data-val="16" onclick="selectEx6(this)">16</button>
-<button class="choice-btn" data-val="14" onclick="selectEx6(this)">14</button>
+<button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
+<button class="choice-btn" data-val="le" onclick="selectEx6(this)">le</button>
+<button class="choice-btn" data-val="un" onclick="selectEx6(this)">un</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="normalement">
-<div class="listen-sentence">La réunion finit <span class="listen-blank">___</span> à 16h.</div>
+<div class="listen-item" data-ans="de l'">
+<div class="listen-sentence">Elle boit <span class="listen-blank">___</span> eau après le sport.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_3A_1.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="normalement" onclick="selectEx6(this)">normalement</button>
-<button class="choice-btn" data-val="toujours" onclick="selectEx6(this)">toujours</button>
-<button class="choice-btn" data-val="jamais" onclick="selectEx6(this)">jamais</button>
+<button class="choice-btn" data-val="de l'" onclick="selectEx6(this)">de l'</button>
+<button class="choice-btn" data-val="la" onclick="selectEx6(this)">la</button>
+<button class="choice-btn" data-val="une" onclick="selectEx6(this)">une</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="17">
-<div class="listen-sentence">On se retrouve à <span class="listen-blank">___</span> heures trente.</div>
+<div class="listen-item" data-ans="des">
+<div class="listen-sentence">Nous achetons <span class="listen-blank">___</span> tomates.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_3A_2.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="18" onclick="selectEx6(this)">18</button>
-<button class="choice-btn" data-val="17" onclick="selectEx6(this)">17</button>
-<button class="choice-btn" data-val="16" onclick="selectEx6(this)">16</button>
+<button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
+<button class="choice-btn" data-val="les" onclick="selectEx6(this)">les</button>
+<button class="choice-btn" data-val="deux" onclick="selectEx6(this)">deux</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="ferme">
-<div class="listen-sentence">Le café <span class="listen-blank">___</span> à 20h.</div>
+<div class="listen-item" data-ans="de la">
+<div class="listen-sentence">Tu veux <span class="listen-blank">___</span> soupe ?</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_3A_3.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="ferme" onclick="selectEx6(this)">ferme</button>
-<button class="choice-btn" data-val="commence" onclick="selectEx6(this)">commence</button>
-<button class="choice-btn" data-val="ouvre" onclick="selectEx6(this)">ouvre</button>
+<button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
+<button class="choice-btn" data-val="la" onclick="selectEx6(this)">la</button>
+<button class="choice-btn" data-val="une" onclick="selectEx6(this)">une</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="message">
-<div class="listen-sentence">Je t'envoie un <span class="listen-blank">___</span> si je suis en retard.</div>
+<div class="listen-item" data-ans="du">
+<div class="listen-sentence">Il prend <span class="listen-blank">___</span> café.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_3A_4.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="email" onclick="selectEx6(this)">email</button>
-<button class="choice-btn" data-val="message" onclick="selectEx6(this)">message</button>
-<button class="choice-btn" data-val="appel" onclick="selectEx6(this)">appel</button>
+<button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
+<button class="choice-btn" data-val="le" onclick="selectEx6(this)">le</button>
+<button class="choice-btn" data-val="un" onclick="selectEx6(this)">un</button>
 </div>
 <div class="listen-fb"></div>
 </div>
@@ -1071,9 +1061,7 @@ render2();
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-prod"><i data-lucide="edit-3" aria-hidden="true"></i>️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
-<div class="card-body"><div class="prod-box">Écrivez votre emploi du temps pour une journée de semaine typique (8 activités
-avec les heures).
-<span class="prod-zh">写下您典型工作日的日程安排（8项活动，注明时间）。</span></div>
+<div class="card-body"><div class="prod-box">Décrivez votre repas idéal (entrée, plat, dessert, boisson). Utilisez du, de la, de l', des.<span class="prod-zh">描述您理想中的一餐（前菜、主菜、甜点、饮料）。使用 du、de la、de l'、des。</span></div>
 <textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea>
 <button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button>
 <div class="lt-result"></div></div>

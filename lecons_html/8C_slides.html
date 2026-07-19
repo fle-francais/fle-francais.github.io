@@ -932,63 +932,22 @@ render();
 <div class="slide" id="slide-7">
 <div class="slide-header">Exercices <span class="slide-part">1/2</span></div>
 <div class="slide-body">
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 1 — Transformez avec la négation indiquée<span class="comm-zh"> · 按指定的否定形式改写</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
-<div class="trans-row" data-ans="Elle ne prend plus la voiture.">
-<div class="trans-src">1. Elle prend la voiture. (ne…plus) →</div>
-<input autocomplete="off" class="trans-input" id="ts-8C-ex1-0" placeholder="Écrivez la phrase transformée…" type="text"/>
-<div class="trans-btns">
-<button class="check-btn" onclick="showTransform(this)">Voir</button>
-<span class="trans-fb"></span>
-<span class="trans-ans">Elle ne prend plus la voiture.</span>
+<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Remplacez le lieu par Y<span class="comm-zh"> · 用Y替换地点</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body">
+<div class="blank-row">1. Tu vas à la bibliothèque ? →<input autocomplete="off" class="blank-input" id="bl-8C-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex1-0').click()" type="text"/><button class="check-btn" data-ans="Tu y vas ?" id="chk-bl-8C-ex1-0" onclick="checkBlankData(this,'bl-8C-ex1-0','fb-bl-8C-ex1-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex1-0"></span></div>
+<div class="blank-row">2. Il travaille au café. →<input autocomplete="off" class="blank-input" id="bl-8C-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex1-1').click()" type="text"/><button class="check-btn" data-ans="Il y travaille." id="chk-bl-8C-ex1-1" onclick="checkBlankData(this,'bl-8C-ex1-1','fb-bl-8C-ex1-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex1-1"></span></div>
+<div class="blank-row">3. Nous allons en France. →<input autocomplete="off" class="blank-input" id="bl-8C-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex1-2').click()" type="text"/><button class="check-btn" data-ans="Nous y allons." id="chk-bl-8C-ex1-2" onclick="checkBlankData(this,'bl-8C-ex1-2','fb-bl-8C-ex1-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex1-2"></span></div>
+<div class="blank-row">4. Elle habite à Tokyo. →<input autocomplete="off" class="blank-input" id="bl-8C-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex1-3').click()" type="text"/><button class="check-btn" data-ans="Elle y habite." id="chk-bl-8C-ex1-3" onclick="checkBlankData(this,'bl-8C-ex1-3','fb-bl-8C-ex1-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex1-3"></span></div>
+<div class="blank-row">5. Vous restez à l'hôtel ? →<input autocomplete="off" class="blank-input" id="bl-8C-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex1-4').click()" type="text"/><button class="check-btn" data-ans="Vous y restez ?" id="chk-bl-8C-ex1-4" onclick="checkBlankData(this,'bl-8C-ex1-4','fb-bl-8C-ex1-4')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex1-4"></span></div>
+<div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
+<div class="card" style="display:flex;flex-direction:column"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Production : vos obligations<span class="comm-zh"> · 写作：您的义务</span> <span class="ex-cat-badge badge-comm"><i data-lucide="message-circle" aria-hidden="true"></i> Communication</span></div><div class="card-body" style="flex:1;min-height:0;overflow-y:auto"><div class="prod-box">Vous êtes étudiant(e) de français. Écrivez 5 obligations avec DEVOIR (étudier, pratiquer, lire, écouter, parler).<span class="prod-zh">您是法语学生。用DEVOIR写出5个义务（学习、练习、阅读、听、说）。</span></div><textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea><button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button><div class="lt-result"></div></div></div>
+<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Conjuguez DEVOIR + infinitif<span class="comm-zh"> · 变位 DEVOIR + 不定式</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body">
+<div class="blank-row">1. Tu ___ étudier.<input autocomplete="off" class="blank-input" id="bl-8C-ex3-0" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-0').click()" type="text"/><button class="check-btn" data-ans="dois" id="chk-bl-8C-ex3-0" onclick="checkBlankData(this,'bl-8C-ex3-0','fb-bl-8C-ex3-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex3-0"></span></div>
+<div class="blank-row">2. Il ___ partir maintenant.<input autocomplete="off" class="blank-input" id="bl-8C-ex3-1" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-1').click()" type="text"/><button class="check-btn" data-ans="doit" id="chk-bl-8C-ex3-1" onclick="checkBlankData(this,'bl-8C-ex3-1','fb-bl-8C-ex3-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex3-1"></span></div>
+<div class="blank-row">3. Nous ___ travailler demain.<input autocomplete="off" class="blank-input" id="bl-8C-ex3-2" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-2').click()" type="text"/><button class="check-btn" data-ans="devons" id="chk-bl-8C-ex3-2" onclick="checkBlankData(this,'bl-8C-ex3-2','fb-bl-8C-ex3-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex3-2"></span></div>
+<div class="blank-row">4. Elles ___ choisir.<input autocomplete="off" class="blank-input" id="bl-8C-ex3-3" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-3').click()" type="text"/><button class="check-btn" data-ans="doivent" id="chk-bl-8C-ex3-3" onclick="checkBlankData(this,'bl-8C-ex3-3','fb-bl-8C-ex3-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex3-3"></span></div>
+<div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
+<div class="card" style="display:flex;flex-direction:column"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Expression écrite : cette semaine<span class="comm-zh"> · 写作：这周</span> <span class="ex-cat-badge badge-comm"><i data-lucide="message-circle" aria-hidden="true"></i> Communication</span></div><div class="card-body" style="flex:1;min-height:0;overflow-y:auto"><div class="prod-box">Écrivez 5 choses que vous devez faire cette semaine. Soyez précis(e) (avec le lieu et l'heure si possible).<span class="prod-zh">写出您这周必须做的5件事。尽量具体（如果可能，注明地点和时间）。</span></div><textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea><button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button><div class="lt-result"></div></div></div>
 </div>
-</div>
-<div class="trans-row" data-ans="Il n'accepte jamais les animaux.">
-<div class="trans-src">2. Il accepte les animaux. (ne…jamais) →</div>
-<input autocomplete="off" class="trans-input" id="ts-8C-ex1-1" placeholder="Écrivez la phrase transformée…" type="text"/>
-<div class="trans-btns">
-<button class="check-btn" onclick="showTransform(this)">Voir</button>
-<span class="trans-fb"></span>
-<span class="trans-ans">Il n'accepte jamais les animaux.</span>
-</div>
-</div>
-<div class="trans-row" data-ans="Vous n'avez rien trouvé.">
-<div class="trans-src">3. Vous avez trouvé quelque chose. (ne…rien) →</div>
-<input autocomplete="off" class="trans-input" id="ts-8C-ex1-2" placeholder="Écrivez la phrase transformée…" type="text"/>
-<div class="trans-btns">
-<button class="check-btn" onclick="showTransform(this)">Voir</button>
-<span class="trans-fb"></span>
-<span class="trans-ans">Vous n'avez rien trouvé.</span>
-</div>
-</div>
-<div class="trans-row" data-ans="Personne ne répond.">
-<div class="trans-src">4. Quelqu'un répond. (ne…personne) →</div>
-<input autocomplete="off" class="trans-input" id="ts-8C-ex1-3" placeholder="Écrivez la phrase transformée…" type="text"/>
-<div class="trans-btns">
-<button class="check-btn" onclick="showTransform(this)">Voir</button>
-<span class="trans-fb"></span>
-<span class="trans-ans">Personne ne répond.</span>
-</div>
-</div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 2 — Votre logement idéal<span class="comm-zh"> · 您理想中的住所</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="ex-inst">Écrivez 4 phrases sur ce que vous ne voulez pas dans un appartement. Utilisez : ne…pas / ne…plus / ne…jamais / ne…rien. Ex. : Je ne veux pas habiter trop loin du centre.<span class="comm-zh"> · 写4句关于您不想要的公寓特点</span></div></div></div>
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 3 — Complétez avec ne…pas, ne…plus, ne…jamais ou ne…rien<span class="comm-zh"> · 用 ne…pas、ne…plus、ne…jamais 或 ne…rien 填空</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="blank-row">1. <span>J'habitais à Lyon, mais je </span><input <input="" autocomplete="off" class="blank-input" id="bl-8C-ex3-0a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-0a').click()" type="text"/><button class="check-btn" data-ans="n'" id="chk-bl-8C-ex3-0a" onclick="checkBlankData(this,'bl-8C-ex3-0a','fb-bl-8C-ex3-0a')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex3-0a"></span><span> habite </span><input <input="" autocomplete="off" class="blank-input" id="bl-8C-ex3-0b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-0b').click()" type="text"/><button class="check-btn" data-ans="plus" id="chk-bl-8C-ex3-0b" onclick="checkBlankData(this,'bl-8C-ex3-0b','fb-bl-8C-ex3-0b')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex3-0b"></span><span> là-bas, j'ai déménagé.</span></div>
-<div class="blank-row">2. <span>Ce propriétaire est strict : il </span><input <input="" autocomplete="off" class="blank-input" id="bl-8C-ex3-1a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-1a').click()" type="text"/><button class="check-btn" data-ans="n'" id="chk-bl-8C-ex3-1a" onclick="checkBlankData(this,'bl-8C-ex3-1a','fb-bl-8C-ex3-1a')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex3-1a"></span><span> accepte </span><input <input="" autocomplete="off" class="blank-input" id="bl-8C-ex3-1b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-1b').click()" type="text"/><button class="check-btn" data-ans="jamais" id="chk-bl-8C-ex3-1b" onclick="checkBlankData(this,'bl-8C-ex3-1b','fb-bl-8C-ex3-1b')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex3-1b"></span><span> les fumeurs.</span></div>
-<div class="blank-row">3. <span>Je </span><input <input="" autocomplete="off" class="blank-input" id="bl-8C-ex3-2a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-2a').click()" type="text"/><button class="check-btn" data-ans="n'" id="chk-bl-8C-ex3-2a" onclick="checkBlankData(this,'bl-8C-ex3-2a','fb-bl-8C-ex3-2a')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex3-2a"></span><span> ai </span><input <input="" autocomplete="off" class="blank-input" id="bl-8C-ex3-2b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-2b').click()" type="text"/><button class="check-btn" data-ans="rien" id="chk-bl-8C-ex3-2b" onclick="checkBlankData(this,'bl-8C-ex3-2b','fb-bl-8C-ex3-2b')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex3-2b"></span><span> trouvé dans mon budget, les appartements sont trop chers.</span></div>
-<div class="blank-row">4. <span>Le quartier est calme : on </span><input <input="" autocomplete="off" class="blank-input" id="bl-8C-ex3-3a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-3a').click()" type="text"/><button class="check-btn" data-ans="n'" id="chk-bl-8C-ex3-3a" onclick="checkBlankData(this,'bl-8C-ex3-3a','fb-bl-8C-ex3-3a')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex3-3a"></span><span> entend </span><input <input="" autocomplete="off" class="blank-input" id="bl-8C-ex3-3b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-8C-ex3-3b').click()" type="text"/><button class="check-btn" data-ans="rien" id="chk-bl-8C-ex3-3b" onclick="checkBlankData(this,'bl-8C-ex3-3b','fb-bl-8C-ex3-3b')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-8C-ex3-3b"></span><span> la nuit.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div><div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 4 — Associez le mot à sa définition<span class="comm-zh"> · 将词语与定义配对</span> <span class="ex-cat-badge badge-lex"><i data-lucide="library" aria-hidden="true"></i> Lexique</span></div><div class="card-body"><div class="assoc-ref"><span class="assoc-ref-item"><strong>a.</strong> 公寓房东</span>  |  <span class="assoc-ref-item"><strong>b.</strong> 小阳台</span>  |  <span class="assoc-ref-item"><strong>c.</strong> 可用预算</span>  |  <span class="assoc-ref-item"><strong>d.</strong> 空置未占用</span></div>
-<div class="assoc-row">
-<div class="assoc-left"><span class="assoc-word">1. le balcon</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-8C-ex4-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="b" onclick="checkBlankData(this,'ma-8C-ex4-0','fb-ma-8C-ex4-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-ma-8C-ex4-0"></span></div>
-</div>
-<div class="assoc-row">
-<div class="assoc-left"><span class="assoc-word">2. le budget</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-8C-ex4-1" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="c" onclick="checkBlankData(this,'ma-8C-ex4-1','fb-ma-8C-ex4-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-ma-8C-ex4-1"></span></div>
-</div>
-<div class="assoc-row">
-<div class="assoc-left"><span class="assoc-word">3. le propriétaire</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-8C-ex4-2" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="a" onclick="checkBlankData(this,'ma-8C-ex4-2','fb-ma-8C-ex4-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-ma-8C-ex4-2"></span></div>
-</div>
-<div class="assoc-row">
-<div class="assoc-left"><span class="assoc-word">4. disponible</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-8C-ex4-3" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="d" onclick="checkBlankData(this,'ma-8C-ex4-3','fb-ma-8C-ex4-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-ma-8C-ex4-3"></span></div>
-</div>
-<div class="assoc-row">
-<div class="assoc-left"><span class="assoc-word">5. malheureusement e. c'est dommage, pas de chance</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-8C-ex4-4" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-8C-ex4-4','fb-ma-8C-ex4-4')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-ma-8C-ex4-4"></span></div>
-</div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div></div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(9)">← Pratique 2</button>
 <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(11)">Suite →</button>
@@ -1003,26 +962,26 @@ render();
 <div class="slide-header">Exercices <span class="slide-part">2/2</span></div>
 <div class="ex-blocks">
 <div class="ex-block">
-<div class="ex-title"><span>Ex. 5 — Type de logement ou caractéristique ? <span class="comm-zh">将每个词归入正确的栏目。</span></span><span class="ex-badge"><i data-lucide="book-open" aria-hidden="true"></i> Vocabulaire</span></div>
-<p class="ex-inst">Classez chaque mot dans la bonne colonne.</p>
+<div class="ex-title"><span>Ex. 5 — Obligation ou possibilité ? <span class="comm-zh">义务还是可能性？</span></span><span class="ex-badge"><i data-lucide="book-open" aria-hidden="true"></i> Grammaire</span></div>
+<p class="ex-inst">Classez les éléments dans la bonne colonne.</p>
 <div class="ex5-pool" id="ex5-pool">
-<span class="drag-chip" data-cat="type" onclick="ex5Click(this)">un studio</span>
-<span class="drag-chip" data-cat="caracteristique" onclick="ex5Click(this)">un balcon</span>
-<span class="drag-chip" data-cat="type" onclick="ex5Click(this)">un deux-pièces</span>
-<span class="drag-chip" data-cat="caracteristique" onclick="ex5Click(this)">le métro proche</span>
-<span class="drag-chip" data-cat="type" onclick="ex5Click(this)">une maison</span>
-<span class="drag-chip" data-cat="caracteristique" onclick="ex5Click(this)">le parking</span>
-<span class="drag-chip" data-cat="type" onclick="ex5Click(this)">un appartement</span>
-<span class="drag-chip" data-cat="caracteristique" onclick="ex5Click(this)">la luminosité</span>
+<span class="drag-chip" data-cat="obligation" onclick="ex5Click(this)">tu dois rentrer</span>
+<span class="drag-chip" data-cat="possibilite" onclick="ex5Click(this)">tu peux rester</span>
+<span class="drag-chip" data-cat="obligation" onclick="ex5Click(this)">elle doit partir</span>
+<span class="drag-chip" data-cat="possibilite" onclick="ex5Click(this)">elle peut venir</span>
+<span class="drag-chip" data-cat="obligation" onclick="ex5Click(this)">nous devons finir</span>
+<span class="drag-chip" data-cat="possibilite" onclick="ex5Click(this)">nous pouvons sortir</span>
+<span class="drag-chip" data-cat="obligation" onclick="ex5Click(this)">il doit téléphoner</span>
+<span class="drag-chip" data-cat="possibilite" onclick="ex5Click(this)">il peut attendre</span>
 </div>
 <div class="ex5-zones">
-<div class="ex5-zone" id="zone-type" onclick="ex5Drop(this)">
-<div class="ex5-zone-label"><i data-lucide="home" aria-hidden="true"></i> Type de logement</div>
-<div class="ex5-zone-items" id="zone-type-items"></div>
+<div class="ex5-zone" id="zone-obligation" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">Obligation (DEVOIR)</div>
+<div class="ex5-zone-items" id="zone-obligation-items"></div>
 </div>
-<div class="ex5-zone" id="zone-caracteristique" onclick="ex5Drop(this)">
-<div class="ex5-zone-label">✨ Caractéristique</div>
-<div class="ex5-zone-items" id="zone-caracteristique-items"></div>
+<div class="ex5-zone" id="zone-possibilite" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">Possibilité (POUVOIR)</div>
+<div class="ex5-zone-items" id="zone-possibilite-items"></div>
 </div>
 </div>
 <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
@@ -1035,55 +994,56 @@ render();
 <div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确的否定词。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
 <p class="ex-inst">Choisissez le bon mot de négation.</p>
 <div class="listen-list">
-<div class="listen-item" data-ans="plus">
-<div class="listen-sentence">Il n'y a <span class="listen-blank">___</span> de parking dans cet immeuble.</div>
-<button class="listen-btn" onclick="playEx6TTS(this,'Il n\'y a plus de parking dans cet immeuble.')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
+<div class="listen-item" data-ans="y">
+<div class="listen-sentence">Tu vas à la bibliothèque. Tu <span class="listen-blank">___</span> vas souvent ?</div>
+<button class="listen-btn" onclick="playAudio('../audio/ex6_8C_0.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="jamais" onclick="selectEx6(this)">jamais</button>
-<button class="choice-btn" data-val="plus" onclick="selectEx6(this)">plus</button>
-<button class="choice-btn" data-val="rien" onclick="selectEx6(this)">rien</button>
+<button class="choice-btn" data-val="y" onclick="selectEx6(this)">y</button>
+<button class="choice-btn" data-val="le" onclick="selectEx6(this)">le</button>
+<button class="choice-btn" data-val="la" onclick="selectEx6(this)">la</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="rien">
-<div class="listen-sentence">Je n'entends <span class="listen-blank">___</span> dans cette rue la nuit.</div>
-<button class="listen-btn" onclick="playEx6TTS(this,'Je n\'entends rien dans cette rue la nuit.')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
+<div class="listen-item" data-ans="dois">
+<div class="listen-sentence">Je <span class="listen-blank">___</span> travailler ce soir.</div>
+<button class="listen-btn" onclick="playAudio('../audio/ex6_8C_1.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="personne" onclick="selectEx6(this)">personne</button>
-<button class="choice-btn" data-val="jamais" onclick="selectEx6(this)">jamais</button>
-<button class="choice-btn" data-val="rien" onclick="selectEx6(this)">rien</button>
+<button class="choice-btn" data-val="dois" onclick="selectEx6(this)">dois</button>
+<button class="choice-btn" data-val="peux" onclick="selectEx6(this)">peux</button>
+<button class="choice-btn" data-val="veux" onclick="selectEx6(this)">veux</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="Personne">
-<div class="listen-sentence"><span class="listen-blank">___</span> ne répond quand je sonne à la porte.</div>
-<button class="listen-btn" onclick="playEx6TTS(this,'Personne ne répond quand je sonne à la porte.')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
+<div class="listen-item" data-ans="y">
+<div class="listen-sentence">Elle habite à Paris. Elle <span class="listen-blank">___</span> habite depuis cinq ans.</div>
+<button class="listen-btn" onclick="playAudio('../audio/ex6_8C_2.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="Rien" onclick="selectEx6(this)">Rien</button>
-<button class="choice-btn" data-val="Jamais" onclick="selectEx6(this)">Jamais</button>
-<button class="choice-btn" data-val="Personne" onclick="selectEx6(this)">Personne</button>
+<button class="choice-btn" data-val="y" onclick="selectEx6(this)">y</button>
+<button class="choice-btn" data-val="le" onclick="selectEx6(this)">le</button>
+<button class="choice-btn" data-val="la" onclick="selectEx6(this)">la</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="plus">
-<div class="listen-sentence">Elle n'habite <span class="listen-blank">___</span> dans ce quartier, elle a déménagé.</div>
-<button class="listen-btn" onclick="playEx6TTS(this,'Elle n\'habite plus dans ce quartier, elle a déménagé.')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
+<div class="listen-item" data-ans="devons">
+<div class="listen-sentence">Nous <span class="listen-blank">___</span> finir avant midi.</div>
+<button class="listen-btn" onclick="playAudio('../audio/ex6_8C_3.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="rien" onclick="selectEx6(this)">rien</button>
-<button class="choice-btn" data-val="jamais" onclick="selectEx6(this)">jamais</button>
-<button class="choice-btn" data-val="plus" onclick="selectEx6(this)">plus</button>
+<button class="choice-btn" data-val="devons" onclick="selectEx6(this)">devons</button>
+<button class="choice-btn" data-val="pouvons" onclick="selectEx6(this)">pouvons</button>
+<button class="choice-btn" data-val="voulons" onclick="selectEx6(this)">voulons</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="jamais">
-<div class="listen-sentence">Nous ne sortons <span class="listen-blank">___</span> le soir, nous restons chez nous.</div>
-<button class="listen-btn" onclick="playEx6TTS(this,'Nous ne sortons jamais le soir, nous restons chez nous.')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
+<div class="listen-item" data-ans="devez">
+<div class="listen-sentence">Vous <span class="listen-blank">___</span> rester à l'hôtel ?</div>
+<button class="listen-btn" onclick="playAudio('../audio/ex6_8C_4.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="rien" onclick="selectEx6(this)">rien</button>
-<button class="choice-btn" data-val="jamais" onclick="selectEx6(this)">jamais</button>
-<button class="choice-btn" data-val="plus" onclick="selectEx6(this)">plus</button>
+<button class="choice-btn" data-val="devez" onclick="selectEx6(this)">devez</button>
+<button class="choice-btn" data-val="pouvez" onclick="selectEx6(this)">pouvez</button>
+<button class="choice-btn" data-val="voulez" onclick="selectEx6(this)">voulez</button>
 </div>
 <div class="listen-fb"></div>
+</div>
 </div>
 <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
 <button class="btn-verify" onclick="verifyAllEx6()">Vérifier <i data-lucide="check" aria-hidden="true"></i></button>
@@ -1102,9 +1062,7 @@ render();
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-prod"><i data-lucide="edit-3" aria-hidden="true"></i>️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
-<div class="card-body"><div class="prod-box">Rédigez une annonce immobilière pour votre logement idéal ou réel (8–10
-lignes) : type, surface, pièces, équipements, situation, prix.
-<span class="prod-zh">为您理想或实际的住所写一则房产广告（8-10行）：类型、面积、房间、设备、位置、价格。</span></div>
+<div class="card-body"><div class="prod-box">Décrivez 3 endroits où vous allez régulièrement. Pour chaque lieu, dites ce que vous devez y faire.<span class="prod-zh">描述您经常去的3个地方。对于每个地方，说明您必须在那里做什么。</span></div>
 <textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea>
 <button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button>
 <div class="lt-result"></div></div>

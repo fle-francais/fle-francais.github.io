@@ -683,7 +683,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 </div>
 <!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
-<div class="slide" id="slide-6">
+<div class="slide" id="slide-gr1">
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-gram"><i data-lucide="book-open" aria-hidden="true"></i> Exprimer les goûts — adorer, aimer, préférer, détester<span class="comm-zh"> · 语法要点</span></div>
@@ -721,8 +721,11 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 (function(){
 var ACTS=[
   {id:'fm1',title:'⚡ Associer — 代词 ↔ Aimer',type:'flash',colL:'代词 ZH',colR:'Aimer FR',pairs:[{k:'je',l:'我',r:'aime'},{k:'tu',l:'你',r:'aimes'},{k:'il',l:'他 / 她',r:'aime'},{k:'nous',l:'我们',r:'aimons'},{k:'vous',l:'你们',r:'aimez'},{k:'ils',l:'他们 / 她们',r:'aiment'}]},
-  {id:'fm2',title:'⚡ Associer — 代词 ↔ Adorer',type:'flash',colL:'代词 ZH',colR:'Adorer FR',pairs:[{k:'je',l:'我',r:'adore'},{k:'tu',l:'你',r:'adores'},{k:'il',l:'他 / 她',r:'adore'},{k:'nous',l:'我们',r:'adorons'},{k:'vous',l:'你们',r:'adorez'},{k:'ils',l:'他们 / 她们',r:'adorent'}]},
-  {id:'wo1',title:"🔀 Remettre dans l'ordre",type:'wordorder',sentences:[{words:['Il','aime','la','musique','classique','.'],zh:'他喜欢古典音乐。'},{words:['Vous','préférez','le','thé','ou','le','café','?'],zh:'你们更喜欢茶还是咖啡？'}]}
+  {id:'wo1',title:"🔀 Remettre dans l'ordre — goûts",type:'wordorder',
+   sentences:[
+     {words:["J'",'adore','les','comédies','.'],zh:'我非常喜欢喜剧。'},
+     {words:['Elle','déteste','faire','la','cuisine','.'],zh:'她讨厌做饭。'}
+   ]}
 ];
 var cur=0;var maxCur=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}

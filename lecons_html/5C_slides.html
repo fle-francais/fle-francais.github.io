@@ -722,7 +722,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 (function(){
 var ACTS=[
   {id:'fm1',title:'⚡ Associer — 代词 ↔ ALLER',type:'flash',colL:'代词 ZH',colR:'Aller FR',pairs:[{k:'je',l:'我',r:'vais'},{k:'tu',l:'你',r:'vas'},{k:'il',l:'他 / 她',r:'va'},{k:'nous',l:'我们',r:'allons'},{k:'vous',l:'你们',r:'allez'},{k:'ils',l:'他们 / 她们',r:'vont'}]},
-  {id:'fm2',title:'⚡ Associer — Pronom ↔ Aller',type:'flash',colL:'Pronom',colR:'Aller',pairs:[{k:'je',l:'je',r:'vais'},{k:'tu',l:'tu',r:'vas'},{k:'il',l:'il / elle',r:'va'},{k:'nous',l:'nous',r:'allons'},{k:'vous',l:'vous',r:'allez'},{k:'ils',l:'ils / elles',r:'vont'}]},
+  
   {id:'wo1',title:"🔀 Remettre dans l'ordre",type:'wordorder',sentences:[{words:['Elle','va','voyager','en','France','cet','été','.'],zh:'她今年夏天要去法国旅行。'},{words:['Nous','allons','manger','au','restaurant','ce','soir','.'],zh:'我们今晚要去餐厅吃饭。'}]}
 ];
 var cur=0;var maxCur=0;
@@ -827,14 +827,22 @@ render();
 <div class="slide" id="slide-7">
 <div class="slide-header">Exercices <span class="slide-part">1/2</span></div>
 <div class="slide-body">
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 1 — Complétez avec la bonne quantité<span class="comm-zh"> · 用正确的数量词填空</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
-<div class="blank-row">1. <span>Je bois </span><input autocomplete="off" class="blank-input" id="bl-5C-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex1-0').click()" type="text"/><button class="check-btn" data-ans="beaucoup d'" id="chk-bl-5C-ex1-0" onclick="checkBlankData(this,'bl-5C-ex1-0','fb-bl-5C-ex1-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex1-0"></span><span> (beaucoup) eau par jour.</span></div>
-<div class="blank-row">2. <span>Il ajoute </span><input autocomplete="off" class="blank-input" id="bl-5C-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex1-1').click()" type="text"/><button class="check-btn" data-ans="un peu de" id="chk-bl-5C-ex1-1" onclick="checkBlankData(this,'bl-5C-ex1-1','fb-bl-5C-ex1-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex1-1"></span><span> (un peu) sel dans la soupe.</span></div>
-<div class="blank-row">3. <span>Il y a </span><input autocomplete="off" class="blank-input" id="bl-5C-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex1-2').click()" type="text"/><button class="check-btn" data-ans="trop de" id="chk-bl-5C-ex1-2" onclick="checkBlankData(this,'bl-5C-ex1-2','fb-bl-5C-ex1-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex1-2"></span><span> (trop) sucre dans ce gâteau !</span></div>
-<div class="blank-row">4. <span>Vous mettez </span><input autocomplete="off" class="blank-input" id="bl-5C-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex1-3').click()" type="text"/><button class="check-btn" data-ans="combien de" id="chk-bl-5C-ex1-3" onclick="checkBlankData(this,'bl-5C-ex1-3','fb-bl-5C-ex1-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex1-3"></span><span> (combien) beurre ?</span></div>
-<div class="blank-row">5. <span>Il n'y a pas </span><input autocomplete="off" class="blank-input" id="bl-5C-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex1-4').click()" type="text"/><button class="check-btn" data-ans="assez de" id="chk-bl-5C-ex1-4" onclick="checkBlankData(this,'bl-5C-ex1-4','fb-bl-5C-ex1-4')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex1-4"></span><span> (assez) légumes.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 2 — Votre recette préférée<span class="comm-zh"> · 您最喜欢的食谱</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="ex-inst">Décrivez les ingrédients de votre recette préférée : Pour faire ___, il faut… Utilisez : du / de la / de l' + beaucoup de / un peu de / assez de.<span class="comm-zh"> · 描述您最喜欢的食谱的食材</span></div></div></div>
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 3 — L'ordre d'un repas au restaurant<span class="comm-zh"> · 餐厅用餐的顺序</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="ex-inst">Remettez dans l'ordre : a. payer l'addition b. choisir un plat c. arriver et s'asseoir d. commander e. manger f. demander l'addition Ordre : ___ → ___ → ___ → ___ → ___ → ___<span class="comm-zh"> · 排列顺序：a. 结账 b. 选菜 c. 入座 d. 点餐</span></div></div></div><div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 4 — Un repas français typique<span class="comm-zh"> · 一顿典型的法式餐</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="ex-inst">Complétez avec les mots manquants : Un repas français commence par une ___ (ex : soupe, salade). Puis on sert le ___ principal (viande ou poisson). Ensuite, on prend souvent du ___. Le repas se termine avec le ___.<span class="comm-zh"> · 用缺失的词填空</span></div></div></div></div>
+<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Conjuguez au futur proche (aller + infinitif)<span class="comm-zh"> · 用近将来时变位（aller + 不定式）</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body">
+<div class="blank-row">1. Je ___ partir demain.<input autocomplete="off" class="blank-input" id="bl-5C-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex1-0').click()" type="text"/><button class="check-btn" data-ans="vais" id="chk-bl-5C-ex1-0" onclick="checkBlankData(this,'bl-5C-ex1-0','fb-bl-5C-ex1-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex1-0"></span></div>
+<div class="blank-row">2. Elle ___ acheter une robe.<input autocomplete="off" class="blank-input" id="bl-5C-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex1-1').click()" type="text"/><button class="check-btn" data-ans="va" id="chk-bl-5C-ex1-1" onclick="checkBlankData(this,'bl-5C-ex1-1','fb-bl-5C-ex1-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex1-1"></span></div>
+<div class="blank-row">3. Nous ___ visiter Paris.<input autocomplete="off" class="blank-input" id="bl-5C-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex1-2').click()" type="text"/><button class="check-btn" data-ans="allons" id="chk-bl-5C-ex1-2" onclick="checkBlankData(this,'bl-5C-ex1-2','fb-bl-5C-ex1-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex1-2"></span></div>
+<div class="blank-row">4. Vous ___ prendre le train ?<input autocomplete="off" class="blank-input" id="bl-5C-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex1-3').click()" type="text"/><button class="check-btn" data-ans="allez" id="chk-bl-5C-ex1-3" onclick="checkBlankData(this,'bl-5C-ex1-3','fb-bl-5C-ex1-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex1-3"></span></div>
+<div class="blank-row">5. Ils ___ rentrer tard.<input autocomplete="off" class="blank-input" id="bl-5C-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex1-4').click()" type="text"/><button class="check-btn" data-ans="vont" id="chk-bl-5C-ex1-4" onclick="checkBlankData(this,'bl-5C-ex1-4','fb-bl-5C-ex1-4')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex1-4"></span></div>
+<div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
+<div class="card" style="display:flex;flex-direction:column"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Production : vos projets<span class="comm-zh"> · 写作：您的计划</span> <span class="ex-cat-badge badge-comm"><i data-lucide="message-circle" aria-hidden="true"></i> Communication</span></div><div class="card-body" style="flex:1;min-height:0;overflow-y:auto"><div class="prod-box">Décrivez vos projets pour ce week-end. Écrivez 5 phrases au futur proche.<span class="prod-zh">描述您这个周末的计划。用近将来时写5句话。</span></div><textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea><button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button><div class="lt-result"></div></div></div>
+<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Transformez au futur proche<span class="comm-zh"> · 改写成近将来时</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body">
+<div class="blank-row">1. Je mange au restaurant. →<input autocomplete="off" class="blank-input" id="bl-5C-ex3-0" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex3-0').click()" type="text"/><button class="check-btn" data-ans="Je vais manger au restaurant." id="chk-bl-5C-ex3-0" onclick="checkBlankData(this,'bl-5C-ex3-0','fb-bl-5C-ex3-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex3-0"></span></div>
+<div class="blank-row">2. Elle part en vacances. →<input autocomplete="off" class="blank-input" id="bl-5C-ex3-1" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex3-1').click()" type="text"/><button class="check-btn" data-ans="Elle va partir en vacances." id="chk-bl-5C-ex3-1" onclick="checkBlankData(this,'bl-5C-ex3-1','fb-bl-5C-ex3-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex3-1"></span></div>
+<div class="blank-row">3. Nous regardons un film. →<input autocomplete="off" class="blank-input" id="bl-5C-ex3-2" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex3-2').click()" type="text"/><button class="check-btn" data-ans="Nous allons regarder un film." id="chk-bl-5C-ex3-2" onclick="checkBlankData(this,'bl-5C-ex3-2','fb-bl-5C-ex3-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex3-2"></span></div>
+<div class="blank-row">4. Tu travailles demain ? →<input autocomplete="off" class="blank-input" id="bl-5C-ex3-3" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-5C-ex3-3').click()" type="text"/><button class="check-btn" data-ans="Tu vas travailler demain ?" id="chk-bl-5C-ex3-3" onclick="checkBlankData(this,'bl-5C-ex3-3','fb-bl-5C-ex3-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-5C-ex3-3"></span></div>
+<div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
+<div class="card" style="display:flex;flex-direction:column"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Expression écrite : la journée de demain<span class="comm-zh"> · 写作：明天的一天</span> <span class="ex-cat-badge badge-comm"><i data-lucide="message-circle" aria-hidden="true"></i> Communication</span></div><div class="card-body" style="flex:1;min-height:0;overflow-y:auto"><div class="prod-box">Imaginez la journée de demain d'Isabelle. Écrivez 6 phrases au futur proche (se lever, prendre, aller, acheter, rencontrer, rentrer).<span class="prod-zh">想象Isabelle明天的一天。用近将来时写6句话（起床、乘坐、去、购买、见面、回家）。</span></div><textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea><button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button><div class="lt-result"></div></div></div>
+</div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(7)">← Grammaire</button>
 <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(9)">Suite →</button>
@@ -849,26 +857,26 @@ render();
 <div class="slide-header">Exercices <span class="slide-part">2/2</span></div>
 <div class="ex-blocks">
 <div class="ex-block">
-<div class="ex-title"><span>Ex. 5 — Condiment ou ingrédient principal ? <span class="comm-zh">将每种食材归入正确的栏目。</span></span><span class="ex-badge"><i data-lucide="book-open" aria-hidden="true"></i> Vocabulaire</span></div>
-<p class="ex-inst">Classez chaque aliment dans la bonne colonne.</p>
+<div class="ex-title"><span>Ex. 5 — Présent ou futur proche ? <span class="comm-zh">现在时还是近将来时？</span></span><span class="ex-badge"><i data-lucide="book-open" aria-hidden="true"></i> Grammaire</span></div>
+<p class="ex-inst">Classez les éléments dans la bonne colonne.</p>
 <div class="ex5-pool" id="ex5-pool">
-<span class="drag-chip" data-cat="condiment" onclick="ex5Click(this)">le sel</span>
-<span class="drag-chip" data-cat="ingredient" onclick="ex5Click(this)">la viande</span>
-<span class="drag-chip" data-cat="condiment" onclick="ex5Click(this)">les herbes</span>
-<span class="drag-chip" data-cat="ingredient" onclick="ex5Click(this)">les légumes</span>
-<span class="drag-chip" data-cat="condiment" onclick="ex5Click(this)">l'ail</span>
-<span class="drag-chip" data-cat="ingredient" onclick="ex5Click(this)">le vin rouge</span>
-<span class="drag-chip" data-cat="condiment" onclick="ex5Click(this)">le vinaigre</span>
-<span class="drag-chip" data-cat="ingredient" onclick="ex5Click(this)">la crème</span>
+<span class="drag-chip" data-cat="present" onclick="ex5Click(this)">je mange</span>
+<span class="drag-chip" data-cat="futur" onclick="ex5Click(this)">je vais manger</span>
+<span class="drag-chip" data-cat="present" onclick="ex5Click(this)">il travaille</span>
+<span class="drag-chip" data-cat="futur" onclick="ex5Click(this)">il va travailler</span>
+<span class="drag-chip" data-cat="present" onclick="ex5Click(this)">nous partons</span>
+<span class="drag-chip" data-cat="futur" onclick="ex5Click(this)">nous allons partir</span>
+<span class="drag-chip" data-cat="present" onclick="ex5Click(this)">elle arrive</span>
+<span class="drag-chip" data-cat="futur" onclick="ex5Click(this)">elle va arriver</span>
 </div>
 <div class="ex5-zones">
-<div class="ex5-zone" id="zone-condiment" onclick="ex5Drop(this)">
-<div class="ex5-zone-label">🧂 Condiment</div>
-<div class="ex5-zone-items" id="zone-condiment-items"></div>
+<div class="ex5-zone" id="zone-present" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">Présent</div>
+<div class="ex5-zone-items" id="zone-present-items"></div>
 </div>
-<div class="ex5-zone" id="zone-ingredient" onclick="ex5Drop(this)">
-<div class="ex5-zone-label">🥩 Ingrédient principal</div>
-<div class="ex5-zone-items" id="zone-ingredient-items"></div>
+<div class="ex5-zone" id="zone-futur" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">Futur proche</div>
+<div class="ex5-zone-items" id="zone-futur-items"></div>
 </div>
 </div>
 <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
@@ -881,53 +889,53 @@ render();
 <div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确的数量表达。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
 <p class="ex-inst">Choisissez la bonne expression de quantité.</p>
 <div class="listen-list">
-<div class="listen-item" data-ans="du">
-<div class="listen-sentence">J'ajoute <span class="listen-blank">___</span> beurre.</div>
-<button class="listen-btn" onclick="playAudio('../audio/ex6_5C_3.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
-<div class="listen-choices">
-<button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
-<button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
-<button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
-</div>
-<div class="listen-fb"></div>
-</div>
-<div class="listen-item" data-ans="peu de">
-<div class="listen-sentence">Je mets très <span class="listen-blank">___</span> sel.</div>
+<div class="listen-item" data-ans="vais">
+<div class="listen-sentence">Ce week-end, je <span class="listen-blank">___</span> visiter Paris.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_5C_0.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="peu de" onclick="selectEx6(this)">peu de</button>
-<button class="choice-btn" data-val="beaucoup de" onclick="selectEx6(this)">beaucoup de</button>
-<button class="choice-btn" data-val="assez de" onclick="selectEx6(this)">assez de</button>
+<button class="choice-btn" data-val="vais" onclick="selectEx6(this)">vais</button>
+<button class="choice-btn" data-val="veux" onclick="selectEx6(this)">veux</button>
+<button class="choice-btn" data-val="dois" onclick="selectEx6(this)">dois</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="des">
-<div class="listen-sentence">J'ajoute <span class="listen-blank">___</span> herbes fraîches.</div>
-<button class="listen-btn" onclick="playAudio('../audio/ex6_5C_4.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
-<div class="listen-choices">
-<button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
-<button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
-<button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
-</div>
-<div class="listen-fb"></div>
-</div>
-<div class="listen-item" data-ans="de la">
-<div class="listen-sentence">Il faut <span class="listen-blank">___</span> viande et du vin rouge.</div>
+<div class="listen-item" data-ans="va">
+<div class="listen-sentence">Elle <span class="listen-blank">___</span> partir en vacances demain.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_5C_1.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
-<button class="choice-btn" data-val="de la" onclick="selectEx6(this)">de la</button>
-<button class="choice-btn" data-val="des" onclick="selectEx6(this)">des</button>
+<button class="choice-btn" data-val="va" onclick="selectEx6(this)">va</button>
+<button class="choice-btn" data-val="est" onclick="selectEx6(this)">est</button>
+<button class="choice-btn" data-val="fait" onclick="selectEx6(this)">fait</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="trois">
-<div class="listen-sentence">Il faut <span class="listen-blank">___</span> heures de cuisson.</div>
+<div class="listen-item" data-ans="allons">
+<div class="listen-sentence">Nous <span class="listen-blank">___</span> regarder un film ce soir.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_5C_2.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="trois" onclick="selectEx6(this)">trois</button>
-<button class="choice-btn" data-val="deux" onclick="selectEx6(this)">deux</button>
-<button class="choice-btn" data-val="six" onclick="selectEx6(this)">six</button>
+<button class="choice-btn" data-val="allons" onclick="selectEx6(this)">allons</button>
+<button class="choice-btn" data-val="sommes" onclick="selectEx6(this)">sommes</button>
+<button class="choice-btn" data-val="faisons" onclick="selectEx6(this)">faisons</button>
+</div>
+<div class="listen-fb"></div>
+</div>
+<div class="listen-item" data-ans="vont">
+<div class="listen-sentence">Ils <span class="listen-blank">___</span> arriver à 18h.</div>
+<button class="listen-btn" onclick="playAudio('../audio/ex6_5C_3.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
+<div class="listen-choices">
+<button class="choice-btn" data-val="vont" onclick="selectEx6(this)">vont</button>
+<button class="choice-btn" data-val="sont" onclick="selectEx6(this)">sont</button>
+<button class="choice-btn" data-val="font" onclick="selectEx6(this)">font</button>
+</div>
+<div class="listen-fb"></div>
+</div>
+<div class="listen-item" data-ans="vas">
+<div class="listen-sentence">Tu <span class="listen-blank">___</span> travailler demain ?</div>
+<button class="listen-btn" onclick="playAudio('../audio/ex6_5C_4.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
+<div class="listen-choices">
+<button class="choice-btn" data-val="vas" onclick="selectEx6(this)">vas</button>
+<button class="choice-btn" data-val="es" onclick="selectEx6(this)">es</button>
+<button class="choice-btn" data-val="fais" onclick="selectEx6(this)">fais</button>
 </div>
 <div class="listen-fb"></div>
 </div>
@@ -948,9 +956,7 @@ render();
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-prod"><i data-lucide="edit-3" aria-hidden="true"></i>️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
-<div class="card-body"><div class="prod-box">Décrivez un repas de fête dans votre culture (8 phrases) : plats, ingrédients,
-quantités, traditions.
-<span class="prod-zh">用8句话描述您文化中的节日餐：菜肴、食材、数量、传统习俗。</span></div>
+<div class="card-body"><div class="prod-box">Décrivez vos projets pour les prochaines vacances (5 activités minimum au futur proche).<span class="prod-zh">描述您下次假期的计划（至少5个用近将来时表达的活动）。</span></div>
 <textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea>
 <button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button>
 <div class="lt-result"></div></div>

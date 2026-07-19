@@ -683,7 +683,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 </div>
 </div>
 <!-- ══ SLIDE 5 : GRAMMAIRE ══ -->
-<div class="slide" id="slide-6">
+<div class="slide" id="slide-gr1">
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-gram"><i data-lucide="book-open" aria-hidden="true"></i> Les adjectifs démonstratifs — ce / cet / cette / ces<span class="comm-zh"> · 语法要点</span></div>
@@ -723,8 +723,11 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 (function(){
 var ACTS=[
   {id:'fm1',title:'⚡ Associer — Démonstratif ↔ Nom',type:'flash',colL:'中文',colR:'Démonstratif + nom',pairs:[{k:'lv',l:'这本书',r:'ce livre'},{k:'ms',l:'这栋楼',r:'cet immeuble'},{k:'am',l:'ces amis',r:'ces amis'},{k:'et',l:'cet étudiant',r:'cet étudiant'},{k:'rb',l:'ce manteau',r:'ce manteau'},{k:'st',l:'cette station',r:'cette station'}]},
-  {id:'fm2',title:'⚡ Associer — 代词 ↔ Avoir (passé composé)',type:'flash',colL:'代词 ZH',colR:'Avoir (passé composé)',pairs:[{k:'je',l:'我',r:'ai'},{k:'tu',l:'你',r:'as'},{k:'il',l:'他 / 她',r:'a'},{k:'nous',l:'我们',r:'avons'},{k:'vous',l:'你们',r:'avez'},{k:'ils',l:'他们 / 她们',r:'ont'}]},
-  {id:'wo1',title:"🔀 Remettre dans l'ordre",type:'wordorder',sentences:[{words:['Elle','a','mangé','une','pizza','.'],zh:'她吃了一块披萨。'},{words:['Nous','avons','visité','ce','musée','hier','.'],zh:'我们昨天参观了这个博物馆。'}]}
+  {id:'wo1',title:"🔀 Remettre dans l'ordre — démonstratif",type:'wordorder',
+   sentences:[
+     {words:['Ce','manteau','est','très','chaud','.'],zh:'这件大衣很暖和。'},
+     {words:['Cette','veste',"n'",'est','pas','chère','.'],zh:'这件夹克不贵。'}
+   ]}
 ];
 var cur=0;var maxCur=0;
 function shuf(a){a=[...a];for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}

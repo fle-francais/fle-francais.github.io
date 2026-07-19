@@ -723,7 +723,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 (function(){
 var ACTS=[
   {id:'fm1',title:'⚡ Associer — 代词 ↔ Se lever',type:'flash',colL:'代词 ZH',colR:'Se lever',pairs:[{k:'je',l:'我',r:'me lève'},{k:'tu',l:'你',r:'te lèves'},{k:'il',l:'他 / 她',r:'se lève'},{k:'nous',l:'我们',r:'nous levons'},{k:'vous',l:'你们',r:'vous levez'},{k:'ils',l:'他们 / 她们',r:'se lèvent'}]},
-  {id:'fm2',title:'⚡ Associer — Pronom ↔ Se lever',type:'flash',colL:'Pronom',colR:'Se lever',pairs:[{k:'je',l:'je',r:'me lève'},{k:'tu',l:'tu',r:'te lèves'},{k:'il',l:'il / elle',r:'se lève'},{k:'nous',l:'nous',r:'nous levons'},{k:'vous',l:'vous',r:'vous levez'},{k:'ils',l:'ils / elles',r:'se lèvent'}]},
+  
   {id:'wo1',title:"🔀 Remettre dans l'ordre",type:'wordorder',sentences:[{words:['Je','me','lève','à','sept','heures','.'],zh:'我七点起床。'},{words:['Elle','se','couche','tôt','le','soir','.'],zh:'她晚上早早就寝。'}]}
 ];
 var cur=0;var maxCur=0;
@@ -934,26 +934,22 @@ render2();
 <div class="slide" id="slide-7">
 <div class="slide-header">Exercices <span class="slide-part">1/2</span></div>
 <div class="slide-body">
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 1 — Du, de la ou au, à la ?<span class="comm-zh"> · Du、de la 还是 au、à la？</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
-<div class="blank-row">1. <span>Je fais </span><input autocomplete="off" class="blank-input" id="bl-6A-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex1-0').click()" type="text"/><button class="check-btn" data-ans="du" id="chk-bl-6A-ex1-0" onclick="checkBlankData(this,'bl-6A-ex1-0','fb-bl-6A-ex1-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex1-0"></span><span> yoga le matin.</span></div>
-<div class="blank-row">2. <span>Il joue </span><input autocomplete="off" class="blank-input" id="bl-6A-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex1-1').click()" type="text"/><button class="check-btn" data-ans="au" id="chk-bl-6A-ex1-1" onclick="checkBlankData(this,'bl-6A-ex1-1','fb-bl-6A-ex1-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex1-1"></span><span> basketball avec ses amis.</span></div>
-<div class="blank-row">3. <span>Nous faisons </span><input autocomplete="off" class="blank-input" id="bl-6A-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex1-2').click()" type="text"/><button class="check-btn" data-ans="de la" id="chk-bl-6A-ex1-2" onclick="checkBlankData(this,'bl-6A-ex1-2','fb-bl-6A-ex1-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex1-2"></span><span> randonnée le week-end.</span></div>
-<div class="blank-row">4. <span>Elle joue </span><input autocomplete="off" class="blank-input" id="bl-6A-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex1-3').click()" type="text"/><button class="check-btn" data-ans="à la" id="chk-bl-6A-ex1-3" onclick="checkBlankData(this,'bl-6A-ex1-3','fb-bl-6A-ex1-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex1-3"></span><span> pétanque dans le parc.</span></div>
-<div class="blank-row">5. <span>Tu fais </span><input autocomplete="off" class="blank-input" id="bl-6A-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex1-4').click()" type="text"/><button class="check-btn" data-ans="du" id="chk-bl-6A-ex1-4" onclick="checkBlankData(this,'bl-6A-ex1-4','fb-bl-6A-ex1-4')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex1-4"></span><span> ski en hiver ?</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 2 — Posez ces questions à un(e) camarade<span class="comm-zh"> · 向同学提问</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="assoc-row">
-<div class="assoc-left"><span class="assoc-word">1. Tu fais du sport ? Lequel / Lesquels ?</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-6A-ex2-0" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-6A-ex2-0','fb-ma-6A-ex2-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-ma-6A-ex2-0"></span></div>
+<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Conjuguez le verbe pronominal<span class="comm-zh"> · 变位代词动词</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body">
+<div class="blank-row">1. Je ___ à 7h. (se lever)<input autocomplete="off" class="blank-input" id="bl-6A-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex1-0').click()" type="text"/><button class="check-btn" data-ans="me lève" id="chk-bl-6A-ex1-0" onclick="checkBlankData(this,'bl-6A-ex1-0','fb-bl-6A-ex1-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex1-0"></span></div>
+<div class="blank-row">2. Elle ___ les dents. (se brosser)<input autocomplete="off" class="blank-input" id="bl-6A-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex1-1').click()" type="text"/><button class="check-btn" data-ans="se brosse" id="chk-bl-6A-ex1-1" onclick="checkBlankData(this,'bl-6A-ex1-1','fb-bl-6A-ex1-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex1-1"></span></div>
+<div class="blank-row">3. Nous ___ à 23h. (se coucher)<input autocomplete="off" class="blank-input" id="bl-6A-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex1-2').click()" type="text"/><button class="check-btn" data-ans="nous couchons" id="chk-bl-6A-ex1-2" onclick="checkBlankData(this,'bl-6A-ex1-2','fb-bl-6A-ex1-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex1-2"></span></div>
+<div class="blank-row">4. Vous ___ vite ? (s'habiller)<input autocomplete="off" class="blank-input" id="bl-6A-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex1-3').click()" type="text"/><button class="check-btn" data-ans="vous habillez" id="chk-bl-6A-ex1-3" onclick="checkBlankData(this,'bl-6A-ex1-3','fb-bl-6A-ex1-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex1-3"></span></div>
+<div class="blank-row">5. Il ___ le matin. (se doucher)<input autocomplete="off" class="blank-input" id="bl-6A-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex1-4').click()" type="text"/><button class="check-btn" data-ans="se douche" id="chk-bl-6A-ex1-4" onclick="checkBlankData(this,'bl-6A-ex1-4','fb-bl-6A-ex1-4')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex1-4"></span></div>
+<div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
+<div class="card" style="display:flex;flex-direction:column"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Production : votre routine matinale<span class="comm-zh"> · 写作：您的早晨例行程序</span> <span class="ex-cat-badge badge-comm"><i data-lucide="message-circle" aria-hidden="true"></i> Communication</span></div><div class="card-body" style="flex:1;min-height:0;overflow-y:auto"><div class="prod-box">Décrivez votre routine matinale de A à Z : 6 actions dans l'ordre, avec les heures.<span class="prod-zh">从头到尾描述您的早晨例行程序：按顺序写6个动作，注明时间。</span></div><textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea><button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button><div class="lt-result"></div></div></div>
+<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Transformez à la forme négative<span class="comm-zh"> · 改写成否定句</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body">
+<div class="blank-row">1. Je me lève tôt. →<input autocomplete="off" class="blank-input" id="bl-6A-ex3-0" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex3-0').click()" type="text"/><button class="check-btn" data-ans="Je ne me lève pas tôt." id="chk-bl-6A-ex3-0" onclick="checkBlankData(this,'bl-6A-ex3-0','fb-bl-6A-ex3-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex3-0"></span></div>
+<div class="blank-row">2. Elle se douche le matin. →<input autocomplete="off" class="blank-input" id="bl-6A-ex3-1" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex3-1').click()" type="text"/><button class="check-btn" data-ans="Elle ne se douche pas le matin." id="chk-bl-6A-ex3-1" onclick="checkBlankData(this,'bl-6A-ex3-1','fb-bl-6A-ex3-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex3-1"></span></div>
+<div class="blank-row">3. Nous nous couchons tard. →<input autocomplete="off" class="blank-input" id="bl-6A-ex3-2" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex3-2').click()" type="text"/><button class="check-btn" data-ans="Nous ne nous couchons pas tard." id="chk-bl-6A-ex3-2" onclick="checkBlankData(this,'bl-6A-ex3-2','fb-bl-6A-ex3-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex3-2"></span></div>
+<div class="blank-row">4. Il se rase le soir. →<input autocomplete="off" class="blank-input" id="bl-6A-ex3-3" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex3-3').click()" type="text"/><button class="check-btn" data-ans="Il ne se rase pas le soir." id="chk-bl-6A-ex3-3" onclick="checkBlankData(this,'bl-6A-ex3-3','fb-bl-6A-ex3-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex3-3"></span></div>
+<div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
+<div class="card" style="display:flex;flex-direction:column"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Expression écrite : la routine d'un camarade<span class="comm-zh"> · 写作：同学的日常</span> <span class="ex-cat-badge badge-comm"><i data-lucide="message-circle" aria-hidden="true"></i> Communication</span></div><div class="card-body" style="flex:1;min-height:0;overflow-y:auto"><div class="prod-box">Décrivez la routine matinale d'un(e) ami(e) imaginaire. Utilisez 6 verbes pronominaux différents.<span class="prod-zh">描述一位想象中的朋友的早晨例行程序。使用6个不同的代词动词。</span></div><textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea><button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button><div class="lt-result"></div></div></div>
 </div>
-<div class="assoc-row">
-<div class="assoc-left"><span class="assoc-word">2. Combien de fois par semaine ?</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-6A-ex2-1" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-6A-ex2-1','fb-ma-6A-ex2-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-ma-6A-ex2-1"></span></div>
-</div>
-<div class="assoc-row">
-<div class="assoc-left"><span class="assoc-word">3. Depuis combien de temps ?</span> → <input autocomplete="off" class="blank-input assoc-letter-input" id="ma-6A-ex2-2" maxlength="1" placeholder="?" type="text"/><button class="check-btn" data-ans="" onclick="checkBlankData(this,'ma-6A-ex2-2','fb-ma-6A-ex2-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-ma-6A-ex2-2"></span></div>
-</div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 3 — Transformez les phrases<span class="comm-zh"> · 改写句子</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="blank-row">1. <span>Je fais de la natation. → Forme négative : </span><input autocomplete="off" class="blank-input" id="bl-6A-ex3-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex3-0').click()" type="text"/><button class="check-btn" data-ans="Je ne fais pas de natation." id="chk-bl-6A-ex3-0" onclick="checkBlankData(this,'bl-6A-ex3-0','fb-bl-6A-ex3-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex3-0"></span><span></span></div>
-<div class="blank-row">2. <span>Il joue au tennis. → Forme négative : </span><input autocomplete="off" class="blank-input" id="bl-6A-ex3-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex3-1').click()" type="text"/><button class="check-btn" data-ans="Il ne joue pas au tennis." id="chk-bl-6A-ex3-1" onclick="checkBlankData(this,'bl-6A-ex3-1','fb-bl-6A-ex3-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex3-1"></span><span></span></div>
-<div class="blank-row">3. <span>Tu fais du vélo. → Forme interrogative (est-ce que) : </span><input autocomplete="off" class="blank-input" id="bl-6A-ex3-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex3-2').click()" type="text"/><button class="check-btn" data-ans="Est-ce que tu fais du vélo ?" id="chk-bl-6A-ex3-2" onclick="checkBlankData(this,'bl-6A-ex3-2','fb-bl-6A-ex3-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex3-2"></span><span></span></div>
-<div class="blank-row">4. <span>Vous faites du sport le week-end. → Forme interrogative (inversion) : </span><input autocomplete="off" class="blank-input" id="bl-6A-ex3-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex3-3').click()" type="text"/><button class="check-btn" data-ans="Faites-vous du sport le week-end ?" id="chk-bl-6A-ex3-3" onclick="checkBlankData(this,'bl-6A-ex3-3','fb-bl-6A-ex3-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex3-3"></span><span></span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div><div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 4 — Associez chaque activité à la bonne expression (faire du/de la ou jouer au/à la)<span class="comm-zh"> · 将每个活动与正确的表达配对（faire du/de la 或 jouer au/à la）</span> <span class="ex-cat-badge badge-lex"><i data-lucide="library" aria-hidden="true"></i> Lexique</span></div><div class="card-body"><div class="blank-row">1. <span>natation → </span><input <input="" autocomplete="off" class="blank-input" id="bl-6A-ex4-0a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex4-0a').click()" type="text"/><button class="check-btn" data-ans="faire de la" id="chk-bl-6A-ex4-0a" onclick="checkBlankData(this,'bl-6A-ex4-0a','fb-bl-6A-ex4-0a')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex4-0a"></span><span> 2. football → </span><input <input="" autocomplete="off" class="blank-input" id="bl-6A-ex4-0b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex4-0b').click()" type="text"/><button class="check-btn" data-ans="faire du / jouer au" id="chk-bl-6A-ex4-0b" onclick="checkBlankData(this,'bl-6A-ex4-0b','fb-bl-6A-ex4-0b')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex4-0b"></span><span> 3. yoga → </span><input <input="" autocomplete="off" class="blank-input" id="bl-6A-ex4-0c" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex4-0c').click()" type="text"/><button class="check-btn" data-ans="faire du" id="chk-bl-6A-ex4-0c" onclick="checkBlankData(this,'bl-6A-ex4-0c','fb-bl-6A-ex4-0c')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex4-0c"></span><span></span></div>
-<div class="blank-row">2. <span>randonnée → </span><input <input="" autocomplete="off" class="blank-input" id="bl-6A-ex4-1a" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex4-1a').click()" type="text"/><button class="check-btn" data-ans="faire de la" id="chk-bl-6A-ex4-1a" onclick="checkBlankData(this,'bl-6A-ex4-1a','fb-bl-6A-ex4-1a')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex4-1a"></span><span> 5. volleyball → </span><input <input="" autocomplete="off" class="blank-input" id="bl-6A-ex4-1b" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex4-1b').click()" type="text"/><button class="check-btn" data-ans="jouer au / faire du" id="chk-bl-6A-ex4-1b" onclick="checkBlankData(this,'bl-6A-ex4-1b','fb-bl-6A-ex4-1b')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex4-1b"></span><span> 6. danse → </span><input <input="" autocomplete="off" class="blank-input" id="bl-6A-ex4-1c" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-6A-ex4-1c').click()" type="text"/><button class="check-btn" data-ans="faire de la" id="chk-bl-6A-ex4-1c" onclick="checkBlankData(this,'bl-6A-ex4-1c','fb-bl-6A-ex4-1c')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-6A-ex4-1c"></span><span></span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div></div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(9)">← Pratique 2</button>
 <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(11)">Suite →</button>
@@ -968,26 +964,26 @@ render2();
 <div class="slide-header">Exercices <span class="slide-part">2/2</span></div>
 <div class="ex-blocks">
 <div class="ex-block">
-<div class="ex-title"><span>Ex. 5 — Sport individuel ou sport d'équipe ? <span class="comm-zh">将每项运动归入正确的栏目。</span></span><span class="ex-badge"><i data-lucide="book-open" aria-hidden="true"></i> Vocabulaire</span></div>
-<p class="ex-inst">Classez chaque sport dans la bonne colonne.</p>
+<div class="ex-title"><span>Ex. 5 — Matin ou soir ? <span class="comm-zh">早上还是晚上？</span></span><span class="ex-badge"><i data-lucide="book-open" aria-hidden="true"></i> Grammaire</span></div>
+<p class="ex-inst">Classez les éléments dans la bonne colonne.</p>
 <div class="ex5-pool" id="ex5-pool">
-<span class="drag-chip" data-cat="individuel" onclick="ex5Click(this)">la natation</span>
-<span class="drag-chip" data-cat="equipe" onclick="ex5Click(this)">le volleyball</span>
-<span class="drag-chip" data-cat="individuel" onclick="ex5Click(this)">la randonnée</span>
-<span class="drag-chip" data-cat="equipe" onclick="ex5Click(this)">le football</span>
-<span class="drag-chip" data-cat="individuel" onclick="ex5Click(this)">la danse</span>
-<span class="drag-chip" data-cat="equipe" onclick="ex5Click(this)">le basketball</span>
-<span class="drag-chip" data-cat="individuel" onclick="ex5Click(this)">le vélo</span>
-<span class="drag-chip" data-cat="equipe" onclick="ex5Click(this)">le tennis double</span>
+<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">se lever</span>
+<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">se coucher</span>
+<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">se doucher</span>
+<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">se démaquiller</span>
+<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">s'habiller</span>
+<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">se déshabiller</span>
+<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">se brosser les dents (AM)</span>
+<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">s'endormir</span>
 </div>
 <div class="ex5-zones">
-<div class="ex5-zone" id="zone-individuel" onclick="ex5Drop(this)">
-<div class="ex5-zone-label">🏃 Individuel</div>
-<div class="ex5-zone-items" id="zone-individuel-items"></div>
+<div class="ex5-zone" id="zone-matin" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">Le matin</div>
+<div class="ex5-zone-items" id="zone-matin-items"></div>
 </div>
-<div class="ex5-zone" id="zone-equipe" onclick="ex5Drop(this)">
-<div class="ex5-zone-label">👥 Équipe</div>
-<div class="ex5-zone-items" id="zone-equipe-items"></div>
+<div class="ex5-zone" id="zone-soir" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">Le soir</div>
+<div class="ex5-zone-items" id="zone-soir-items"></div>
 </div>
 </div>
 <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
@@ -1000,53 +996,53 @@ render2();
 <div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确的动词：FAIRE还是JOUER。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
 <p class="ex-inst">Choisissez le bon verbe : FAIRE ou JOUER.</p>
 <div class="listen-list">
-<div class="listen-item" data-ans="fais">
-<div class="listen-sentence">Je <span class="listen-blank">___</span> de la natation.</div>
+<div class="listen-item" data-ans="me lève">
+<div class="listen-sentence">Je <span class="listen-blank">___</span> à 7h le matin.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_6A_0.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="fais" onclick="selectEx6(this)">fais</button>
-<button class="choice-btn" data-val="joue" onclick="selectEx6(this)">joue</button>
-<button class="choice-btn" data-val="pratique" onclick="selectEx6(this)">pratique</button>
+<button class="choice-btn" data-val="me lève" onclick="selectEx6(this)">me lève</button>
+<button class="choice-btn" data-val="me couche" onclick="selectEx6(this)">me couche</button>
+<button class="choice-btn" data-val="m'habille" onclick="selectEx6(this)">m'habille</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="joue">
-<div class="listen-sentence">Je <span class="listen-blank">___</span> au volleyball.</div>
+<div class="listen-item" data-ans="se brosse">
+<div class="listen-sentence">Elle <span class="listen-blank">___</span> les dents après le repas.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_6A_1.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="pratique" onclick="selectEx6(this)">pratique</button>
-<button class="choice-btn" data-val="fais" onclick="selectEx6(this)">fais</button>
-<button class="choice-btn" data-val="joue" onclick="selectEx6(this)">joue</button>
+<button class="choice-btn" data-val="se brosse" onclick="selectEx6(this)">se brosse</button>
+<button class="choice-btn" data-val="se lave" onclick="selectEx6(this)">se lave</button>
+<button class="choice-btn" data-val="se coiffe" onclick="selectEx6(this)">se coiffe</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="fait">
-<div class="listen-sentence">Il <span class="listen-blank">___</span> du vélo et de la randonnée.</div>
+<div class="listen-item" data-ans="nous couchons">
+<div class="listen-sentence">Nous <span class="listen-blank">___</span> tôt le soir.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_6A_2.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="aime" onclick="selectEx6(this)">aime</button>
-<button class="choice-btn" data-val="joue" onclick="selectEx6(this)">joue</button>
-<button class="choice-btn" data-val="fait" onclick="selectEx6(this)">fait</button>
+<button class="choice-btn" data-val="nous couchons" onclick="selectEx6(this)">nous couchons</button>
+<button class="choice-btn" data-val="nous levons" onclick="selectEx6(this)">nous levons</button>
+<button class="choice-btn" data-val="nous lavons" onclick="selectEx6(this)">nous lavons</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="fait">
-<div class="listen-sentence">Elle <span class="listen-blank">___</span> de la danse classique.</div>
+<div class="listen-item" data-ans="vous habillez">
+<div class="listen-sentence">Vous <span class="listen-blank">___</span> rapidement le matin ?</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_6A_3.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="apprend" onclick="selectEx6(this)">apprend</button>
-<button class="choice-btn" data-val="joue" onclick="selectEx6(this)">joue</button>
-<button class="choice-btn" data-val="fait" onclick="selectEx6(this)">fait</button>
+<button class="choice-btn" data-val="vous habillez" onclick="selectEx6(this)">vous habillez</button>
+<button class="choice-btn" data-val="vous levez" onclick="selectEx6(this)">vous levez</button>
+<button class="choice-btn" data-val="vous couchez" onclick="selectEx6(this)">vous couchez</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="fais">
-<div class="listen-sentence">Je ne <span class="listen-blank">___</span> pas de sport.</div>
+<div class="listen-item" data-ans="se rase">
+<div class="listen-sentence">Il <span class="listen-blank">___</span> chaque matin.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_6A_4.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="pratique" onclick="selectEx6(this)">pratique</button>
-<button class="choice-btn" data-val="joue" onclick="selectEx6(this)">joue</button>
-<button class="choice-btn" data-val="fais" onclick="selectEx6(this)">fais</button>
+<button class="choice-btn" data-val="se rase" onclick="selectEx6(this)">se rase</button>
+<button class="choice-btn" data-val="se couche" onclick="selectEx6(this)">se couche</button>
+<button class="choice-btn" data-val="se lève" onclick="selectEx6(this)">se lève</button>
 </div>
 <div class="listen-fb"></div>
 </div>
@@ -1067,9 +1063,7 @@ render2();
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-prod"><i data-lucide="edit-3" aria-hidden="true"></i>️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
-<div class="card-body"><div class="prod-box">Parlez de vos loisirs : quels sports ou activités vous faites, à quelle fréquence et
-pourquoi vous aimez ça.
-<span class="prod-zh">介绍您的爱好：您做哪些运动或活动，频率如何，为什么喜欢。</span></div>
+<div class="card-body"><div class="prod-box">Décrivez votre routine du lundi matin, du réveil jusqu'au départ (8 actions avec les heures).<span class="prod-zh">描述您周一早晨的例行程序，从起床到出发（8个动作，注明时间）。</span></div>
 <textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea>
 <button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button>
 <div class="lt-result"></div></div>

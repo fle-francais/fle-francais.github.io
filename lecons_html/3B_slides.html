@@ -721,7 +721,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 (function(){
 var ACTS=[
   {id:'fm1',title:'⚡ Associer — Quantité ↔ 中文',type:'flash',colL:'Quantité FR',colR:'中文',pairs:[{k:'bc',l:'beaucoup de',r:'很多'},{k:'pd',l:'peu de',r:'少'},{k:'az',l:'assez de',r:'足够'},{k:'tp',l:'trop de',r:'太多'},{k:'un',l:'un peu de',r:'一点点'},{k:'ps',l:'pas de',r:'没有'}]},
-  {id:'fm2',title:'⚡ Associer — 中文 ↔ Quantité',type:'flash',colL:'中文',colR:'Quantité FR',pairs:[{k:'bc',l:'很多',r:'beaucoup de'},{k:'pd',l:'少',r:'peu de'},{k:'az',l:'足够',r:'assez de'},{k:'tp',l:'太多',r:'trop de'},{k:'un',l:'一点点',r:'un peu de'},{k:'ps',l:'没有',r:'pas de'}]},
+  
   {id:'wo1',title:"🔀 Remettre dans l'ordre",type:'wordorder',sentences:[{words:['Elle','boit','beaucoup','de','café','.'],zh:'她喝很多咖啡。'},{words:['Il','y','a','trop','de','bruit','ici','.'],zh:'这里太吵了。'}]}
 ];
 var cur=0;var maxCur=0;
@@ -932,49 +932,22 @@ render2();
 <div class="slide" id="slide-7">
 <div class="slide-header">Exercices <span class="slide-part">1/2</span></div>
 <div class="slide-body">
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 1 — Conjuguez SE LEVER<span class="comm-zh"> · 将动词SE LEVER变位</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="ex-inst"></div>
-<div class="blank-row">1. <span>Je </span><input autocomplete="off" class="blank-input" id="bl-3B-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex1-0').click()" type="text"/><button class="check-btn" data-ans="me lève" id="chk-bl-3B-ex1-0" onclick="checkBlankData(this,'bl-3B-ex1-0','fb-bl-3B-ex1-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex1-0"></span><span> à 7h.</span></div>
-<div class="blank-row">2. <span>Tu </span><input autocomplete="off" class="blank-input" id="bl-3B-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex1-1').click()" type="text"/><button class="check-btn" data-ans="te lèves" id="chk-bl-3B-ex1-1" onclick="checkBlankData(this,'bl-3B-ex1-1','fb-bl-3B-ex1-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex1-1"></span><span> à quelle heure ?</span></div>
-<div class="blank-row">3. <span>Il </span><input autocomplete="off" class="blank-input" id="bl-3B-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex1-2').click()" type="text"/><button class="check-btn" data-ans="se lève" id="chk-bl-3B-ex1-2" onclick="checkBlankData(this,'bl-3B-ex1-2','fb-bl-3B-ex1-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex1-2"></span><span> toujours tôt.</span></div>
-<div class="blank-row">4. <span>Nous </span><input autocomplete="off" class="blank-input" id="bl-3B-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex1-3').click()" type="text"/><button class="check-btn" data-ans="nous levons" id="chk-bl-3B-ex1-3" onclick="checkBlankData(this,'bl-3B-ex1-3','fb-bl-3B-ex1-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex1-3"></span><span> tard le dimanche.</span></div>
-<div class="blank-row">5. <span>Elles </span><input autocomplete="off" class="blank-input" id="bl-3B-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex1-4').click()" type="text"/><button class="check-btn" data-ans="se lèvent" id="chk-bl-3B-ex1-4" onclick="checkBlankData(this,'bl-3B-ex1-4','fb-bl-3B-ex1-4')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex1-4"></span><span> en même temps.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 2 — Complétez la routine de Camille avec les bons verbes pronominaux<span class="comm-zh"> · 用正确的代词动词填写卡米尔的日常作息</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="blank-row">1. <span>Le matin, Camille</span><input autocomplete="off" class="blank-input" id="bl-3B-ex2-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex2-0').click()" type="text"/><button class="check-btn" data-ans="se réveille" id="chk-bl-3B-ex2-0" onclick="checkBlankData(this,'bl-3B-ex2-0','fb-bl-3B-ex2-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex2-0"></span><span> à 6h30.</span></div><div class="blank-row">2. <span>Elle</span><input autocomplete="off" class="blank-input" id="bl-3B-ex2-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex2-1').click()" type="text"/><button class="check-btn" data-ans="se lève" id="chk-bl-3B-ex2-1" onclick="checkBlankData(this,'bl-3B-ex2-1','fb-bl-3B-ex2-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex2-1"></span><span> tout de suite.</span></div><div class="blank-row">3. <span>Elle</span><input autocomplete="off" class="blank-input" id="bl-3B-ex2-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex2-2').click()" type="text"/><button class="check-btn" data-ans="se douche" id="chk-bl-3B-ex2-2" onclick="checkBlankData(this,'bl-3B-ex2-2','fb-bl-3B-ex2-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex2-2"></span><span> pendant 10 minutes.</span></div><div class="blank-row">4. <span>Ensuite, elle</span><input autocomplete="off" class="blank-input" id="bl-3B-ex2-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex2-3').click()" type="text"/><button class="check-btn" data-ans="s'habille" id="chk-bl-3B-ex2-3" onclick="checkBlankData(this,'bl-3B-ex2-3','fb-bl-3B-ex2-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex2-3"></span><span> rapidement.</span></div><div class="blank-row">5. <span>Elle</span><input autocomplete="off" class="blank-input" id="bl-3B-ex2-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex2-4').click()" type="text"/><button class="check-btn" data-ans="se brosse" id="chk-bl-3B-ex2-4" onclick="checkBlankData(this,'bl-3B-ex2-4','fb-bl-3B-ex2-4')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex2-4"></span><span> les dents avant de partir.</span></div><div class="blank-row">6. <span>Le soir, elle</span><input autocomplete="off" class="blank-input" id="bl-3B-ex2-5" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex2-5').click()" type="text"/><button class="check-btn" data-ans="se couche" id="chk-bl-3B-ex2-5" onclick="checkBlankData(this,'bl-3B-ex2-5','fb-bl-3B-ex2-5')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex2-5"></span><span> vers 23h.</span></div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
-<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 3 — Mettez à la forme négative<span class="comm-zh"> · 改写成否定形式</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="trans-row" data-ans="Je ne me douche pas le soir.">
-<div class="trans-src">1. Je me douche le soir. →</div>
-<input autocomplete="off" class="trans-input" id="ts-3B-ex3-0" placeholder="Écrivez la phrase transformée…" type="text"/>
-<div class="trans-btns">
-<button class="check-btn" onclick="showTransform(this)">Voir</button>
-<span class="trans-fb"></span>
-<span class="trans-ans">Je ne me douche pas le soir.</span>
+<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Conjuguez partir, dormir ou sortir<span class="comm-zh"> · 变位 partir、dormir 或 sortir</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body">
+<div class="blank-row">1. Elle ___ (partir) à 8h.<input autocomplete="off" class="blank-input" id="bl-3B-ex1-0" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex1-0').click()" type="text"/><button class="check-btn" data-ans="part" id="chk-bl-3B-ex1-0" onclick="checkBlankData(this,'bl-3B-ex1-0','fb-bl-3B-ex1-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex1-0"></span></div>
+<div class="blank-row">2. Nous ___ (dormir) bien.<input autocomplete="off" class="blank-input" id="bl-3B-ex1-1" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex1-1').click()" type="text"/><button class="check-btn" data-ans="dormons" id="chk-bl-3B-ex1-1" onclick="checkBlankData(this,'bl-3B-ex1-1','fb-bl-3B-ex1-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex1-1"></span></div>
+<div class="blank-row">3. Tu ___ (sortir) ce soir ?<input autocomplete="off" class="blank-input" id="bl-3B-ex1-2" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex1-2').click()" type="text"/><button class="check-btn" data-ans="sors" id="chk-bl-3B-ex1-2" onclick="checkBlankData(this,'bl-3B-ex1-2','fb-bl-3B-ex1-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex1-2"></span></div>
+<div class="blank-row">4. Ils ___ (partir) du bureau.<input autocomplete="off" class="blank-input" id="bl-3B-ex1-3" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex1-3').click()" type="text"/><button class="check-btn" data-ans="partent" id="chk-bl-3B-ex1-3" onclick="checkBlankData(this,'bl-3B-ex1-3','fb-bl-3B-ex1-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex1-3"></span></div>
+<div class="blank-row">5. Je ___ (dormir) huit heures.<input autocomplete="off" class="blank-input" id="bl-3B-ex1-4" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex1-4').click()" type="text"/><button class="check-btn" data-ans="dors" id="chk-bl-3B-ex1-4" onclick="checkBlankData(this,'bl-3B-ex1-4','fb-bl-3B-ex1-4')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex1-4"></span></div>
+<div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
+<div class="card" style="display:flex;flex-direction:column"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Production : vos habitudes<span class="comm-zh"> · 写作：您的习惯</span> <span class="ex-cat-badge badge-comm"><i data-lucide="message-circle" aria-hidden="true"></i> Communication</span></div><div class="card-body" style="flex:1;min-height:0;overflow-y:auto"><div class="prod-box">Décrivez votre routine de la semaine : à quelle heure vous partez, dormez et sortez. Écrivez 5 phrases.<span class="prod-zh">描述您一周的日常：您几点出发、睡觉和外出。写5句话。</span></div><textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea><button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button><div class="lt-result"></div></div></div>
+<div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Complétez avec une expression de quantité<span class="comm-zh"> · 用数量表达填空</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body">
+<div class="blank-row">1. ___ pain (un kilo)<input autocomplete="off" class="blank-input" id="bl-3B-ex3-0" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex3-0').click()" type="text"/><button class="check-btn" data-ans="un kilo de pain" id="chk-bl-3B-ex3-0" onclick="checkBlankData(this,'bl-3B-ex3-0','fb-bl-3B-ex3-0')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex3-0"></span></div>
+<div class="blank-row">2. ___ eau (une bouteille)<input autocomplete="off" class="blank-input" id="bl-3B-ex3-1" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex3-1').click()" type="text"/><button class="check-btn" data-ans="une bouteille d'eau" id="chk-bl-3B-ex3-1" onclick="checkBlankData(this,'bl-3B-ex3-1','fb-bl-3B-ex3-1')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex3-1"></span></div>
+<div class="blank-row">3. ___ café (beaucoup)<input autocomplete="off" class="blank-input" id="bl-3B-ex3-2" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex3-2').click()" type="text"/><button class="check-btn" data-ans="beaucoup de café" id="chk-bl-3B-ex3-2" onclick="checkBlankData(this,'bl-3B-ex3-2','fb-bl-3B-ex3-2')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex3-2"></span></div>
+<div class="blank-row">4. ___ croissants (assez)<input autocomplete="off" class="blank-input" id="bl-3B-ex3-3" style="width:240px" onkeydown="if(event.key==='Enter')document.getElementById('chk-bl-3B-ex3-3').click()" type="text"/><button class="check-btn" data-ans="assez de croissants" id="chk-bl-3B-ex3-3" onclick="checkBlankData(this,'bl-3B-ex3-3','fb-bl-3B-ex3-3')"><i data-lucide="check" aria-hidden="true"></i></button><span class="fb" id="fb-bl-3B-ex3-3"></span></div>
+<div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div>
+<div class="card" style="display:flex;flex-direction:column"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Expression écrite : à la boulangerie<span class="comm-zh"> · 写作：在面包店</span> <span class="ex-cat-badge badge-comm"><i data-lucide="message-circle" aria-hidden="true"></i> Communication</span></div><div class="card-body" style="flex:1;min-height:0;overflow-y:auto"><div class="prod-box">Vous entrez dans une boulangerie. Écrivez votre commande : 5 produits avec les quantités (un kilo de / une tranche de / un paquet de...).<span class="prod-zh">您走进面包店。写下您的订单：5种产品及其数量（un kilo de / une tranche de / un paquet de...）。</span></div><textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea><button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button><div class="lt-result"></div></div></div>
 </div>
-</div>
-<div class="trans-row" data-ans="Elle ne se lève pas tôt.">
-<div class="trans-src">2. Elle se lève tôt. →</div>
-<input autocomplete="off" class="trans-input" id="ts-3B-ex3-1" placeholder="Écrivez la phrase transformée…" type="text"/>
-<div class="trans-btns">
-<button class="check-btn" onclick="showTransform(this)">Voir</button>
-<span class="trans-fb"></span>
-<span class="trans-ans">Elle ne se lève pas tôt.</span>
-</div>
-</div>
-<div class="trans-row" data-ans="Nous ne nous couchons pas avant minuit.">
-<div class="trans-src">3. Nous nous couchons avant minuit. →</div>
-<input autocomplete="off" class="trans-input" id="ts-3B-ex3-2" placeholder="Écrivez la phrase transformée…" type="text"/>
-<div class="trans-btns">
-<button class="check-btn" onclick="showTransform(this)">Voir</button>
-<span class="trans-fb"></span>
-<span class="trans-ans">Nous ne nous couchons pas avant minuit.</span>
-</div>
-</div>
-<div class="trans-row" data-ans="Tu ne te laves pas les mains.">
-<div class="trans-src">4. Tu te laves les mains. →</div>
-<input autocomplete="off" class="trans-input" id="ts-3B-ex3-3" placeholder="Écrivez la phrase transformée…" type="text"/>
-<div class="trans-btns">
-<button class="check-btn" onclick="showTransform(this)">Voir</button>
-<span class="trans-fb"></span>
-<span class="trans-ans">Tu ne te laves pas les mains.</span>
-</div>
-</div><div class="verify-bar"><button class="btn-verify" data-fr="Vérifier ✓" data-zh="验证 ✓" onclick="verifyCard(this)">Vérifier <i data-lucide="check" aria-hidden="true"></i></button><button class="btn-restart" data-fr="Recommencer ↺" data-zh="重新开始 ↺" onclick="resetCard(this)">Recommencer ↺</button></div></div></div><div class="card"><div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice 4 — Ordre logique de la matinée<span class="comm-zh"> · 上午活动的逻辑顺序</span> <span class="ex-cat-badge badge-gram"><i data-lucide="file-edit" aria-hidden="true"></i> Grammaire</span></div><div class="card-body"><div class="ex-inst">Remettez dans l'ordre : a. prendre le métro b. se lever c. se doucher d. prendre le petit-déjeuner e. s'habiller f. arriver au bureau Ordre : ___ → ___ → ___ → ___ → ___ → ___<span class="comm-zh"> · 排列顺序：a. 乘地铁 b. 起床 c. 淋浴 d. 吃早饭</span></div></div></div></div>
 <div class="slide-footer" style="justify-content:space-between">
 <button class="btn-ns" data-fr="← Grammaire" data-zh="← 语法" onclick="goSlide(9)">← Pratique 2</button>
 <button class="btn-ns" data-fr="Suite →" data-zh="继续 →" onclick="goSlide(11)">Suite →</button>
@@ -989,26 +962,26 @@ render2();
 <div class="slide-header">Exercices <span class="slide-part">2/2</span></div>
 <div class="ex-blocks">
 <div class="ex-block">
-<div class="ex-title"><span>Ex. 5 — Routine du matin ou du soir ? <span class="comm-zh">将每个活动归入正确的栏目。</span></span><span class="ex-badge"><i data-lucide="book-open" aria-hidden="true"></i> Vocabulaire</span></div>
-<p class="ex-inst">Classez chaque activité dans la bonne colonne.</p>
+<div class="ex-title"><span>Ex. 5 — Quantité précise ou indéfinie ? <span class="comm-zh">精确数量还是模糊数量？</span></span><span class="ex-badge"><i data-lucide="book-open" aria-hidden="true"></i> Grammaire</span></div>
+<p class="ex-inst">Classez les éléments dans la bonne colonne.</p>
 <div class="ex5-pool" id="ex5-pool">
-<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">se lever</span>
-<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">se coucher</span>
-<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">se doucher</span>
-<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">préparer le dîner</span>
-<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">prendre un café</span>
-<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">regarder une série</span>
-<span class="drag-chip" data-cat="matin" onclick="ex5Click(this)">prendre le métro</span>
-<span class="drag-chip" data-cat="soir" onclick="ex5Click(this)">se relaxer</span>
+<span class="drag-chip" data-cat="precise" onclick="ex5Click(this)">un kilo de</span>
+<span class="drag-chip" data-cat="vague" onclick="ex5Click(this)">beaucoup de</span>
+<span class="drag-chip" data-cat="precise" onclick="ex5Click(this)">une bouteille de</span>
+<span class="drag-chip" data-cat="vague" onclick="ex5Click(this)">peu de</span>
+<span class="drag-chip" data-cat="precise" onclick="ex5Click(this)">deux tranches de</span>
+<span class="drag-chip" data-cat="vague" onclick="ex5Click(this)">assez de</span>
+<span class="drag-chip" data-cat="precise" onclick="ex5Click(this)">un paquet de</span>
+<span class="drag-chip" data-cat="vague" onclick="ex5Click(this)">trop de</span>
 </div>
 <div class="ex5-zones">
-<div class="ex5-zone" id="zone-matin" onclick="ex5Drop(this)">
-<div class="ex5-zone-label">🌅 Matin</div>
-<div class="ex5-zone-items" id="zone-matin-items"></div>
+<div class="ex5-zone" id="zone-precise" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">Quantité précise</div>
+<div class="ex5-zone-items" id="zone-precise-items"></div>
 </div>
-<div class="ex5-zone" id="zone-soir" onclick="ex5Drop(this)">
-<div class="ex5-zone-label">🌙 Soir</div>
-<div class="ex5-zone-items" id="zone-soir-items"></div>
+<div class="ex5-zone" id="zone-vague" onclick="ex5Drop(this)">
+<div class="ex5-zone-label">Quantité indéfinie</div>
+<div class="ex5-zone-items" id="zone-vague-items"></div>
 </div>
 </div>
 <div class="ex5-actions" style="position:sticky;bottom:0;background:#f8f9fa;padding:8px 0 4px;z-index:2;box-shadow:0 -2px 6px rgba(0,0,0,.06)">
@@ -1021,53 +994,53 @@ render2();
 <div class="ex-title"><span>Ex. 6 — Écouter et choisir <span class="comm-zh">选择正确的代词动词。</span></span><span class="ex-badge">🎵 Prononciation</span></div>
 <p class="ex-inst">Choisissez le bon verbe pronominal.</p>
 <div class="listen-list">
-<div class="listen-item" data-ans="me lève">
-<div class="listen-sentence">Je <span class="listen-blank">___</span> à 7h tous les jours.</div>
+<div class="listen-item" data-ans="part">
+<div class="listen-sentence">Elle <span class="listen-blank">___</span> à 8h ce matin.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_3B_0.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="me couche" onclick="selectEx6(this)">me couche</button>
-<button class="choice-btn" data-val="me douche" onclick="selectEx6(this)">me douche</button>
-<button class="choice-btn" data-val="me lève" onclick="selectEx6(this)">me lève</button>
+<button class="choice-btn" data-val="part" onclick="selectEx6(this)">part</button>
+<button class="choice-btn" data-val="sort" onclick="selectEx6(this)">sort</button>
+<button class="choice-btn" data-val="sors" onclick="selectEx6(this)">sors</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="m'habille">
-<div class="listen-sentence">Je <span class="listen-blank">___</span> rapidement le matin.</div>
-<button class="listen-btn" onclick="playAudio('../audio/ex6_3B_4.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
-<div class="listen-choices">
-<button class="choice-btn" data-val="m'habille" onclick="selectEx6(this)">m'habille</button>
-<button class="choice-btn" data-val="me repose" onclick="selectEx6(this)">me repose</button>
-<button class="choice-btn" data-val="me lève" onclick="selectEx6(this)">me lève</button>
-</div>
-<div class="listen-fb"></div>
-</div>
-<div class="listen-item" data-ans="me relaxe">
-<div class="listen-sentence">Je <span class="listen-blank">___</span> un peu le soir.</div>
+<div class="listen-item" data-ans="dors">
+<div class="listen-sentence">Je <span class="listen-blank">___</span> bien la nuit.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_3B_1.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="me lève" onclick="selectEx6(this)">me lève</button>
-<button class="choice-btn" data-val="me douche" onclick="selectEx6(this)">me douche</button>
-<button class="choice-btn" data-val="me relaxe" onclick="selectEx6(this)">me relaxe</button>
+<button class="choice-btn" data-val="dors" onclick="selectEx6(this)">dors</button>
+<button class="choice-btn" data-val="pars" onclick="selectEx6(this)">pars</button>
+<button class="choice-btn" data-val="sors" onclick="selectEx6(this)">sors</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="me couche">
-<div class="listen-sentence">Je <span class="listen-blank">___</span> vers 23h.</div>
+<div class="listen-item" data-ans="un kilo de">
+<div class="listen-sentence">Ils achètent <span class="listen-blank">___</span> café.</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_3B_2.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="m'habille" onclick="selectEx6(this)">m'habille</button>
-<button class="choice-btn" data-val="me lève" onclick="selectEx6(this)">me lève</button>
-<button class="choice-btn" data-val="me couche" onclick="selectEx6(this)">me couche</button>
+<button class="choice-btn" data-val="un kilo de" onclick="selectEx6(this)">un kilo de</button>
+<button class="choice-btn" data-val="beaucoup de" onclick="selectEx6(this)">beaucoup de</button>
+<button class="choice-btn" data-val="peu de" onclick="selectEx6(this)">peu de</button>
 </div>
 <div class="listen-fb"></div>
 </div>
-<div class="listen-item" data-ans="me lève">
-<div class="listen-sentence">Le week-end, je <span class="listen-blank">___</span> tard.</div>
+<div class="listen-item" data-ans="sors">
+<div class="listen-sentence">Tu <span class="listen-blank">___</span> avec des amis ce soir ?</div>
 <button class="listen-btn" onclick="playAudio('../audio/ex6_3B_3.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
 <div class="listen-choices">
-<button class="choice-btn" data-val="me douche" onclick="selectEx6(this)">me douche</button>
-<button class="choice-btn" data-val="me couche" onclick="selectEx6(this)">me couche</button>
-<button class="choice-btn" data-val="me lève" onclick="selectEx6(this)">me lève</button>
+<button class="choice-btn" data-val="sors" onclick="selectEx6(this)">sors</button>
+<button class="choice-btn" data-val="pars" onclick="selectEx6(this)">pars</button>
+<button class="choice-btn" data-val="dors" onclick="selectEx6(this)">dors</button>
+</div>
+<div class="listen-fb"></div>
+</div>
+<div class="listen-item" data-ans="peu de">
+<div class="listen-sentence">Il faut <span class="listen-blank">___</span> sucre dans la recette.</div>
+<button class="listen-btn" onclick="playAudio('../audio/ex6_3B_4.mp3')" title="Écouter"><i data-lucide="volume-2" aria-hidden="true"></i></button>
+<div class="listen-choices">
+<button class="choice-btn" data-val="peu de" onclick="selectEx6(this)">peu de</button>
+<button class="choice-btn" data-val="beaucoup du" onclick="selectEx6(this)">beaucoup du</button>
+<button class="choice-btn" data-val="du" onclick="selectEx6(this)">du</button>
 </div>
 <div class="listen-fb"></div>
 </div>
@@ -1088,9 +1061,7 @@ render2();
 <div class="slide-body">
 <div class="card">
 <div class="card-head head-prod"><i data-lucide="edit-3" aria-hidden="true"></i>️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
-<div class="card-body"><div class="prod-box">Décrivez votre routine quotidienne en 10 phrases. Utilisez au moins 5 verbes
-pronominaux.
-<span class="prod-zh">用10句话描述您的日常作息。至少使用5个代词式动词。</span></div>
+<div class="card-body"><div class="prod-box">Vous préparez une recette simple. Listez les ingrédients avec les quantités (5 ingrédients minimum).<span class="prod-zh">您正在准备一道简单的食谱。列出配料及其用量（至少5种配料）。</span></div>
 <textarea class="prod-input" placeholder="Écrivez votre réponse ici..."></textarea>
 <button class="lt-btn" onclick="checkLT(this)">Corriger <i data-lucide="check" aria-hidden="true"></i></button>
 <div class="lt-result"></div></div>
