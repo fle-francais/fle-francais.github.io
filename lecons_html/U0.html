@@ -217,12 +217,14 @@ a{color:var(--blue);text-decoration:none}
   .fle-modal-box{padding:18px 16px}
 }
 </style>
+<style>.lucide-icon{display:inline-block;vertical-align:-3px;stroke-width:1.75;pointer-events:none}</style>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 <div class="page-wrap">
 
 <nav class="top-nav">
-  <a class="btn-nav btn-back" href="../index.html?auth=FLE2026" data-i18n="back">🏠 Accueil</a>
+  <a class="btn-nav btn-back" href="../index.html?auth=FLE2026" data-i18n="back"><i data-lucide="home" aria-hidden="true"></i> Accueil</a>
   <div style="margin-left:auto;display:flex;gap:6px">
     <button class="lang-btn" onclick="setLangU0('fr')" title="Français"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDwhLS0gQW5uZWF1IG3DqXRhbCBhcmdlbnTDqSAtLT4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0icmluZyIgY3g9IjM4JSIgY3k9IjMyJSIgcj0iNzAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgICBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMzAlIiAgc3RvcC1jb2xvcj0iI2Q4ZDhkOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjYwJSIgIHN0b3AtY29sb3I9IiM5MDkwOTAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiICBzdG9wLWNvbG9yPSIjYjBiMGIwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzc4Nzg3OCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDwhLS0gR2xvc3Mgc3VyIGxlIGRyYXBlYXUgLS0+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9Imdsb3NzIiBjeD0iNDUlIiBjeT0iMjIlIiByPSI1OCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiAgIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4zOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjY1JSIgIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4wNSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDwhLS0gT21icmUgaW50ZXJuZSAtLT4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iaW5uZXItc2hhZG93IiBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjgwJSIgIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4yOCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDwhLS0gQ2xpcCBkcmFwZWF1IC0tPgogICAgPGNsaXBQYXRoIGlkPSJmbGFnLWNsaXAiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQxLjUiLz48L2NsaXBQYXRoPgogICAgCiAgPC9kZWZzPgoKICA8IS0tIEFubmVhdSBtw6l0YWwgLS0+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNTAiIGZpbGw9InVybCgjcmluZykiLz4KICA8IS0tIEJvcmQgaW50w6lyaWV1ciBzb21icmUgLS0+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDMiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLDAsMCwwLjM1KSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KCiAgPCEtLSBEcmFwZWF1IC0tPgogIDxnIGNsaXAtcGF0aD0idXJsKCNmbGFnLWNsaXApIj4KICAgICAgICA8cmVjdCB4PSI4IiAgeT0iOCIgd2lkdGg9IjI4IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjMDAyMzk1Ii8+CiAgICA8cmVjdCB4PSIzNiIgeT0iOCIgd2lkdGg9IjI4IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjRUNFQ0VDIi8+CiAgICA8cmVjdCB4PSI2NCIgeT0iOCIgd2lkdGg9IjI4IiBoZWlnaHQ9Ijg0IiBmaWxsPSIjRUQyOTM5Ii8+CiAgPC9nPgoKICA8IS0tIE9tYnJlIGludGVybmUgc3VyIGxlIGRyYXBlYXUgLS0+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDEuNSIgZmlsbD0idXJsKCNpbm5lci1zaGFkb3cpIi8+CiAgPCEtLSBHbG9zcyAtLT4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MS41IiBmaWxsPSJ1cmwoI2dsb3NzKSIvPgo8L3N2Zz4=" alt="FR" style="width:26px;height:26px;display:block"></button>
     <button class="lang-btn" onclick="setLangU0('zh')" title="中文"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDwhLS0gQW5uZWF1IG3DqXRhbCBhcmdlbnTDqSAtLT4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0icmluZyIgY3g9IjM4JSIgY3k9IjMyJSIgcj0iNzAlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgICBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMzAlIiAgc3RvcC1jb2xvcj0iI2Q4ZDhkOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjYwJSIgIHN0b3AtY29sb3I9IiM5MDkwOTAiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSI4NSUiICBzdG9wLWNvbG9yPSIjYjBiMGIwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzc4Nzg3OCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDwhLS0gR2xvc3Mgc3VyIGxlIGRyYXBlYXUgLS0+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9Imdsb3NzIiBjeD0iNDUlIiBjeT0iMjIlIiByPSI1OCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiAgIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4zOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjY1JSIgIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4wNSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDwhLS0gT21icmUgaW50ZXJuZSAtLT4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iaW5uZXItc2hhZG93IiBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjgwJSIgIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4yOCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICAgIDwhLS0gQ2xpcCBkcmFwZWF1IC0tPgogICAgPGNsaXBQYXRoIGlkPSJmbGFnLWNsaXAiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQxLjUiLz48L2NsaXBQYXRoPgogICAgCiAgPC9kZWZzPgoKICA8IS0tIEFubmVhdSBtw6l0YWwgLS0+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNTAiIGZpbGw9InVybCgjcmluZykiLz4KICA8IS0tIEJvcmQgaW50w6lyaWV1ciBzb21icmUgLS0+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDMiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgwLDAsMCwwLjM1KSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KCiAgPCEtLSBEcmFwZWF1IC0tPgogIDxnIGNsaXAtcGF0aD0idXJsKCNmbGFnLWNsaXApIj4KICAgICAgICA8cmVjdCB4PSI4IiB5PSI4IiB3aWR0aD0iODQiIGhlaWdodD0iODQiIGZpbGw9IiNERTI5MTAiLz4KICAgIDxwYXRoIGQ9Ik0yNS4wMCwyNS41MEwyNi45MSwzMS4zN0wzMy4wOCwzMS4zN0wyOC4wOSwzNS4wMEwzMC4wMCw0MC44OEwyNS4wMCwzNy4yNUwyMC4wMCw0MC44OEwyMS45MSwzNS4wMEwxNi45MiwzMS4zN0wyMy4wOSwzMS4zN1oiIGZpbGw9IiNGRkRFMDAiLz4KICAgIDxwYXRoIGQ9Ik00Ny4zNywyNS45NUw0OC45NywyNC43MEw0OC4yOCwyMi43OUw0OS45NywyMy45M0w1MS41NywyMi42OEw1MS4wMSwyNC42NEw1Mi42OSwyNS43OEw1MC42NiwyNS44NUw1MC4wOSwyNy44MEw0OS40MCwyNS44OFoiIGZpbGw9IiNGRkRFMDAiLz4KICAgIDxwYXRoIGQ9Ik01NS4yMCwzNC4wMEw1Ny4xMywzMy4zN0w1Ny4xMywzMS4zNEw1OC4zMywzMi45OEw2MC4yNywzMi4zNUw1OS4wNywzNC4wMEw2MC4yNywzNS42NUw1OC4zMywzNS4wMkw1Ny4xMywzNi42Nkw1Ny4xMywzNC42M1oiIGZpbGw9IiNGRkRFMDAiLz4KICAgIDxwYXRoIGQ9Ik01NS40Miw0Ni45MUw1Ny40NSw0Ny4wOEw1OC4yNCw0NS4yMUw1OC43MCw0Ny4xOUw2MC43Myw0Ny4zN0w1OC45OSw0OC40Mkw1OS40NCw1MC40MEw1Ny45MSw0OS4wN0w1Ni4xNiw1MC4xMUw1Ni45Niw0OC4yNFoiIGZpbGw9IiNGRkRFMDAiLz4KICAgIDxwYXRoIGQ9Ik00Ny45NCw1NS4xMEw0OS43OSw1NS45NUw1MS4xNyw1NC40NUw1MC45Myw1Ni40N0w1Mi43OCw1Ny4zMkw1MC43OSw1Ny43Mkw1MC41NSw1OS43NEw0OS41NSw1Ny45N0w0Ny41Niw1OC4zN0w0OC45NCw1Ni44OFoiIGZpbGw9IiNGRkRFMDAiLz4KICA8L2c+CgogIDwhLS0gT21icmUgaW50ZXJuZSBzdXIgbGUgZHJhcGVhdSAtLT4KICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MS41IiBmaWxsPSJ1cmwoI2lubmVyLXNoYWRvdykiLz4KICA8IS0tIEdsb3NzIC0tPgogIDxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQxLjUiIGZpbGw9InVybCgjZ2xvc3MpIi8+Cjwvc3ZnPg==" alt="ZH" style="width:26px;height:26px;display:block"></button>
@@ -241,8 +243,8 @@ a{color:var(--blue);text-decoration:none}
 <!-- TABLE OF CONTENTS -->
 <div class="toc">
   <a class="toc-btn toc-alpha" href="#alphabet" data-i18n="toc-alpha">🔤 L'alphabet</a>
-  <a class="toc-btn toc-chiffres" href="#chiffres" data-i18n="toc-chiffres">🔢 Les chiffres 1–31</a>
-  <a class="toc-btn toc-jours" href="#jours" data-i18n="toc-jours">📅 Les jours</a>
+  <a class="toc-btn toc-chiffres" href="#chiffres" data-i18n="toc-chiffres"><i data-lucide="hash" aria-hidden="true"></i> Les chiffres 1–31</a>
+  <a class="toc-btn toc-jours" href="#jours" data-i18n="toc-jours"><i data-lucide="calendar" aria-hidden="true"></i> Les jours</a>
   <a class="toc-btn toc-mois" href="#mois" data-i18n="toc-mois">🗓️ Les mois</a>
 </div>
 
@@ -262,7 +264,7 @@ a{color:var(--blue);text-decoration:none}
 
 <!-- ══ CHIFFRES ══ -->
 <div class="section sec-chiffres" id="chiffres">
-  <div class="section-head" data-i18n="sh-chiffres">🔢 Les chiffres de 1 à 31</div>
+  <div class="section-head" data-i18n="sh-chiffres"><i data-lucide="hash" aria-hidden="true"></i> Les chiffres de 1 à 31</div>
   <div class="section-body">
     <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px" data-i18n="p-chiffres">Cliquez sur un chiffre pour voir comment l'écrire.</p>
     <div class="chiffres-grid" id="chiffres-grid"></div>
@@ -271,7 +273,7 @@ a{color:var(--blue);text-decoration:none}
 
 <!-- ══ JOURS ══ -->
 <div class="section sec-jours" id="jours">
-  <div class="section-head" data-i18n="sh-jours">📅 Les jours de la semaine</div>
+  <div class="section-head" data-i18n="sh-jours"><i data-lucide="calendar" aria-hidden="true"></i> Les jours de la semaine</div>
   <div class="section-body">
     <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px" data-i18n="p-jours">Cliquez sur un jour pour voir sa traduction en chinois.</p>
     <div class="jours-grid" id="jours-grid"></div>
@@ -310,7 +312,7 @@ a{color:var(--blue);text-decoration:none}
 
 <!-- ══ EXERCISES ══ -->
 <div class="section sec-exercise" id="exercices">
-  <div class="section-head" data-i18n="sh-ex">✏️ Exercices de mémorisation</div>
+  <div class="section-head" data-i18n="sh-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercices de mémorisation</div>
   <div class="section-body">
 
     <!-- EX 1: Chiffres QCM -->
@@ -368,8 +370,8 @@ a{color:var(--blue);text-decoration:none}
 
 <!-- FLOATING BUTTONS -->
 <div class="float-btns">
-  <button class="float-btn btn-bug" onclick="openFleModal('fle-modal-bug')">🐛</button>
-  <button class="float-btn btn-ask" onclick="openFleModal('fle-modal-ask')">💬</button>
+  <button class="float-btn btn-bug" onclick="openFleModal('fle-modal-bug')"><i data-lucide="bug" aria-hidden="true"></i></button>
+  <button class="float-btn btn-ask" onclick="openFleModal('fle-modal-ask')"><i data-lucide="message-circle" aria-hidden="true"></i></button>
 </div>
 
 <!-- OVERLAY -->
@@ -379,7 +381,7 @@ a{color:var(--blue);text-decoration:none}
 <div class="fle-modal" id="fle-modal-bug">
   <div class="fle-modal-box">
     <button class="modal-close" onclick="closeFleModal('fle-modal-bug')">✕</button>
-    <h2>🐛 Signaler un bug</h2>
+    <h2><i data-lucide="bug" aria-hidden="true"></i> Signaler un bug</h2>
     <p class="modal-sub">Décrivez le problème rencontré sur cette page.</p>
     <form id="bug-form-u0" onsubmit="submitFleForm(event,'bug-form-u0','bug-success-u0')">
       <input type="hidden" name="page" value="U0 — Les Bases">
@@ -412,7 +414,7 @@ a{color:var(--blue);text-decoration:none}
 <div class="fle-modal" id="fle-modal-ask">
   <div class="fle-modal-box">
     <button class="modal-close" onclick="closeFleModal('fle-modal-ask')">✕</button>
-    <h2>💬 Poser une question</h2>
+    <h2><i data-lucide="message-circle" aria-hidden="true"></i> Poser une question</h2>
     <p class="modal-sub">Sélectionnez le sujet de votre question.</p>
     <form id="ask-form-u0" onsubmit="submitFleForm(event,'ask-form-u0','ask-success-u0')">
       <input type="hidden" name="page" value="U0 — Les Bases">
@@ -955,7 +957,7 @@ async function submitFleForm(e, formId, successId){
 // ── ZH LESSON TRANSLATIONS ────────────────────────────────────────────────
 (function(){
 var ZH_SECTIONS = {
-  '💬 Dialogue':        '💬 对话',
+  'Dialogue':        '💬 对话',
   '🔍 Compréhension': '🔍 理解练习',
   '📚 Vocabulaire clé': '📚 核心词汇',
   '🗣️ Pour communiquer': '🗣️ 沟通表达',
@@ -1146,5 +1148,6 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
+<script>document.addEventListener("DOMContentLoaded",function(){if(window.lucide){lucide.createIcons({attrs:{class:"lucide-icon",width:"16",height:"16"}});}});</script>
 </body>
 </html>

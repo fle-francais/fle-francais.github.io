@@ -84,6 +84,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
 
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 </style>
+<style>.lucide-icon{display:inline-block;vertical-align:-3px;stroke-width:1.75;pointer-events:none}</style>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -108,7 +110,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
   <button class="btn-next" id="btn-next" onclick="nextEx()">Suivant →</button>
 
   <div class="end-screen" id="end-screen">
-    <div class="end-emoji" id="end-emoji">🎉</div>
+    <div class="end-emoji" id="end-emoji"><i data-lucide="party-popper" aria-hidden="true"></i></div>
     <div class="end-title" id="end-title"></div>
     <div class="end-score" id="end-score"></div>
     <div class="end-msg" id="end-msg"></div>
@@ -285,5 +287,6 @@ if(allExs.length===0){
   startGame();
 }
 </script>
+<script>document.addEventListener("DOMContentLoaded",function(){if(window.lucide){lucide.createIcons({attrs:{class:"lucide-icon",width:"16",height:"16"}});}});</script>
 </body>
 </html>

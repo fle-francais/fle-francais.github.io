@@ -422,12 +422,14 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 .vocab-word{font-weight:600!important;font-size:.79rem!important;color:#1c2e5a!important}
 .vocab-gram{font-size:.67rem!important;color:#64748b!important;font-style:italic!important}
 </style>
+<style>.lucide-icon{display:inline-block;vertical-align:-3px;stroke-width:1.75;pointer-events:none}</style>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
 <!-- HEADER -->
 <header class="page-header" style="background:linear-gradient(135deg,#1c2e5a,#2a4a8a)">
-  <a class="ph-back" href="../index.html?auth=FLE2026">🏠</a>
+  <a class="ph-back" href="../index.html?auth=FLE2026"><i data-lucide="home" aria-hidden="true"></i></a>
   <a class="ph-back" href="../index.html?auth=FLE2026&level=A1" title="Leçons A1">A1</a>
   <div style="flex:1"><div class="ph-title" data-fr="Les Bases du Français" data-zh="法语基础">Les Bases du Français</div><div class="ph-sub">Leçon U0 · A1</div></div>
   <div class="ph-lang">
@@ -440,9 +442,9 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <!-- NAV TABS -->
 <nav class="slide-nav" id="slide-nav">
   <button class="slide-tab active" data-fr="🔤 Alphabet &amp; Chiffres" data-zh="🔤 字母 &amp; 数字" onclick="goSlide(0)">🔤 Alphabet &amp; Chiffres</button>
-  <button class="slide-tab" data-fr="📅 Jours &amp; Mois" data-zh="📅 星期 &amp; 月份" onclick="goSlide(1)">📅 Jours &amp; Mois</button>
-  <button class="slide-tab" data-fr="✏️ Exercices" data-zh="✏️ 练习" onclick="goSlide(2)">✏️ Exercices</button>
-  <button class="slide-tab" data-fr="✍️ À toi !" data-zh="✍️ 轮到你了" onclick="goSlide(3)">✍️ À toi !</button>
+  <button class="slide-tab" data-fr="<i data-lucide="calendar" aria-hidden="true"></i> Jours &amp; Mois" data-zh="<i data-lucide="calendar" aria-hidden="true"></i> 星期 &amp; 月份" onclick="goSlide(1)"><i data-lucide="calendar" aria-hidden="true"></i> Jours &amp; Mois</button>
+  <button class="slide-tab" data-fr="<i data-lucide="pen-line" aria-hidden="true"></i>️ Exercices" data-zh="<i data-lucide="pen-line" aria-hidden="true"></i>️ 练习" onclick="goSlide(2)"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercices</button>
+  <button class="slide-tab" data-fr="<i data-lucide="edit-3" aria-hidden="true"></i>️ À toi !" data-zh="<i data-lucide="edit-3" aria-hidden="true"></i>️ 轮到你了" onclick="goSlide(3)"><i data-lucide="edit-3" aria-hidden="true"></i>️ À toi !</button>
 </nav>
 
 <!-- SLIDES VIEWPORT -->
@@ -464,7 +466,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
       </div>
     </div>
     <div class="card" style="flex-shrink:0">
-      <div class="card-head" style="background:var(--blue-l);color:var(--blue)">🔢 Les chiffres de 1 à 31<span class="comm-zh"> · 1至31的数字</span></div>
+      <div class="card-head" style="background:var(--blue-l);color:var(--blue)"><i data-lucide="hash" aria-hidden="true"></i> Les chiffres de 1 à 31<span class="comm-zh"> · 1至31的数字</span></div>
       <div class="card-body">
         <p class="u0-inst" data-fr="Cliquez sur un nombre pour l'entendre." data-zh="点击数字来听它的发音。">Cliquez sur un nombre pour l'entendre.</p>
         <div class="chiffres-grid" id="chiffres-grid"></div>
@@ -472,7 +474,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
     </div>
   </div>
   <div class="slide-footer">
-    <button class="btn-ns" data-fr="📅 Jours &amp; Mois →" data-zh="📅 星期 &amp; 月份 →" onclick="goSlide(1)">📅 Jours &amp; Mois →</button>
+    <button class="btn-ns" data-fr="<i data-lucide="calendar" aria-hidden="true"></i> Jours &amp; Mois →" data-zh="<i data-lucide="calendar" aria-hidden="true"></i> 星期 &amp; 月份 →" onclick="goSlide(1)"><i data-lucide="calendar" aria-hidden="true"></i> Jours &amp; Mois →</button>
   </div>
 </div>
 
@@ -480,7 +482,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div class="slide" id="slide-1">
   <div class="slide-body" style="display:flex;flex-direction:column;gap:10px">
     <div class="card" style="flex-shrink:0">
-      <div class="card-head" style="background:var(--purp-l);color:var(--purp)">📅 Les jours de la semaine<span class="comm-zh"> · 一周的各天</span></div>
+      <div class="card-head" style="background:var(--purp-l);color:var(--purp)"><i data-lucide="calendar" aria-hidden="true"></i> Les jours de la semaine<span class="comm-zh"> · 一周的各天</span></div>
       <div class="card-body">
         <p class="u0-inst" data-fr="Cliquez sur un jour pour voir la traduction et l'entendre." data-zh="点击星期查看翻译并收听发音。">Cliquez sur un jour pour voir la traduction et l'entendre.</p>
         <div class="jours-grid" id="jours-grid"></div>
@@ -500,7 +502,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
   </div>
   <div class="slide-footer" style="justify-content:space-between">
     <button class="btn-ns" data-fr="← Alphabet &amp; Chiffres" data-zh="← 字母 &amp; 数字" onclick="goSlide(0)">← Alphabet &amp; Chiffres</button>
-    <button class="btn-ns" data-fr="✏️ Exercices →" data-zh="✏️ 练习 →" onclick="goSlide(2)">✏️ Exercices →</button>
+    <button class="btn-ns" data-fr="<i data-lucide="pen-line" aria-hidden="true"></i>️ Exercices →" data-zh="<i data-lucide="pen-line" aria-hidden="true"></i>️ 练习 →" onclick="goSlide(2)"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercices →</button>
   </div>
 </div>
 
@@ -508,7 +510,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div class="slide" id="slide-2">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-ex">✏️ Exercices<span class="comm-zh"> · 练习</span></div>
+      <div class="card-head head-ex"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercices<span class="comm-zh"> · 练习</span></div>
       <div class="card-body" style="padding-bottom:12px">
 
         <div class="ex-group">
@@ -560,7 +562,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
   </div>
   <div class="slide-footer" style="justify-content:space-between">
     <button class="btn-ns" data-fr="← Jours &amp; Mois" data-zh="← 星期 &amp; 月份" onclick="goSlide(1)">← Jours &amp; Mois</button>
-    <button class="btn-ns" data-fr="→" data-zh="✍️ 轮到你了 →" onclick="goSlide(3)">→</button>
+    <button class="btn-ns" data-fr="→" data-zh="<i data-lucide="edit-3" aria-hidden="true"></i>️ 轮到你了 →" onclick="goSlide(3)">→</button>
   </div>
 </div>
 
@@ -568,7 +570,7 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div class="slide" id="slide-3">
   <div class="slide-body">
     <div class="card">
-      <div class="card-head head-prod">✍️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
+      <div class="card-head head-prod"><i data-lucide="edit-3" aria-hidden="true"></i>️ À toi !<span class="comm-zh"> · 轮到你了！</span></div>
       <div class="card-body">
         <div class="prod-box">
           <div class="prod-task" data-fr="Répondez à ces questions en français :" data-zh="用法语回答这些问题：">Répondez à ces questions en français :</div>
@@ -596,13 +598,13 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 
 <!-- MODALS + FLOAT BTNS -->
 <div class="float-btns">
-  <button class="float-btn btn-bug" onclick="openModal('modal-bug')" title="Signaler un problème">🐛</button>
-  <button class="float-btn btn-ask" onclick="openModal('modal-ask')" title="Poser une question">💬</button>
+  <button class="float-btn btn-bug" onclick="openModal('modal-bug')" title="Signaler un problème"><i data-lucide="bug" aria-hidden="true"></i></button>
+  <button class="float-btn btn-ask" onclick="openModal('modal-ask')" title="Poser une question"><i data-lucide="message-circle" aria-hidden="true"></i></button>
 </div>
 <div class="fle-modal" id="modal-bug" role="dialog" aria-modal="true" aria-labelledby="bug-title">
   <div class="fle-modal-box">
     <button class="modal-close" aria-label="Fermer" onclick="closeModal('modal-bug')">✕</button>
-    <h2 id="bug-title" data-fr="🐛 Signaler un problème" data-zh="🐛 反馈问题">🐛 Signaler un problème</h2><p class="modal-sub" data-fr="Aidez-nous à améliorer cette leçon." data-zh="帮助我们改进本课内容。">Aidez-nous à améliorer cette leçon.</p>
+    <h2 id="bug-title" data-fr="<i data-lucide="bug" aria-hidden="true"></i> Signaler un problème" data-zh="<i data-lucide="bug" aria-hidden="true"></i> 反馈问题"><i data-lucide="bug" aria-hidden="true"></i> Signaler un problème</h2><p class="modal-sub" data-fr="Aidez-nous à améliorer cette leçon." data-zh="帮助我们改进本课内容。">Aidez-nous à améliorer cette leçon.</p>
     <form id="form-bug" onsubmit="submitForm(event,'form-bug','modal-bug')">
       <input name="lecon" type="hidden" value="U0 — Les Bases du Français"/><input name="_subject" type="hidden" value="[Bug] Leçon U0"/>
       <div class="form-group"><label data-fr="Section" data-zh="章节">Section</label><select name="exercice" required=""><option data-fr="— Choisissez —" data-zh="— 请选择 —" value="">— Choisissez —</option><option data-fr="Alphabet" data-zh="字母表">Alphabet</option><option data-fr="Chiffres" data-zh="数字">Chiffres</option><option data-fr="Jours" data-zh="星期">Jours</option><option data-fr="Mois" data-zh="月份">Mois</option><option data-fr="Exercices" data-zh="练习">Exercices</option><option data-fr="À toi !" data-zh="轮到你了">À toi !</option><option data-fr="Autre" data-zh="其他">Autre</option></select></div>
@@ -615,10 +617,10 @@ body.lang-zh .comm-zh{display:block!important;font-size:.73rem!important;color:#
 <div class="fle-modal" id="modal-ask" role="dialog" aria-modal="true" aria-labelledby="ask-title">
   <div class="fle-modal-box">
     <button class="modal-close" aria-label="Fermer" onclick="closeModal('modal-ask')">✕</button>
-    <h2 id="ask-title" data-fr="💬 Poser une question" data-zh="💬 提问">💬 Poser une question</h2><p class="modal-sub" data-fr="Votre question sera transmise au professeur." data-zh="您的问题将转交给老师。">Votre question sera transmise au professeur.</p>
+    <h2 id="ask-title" data-fr="<i data-lucide="message-circle" aria-hidden="true"></i> Poser une question" data-zh="<i data-lucide="message-circle" aria-hidden="true"></i> 提问"><i data-lucide="message-circle" aria-hidden="true"></i> Poser une question</h2><p class="modal-sub" data-fr="Votre question sera transmise au professeur." data-zh="您的问题将转交给老师。">Votre question sera transmise au professeur.</p>
     <form id="form-ask" onsubmit="submitForm(event,'form-ask','modal-ask')">
       <input name="lecon" type="hidden" value="U0 — Les Bases du Français"/><input name="_subject" type="hidden" value="[Question] Leçon U0"/>
-      <div class="form-group"><label data-fr="Sujet" data-zh="主题">Sujet</label><select name="sujet" required=""><option data-fr="— Choisissez —" data-zh="— 请选择 —" value="">— Choisissez —</option><option data-fr="📖 Alphabet / Chiffres" data-zh="📖 字母/数字" value="Alphabet">📖 Alphabet / Chiffres</option><option data-fr="📝 Vocabulaire" data-zh="📝 词汇" value="Vocabulaire">📝 Vocabulaire</option><option data-fr="✏️ Exercice" data-zh="✏️ 练习" value="Exercice">✏️ Exercice</option></select></div>
+      <div class="form-group"><label data-fr="Sujet" data-zh="主题">Sujet</label><select name="sujet" required=""><option data-fr="— Choisissez —" data-zh="— 请选择 —" value="">— Choisissez —</option><option data-fr="<i data-lucide="book-open" aria-hidden="true"></i> Alphabet / Chiffres" data-zh="<i data-lucide="book-open" aria-hidden="true"></i> 字母/数字" value="Alphabet"><i data-lucide="book-open" aria-hidden="true"></i> Alphabet / Chiffres</option><option data-fr="<i data-lucide="file-edit" aria-hidden="true"></i> Vocabulaire" data-zh="<i data-lucide="file-edit" aria-hidden="true"></i> 词汇" value="Vocabulaire"><i data-lucide="file-edit" aria-hidden="true"></i> Vocabulaire</option><option data-fr="<i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice" data-zh="<i data-lucide="pen-line" aria-hidden="true"></i>️ 练习" value="Exercice"><i data-lucide="pen-line" aria-hidden="true"></i>️ Exercice</option></select></div>
       <div class="form-group"><label data-fr="Votre question" data-zh="您的问题">Votre question</label><textarea data-placeholder-fr="Posez votre question…" data-placeholder-zh="请输入您的问题…" name="question" placeholder="Posez votre question…" required="" rows="3"></textarea></div>
       <div class="form-group"><label><span data-fr="Prénom" data-zh="姓名">Prénom</span> <span class="opt" data-fr="(facultatif)" data-zh="（选填）">(facultatif)</span></label><input name="prenom" type="text"/></div>
       <button class="btn-send" type="submit">Envoyer</button><p class="form-success" id="success-ask" data-fr="✅ Merci !" data-zh="✅ 谢谢！">✅ Merci !</p>
@@ -653,7 +655,7 @@ function playEx6Audio(btn,src){btn.innerHTML='🔊 …';var audio=new Audio(src)
 function checkEx6(btn){var item=btn.closest('.listen-item');if(!item||item.dataset.done)return;item.dataset.done='1';var ans=item.dataset.ans,val=btn.dataset.val,fb=item.querySelector('.listen-fb');item.querySelectorAll('.choice-btn').forEach(function(b){b.disabled=true;});if(val===ans){btn.classList.add('choice-correct');if(fb){fb.textContent='✅';fb.style.color='var(--green)';}}else{btn.classList.add('choice-wrong');item.querySelectorAll('.choice-btn').forEach(function(b){if(b.dataset.val===ans)b.classList.add('choice-correct');});if(fb){fb.textContent='❌ → '+ans;fb.style.color='#e74c3c';}}}
 async function checkLT(btn){var ta=btn.previousElementSibling,res=btn.nextElementSibling,txt=(ta.value||'').trim();var zh=document.body.classList.contains('lang-zh');if(!txt){res.innerHTML='<p class="lt-info">'+(zh?'✏️ 请先写下您的答案。':'✏️ Écris d\'abord ta réponse.')+'</p>';return;}btn.disabled=true;btn.textContent='…';res.innerHTML='<p class="lt-info">'+(zh?'批改中…':'Correction en cours…')+'</p>';try{var r=await fetch('https://api.languagetool.org/v2/check',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'text='+encodeURIComponent(txt)+'&language=fr'});var d=await r.json();if(!d.matches||!d.matches.length){res.innerHTML='<p class="lt-ok">'+(zh?'✅ 没有错误 — 太棒了！':'✅ Aucune erreur — bravo !')+'</p>';}else{var n=d.matches.length,html='<p class="lt-count">'+n+(zh?' 处需要修改：':' point'+(n>1?'s':'')+' à corriger :')+'</p><ul class="lt-list">';for(var m of d.matches){var orig=txt.slice(m.offset,m.offset+m.length),sugs=(m.replacements||[]).slice(0,3).map(function(x){return'<span class="lt-sug">'+x.value+'</span>';}).join(', ');html+='<li><span class="lt-err">« '+orig+' »</span> — '+m.message+(sugs?' → '+sugs:'')+' </li>';}html+='</ul>';res.innerHTML=html;}}catch(e){res.innerHTML='<p class="lt-warn">'+(zh?'⚠️ 无法连接到批改服务器。':'⚠️ Impossible de joindre le correcteur.')+'</p>';}btn.disabled=false;btn.textContent=zh?'批改 ✓':'Corriger ✓';}
 var _pronoRec=false;
-function pronoListen(btn){var text=btn.getAttribute('data-text');if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';setTimeout(function(){var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.75;u.onend=function(){btn.innerHTML='🔊 Réécouter';};u.onerror=function(){btn.innerHTML='🔊 Écouter';};window.speechSynthesis.speak(u);},80);}
+function pronoListen(btn){var text=btn.getAttribute('data-text');if(!window.speechSynthesis)return;window.speechSynthesis.cancel();btn.innerHTML='🔊 …';setTimeout(function(){var u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.75;u.onend=function(){btn.innerHTML='🔊 Réécouter';};u.onerror=function(){btn.innerHTML='Écouter';};window.speechSynthesis.speak(u);},80);}
 function pronoSimilarity(ref,heard){function stem(w){return w.replace(/[sx]$|nt$/,'');}function n(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9\s]/g,'').trim().split(/\s+/).filter(Boolean).map(stem);}var rw=n(ref),hw=n(heard);if(!rw.length)return 0;var matched=0,hc=hw.slice();rw.forEach(function(w){var i=hc.indexOf(w);if(i!==-1){matched++;hc.splice(i,1);}});return Math.round((matched/rw.length)*100);}
 function pronoRecord(btn){var target=btn.getAttribute('data-text'),idx=parseInt(btn.getAttribute('data-idx'),10);if(_pronoRec||!target)return;var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){var ns=document.getElementById('prono-no-support');if(ns)ns.style.display='block';return;}_pronoRec=true;btn.classList.add('recording');btn.textContent='⏹ Arrêter';var r=new SR();r.lang='fr-FR';r.continuous=false;r.interimResults=false;r.onresult=function(e){pronoShowScore(idx,pronoSimilarity(target,e.results[0][0].transcript),e.results[0][0].transcript);};r.onerror=function(e){pronoShowScore(idx,null,null,e.error);};r.onend=function(){_pronoRec=false;btn.classList.remove('recording');btn.textContent='🎤 Répéter';};r.start();}
 function pronoReset(idx){var fill=document.getElementById('prono-fill-'+idx),pct=document.getElementById('prono-pct-'+idx),heard=document.getElementById('prono-heard-'+idx),score=document.getElementById('prono-score-'+idx);if(fill)fill.style.width='0%';if(pct){pct.textContent='';pct.className='prono-score-text';}if(heard)heard.textContent='';if(score)score.className='prono-score';}
@@ -931,5 +933,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 </script>
 
+<script>document.addEventListener("DOMContentLoaded",function(){if(window.lucide){lucide.createIcons({attrs:{class:"lucide-icon",width:"16",height:"16"}});}});</script>
 </body>
 </html>

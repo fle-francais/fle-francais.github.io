@@ -43,6 +43,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
 .gram-rule-body.open{display:block}
 p{font-size:.85rem;line-height:1.6;margin-bottom:8px;color:var(--text)}
 </style>
+<style>.lucide-icon{display:inline-block;vertical-align:-3px;stroke-width:1.75;pointer-events:none}</style>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -128,5 +130,6 @@ for (var u = 1; u <= 9; u++) {
 
 showUnit(unitNum);
 </script>
+<script>document.addEventListener("DOMContentLoaded",function(){if(window.lucide){lucide.createIcons({attrs:{class:"lucide-icon",width:"16",height:"16"}});}});</script>
 </body>
 </html>

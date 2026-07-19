@@ -73,6 +73,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
 .btn-replay{background:var(--purp);color:#fff}
 .btn-home{background:var(--purp-l);color:var(--purp)}
 </style>
+<style>.lucide-icon{display:inline-block;vertical-align:-3px;stroke-width:1.75;pointer-events:none}</style>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -96,7 +98,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(
   </div>
   <div class="match-grid" id="match-grid"></div>
   <div class="end-screen" id="end-screen">
-    <div class="end-emoji" id="end-emoji">🎉</div>
+    <div class="end-emoji" id="end-emoji"><i data-lucide="party-popper" aria-hidden="true"></i></div>
     <div class="end-score" id="end-score"></div>
     <div class="end-msg" id="end-msg"></div>
     <button class="btn-end btn-replay" onclick="startGame()">↺ Rejouer</button>
@@ -234,5 +236,6 @@ if(total===0){
   startGame();
 }
 </script>
+<script>document.addEventListener("DOMContentLoaded",function(){if(window.lucide){lucide.createIcons({attrs:{class:"lucide-icon",width:"16",height:"16"}});}});</script>
 </body>
 </html>
