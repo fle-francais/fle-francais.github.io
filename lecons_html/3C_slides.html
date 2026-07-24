@@ -1140,6 +1140,7 @@ function matchShowEnd(){var c=document.getElementById('match-cols');if(c)c.style
 function matchRestart(){matchInit();}
 document.addEventListener('DOMContentLoaded',function(){vcInit();matchInit();});
 
+function showTransform(btn){var row=btn.closest('.trans-row');var ans=row.querySelector('.trans-ans');var open=ans.style.display==='inline';ans.style.display=open?'none':'inline';btn.textContent=open?'Voir':'Cacher';}
 function goSlide(n){
   if(n===currentSlide)return;
   if(window._pA){window._pA.pause();window._pA.currentTime=0;window._pA=null;}
